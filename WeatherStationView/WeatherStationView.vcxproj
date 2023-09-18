@@ -121,14 +121,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="VisualizarDatos.cpp" />
     <ClCompile Include="WeatherStationMainForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Config.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="VisualizarDatos.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="WeatherStationMainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Config.resx">
+      <DependentUpon>Config.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WeatherStationMainForm.resx">
       <DependentUpon>WeatherStationMainForm.h</DependentUpon>
     </EmbeddedResource>

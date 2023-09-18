@@ -13,6 +13,7 @@ int main(array<System::String ^> ^args)
     User02->Id = 2;
 
     Console::WriteLine("Datos de los usuarios:");
-    Console::WriteLine("User01 " + User01->Name);
+    Console::WriteLine("User01 " + User01->Password);
+    Console::WriteLine("User02 " + User02->Password);
     return 0;
 }

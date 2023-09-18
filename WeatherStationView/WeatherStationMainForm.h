@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Config.h"
+
 namespace WeatherStationView {
 
 	using namespace System;
@@ -60,7 +62,9 @@ namespace WeatherStationView {
 		/// </summary>
 		System::ComponentModel::Container ^components;
 	    bool holdedMouse = false;
-	    Point lastLocation;
+	private: System::Windows::Forms::Button^ button1;
+
+		   Point lastLocation;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -74,6 +78,7 @@ namespace WeatherStationView {
 			this->btnMinimize = (gcnew System::Windows::Forms::PictureBox());
 			this->btnClose = (gcnew System::Windows::Forms::PictureBox());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->TitleBar->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->btnMinimize))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->btnClose))->BeginInit();
@@ -88,16 +93,15 @@ namespace WeatherStationView {
 			this->TitleBar->Dock = System::Windows::Forms::DockStyle::Top;
 			this->TitleBar->Location = System::Drawing::Point(0, 0);
 			this->TitleBar->Name = L"TitleBar";
-			this->TitleBar->Size = System::Drawing::Size(374, 50);
+			this->TitleBar->Size = System::Drawing::Size(804, 50);
 			this->TitleBar->TabIndex = 0;
 			this->TitleBar->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &WeatherStationMainForm::TitleBar_Paint);
-			this->TitleBar->ResumeLayout(false);
 			// 
 			// btnMinimize
 			// 
 			this->btnMinimize->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnMinimize->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnMinimize.Image")));
-			this->btnMinimize->Location = System::Drawing::Point(314, 12);
+			this->btnMinimize->Location = System::Drawing::Point(750, 12);
 			this->btnMinimize->Name = L"btnMinimize";
 			this->btnMinimize->Size = System::Drawing::Size(16, 16);
 			this->btnMinimize->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -109,7 +113,7 @@ namespace WeatherStationView {
 			// 
 			this->btnClose->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnClose->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnClose.Image")));
-			this->btnClose->Location = System::Drawing::Point(346, 12);
+			this->btnClose->Location = System::Drawing::Point(780, 12);
 			this->btnClose->Name = L"btnClose";
 			this->btnClose->Size = System::Drawing::Size(16, 16);
 			this->btnClose->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -119,32 +123,44 @@ namespace WeatherStationView {
 			// 
 			// flowLayoutPanel1
 			// 
-			this->flowLayoutPanel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(15)),
+			this->flowLayoutPanel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(15)),
 				static_cast<System::Int32>(static_cast<System::Byte>(57)));
 			this->flowLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Bottom;
 			this->flowLayoutPanel1->Location = System::Drawing::Point(0, 550);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(374, 50);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(804, 50);
 			this->flowLayoutPanel1->TabIndex = 1;
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(683, 75);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 2;
+			this->button1->Text = L"Ajustes";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &WeatherStationMainForm::Config_Click);
 			// 
 			// WeatherStationMainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(38)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(78)));
-			this->ClientSize = System::Drawing::Size(374, 600);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(178)));
+			this->ClientSize = System::Drawing::Size(804, 600);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Controls->Add(this->TitleBar);
 			this->Cursor = System::Windows::Forms::Cursors::Arrow;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->Name = L"WeatherStationMainForm";
+			this->Opacity = 0.6;
+			this->Text = L"  ";
+			this->Load += gcnew System::EventHandler(this, &WeatherStationMainForm::WeatherStationMainForm_Load);
 			this->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &WeatherStationMainForm::WeatherStationMainForm_MouseDown);
 			this->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &WeatherStationMainForm::WeatherStationMainForm_MouseMove);
 			this->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &WeatherStationMainForm::WeatherStationMainForm_MouseUp);
-			this->Name = L"WeatherStationMainForm";
-			this->Opacity = 0.8;
-			this->Text = L"  ";
-			this->Load += gcnew System::EventHandler(this, &WeatherStationMainForm::WeatherStationMainForm_Load);
+			this->TitleBar->ResumeLayout(false);
 			this->TitleBar->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->btnMinimize))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->btnClose))->EndInit();
@@ -181,6 +197,11 @@ namespace WeatherStationView {
 		}
 	}
 private: System::Void TitleBar_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+
+private: System::Void Config_Click(System::Object^ sender, System::EventArgs^ e) {
+	Config^ config = gcnew Config();
+	config->Show();
 }
 };
 }
