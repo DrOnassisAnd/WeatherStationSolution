@@ -120,6 +120,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Ajustes.h" />
     <ClInclude Include="AlertaError.h" />
     <ClInclude Include="AlertaMeteorologica.h" />
     <ClInclude Include="Ambiente.h" />
@@ -138,6 +139,7 @@
     <ClInclude Include="WeatherStationModel.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Ajustes.cpp" />
     <ClCompile Include="AlertaError.cpp" />
     <ClCompile Include="AlertaMeteorologica.cpp" />
     <ClCompile Include="Ambiente.cpp" />

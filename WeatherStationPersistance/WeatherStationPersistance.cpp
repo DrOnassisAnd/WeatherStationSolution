@@ -13,6 +13,10 @@ void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, O
 			writer->WriteLine(r->Name + ", " + r->Password + ", " + r->Email + ", " + r->Id);
 		}
 	}
+	else if (persistObject->GetType() == Ajustes::typeid) {
+		Ajustes^ ajustes = (Ajustes^)persistObject;
+		writer->WriteLine(ajustes->UnidadTemp + ", " + ajustes->FormatoHoras + ", " + ajustes->FormatoFecha);
+	}
 	if (writer != nullptr) writer->Close();
 	if (file != nullptr) file->Close();
 }
@@ -39,6 +43,19 @@ Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
 				((List<User^>^)result)->Add(user);
 			}
 		}
+		else if (fileName->Equals(AJUSTES_FILE)) {
+			result = gcnew Ajustes();
+			while (true) {
+				String^ line = reader->ReadLine();
+				if (line == nullptr) break;
+				array<String^>^ record = line->Split(',');
+				Ajustes^ ajustes = gcnew Ajustes();
+				ajustes->UnidadTemp = record[0];
+				ajustes->FormatoHoras = record[1];
+				ajustes->FormatoFecha = record[2];
+				result = ajustes;
+			}
+		}
 		if (reader != nullptr) reader->Close();
 		if (file != nullptr) file->Close();
 	}
@@ -49,7 +66,17 @@ void WeatherStationPersistance::Persistance::AddUser(User^user) {
 	PersistTextFile(WEATHER_STATION, UserList);
 }
 
+void WeatherStationPersistance::Persistance::AddAjustes(Ajustes^ ajustes) {
+	AjustesList = (Ajustes^)ajustes;
+	PersistTextFile(AJUSTES_FILE, AjustesList);
+}
+
 List<User^>^ WeatherStationPersistance::Persistance::QueryAllUser() {
 	UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
 	return UserList;
+}
+
+Ajustes^ WeatherStationPersistance::Persistance::QueryPrevAjustes() {
+	AjustesList = (Ajustes^)LoadTextFile(AJUSTES_FILE);
+	return AjustesList;
 }

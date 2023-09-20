@@ -12,5 +12,8 @@ namespace Controller {
 		static void AddUser(User^);
 		static List<User^>^ QueryAllUser();
 
+		static void AddAjustes(Ajustes^);
+		static Ajustes^ QueryPrevAjustes();
+
 	};
 }

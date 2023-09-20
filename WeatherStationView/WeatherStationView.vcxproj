@@ -123,10 +123,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Config.cpp" />
     <ClCompile Include="RegisterForm.cpp" />
     <ClCompile Include="WeatherStationForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Config.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="RegisterForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

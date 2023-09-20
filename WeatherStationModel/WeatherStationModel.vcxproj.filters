@@ -63,6 +63,9 @@
     <ClInclude Include="User.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Ajustes.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WeatherStationModel.cpp">
@@ -111,6 +114,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="User.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Ajustes.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
