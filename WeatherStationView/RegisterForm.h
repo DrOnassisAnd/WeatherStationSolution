@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "WeatherStationForm.h"
+
 namespace WeatherStationView {
 
 	using namespace System;
@@ -23,13 +23,13 @@ namespace WeatherStationView {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar cÃ³digo de constructor aquÃ­
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estÃ©n usando.
 		/// </summary>
 		~RegisterForm()
 		{
@@ -81,14 +81,14 @@ namespace WeatherStationView {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseÃ±ador necesaria.
 		/// </summary>
 
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// MÃ©todo necesario para admitir el DiseÃ±ador. No se puede modificar
+		/// el contenido de este mÃ©todo con el editor de cÃ³digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -290,7 +290,7 @@ namespace WeatherStationView {
 			this->bindingNavigatorCountItem->Name = L"bindingNavigatorCountItem";
 			this->bindingNavigatorCountItem->Size = System::Drawing::Size(48, 24);
 			this->bindingNavigatorCountItem->Text = L"de {0}";
-			this->bindingNavigatorCountItem->ToolTipText = L"Número total de elementos";
+			this->bindingNavigatorCountItem->ToolTipText = L"NÃºmero total de elementos";
 			// 
 			// bindingNavigatorDeleteItem
 			// 
@@ -326,13 +326,13 @@ namespace WeatherStationView {
 			// 
 			// bindingNavigatorPositionItem
 			// 
-			this->bindingNavigatorPositionItem->AccessibleName = L"Posición";
+			this->bindingNavigatorPositionItem->AccessibleName = L"PosiciÃ³n";
 			this->bindingNavigatorPositionItem->AutoSize = false;
 			this->bindingNavigatorPositionItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9));
 			this->bindingNavigatorPositionItem->Name = L"bindingNavigatorPositionItem";
 			this->bindingNavigatorPositionItem->Size = System::Drawing::Size(50, 27);
 			this->bindingNavigatorPositionItem->Text = L"0";
-			this->bindingNavigatorPositionItem->ToolTipText = L"Posición actual";
+			this->bindingNavigatorPositionItem->ToolTipText = L"PosiciÃ³n actual";
 			// 
 			// bindingNavigatorSeparator1
 			// 
@@ -356,7 +356,7 @@ namespace WeatherStationView {
 			this->bindingNavigatorMoveLastItem->Name = L"bindingNavigatorMoveLastItem";
 			this->bindingNavigatorMoveLastItem->RightToLeftAutoMirrorImage = true;
 			this->bindingNavigatorMoveLastItem->Size = System::Drawing::Size(29, 24);
-			this->bindingNavigatorMoveLastItem->Text = L"Mover último";
+			this->bindingNavigatorMoveLastItem->Text = L"Mover Ãºltimo";
 			// 
 			// bindingNavigatorSeparator2
 			// 
