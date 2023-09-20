@@ -1,6 +1,7 @@
 #pragma once
 #include "RegisterForm.h"
 #include "Config.h"
+#include "MembresiaForm.h"
 namespace WeatherStationView {
 
 	using namespace System;
