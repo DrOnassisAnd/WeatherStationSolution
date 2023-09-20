@@ -10,7 +10,7 @@ void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, O
 		List<User^>^ users = (List<User^>^)persistObject;
 		for (int i = 0; i < users->Count; i++) {
 			User^ r =users[i];
-			writer->WriteLine(r->Name + ", " + r->Password + ", " + r->Email + ", " + r->Id);
+			writer->WriteLine(r->Name + ", " + r->Password + ", " + r->Email + ", " + r->Id + ", " + r->Membresia);
 		}
 	}
 	if (writer != nullptr) writer->Close();
@@ -36,6 +36,7 @@ Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
 				user->Password = record[1];
 				user->Email = record[2];
 				user->Id = Convert::ToInt32(record[3]);
+				user->Membresia = record[2];
 				((List<User^>^)result)->Add(user);
 			}
 		}

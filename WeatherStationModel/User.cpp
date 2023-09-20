@@ -15,4 +15,5 @@ Model::User::User(String^ Name, String^ Password, String^ Email, int Id)
 	this->Name = Name;
 	this->Password = Password;
 	this->Email = Email;
+
 }
