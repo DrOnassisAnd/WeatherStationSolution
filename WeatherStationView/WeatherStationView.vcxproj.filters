@@ -21,7 +21,14 @@
     <ClCompile Include="RegisterForm.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+
+    <ClCompile Include="MembresiaForm.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="PaymentMethodForm.cpp">
+
     <ClCompile Include="Config.cpp">
+
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,7 +39,14 @@
     <ClInclude Include="RegisterForm.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+
+    <ClInclude Include="MembresiaForm.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="PaymentMethodForm.h">
+
     <ClInclude Include="Config.h">
+
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
