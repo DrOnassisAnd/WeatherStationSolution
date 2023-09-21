@@ -18,5 +18,14 @@ namespace Controller {
 		static void AddMembresia(Membresia^);
 		static Membresia^ QueryMembresia();
 
+		static void AddAirQData(SensorCalidadAire^ sCalidadAire);
+		static List<SensorCalidadAire^>^ QueryAirQData();
+
+		static void AddCOData(SensorCO^ sConcentracionCO);
+		static List<SensorCO^>^ QueryCOData();
+
+		static void AddTempHumData(SensorTemperaturaHumedad^ sTempHum);
+		static List<SensorTemperaturaHumedad^>^ QueryTempHumData();
+
 	};
 }
