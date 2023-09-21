@@ -15,5 +15,8 @@ namespace Controller {
 		static void AddAjustes(Ajustes^);
 		static Ajustes^ QueryPrevAjustes();
 
+		static void AddMembresia(Membresia^);
+		static Membresia^ QueryMembresia();
+
 	};
 }

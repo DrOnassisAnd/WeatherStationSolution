@@ -123,6 +123,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MembershipMaintenanceForm.cpp" />
     <ClCompile Include="MembresiaForm.cpp" />
     <ClCompile Include="PaymentMethodForm.cpp" />
     <ClCompile Include="Config.cpp" />
@@ -132,6 +133,9 @@
     <ClCompile Include="WeatherStationFormAdmin.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MembershipMaintenanceForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MembresiaForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -155,6 +159,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Config.resx">
+      <DependentUpon>Config.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MembershipMaintenanceForm.resx">
+      <DependentUpon>MembershipMaintenanceForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MembresiaForm.resx">
       <DependentUpon>MembresiaForm.h</DependentUpon>
     </EmbeddedResource>
