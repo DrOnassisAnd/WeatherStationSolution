@@ -1,3 +1,4 @@
+#include "Standard.h"
 #pragma once
 
 namespace WeatherStationView {
@@ -202,16 +203,18 @@ namespace WeatherStationView {
 	}
 	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+    private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+    }
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
+ 
 	/* String^ Membresia = "Basico";
 	user->Membresia = Membresia;
 	Controller::Controller::AddUser(user);
 	*/
+	Standard^ standard = gcnew Standard();
+	standard->Show();
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 

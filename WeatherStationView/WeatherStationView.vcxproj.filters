@@ -7,7 +7,11 @@
     <ClCompile Include="RegisterForm.cpp" />
     <ClCompile Include="WeatherStationForm.cpp" />
     <ClCompile Include="WeatherStationFormAdmin.cpp" />
+
     <ClCompile Include="MembershipMaintenanceForm.cpp" />
+
+    <ClCompile Include="Standard.cpp" />
+
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MembresiaForm.h" />
@@ -16,6 +20,10 @@
     <ClInclude Include="RegisterForm.h" />
     <ClInclude Include="WeatherStationForm.h" />
     <ClInclude Include="WeatherStationFormAdmin.h" />
+
     <ClInclude Include="MembershipMaintenanceForm.h" />
+
+    <ClInclude Include="Standard.h" />
+
   </ItemGroup>
 </Project>
