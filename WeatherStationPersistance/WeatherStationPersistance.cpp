@@ -17,6 +17,10 @@ void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, O
 		Ajustes^ ajustes = (Ajustes^)persistObject;
 		writer->WriteLine(ajustes->UnidadTemp + ", " + ajustes->FormatoHoras + ", " + ajustes->FormatoFecha);
 	}
+	else if (persistObject->GetType() == Membresia::typeid) {
+		Membresia^ membresia = (Membresia^)persistObject;
+		writer->WriteLine(membresia->tipoMembresia + ", " + membresia->nombreMiembro + ", " + membresia->fechaInicio + ", " + membresia-> fechaFinalizacion + ", " + membresia->Metododepago);
+	}
 	if (writer != nullptr) writer->Close();
 	if (file != nullptr) file->Close();
 }
@@ -56,6 +60,22 @@ Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
 				result = ajustes;
 			}
 		}
+		else if (fileName->Equals(MEMBRESIA_FILE)) {
+			result = gcnew Membresia();
+			while (true) {
+				String^ line = reader->ReadLine();
+				if (line == nullptr) break;
+				array<String^>^ record = line->Split(',');
+				Membresia^ membresia = gcnew Membresia();
+				membresia->tipoMembresia = record[0];
+				membresia->nombreMiembro = record[1];
+				membresia->fechaInicio = record[2];
+				membresia->fechaFinalizacion = record[3];
+				membresia->Metododepago = record[4];
+				result = membresia;
+			}
+		}
+
 		if (reader != nullptr) reader->Close();
 		if (file != nullptr) file->Close();
 	}
@@ -71,6 +91,11 @@ void WeatherStationPersistance::Persistance::AddAjustes(Ajustes^ ajustes) {
 	PersistTextFile(AJUSTES_FILE, AjustesList);
 }
 
+void WeatherStationPersistance::Persistance::AddMembresia(Membresia^ membresias) {
+	MembresiaList = (Membresia^)membresias;
+	PersistTextFile(MEMBRESIA_FILE, MembresiaList);
+}
+
 List<User^>^ WeatherStationPersistance::Persistance::QueryAllUser() {
 	UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
 	return UserList;
@@ -79,4 +104,14 @@ List<User^>^ WeatherStationPersistance::Persistance::QueryAllUser() {
 Ajustes^ WeatherStationPersistance::Persistance::QueryPrevAjustes() {
 	AjustesList = (Ajustes^)LoadTextFile(AJUSTES_FILE);
 	return AjustesList;
+}
+
+Membresia^ WeatherStationPersistance::Persistance::QueryMembresia()
+{
+	MembresiaList = (Membresia^)LoadTextFile(MEMBRESIA_FILE);
+	return MembresiaList;
+
+
+	throw gcnew System::NotImplementedException();
+	// TODO: Insertar una instrucción "return" aquí
 }
