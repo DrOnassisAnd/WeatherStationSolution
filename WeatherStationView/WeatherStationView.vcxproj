@@ -168,6 +168,9 @@
     <EmbeddedResource Include="MembresiaForm.resx">
       <DependentUpon>MembresiaForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PaymentMethodForm.resx">
+      <DependentUpon>PaymentMethodForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.h</DependentUpon>
     </EmbeddedResource>
