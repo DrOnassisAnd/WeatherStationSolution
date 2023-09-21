@@ -450,6 +450,8 @@ namespace WeatherStationView {
 	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+
+
 }
 
 private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {

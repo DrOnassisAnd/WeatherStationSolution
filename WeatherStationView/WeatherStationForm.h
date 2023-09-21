@@ -2,6 +2,7 @@
 #include "RegisterForm.h"
 #include "Config.h"
 #include "MembresiaForm.h"
+#include "WeatherStationFormAdmin.h"
 namespace WeatherStationView {
 
 	using namespace System;
@@ -106,6 +107,7 @@ namespace WeatherStationView {
 			this->panel1->Size = System::Drawing::Size(780, 664);
 			this->panel1->TabIndex = 0;
 			this->panel1->Click += gcnew System::EventHandler(this, &WeatherStationForm::otherclick);
+			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &WeatherStationForm::panel1_Paint);
 			// 
 			// button2
 			// 
@@ -318,7 +320,8 @@ private: System::Void otherclick(System::Object^ sender, System::EventArgs^ e) {
 	if (textBox2->Text == "") {
 		textBox2->Text = "Password";
 	}
-	Config obj;
+	
+	WeatherStationFormAdmin obj;
 	obj.ShowDialog();
 }
 private: System::Void registerbtn(System::Object^ sender, System::EventArgs^ e) {
@@ -329,6 +332,8 @@ private: System::Void WeatherStationForm_Load(System::Object^ sender, System::Ev
 }
 
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 };
 }
