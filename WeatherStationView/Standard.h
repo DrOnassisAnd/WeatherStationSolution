@@ -1,3 +1,5 @@
+#include "Config.h"
+#include "PaymentMethodForm.h"
 #pragma once
 
 
@@ -22,13 +24,13 @@ namespace WeatherStationView {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar cÛdigo de constructor aquÌ
+			//TODO: agregar c√≥digo de constructor aqu√≠
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estÈn usando.
+		/// Limpiar los recursos que se est√©n usando.
 		/// </summary>
 		~Standard()
 		{
@@ -89,7 +91,7 @@ namespace WeatherStationView {
 
 
 	private: System::Windows::Forms::Button^ btn_Stats;
-	private: System::Windows::Forms::DataGridViewImageColumn^ dataGridViewTextBoxColumn1;
+	private: System::Windows::Forms::DataGridViewImageColumn^ ejemplo;
 	private: System::Windows::Forms::DataGridViewImageColumn^ dataGridViewTextBoxColumn2;
 	private: System::Windows::Forms::DataGridViewImageColumn^ dataGridViewTextBoxColumn3;
 	private: System::Windows::Forms::DataGridViewImageColumn^ dataGridViewTextBoxColumn4;
@@ -168,34 +170,42 @@ namespace WeatherStationView {
 
 
 
+
+
+
+
+
+
+
+
 	protected:
 
 
 	private:
 		/// <summary>
-		/// Variable del diseÒador necesaria.
+		/// Variable del dise√±ador necesaria.
 		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// MÈtodo necesario para admitir el DiseÒador. No se puede modificar
-		/// el contenido de este mÈtodo con el editor de cÛdigo.
+		/// M√©todo necesario para admitir el Dise√±ador. No se puede modificar
+		/// el contenido de este m√©todo con el editor de c√≥digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle9 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle10 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle11 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle12 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle13 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle14 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle15 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle16 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle17 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle18 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle19 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle20 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle21 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle22 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle23 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle24 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->dgv_Period = (gcnew System::Windows::Forms::DataGridView());
 			this->Period0 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Period1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -206,7 +216,7 @@ namespace WeatherStationView {
 			this->Period6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Period7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgv_Image = (gcnew System::Windows::Forms::DataGridView());
-			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewImageColumn());
+			this->ejemplo = (gcnew System::Windows::Forms::DataGridViewImageColumn());
 			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewImageColumn());
 			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewImageColumn());
 			this->dataGridViewTextBoxColumn4 = (gcnew System::Windows::Forms::DataGridViewImageColumn());
@@ -247,48 +257,50 @@ namespace WeatherStationView {
 			this->dgv_Period->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->dgv_Period->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle1->BackColor = System::Drawing::SystemColors::ControlDark;
-			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle13->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle13->BackColor = System::Drawing::SystemColors::ControlDark;
+			dataGridViewCellStyle13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dgv_Period->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle13->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle13->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle13->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle13->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dgv_Period->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
 			this->dgv_Period->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgv_Period->ColumnHeadersVisible = false;
 			this->dgv_Period->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
 				this->Period0, this->Period1,
 					this->Period2, this->Period3, this->Period4, this->Period5, this->Period6, this->Period7
 			});
-			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle2->BackColor = System::Drawing::Color::MidnightBlue;
-			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle14->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle14->BackColor = System::Drawing::Color::MidnightBlue;
+			dataGridViewCellStyle14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+
 			dataGridViewCellStyle2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
 			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
 			this->dgv_Period->DefaultCellStyle = dataGridViewCellStyle2;
+
 			this->dgv_Period->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
 			this->dgv_Period->Location = System::Drawing::Point(33, 132);
 			this->dgv_Period->Margin = System::Windows::Forms::Padding(4);
 			this->dgv_Period->Name = L"dgv_Period";
 			this->dgv_Period->ReadOnly = true;
-			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle15->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle15->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Elephant", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle15->Font = (gcnew System::Drawing::Font(L"Elephant", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle15->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dgv_Period->RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle15->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle15->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle15->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dgv_Period->RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
 			this->dgv_Period->RowHeadersVisible = false;
 			this->dgv_Period->RowHeadersWidth = 51;
 			this->dgv_Period->RowTemplate->DefaultCellStyle->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
@@ -370,45 +382,49 @@ namespace WeatherStationView {
 			// 
 			// dgv_Image
 			// 
-			dataGridViewCellStyle4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)),
+			dataGridViewCellStyle16->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(255)));
+
 			this->dgv_Image->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
 			this->dgv_Image->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+
 			this->dgv_Image->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->dgv_Image->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgv_Image->ColumnHeadersVisible = false;
 			this->dgv_Image->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
-				this->dataGridViewTextBoxColumn1,
-					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn3, this->dataGridViewTextBoxColumn4, this->dataGridViewTextBoxColumn5,
-					this->dataGridViewTextBoxColumn6, this->dataGridViewTextBoxColumn7, this->dataGridViewTextBoxColumn8
+				this->ejemplo, this->dataGridViewTextBoxColumn2,
+					this->dataGridViewTextBoxColumn3, this->dataGridViewTextBoxColumn4, this->dataGridViewTextBoxColumn5, this->dataGridViewTextBoxColumn6,
+					this->dataGridViewTextBoxColumn7, this->dataGridViewTextBoxColumn8
 			});
-			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)),
+			dataGridViewCellStyle17->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle17->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(255)));
-			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+
 			dataGridViewCellStyle5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::SystemColors::Highlight;
 			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
 			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
 			this->dgv_Image->DefaultCellStyle = dataGridViewCellStyle5;
+
 			this->dgv_Image->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
 			this->dgv_Image->Location = System::Drawing::Point(33, 256);
 			this->dgv_Image->Margin = System::Windows::Forms::Padding(4);
 			this->dgv_Image->Name = L"dgv_Image";
-			dataGridViewCellStyle6->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle18->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle18->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			dataGridViewCellStyle6->Font = (gcnew System::Drawing::Font(L"Elephant", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle18->Font = (gcnew System::Drawing::Font(L"Elephant", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle6->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			dataGridViewCellStyle6->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle6->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle6->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dgv_Image->RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle18->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			dataGridViewCellStyle18->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle18->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle18->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dgv_Image->RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
 			this->dgv_Image->RowHeadersVisible = false;
 			this->dgv_Image->RowHeadersWidth = 51;
 			this->dgv_Image->RowTemplate->Height = 50;
@@ -417,14 +433,16 @@ namespace WeatherStationView {
 			this->dgv_Image->TabIndex = 1;
 			this->dgv_Image->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Standard::dgv_Image_CellContentClick);
 			// 
-			// dataGridViewTextBoxColumn1
+			// ejemplo
 			// 
+
 			this->dataGridViewTextBoxColumn1->HeaderText = L"Day0";
 			this->dataGridViewTextBoxColumn1->MinimumWidth = 6;
 			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
 			this->dataGridViewTextBoxColumn1->Resizable = System::Windows::Forms::DataGridViewTriState::True;
 			this->dataGridViewTextBoxColumn1->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::Automatic;
 			this->dataGridViewTextBoxColumn1->Width = 125;
+
 			// 
 			// dataGridViewTextBoxColumn2
 			// 
@@ -494,15 +512,15 @@ namespace WeatherStationView {
 			this->dgv_Humidity->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(40)));
 			this->dgv_Humidity->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			dataGridViewCellStyle7->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle7->BackColor = System::Drawing::SystemColors::ControlDark;
-			dataGridViewCellStyle7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle19->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle19->BackColor = System::Drawing::SystemColors::ControlDark;
+			dataGridViewCellStyle19->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			dataGridViewCellStyle7->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle7->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle7->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle7->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dgv_Humidity->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle19->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle19->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle19->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle19->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dgv_Humidity->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
 			this->dgv_Humidity->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgv_Humidity->ColumnHeadersVisible = false;
 			this->dgv_Humidity->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
@@ -510,32 +528,34 @@ namespace WeatherStationView {
 					this->dataGridViewTextBoxColumn10, this->dataGridViewTextBoxColumn11, this->dataGridViewTextBoxColumn12, this->dataGridViewTextBoxColumn13,
 					this->dataGridViewTextBoxColumn14, this->dataGridViewTextBoxColumn15, this->dataGridViewTextBoxColumn16
 			});
-			dataGridViewCellStyle8->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle8->BackColor = System::Drawing::Color::MidnightBlue;
-			dataGridViewCellStyle8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle20->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle20->BackColor = System::Drawing::Color::MidnightBlue;
+			dataGridViewCellStyle20->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+
 			dataGridViewCellStyle8->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			dataGridViewCellStyle8->SelectionBackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			dataGridViewCellStyle8->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
 			dataGridViewCellStyle8->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
 			this->dgv_Humidity->DefaultCellStyle = dataGridViewCellStyle8;
+
 			this->dgv_Humidity->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
 			this->dgv_Humidity->Location = System::Drawing::Point(33, 450);
 			this->dgv_Humidity->Margin = System::Windows::Forms::Padding(4);
 			this->dgv_Humidity->Name = L"dgv_Humidity";
-			dataGridViewCellStyle9->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle21->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle21->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			dataGridViewCellStyle9->Font = (gcnew System::Drawing::Font(L"Elephant", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle21->Font = (gcnew System::Drawing::Font(L"Elephant", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle21->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			dataGridViewCellStyle9->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle9->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle9->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dgv_Humidity->RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle21->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle21->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle21->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dgv_Humidity->RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
 			this->dgv_Humidity->RowHeadersVisible = false;
 			this->dgv_Humidity->RowHeadersWidth = 51;
 			this->dgv_Humidity->RowTemplate->Height = 40;
@@ -606,15 +626,15 @@ namespace WeatherStationView {
 			this->dgv_Temperature->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(40)));
 			this->dgv_Temperature->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			dataGridViewCellStyle10->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle10->BackColor = System::Drawing::SystemColors::ControlDark;
-			dataGridViewCellStyle10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle22->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle22->BackColor = System::Drawing::SystemColors::ControlDark;
+			dataGridViewCellStyle22->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			dataGridViewCellStyle10->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle10->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle10->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle10->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dgv_Temperature->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+			dataGridViewCellStyle22->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle22->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle22->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle22->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dgv_Temperature->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
 			this->dgv_Temperature->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgv_Temperature->ColumnHeadersVisible = false;
 			this->dgv_Temperature->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
@@ -622,32 +642,34 @@ namespace WeatherStationView {
 					this->dataGridViewTextBoxColumn18, this->dataGridViewTextBoxColumn19, this->dataGridViewTextBoxColumn20, this->dataGridViewTextBoxColumn21,
 					this->dataGridViewTextBoxColumn22, this->dataGridViewTextBoxColumn23, this->dataGridViewTextBoxColumn24
 			});
-			dataGridViewCellStyle11->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle11->BackColor = System::Drawing::Color::MidnightBlue;
-			dataGridViewCellStyle11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+			dataGridViewCellStyle23->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle23->BackColor = System::Drawing::Color::MidnightBlue;
+			dataGridViewCellStyle23->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+
 			dataGridViewCellStyle11->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			dataGridViewCellStyle11->SelectionBackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			dataGridViewCellStyle11->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
 			dataGridViewCellStyle11->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
 			this->dgv_Temperature->DefaultCellStyle = dataGridViewCellStyle11;
+
 			this->dgv_Temperature->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
 			this->dgv_Temperature->Location = System::Drawing::Point(33, 575);
 			this->dgv_Temperature->Margin = System::Windows::Forms::Padding(4);
 			this->dgv_Temperature->Name = L"dgv_Temperature";
-			dataGridViewCellStyle12->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle12->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle24->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle24->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			dataGridViewCellStyle12->Font = (gcnew System::Drawing::Font(L"Elephant", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle24->Font = (gcnew System::Drawing::Font(L"Elephant", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle12->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+			dataGridViewCellStyle24->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			dataGridViewCellStyle12->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle12->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle12->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dgv_Temperature->RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+			dataGridViewCellStyle24->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle24->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle24->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dgv_Temperature->RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
 			this->dgv_Temperature->RowHeadersVisible = false;
 			this->dgv_Temperature->RowHeadersWidth = 51;
 			this->dgv_Temperature->RowTemplate->Height = 40;
@@ -741,6 +763,7 @@ namespace WeatherStationView {
 			this->btn_Config->Text = L"button3";
 			this->btn_Config->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageAboveText;
 			this->btn_Config->UseVisualStyleBackColor = false;
+			this->btn_Config->Click += gcnew System::EventHandler(this, &Standard::btn_Config_Click);
 			// 
 			// btn_SignOut
 			// 
@@ -802,7 +825,7 @@ namespace WeatherStationView {
 		}
 #pragma endregion
 	private: System::Void Standard_Load(System::Object^ sender, System::EventArgs^ e) {
-		//LibrerÌa de dibujo
+		//Librer√≠a de dibujo
 		System::Drawing::Font^ newFont = gcnew System::Drawing::Font("Arial", 24, FontStyle::Bold);
 		DataGridViewCell^ p1 = dgv_Period->Rows[0]->Cells[1];
 		DataGridViewCell^ p2 = dgv_Period->Rows[0]->Cells[2];
@@ -811,7 +834,7 @@ namespace WeatherStationView {
 		DataGridViewCell^ p5 = dgv_Period->Rows[0]->Cells[5];
 		DataGridViewCell^ p6 = dgv_Period->Rows[0]->Cells[6];
 		DataGridViewCell^ p7 = dgv_Period->Rows[0]->Cells[7];
-		//LibrerÌa de dibujo
+		//Librer√≠a de dibujo
 
 		// Fuente de texto en celda
 		p1->Style->Font = newFont;
@@ -833,7 +856,7 @@ namespace WeatherStationView {
 		p7->Style->ForeColor = Color::Yellow;
 		// Color de texto en celda
 
-		// AlineaciÛn de texto en el centro
+		// Alineaci√≥n de texto en el centro
 		p1->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
 		p2->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
 		p3->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
@@ -841,13 +864,13 @@ namespace WeatherStationView {
 		p5->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
 		p6->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
 		p7->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
-		//AlineaciÛn de texto en el centro
+		//Alineaci√≥n de texto en el centro
 
-		//Aumento el tamaÒo de zelda
+		//Aumento el tama√±o de zelda
 		for (int rowIndex = 0; rowIndex < dgv_Period->RowCount; rowIndex++) {
-			dgv_Period->Rows[rowIndex]->Height = 90; // Ajusta 50 al valor deseado en pÌxeles
+			dgv_Period->Rows[rowIndex]->Height = 90; // Ajusta 50 al valor deseado en p√≠xeles
 		}
-		//Aumento el tamaÒo de celda
+		//Aumento el tama√±o de celda
 
 		// Escribo el texto de la celda
 		this->dgv_Period->Rows[0]->Cells[0]->Value = "FREQUENCY";
@@ -860,8 +883,8 @@ namespace WeatherStationView {
 		this->dgv_Period->Rows[0]->Cells[7]->Value = "SUN";
 		//Escribe el texto de la celda
 
-		// Par·metro Temperatura
-		//LibrerÌa de dibujo
+		// Par√°metro Temperatura
+		//Librer√≠a de dibujo
 		DataGridViewCell^ t1 = dgv_Temperature->Rows[0]->Cells[1];
 		DataGridViewCell^ t2 = dgv_Temperature->Rows[0]->Cells[2];
 		DataGridViewCell^ t3 = dgv_Temperature->Rows[0]->Cells[3];
@@ -869,7 +892,7 @@ namespace WeatherStationView {
 		DataGridViewCell^ t5 = dgv_Temperature->Rows[0]->Cells[5];
 		DataGridViewCell^ t6 = dgv_Temperature->Rows[0]->Cells[6];
 		DataGridViewCell^ t7 = dgv_Temperature->Rows[0]->Cells[7];
-		//LibrerÌa de dibujo
+		//Librer√≠a de dibujo
 
 		// Fuente de texto en celda
 		t1->Style->Font = newFont;
@@ -891,7 +914,7 @@ namespace WeatherStationView {
 		t7->Style->ForeColor = Color::Yellow;
 		// Color de texto en celda
 
-		// AlineaciÛn de texto en el centro
+		// Alineaci√≥n de texto en el centro
 		t1->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
 		t2->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
 		t3->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
@@ -899,13 +922,13 @@ namespace WeatherStationView {
 		t5->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
 		t6->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
 		t7->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
-		//AlineaciÛn de texto en el centro
+		//Alineaci√≥n de texto en el centro
 
-		//Aumento el tamaÒo de zelda
+		//Aumento el tama√±o de zelda
 		for (int rowIndex = 0; rowIndex < dgv_Temperature->RowCount; rowIndex++) {
-			dgv_Temperature->Rows[rowIndex]->Height = 80; // Ajusta 50 al valor deseado en pÌxeles
+			dgv_Temperature->Rows[rowIndex]->Height = 80; // Ajusta 50 al valor deseado en p√≠xeles
 		}
-		//Aumento el tamaÒo de celda
+		//Aumento el tama√±o de celda
 
 		// Escribo el texto de la celda
 		this->dgv_Temperature->Rows[0]->Cells[1]->Value = "25";
@@ -916,10 +939,10 @@ namespace WeatherStationView {
 		this->dgv_Temperature->Rows[0]->Cells[6]->Value = "29";
 		this->dgv_Temperature->Rows[0]->Cells[7]->Value = "30";
 		//Escribe el texto de la celda
-		// Par·metro Temperatura
+		// Par√°metro Temperatura
 
-		// Par·metro Humedad
-		//LibrerÌa de dibujo
+		// Par√°metro Humedad
+		//Librer√≠a de dibujo
 		DataGridViewCell^ h1 = dgv_Humidity->Rows[0]->Cells[1];
 		DataGridViewCell^ h2 = dgv_Humidity->Rows[0]->Cells[2];
 		DataGridViewCell^ h3 = dgv_Humidity->Rows[0]->Cells[3];
@@ -927,7 +950,7 @@ namespace WeatherStationView {
 		DataGridViewCell^ h5 = dgv_Humidity->Rows[0]->Cells[5];
 		DataGridViewCell^ h6 = dgv_Humidity->Rows[0]->Cells[6];
 		DataGridViewCell^ h7 = dgv_Humidity->Rows[0]->Cells[7];
-		//LibrerÌa de dibujo
+		//Librer√≠a de dibujo
 
 		// Fuente de texto en celda
 		h1->Style->Font = newFont;
@@ -949,7 +972,7 @@ namespace WeatherStationView {
 		h7->Style->ForeColor = Color::White;
 		// Color de texto en celda
 
-		// AlineaciÛn de texto en el centro
+		// Alineaci√≥n de texto en el centro
 		h1->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
 		h2->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
 		h3->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
@@ -957,13 +980,13 @@ namespace WeatherStationView {
 		h5->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
 		h6->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
 		h7->Style->Alignment = DataGridViewContentAlignment::MiddleCenter;
-		//AlineaciÛn de texto en el centro
+		//Alineaci√≥n de texto en el centro
 
-		//Aumento el tamaÒo de zelda
+		//Aumento el tama√±o de zelda
 		for (int rowIndex = 0; rowIndex < dgv_Humidity->RowCount; rowIndex++) {
-			dgv_Humidity->Rows[rowIndex]->Height = 90; // Ajusta 50 al valor deseado en pÌxeles
+			dgv_Humidity->Rows[rowIndex]->Height = 90; // Ajusta 50 al valor deseado en p√≠xeles
 		}
-		//Aumento el tamaÒo de celda
+		//Aumento el tama√±o de celda
 
 		// Escribo el texto de la celda
 		this->dgv_Humidity->Rows[0]->Cells[1]->Value = "80";
@@ -974,14 +997,16 @@ namespace WeatherStationView {
 		this->dgv_Humidity->Rows[0]->Cells[6]->Value = "86";
 		this->dgv_Humidity->Rows[0]->Cells[7]->Value = "90";
 		//Escribe el texto de la celda
-		// Par·metro Humedad
+		// Par√°metro Humedad
 
 		// Imagenes
+
 		/*
 		try
 		{	
 			String^ ri1 = Application::StartupPath + "\\IconSunny.png";
 			String^ ri2 = Application::StartupPath + "\\IconCloudSunnyRainy.png";
+
 			String^ ri3 = Application::StartupPath + "\\IconCloudSunny.png";
 			String^ ri4 = Application::StartupPath + "\\IconRainy.png";
 		
@@ -992,29 +1017,33 @@ namespace WeatherStationView {
 			Image^ i4 = Image::FromFile(ri4);
 				
 
-			dgv_Image->Rows[0]->Cells[1]->Value = i1;
-			dgv_Image->Rows[0]->Cells[2]->Value = i3;
-			dgv_Image->Rows[0]->Cells[3]->Value = i2;
-			dgv_Image->Rows[0]->Cells[4]->Value = i4;
-			dgv_Image->Rows[0]->Cells[5]->Value = i2;
+			//dgv_Image->Rows[0]->Cells[1]->Value = i1;
+			dgv_Image->Rows[0]->Cells[2]->Value = i1;
+			dgv_Image->Rows[0]->Cells[3]->Value = i1;
+			dgv_Image->Rows[0]->Cells[4]->Value = i1;
+			dgv_Image->Rows[0]->Cells[5]->Value = i1;
 			dgv_Image->Rows[0]->Cells[6]->Value = i1;
+
 			dgv_Image->Rows[0]->Cells[7]->Value = i4;
 			
 
 
-			// Utiliza la imagen aquÌ
+
+			// Utiliza la imagen aqu√≠
 		}
 		catch (Exception^ ex)
 		{
 			MessageBox::Show("Error al cargar la imagen: " + ex->Message);
 		}
+
 		*/
+
 		//Creamos el espacio a imagen en celda
-		//Aumento el tamaÒo de zelda
+		//Aumento el tama√±o de zelda
 		for (int rowIndex = 0; rowIndex < dgv_Image->RowCount; rowIndex++) {
-			dgv_Image->Rows[rowIndex]->Height = 120; // Ajusta 50 al valor deseado en pÌxeles
+			dgv_Image->Rows[rowIndex]->Height = 120; // Ajusta 50 al valor deseado en p√≠xeles
 		}
-		//Aumento el tamaÒo de celda
+		//Aumento el tama√±o de celda
 		// Imagenes
 
 	}
@@ -1026,7 +1055,9 @@ namespace WeatherStationView {
 	}
 	private: System::Void dgv_Image_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}
+
 private: System::Void btn_Premium_Click(System::Object^ sender, System::EventArgs^ e) {
+
 }
 };
 }

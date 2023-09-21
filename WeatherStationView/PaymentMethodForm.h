@@ -22,13 +22,13 @@ namespace WeatherStationView {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar cÃ³digo de constructor aquÃ­
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estÃ©n usando.
 		/// </summary>
 		~PaymentMethodForm()
 		{
@@ -49,14 +49,14 @@ namespace WeatherStationView {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseÃ±ador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// MÃ©todo necesario para admitir el DiseÃ±ador. No se puede modificar
+		/// el contenido de este mÃ©todo con el editor de cÃ³digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -136,12 +136,14 @@ namespace WeatherStationView {
 			this->Load += gcnew System::EventHandler(this, &PaymentMethodForm::PaymentMethodForm_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void PaymentMethodForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
+
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
 	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -152,4 +154,5 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 
 }
 };
+
 }

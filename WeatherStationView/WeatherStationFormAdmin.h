@@ -136,7 +136,11 @@ namespace WeatherStationView {
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
+<<<<<<< HEAD
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(96, 22);
+=======
 			this->salirToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+>>>>>>> c72f96d6cbf7278174e987bb0f31f1e2496ee3c8
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::salirToolStripMenuItem_Click);
 			// 
@@ -208,12 +212,14 @@ namespace WeatherStationView {
 			this->alertaToolStripMenuItem1->Name = L"alertaToolStripMenuItem1";
 			this->alertaToolStripMenuItem1->Size = System::Drawing::Size(185, 26);
 			this->alertaToolStripMenuItem1->Text = L"Alerta";
+			this->alertaToolStripMenuItem1->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::alertaToolStripMenuItem1_Click);
 			// 
 			// alertaMeteorologicaToolStripMenuItem
 			// 
 			this->alertaMeteorologicaToolStripMenuItem->Name = L"alertaMeteorologicaToolStripMenuItem";
 			this->alertaMeteorologicaToolStripMenuItem->Size = System::Drawing::Size(230, 26);
 			this->alertaMeteorologicaToolStripMenuItem->Text = L"AlertaMeteorologica";
+			this->alertaMeteorologicaToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::alertaMeteorologicaToolStripMenuItem_Click);
 			// 
 			// alertaErrorToolStripMenuItem1
 			// 
@@ -258,9 +264,16 @@ private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, Syste
 }
 private: System::Void estaditicaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 }
+<<<<<<< HEAD
+private: System::Void alertaToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void alertaMeteorologicaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+=======
 private: System::Void membresiaToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
 	MembershipMaintenanceForm obj;
 	obj.ShowDialog();
+>>>>>>> c72f96d6cbf7278174e987bb0f31f1e2496ee3c8
 }
 };
 }
