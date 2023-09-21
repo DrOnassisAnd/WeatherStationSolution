@@ -40,7 +40,6 @@ Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
 				user->Password = record[1];
 				user->Email = record[2];
 				user->Id = Convert::ToInt32(record[3]);
-				user->Membresia = record[2];
 				((List<User^>^)result)->Add(user);
 			}
 		}

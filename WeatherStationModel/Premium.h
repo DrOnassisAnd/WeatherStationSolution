@@ -2,16 +2,14 @@
  * Project Untitled
  */
 
-#include "User.h"
 #include "Membresia.h"
 
 using namespace System;
 
 namespace Model {
-    public ref class Premium{
+    public ref class Premium: public Membresia{
     public:
-        User^ user;
-        Membresia^ membresia;
+        //Membresia^ membresia;
     
     };
 }

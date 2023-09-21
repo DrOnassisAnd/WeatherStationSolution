@@ -123,24 +123,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
     <ClCompile Include="MembresiaForm.cpp" />
     <ClCompile Include="PaymentMethodForm.cpp" />
-
     <ClCompile Include="Config.cpp" />
-
     <ClCompile Include="RegisterForm.cpp" />
     <ClCompile Include="WeatherStationForm.cpp" />
   </ItemGroup>
   <ItemGroup>
-
     <ClInclude Include="MembresiaForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="PaymentMethodForm.h">
-
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Config.h">
-
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="RegisterForm.h">
@@ -159,6 +155,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WeatherStationForm.resx">
       <DependentUpon>WeatherStationForm.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
