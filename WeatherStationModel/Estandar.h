@@ -3,16 +3,14 @@
  */
 
 
-#include "User.h"
 #include "Membresia.h"
 
 using namespace System;
 
 namespace Model {
-    public ref class Estandar  {
+    public ref class Estandar : public Membresia{
     public:
-        User^ user;
-        Membresia^ Membresia;
+        //Membresia^ Membresia;
     };
 }
 
