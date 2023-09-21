@@ -128,7 +128,7 @@
     <ClCompile Include="PaymentMethodForm.cpp" />
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="RegisterForm.cpp" />
-    <ClCompile Include="Standard.cpp" />
+    <ClCompile Include="UserMaintenance.cpp" />
     <ClCompile Include="WeatherStationForm.cpp" />
     <ClCompile Include="WeatherStationFormAdmin.cpp" />
   </ItemGroup>
@@ -148,7 +148,7 @@
     <ClInclude Include="RegisterForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Standard.h">
+    <ClInclude Include="UserMaintenance.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="WeatherStationForm.h">
@@ -174,8 +174,8 @@
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Standard.resx">
-      <DependentUpon>Standard.h</DependentUpon>
+    <EmbeddedResource Include="UserMaintenance.resx">
+      <DependentUpon>UserMaintenance.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WeatherStationForm.resx">
       <DependentUpon>WeatherStationForm.h</DependentUpon>

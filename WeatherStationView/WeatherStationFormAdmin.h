@@ -2,6 +2,7 @@
 
 
 #include "MembershipMaintenanceForm.h"
+#include "UserMaintenance.h"
 
 namespace WeatherStationView {
 
@@ -245,7 +246,8 @@ namespace WeatherStationView {
 	}
 
 	private: System::Void userToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		UserMaintenance obj;
+		obj.ShowDialog();
 
 	}
 private: System::Void idToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {

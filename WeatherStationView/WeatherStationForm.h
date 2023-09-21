@@ -3,6 +3,8 @@
 #include "Config.h"
 #include "MembresiaForm.h"
 #include "WeatherStationFormAdmin.h"
+#include "UserMaintenance.h"
+
 namespace WeatherStationView {
 
 	using namespace System;
