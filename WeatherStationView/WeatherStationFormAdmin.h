@@ -313,5 +313,6 @@ private: System::Void temperaturaYHumedadToolStripMenuItem_Click(System::Object^
 	TempHumMaintenanceForm obj;
 	obj.ShowDialog();
 }
+
 };
 }

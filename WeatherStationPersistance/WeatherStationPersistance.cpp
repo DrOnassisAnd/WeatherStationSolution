@@ -10,7 +10,7 @@ void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, O
 		List<User^>^ users = (List<User^>^)persistObject;
 		for (int i = 0; i < users->Count; i++) {
 			User^ r =users[i];
-			writer->WriteLine(r->Name + ", " + r->Password + ", " + r->Email + ", " + r->Id + ", " + r->Membresia);
+			writer->WriteLine(r->Name + ", " + r->Password + ", " + r->Email + ", " + r->Id);
 		}
 	}
 	else if (persistObject->GetType() == Ajustes::typeid) {

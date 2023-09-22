@@ -210,6 +210,9 @@ namespace WeatherStationView {
 
 		Controller::Controller::AddAirQData(airq);
 		ShowAirQData();
+		textBox1->Text = "";
+		textBox2->Text = "";
+
 	}
 		   void ShowAirQData() {
 			   List<SensorCalidadAire^>^ airqData = Controller::Controller::QueryAirQData();

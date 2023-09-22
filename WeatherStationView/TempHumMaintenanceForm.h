@@ -263,6 +263,10 @@ namespace WeatherStationView {
 
 		Controller::Controller::AddTempHumData(airq);
 		ShowTempHumData();
+		textBox1->Text = "";
+		textBox2->Text = "";
+		textBox3->Text = "";
+		textBox4->Text = "";
 
 	}
 		   void ShowTempHumData() {

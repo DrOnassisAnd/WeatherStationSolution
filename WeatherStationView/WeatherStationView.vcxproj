@@ -159,19 +159,16 @@
     <ClInclude Include="RegisterForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-
     <ClInclude Include="SensorMaintenanceForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-	
     <ClInclude Include="Standard.h">
-	 <FileType>CppForm</FileType>
-	 </ClInclude>
-
-    <ClInclude Include="UserMaintenance.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="TempHumMaintenanceForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UserMaintenance.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="WeatherStationForm.h">
@@ -203,19 +200,17 @@
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.h</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="SensorMaintenanceForm.resx">
       <DependentUpon>SensorMaintenanceForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Standard.resx">
       <DependentUpon>Standard.h</DependentUpon>
-=======
-    <EmbeddedResource Include="UserMaintenance.resx">
-      <DependentUpon>UserMaintenance.h</DependentUpon>
->>>>>>> 8f7618af4be9a000f620e9936a6644e37d260d70
     </EmbeddedResource>
     <EmbeddedResource Include="TempHumMaintenanceForm.resx">
       <DependentUpon>TempHumMaintenanceForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserMaintenance.resx">
+      <DependentUpon>UserMaintenance.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WeatherStationForm.resx">
       <DependentUpon>WeatherStationForm.h</DependentUpon>

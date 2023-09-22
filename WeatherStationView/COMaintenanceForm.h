@@ -205,6 +205,9 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 
 	Controller::Controller::AddCOData(airq);
 	ShowCOData();
+
+	textBox1->Text = "";
+	textBox2->Text = "";
 }
 	   void ShowCOData() {
 		   List<SensorCO^>^ COdata = Controller::Controller::QueryCOData();
