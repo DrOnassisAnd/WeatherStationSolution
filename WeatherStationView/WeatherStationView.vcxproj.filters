@@ -13,6 +13,7 @@
     <ClCompile Include="AirQMaintenanceForm.cpp" />
     <ClCompile Include="COMaintenanceForm.cpp" />
     <ClCompile Include="TempHumMaintenanceForm.cpp" />
+    <ClCompile Include="UserMaintenance.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MembresiaForm.h" />
@@ -27,5 +28,6 @@
     <ClInclude Include="AirQMaintenanceForm.h" />
     <ClInclude Include="COMaintenanceForm.h" />
     <ClInclude Include="TempHumMaintenanceForm.h" />
+    <ClInclude Include="UserMaintenance.h" />
   </ItemGroup>
 </Project>
