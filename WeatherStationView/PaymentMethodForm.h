@@ -1,4 +1,5 @@
 #pragma once
+#include "Standard.h"
 
 namespace WeatherStationView {
 
@@ -148,7 +149,9 @@ namespace WeatherStationView {
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	MessageBox::Show("Pago Confirmado");
-
+	this->Close();
+	Standard^ standard = gcnew Standard();
+	standard->Show();
 
 }
 };

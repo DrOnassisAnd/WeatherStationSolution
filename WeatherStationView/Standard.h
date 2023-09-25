@@ -1,4 +1,6 @@
 #pragma once
+#include "Config.h"
+
 
 
 namespace WeatherStationView {
@@ -83,12 +85,12 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn22;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn23;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn24;
-	private: System::Windows::Forms::Button^ btn_Premium;
-	private: System::Windows::Forms::Button^ btn_Config;
-	private: System::Windows::Forms::Button^ btn_SignOut;
 
 
-	private: System::Windows::Forms::Button^ btn_Stats;
+
+
+
+
 	private: System::Windows::Forms::DataGridViewImageColumn^ dataGridViewTextBoxColumn1;
 	private: System::Windows::Forms::DataGridViewImageColumn^ dataGridViewTextBoxColumn2;
 	private: System::Windows::Forms::DataGridViewImageColumn^ dataGridViewTextBoxColumn3;
@@ -97,6 +99,10 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::DataGridViewImageColumn^ dataGridViewTextBoxColumn6;
 	private: System::Windows::Forms::DataGridViewImageColumn^ dataGridViewTextBoxColumn7;
 	private: System::Windows::Forms::DataGridViewImageColumn^ dataGridViewTextBoxColumn8;
+	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::Button^ button4;
 
 
 
@@ -232,10 +238,10 @@ namespace WeatherStationView {
 			this->dataGridViewTextBoxColumn22 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn23 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn24 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->btn_Premium = (gcnew System::Windows::Forms::Button());
-			this->btn_Config = (gcnew System::Windows::Forms::Button());
-			this->btn_SignOut = (gcnew System::Windows::Forms::Button());
-			this->btn_Stats = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_Period))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_Image))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgv_Humidity))->BeginInit();
@@ -274,8 +280,7 @@ namespace WeatherStationView {
 			this->dgv_Period->DefaultCellStyle = dataGridViewCellStyle2;
 			this->dgv_Period->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->dgv_Period->Location = System::Drawing::Point(33, 132);
-			this->dgv_Period->Margin = System::Windows::Forms::Padding(4);
+			this->dgv_Period->Location = System::Drawing::Point(25, 107);
 			this->dgv_Period->Name = L"dgv_Period";
 			this->dgv_Period->ReadOnly = true;
 			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
@@ -300,7 +305,7 @@ namespace WeatherStationView {
 			this->dgv_Period->RowTemplate->ReadOnly = true;
 			this->dgv_Period->RowTemplate->Resizable = System::Windows::Forms::DataGridViewTriState::True;
 			this->dgv_Period->ScrollBars = System::Windows::Forms::ScrollBars::None;
-			this->dgv_Period->Size = System::Drawing::Size(1071, 117);
+			this->dgv_Period->Size = System::Drawing::Size(803, 95);
 			this->dgv_Period->TabIndex = 0;
 			this->dgv_Period->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Standard::dgv_Period_CellContentClick);
 			// 
@@ -396,8 +401,7 @@ namespace WeatherStationView {
 			this->dgv_Image->DefaultCellStyle = dataGridViewCellStyle5;
 			this->dgv_Image->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->dgv_Image->Location = System::Drawing::Point(33, 256);
-			this->dgv_Image->Margin = System::Windows::Forms::Padding(4);
+			this->dgv_Image->Location = System::Drawing::Point(25, 208);
 			this->dgv_Image->Name = L"dgv_Image";
 			dataGridViewCellStyle6->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
 			dataGridViewCellStyle6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
@@ -413,7 +417,7 @@ namespace WeatherStationView {
 			this->dgv_Image->RowHeadersWidth = 51;
 			this->dgv_Image->RowTemplate->Height = 50;
 			this->dgv_Image->ScrollBars = System::Windows::Forms::ScrollBars::None;
-			this->dgv_Image->Size = System::Drawing::Size(1071, 187);
+			this->dgv_Image->Size = System::Drawing::Size(803, 152);
 			this->dgv_Image->TabIndex = 1;
 			this->dgv_Image->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Standard::dgv_Image_CellContentClick);
 			// 
@@ -522,8 +526,7 @@ namespace WeatherStationView {
 			this->dgv_Humidity->DefaultCellStyle = dataGridViewCellStyle8;
 			this->dgv_Humidity->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->dgv_Humidity->Location = System::Drawing::Point(33, 450);
-			this->dgv_Humidity->Margin = System::Windows::Forms::Padding(4);
+			this->dgv_Humidity->Location = System::Drawing::Point(25, 366);
 			this->dgv_Humidity->Name = L"dgv_Humidity";
 			dataGridViewCellStyle9->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
 			dataGridViewCellStyle9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
@@ -542,7 +545,7 @@ namespace WeatherStationView {
 			this->dgv_Humidity->RowTemplate->ReadOnly = true;
 			this->dgv_Humidity->RowTemplate->Resizable = System::Windows::Forms::DataGridViewTriState::True;
 			this->dgv_Humidity->ScrollBars = System::Windows::Forms::ScrollBars::None;
-			this->dgv_Humidity->Size = System::Drawing::Size(1071, 117);
+			this->dgv_Humidity->Size = System::Drawing::Size(803, 95);
 			this->dgv_Humidity->TabIndex = 2;
 			// 
 			// dataGridViewTextBoxColumn9
@@ -634,8 +637,7 @@ namespace WeatherStationView {
 			this->dgv_Temperature->DefaultCellStyle = dataGridViewCellStyle11;
 			this->dgv_Temperature->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
-			this->dgv_Temperature->Location = System::Drawing::Point(33, 575);
-			this->dgv_Temperature->Margin = System::Windows::Forms::Padding(4);
+			this->dgv_Temperature->Location = System::Drawing::Point(25, 467);
 			this->dgv_Temperature->Name = L"dgv_Temperature";
 			dataGridViewCellStyle12->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
 			dataGridViewCellStyle12->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
@@ -654,7 +656,7 @@ namespace WeatherStationView {
 			this->dgv_Temperature->RowTemplate->ReadOnly = true;
 			this->dgv_Temperature->RowTemplate->Resizable = System::Windows::Forms::DataGridViewTriState::True;
 			this->dgv_Temperature->ScrollBars = System::Windows::Forms::ScrollBars::None;
-			this->dgv_Temperature->Size = System::Drawing::Size(1071, 117);
+			this->dgv_Temperature->Size = System::Drawing::Size(803, 95);
 			this->dgv_Temperature->TabIndex = 3;
 			// 
 			// dataGridViewTextBoxColumn17
@@ -713,81 +715,68 @@ namespace WeatherStationView {
 			this->dataGridViewTextBoxColumn24->Name = L"dataGridViewTextBoxColumn24";
 			this->dataGridViewTextBoxColumn24->Width = 125;
 			// 
-			// btn_Premium
+			// button1
 			// 
-			this->btn_Premium->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(20)));
-			this->btn_Premium->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->btn_Premium->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn_Premium->Location = System::Drawing::Point(1136, 132);
-			this->btn_Premium->Margin = System::Windows::Forms::Padding(4);
-			this->btn_Premium->Name = L"btn_Premium";
-			this->btn_Premium->Size = System::Drawing::Size(120, 111);
-			this->btn_Premium->TabIndex = 6;
-			this->btn_Premium->UseVisualStyleBackColor = false;
-			this->btn_Premium->Click += gcnew System::EventHandler(this, &Standard::btn_Premium_Click);
+			this->button1->BackColor = System::Drawing::Color::Black;
+			this->button1->Location = System::Drawing::Point(860, 107);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(91, 80);
+			this->button1->TabIndex = 10;
+			this->button1->Text = L"Membresia";
+			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &Standard::button1_Click);
 			// 
-			// btn_Config
+			// button2
 			// 
-			this->btn_Config->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(20)));
-			this->btn_Config->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->btn_Config->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn_Config->Location = System::Drawing::Point(1148, 288);
-			this->btn_Config->Margin = System::Windows::Forms::Padding(4);
-			this->btn_Config->Name = L"btn_Config";
-			this->btn_Config->Size = System::Drawing::Size(120, 111);
-			this->btn_Config->TabIndex = 7;
-			this->btn_Config->Text = L"button3";
-			this->btn_Config->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageAboveText;
-			this->btn_Config->UseVisualStyleBackColor = false;
+			this->button2->BackColor = System::Drawing::Color::Black;
+			this->button2->Location = System::Drawing::Point(860, 381);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(91, 80);
+			this->button2->TabIndex = 11;
+			this->button2->Text = L"Estadisticas";
+			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &Standard::button2_Click);
 			// 
-			// btn_SignOut
+			// button3
 			// 
-			this->btn_SignOut->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(20)));
-			this->btn_SignOut->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->btn_SignOut->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn_SignOut->Location = System::Drawing::Point(1148, 564);
-			this->btn_SignOut->Margin = System::Windows::Forms::Padding(4);
-			this->btn_SignOut->Name = L"btn_SignOut";
-			this->btn_SignOut->Size = System::Drawing::Size(120, 111);
-			this->btn_SignOut->TabIndex = 8;
-			this->btn_SignOut->UseVisualStyleBackColor = false;
+			this->button3->BackColor = System::Drawing::Color::Black;
+			this->button3->Location = System::Drawing::Point(860, 502);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(91, 80);
+			this->button3->TabIndex = 12;
+			this->button3->Text = L"Log Out";
+			this->button3->UseVisualStyleBackColor = false;
+			this->button3->Click += gcnew System::EventHandler(this, &Standard::button3_Click);
 			// 
-			// btn_Stats
+			// button4
 			// 
-			this->btn_Stats->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
-				static_cast<System::Int32>(static_cast<System::Byte>(20)));
-			this->btn_Stats->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->btn_Stats->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn_Stats->Location = System::Drawing::Point(1148, 428);
-			this->btn_Stats->Margin = System::Windows::Forms::Padding(4);
-			this->btn_Stats->Name = L"btn_Stats";
-			this->btn_Stats->Size = System::Drawing::Size(120, 111);
-			this->btn_Stats->TabIndex = 9;
-			this->btn_Stats->UseVisualStyleBackColor = false;
-			this->btn_Stats->Click += gcnew System::EventHandler(this, &Standard::btn_Stats_Click);
+			this->button4->BackColor = System::Drawing::Color::Black;
+			this->button4->Location = System::Drawing::Point(860, 235);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(91, 80);
+			this->button4->TabIndex = 13;
+			this->button4->Text = L"Ajustes";
+			this->button4->UseVisualStyleBackColor = false;
+			this->button4->Click += gcnew System::EventHandler(this, &Standard::button4_Click);
 			// 
 			// Standard
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoValidate = System::Windows::Forms::AutoValidate::EnableAllowFocusChange;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(40)));
-			this->ClientSize = System::Drawing::Size(1312, 814);
-			this->Controls->Add(this->btn_Stats);
-			this->Controls->Add(this->btn_SignOut);
-			this->Controls->Add(this->btn_Config);
-			this->Controls->Add(this->btn_Premium);
+			this->ClientSize = System::Drawing::Size(984, 661);
+			this->Controls->Add(this->button4);
+			this->Controls->Add(this->button3);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->dgv_Temperature);
 			this->Controls->Add(this->dgv_Humidity);
 			this->Controls->Add(this->dgv_Image);
 			this->Controls->Add(this->dgv_Period);
 			this->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Standard";
 			this->Opacity = 0.9;
 			this->SizeGripStyle = System::Windows::Forms::SizeGripStyle::Hide;
@@ -1027,6 +1016,25 @@ namespace WeatherStationView {
 	private: System::Void dgv_Image_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}
 private: System::Void btn_Premium_Click(System::Object^ sender, System::EventArgs^ e) {
+	Config obj;
+	obj.ShowDialog();
+}
+private: System::Void btn_Config_Click(System::Object^ sender, System::EventArgs^ e) {
+	Config obj;
+	obj.ShowDialog();
+}
+
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	Application::Exit();
+}
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	Config obj;
+	obj.ShowDialog();
 }
 };
 }
