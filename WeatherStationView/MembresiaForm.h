@@ -1,4 +1,6 @@
 #include "Standard.h"
+#include "PaymentMethodForm.h"
+
 #pragma once
 
 
@@ -361,6 +363,7 @@ namespace WeatherStationView {
 		}
 #pragma endregion
 	private: System::Void MembresiaForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		
 	}
 	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -376,23 +379,24 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	*/
 	Standard^ standard = gcnew Standard();
 	standard->Show();
+	this->Close();
 
 
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	Standard^ standard = gcnew Standard();
-	standard->Show();
-	// PaymentMethodForm obj;
-	// obj.ShowDialog();
+	
+	PaymentMethodForm obj;
+	obj.ShowDialog();
+
 	
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	
-	//PaymentMethod obj;
-	//obj.ShowDialog();
-	Standard^ standard = gcnew Standard();
-	standard->Show();
+	PaymentMethodForm obj;
+	obj.ShowDialog();
+
+	
 
 }
 private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
