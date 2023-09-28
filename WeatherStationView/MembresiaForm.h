@@ -377,9 +377,14 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	user->Membresia = Membresia;
 	Controller::Controller::AddUser(user);
 	*/
+	this->Close();
+
 	Standard^ standard = gcnew Standard();
 	standard->Show();
-	this->Close();
+
+	//WeatherStationForm^ mainform = gcnew WeatherStationForm();
+	//mainform->Close();
+	
 
 
 }
@@ -388,6 +393,8 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	
 	PaymentMethodForm obj;
 	obj.ShowDialog();
+
+	this->Close();
 
 	
 }

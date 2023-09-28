@@ -1003,6 +1003,9 @@ namespace WeatherStationView {
 		for (int rowIndex = 0; rowIndex < dgv_Image->RowCount; rowIndex++) {
 			dgv_Image->Rows[rowIndex]->Height = 120; // Ajusta 50 al valor deseado en píxeles
 		}
+
+		Standard^ formulario = gcnew Standard();
+		formulario->BringToFront();
 		//Aumento el tamaño de celda
 		// Imagenes
 

@@ -51,9 +51,9 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::TextBox^ textBox1;
+
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label1;
+
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
@@ -86,22 +86,20 @@ namespace WeatherStationView {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(131, 66);
+			this->textBox3->Location = System::Drawing::Point(131, 42);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(100, 20);
 			this->textBox3->TabIndex = 62;
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(131, 93);
+			this->textBox4->Location = System::Drawing::Point(131, 69);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(100, 20);
 			this->textBox4->TabIndex = 61;
@@ -109,7 +107,7 @@ namespace WeatherStationView {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(12, 93);
+			this->label3->Location = System::Drawing::Point(12, 69);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(32, 13);
 			this->label3->TabIndex = 60;
@@ -118,7 +116,7 @@ namespace WeatherStationView {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(12, 66);
+			this->label4->Location = System::Drawing::Point(12, 42);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(53, 13);
 			this->label4->TabIndex = 59;
@@ -196,35 +194,19 @@ namespace WeatherStationView {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(131, 36);
+			this->textBox2->Location = System::Drawing::Point(131, 12);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(100, 20);
 			this->textBox2->TabIndex = 53;
 			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(131, 9);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 20);
-			this->textBox1->TabIndex = 52;
-			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(9, 36);
+			this->label2->Location = System::Drawing::Point(9, 12);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(35, 13);
 			this->label2->TabIndex = 51;
 			this->label2->Text = L"Name";
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(9, 12);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(16, 13);
-			this->label1->TabIndex = 50;
-			this->label1->Text = L"Id";
 			// 
 			// UserMaintenance
 			// 
@@ -241,9 +223,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
 			this->Name = L"UserMaintenance";
 			this->Text = L"UserMaintenance";
 			this->Load += gcnew System::EventHandler(this, &UserMaintenance::User_Load);
@@ -257,11 +237,15 @@ namespace WeatherStationView {
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { //aceptar
 	String^ Name = textBox2->Text;
 	String^ Password = textBox3->Text;
-	int Id = Int32::Parse(textBox1->Text);
 	String^ Email = textBox4->Text;
+	
+	List<User^>^ users = Controller::Controller::QueryAllUser();
+	int lastIdIndex = users->Count;
 
 	User^ user = gcnew User();
-	user->Id = Id;
+	User^ userLastId = users[lastIdIndex-1];
+
+	user->Id = (userLastId->Id) + 1;
 	user->Name = Name;
 	user->Password = Password;
 	user->Email = Email;
@@ -269,7 +253,6 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	Controller::Controller::AddUser(user);
 	ShowUserData();
 
-	textBox1->Text = "";
 	textBox2->Text = "";
 	textBox3->Text = "";
 	textBox4->Text = "";
