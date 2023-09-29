@@ -43,6 +43,8 @@ namespace WeatherStationPersistance {
 		static Ajustes^ QueryPrevAjustes();
 		static Membresia^ QueryMembresia();
 
+		static User^ QueryUserbyName(String^ name);
+
 
 	};
 }

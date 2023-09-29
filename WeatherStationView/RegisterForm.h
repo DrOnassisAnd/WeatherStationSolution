@@ -25,6 +25,7 @@ namespace WeatherStationView {
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			this->flag = 0;
 		}
 
 	protected:
@@ -46,7 +47,7 @@ namespace WeatherStationView {
 
 	private: System::Windows::Forms::Panel^ panel3;
 	private: System::Windows::Forms::TextBox^ txtEmail;
-
+	private: int flag;
 
 
 	private: System::Windows::Forms::Label^ label4;
@@ -453,25 +454,39 @@ private: System::Void textBox2_TextChanged(System::Object^ sender, System::Event
 private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ Name = txtName->Text;
-	String^ Password = txtPassword->Text;
-	String^ Email = txtEmail->Text;
-	//int Id = Int32::Parse(txtId->Text);
+	if (flag % 2) {
+		String^ Name = txtName->Text;
+		String^ Password = txtPassword->Text;
+		String^ Email = txtEmail->Text;
 
-	User^ user = gcnew User();
-	//user->Id = Id;
-	user->Name = Name;
-	user->Password = Password;
-	user->Email = Email;
+		List<User^>^ users = Controller::Controller::QueryAllUser();
+		int lastIdIndex = users->Count;
 
-	Controller::Controller::AddUser(user);
+		User^ user = gcnew User();
 
-	//ShowUser();
-	this->Close();
-	MembresiaForm obj;
-	obj.ShowDialog();
-	
-	
+		if (lastIdIndex == 0) {
+			user->Id = 1;
+		}
+		else {
+			User^ userLastId = users[lastIdIndex - 1];
+			user->Id = (userLastId->Id) + 1;
+		}
+
+		user->Name = Name;
+		user->Password = Password;
+		user->Email = Email;
+
+		Controller::Controller::AddUser(user);
+
+		MessageBox::Show("Credenciales registradas. Bienvenido, "+ user->Name);
+		//ShowUser();
+		this->Close();
+		MembresiaForm obj;
+		obj.ShowDialog();
+	}
+	else {
+		MessageBox::Show("Acepte los terminos y condiciones para registrarse");
+	}
 
 }
 	   /*void ShowUser() {
@@ -503,6 +518,7 @@ private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void panel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	flag++;	
 }
 };
 }

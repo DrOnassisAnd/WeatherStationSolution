@@ -10,7 +10,7 @@ void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, O
 		List<User^>^ users = (List<User^>^)persistObject;
 		for (int i = 0; i < users->Count; i++) {
 			User^ r =users[i];
-			writer->WriteLine(r->Name + ", " + r->Password + ", " + r->Email + ", " + r->Id);
+			writer->WriteLine(r->Name + "," + r->Password + "," + r->Email + "," + r->Id);
 		}
 	}
 	else if (persistObject->GetType() == Ajustes::typeid) {
@@ -195,4 +195,13 @@ List<SensorCO^>^ WeatherStationPersistance::Persistance::QueryCOData() {
 List<SensorTemperaturaHumedad^>^ WeatherStationPersistance::Persistance::QueryTempHumData() {
 	sTempHum = (List<SensorTemperaturaHumedad^>^)LoadTextFile(TEMP_HUM_FILE);
 	return sTempHum;
+}
+
+User^ WeatherStationPersistance::Persistance::QueryUserbyName(String^ name) {
+	UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
+	for (int i = 0; i < UserList->Count; i++) {
+		if (UserList[i]->Name == name)
+			return UserList[i];
+	}
+	return nullptr;
 }

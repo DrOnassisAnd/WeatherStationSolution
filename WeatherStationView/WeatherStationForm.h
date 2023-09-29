@@ -61,6 +61,8 @@ namespace WeatherStationView {
 
 
 
+
+
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -319,15 +321,31 @@ private: System::Void textBox2_Click(System::Object^ sender, System::EventArgs^ 
 }
 
 private: System::Void otherclick(System::Object^ sender, System::EventArgs^ e) {
-	if (textBox1->Text == "") {
+	/*if (textBox1->Text == "") {
 		textBox1->Text = "Username";
 	}
 	if (textBox2->Text == "") {
 		textBox2->Text = "Password";
+	}*/
+	User^ usercheck = Controller::Controller::QueryUserbyName(textBox1->Text);
+	if (usercheck != nullptr) {
+		if (usercheck->Name == textBox1->Text) {
+			if (textBox2->Text == usercheck->Password) {
+				MessageBox::Show("Bienvenido " + usercheck->Name);
+				WeatherStationFormAdmin obj;
+				obj.ShowDialog();
+			}
+			else {
+				MessageBox::Show("Usuario o contraseña incorrectos. Ingrese los datos de nuevo.");
+			}
+		}
+		else {
+			MessageBox::Show("Usuario o contraseña incorrectos. Ingrese los datos de nuevo.");
+		}
 	}
-	WeatherStationFormAdmin obj;
-	obj.ShowDialog();
-
+	else {
+		MessageBox::Show("No ha ingresado ningun nombre de usuario.");
+	}
 	
 	
 }
@@ -341,6 +359,7 @@ private: System::Void WeatherStationForm_Load(System::Object^ sender, System::Ev
 
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
+
 
 };
 }
