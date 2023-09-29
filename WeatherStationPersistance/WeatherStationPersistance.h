@@ -19,14 +19,26 @@ namespace WeatherStationPersistance {
 
 	public:	
 		static String^ WEATHER_STATION = "users_weather.txt";
+		static String^ USERS_XML = "users_data.xml";
+		static String^ USERS_BIN = "users_data.bin";
+
 		static String^ AJUSTES_FILE = "ajustes_weather.txt";
+
 		static String^ MEMBRESIA_FILE = "membresia_weather.txt";
+
 		static String^ CALIDAD_AIRE_FILE = "aire_data.txt";
+
 		static String^ CO_FILE = "co_data.txt";
+
 		static String^ TEMP_HUM_FILE = "temp_hum_data.txt";
+
 
 		static void PersistTextFile(String^, Object^);
 		static Object^ LoadTextFile(String^);
+		static void PersistXMLFile(String^ fileName, Object^ persistObject);
+		static Object^ LoadXMLFile(String^ fileName);
+		static void PersistBinaryFile(String^ fileName, Object^ persistObject);
+		static Object^ LoadBinaryFile(String^ fileName);
 		
 		static void AddUser(User^ User);
 		static void AddAjustes(Ajustes^ ajustes);
@@ -44,6 +56,8 @@ namespace WeatherStationPersistance {
 		static Membresia^ QueryMembresia();
 
 		static User^ QueryUserbyName(String^ name);
+		static User^ QueryUserbyId(int id);
+		static void DeleteUser(int userId);
 
 
 	};

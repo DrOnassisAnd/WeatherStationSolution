@@ -290,7 +290,7 @@ private: System::Void idToolStripMenuItem_Click(System::Object^ sender, System::
 private: System::Void temporizadorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	Application::Exit();
+	this->Close();
 }
 private: System::Void estaditicaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 }

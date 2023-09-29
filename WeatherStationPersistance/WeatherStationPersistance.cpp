@@ -1,5 +1,8 @@
 #include "pch.h"
 #include "WeatherStationPersistance.h"
+
+using namespace System::Xml::Serialization;
+using namespace System::Runtime::Serialization::Formatters::Binary;
 using namespace System::IO;
 void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, Object^ persistObject) {
 	FileStream^ file;
@@ -40,6 +43,39 @@ void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, O
 	}
 	if (writer != nullptr) writer->Close();
 	if (file != nullptr) file->Close();
+}
+
+void WeatherStationPersistance::Persistance::PersistXMLFile(String^ fileName, Object^ persistObject) {
+	StreamWriter^ writer;
+	try {
+		writer = gcnew  StreamWriter(fileName);
+		if (persistObject->GetType() == List<User^>::typeid) {
+			XmlSerializer^ xmlSerializer = gcnew XmlSerializer(List<User^>::typeid);
+			xmlSerializer->Serialize(writer, persistObject);
+		}
+		//si hay casos particulares :' La unica diferencia es el tipo de dato User^ nada mas
+	}
+	catch (Exception^ ex) {
+		throw ex;
+	}
+	finally { //Es el más importante
+		if (writer != nullptr) writer->Close();
+	}
+}
+
+void WeatherStationPersistance::Persistance::PersistBinaryFile(String^ fileName, Object^ persistObject) {
+	FileStream^ file;
+	BinaryFormatter^ formatter = gcnew BinaryFormatter();
+	try {
+		file = gcnew FileStream(fileName, FileMode::Create, FileAccess::Write);
+		formatter->Serialize(file, persistObject);
+	}
+	catch (Exception^ ex) {
+		throw ex;
+	}
+	finally { //Es el más importante
+		if (file != nullptr) file->Close();
+	}
 }
 
 Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
@@ -136,6 +172,54 @@ Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
 	}
 	return result;
 }
+
+Object^ WeatherStationPersistance::Persistance::LoadXMLFile(String^ fileName) {
+	StreamReader^ reader;
+	Object^ result;
+	XmlSerializer^ xmlSerializer;
+	try {
+		if (File::Exists(fileName)) {
+			reader = gcnew StreamReader(fileName);
+			if (fileName->Equals(USERS_XML)) {
+				xmlSerializer = gcnew XmlSerializer(List<User^>::typeid);
+				result = (List<User^>^)xmlSerializer->Deserialize(reader);
+			}
+			if (reader != nullptr) reader->Close();
+		}//caso particular, cambia el nombre y la clase
+	}
+	catch (Exception^ ex) {
+		throw ex;
+	}
+	finally {
+		if (reader != nullptr) reader->Close();
+	}
+	return result;
+}
+
+Object^ WeatherStationPersistance::Persistance::LoadBinaryFile(String^ fileName) {
+	Object^ result;
+	FileStream^ file;
+	BinaryFormatter^ formatter;
+	try {
+		if (File::Exists(fileName)) {
+			file = gcnew FileStream(fileName, FileMode::Open, FileAccess::Read);
+			formatter = gcnew BinaryFormatter();
+
+			if (fileName->Equals(USERS_BIN)) {
+				result = formatter->Deserialize(file);
+			}
+		}
+	}
+	catch (Exception^ ex) {
+		throw ex;
+	}
+	finally {
+		if (file != nullptr) file->Close();
+	}
+	return result;
+}
+
+
 void WeatherStationPersistance::Persistance::AddUser(User^user) {
 	UserList->Add(user);
 	PersistTextFile(WEATHER_STATION, UserList);
@@ -204,4 +288,21 @@ User^ WeatherStationPersistance::Persistance::QueryUserbyName(String^ name) {
 			return UserList[i];
 	}
 	return nullptr;
+}
+
+User^ WeatherStationPersistance::Persistance::QueryUserbyId(int Id) {
+	UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
+	for (int i = 0; i < UserList->Count; i++) {
+		if (UserList[i]->Id == Id)
+			return UserList[i];
+	}
+	return nullptr;
+}
+
+void WeatherStationPersistance::Persistance::DeleteUser(int userId) {
+	for (int i = 0; i < UserList->Count; i++) {
+		if (UserList[i]->Id == userId)
+			UserList->RemoveAt(i);
+	}
+	PersistTextFile(WEATHER_STATION, UserList);
 }

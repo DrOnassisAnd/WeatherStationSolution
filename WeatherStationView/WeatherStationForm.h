@@ -329,25 +329,18 @@ private: System::Void otherclick(System::Object^ sender, System::EventArgs^ e) {
 	}*/
 	User^ usercheck = Controller::Controller::QueryUserbyName(textBox1->Text);
 	if (usercheck != nullptr) {
-		if (usercheck->Name == textBox1->Text) {
-			if (textBox2->Text == usercheck->Password) {
-				MessageBox::Show("Bienvenido " + usercheck->Name);
-				WeatherStationFormAdmin obj;
-				obj.ShowDialog();
-			}
-			else {
-				MessageBox::Show("Usuario o contraseña incorrectos. Ingrese los datos de nuevo.");
-			}
+		if (textBox2->Text == usercheck->Password) {
+			MessageBox::Show("Bienvenido " + usercheck->Name);
+			WeatherStationFormAdmin obj;
+			obj.ShowDialog();
 		}
 		else {
-			MessageBox::Show("Usuario o contraseña incorrectos. Ingrese los datos de nuevo.");
+			MessageBox::Show("Contrasenha incorrecta para " + usercheck->Name + ". Ingrese los datos de nuevo.");
 		}
 	}
 	else {
-		MessageBox::Show("No ha ingresado ningun nombre de usuario.");
+		MessageBox::Show("Usuario o contraseña incorrectos. Ingrese los datos de nuevo.");
 	}
-	
-	
 }
 private: System::Void registerbtn(System::Object^ sender, System::EventArgs^ e) {
 	RegisterForm obj;
