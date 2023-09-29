@@ -11,6 +11,7 @@ namespace Controller {
 	public:
 		static void AddUser(User^);
 		static List<User^>^ QueryAllUser();
+		static User^ QueryUserbyName(String^ name);
 
 		static void AddAjustes(Ajustes^);
 		static Ajustes^ QueryPrevAjustes();

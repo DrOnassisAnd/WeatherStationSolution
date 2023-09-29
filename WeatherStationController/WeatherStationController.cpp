@@ -61,3 +61,7 @@ List<SensorTemperaturaHumedad^>^ Controller::Controller::QueryTempHumData() {
 	//Se puede programar más cosas
 	return WeatherStationPersistance::Persistance::QueryTempHumData();
 }
+
+User^ Controller::Controller::QueryUserbyName(String^ name) {
+	return WeatherStationPersistance::Persistance::QueryUserbyName(name);
+}
