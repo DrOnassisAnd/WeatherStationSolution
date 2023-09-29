@@ -65,3 +65,11 @@ List<SensorTemperaturaHumedad^>^ Controller::Controller::QueryTempHumData() {
 User^ Controller::Controller::QueryUserbyName(String^ name) {
 	return WeatherStationPersistance::Persistance::QueryUserbyName(name);
 }
+
+User^ Controller::Controller::QueryUserbyId(int Id) {
+	return WeatherStationPersistance::Persistance::QueryUserbyId(Id);
+}
+
+void Controller::Controller::DeleteUser(int userId) {
+	WeatherStationPersistance::Persistance::DeleteUser(userId);
+}

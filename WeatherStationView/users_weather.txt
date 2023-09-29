@@ -1,9 +1,4 @@
-Hola,      Mundo,      a20214997@pucp.edu.pe,1
-Hugo,     Pratt,     2021,2
-JoaquinP7,    123456,    a1718@pucp.edu.pe,3
-JP,   yoyo,   a20215000@pucp.edu.pe,4
-rolando,  RS,  rs@pucp.edu.pe,5
-HPratt, RS, hola@hug.pe,6
-mundo,HolaMundo,hola,7
-HPratt,RS,RS,8
+JP,yoyo,a20215000@pucp.edu.pe,4
+HPratt,RS,hola@hug.pe,6
 HPratt2,RS2,RS,9
+JoaquinP7,LPOO_20214997,a20214997@pucp.edu.oe,10

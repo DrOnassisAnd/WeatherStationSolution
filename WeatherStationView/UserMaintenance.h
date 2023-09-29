@@ -23,6 +23,7 @@ namespace WeatherStationView {
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			this->Id = 0;
 		}
 
 	protected:
@@ -58,7 +59,7 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
-
+	private: int Id;
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -143,6 +144,7 @@ namespace WeatherStationView {
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->Size = System::Drawing::Size(446, 177);
 			this->dataGridView1->TabIndex = 57;
+			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &UserMaintenance::Table_CellClick);
 			// 
 			// Column1
 			// 
@@ -172,6 +174,7 @@ namespace WeatherStationView {
 			this->button3->TabIndex = 56;
 			this->button3->Text = L"Eliminar";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &UserMaintenance::button3_Click);
 			// 
 			// button2
 			// 
@@ -278,5 +281,18 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	   private: System::Void User_Load(System::Object^ sender, System::EventArgs^ e) {
 		   ShowUserData();
 	   }
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) { //eliminar
+	Controller::Controller::DeleteUser(Id);
+	ShowUserData();
+}
+
+private: System::Void Table_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	Id = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
+		->Cells[0]->Value->ToString());
+	User^ user = Controller::Controller::QueryUserbyId(Id);
+	textBox2->Text = user->Name;
+	textBox3->Text = user->Password;
+	textBox4->Text = user->Email;
+}
 };
 }
