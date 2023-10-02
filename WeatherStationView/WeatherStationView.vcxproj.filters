@@ -14,6 +14,7 @@
     <ClCompile Include="COMaintenanceForm.cpp" />
     <ClCompile Include="TempHumMaintenanceForm.cpp" />
     <ClCompile Include="UserMaintenance.cpp" />
+    <ClCompile Include="BasicForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MembresiaForm.h" />
@@ -29,5 +30,19 @@
     <ClInclude Include="COMaintenanceForm.h" />
     <ClInclude Include="TempHumMaintenanceForm.h" />
     <ClInclude Include="UserMaintenance.h" />
+    <ClInclude Include="BasicForm.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WeatherStationView.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="LogoPrincipal.jpg" />
+    <Image Include="LogoPrueba.jpg" />
+    <Image Include="BIBLIOTECA CENTRAL.jpg" />
+    <Image Include="CIA.jpeg" />
+    <Image Include="FACI.jpg" />
+    <Image Include="LogoPrueba2.jpg" />
+    <Image Include="TINKUY.jpg" />
   </ItemGroup>
 </Project>
