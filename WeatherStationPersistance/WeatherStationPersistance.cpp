@@ -18,27 +18,27 @@ void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, O
 	}
 	else if (persistObject->GetType() == Ajustes::typeid) {
 		Ajustes^ ajustes = (Ajustes^)persistObject;
-		writer->WriteLine(ajustes->UnidadTemp + ", " + ajustes->FormatoHoras + ", " + ajustes->FormatoFecha);
+		writer->WriteLine(ajustes->UnidadTemp + "," + ajustes->FormatoHoras + "," + ajustes->FormatoFecha);
 	}
-	else if (persistObject->GetType() == List<SensorCalidadAire^>::typeid) {
+	else if (persistObject->GetType() == List<SensorCalidadAire^>::typeid) { //Calidad Aire
 		List<SensorCalidadAire^>^ airq = (List<SensorCalidadAire^>^)persistObject;
 		for (int i = 0; i < airq->Count; i++) {
 			SensorCalidadAire^ r = airq[i];
-			writer->WriteLine(r->IdSensor + ", " + r->CalidadAire);
+			writer->WriteLine(r->IdMedicion + "," + r->IdSensor + "," + r->CalidadAire);
 		}
 	}
-	else if (persistObject->GetType() == List<SensorCO^>::typeid) {
+	else if (persistObject->GetType() == List<SensorCO^>::typeid) { //CO
 		List<SensorCO^>^ CO = (List<SensorCO^>^)persistObject;
 		for (int i = 0; i < CO->Count; i++) {
 			SensorCO^ r = CO[i];
-			writer->WriteLine(r->IdSensor + ", " + r->NivelCO);
+			writer->WriteLine(r->IdMedicion + "," + r->IdSensor + "," + r->NivelCO);
 		}
 	}
-	else if (persistObject->GetType() == List<SensorTemperaturaHumedad^>::typeid) {
+	else if (persistObject->GetType() == List<SensorTemperaturaHumedad^>::typeid) { //TempHum
 		List<SensorTemperaturaHumedad^>^ tempHum = (List<SensorTemperaturaHumedad^>^)persistObject;
 		for (int i = 0; i < tempHum->Count; i++) {
 			SensorTemperaturaHumedad^ r = tempHum[i];
-			writer->WriteLine(r->IdSensor + ", " + r->Temperatura + ", " + r->UnidadTemp + ", " + r->Humedad);
+			writer->WriteLine(r->IdMedicion + "," + r->IdSensor + "," + r->Temperatura + "," + r->UnidadTemp + "," + r->Humedad);
 		}
 	}
 	if (writer != nullptr) writer->Close();
@@ -51,6 +51,10 @@ void WeatherStationPersistance::Persistance::PersistXMLFile(String^ fileName, Ob
 		writer = gcnew  StreamWriter(fileName);
 		if (persistObject->GetType() == List<User^>::typeid) {
 			XmlSerializer^ xmlSerializer = gcnew XmlSerializer(List<User^>::typeid);
+			xmlSerializer->Serialize(writer, persistObject);
+		}
+		else if (persistObject->GetType() == List<SensorTemperaturaHumedad^>::typeid) {
+			XmlSerializer^ xmlSerializer = gcnew XmlSerializer(List<SensorTemperaturaHumedad^>::typeid);
 			xmlSerializer->Serialize(writer, persistObject);
 		}
 		//si hay casos particulares :' La unica diferencia es el tipo de dato User^ nada mas
@@ -159,10 +163,11 @@ Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
 				if (line == nullptr) break;
 				array<String^>^ record = line->Split(',');
 				SensorTemperaturaHumedad^ tempHum = gcnew SensorTemperaturaHumedad();
-				tempHum->IdSensor = record[0];
-				tempHum->Temperatura = Convert::ToInt32(record[1]);
-				tempHum->UnidadTemp = record[2];
-				tempHum->Humedad = Convert::ToInt32(record[3]);
+				tempHum->IdMedicion = Convert::ToInt32(record[0]);
+				tempHum->IdSensor = record[1];
+				tempHum->Temperatura = Convert::ToInt32(record[2]);
+				tempHum->UnidadTemp = record[3];
+				tempHum->Humedad = Convert::ToInt32(record[4]);
 				((List<SensorTemperaturaHumedad^>^)result)->Add(tempHum);
 			}
 		}
@@ -183,9 +188,13 @@ Object^ WeatherStationPersistance::Persistance::LoadXMLFile(String^ fileName) {
 			if (fileName->Equals(USERS_XML)) {
 				xmlSerializer = gcnew XmlSerializer(List<User^>::typeid);
 				result = (List<User^>^)xmlSerializer->Deserialize(reader);
+			}//caso particular, cambia el nombre y la clase
+			else if (fileName->Equals(TEMP_HUM_XML)) {
+				xmlSerializer = gcnew XmlSerializer(List<SensorTemperaturaHumedad^>::typeid);
+				result = (List<SensorTemperaturaHumedad^>^)xmlSerializer->Deserialize(reader);
 			}
 			if (reader != nullptr) reader->Close();
-		}//caso particular, cambia el nombre y la clase
+		}
 	}
 	catch (Exception^ ex) {
 		throw ex;
@@ -207,6 +216,9 @@ Object^ WeatherStationPersistance::Persistance::LoadBinaryFile(String^ fileName)
 
 			if (fileName->Equals(USERS_BIN)) {
 				result = formatter->Deserialize(file);
+			}//caso particular, cambia el nombre
+			else if (fileName->Equals(TEMP_HUM_FILE)) {
+				result = formatter->Deserialize(file);
 			}
 		}
 	}
@@ -226,61 +238,10 @@ void WeatherStationPersistance::Persistance::AddUser(User^user) {
 	PersistXMLFile(USERS_XML, UserList);
 }
 
-void WeatherStationPersistance::Persistance::AddAjustes(Ajustes^ ajustes) {
-	AjustesList = (Ajustes^)ajustes;
-	PersistTextFile(AJUSTES_FILE, AjustesList);
-}
-
-void WeatherStationPersistance::Persistance::AddMembresia(Membresia^ membresias) {
-	MembresiaList = (Membresia^)membresias;
-	PersistTextFile(MEMBRESIA_FILE, MembresiaList);
-}
-
-void WeatherStationPersistance::Persistance::AddAirQData(SensorCalidadAire^ airq) {
-	sCalidadAire->Add(airq);
-	PersistTextFile(CALIDAD_AIRE_FILE, sCalidadAire);
-}
-
-void WeatherStationPersistance::Persistance::AddCOData(SensorCO^ CO) {
-	sConcentracionCO->Add(CO);
-	PersistTextFile(CO_FILE, sConcentracionCO);
-}
-
-void WeatherStationPersistance::Persistance::AddTempHumData(SensorTemperaturaHumedad^ tempHum) {
-	sTempHum->Add(tempHum);
-	PersistTextFile(TEMP_HUM_FILE, sTempHum);
-}
-
 List<User^>^ WeatherStationPersistance::Persistance::QueryAllUser() {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
 	UserList = (List<User^>^)LoadXMLFile(USERS_XML);
 	return UserList;
-}
-
-Ajustes^ WeatherStationPersistance::Persistance::QueryPrevAjustes() {
-	AjustesList = (Ajustes^)LoadTextFile(AJUSTES_FILE);
-	return AjustesList;
-}
-
-Membresia^ WeatherStationPersistance::Persistance::QueryMembresia()
-{
-	MembresiaList = (Membresia^)LoadTextFile(MEMBRESIA_FILE);
-	return MembresiaList;
-}
-
-List<SensorCalidadAire^>^ WeatherStationPersistance::Persistance::QueryAirQData() {
-	sCalidadAire = (List<SensorCalidadAire^>^)LoadTextFile(CALIDAD_AIRE_FILE);
-	return sCalidadAire;
-}
-
-List<SensorCO^>^ WeatherStationPersistance::Persistance::QueryCOData() {
-	sConcentracionCO = (List<SensorCO^>^)LoadTextFile(CO_FILE);
-	return sConcentracionCO;
-}
-
-List<SensorTemperaturaHumedad^>^ WeatherStationPersistance::Persistance::QueryTempHumData() {
-	sTempHum = (List<SensorTemperaturaHumedad^>^)LoadTextFile(TEMP_HUM_FILE);
-	return sTempHum;
 }
 
 User^ WeatherStationPersistance::Persistance::QueryUserbyName(String^ name) {
@@ -321,4 +282,90 @@ void WeatherStationPersistance::Persistance::DeleteUser(int userId) {
 	//PersistTextFile(WEATHER_STATION, UserList);
 	PersistXMLFile(USERS_XML, UserList);
 	//PersistBinaryFile(USERS_BIN, UserList);
+}
+
+void WeatherStationPersistance::Persistance::AddAjustes(Ajustes^ ajustes) {
+	AjustesList = (Ajustes^)ajustes;
+	PersistTextFile(AJUSTES_FILE, AjustesList);
+}
+
+void WeatherStationPersistance::Persistance::AddMembresia(Membresia^ membresias) {
+	MembresiaList = (Membresia^)membresias;
+	PersistTextFile(MEMBRESIA_FILE, MembresiaList);
+}
+
+void WeatherStationPersistance::Persistance::AddAirQData(SensorCalidadAire^ airq) {
+	sCalidadAire->Add(airq);
+	PersistTextFile(CALIDAD_AIRE_FILE, sCalidadAire);
+}
+
+void WeatherStationPersistance::Persistance::AddCOData(SensorCO^ CO) {
+	sConcentracionCO->Add(CO);
+	PersistTextFile(CO_FILE, sConcentracionCO);
+}
+
+Ajustes^ WeatherStationPersistance::Persistance::QueryPrevAjustes() {
+	AjustesList = (Ajustes^)LoadTextFile(AJUSTES_FILE);
+	return AjustesList;
+}
+
+Membresia^ WeatherStationPersistance::Persistance::QueryMembresia()
+{
+	MembresiaList = (Membresia^)LoadTextFile(MEMBRESIA_FILE);
+	return MembresiaList;
+}
+
+List<SensorCalidadAire^>^ WeatherStationPersistance::Persistance::QueryAirQData() {
+	sCalidadAire = (List<SensorCalidadAire^>^)LoadTextFile(CALIDAD_AIRE_FILE);
+	return sCalidadAire;
+}
+
+List<SensorCO^>^ WeatherStationPersistance::Persistance::QueryCOData() {
+	sConcentracionCO = (List<SensorCO^>^)LoadTextFile(CO_FILE);
+	return sConcentracionCO;
+}
+
+void WeatherStationPersistance::Persistance::AddTempHumData(SensorTemperaturaHumedad^ tempHum) {
+	sTempHumList->Add(tempHum);
+	//PersistTextFile(TEMP_HUM_FILE, sTempHumList);
+	PersistXMLFile(TEMP_HUM_XML, sTempHumList);
+}
+
+List<SensorTemperaturaHumedad^>^ WeatherStationPersistance::Persistance::QueryTempHumData() {
+	sTempHumList = (List<SensorTemperaturaHumedad^>^)LoadXMLFile(TEMP_HUM_XML);
+	//sTempHumList = (List<SensorTemperaturaHumedad^>^)LoadTextFile(TEMP_HUM_FILE);
+	return sTempHumList;
+}
+
+SensorTemperaturaHumedad^ WeatherStationPersistance::Persistance::QueryTHbyIds(int IdMedicion, String^ IdSensor) {
+	sTempHumList = (List<SensorTemperaturaHumedad^>^)LoadXMLFile(TEMP_HUM_XML);
+	//sTempHumList = (List<SensorTemperaturaHumedad^>^)LoadTextFile(TEMP_HUM_FILE);
+	for (int i = 0; i < sTempHumList->Count; i++) {
+		if ((sTempHumList[i]->IdMedicion) == IdMedicion)
+			if((sTempHumList[i]->IdSensor) == IdSensor)
+				return sTempHumList[i];
+	}
+	return nullptr;
+}
+
+void WeatherStationPersistance::Persistance::UpdateTHData(SensorTemperaturaHumedad^ sTempHum) {
+	for (int i = 0; i < sTempHumList->Count; i++) {
+		if (sTempHumList[i]->IdMedicion == sTempHum->IdMedicion)
+			//if (sTempHumList[i]->IdSensor == sTempHum->IdSensor)
+			sTempHumList[i] = sTempHum;
+	}
+	//PersistTextFile(TEMP_HUM_FILE, sTempHumList);
+	PersistXMLFile(TEMP_HUM_XML, sTempHumList);
+	//PersistBinaryFile(TEMP_HUM_BIN, sTempHumList);
+}
+
+void WeatherStationPersistance::Persistance::DeleteTHData(int IdMedicion, String^ IdSensor) {
+	for (int i = 0; i < sTempHumList->Count; i++) {
+		if (sTempHumList[i]->IdMedicion == IdMedicion)
+			if (sTempHumList[i]->IdSensor == IdSensor)
+				sTempHumList->RemoveAt(i);
+	}
+	//PersistTextFile(TEMP_HUM_FILE, sTempHumList);
+	PersistXMLFile(TEMP_HUM_XML, sTempHumList);
+	//PersistBinaryFile(TEMP_HUM_BIN, sTempHumList);
 }
