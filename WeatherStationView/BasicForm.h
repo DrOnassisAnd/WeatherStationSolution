@@ -431,6 +431,7 @@ namespace WeatherStationView {
 		}
 #pragma endregion
 	private: System::Void BasicForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->comboBox1->SelectedIndex = 0;
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}

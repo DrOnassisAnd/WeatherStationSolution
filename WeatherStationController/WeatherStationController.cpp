@@ -1,11 +1,35 @@
 
 #include "WeatherStationController.h"
 
+//User
 
 void Controller::Controller::AddUser(User^ user) {
 	//Se puede programar más cosas.
 	WeatherStationPersistance::Persistance::AddUser(user);
 }
+
+List<User^>^ Controller::Controller::QueryAllUser() {
+	//Se puede programar más cosas
+	return WeatherStationPersistance::Persistance::QueryAllUser();
+}
+
+User^ Controller::Controller::QueryUserbyName(String^ name) {
+	return WeatherStationPersistance::Persistance::QueryUserbyName(name);
+}
+
+User^ Controller::Controller::QueryUserbyId(int Id) {
+	return WeatherStationPersistance::Persistance::QueryUserbyId(Id);
+}
+
+void Controller::Controller::UpdateUser(User^ user) {
+	WeatherStationPersistance::Persistance::UpdateUser(user);
+}
+
+void Controller::Controller::DeleteUser(int userId) {
+	WeatherStationPersistance::Persistance::DeleteUser(userId);
+}
+
+//
 
 void Controller::Controller::AddAjustes(Ajustes^ ajustes) {
 	//Se puede programar más cosas.
@@ -30,15 +54,6 @@ void Controller::Controller::AddCOData(SensorCO^ CO) {
 void Controller::Controller::AddTempHumData(SensorTemperaturaHumedad^ tempHum) {
 	//Se puede programar más cosas.
 	WeatherStationPersistance::Persistance::AddTempHumData(tempHum);
-}
-
-List<User^>^ Controller::Controller::QueryAllUser() {
-	//Se puede programar más cosas
-	return WeatherStationPersistance::Persistance::QueryAllUser();
-}
-
-void Controller::Controller::UpdateUser(User^ user) {
-	WeatherStationPersistance::Persistance::UpdateUser(user);
 }
 
 Ajustes^ Controller::Controller::QueryPrevAjustes() {
@@ -66,14 +81,3 @@ List<SensorTemperaturaHumedad^>^ Controller::Controller::QueryTempHumData() {
 	return WeatherStationPersistance::Persistance::QueryTempHumData();
 }
 
-User^ Controller::Controller::QueryUserbyName(String^ name) {
-	return WeatherStationPersistance::Persistance::QueryUserbyName(name);
-}
-
-User^ Controller::Controller::QueryUserbyId(int Id) {
-	return WeatherStationPersistance::Persistance::QueryUserbyId(Id);
-}
-
-void Controller::Controller::DeleteUser(int userId) {
-	WeatherStationPersistance::Persistance::DeleteUser(userId);
-}

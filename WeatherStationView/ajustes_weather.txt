@@ -1,1 +1,1 @@
-°F, Formato de 12 horas, mm/dd/yyyy
+°C, Formato de 12 horas, dd/mm/yyyy

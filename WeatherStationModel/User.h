@@ -6,6 +6,7 @@
 using namespace System;
 
 namespace Model {
+    [Serializable]
     public ref class User {
     public:
         property String^ Name;
