@@ -51,11 +51,6 @@ void Controller::Controller::AddCOData(SensorCO^ CO) {
 	WeatherStationPersistance::Persistance::AddCOData(CO);
 }
 
-void Controller::Controller::AddTempHumData(SensorTemperaturaHumedad^ tempHum) {
-	//Se puede programar más cosas.
-	WeatherStationPersistance::Persistance::AddTempHumData(tempHum);
-}
-
 Ajustes^ Controller::Controller::QueryPrevAjustes() {
 	//Se puede programar más cosas
 	return WeatherStationPersistance::Persistance::QueryPrevAjustes();
@@ -76,8 +71,27 @@ List<SensorCO^>^ Controller::Controller::QueryCOData() {
 	return WeatherStationPersistance::Persistance::QueryCOData();
 }
 
+//Sensor Temperatura Humedad
+
+void Controller::Controller::AddTempHumData(SensorTemperaturaHumedad^ tempHum) {
+	//Se puede programar más cosas.
+	WeatherStationPersistance::Persistance::AddTempHumData(tempHum);
+}
+
 List<SensorTemperaturaHumedad^>^ Controller::Controller::QueryTempHumData() {
 	//Se puede programar más cosas
 	return WeatherStationPersistance::Persistance::QueryTempHumData();
+}
+
+SensorTemperaturaHumedad^ Controller::Controller::QueryTHbyIds(int IdMedicion, String^ IdSensor) {
+	return WeatherStationPersistance::Persistance::QueryTHbyIds(IdMedicion, IdSensor);
+}
+
+void Controller::Controller::UpdateTHData(SensorTemperaturaHumedad^ sTempHum) {
+	WeatherStationPersistance::Persistance::UpdateTHData(sTempHum);
+}
+
+void Controller::Controller::DeleteTHData(int IdMedicion, String^ IdSensor) {
+	WeatherStationPersistance::Persistance::DeleteTHData(IdMedicion, IdSensor);
 }
 

@@ -295,7 +295,7 @@ private: System::Void Table_CellClick(System::Object^ sender, System::Windows::F
 	textBox3->Text = user->Password;
 	textBox4->Text = user->Email;
 }
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //update
 
 	String^ name = textBox2->Text;
 	String^ password = textBox3->Text;

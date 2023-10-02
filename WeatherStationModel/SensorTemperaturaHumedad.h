@@ -6,7 +6,7 @@
 using namespace System;
 
 namespace Model {
-
+    [Serializable]
     public ref class SensorTemperaturaHumedad : public Sensor {
     public:
         property double Temperatura;

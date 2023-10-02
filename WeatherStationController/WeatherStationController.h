@@ -30,6 +30,9 @@ namespace Controller {
 
 		static void AddTempHumData(SensorTemperaturaHumedad^ sTempHum);
 		static List<SensorTemperaturaHumedad^>^ QueryTempHumData();
+		static SensorTemperaturaHumedad^ QueryTHbyIds(int IdMedicion, String^ IdSensor);
+		static void DeleteTHData(int IdMedicion, String^ IdSensor);
+		static void UpdateTHData(SensorTemperaturaHumedad^);
 
 	};
 }
