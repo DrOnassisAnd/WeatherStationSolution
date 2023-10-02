@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AirQMaintenanceForm.cpp" />
+    <ClCompile Include="BasicForm.cpp" />
     <ClCompile Include="COMaintenanceForm.cpp" />
     <ClCompile Include="MembershipMaintenanceForm.cpp" />
     <ClCompile Include="MembresiaForm.cpp" />
@@ -139,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AirQMaintenanceForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="BasicForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="COMaintenanceForm.h">
@@ -159,6 +163,7 @@
     <ClInclude Include="RegisterForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SensorMaintenanceForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -181,6 +186,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AirQMaintenanceForm.resx">
       <DependentUpon>AirQMaintenanceForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicForm.resx">
+      <DependentUpon>BasicForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="COMaintenanceForm.resx">
       <DependentUpon>COMaintenanceForm.h</DependentUpon>
@@ -227,6 +235,18 @@
     <ProjectReference Include="..\WeatherStationModel\WeatherStationModel.vcxproj">
       <Project>{9b0aa780-52c7-48ef-ac09-79fc0c3e6332}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WeatherStationView.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="BIBLIOTECA CENTRAL.jpg" />
+    <Image Include="CIA.jpeg" />
+    <Image Include="FACI.jpg" />
+    <Image Include="LogoPrincipal.jpg" />
+    <Image Include="LogoPrueba.jpg" />
+    <Image Include="LogoPrueba2.jpg" />
+    <Image Include="TINKUY.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

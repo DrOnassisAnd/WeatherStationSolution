@@ -454,38 +454,45 @@ private: System::Void textBox2_TextChanged(System::Object^ sender, System::Event
 private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (flag % 2) {
-		String^ Name = txtName->Text;
-		String^ Password = txtPassword->Text;
-		String^ Email = txtEmail->Text;
+	if ((txtEmail->Text != "") || (txtPassword->Text != "") || (txtName->Text != "")) {
 
-		List<User^>^ users = Controller::Controller::QueryAllUser();
-		int lastIdIndex = users->Count;
+		if (flag % 2) {
+			String^ Name = txtName->Text;
+			String^ Password = txtPassword->Text;
+			String^ Email = txtEmail->Text;
 
-		User^ user = gcnew User();
+			List<User^>^ users = Controller::Controller::QueryAllUser();
+			int lastIdIndex = users->Count;
 
-		if (lastIdIndex == 0) {
-			user->Id = 1;
+			User^ user = gcnew User();
+
+			if (lastIdIndex == 0) {
+				user->Id = 1;
+			}
+			else {
+				User^ userLastId = users[lastIdIndex - 1];
+				user->Id = (userLastId->Id) + 1;
+			}
+
+			user->Name = Name;
+			user->Password = Password;
+			user->Email = Email;
+
+			Controller::Controller::AddUser(user);
+
+			MessageBox::Show("Credenciales registradas. Bienvenido, " + user->Name);
+			//ShowUser();
+			this->Close();
+			MembresiaForm obj;
+			obj.ShowDialog();
 		}
 		else {
-			User^ userLastId = users[lastIdIndex - 1];
-			user->Id = (userLastId->Id) + 1;
+			MessageBox::Show("Acepte los terminos y condiciones para registrarse");
 		}
-
-		user->Name = Name;
-		user->Password = Password;
-		user->Email = Email;
-
-		Controller::Controller::AddUser(user);
-
-		MessageBox::Show("Credenciales registradas. Bienvenido, "+ user->Name);
-		//ShowUser();
-		this->Close();
-		MembresiaForm obj;
-		obj.ShowDialog();
 	}
+
 	else {
-		MessageBox::Show("Acepte los terminos y condiciones para registrarse");
+		MessageBox::Show("Por Favor complete los datos");
 	}
 
 }
