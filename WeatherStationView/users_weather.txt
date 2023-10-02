@@ -1,4 +1,4 @@
-JP,yoyo,a20215000@pucp.edu.pe,4
-HPratt,RS,hola@hug.pe,6
+PJ,orgoleS,a20215007@pucp.edu.pe,4
+HPratt3,RS,hola@hug.pe,6
 HPratt2,RS2,RS,9
 JoaquinP7,LPOO_20214997,a20214997@pucp.edu.oe,10

@@ -184,6 +184,7 @@ namespace WeatherStationView {
 			this->button2->TabIndex = 55;
 			this->button2->Text = L"Modificar";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &UserMaintenance::button2_Click);
 			// 
 			// button1
 			// 
@@ -293,6 +294,21 @@ private: System::Void Table_CellClick(System::Object^ sender, System::Windows::F
 	textBox2->Text = user->Name;
 	textBox3->Text = user->Password;
 	textBox4->Text = user->Email;
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	String^ name = textBox2->Text;
+	String^ password = textBox3->Text;
+	String^ email = textBox4->Text;
+
+	User^ user = gcnew User();
+	user->Id = Id;
+	user->Name = name;
+	user->Password = password;
+	user->Email = email;
+
+	Controller::Controller::UpdateUser(user);
+	ShowUserData();
 }
 };
 }

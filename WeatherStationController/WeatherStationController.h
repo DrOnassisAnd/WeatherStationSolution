@@ -14,6 +14,7 @@ namespace Controller {
 		static User^ QueryUserbyName(String^ name);
 		static User^ QueryUserbyId(int Id);
 		static void DeleteUser(int userId);
+		static void UpdateUser(User^);
 
 		static void AddAjustes(Ajustes^);
 		static Ajustes^ QueryPrevAjustes();

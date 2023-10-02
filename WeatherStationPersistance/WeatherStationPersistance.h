@@ -16,7 +16,6 @@ namespace WeatherStationPersistance {
 		static List<SensorCO^>^ sConcentracionCO = gcnew List<SensorCO^>();
 		static List<SensorTemperaturaHumedad^>^ sTempHum = gcnew List<SensorTemperaturaHumedad^>();
 
-
 	public:	
 		static String^ WEATHER_STATION = "users_weather.txt";
 		static String^ USERS_XML = "users_data.xml";
@@ -57,6 +56,7 @@ namespace WeatherStationPersistance {
 
 		static User^ QueryUserbyName(String^ name);
 		static User^ QueryUserbyId(int id);
+		static void UpdateUser(User^ user);
 		static void DeleteUser(int userId);
 
 

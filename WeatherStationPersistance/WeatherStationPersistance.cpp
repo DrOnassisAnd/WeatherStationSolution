@@ -223,6 +223,7 @@ Object^ WeatherStationPersistance::Persistance::LoadBinaryFile(String^ fileName)
 void WeatherStationPersistance::Persistance::AddUser(User^user) {
 	UserList->Add(user);
 	PersistTextFile(WEATHER_STATION, UserList);
+	//PersistXMLFile(USERS_XML, UserList);
 }
 
 void WeatherStationPersistance::Persistance::AddAjustes(Ajustes^ ajustes) {
@@ -252,6 +253,7 @@ void WeatherStationPersistance::Persistance::AddTempHumData(SensorTemperaturaHum
 
 List<User^>^ WeatherStationPersistance::Persistance::QueryAllUser() {
 	UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
+	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
 	return UserList;
 }
 
@@ -297,6 +299,16 @@ User^ WeatherStationPersistance::Persistance::QueryUserbyId(int Id) {
 			return UserList[i];
 	}
 	return nullptr;
+}
+
+void WeatherStationPersistance::Persistance::UpdateUser(User^ user) {
+	for (int i = 0; i < UserList->Count; i++) {
+		if (UserList[i]->Id == user->Id)
+			UserList[i] = user;
+	}
+	PersistTextFile(WEATHER_STATION, UserList);
+	//PersistXMLFile(ROBOT_XML_FILE_NAME, robotsList);
+	//PersistBinaryFile(ROBOT_BIN_FILE_NAME, robotsList);
 }
 
 void WeatherStationPersistance::Persistance::DeleteUser(int userId) {

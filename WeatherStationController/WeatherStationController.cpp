@@ -37,6 +37,10 @@ List<User^>^ Controller::Controller::QueryAllUser() {
 	return WeatherStationPersistance::Persistance::QueryAllUser();
 }
 
+void Controller::Controller::UpdateUser(User^ user) {
+	WeatherStationPersistance::Persistance::UpdateUser(user);
+}
+
 Ajustes^ Controller::Controller::QueryPrevAjustes() {
 	//Se puede programar más cosas
 	return WeatherStationPersistance::Persistance::QueryPrevAjustes();
