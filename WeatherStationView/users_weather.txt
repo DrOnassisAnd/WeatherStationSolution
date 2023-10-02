@@ -2,3 +2,15 @@ PJ,orgoleS,a20215007@pucp.edu.pe,4
 HPratt3,RS,hola@hug.pe,6
 HPratt2,RS2,RS,9
 JoaquinP7,LPOO_20214997,a20214997@pucp.edu.oe,10
+,,,11
+safsa,safsafa,safasfsaf,12
+sa,fasf,sa,13
+fsaf,asfsaf,safasf,14
+fsafas,asfsaf,fsafsfaf,15
+fsafsaf,safsaf,fsafsafas,16
+asfafas,asfasfasfas,asfasfa,17
+fsafsaf,safsafasf,fsafsaafsa,18
+fsafsafsa,fsafsa,saf,19
+fsafsa,fsafas,dsadsafsafas,20
+dsadas,dsada,sdasd,21
+a,a,a,22
