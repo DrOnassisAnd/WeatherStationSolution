@@ -19,12 +19,18 @@ namespace WeatherStationView {
 	public ref class PaymentMethodForm : public System::Windows::Forms::Form
 	{
 	public:
-		PaymentMethodForm(void)
+		PaymentMethodForm(int flag)
 		{
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			if (flag == 0) {
+				MessageBox::Show("Hola Mundo");
+			}
+			else {
+				MessageBox::Show("Adios Mundo");
+			}
 		}
 
 	protected:
