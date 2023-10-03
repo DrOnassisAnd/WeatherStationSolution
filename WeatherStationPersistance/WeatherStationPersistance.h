@@ -13,7 +13,7 @@ namespace WeatherStationPersistance {
 		static Ajustes^ AjustesList = gcnew Ajustes();
 		static Membresia^ MembresiaList = gcnew Membresia();
 		static List<SensorCalidadAire^>^ sCalidadAire = gcnew List<SensorCalidadAire^>();
-		static List<SensorCO^>^ sConcentracionCO = gcnew List<SensorCO^>();
+		static List<SensorCO^>^ sConcentracionCOList = gcnew List<SensorCO^>();
 		static List<SensorTemperaturaHumedad^>^ sTempHumList = gcnew List<SensorTemperaturaHumedad^>();
 
 	public:	
@@ -29,11 +29,13 @@ namespace WeatherStationPersistance {
 
 		static String^ CALIDAD_AIRE_FILE = "aire_data.txt";
 
-		static String^ CO_FILE = "co_data.txt";
-
 		static String^ TEMP_HUM_FILE = "temp_hum_data.txt";
 		static String^ TEMP_HUM_XML = "temp_hum_data.xml";
 		static String^ TEMP_HUM_BIN = "temp_hum_data.bin";
+
+		static String^ CO_FILE = "co_data.txt";
+		static String^ CO_XML = "co_data.xml";
+		static String^ CO_BIN = "co_data.bin";
 
 
 		//FileHandler
@@ -55,10 +57,8 @@ namespace WeatherStationPersistance {
 		static void AddAjustes(Ajustes^ ajustes);
 		static void AddMembresia(Membresia^ membresias);
 		static void AddAirQData(SensorCalidadAire^ sCalidadAire);
-		static void AddCOData(SensorCO^ sConcentracionCO);
 		
 		static List<SensorCalidadAire^>^ QueryAirQData();
-		static List<SensorCO^>^ QueryCOData();
 		static Ajustes^ QueryPrevAjustes();
 		static Membresia^ QueryMembresia();
 
@@ -69,7 +69,13 @@ namespace WeatherStationPersistance {
 		static void UpdateTHData(SensorTemperaturaHumedad^ sTempHum);
 		static void DeleteTHData(int IdMedicion, String^ IdSensor);
 		
-		
+		//CO Methods
+		static void AddCOData(SensorCO^ sConcentracionCO);
+		static List<SensorCO^>^ QueryCOData();
+		static SensorCO^ QueryCObyIds(int IdMedicion, String^ IdSensor);
+		static void UpdateCOData(SensorCO^ sConcentracionCO);
+		static void DeleteCOData(int IdMedicion, String^ IdSensor);
+
 
 		
 

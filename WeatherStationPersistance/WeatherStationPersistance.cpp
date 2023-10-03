@@ -41,6 +41,13 @@ void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, O
 			writer->WriteLine(r->IdMedicion + "," + r->IdSensor + "," + r->Temperatura + "," + r->UnidadTemp + "," + r->Humedad);
 		}
 	}
+	else if (persistObject->GetType() == List<SensorCO^>::typeid) { //TempHum
+		List<SensorCO^>^ CO = (List<SensorCO^>^)persistObject;
+		for (int i = 0; i < CO->Count; i++) {
+			SensorCO^ r = CO[i];
+			writer->WriteLine(r->IdMedicion + "," + r->IdSensor + "," + r->NivelCO);
+		}
+	}
 	if (writer != nullptr) writer->Close();
 	if (file != nullptr) file->Close();
 }
@@ -54,6 +61,10 @@ void WeatherStationPersistance::Persistance::PersistXMLFile(String^ fileName, Ob
 			xmlSerializer->Serialize(writer, persistObject);
 		}
 		else if (persistObject->GetType() == List<SensorTemperaturaHumedad^>::typeid) {
+			XmlSerializer^ xmlSerializer = gcnew XmlSerializer(List<SensorTemperaturaHumedad^>::typeid);
+			xmlSerializer->Serialize(writer, persistObject);
+		}
+		else if (persistObject->GetType() == List<SensorCO^>::typeid) {
 			XmlSerializer^ xmlSerializer = gcnew XmlSerializer(List<SensorTemperaturaHumedad^>::typeid);
 			xmlSerializer->Serialize(writer, persistObject);
 		}
@@ -151,8 +162,9 @@ Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
 				if (line == nullptr) break;
 				array<String^>^ record = line->Split(',');
 				SensorCO^ CO = gcnew SensorCO();
-				CO->IdSensor = record[0];
-				CO->NivelCO = Convert::ToInt32(record[1]);
+				CO->IdMedicion = Convert::ToInt32(record[0]);
+				CO->IdSensor = record[1];
+				CO->NivelCO = Convert::ToInt32(record[2]);
 				((List<SensorCO^>^)result)->Add(CO);
 			}
 		}
@@ -300,8 +312,8 @@ void WeatherStationPersistance::Persistance::AddAirQData(SensorCalidadAire^ airq
 }
 
 void WeatherStationPersistance::Persistance::AddCOData(SensorCO^ CO) {
-	sConcentracionCO->Add(CO);
-	PersistTextFile(CO_FILE, sConcentracionCO);
+	sConcentracionCOList->Add(CO);
+	PersistTextFile(CO_FILE, sConcentracionCOList);
 }
 
 Ajustes^ WeatherStationPersistance::Persistance::QueryPrevAjustes() {
@@ -321,8 +333,8 @@ List<SensorCalidadAire^>^ WeatherStationPersistance::Persistance::QueryAirQData(
 }
 
 List<SensorCO^>^ WeatherStationPersistance::Persistance::QueryCOData() {
-	sConcentracionCO = (List<SensorCO^>^)LoadTextFile(CO_FILE);
-	return sConcentracionCO;
+	sConcentracionCOList = (List<SensorCO^>^)LoadTextFile(CO_FILE);
+	return sConcentracionCOList;
 }
 
 void WeatherStationPersistance::Persistance::AddTempHumData(SensorTemperaturaHumedad^ tempHum) {
@@ -367,5 +379,38 @@ void WeatherStationPersistance::Persistance::DeleteTHData(int IdMedicion, String
 	}
 	//PersistTextFile(TEMP_HUM_FILE, sTempHumList);
 	PersistXMLFile(TEMP_HUM_XML, sTempHumList);
+	//PersistBinaryFile(TEMP_HUM_BIN, sTempHumList);
+}
+
+SensorCO^ WeatherStationPersistance::Persistance::QueryCObyIds(int IdMedicion, String^ IdSensor) {
+	sConcentracionCOList = (List<SensorCO^>^)LoadTextFile(CO_FILE);
+	//sTempHumList = (List<SensorTemperaturaHumedad^>^)LoadTextFile(TEMP_HUM_FILE);
+	for (int i = 0; i < sConcentracionCOList->Count; i++) {
+		if ((sConcentracionCOList[i]->IdMedicion) == IdMedicion)
+			if ((sConcentracionCOList[i]->IdSensor) == IdSensor)
+				return sConcentracionCOList[i];
+	}
+	return nullptr;
+}
+
+void WeatherStationPersistance::Persistance::UpdateCOData(SensorCO^ sConcentracionCO) {
+	for (int i = 0; i < sConcentracionCOList->Count; i++) {
+		if (sConcentracionCOList[i]->IdMedicion == sConcentracionCO->IdMedicion)
+			//if (sTempHumList[i]->IdSensor == sTempHum->IdSensor)
+			sConcentracionCOList[i] = sConcentracionCO;
+	}
+	PersistTextFile(CO_FILE, sConcentracionCOList);
+	//PersistXMLFile(CO_XML, sConcentracionCOList);
+	//PersistBinaryFile(TEMP_HUM_BIN, sTempHumList);
+}
+
+void WeatherStationPersistance::Persistance::DeleteCOData(int IdMedicion, String^ IdSensor) {
+	for (int i = 0; i < sConcentracionCOList->Count; i++) {
+		if (sConcentracionCOList[i]->IdMedicion == IdMedicion)
+			if (sConcentracionCOList[i]->IdSensor == IdSensor)
+				sConcentracionCOList->RemoveAt(i);
+	}
+	PersistTextFile(CO_FILE, sConcentracionCOList);
+	//PersistXMLFile(CO_XML, sConcentracionCOList);
 	//PersistBinaryFile(TEMP_HUM_BIN, sTempHumList);
 }

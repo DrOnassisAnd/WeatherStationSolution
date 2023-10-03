@@ -23,6 +23,7 @@ namespace WeatherStationView {
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			this->IdMedicion = 0;
 		}
 
 	protected:
@@ -39,8 +40,8 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Button^ button4;
 	protected:
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
+	private: int IdMedicion;
+
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button1;
@@ -48,6 +49,9 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
 
 	private:
 		/// <summary>
@@ -64,6 +68,7 @@ namespace WeatherStationView {
 		{
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -78,7 +83,7 @@ namespace WeatherStationView {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(292, 239);
+			this->button4->Location = System::Drawing::Point(377, 239);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(75, 23);
 			this->button4->TabIndex = 36;
@@ -89,14 +94,20 @@ namespace WeatherStationView {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
-				this->Column1,
-					this->Column4
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+				this->Column2,
+					this->Column1, this->Column4
 			});
 			this->dataGridView1->Location = System::Drawing::Point(12, 85);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(244, 177);
+			this->dataGridView1->Size = System::Drawing::Size(344, 177);
 			this->dataGridView1->TabIndex = 35;
+			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &COMaintenanceForm::CO_CellClick);
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"IdMedicion";
+			this->Column2->Name = L"Column2";
 			// 
 			// Column1
 			// 
@@ -110,7 +121,7 @@ namespace WeatherStationView {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(292, 107);
+			this->button3->Location = System::Drawing::Point(377, 107);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(75, 23);
 			this->button3->TabIndex = 34;
@@ -120,16 +131,17 @@ namespace WeatherStationView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(292, 61);
+			this->button2->Location = System::Drawing::Point(377, 61);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 23);
 			this->button2->TabIndex = 33;
 			this->button2->Text = L"Modificar";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &COMaintenanceForm::button2_Click_1);
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(292, 14);
+			this->button1->Location = System::Drawing::Point(377, 14);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 32;
@@ -156,7 +168,7 @@ namespace WeatherStationView {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(9, 38);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(80, 13);
+			this->label2->Size = System::Drawing::Size(109, 13);
 			this->label2->TabIndex = 29;
 			this->label2->Text = L"Concentración de CO";
 			// 
@@ -173,7 +185,7 @@ namespace WeatherStationView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(372, 269);
+			this->ClientSize = System::Drawing::Size(464, 296);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->button3);
@@ -199,11 +211,16 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	int NivelCO = Int32::Parse(textBox2->Text);
 	String^ IdSensor = textBox1->Text;
 
-	SensorCO^ airq = gcnew SensorCO();
-	airq->IdSensor = IdSensor;
-	airq->NivelCO = NivelCO;
+	List<SensorCO^>^ COs = Controller::Controller::QueryCOData();
+	int lastIdIndex = COs->Count;
 
-	Controller::Controller::AddCOData(airq);
+	SensorCO^ CO = gcnew SensorCO();
+	SensorCO^ COlastId = COs[lastIdIndex - 1];
+	CO->IdMedicion = (COlastId->IdMedicion) + 1;
+	CO->IdSensor = IdSensor;
+	CO->NivelCO = NivelCO;
+
+	Controller::Controller::AddCOData(CO);
 	ShowCOData();
 
 	textBox1->Text = "";
@@ -215,7 +232,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		   for (int i = 0; i < COdata->Count; i++) {
 			   SensorCO^ CO = COdata[i];
 			   dataGridView1->Rows->Add(gcnew array<String^> {
-				   CO->IdSensor,
+				   "" + CO->IdMedicion,
+					   CO->IdSensor,
 					   "" + CO->NivelCO
 			   });
 		   }
@@ -224,8 +242,37 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void COForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	ShowCOData();
 }
+
+private: System::Void CO_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	IdMedicion = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
+		->Cells[0]->Value->ToString());
+
+	String^ IdSensor = dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
+		->Cells[1]->Value->ToString();
+
+	SensorCO^ sCO = Controller::Controller::QueryCObyIds(IdMedicion, IdSensor);
+
+	textBox1->Text = sCO->IdSensor;
+	textBox2->Text = "" + sCO->NivelCO;
+}
+
+
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) { //eliminar
-	
+	String^ IdSensor = textBox1->Text;
+	Controller::Controller::DeleteCOData(IdMedicion, IdSensor);
+	ShowCOData();
+}
+private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	String^ IdSensor = textBox1->Text;
+	int NivelCO = Int32::Parse(textBox2->Text);
+
+	SensorCO^ sCO = gcnew SensorCO();
+	sCO->IdMedicion = IdMedicion;
+	sCO->IdSensor = IdSensor;
+	sCO->NivelCO = NivelCO;
+
+	Controller::Controller::UpdateCOData(sCO);
+	ShowCOData();
 }
 };
 }

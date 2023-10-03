@@ -46,10 +46,7 @@ void Controller::Controller::AddAirQData(SensorCalidadAire^ airq) {
 	WeatherStationPersistance::Persistance::AddAirQData(airq);
 }
 
-void Controller::Controller::AddCOData(SensorCO^ CO) {
-	//Se puede programar más cosas.
-	WeatherStationPersistance::Persistance::AddCOData(CO);
-}
+
 
 Ajustes^ Controller::Controller::QueryPrevAjustes() {
 	//Se puede programar más cosas
@@ -66,10 +63,30 @@ List<SensorCalidadAire^>^ Controller::Controller::QueryAirQData() {
 	return WeatherStationPersistance::Persistance::QueryAirQData();
 }
 
+//Sensor CO
+
+void Controller::Controller::AddCOData(SensorCO^ CO) {
+	//Se puede programar más cosas.
+	WeatherStationPersistance::Persistance::AddCOData(CO);
+}
+
 List<SensorCO^>^ Controller::Controller::QueryCOData() {
 	//Se puede programar más cosas
 	return WeatherStationPersistance::Persistance::QueryCOData();
 }
+
+SensorCO^ Controller::Controller::QueryCObyIds(int IdMedicion, String^ IdSensor) {
+	return WeatherStationPersistance::Persistance::QueryCObyIds(IdMedicion, IdSensor);
+}
+
+void Controller::Controller::UpdateCOData(SensorCO^ sConcentracionCO) {
+	WeatherStationPersistance::Persistance::UpdateCOData(sConcentracionCO);
+}
+
+void Controller::Controller::DeleteCOData(int IdMedicion, String^ IdSensor) {
+	WeatherStationPersistance::Persistance::DeleteCOData(IdMedicion, IdSensor);
+}
+
 
 //Sensor Temperatura Humedad
 
