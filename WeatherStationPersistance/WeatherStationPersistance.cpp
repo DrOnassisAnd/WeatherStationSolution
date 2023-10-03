@@ -4,6 +4,7 @@
 using namespace System::Xml::Serialization;
 using namespace System::Runtime::Serialization::Formatters::Binary;
 using namespace System::IO;
+using namespace System::Globalization;
 void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, Object^ persistObject) {
 	FileStream^ file;
 	StreamWriter^ writer;
@@ -12,7 +13,7 @@ void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, O
 	if (persistObject->GetType() == List<User^>::typeid) {
 		List<User^>^ users = (List<User^>^)persistObject;
 		for (int i = 0; i < users->Count; i++) {
-			User^ r =users[i];
+			User^ r = users[i];
 			writer->WriteLine(r->Name + "," + r->Password + "," + r->Email + "," + r->Id);
 		}
 	}
@@ -48,6 +49,13 @@ void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, O
 			writer->WriteLine(r->IdMedicion + "," + r->IdSensor + "," + r->NivelCO);
 		}
 	}
+	else if (persistObject->GetType() == List<AlertaMeteorologica^>::typeid) {
+		List<AlertaMeteorologica^>^ alertaMeteorologica = (List<AlertaMeteorologica^>^)persistObject;
+		for(int i=0;i<alertaMeteorologica->Count;i++){
+			AlertaMeteorologica^ r = alertaMeteorologica[i];
+			writer->WriteLine(r->IdAlerta + ", "+ r->IdSensor + ", "+r->ValorRef +", " + r->FechaHora);
+	    }
+    }
 	if (writer != nullptr) writer->Close();
 	if (file != nullptr) file->Close();
 }
@@ -183,6 +191,33 @@ Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
 				((List<SensorTemperaturaHumedad^>^)result)->Add(tempHum);
 			}
 		}
+		else if (fileName->Equals(WEATHER_WARNING_FILE)) {
+			result = gcnew List<AlertaMeteorologica^>();
+			while (true) {
+				String^ line = reader->ReadLine();
+				if (line == nullptr) {
+					break;
+				}
+				array<String^>^ record = line->Split(',');
+				AlertaMeteorologica^ alertaMeteorologica = gcnew AlertaMeteorologica();
+				String^ formatoFecha = "dd/MM/yyyy HH:mm:ss";
+				alertaMeteorologica->IdAlerta = record[0];
+				alertaMeteorologica->IdSensor = Int32::Parse(record[1]);
+				alertaMeteorologica->ValorRef = Convert::ToDouble(record[2]);
+				
+				try {
+					String^ StringRecord = record[3]->Trim();
+					alertaMeteorologica->FechaHora = DateTime::ParseExact(StringRecord, formatoFecha, CultureInfo::InvariantCulture, DateTimeStyles::None);
+				}
+				catch (System::FormatException^ ex) {
+					// Manejo de la excepción en caso de formato incorrecto
+					// Puedes registrar el error o asignar un valor predeterminado a FechaHora
+					alertaMeteorologica->FechaHora = DateTime::Today; // Valor predeterminado			
+				}
+				
+				((List<AlertaMeteorologica^>^)result)->Add(alertaMeteorologica);
+			}
+		}
 
 		if (reader != nullptr) reader->Close();
 		if (file != nullptr) file->Close();
@@ -312,9 +347,16 @@ void WeatherStationPersistance::Persistance::AddAirQData(SensorCalidadAire^ airq
 }
 
 void WeatherStationPersistance::Persistance::AddCOData(SensorCO^ CO) {
+
 	sConcentracionCOList->Add(CO);
 	PersistTextFile(CO_FILE, sConcentracionCOList);
 }
+
+void WeatherStationPersistance::Persistance::AddWeatherWarning(AlertaMeteorologica^ alertaMeteorologica) {
+	WeatherWarningList->Add(alertaMeteorologica);
+	PersistTextFile(WEATHER_WARNING_FILE, WeatherWarningList);
+}
+
 
 Ajustes^ WeatherStationPersistance::Persistance::QueryPrevAjustes() {
 	AjustesList = (Ajustes^)LoadTextFile(AJUSTES_FILE);
@@ -349,6 +391,7 @@ List<SensorTemperaturaHumedad^>^ WeatherStationPersistance::Persistance::QueryTe
 	return sTempHumList;
 }
 
+
 SensorTemperaturaHumedad^ WeatherStationPersistance::Persistance::QueryTHbyIds(int IdMedicion, String^ IdSensor) {
 	sTempHumList = (List<SensorTemperaturaHumedad^>^)LoadXMLFile(TEMP_HUM_XML);
 	//sTempHumList = (List<SensorTemperaturaHumedad^>^)LoadTextFile(TEMP_HUM_FILE);
@@ -357,8 +400,14 @@ SensorTemperaturaHumedad^ WeatherStationPersistance::Persistance::QueryTHbyIds(i
 			if((sTempHumList[i]->IdSensor) == IdSensor)
 				return sTempHumList[i];
 	}
-	return nullptr;
 }
+
+List<AlertaMeteorologica^>^ WeatherStationPersistance::Persistance::QueryWeatherWarning() {
+	WeatherWarningList = (List<AlertaMeteorologica^>^)LoadTextFile(WEATHER_WARNING_FILE);
+	return WeatherWarningList;
+}
+
+
 
 void WeatherStationPersistance::Persistance::UpdateTHData(SensorTemperaturaHumedad^ sTempHum) {
 	for (int i = 0; i < sTempHumList->Count; i++) {
@@ -413,4 +462,29 @@ void WeatherStationPersistance::Persistance::DeleteCOData(int IdMedicion, String
 	PersistTextFile(CO_FILE, sConcentracionCOList);
 	//PersistXMLFile(CO_XML, sConcentracionCOList);
 	//PersistBinaryFile(TEMP_HUM_BIN, sTempHumList);
+}
+AlertaMeteorologica^ WeatherStationPersistance::Persistance::QueryWeatherWarningbyId(String^ selectedWeatherWarningId) {
+	WeatherWarningList = (List<AlertaMeteorologica^>^)LoadTextFile(WEATHER_WARNING_FILE);
+	for (int i = 0; i < WeatherWarningList->Count; i++) {
+		//Obtenemos el IdAlerta(ESPACIOS INCLUIDOS)
+		String^ currentWeatherWarningId = WeatherWarningList[i]->IdAlerta;
+		//Obtenemos el IdAlerta(ESPACIOS VACIOS)
+		String^ trimmedWeatherWarningId = currentWeatherWarningId->Trim();
+		if (trimmedWeatherWarningId == selectedWeatherWarningId)
+			return WeatherWarningList[i];
+	}
+	return nullptr;
+}
+
+void WeatherStationPersistance::Persistance::DeleteWeatherWarning(String^ WeatherWarningId) {
+	for (int i = 0; i < WeatherWarningList->Count; i++) {
+		//Obtenemos el IdAlerta(ESPACIOS INCLUIDOS)
+		String^ currentWeatherWarningId = WeatherWarningList[i]->IdAlerta;
+		//Obtenemos el IdAlerta(ESPACIOS VACIOS)
+		String^ trimmedWeatherWarningId = currentWeatherWarningId->Trim();
+		if (trimmedWeatherWarningId == WeatherWarningId)
+			WeatherWarningList->RemoveAt(i);
+	}
+	PersistTextFile(WEATHER_WARNING_FILE, WeatherWarningList);
+
 }

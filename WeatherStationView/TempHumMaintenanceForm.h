@@ -188,6 +188,7 @@ namespace WeatherStationView {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(100, 20);
 			this->textBox1->TabIndex = 39;
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &TempHumMaintenanceForm::textBox1_TextChanged);
 			// 
 			// label2
 			// 
@@ -311,6 +312,7 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 
+
 private: System::Void TempHumForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	ShowTempHumData();
 }
@@ -352,6 +354,9 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	String^ IdSensor = textBox1->Text;
 	Controller::Controller::DeleteTHData(IdMedicion, IdSensor);
 	ShowTempHumData();
+
+private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
+
 };
 }

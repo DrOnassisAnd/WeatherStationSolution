@@ -6,9 +6,13 @@ using namespace System;
 namespace Model {
     public ref class AlertaMeteorologica {
     public:
-        property DateTime FechaHora;
         property String^ IdAlerta;
+        property int IdSensor;
         property double ValorRef;
+        property DateTime FechaHora;
+
+        AlertaMeteorologica() {}
+        AlertaMeteorologica(String^ IdAlerta, int IdSensor, double ValorRef, DateTime FechaHora);
     };
 }
 

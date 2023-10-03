@@ -15,7 +15,7 @@ namespace WeatherStationPersistance {
 		static List<SensorCalidadAire^>^ sCalidadAire = gcnew List<SensorCalidadAire^>();
 		static List<SensorCO^>^ sConcentracionCOList = gcnew List<SensorCO^>();
 		static List<SensorTemperaturaHumedad^>^ sTempHumList = gcnew List<SensorTemperaturaHumedad^>();
-
+		static List<AlertaMeteorologica^>^ WeatherWarningList = gcnew List<AlertaMeteorologica^>();
 	public:	
 		//FilesConstants
 		//Users
@@ -37,6 +37,8 @@ namespace WeatherStationPersistance {
 		static String^ CO_XML = "co_data.xml";
 		static String^ CO_BIN = "co_data.bin";
 
+		static String^ WEATHER_WARNING_FILE = "weather_warning_data.txt";
+
 
 		//FileHandler
 		static void PersistTextFile(String^, Object^);
@@ -45,6 +47,7 @@ namespace WeatherStationPersistance {
 		static Object^ LoadXMLFile(String^ fileName);
 		static void PersistBinaryFile(String^ fileName, Object^ persistObject);
 		static Object^ LoadBinaryFile(String^ fileName);
+
 		
 		//User Methods
 		static void AddUser(User^ User);
@@ -76,9 +79,10 @@ namespace WeatherStationPersistance {
 		static void UpdateCOData(SensorCO^ sConcentracionCO);
 		static void DeleteCOData(int IdMedicion, String^ IdSensor);
 
-
-		
-
+		static void AddWeatherWarning(AlertaMeteorologica^ alertaMeteorologica);
+		static List<AlertaMeteorologica^>^ QueryWeatherWarning();
+		static AlertaMeteorologica^ QueryWeatherWarningbyId(String^ selectedWeatherWarningId);
+		static void DeleteWeatherWarning(String^ WeatherWarningId);
 
 	};
 }

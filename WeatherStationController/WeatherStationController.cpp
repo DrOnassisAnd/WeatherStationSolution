@@ -46,7 +46,10 @@ void Controller::Controller::AddAirQData(SensorCalidadAire^ airq) {
 	WeatherStationPersistance::Persistance::AddAirQData(airq);
 }
 
-
+void Controller::Controller::AddWeatherWarning(AlertaMeteorologica^ alertaMeteorologica) {
+	//Se puede programar más cosas.
+	WeatherStationPersistance::Persistance::AddWeatherWarning(alertaMeteorologica);
+}
 
 Ajustes^ Controller::Controller::QueryPrevAjustes() {
 	//Se puede programar más cosas
@@ -102,6 +105,11 @@ List<SensorTemperaturaHumedad^>^ Controller::Controller::QueryTempHumData() {
 
 SensorTemperaturaHumedad^ Controller::Controller::QueryTHbyIds(int IdMedicion, String^ IdSensor) {
 	return WeatherStationPersistance::Persistance::QueryTHbyIds(IdMedicion, IdSensor);
+
+List<AlertaMeteorologica^>^ Controller::Controller::QueryWeatherWarning() {
+	return WeatherStationPersistance::Persistance::QueryWeatherWarning();
+}
+
 }
 
 void Controller::Controller::UpdateTHData(SensorTemperaturaHumedad^ sTempHum) {
@@ -110,5 +118,13 @@ void Controller::Controller::UpdateTHData(SensorTemperaturaHumedad^ sTempHum) {
 
 void Controller::Controller::DeleteTHData(int IdMedicion, String^ IdSensor) {
 	WeatherStationPersistance::Persistance::DeleteTHData(IdMedicion, IdSensor);
+}
+
+AlertaMeteorologica^ Controller::Controller::QueryWeatherWarningbyId(String^ selectedWeatherWarningId) {
+	return WeatherStationPersistance::Persistance::QueryWeatherWarningbyId(selectedWeatherWarningId);
+}
+
+void Controller::Controller::DeleteWeatherWarning(String^ WeatherWarningId) {
+	WeatherStationPersistance::Persistance::DeleteWeatherWarning(WeatherWarningId);
 }
 
