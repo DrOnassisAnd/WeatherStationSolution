@@ -14,6 +14,8 @@
     <ClCompile Include="COMaintenanceForm.cpp" />
     <ClCompile Include="TempHumMaintenanceForm.cpp" />
     <ClCompile Include="UserMaintenance.cpp" />
+    <ClCompile Include="WeatherWarningMaintenance.cpp" />
+    <ClCompile Include="ErrorWarning.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MembresiaForm.h" />
@@ -29,5 +31,7 @@
     <ClInclude Include="COMaintenanceForm.h" />
     <ClInclude Include="TempHumMaintenanceForm.h" />
     <ClInclude Include="UserMaintenance.h" />
+    <ClInclude Include="WeatherWarningMaintenance.h" />
+    <ClInclude Include="ErrorWarning.h" />
   </ItemGroup>
 </Project>

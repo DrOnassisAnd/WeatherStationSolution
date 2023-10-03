@@ -189,7 +189,8 @@ Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
 				alertaMeteorologica->ValorRef = Convert::ToDouble(record[2]);
 				
 				try {
-					alertaMeteorologica->FechaHora = DateTime::ParseExact(record[3], formatoFecha, CultureInfo::InvariantCulture, DateTimeStyles::None);
+					String^ StringRecord = record[3]->Trim();
+					alertaMeteorologica->FechaHora = DateTime::ParseExact(StringRecord, formatoFecha, CultureInfo::InvariantCulture, DateTimeStyles::None);
 				}
 				catch (System::FormatException^ ex) {
 					// Manejo de la excepción en caso de formato incorrecto

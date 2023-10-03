@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="AirQMaintenanceForm.cpp" />
     <ClCompile Include="COMaintenanceForm.cpp" />
+    <ClCompile Include="ErrorWarning.cpp" />
     <ClCompile Include="MembershipMaintenanceForm.cpp" />
     <ClCompile Include="MembresiaForm.cpp" />
     <ClCompile Include="WeatherWarningMaintenance.cpp" />
@@ -143,6 +144,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="COMaintenanceForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ErrorWarning.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MembershipMaintenanceForm.h">
@@ -191,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Config.resx">
       <DependentUpon>Config.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorWarning.resx">
+      <DependentUpon>ErrorWarning.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MembershipMaintenanceForm.resx">
       <DependentUpon>MembershipMaintenanceForm.h</DependentUpon>
