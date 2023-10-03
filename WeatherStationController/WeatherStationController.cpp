@@ -105,12 +105,12 @@ List<SensorTemperaturaHumedad^>^ Controller::Controller::QueryTempHumData() {
 
 SensorTemperaturaHumedad^ Controller::Controller::QueryTHbyIds(int IdMedicion, String^ IdSensor) {
 	return WeatherStationPersistance::Persistance::QueryTHbyIds(IdMedicion, IdSensor);
+}
 
 List<AlertaMeteorologica^>^ Controller::Controller::QueryWeatherWarning() {
 	return WeatherStationPersistance::Persistance::QueryWeatherWarning();
 }
 
-}
 
 void Controller::Controller::UpdateTHData(SensorTemperaturaHumedad^ sTempHum) {
 	WeatherStationPersistance::Persistance::UpdateTHData(sTempHum);
