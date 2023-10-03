@@ -41,10 +41,7 @@ void Controller::Controller::AddMembresia(Membresia^ membresias) {
 	WeatherStationPersistance::Persistance::AddMembresia(membresias);
 }
 
-void Controller::Controller::AddAirQData(SensorCalidadAire^ airq) {
-	//Se puede programar más cosas.
-	WeatherStationPersistance::Persistance::AddAirQData(airq);
-}
+
 
 
 
@@ -58,10 +55,6 @@ Membresia^ Controller::Controller::QueryMembresia() {
 	return WeatherStationPersistance::Persistance::QueryMembresia();
 }
 
-List<SensorCalidadAire^>^ Controller::Controller::QueryAirQData() {
-	//Se puede programar más cosas
-	return WeatherStationPersistance::Persistance::QueryAirQData();
-}
 
 //Sensor CO
 
@@ -112,3 +105,26 @@ void Controller::Controller::DeleteTHData(int IdMedicion, String^ IdSensor) {
 	WeatherStationPersistance::Persistance::DeleteTHData(IdMedicion, IdSensor);
 }
 
+//Sensor CalidadAire
+
+void Controller::Controller::AddCalidadAireData(SensorCalidadAire^ CalidadAire) {
+	//Se puede programar más cosas.
+	WeatherStationPersistance::Persistance::AddCalidadAireData(CalidadAire);
+}
+
+List<SensorCalidadAire^>^ Controller::Controller::QueryCalidadAireData() {
+	//Se puede programar más cosas
+	return WeatherStationPersistance::Persistance::QueryCalidadAireData();
+}
+
+SensorCalidadAire^ Controller::Controller::QueryCalidadAirebyIds(int IdMedicion, String^ IdSensor) {
+	return WeatherStationPersistance::Persistance::QueryCalidadAirebyIds(IdMedicion, IdSensor);
+}
+
+void Controller::Controller::UpdateCalidadAireData(SensorCalidadAire^ sCalidadAire) {
+	WeatherStationPersistance::Persistance::UpdateCalidadAireData(sCalidadAire);
+}
+
+void Controller::Controller::DeleteCalidadAireData(int IdMedicion, String^ IdSensor) {
+	WeatherStationPersistance::Persistance::DeleteCalidadAireData(IdMedicion, IdSensor);
+}

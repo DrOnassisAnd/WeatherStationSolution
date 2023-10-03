@@ -19,7 +19,7 @@
     <IdMedicion>3</IdMedicion>
     <Humedad>70</Humedad>
     <UnidadTemp>°F</UnidadTemp>
-    <Temperatura>70</Temperatura>
+    <Temperatura>79</Temperatura>
   </SensorTemperaturaHumedad>
   <SensorTemperaturaHumedad>
     <IdSensor>3</IdSensor>
@@ -27,5 +27,12 @@
     <Humedad>85</Humedad>
     <UnidadTemp>°F</UnidadTemp>
     <Temperatura>29</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <IdSensor>2</IdSensor>
+    <IdMedicion>5</IdMedicion>
+    <Humedad>75</Humedad>
+    <UnidadTemp>°F</UnidadTemp>
+    <Temperatura>30</Temperatura>
   </SensorTemperaturaHumedad>
 </ArrayOfSensorTemperaturaHumedad>
