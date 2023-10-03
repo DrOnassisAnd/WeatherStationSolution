@@ -459,8 +459,8 @@ void WeatherStationPersistance::Persistance::AddCalidadAireData(SensorCalidadAir
 
 
 List<SensorCalidadAire^>^ WeatherStationPersistance::Persistance::QueryCalidadAireData() {
-	sCalidadAire = (List<SensorCalidadAire^>^)LoadTextFile(CALIDAD_AIRE_FILE);
-	return sCalidadAire;
+	sCalidadAireList = (List<SensorCalidadAire^>^)LoadTextFile(CALIDAD_AIRE_FILE);
+	return sCalidadAireList;
 }
 
 
