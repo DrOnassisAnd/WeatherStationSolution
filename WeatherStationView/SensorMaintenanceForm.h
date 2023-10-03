@@ -85,11 +85,11 @@ namespace WeatherStationView {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -126,6 +126,7 @@ namespace WeatherStationView {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(100, 20);
 			this->textBox1->TabIndex = 3;
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &SensorMaintenanceForm::textBox1_TextChanged);
 			// 
 			// textBox2
 			// 
@@ -197,15 +198,6 @@ namespace WeatherStationView {
 			this->dataGridView1->Size = System::Drawing::Size(439, 177);
 			this->dataGridView1->TabIndex = 13;
 			// 
-			// button4
-			// 
-			this->button4->Location = System::Drawing::Point(369, 377);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(75, 23);
-			this->button4->TabIndex = 14;
-			this->button4->Text = L"Cerrar";
-			this->button4->UseVisualStyleBackColor = true;
-			// 
 			// Column1
 			// 
 			this->Column1->HeaderText = L"Temperatura";
@@ -225,6 +217,15 @@ namespace WeatherStationView {
 			// 
 			this->Column4->HeaderText = L"Calidad Aire";
 			this->Column4->Name = L"Column4";
+			// 
+			// button4
+			// 
+			this->button4->Location = System::Drawing::Point(369, 377);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(75, 23);
+			this->button4->TabIndex = 14;
+			this->button4->Text = L"Cerrar";
+			this->button4->UseVisualStyleBackColor = true;
 			// 
 			// SensorMaintenanceForm
 			// 
@@ -258,6 +259,8 @@ namespace WeatherStationView {
 
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
+}
+private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
