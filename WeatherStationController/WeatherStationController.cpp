@@ -32,6 +32,11 @@ void Controller::Controller::AddTempHumData(SensorTemperaturaHumedad^ tempHum) {
 	WeatherStationPersistance::Persistance::AddTempHumData(tempHum);
 }
 
+void Controller::Controller::AddWeatherWarning(AlertaMeteorologica^ alertaMeteorologica) {
+	//Se puede programar más cosas.
+	WeatherStationPersistance::Persistance::AddWeatherWarning(alertaMeteorologica);
+}
+
 List<User^>^ Controller::Controller::QueryAllUser() {
 	//Se puede programar más cosas
 	return WeatherStationPersistance::Persistance::QueryAllUser();
@@ -62,6 +67,11 @@ List<SensorTemperaturaHumedad^>^ Controller::Controller::QueryTempHumData() {
 	return WeatherStationPersistance::Persistance::QueryTempHumData();
 }
 
+List<AlertaMeteorologica^>^ Controller::Controller::QueryWeatherWarning() {
+	return WeatherStationPersistance::Persistance::QueryWeatherWarning();
+}
+
+
 User^ Controller::Controller::QueryUserbyName(String^ name) {
 	return WeatherStationPersistance::Persistance::QueryUserbyName(name);
 }
@@ -70,6 +80,14 @@ User^ Controller::Controller::QueryUserbyId(int Id) {
 	return WeatherStationPersistance::Persistance::QueryUserbyId(Id);
 }
 
+AlertaMeteorologica^ Controller::Controller::QueryWeatherWarningbyId(String^ selectedWeatherWarningId) {
+	return WeatherStationPersistance::Persistance::QueryWeatherWarningbyId(selectedWeatherWarningId);
+}
+
 void Controller::Controller::DeleteUser(int userId) {
 	WeatherStationPersistance::Persistance::DeleteUser(userId);
+}
+
+void Controller::Controller::DeleteWeatherWarning(String^ WeatherWarningId) {
+	WeatherStationPersistance::Persistance::DeleteWeatherWarning(WeatherWarningId);
 }

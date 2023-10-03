@@ -30,5 +30,9 @@ namespace Controller {
 		static void AddTempHumData(SensorTemperaturaHumedad^ sTempHum);
 		static List<SensorTemperaturaHumedad^>^ QueryTempHumData();
 
+		static void AddWeatherWarning(AlertaMeteorologica^ alertaMeteorologica);
+		static List<AlertaMeteorologica^>^ QueryWeatherWarning();
+		static void DeleteWeatherWarning(String^ WeatherWarningId);
+		static AlertaMeteorologica^ QueryWeatherWarningbyId(String^ selectedWeatherWarningId);
 	};
 }

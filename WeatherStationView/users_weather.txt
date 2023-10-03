@@ -1,4 +1,6 @@
-JP,yoyo,a20215000@pucp.edu.pe,4
 HPratt,RS,hola@hug.pe,6
-HPratt2,RS2,RS,9
 JoaquinP7,LPOO_20214997,a20214997@pucp.edu.oe,10
+Jolt,Jolt,Jolt,14
+Alianza,Equipo,Chico,15
+a,a,a,16
+b,b,b,17

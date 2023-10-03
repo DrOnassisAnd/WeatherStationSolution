@@ -294,5 +294,6 @@ private: System::Void Table_CellClick(System::Object^ sender, System::Windows::F
 	textBox3->Text = user->Password;
 	textBox4->Text = user->Email;
 }
+
 };
 }

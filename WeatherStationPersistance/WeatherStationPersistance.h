@@ -15,7 +15,7 @@ namespace WeatherStationPersistance {
 		static List<SensorCalidadAire^>^ sCalidadAire = gcnew List<SensorCalidadAire^>();
 		static List<SensorCO^>^ sConcentracionCO = gcnew List<SensorCO^>();
 		static List<SensorTemperaturaHumedad^>^ sTempHum = gcnew List<SensorTemperaturaHumedad^>();
-
+		static List<AlertaMeteorologica^>^ WeatherWarningList = gcnew List<AlertaMeteorologica^>();
 
 	public:	
 		static String^ WEATHER_STATION = "users_weather.txt";
@@ -32,6 +32,8 @@ namespace WeatherStationPersistance {
 
 		static String^ TEMP_HUM_FILE = "temp_hum_data.txt";
 
+		static String^ WEATHER_WARNING_FILE = "weather_warning_data.txt";
+
 
 		static void PersistTextFile(String^, Object^);
 		static Object^ LoadTextFile(String^);
@@ -39,6 +41,7 @@ namespace WeatherStationPersistance {
 		static Object^ LoadXMLFile(String^ fileName);
 		static void PersistBinaryFile(String^ fileName, Object^ persistObject);
 		static Object^ LoadBinaryFile(String^ fileName);
+
 		
 		static void AddUser(User^ User);
 		static void AddAjustes(Ajustes^ ajustes);
@@ -46,19 +49,23 @@ namespace WeatherStationPersistance {
 		static void AddAirQData(SensorCalidadAire^ sCalidadAire);
 		static void AddCOData(SensorCO^ sConcentracionCO);
 		static void AddTempHumData(SensorTemperaturaHumedad^ sTempHum);
+		static void AddWeatherWarning(AlertaMeteorologica^ alertaMeteorologica);
 
 
 		static List<User^>^ QueryAllUser();
 		static List<SensorCalidadAire^>^ QueryAirQData();
 		static List<SensorCO^>^ QueryCOData();
 		static List<SensorTemperaturaHumedad^>^ QueryTempHumData();
+		static List<AlertaMeteorologica^>^ QueryWeatherWarning();
 		static Ajustes^ QueryPrevAjustes();
 		static Membresia^ QueryMembresia();
 
 		static User^ QueryUserbyName(String^ name);
 		static User^ QueryUserbyId(int id);
-		static void DeleteUser(int userId);
+		static AlertaMeteorologica^ QueryWeatherWarningbyId(String^ selectedWeatherWarningId);
 
+		static void DeleteUser(int userId);
+		static void DeleteWeatherWarning(String^ WeatherWarningId);
 
 	};
 }
