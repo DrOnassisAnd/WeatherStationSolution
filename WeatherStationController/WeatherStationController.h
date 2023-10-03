@@ -25,14 +25,18 @@ namespace Controller {
 		static void AddAirQData(SensorCalidadAire^ sCalidadAire);
 		static List<SensorCalidadAire^>^ QueryAirQData();
 
-		static void AddCOData(SensorCO^ sConcentracionCO);
-		static List<SensorCO^>^ QueryCOData();
-
 		static void AddTempHumData(SensorTemperaturaHumedad^ sTempHum);
 		static List<SensorTemperaturaHumedad^>^ QueryTempHumData();
 		static SensorTemperaturaHumedad^ QueryTHbyIds(int IdMedicion, String^ IdSensor);
 		static void DeleteTHData(int IdMedicion, String^ IdSensor);
 		static void UpdateTHData(SensorTemperaturaHumedad^);
+
+		//concentracionCo Methods
+		static void AddCOData(SensorCO^ sConcentracionCO);
+		static List<SensorCO^>^ QueryCOData();
+		static SensorCO^ QueryCObyIds(int IdMedicion, String^ IdSensor);
+		static void UpdateCOData(SensorCO^ sConcentracionCO);
+		static void DeleteCOData(int IdMedicion, String^ IdSensor);
 
 	};
 }

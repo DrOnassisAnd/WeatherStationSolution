@@ -84,19 +84,19 @@ namespace WeatherStationView {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
+			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			this->panel4->SuspendLayout();
 			this->panel3->SuspendLayout();
@@ -118,7 +118,6 @@ namespace WeatherStationView {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(560, 555);
 			this->panel1->TabIndex = 0;
-		//	this->panel1->Click += gcnew System::EventHandler(this, &WeatherStationForm::otherclick);
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &WeatherStationForm::panel1_Paint);
 			// 
 			// button2
@@ -146,15 +145,26 @@ namespace WeatherStationView {
 			this->panel4->Size = System::Drawing::Size(435, 79);
 			this->panel4->TabIndex = 6;
 			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->ForeColor = System::Drawing::Color::Black;
+			this->label7->Location = System::Drawing::Point(13, 16);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(53, 13);
+			this->label7->TabIndex = 7;
+			this->label7->Text = L"Password";
+			// 
 			// textBox2
 			// 
 			this->textBox2->Location = System::Drawing::Point(48, 36);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(369, 23);
+			this->textBox2->Size = System::Drawing::Size(369, 20);
 			this->textBox2->TabIndex = 1;
 			this->textBox2->Text = L"Password";
 			this->textBox2->UseSystemPasswordChar = true;
 			this->textBox2->Click += gcnew System::EventHandler(this, &WeatherStationForm::textBox2_Click);
+			this->textBox2->KeyDown += gcnew KeyEventHandler(this, &WeatherStationForm::TextBox_KeyDown);
 			// 
 			// panel3
 			// 
@@ -166,15 +176,26 @@ namespace WeatherStationView {
 			this->panel3->Size = System::Drawing::Size(435, 74);
 			this->panel3->TabIndex = 5;
 			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->ForeColor = System::Drawing::Color::Black;
+			this->label6->Location = System::Drawing::Point(13, 8);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(68, 13);
+			this->label6->TabIndex = 1;
+			this->label6->Text = L"USERNAME";
+			// 
 			// textBox1
 			// 
 			this->textBox1->Location = System::Drawing::Point(48, 39);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(369, 23);
+			this->textBox1->Size = System::Drawing::Size(369, 20);
 			this->textBox1->TabIndex = 0;
 			this->textBox1->Text = L"Username";
 			this->textBox1->Click += gcnew System::EventHandler(this, &WeatherStationForm::textBox1_Click);
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &WeatherStationForm::textBox1_TextChanged);
+			this->textBox1->KeyDown += gcnew KeyEventHandler(this, &WeatherStationForm::TextBox_KeyDown);
 			// 
 			// label5
 			// 
@@ -185,7 +206,6 @@ namespace WeatherStationView {
 			this->label5->Size = System::Drawing::Size(515, 64);
 			this->label5->TabIndex = 4;
 			this->label5->Text = L"Sign in to your account so you can have access to the meteorological data";
-			//this->label5->Click += gcnew System::EventHandler(this, &WeatherStationForm::otherclick);
 			// 
 			// label4
 			// 
@@ -196,10 +216,9 @@ namespace WeatherStationView {
 			this->label4->ForeColor = System::Drawing::Color::Black;
 			this->label4->Location = System::Drawing::Point(184, 101);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(150, 46);
+			this->label4->Size = System::Drawing::Size(123, 37);
 			this->label4->TabIndex = 4;
 			this->label4->Text = L"Sign In";
-			//this->label4->Click += gcnew System::EventHandler(this, &WeatherStationForm::otherclick);
 			// 
 			// panel2
 			// 
@@ -215,8 +234,17 @@ namespace WeatherStationView {
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(350, 555);
 			this->panel2->TabIndex = 1;
-			//this->panel2->Click += gcnew System::EventHandler(this, &WeatherStationForm::otherclick);
 			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &WeatherStationForm::panel2_Paint);
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(26, 169);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(276, 245);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 7;
+			this->pictureBox1->TabStop = false;
 			// 
 			// button1
 			// 
@@ -243,10 +271,9 @@ namespace WeatherStationView {
 			this->label3->ForeColor = System::Drawing::Color::Black;
 			this->label3->Location = System::Drawing::Point(102, 437);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(116, 20);
+			this->label3->Size = System::Drawing::Size(100, 17);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"No Account\?";
-		//	this->label3->Click += gcnew System::EventHandler(this, &WeatherStationForm::otherclick);
 			// 
 			// label2
 			// 
@@ -257,10 +284,9 @@ namespace WeatherStationView {
 			this->label2->ForeColor = System::Drawing::Color::Black;
 			this->label2->Location = System::Drawing::Point(132, 101);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(152, 46);
+			this->label2->Size = System::Drawing::Size(124, 37);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Station";
-		//	this->label2->Click += gcnew System::EventHandler(this, &WeatherStationForm::otherclick);
 			// 
 			// label1
 			// 
@@ -271,44 +297,13 @@ namespace WeatherStationView {
 			this->label1->ForeColor = System::Drawing::Color::Black;
 			this->label1->Location = System::Drawing::Point(27, 49);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(177, 46);
+			this->label1->Size = System::Drawing::Size(145, 37);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Weather";
-		//	this->label1->Click += gcnew System::EventHandler(this, &WeatherStationForm::otherclick);
-			// 
-			// pictureBox1
-			// 
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(26, 169);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(276, 245);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox1->TabIndex = 7;
-			this->pictureBox1->TabStop = false;
-			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->ForeColor = System::Drawing::Color::Black;
-			this->label6->Location = System::Drawing::Point(13, 8);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(85, 17);
-			this->label6->TabIndex = 1;
-			this->label6->Text = L"USERNAME";
-			// 
-			// label7
-			// 
-			this->label7->AutoSize = true;
-			this->label7->ForeColor = System::Drawing::Color::Black;
-			this->label7->Location = System::Drawing::Point(13, 16);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(69, 17);
-			this->label7->TabIndex = 7;
-			this->label7->Text = L"Password";
 			// 
 			// WeatherStationForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(910, 555);
 			this->Controls->Add(this->panel2);
@@ -415,5 +410,15 @@ private: System::Void textBox1_TextChanged(System::Object^ sender, System::Event
 
 private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
+
+private:System::Void TextBox_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	if (e->KeyCode == Keys::Escape)
+	{
+		// Ejecutar la acción deseada
+		// Por ejemplo, mostrar un mensaje
+		Application::Exit();
+	}
+}
+
 };
 }
