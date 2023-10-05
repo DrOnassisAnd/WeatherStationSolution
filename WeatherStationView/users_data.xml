@@ -36,4 +36,22 @@
     <Password>XML</Password>
     <Name>SeLogro</Name>
   </User>
+  <User>
+    <Id>13</Id>
+    <Email>hola</Email>
+    <Password>P</Password>
+    <Name>mundo</Name>
+  </User>
+  <User>
+    <Id>14</Id>
+    <Email>aloh</Email>
+    <Password>Pratt</Password>
+    <Name>mundo2</Name>
+  </User>
+  <User>
+    <Id>15</Id>
+    <Email>holas</Email>
+    <Password>holas</Password>
+    <Name>mundos</Name>
+  </User>
 </ArrayOfUser>

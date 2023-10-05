@@ -4,12 +4,12 @@
 //User
 
 void Controller::Controller::AddUser(User^ user) {
-	//Se puede programar m�s cosas.
+	//Se puede programar más cosas.
 	WeatherStationPersistance::Persistance::AddUser(user);
 }
 
 List<User^>^ Controller::Controller::QueryAllUser() {
-	//Se puede programar m�s cosas
+	//Se puede programar más cosas
 	return WeatherStationPersistance::Persistance::QueryAllUser();
 }
 
@@ -32,26 +32,29 @@ void Controller::Controller::DeleteUser(int userId) {
 //
 
 void Controller::Controller::AddAjustes(Ajustes^ ajustes) {
-	//Se puede programar m�s cosas.
+	//Se puede programar más cosas.
 	WeatherStationPersistance::Persistance::AddAjustes(ajustes);
 }
 
 void Controller::Controller::AddMembresia(Membresia^ membresias) {
-	//Se puede programar m�s cosas.
+	//Se puede programar más cosas.
 	WeatherStationPersistance::Persistance::AddMembresia(membresias);
 }
 
 
 
-
+void Controller::Controller::AddWeatherWarning(AlertaMeteorologica^ alertaMeteorologica) {
+	//Se puede programar más cosas.
+	WeatherStationPersistance::Persistance::AddWeatherWarning(alertaMeteorologica);
+}
 
 Ajustes^ Controller::Controller::QueryPrevAjustes() {
-	//Se puede programar m�s cosas
+	//Se puede programar más cosas
 	return WeatherStationPersistance::Persistance::QueryPrevAjustes();
 }
 
 Membresia^ Controller::Controller::QueryMembresia() {
-	//Se puede programar m�s cosas
+	//Se puede programar más cosas
 	return WeatherStationPersistance::Persistance::QueryMembresia();
 }
 
@@ -59,12 +62,12 @@ Membresia^ Controller::Controller::QueryMembresia() {
 //Sensor CO
 
 void Controller::Controller::AddCOData(SensorCO^ CO) {
-	//Se puede programar m�s cosas.
+	//Se puede programar más cosas.
 	WeatherStationPersistance::Persistance::AddCOData(CO);
 }
 
 List<SensorCO^>^ Controller::Controller::QueryCOData() {
-	//Se puede programar m�s cosas
+	//Se puede programar más cosas
 	return WeatherStationPersistance::Persistance::QueryCOData();
 }
 
@@ -84,18 +87,23 @@ void Controller::Controller::DeleteCOData(int IdMedicion, String^ IdSensor) {
 //Sensor Temperatura Humedad
 
 void Controller::Controller::AddTempHumData(SensorTemperaturaHumedad^ tempHum) {
-	//Se puede programar m�s cosas.
+	//Se puede programar más cosas.
 	WeatherStationPersistance::Persistance::AddTempHumData(tempHum);
 }
 
 List<SensorTemperaturaHumedad^>^ Controller::Controller::QueryTempHumData() {
-	//Se puede programar m�s cosas
+	//Se puede programar más cosas
 	return WeatherStationPersistance::Persistance::QueryTempHumData();
 }
 
 SensorTemperaturaHumedad^ Controller::Controller::QueryTHbyIds(int IdMedicion, String^ IdSensor) {
 	return WeatherStationPersistance::Persistance::QueryTHbyIds(IdMedicion, IdSensor);
 }
+
+List<AlertaMeteorologica^>^ Controller::Controller::QueryWeatherWarning() {
+	return WeatherStationPersistance::Persistance::QueryWeatherWarning();
+}
+
 
 void Controller::Controller::UpdateTHData(SensorTemperaturaHumedad^ sTempHum) {
 	WeatherStationPersistance::Persistance::UpdateTHData(sTempHum);
@@ -108,12 +116,12 @@ void Controller::Controller::DeleteTHData(int IdMedicion, String^ IdSensor) {
 //Sensor CalidadAire
 
 void Controller::Controller::AddCalidadAireData(SensorCalidadAire^ CalidadAire) {
-	//Se puede programar m�s cosas.
+	//Se puede programar más cosas.
 	WeatherStationPersistance::Persistance::AddCalidadAireData(CalidadAire);
 }
 
 List<SensorCalidadAire^>^ Controller::Controller::QueryCalidadAireData() {
-	//Se puede programar m�s cosas
+	//Se puede programar más cosas
 	return WeatherStationPersistance::Persistance::QueryCalidadAireData();
 }
 
@@ -128,3 +136,12 @@ void Controller::Controller::UpdateCalidadAireData(SensorCalidadAire^ sCalidadAi
 void Controller::Controller::DeleteCalidadAireData(int IdMedicion, String^ IdSensor) {
 	WeatherStationPersistance::Persistance::DeleteCalidadAireData(IdMedicion, IdSensor);
 }
+
+AlertaMeteorologica^ Controller::Controller::QueryWeatherWarningbyId(String^ selectedWeatherWarningId) {
+	return WeatherStationPersistance::Persistance::QueryWeatherWarningbyId(selectedWeatherWarningId);
+}
+
+void Controller::Controller::DeleteWeatherWarning(String^ WeatherWarningId) {
+	WeatherStationPersistance::Persistance::DeleteWeatherWarning(WeatherWarningId);
+}
+

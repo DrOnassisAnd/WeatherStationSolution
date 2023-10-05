@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSensorCO xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SensorCO>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>1</IdMedicion>
+    <NivelCO>6</NivelCO>
+  </SensorCO>
+  <SensorCO>
+    <IdSensor>3</IdSensor>
+    <IdMedicion>2</IdMedicion>
+    <NivelCO>3</NivelCO>
+  </SensorCO>
+  <SensorCO>
+    <IdSensor>2</IdSensor>
+    <IdMedicion>3</IdMedicion>
+    <NivelCO>67</NivelCO>
+  </SensorCO>
+  <SensorCO>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>4</IdMedicion>
+    <NivelCO>20</NivelCO>
+  </SensorCO>
+  <SensorCO>
+    <IdSensor>4</IdSensor>
+    <IdMedicion>5</IdMedicion>
+    <NivelCO>20</NivelCO>
+  </SensorCO>
+</ArrayOfSensorCO>
