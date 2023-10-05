@@ -16,6 +16,7 @@ namespace WeatherStationPersistance {
 		static List<SensorCO^>^ sConcentracionCOList = gcnew List<SensorCO^>();
 		static List<SensorTemperaturaHumedad^>^ sTempHumList = gcnew List<SensorTemperaturaHumedad^>();
 		static List<AlertaMeteorologica^>^ WeatherWarningList = gcnew List<AlertaMeteorologica^>();
+		static List<AlertaError^>^ ErrorWarningList = gcnew List<AlertaError^>();
 	public:	
 		//FilesConstants
 		//Users
@@ -37,8 +38,14 @@ namespace WeatherStationPersistance {
 		static String^ CO_XML = "co_data.xml";
 		static String^ CO_BIN = "co_data.bin";
 
+		//WeatherWarning
 		static String^ WEATHER_WARNING_FILE = "weather_warning_data.txt";
-
+		static String^ WEATHER_WARNING_XML = "weather_warning_data.xml";
+		static String^ WEATHER_WARNING_BIN = "weather_warning_data.bin";
+		//ErrorWarning
+		static String^ ERROR_WARNING_FILE = "error_warning_data.txt";
+		static String^ ERROR_WARNING_XML = "error_warning_data.xml";
+		static String^ ERROR_WARNING_BIN = "error_warning_data.bin";
 
 		//FileHandler
 		static void PersistTextFile(String^, Object^);
@@ -79,10 +86,18 @@ namespace WeatherStationPersistance {
 		static void UpdateCOData(SensorCO^ sConcentracionCO);
 		static void DeleteCOData(int IdMedicion, String^ IdSensor);
 
+		//WeatherWarning Methods
 		static void AddWeatherWarning(AlertaMeteorologica^ alertaMeteorologica);
 		static List<AlertaMeteorologica^>^ QueryWeatherWarning();
 		static AlertaMeteorologica^ QueryWeatherWarningbyId(String^ selectedWeatherWarningId);
 		static void DeleteWeatherWarning(String^ WeatherWarningId);
+		static void UpdateWeatherWarning(AlertaMeteorologica^ alertaMeteorologica);
 
+		//ErrorWarning Methods
+		static void AddErrorWarning(AlertaError^ alertaError);
+		static List<AlertaError^>^ QueryErrorWarning();
+		static AlertaError^ QueryErrorWarningbyId(String^ selectedErrorWarningId);
+		static void DeleteErrorWarning(String^ ErrorWarningId);
+		static void UpdateErrorWarning(AlertaError^ alertaError);
 	};
 }

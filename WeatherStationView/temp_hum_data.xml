@@ -28,4 +28,11 @@
     <UnidadTemp>°F</UnidadTemp>
     <Temperatura>29</Temperatura>
   </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <IdSensor>6</IdSensor>
+    <IdMedicion>5</IdMedicion>
+    <Humedad>90</Humedad>
+    <UnidadTemp>°C</UnidadTemp>
+    <Temperatura>20</Temperatura>
+  </SensorTemperaturaHumedad>
 </ArrayOfSensorTemperaturaHumedad>
