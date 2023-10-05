@@ -22,8 +22,6 @@ namespace Controller {
 		static void AddMembresia(Membresia^);
 		static Membresia^ QueryMembresia();
 
-		static void AddAirQData(SensorCalidadAire^ sCalidadAire);
-		static List<SensorCalidadAire^>^ QueryAirQData();
 
 		static void AddTempHumData(SensorTemperaturaHumedad^ sTempHum);
 		static List<SensorTemperaturaHumedad^>^ QueryTempHumData();
@@ -38,9 +36,18 @@ namespace Controller {
 		static void UpdateCOData(SensorCO^ sConcentracionCO);
 		static void DeleteCOData(int IdMedicion, String^ IdSensor);
 
+
+		//CalidadAire
+		static void AddCalidadAireData(SensorCalidadAire^ sCalidadAire);
+		static List<SensorCalidadAire^>^ QueryCalidadAireData();
+		static SensorCalidadAire^ QueryCalidadAirebyIds(int IdMedicion, String^ IdSensor);
+		static void UpdateCalidadAireData(SensorCalidadAire^ sCalidadAire);
+		static void DeleteCalidadAireData(int IdMedicion, String^ IdSensor);
+
 		static void AddWeatherWarning(AlertaMeteorologica^ alertaMeteorologica);
 		static List<AlertaMeteorologica^>^ QueryWeatherWarning();
 		static void DeleteWeatherWarning(String^ WeatherWarningId);
 		static AlertaMeteorologica^ QueryWeatherWarningbyId(String^ selectedWeatherWarningId);
+
 	};
 }

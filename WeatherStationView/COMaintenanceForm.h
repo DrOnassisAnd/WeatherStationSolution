@@ -83,9 +83,10 @@ namespace WeatherStationView {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(377, 239);
+			this->button4->Location = System::Drawing::Point(566, 368);
+			this->button4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(75, 23);
+			this->button4->Size = System::Drawing::Size(112, 35);
 			this->button4->TabIndex = 36;
 			this->button4->Text = L"Cerrar";
 			this->button4->UseVisualStyleBackColor = true;
@@ -98,32 +99,42 @@ namespace WeatherStationView {
 				this->Column2,
 					this->Column1, this->Column4
 			});
-			this->dataGridView1->Location = System::Drawing::Point(12, 85);
+			this->dataGridView1->Location = System::Drawing::Point(18, 131);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(344, 177);
+			this->dataGridView1->RowHeadersWidth = 62;
+			this->dataGridView1->Size = System::Drawing::Size(516, 272);
 			this->dataGridView1->TabIndex = 35;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &COMaintenanceForm::CO_CellClick);
+			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &COMaintenanceForm::dataGridView1_CellContentClick);
 			// 
 			// Column2
 			// 
 			this->Column2->HeaderText = L"IdMedicion";
+			this->Column2->MinimumWidth = 8;
 			this->Column2->Name = L"Column2";
+			this->Column2->Width = 150;
 			// 
 			// Column1
 			// 
 			this->Column1->HeaderText = L"IdSensor";
+			this->Column1->MinimumWidth = 8;
 			this->Column1->Name = L"Column1";
+			this->Column1->Width = 150;
 			// 
 			// Column4
 			// 
 			this->Column4->HeaderText = L"Concentración CO";
+			this->Column4->MinimumWidth = 8;
 			this->Column4->Name = L"Column4";
+			this->Column4->Width = 150;
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(377, 107);
+			this->button3->Location = System::Drawing::Point(566, 165);
+			this->button3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(75, 23);
+			this->button3->Size = System::Drawing::Size(112, 35);
 			this->button3->TabIndex = 34;
 			this->button3->Text = L"Eliminar";
 			this->button3->UseVisualStyleBackColor = true;
@@ -131,9 +142,10 @@ namespace WeatherStationView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(377, 61);
+			this->button2->Location = System::Drawing::Point(566, 94);
+			this->button2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->Size = System::Drawing::Size(112, 35);
 			this->button2->TabIndex = 33;
 			this->button2->Text = L"Modificar";
 			this->button2->UseVisualStyleBackColor = true;
@@ -141,9 +153,10 @@ namespace WeatherStationView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(377, 14);
+			this->button1->Location = System::Drawing::Point(566, 22);
+			this->button1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(112, 35);
 			this->button1->TabIndex = 32;
 			this->button1->Text = L"Agregar";
 			this->button1->UseVisualStyleBackColor = true;
@@ -151,41 +164,46 @@ namespace WeatherStationView {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(131, 38);
+			this->textBox2->Location = System::Drawing::Point(196, 58);
+			this->textBox2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 20);
+			this->textBox2->Size = System::Drawing::Size(148, 26);
 			this->textBox2->TabIndex = 31;
+			this->textBox2->TextChanged += gcnew System::EventHandler(this, &COMaintenanceForm::textBox2_TextChanged);
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(131, 11);
+			this->textBox1->Location = System::Drawing::Point(196, 17);
+			this->textBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 20);
+			this->textBox1->Size = System::Drawing::Size(148, 26);
 			this->textBox1->TabIndex = 30;
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(9, 38);
+			this->label2->Location = System::Drawing::Point(14, 58);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(109, 13);
+			this->label2->Size = System::Drawing::Size(161, 20);
 			this->label2->TabIndex = 29;
 			this->label2->Text = L"Concentración de CO";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(9, 14);
+			this->label1->Location = System::Drawing::Point(14, 22);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(49, 13);
+			this->label1->Size = System::Drawing::Size(74, 20);
 			this->label1->TabIndex = 28;
 			this->label1->Text = L"IdSensor";
 			// 
 			// COMaintenanceForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(464, 296);
+			this->ClientSize = System::Drawing::Size(696, 455);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->button3);
@@ -195,6 +213,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
+			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"COMaintenanceForm";
 			this->Text = L"COMaintenanceForm";
 			this->Load += gcnew System::EventHandler(this, &COMaintenanceForm::COForm_Load);
@@ -273,6 +292,10 @@ private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^
 
 	Controller::Controller::UpdateCOData(sCO);
 	ShowCOData();
+}
+private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
+private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
