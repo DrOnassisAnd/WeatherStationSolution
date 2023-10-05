@@ -2,13 +2,6 @@
 <ArrayOfSensorTemperaturaHumedad xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SensorTemperaturaHumedad>
     <IdSensor>1</IdSensor>
-    <IdMedicion>1</IdMedicion>
-    <Humedad>89</Humedad>
-    <UnidadTemp>°C</UnidadTemp>
-    <Temperatura>30</Temperatura>
-  </SensorTemperaturaHumedad>
-  <SensorTemperaturaHumedad>
-    <IdSensor>1</IdSensor>
     <IdMedicion>2</IdMedicion>
     <Humedad>12</Humedad>
     <UnidadTemp>°C</UnidadTemp>
@@ -19,7 +12,7 @@
     <IdMedicion>3</IdMedicion>
     <Humedad>70</Humedad>
     <UnidadTemp>°F</UnidadTemp>
-    <Temperatura>70</Temperatura>
+    <Temperatura>79</Temperatura>
   </SensorTemperaturaHumedad>
   <SensorTemperaturaHumedad>
     <IdSensor>3</IdSensor>
@@ -29,10 +22,17 @@
     <Temperatura>29</Temperatura>
   </SensorTemperaturaHumedad>
   <SensorTemperaturaHumedad>
-    <IdSensor>6</IdSensor>
+    <IdSensor>2</IdSensor>
     <IdMedicion>5</IdMedicion>
-    <Humedad>90</Humedad>
+    <Humedad>75</Humedad>
+    <UnidadTemp>°F</UnidadTemp>
+    <Temperatura>30</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <IdSensor>4</IdSensor>
+    <IdMedicion>6</IdMedicion>
+    <Humedad>39</Humedad>
     <UnidadTemp>°C</UnidadTemp>
-    <Temperatura>20</Temperatura>
+    <Temperatura>656</Temperatura>
   </SensorTemperaturaHumedad>
 </ArrayOfSensorTemperaturaHumedad>

@@ -23,12 +23,13 @@ namespace WeatherStationView {
 	public ref class MembresiaForm : public System::Windows::Forms::Form
 	{
 	public:
-		MembresiaForm(void)
+		MembresiaForm()
 		{
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			
 		}
 
 	protected:
@@ -392,9 +393,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	
-	PaymentMethodForm obj;
-	obj.ShowDialog();
+	PaymentMethodForm^ pymform = gcnew PaymentMethodForm(1);
+	pymform->Show();
 
 	this->Close();
 
@@ -402,8 +402,10 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	
-	PaymentMethodForm obj;
-	obj.ShowDialog();
+	PaymentMethodForm^ pymform = gcnew PaymentMethodForm(1);
+	pymform->Show();
+
+	this->Close();
 
 	
 
