@@ -1,4 +1,4 @@
-#include "MembresiaForm.h"
+#include "BasicForm.h"
 #pragma once
 
 
@@ -482,9 +482,9 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 
 			MessageBox::Show("Credenciales registradas. Bienvenido, " + user->Name);
 			//ShowUser();
-			this->Close();
-			MembresiaForm obj;
+			BasicForm obj;
 			obj.ShowDialog();
+
 		}
 		else {
 			MessageBox::Show("Acepte los terminos y condiciones para registrarse");
@@ -494,7 +494,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	else {
 		MessageBox::Show("Por Favor complete los datos");
 	}
-
+	this->Close();
 }
 	   /*void ShowUser() {
 		   List<User^>^ user = Controller::Controller::QueryAllUser();

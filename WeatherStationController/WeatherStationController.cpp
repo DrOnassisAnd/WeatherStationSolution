@@ -41,6 +41,25 @@ void Controller::Controller::AddMembresia(Membresia^ membresias) {
 	WeatherStationPersistance::Persistance::AddMembresia(membresias);
 }
 
+
+List<Membresia^>^ Controller::Controller::QueryMembresia() {
+	//Se puede programar más cosas
+	return WeatherStationPersistance::Persistance::QueryMembresia();
+}
+
+Membresia^ Controller::Controller::QueryMembresiabyId(int Id) {
+	return WeatherStationPersistance::Persistance::QueryMembresiabyId(Id);
+}
+
+void Controller::Controller::UpdateMembresia(Membresia^ user) {
+	WeatherStationPersistance::Persistance::UpdateMembresia(user);
+}
+
+void Controller::Controller::DeleteMembresia(int userId) {
+	WeatherStationPersistance::Persistance::DeleteMembresia(userId);
+}
+
+
 void Controller::Controller::AddAirQData(SensorCalidadAire^ airq) {
 	//Se puede programar más cosas.
 	WeatherStationPersistance::Persistance::AddAirQData(airq);
@@ -56,10 +75,6 @@ Ajustes^ Controller::Controller::QueryPrevAjustes() {
 	return WeatherStationPersistance::Persistance::QueryPrevAjustes();
 }
 
-Membresia^ Controller::Controller::QueryMembresia() {
-	//Se puede programar más cosas
-	return WeatherStationPersistance::Persistance::QueryMembresia();
-}
 
 List<SensorCalidadAire^>^ Controller::Controller::QueryAirQData() {
 	//Se puede programar más cosas

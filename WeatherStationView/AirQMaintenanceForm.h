@@ -124,6 +124,7 @@ namespace WeatherStationView {
 			this->button3->TabIndex = 25;
 			this->button3->Text = L"Eliminar";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &AirQMaintenanceForm::button3_Click);
 			// 
 			// button2
 			// 
@@ -230,6 +231,8 @@ namespace WeatherStationView {
 	}
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

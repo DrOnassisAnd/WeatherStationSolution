@@ -182,6 +182,7 @@ namespace WeatherStationView {
 			this->btnUpgrade->TabIndex = 8;
 			this->btnUpgrade->Text = L"Upgrade";
 			this->btnUpgrade->UseVisualStyleBackColor = true;
+			this->btnUpgrade->Click += gcnew System::EventHandler(this, &ErrorWarning::btnUpgrade_Click);
 			// 
 			// btnDelete
 			// 
@@ -191,6 +192,7 @@ namespace WeatherStationView {
 			this->btnDelete->TabIndex = 9;
 			this->btnDelete->Text = L"Delete";
 			this->btnDelete->UseVisualStyleBackColor = true;
+			this->btnDelete->Click += gcnew System::EventHandler(this, &ErrorWarning::btnDelete_Click);
 			// 
 			// ErrorWarning
 			// 
@@ -219,5 +221,9 @@ namespace WeatherStationView {
 	
 	
 	}
+private: System::Void btnUpgrade_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

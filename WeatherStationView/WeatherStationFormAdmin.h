@@ -42,48 +42,66 @@ namespace WeatherStationView {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::MenuStrip^ menuStrip1;
-	protected:
 	private: System::Windows::Forms::ToolStripMenuItem^ toolStripMenuItem1;
-	private: System::Windows::Forms::ToolStripMenuItem^ userToolStripMenuItem;
-
-
-
-
-
-	private: System::Windows::Forms::ToolStripMenuItem^ ambienteToolStripMenuItem;
-
+	protected:
 	private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ userToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ membresiaToolStripMenuItem1;
 	private: System::Windows::Forms::ToolStripMenuItem^ austesToolStripMenuItem;
-
-
-
-
-
-
-
-
-
-
-	private: System::Windows::Forms::ToolStripMenuItem^ estaditicaToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ userToolStripMenuItem1;
-
-
-
-
-
-
-
-
+	private: System::Windows::Forms::ToolStripMenuItem^ ambienteToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ estaditicaToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ sensorToolStripMenuItem1;
+	private: System::Windows::Forms::ToolStripMenuItem^ calidadAireToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ concentracionCOToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ temperaturaYHumedadToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ temporizadorToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ alertaToolStripMenuItem1;
 	private: System::Windows::Forms::ToolStripMenuItem^ alertaMeteorologicaToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ alertaErrorToolStripMenuItem1;
-	private: System::Windows::Forms::ToolStripMenuItem^ calidadAireToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ concentracionCOToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ temperaturaYHumedadToolStripMenuItem;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+
+	protected:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -103,7 +121,6 @@ namespace WeatherStationView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->userToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -120,22 +137,9 @@ namespace WeatherStationView {
 			this->alertaToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->alertaMeteorologicaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->alertaErrorToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// menuStrip1
-			// 
-			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
-				this->toolStripMenuItem1,
-					this->userToolStripMenuItem, this->ambienteToolStripMenuItem
-			});
-			this->menuStrip1->Location = System::Drawing::Point(0, 0);
-			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
-			this->menuStrip1->Size = System::Drawing::Size(871, 24);
-			this->menuStrip1->TabIndex = 0;
-			this->menuStrip1->Text = L"menuStrip1";
 			// 
 			// toolStripMenuItem1
 			// 
@@ -195,7 +199,7 @@ namespace WeatherStationView {
 			// estaditicaToolStripMenuItem
 			// 
 			this->estaditicaToolStripMenuItem->Name = L"estaditicaToolStripMenuItem";
-			this->estaditicaToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->estaditicaToolStripMenuItem->Size = System::Drawing::Size(146, 22);
 			this->estaditicaToolStripMenuItem->Text = L"Estadistica";
 			this->estaditicaToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::estaditicaToolStripMenuItem_Click);
 			// 
@@ -206,7 +210,7 @@ namespace WeatherStationView {
 					this->concentracionCOToolStripMenuItem, this->temperaturaYHumedadToolStripMenuItem
 			});
 			this->sensorToolStripMenuItem1->Name = L"sensorToolStripMenuItem1";
-			this->sensorToolStripMenuItem1->Size = System::Drawing::Size(180, 22);
+			this->sensorToolStripMenuItem1->Size = System::Drawing::Size(146, 22);
 			this->sensorToolStripMenuItem1->Text = L"Sensores";
 			// 
 			// calidadAireToolStripMenuItem
@@ -233,7 +237,7 @@ namespace WeatherStationView {
 			// temporizadorToolStripMenuItem
 			// 
 			this->temporizadorToolStripMenuItem->Name = L"temporizadorToolStripMenuItem";
-			this->temporizadorToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->temporizadorToolStripMenuItem->Size = System::Drawing::Size(146, 22);
 			this->temporizadorToolStripMenuItem->Text = L"Temporizador";
 			// 
 			// alertaToolStripMenuItem1
@@ -243,7 +247,7 @@ namespace WeatherStationView {
 					this->alertaErrorToolStripMenuItem1
 			});
 			this->alertaToolStripMenuItem1->Name = L"alertaToolStripMenuItem1";
-			this->alertaToolStripMenuItem1->Size = System::Drawing::Size(180, 22);
+			this->alertaToolStripMenuItem1->Size = System::Drawing::Size(146, 22);
 			this->alertaToolStripMenuItem1->Text = L"Alerta";
 			// 
 			// alertaMeteorologicaToolStripMenuItem
@@ -258,6 +262,21 @@ namespace WeatherStationView {
 			this->alertaErrorToolStripMenuItem1->Name = L"alertaErrorToolStripMenuItem1";
 			this->alertaErrorToolStripMenuItem1->Size = System::Drawing::Size(182, 22);
 			this->alertaErrorToolStripMenuItem1->Text = L"AlertaError";
+			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->toolStripMenuItem1,
+					this->userToolStripMenuItem, this->ambienteToolStripMenuItem
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(871, 24);
+			this->menuStrip1->TabIndex = 0;
+			this->menuStrip1->Text = L"menuStrip1";
+			this->menuStrip1->ItemClicked += gcnew System::Windows::Forms::ToolStripItemClickedEventHandler(this, &WeatherStationFormAdmin::menuStrip1_ItemClicked);
 			// 
 			// WeatherStationFormAdmin
 			// 
@@ -319,6 +338,8 @@ private: System::Void temperaturaYHumedadToolStripMenuItem_Click(System::Object^
 private: System::Void alertaMeteorologicaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	WeatherWarningMaintenance obj;
 	obj.ShowDialog();
+}
+private: System::Void menuStrip1_ItemClicked(System::Object^ sender, System::Windows::Forms::ToolStripItemClickedEventArgs^ e) {
 }
 };
 }

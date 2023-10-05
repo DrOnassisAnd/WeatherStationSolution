@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Config.h"
-
+#include "MembresiaForm.h"
 
 namespace WeatherStationView {
 
@@ -440,7 +440,8 @@ namespace WeatherStationView {
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-
+	MembresiaForm obj;
+	obj.ShowDialog();
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();
