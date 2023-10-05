@@ -23,6 +23,8 @@ namespace WeatherStationView {
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			this->IdMembresia = 0;
+
 		}
 
 	protected:
@@ -36,16 +38,16 @@ namespace WeatherStationView {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ label1;
+
 	protected:
-	private: System::Windows::Forms::Label^ label2;
+
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::DataGridView^ dgvMembresia;
-	private: System::Windows::Forms::TextBox^ txtTipoMembresia;
-	private: System::Windows::Forms::TextBox^ txtnombreMiembro;
-	private: System::Windows::Forms::TextBox^ txtfechaInicio;
-	private: System::Windows::Forms::TextBox^ txtfechaFinalizacion;
+	private: int IdMembresia;
+
+
+
 
 
 
@@ -55,14 +57,19 @@ namespace WeatherStationView {
 
 	private: System::Windows::Forms::Button^ btnUpdate;
 	private: System::Windows::Forms::Button^ btnDelete;
-	private: System::Windows::Forms::Label^ label5;
 
-	private: System::Windows::Forms::TextBox^ txtMetododepago;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ membresia;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Nombre;
+
+
+
+
+
+
+
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Id;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ fechainicial;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ fechafinal;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Metodopago;
 
 
 
@@ -81,50 +88,24 @@ namespace WeatherStationView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->dgvMembresia = (gcnew System::Windows::Forms::DataGridView());
-			this->txtTipoMembresia = (gcnew System::Windows::Forms::TextBox());
-			this->txtnombreMiembro = (gcnew System::Windows::Forms::TextBox());
-			this->txtfechaInicio = (gcnew System::Windows::Forms::TextBox());
-			this->txtfechaFinalizacion = (gcnew System::Windows::Forms::TextBox());
+			this->Id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->fechainicial = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->fechafinal = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->txtMetododepago = (gcnew System::Windows::Forms::TextBox());
-			this->membresia = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Nombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->fechainicial = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->fechafinal = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Metodopago = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->dateTimePicker2 = (gcnew System::Windows::Forms::DateTimePicker());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvMembresia))->BeginInit();
 			this->SuspendLayout();
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(86, 16);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(103, 16);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"TipoMembresia";
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(111, 57);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(56, 16);
-			this->label2->TabIndex = 1;
-			this->label2->Text = L"Nombre";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(111, 96);
+			this->label3->Location = System::Drawing::Point(91, 68);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(76, 16);
 			this->label3->TabIndex = 2;
@@ -134,7 +115,7 @@ namespace WeatherStationView {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(71, 137);
+			this->label4->Location = System::Drawing::Point(51, 109);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(116, 16);
 			this->label4->TabIndex = 3;
@@ -145,9 +126,9 @@ namespace WeatherStationView {
 			// 
 			this->dgvMembresia->AllowUserToOrderColumns = true;
 			this->dgvMembresia->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvMembresia->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
-				this->membresia,
-					this->Nombre, this->fechainicial, this->fechafinal, this->Metodopago
+			this->dgvMembresia->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+				this->Id, this->fechainicial,
+					this->fechafinal
 			});
 			this->dgvMembresia->Location = System::Drawing::Point(38, 255);
 			this->dgvMembresia->Name = L"dgvMembresia";
@@ -157,37 +138,26 @@ namespace WeatherStationView {
 			this->dgvMembresia->TabIndex = 5;
 			this->dgvMembresia->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MembershipMaintenanceForm::dataGridView1_CellContentClick);
 			// 
-			// txtTipoMembresia
+			// Id
 			// 
-			this->txtTipoMembresia->Location = System::Drawing::Point(195, 16);
-			this->txtTipoMembresia->Name = L"txtTipoMembresia";
-			this->txtTipoMembresia->Size = System::Drawing::Size(100, 22);
-			this->txtTipoMembresia->TabIndex = 6;
-			this->txtTipoMembresia->TextChanged += gcnew System::EventHandler(this, &MembershipMaintenanceForm::textBox1_TextChanged);
+			this->Id->HeaderText = L"Id";
+			this->Id->MinimumWidth = 6;
+			this->Id->Name = L"Id";
+			this->Id->Width = 125;
 			// 
-			// txtnombreMiembro
+			// fechainicial
 			// 
-			this->txtnombreMiembro->Location = System::Drawing::Point(195, 57);
-			this->txtnombreMiembro->Name = L"txtnombreMiembro";
-			this->txtnombreMiembro->Size = System::Drawing::Size(100, 22);
-			this->txtnombreMiembro->TabIndex = 7;
-			this->txtnombreMiembro->TextChanged += gcnew System::EventHandler(this, &MembershipMaintenanceForm::textBox2_TextChanged);
+			this->fechainicial->HeaderText = L"FechaInicio";
+			this->fechainicial->MinimumWidth = 6;
+			this->fechainicial->Name = L"fechainicial";
+			this->fechainicial->Width = 125;
 			// 
-			// txtfechaInicio
+			// fechafinal
 			// 
-			this->txtfechaInicio->Location = System::Drawing::Point(195, 96);
-			this->txtfechaInicio->Name = L"txtfechaInicio";
-			this->txtfechaInicio->Size = System::Drawing::Size(100, 22);
-			this->txtfechaInicio->TabIndex = 8;
-			this->txtfechaInicio->TextChanged += gcnew System::EventHandler(this, &MembershipMaintenanceForm::textBox3_TextChanged);
-			// 
-			// txtfechaFinalizacion
-			// 
-			this->txtfechaFinalizacion->Location = System::Drawing::Point(195, 137);
-			this->txtfechaFinalizacion->Name = L"txtfechaFinalizacion";
-			this->txtfechaFinalizacion->Size = System::Drawing::Size(100, 22);
-			this->txtfechaFinalizacion->TabIndex = 9;
-			this->txtfechaFinalizacion->TextChanged += gcnew System::EventHandler(this, &MembershipMaintenanceForm::textBox4_TextChanged);
+			this->fechafinal->HeaderText = L"Fecha de Finalizacion";
+			this->fechafinal->MinimumWidth = 6;
+			this->fechafinal->Name = L"fechafinal";
+			this->fechafinal->Width = 125;
 			// 
 			// btnAdd
 			// 
@@ -207,6 +177,7 @@ namespace WeatherStationView {
 			this->btnUpdate->TabIndex = 11;
 			this->btnUpdate->Text = L"Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->Click += gcnew System::EventHandler(this, &MembershipMaintenanceForm::btnUpdate_Click);
 			// 
 			// btnDelete
 			// 
@@ -216,78 +187,37 @@ namespace WeatherStationView {
 			this->btnDelete->TabIndex = 12;
 			this->btnDelete->Text = L"Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
+			this->btnDelete->Click += gcnew System::EventHandler(this, &MembershipMaintenanceForm::btnDelete_Click);
 			// 
-			// label5
+			// dateTimePicker1
 			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(88, 178);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(101, 16);
-			this->label5->TabIndex = 13;
-			this->label5->Text = L"Metododepago";
+			this->dateTimePicker1->Location = System::Drawing::Point(173, 68);
+			this->dateTimePicker1->Name = L"dateTimePicker1";
+			this->dateTimePicker1->Size = System::Drawing::Size(200, 22);
+			this->dateTimePicker1->TabIndex = 13;
+			this->dateTimePicker1->ValueChanged += gcnew System::EventHandler(this, &MembershipMaintenanceForm::dateTimePicker1_ValueChanged);
 			// 
-			// txtMetododepago
+			// dateTimePicker2
 			// 
-			this->txtMetododepago->Location = System::Drawing::Point(195, 172);
-			this->txtMetododepago->Name = L"txtMetododepago";
-			this->txtMetododepago->Size = System::Drawing::Size(100, 22);
-			this->txtMetododepago->TabIndex = 14;
-			this->txtMetododepago->TextChanged += gcnew System::EventHandler(this, &MembershipMaintenanceForm::txtMetododepago_TextChanged);
-			// 
-			// membresia
-			// 
-			this->membresia->HeaderText = L"TipoMembresia";
-			this->membresia->MinimumWidth = 6;
-			this->membresia->Name = L"membresia";
-			this->membresia->Width = 125;
-			// 
-			// Nombre
-			// 
-			this->Nombre->HeaderText = L"Usuario";
-			this->Nombre->MinimumWidth = 6;
-			this->Nombre->Name = L"Nombre";
-			this->Nombre->Width = 125;
-			// 
-			// fechainicial
-			// 
-			this->fechainicial->HeaderText = L"FechaInicio";
-			this->fechainicial->MinimumWidth = 6;
-			this->fechainicial->Name = L"fechainicial";
-			this->fechainicial->Width = 125;
-			// 
-			// fechafinal
-			// 
-			this->fechafinal->HeaderText = L"Fecha de Finalizacion";
-			this->fechafinal->MinimumWidth = 6;
-			this->fechafinal->Name = L"fechafinal";
-			this->fechafinal->Width = 125;
-			// 
-			// Metodopago
-			// 
-			this->Metodopago->HeaderText = L"Metodo de Pago";
-			this->Metodopago->MinimumWidth = 6;
-			this->Metodopago->Name = L"Metodopago";
-			this->Metodopago->Width = 125;
+			this->dateTimePicker2->Location = System::Drawing::Point(173, 109);
+			this->dateTimePicker2->Name = L"dateTimePicker2";
+			this->dateTimePicker2->Size = System::Drawing::Size(200, 22);
+			this->dateTimePicker2->TabIndex = 14;
+			this->dateTimePicker2->ValueChanged += gcnew System::EventHandler(this, &MembershipMaintenanceForm::dateTimePicker2_ValueChanged);
 			// 
 			// MembershipMaintenanceForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(753, 432);
-			this->Controls->Add(this->txtMetododepago);
-			this->Controls->Add(this->label5);
+			this->Controls->Add(this->dateTimePicker2);
+			this->Controls->Add(this->dateTimePicker1);
 			this->Controls->Add(this->btnDelete);
 			this->Controls->Add(this->btnUpdate);
 			this->Controls->Add(this->btnAdd);
-			this->Controls->Add(this->txtfechaFinalizacion);
-			this->Controls->Add(this->txtfechaInicio);
-			this->Controls->Add(this->txtnombreMiembro);
-			this->Controls->Add(this->txtTipoMembresia);
 			this->Controls->Add(this->dgvMembresia);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
 			this->Name = L"MembershipMaintenanceForm";
 			this->Text = L"MembershipMaintenanceForm";
 			this->Load += gcnew System::EventHandler(this, &MembershipMaintenanceForm::MembershipMaintenanceForm_Load);
@@ -298,43 +228,65 @@ namespace WeatherStationView {
 		}
 #pragma endregion
 	private: System::Void MembershipMaintenanceForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	
+		ShowMembresiaData();
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+
+	IdMembresia = Int32::Parse(dgvMembresia->Rows[dgvMembresia->SelectedCells[0]->RowIndex]
+		->Cells[0]->Value->ToString());
+	Membresia^ membresia = Controller::Controller::QueryMembresiabyId(IdMembresia);
+
 }
 private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ tipoMembresia = txtTipoMembresia->Text;
-	String^ nombreMiembro = txtnombreMiembro->Text;
-	String^ fechaInicio = txtfechaInicio->Text;
-	String^ fechaFinalizacion = txtfechaFinalizacion->Text;
-	String^ Metododepago = txtMetododepago->Text;
 
-	//int Id = Int32::Parse(txtId->Text);
+	DateTime fechaInicio = dateTimePicker1->Value;
+	String^ StringDateTime = fechaInicio.ToString("dd-MM-yyyy HH:mm:ss");
+
+	DateTime fechaFinalizacion = dateTimePicker2->Value;
+	String^ StringDateTimezz = fechaFinalizacion.ToString("dd-MM-yyyy HH:mm:ss");
+
+	List<Membresia^>^ membresias = Controller::Controller::QueryMembresia();
+	int lastIdIndex = membresias->Count;
 
 	Membresia^ membresia = gcnew Membresia();
+	Membresia^ membresialastId = membresias[lastIdIndex - 1];
+	membresia->Id = (membresialastId->Id) + 1;
+	//int Id = Int32::Parse(txtId->Text);
+
+
 	//user->Id = Id;
-	membresia->tipoMembresia = tipoMembresia;
-	membresia->nombreMiembro = nombreMiembro;
-	membresia->fechaInicio = fechaInicio;
-	membresia->fechaFinalizacion = fechaFinalizacion;
-	membresia->Metododepago = Metododepago;
-	dgvMembresia->Rows->Add(gcnew array<String^> {
-		membresia->tipoMembresia,
-		membresia->nombreMiembro,
-		membresia->fechaInicio,
-		membresia->fechaFinalizacion,
-		membresia->Metododepago
-	});
+
+	membresia->fechaInicio = DateTime::Parse(StringDateTime);
+	membresia->fechaFinalizacion = DateTime::Parse(StringDateTimezz);
+
+
 	Controller::Controller::AddMembresia(membresia);
 	//ShowUser();
-	MessageBox::Show("Oki Doki");
-	
-
+	ShowMembresiaData();
+	// MessageBox::Show("Oki Doki");
 
 }
+
+	   void ShowMembresiaData() {
+		   List<Membresia^>^ membresias = Controller::Controller::QueryMembresia();
+		   dgvMembresia->Rows->Clear();
+		   for (int i = 0; i < membresias->Count; i++) {
+			   Membresia^ membresia = membresias[i];
+			   dgvMembresia->Rows->Add(gcnew array<String^> {
+				   "" + membresia->Id,
+					   "" + membresia->fechaInicio,
+					   "" + membresia->fechaFinalizacion,
+
+			   });
+		   }
+	   }
+
+
 private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -344,6 +296,44 @@ private: System::Void textBox4_TextChanged(System::Object^ sender, System::Event
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void txtMetododepago_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void dateTimePicker1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void dateTimePicker2_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	Controller::Controller::DeleteMembresia(IdMembresia);
+	ShowMembresiaData();
+}
+private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		DateTime FechaInicio = dateTimePicker1->Value;
+		DateTime FechaFin = dateTimePicker2->Value;
+
+		Membresia^ membresia = gcnew Membresia();
+		membresia->Id = IdMembresia;
+		membresia->fechaInicio = dateTimePicker1->Value;
+		membresia->fechaFinalizacion = dateTimePicker2->Value;
+
+		Controller::Controller::UpdateMembresia(membresia);
+		ShowMembresiaData();
+	/*
+	String^ name = textBox2->Text;
+	String^ password = textBox3->Text;
+	String^ email = textBox4->Text;
+
+	User^ user = gcnew User();
+	user->Id = Id;
+	user->Name = name;
+	user->Password = password;
+	user->Email = email;
+
+	Controller::Controller::UpdateUser(user);
+	ShowUserData();
+	*/
+
+
 }
 };
 }

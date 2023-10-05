@@ -93,41 +93,46 @@ namespace WeatherStationView {
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(131, 42);
+			this->textBox3->Location = System::Drawing::Point(175, 52);
+			this->textBox3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(100, 20);
+			this->textBox3->Size = System::Drawing::Size(132, 22);
 			this->textBox3->TabIndex = 62;
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(131, 69);
+			this->textBox4->Location = System::Drawing::Point(175, 85);
+			this->textBox4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(100, 20);
+			this->textBox4->Size = System::Drawing::Size(132, 22);
 			this->textBox4->TabIndex = 61;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(12, 69);
+			this->label3->Location = System::Drawing::Point(16, 85);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(32, 13);
+			this->label3->Size = System::Drawing::Size(41, 16);
 			this->label3->TabIndex = 60;
 			this->label3->Text = L"Email";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(12, 42);
+			this->label4->Location = System::Drawing::Point(16, 52);
+			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(53, 13);
+			this->label4->Size = System::Drawing::Size(67, 16);
 			this->label4->TabIndex = 59;
 			this->label4->Text = L"Password";
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(476, 293);
+			this->button4->Location = System::Drawing::Point(635, 361);
+			this->button4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(75, 23);
+			this->button4->Size = System::Drawing::Size(100, 28);
 			this->button4->TabIndex = 58;
 			this->button4->Text = L"Cerrar";
 			this->button4->UseVisualStyleBackColor = true;
@@ -140,37 +145,49 @@ namespace WeatherStationView {
 				this->Column1,
 					this->Column4, this->Column2, this->Column3
 			});
-			this->dataGridView1->Location = System::Drawing::Point(12, 141);
+			this->dataGridView1->Location = System::Drawing::Point(16, 174);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(446, 177);
+			this->dataGridView1->RowHeadersWidth = 51;
+			this->dataGridView1->Size = System::Drawing::Size(595, 218);
 			this->dataGridView1->TabIndex = 57;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &UserMaintenance::Table_CellClick);
+			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &UserMaintenance::dataGridView1_CellContentClick);
 			// 
 			// Column1
 			// 
 			this->Column1->HeaderText = L"Id";
+			this->Column1->MinimumWidth = 6;
 			this->Column1->Name = L"Column1";
+			this->Column1->Width = 125;
 			// 
 			// Column4
 			// 
 			this->Column4->HeaderText = L"Name";
+			this->Column4->MinimumWidth = 6;
 			this->Column4->Name = L"Column4";
+			this->Column4->Width = 125;
 			// 
 			// Column2
 			// 
 			this->Column2->HeaderText = L"Password";
+			this->Column2->MinimumWidth = 6;
 			this->Column2->Name = L"Column2";
+			this->Column2->Width = 125;
 			// 
 			// Column3
 			// 
 			this->Column3->HeaderText = L"Email";
+			this->Column3->MinimumWidth = 6;
 			this->Column3->Name = L"Column3";
+			this->Column3->Width = 125;
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(476, 105);
+			this->button3->Location = System::Drawing::Point(635, 129);
+			this->button3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(75, 23);
+			this->button3->Size = System::Drawing::Size(100, 28);
 			this->button3->TabIndex = 56;
 			this->button3->Text = L"Eliminar";
 			this->button3->UseVisualStyleBackColor = true;
@@ -178,9 +195,10 @@ namespace WeatherStationView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(476, 59);
+			this->button2->Location = System::Drawing::Point(635, 73);
+			this->button2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->Size = System::Drawing::Size(100, 28);
 			this->button2->TabIndex = 55;
 			this->button2->Text = L"Modificar";
 			this->button2->UseVisualStyleBackColor = true;
@@ -188,9 +206,10 @@ namespace WeatherStationView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(476, 12);
+			this->button1->Location = System::Drawing::Point(635, 15);
+			this->button1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(100, 28);
 			this->button1->TabIndex = 54;
 			this->button1->Text = L"Agregar";
 			this->button1->UseVisualStyleBackColor = true;
@@ -198,25 +217,27 @@ namespace WeatherStationView {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(131, 12);
+			this->textBox2->Location = System::Drawing::Point(175, 15);
+			this->textBox2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 20);
+			this->textBox2->Size = System::Drawing::Size(132, 22);
 			this->textBox2->TabIndex = 53;
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(9, 12);
+			this->label2->Location = System::Drawing::Point(12, 15);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(35, 13);
+			this->label2->Size = System::Drawing::Size(44, 16);
 			this->label2->TabIndex = 51;
 			this->label2->Text = L"Name";
 			// 
 			// UserMaintenance
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(556, 326);
+			this->ClientSize = System::Drawing::Size(741, 401);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->label3);
@@ -228,6 +249,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->label2);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"UserMaintenance";
 			this->Text = L"UserMaintenance";
 			this->Load += gcnew System::EventHandler(this, &UserMaintenance::User_Load);
@@ -312,5 +334,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	ShowUserData();
 }
 
+private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
 };
 }

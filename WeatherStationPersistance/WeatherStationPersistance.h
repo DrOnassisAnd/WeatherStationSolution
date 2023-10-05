@@ -11,7 +11,7 @@ namespace WeatherStationPersistance {
 	private:
 		static List<User^>^ UserList = gcnew List<User^>();
 		static Ajustes^ AjustesList = gcnew Ajustes();
-		static Membresia^ MembresiaList = gcnew Membresia();
+		static List<Membresia^>^ MembresiaList = gcnew List<Membresia^>();;
 		static List<SensorCalidadAire^>^ sCalidadAire = gcnew List<SensorCalidadAire^>();
 		static List<SensorCO^>^ sConcentracionCOList = gcnew List<SensorCO^>();
 		static List<SensorTemperaturaHumedad^>^ sTempHumList = gcnew List<SensorTemperaturaHumedad^>();
@@ -79,12 +79,14 @@ namespace WeatherStationPersistance {
 		static void DeleteUser(int userId);
 
 		static void AddAjustes(Ajustes^ ajustes);
+
 		static void AddMembresia(Membresia^ membresias);
-		
-		
+		static List<Membresia^>^ QueryMembresia();
+		static Membresia^ QueryMembresiabyId(int id);
+		static void UpdateMembresia(Membresia^ membresia);
+		static void DeleteMembresia(int membresiaId);
 		
 		static Ajustes^ QueryPrevAjustes();
-		static Membresia^ QueryMembresia();
 
 		//TempHum Methods
 		static void AddTempHumData(SensorTemperaturaHumedad^ sTempHum);

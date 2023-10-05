@@ -7,13 +7,13 @@ using namespace System;
 namespace Model {
     public ref class Membresia {
     public:
-        property String^ tipoMembresia;
-        property String^ nombreMiembro;
-        property String^ fechaInicio;
-        property String^ fechaFinalizacion;
-        property String^ Metododepago;
+
+        property int Id;
+        property DateTime^ fechaInicio;
+        property DateTime^ fechaFinalizacion;
+
         Membresia() {}
-        Membresia(String^ tipoMembresia, String^ nombreMiembro, String^ fechaInicio, String^ fechaFinalizacion, String^ Metododepago);
+        Membresia(int Id, DateTime^ fechaInicio, DateTime^ fechaFinalizacion);
 
     };
 
