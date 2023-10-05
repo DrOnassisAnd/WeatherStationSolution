@@ -280,6 +280,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	String^ IdSensor = textBox1->Text;
 	Controller::Controller::DeleteCOData(IdMedicion, IdSensor);
 	ShowCOData();
+
 }
 private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	String^ IdSensor = textBox1->Text;

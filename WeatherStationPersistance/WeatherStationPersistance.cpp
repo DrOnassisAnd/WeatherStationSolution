@@ -247,6 +247,7 @@ Object^ WeatherStationPersistance::Persistance::LoadXMLFile(String^ fileName) {
 				xmlSerializer = gcnew XmlSerializer(List<SensorCalidadAire^>::typeid);
 				result = (List<SensorCalidadAire^>^)xmlSerializer->Deserialize(reader);
 
+			}
 			else if (fileName->Equals(CO_XML)) {
 				xmlSerializer = gcnew XmlSerializer(List<SensorCO^>::typeid);
 				result = (List<SensorCO^>^)xmlSerializer->Deserialize(reader);
@@ -479,19 +480,9 @@ void WeatherStationPersistance::Persistance::DeleteCOData(int IdMedicion, String
 				sConcentracionCOList->RemoveAt(i);
 	}
 
-	PersistTextFile(CO_FILE, sConcentracionCOList);
-	//PersistXMLFile(CO_XML, sConcentracionCOList);
+	//PersistTextFile(CO_FILE, sConcentracionCOList);
+	PersistXMLFile(CO_XML, sConcentracionCOList);
 	//PersistBinaryFile(TEMP_HUM_BIN, sTempHumList);
-}
-
-void WeatherStationPersistance::Persistance::AddCOData(SensorCO^ CO) {
-	sConcentracionCOList->Add(CO);
-	PersistTextFile(CO_FILE, sConcentracionCOList);
-}
-
-List<SensorCO^>^ WeatherStationPersistance::Persistance::QueryCOData() {
-	sConcentracionCOList = (List<SensorCO^>^)LoadTextFile(CO_FILE);
-	return sConcentracionCOList;
 }
 
 //calidad aire
@@ -503,10 +494,13 @@ SensorCalidadAire^ WeatherStationPersistance::Persistance::QueryCalidadAirebyIds
 		if ((sCalidadAireList[i]->IdMedicion) == IdMedicion)
 			if ((sCalidadAireList[i]->IdSensor) == IdSensor)
 				return sCalidadAireList[i];
+	}
 	//PersistTextFile(CO_FILE, sConcentracionCOList);
 	PersistXMLFile(CO_XML, sConcentracionCOList);
 	//PersistBinaryFile(TEMP_HUM_BIN, sConcentracionCOList);
+
 }
+
 AlertaMeteorologica^ WeatherStationPersistance::Persistance::QueryWeatherWarningbyId(String^ selectedWeatherWarningId) {
 	WeatherWarningList = (List<AlertaMeteorologica^>^)LoadTextFile(WEATHER_WARNING_FILE);
 	for (int i = 0; i < WeatherWarningList->Count; i++) {
