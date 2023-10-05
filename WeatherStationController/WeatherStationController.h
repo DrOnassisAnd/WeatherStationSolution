@@ -25,8 +25,6 @@ namespace Controller {
 		static void DeleteMembresia(int membresiaId);
 		static void UpdateMembresia(Membresia^);
 
-		static void AddAirQData(SensorCalidadAire^ sCalidadAire);
-		static List<SensorCalidadAire^>^ QueryAirQData();
 
 		static void AddTempHumData(SensorTemperaturaHumedad^ sTempHum);
 		static List<SensorTemperaturaHumedad^>^ QueryTempHumData();
@@ -41,9 +39,31 @@ namespace Controller {
 		static void UpdateCOData(SensorCO^ sConcentracionCO);
 		static void DeleteCOData(int IdMedicion, String^ IdSensor);
 
+
+	
+
+		//CalidadAire
+		static void AddCalidadAireData(SensorCalidadAire^ sCalidadAire);
+		static List<SensorCalidadAire^>^ QueryCalidadAireData();
+		static SensorCalidadAire^ QueryCalidadAirebyIds(int IdMedicion, String^ IdSensor);
+		static void UpdateCalidadAireData(SensorCalidadAire^ sCalidadAire);
+		static void DeleteCalidadAireData(int IdMedicion, String^ IdSensor);
+
+    
+  	//WeatherWarning
 		static void AddWeatherWarning(AlertaMeteorologica^ alertaMeteorologica);
 		static List<AlertaMeteorologica^>^ QueryWeatherWarning();
 		static void DeleteWeatherWarning(String^ WeatherWarningId);
 		static AlertaMeteorologica^ QueryWeatherWarningbyId(String^ selectedWeatherWarningId);
+
+		static void UpdateWeatherWarning(AlertaMeteorologica^ alertaMeteorlogica);
+
+		//ErrorWarning
+		static void AddErrorWarning(AlertaError^ alertaError);
+		static List<AlertaError^>^ QueryErrorWarning();
+		static void DeleteErrorWarning(String^ ErrorWarningId);
+		static AlertaError^ QueryErrorWarningbyId(String^ selectedErrorWarningId);
+		static void UpdateErrorWarning(AlertaError^ alertaError);
+
 	};
 }

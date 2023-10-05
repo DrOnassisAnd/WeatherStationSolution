@@ -11,18 +11,18 @@
     <NivelCO>3</NivelCO>
   </SensorCO>
   <SensorCO>
-    <IdSensor>2</IdSensor>
+    <IdSensor>99</IdSensor>
     <IdMedicion>3</IdMedicion>
-    <NivelCO>67</NivelCO>
+    <NivelCO>66</NivelCO>
   </SensorCO>
   <SensorCO>
-    <IdSensor>1</IdSensor>
-    <IdMedicion>4</IdMedicion>
-    <NivelCO>20</NivelCO>
+    <IdSensor>564</IdSensor>
+    <IdMedicion>6</IdMedicion>
+    <NivelCO>123</NivelCO>
   </SensorCO>
   <SensorCO>
-    <IdSensor>4</IdSensor>
-    <IdMedicion>5</IdMedicion>
-    <NivelCO>20</NivelCO>
+    <IdSensor>23</IdSensor>
+    <IdMedicion>7</IdMedicion>
+    <NivelCO>213</NivelCO>
   </SensorCO>
 </ArrayOfSensorCO>
