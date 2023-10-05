@@ -20,7 +20,10 @@ namespace Controller {
 		static Ajustes^ QueryPrevAjustes();
 
 		static void AddMembresia(Membresia^);
-		static Membresia^ QueryMembresia();
+		static List<Membresia^>^ QueryMembresia();
+		static Membresia^ QueryMembresiabyId(int Id);
+		static void DeleteMembresia(int membresiaId);
+		static void UpdateMembresia(Membresia^);
 
 
 		static void AddTempHumData(SensorTemperaturaHumedad^ sTempHum);

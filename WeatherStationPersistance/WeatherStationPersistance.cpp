@@ -21,6 +21,13 @@ void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, O
 		Ajustes^ ajustes = (Ajustes^)persistObject;
 		writer->WriteLine(ajustes->UnidadTemp + "," + ajustes->FormatoHoras + "," + ajustes->FormatoFecha);
 	}
+	else if (persistObject->GetType() == List<Membresia^>::typeid) { 
+		List<Membresia^>^ membresias = (List<Membresia^>^)persistObject;
+		for (int i = 0; i < membresias->Count; i++) {
+			Membresia^ r = membresias[i];
+			writer->WriteLine(r->Id + "," + r->fechaInicio + "," + r->fechaFinalizacion);
+		}
+	}
 	
 	else if (persistObject->GetType() == List<SensorTemperaturaHumedad^>::typeid) { //TempHum
 		List<SensorTemperaturaHumedad^>^ tempHum = (List<SensorTemperaturaHumedad^>^)persistObject;
@@ -153,18 +160,34 @@ Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
 			}
 		}
 		else if (fileName->Equals(MEMBRESIA_FILE)) {
-			result = gcnew Membresia();
+			result = gcnew List<Membresia^>();
 			while (true) {
 				String^ line = reader->ReadLine();
 				if (line == nullptr) break;
 				array<String^>^ record = line->Split(',');
 				Membresia^ membresia = gcnew Membresia();
-				membresia->tipoMembresia = record[0];
-				membresia->nombreMiembro = record[1];
-				membresia->fechaInicio = record[2];
-				membresia->fechaFinalizacion = record[3];
-				membresia->Metododepago = record[4];
-				result = membresia;
+				String^ formatoFecha = "dd/MM/yyyy HH:mm:ss";
+				membresia->Id = Convert::ToInt32(record[0]);
+
+				try {
+					String^ StringRecord = record[1]->Trim();
+					membresia->fechaInicio = DateTime::ParseExact(StringRecord, formatoFecha, CultureInfo::InvariantCulture, DateTimeStyles::None);
+
+					String^ StringRecordz = record[2]->Trim();
+					membresia->fechaFinalizacion = DateTime::ParseExact(StringRecordz, formatoFecha, CultureInfo::InvariantCulture, DateTimeStyles::None);
+
+
+				}
+				catch (System::FormatException^ ex) {
+					// Manejo de la excepción en caso de formato incorrecto
+					// Puedes registrar el error o asignar un valor predeterminado a FechaHora
+					membresia->fechaInicio = DateTime::Today; // Valor predeterminado			
+				}
+
+				((List<Membresia^>^)result)->Add(membresia);
+
+
+
 			}
 		}
 		else if (fileName->Equals(CALIDAD_AIRE_FILE)) {
@@ -409,10 +432,6 @@ void WeatherStationPersistance::Persistance::AddAjustes(Ajustes^ ajustes) {
 	PersistTextFile(AJUSTES_FILE, AjustesList);
 }
 
-void WeatherStationPersistance::Persistance::AddMembresia(Membresia^ membresias) {
-	MembresiaList = (Membresia^)membresias;
-	PersistTextFile(MEMBRESIA_FILE, MembresiaList);
-}
 
 
 
@@ -421,12 +440,49 @@ Ajustes^ WeatherStationPersistance::Persistance::QueryPrevAjustes() {
 	return AjustesList;
 }
 
-Membresia^ WeatherStationPersistance::Persistance::QueryMembresia()
-{
-	MembresiaList = (Membresia^)LoadTextFile(MEMBRESIA_FILE);
+void WeatherStationPersistance::Persistance::AddMembresia(Membresia^ membresia) {
+	MembresiaList->Add(membresia);
+	//PersistTextFile(WEATHER_STATION, UserList);
+	PersistTextFile(MEMBRESIA_FILE, MembresiaList);
+}
+
+List<Membresia^>^ WeatherStationPersistance::Persistance::QueryMembresia() {
+	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
+	MembresiaList = (List<Membresia^>^)LoadTextFile(MEMBRESIA_FILE);
 	return MembresiaList;
 }
 
+
+
+Membresia^ WeatherStationPersistance::Persistance::QueryMembresiabyId(int Id) {
+	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
+	MembresiaList = (List<Membresia^>^)LoadTextFile(MEMBRESIA_FILE);
+	for (int i = 0; i < MembresiaList->Count; i++) {
+		if (MembresiaList[i]->Id == Id)
+			return MembresiaList[i];
+	}
+	return nullptr;
+}
+
+void WeatherStationPersistance::Persistance::UpdateMembresia(Membresia^ membresia) {
+	for (int i = 0; i < MembresiaList->Count; i++) {
+		if (MembresiaList[i]->Id == membresia->Id)
+			MembresiaList[i] = membresia;
+	}
+	//PersistTextFile(WEATHER_STATION, UserList);
+	PersistTextFile(MEMBRESIA_FILE, MembresiaList);
+	//PersistBinaryFile(USERS_BIN, UserList);
+}
+
+void WeatherStationPersistance::Persistance::DeleteMembresia(int membresiaId) {
+	for (int i = 0; i < MembresiaList->Count; i++) {
+		if (MembresiaList[i]->Id == membresiaId)
+			MembresiaList->RemoveAt(i);
+	}
+	//PersistTextFile(WEATHER_STATION, UserList);
+	PersistTextFile(MEMBRESIA_FILE, MembresiaList);
+	//PersistBinaryFile(USERS_BIN, UserList);
+}
 
 
 

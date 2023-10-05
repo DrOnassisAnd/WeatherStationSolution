@@ -38,8 +38,28 @@ void Controller::Controller::AddAjustes(Ajustes^ ajustes) {
 
 void Controller::Controller::AddMembresia(Membresia^ membresias) {
 	//Se puede programar más cosas.
+
 	WeatherStationPersistance::Persistance::AddMembresia(membresias);
 }
+
+
+List<Membresia^>^ Controller::Controller::QueryMembresia() {
+	//Se puede programar m�s cosas
+	return WeatherStationPersistance::Persistance::QueryMembresia();
+}
+
+Membresia^ Controller::Controller::QueryMembresiabyId(int Id) {
+	return WeatherStationPersistance::Persistance::QueryMembresiabyId(Id);
+}
+
+void Controller::Controller::UpdateMembresia(Membresia^ user) {
+	WeatherStationPersistance::Persistance::UpdateMembresia(user);
+}
+
+void Controller::Controller::DeleteMembresia(int userId) {
+	WeatherStationPersistance::Persistance::DeleteMembresia(userId);
+}
+
 
 
 
@@ -52,12 +72,6 @@ Ajustes^ Controller::Controller::QueryPrevAjustes() {
 	//Se puede programar más cosas
 	return WeatherStationPersistance::Persistance::QueryPrevAjustes();
 }
-
-Membresia^ Controller::Controller::QueryMembresia() {
-	//Se puede programar más cosas
-	return WeatherStationPersistance::Persistance::QueryMembresia();
-}
-
 
 //Sensor CO
 
@@ -82,7 +96,6 @@ void Controller::Controller::UpdateCOData(SensorCO^ sConcentracionCO) {
 void Controller::Controller::DeleteCOData(int IdMedicion, String^ IdSensor) {
 	WeatherStationPersistance::Persistance::DeleteCOData(IdMedicion, IdSensor);
 }
-
 
 //Sensor Temperatura Humedad
 

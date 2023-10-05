@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfAlertaMeteorologica xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <AlertaMeteorologica>
-    <FechaHora>2020-11-04T00:00:00</FechaHora>
-    <ValorRef>14</ValorRef>
-    <IdSensor>2</IdSensor>
+    <FechaHora>2023-10-02T00:00:00</FechaHora>
+    <ValorRef>200</ValorRef>
+    <IdSensor>15</IdSensor>
     <IdAlerta>0</IdAlerta>
   </AlertaMeteorologica>
   <AlertaMeteorologica>

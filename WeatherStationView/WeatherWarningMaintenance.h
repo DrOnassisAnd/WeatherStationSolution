@@ -117,42 +117,47 @@ namespace WeatherStationView {
 			// lblValorRef
 			// 
 			this->lblValorRef->AutoSize = true;
-			this->lblValorRef->Location = System::Drawing::Point(34, 70);
+			this->lblValorRef->Location = System::Drawing::Point(45, 86);
+			this->lblValorRef->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblValorRef->Name = L"lblValorRef";
-			this->lblValorRef->Size = System::Drawing::Size(51, 13);
+			this->lblValorRef->Size = System::Drawing::Size(63, 16);
 			this->lblValorRef->TabIndex = 1;
 			this->lblValorRef->Text = L"RefValue";
 			// 
 			// lblFechaHora
 			// 
 			this->lblFechaHora->AutoSize = true;
-			this->lblFechaHora->Location = System::Drawing::Point(34, 107);
+			this->lblFechaHora->Location = System::Drawing::Point(45, 132);
+			this->lblFechaHora->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblFechaHora->Name = L"lblFechaHora";
-			this->lblFechaHora->Size = System::Drawing::Size(30, 13);
+			this->lblFechaHora->Size = System::Drawing::Size(36, 16);
 			this->lblFechaHora->TabIndex = 2;
 			this->lblFechaHora->Text = L"Date";
 			// 
 			// txtRefValue
 			// 
-			this->txtRefValue->Location = System::Drawing::Point(118, 67);
+			this->txtRefValue->Location = System::Drawing::Point(157, 82);
+			this->txtRefValue->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtRefValue->Name = L"txtRefValue";
-			this->txtRefValue->Size = System::Drawing::Size(121, 20);
+			this->txtRefValue->Size = System::Drawing::Size(160, 22);
 			this->txtRefValue->TabIndex = 4;
 			// 
 			// dtpDateTime
 			// 
-			this->dtpDateTime->Location = System::Drawing::Point(118, 100);
+			this->dtpDateTime->Location = System::Drawing::Point(157, 123);
+			this->dtpDateTime->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->dtpDateTime->Name = L"dtpDateTime";
-			this->dtpDateTime->Size = System::Drawing::Size(200, 20);
+			this->dtpDateTime->Size = System::Drawing::Size(265, 22);
 			this->dtpDateTime->TabIndex = 5;
 			this->dtpDateTime->Value = System::DateTime(2023, 10, 2, 0, 0, 0, 0);
 			this->dtpDateTime->ValueChanged += gcnew System::EventHandler(this, &WeatherWarningMaintenance::dtpDateTime_ValueChanged);
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(37, 291);
+			this->btnAdd->Location = System::Drawing::Point(49, 358);
+			this->btnAdd->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnAdd->Name = L"btnAdd";
-			this->btnAdd->Size = System::Drawing::Size(75, 23);
+			this->btnAdd->Size = System::Drawing::Size(100, 28);
 			this->btnAdd->TabIndex = 7;
 			this->btnAdd->Text = L"Add";
 			this->btnAdd->UseVisualStyleBackColor = true;
@@ -160,9 +165,10 @@ namespace WeatherStationView {
 			// 
 			// btnEdit
 			// 
-			this->btnEdit->Location = System::Drawing::Point(243, 291);
+			this->btnEdit->Location = System::Drawing::Point(324, 358);
+			this->btnEdit->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnEdit->Name = L"btnEdit";
-			this->btnEdit->Size = System::Drawing::Size(75, 23);
+			this->btnEdit->Size = System::Drawing::Size(100, 28);
 			this->btnEdit->TabIndex = 8;
 			this->btnEdit->Text = L"Edit";
 			this->btnEdit->UseVisualStyleBackColor = true;
@@ -170,9 +176,10 @@ namespace WeatherStationView {
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(451, 291);
+			this->btnDelete->Location = System::Drawing::Point(601, 358);
+			this->btnDelete->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnDelete->Name = L"btnDelete";
-			this->btnDelete->Size = System::Drawing::Size(75, 23);
+			this->btnDelete->Size = System::Drawing::Size(100, 28);
 			this->btnDelete->TabIndex = 9;
 			this->btnDelete->Text = L"Delete";
 			this->btnDelete->UseVisualStyleBackColor = true;
@@ -185,38 +192,50 @@ namespace WeatherStationView {
 				this->ColumnIdWarning,
 					this->ColumnIdSensor, this->columnRefValue, this->columnDate
 			});
-			this->dgvWeatherWarning->Location = System::Drawing::Point(37, 141);
+			this->dgvWeatherWarning->Location = System::Drawing::Point(49, 174);
+			this->dgvWeatherWarning->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->dgvWeatherWarning->Name = L"dgvWeatherWarning";
-			this->dgvWeatherWarning->Size = System::Drawing::Size(489, 133);
+			this->dgvWeatherWarning->RowHeadersWidth = 51;
+			this->dgvWeatherWarning->Size = System::Drawing::Size(652, 164);
 			this->dgvWeatherWarning->TabIndex = 10;
 			this->dgvWeatherWarning->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &WeatherWarningMaintenance::dgvWeatherWarning_CellClick);
+			this->dgvWeatherWarning->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &WeatherWarningMaintenance::dgvWeatherWarning_CellContentClick);
 			// 
 			// ColumnIdWarning
 			// 
 			this->ColumnIdWarning->HeaderText = L"IdWarning";
+			this->ColumnIdWarning->MinimumWidth = 6;
 			this->ColumnIdWarning->Name = L"ColumnIdWarning";
+			this->ColumnIdWarning->Width = 125;
 			// 
 			// ColumnIdSensor
 			// 
 			this->ColumnIdSensor->HeaderText = L"IdSensor";
+			this->ColumnIdSensor->MinimumWidth = 6;
 			this->ColumnIdSensor->Name = L"ColumnIdSensor";
+			this->ColumnIdSensor->Width = 125;
 			// 
 			// columnRefValue
 			// 
 			this->columnRefValue->HeaderText = L"RefValue";
+			this->columnRefValue->MinimumWidth = 6;
 			this->columnRefValue->Name = L"columnRefValue";
+			this->columnRefValue->Width = 125;
 			// 
 			// columnDate
 			// 
 			this->columnDate->HeaderText = L"Date";
+			this->columnDate->MinimumWidth = 6;
 			this->columnDate->Name = L"columnDate";
+			this->columnDate->Width = 125;
 			// 
 			// lblTemp
 			// 
 			this->lblTemp->AutoSize = true;
-			this->lblTemp->Location = System::Drawing::Point(360, 51);
+			this->lblTemp->Location = System::Drawing::Point(480, 63);
+			this->lblTemp->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblTemp->Name = L"lblTemp";
-			this->lblTemp->Size = System::Drawing::Size(35, 13);
+			this->lblTemp->Size = System::Drawing::Size(44, 16);
 			this->lblTemp->TabIndex = 11;
 			this->lblTemp->Text = L"label1";
 			this->lblTemp->Visible = false;
@@ -225,33 +244,36 @@ namespace WeatherStationView {
 			// lblIdSensor
 			// 
 			this->lblIdSensor->AutoSize = true;
-			this->lblIdSensor->Location = System::Drawing::Point(34, 35);
+			this->lblIdSensor->Location = System::Drawing::Point(45, 43);
+			this->lblIdSensor->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblIdSensor->Name = L"lblIdSensor";
-			this->lblIdSensor->Size = System::Drawing::Size(49, 13);
+			this->lblIdSensor->Size = System::Drawing::Size(61, 16);
 			this->lblIdSensor->TabIndex = 12;
 			this->lblIdSensor->Text = L"IdSensor";
 			// 
 			// txtIdSensor
 			// 
-			this->txtIdSensor->Location = System::Drawing::Point(118, 35);
+			this->txtIdSensor->Location = System::Drawing::Point(157, 43);
+			this->txtIdSensor->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtIdSensor->Name = L"txtIdSensor";
-			this->txtIdSensor->Size = System::Drawing::Size(121, 20);
+			this->txtIdSensor->Size = System::Drawing::Size(160, 22);
 			this->txtIdSensor->TabIndex = 13;
 			// 
 			// lblDescription
 			// 
 			this->lblDescription->AutoSize = true;
-			this->lblDescription->Location = System::Drawing::Point(34, 9);
+			this->lblDescription->Location = System::Drawing::Point(45, 11);
+			this->lblDescription->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblDescription->Name = L"lblDescription";
-			this->lblDescription->Size = System::Drawing::Size(152, 13);
+			this->lblDescription->Size = System::Drawing::Size(187, 16);
 			this->lblDescription->TabIndex = 14;
 			this->lblDescription->Text = L"Insert Data from Top to Bottom";
 			// 
 			// WeatherWarningMaintenance
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(538, 341);
+			this->ClientSize = System::Drawing::Size(717, 420);
 			this->Controls->Add(this->lblDescription);
 			this->Controls->Add(this->txtIdSensor);
 			this->Controls->Add(this->lblIdSensor);
@@ -264,6 +286,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->txtRefValue);
 			this->Controls->Add(this->lblFechaHora);
 			this->Controls->Add(this->lblValorRef);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"WeatherWarningMaintenance";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"WeatherWarningMaintenance";
@@ -379,5 +402,7 @@ private: System::Void btnEdit_Click(System::Object^ sender, System::EventArgs^ e
 	}
 }
 
+private: System::Void dgvWeatherWarning_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
 };
 }

@@ -5,17 +5,18 @@
 
 #include "Membresia.h"
 
-/**
- * Membresia implementation
- */
+ /**
+  * Membresia implementation
+  */
 
-Model::Membresia::Membresia(String^ tipoMembresia, String^ nombreMiembro, String^ fechaInicio, String^ fechaFinalizacion, String^ Metododepago)
+
+
+Model::Membresia::Membresia(int Id, DateTime^ fechaInicio, DateTime^ fechaFinalizacion)
+
 {
 
-	this->tipoMembresia = tipoMembresia;
-	this->nombreMiembro = nombreMiembro;
+	this->Id = Id;
 	this->fechaInicio = fechaInicio;
 	this->fechaFinalizacion = fechaFinalizacion;
-	this->Metododepago = Metododepago;
-
+	// throw gcnew System::NotImplementedException();
 }
