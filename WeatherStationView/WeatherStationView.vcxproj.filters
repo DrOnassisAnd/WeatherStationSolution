@@ -17,6 +17,9 @@
     <ClCompile Include="BasicForm.cpp" />
     <ClCompile Include="WeatherWarningMaintenance.cpp" />
     <ClCompile Include="ErrorWarning.cpp" />
+    <ClCompile Include="UserStandarForm.cpp" />
+    <ClCompile Include="UserPremiumForm.cpp" />
+    <ClCompile Include="EstadisticaForm2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MembresiaForm.h" />
@@ -33,9 +36,12 @@
     <ClInclude Include="TempHumMaintenanceForm.h" />
     <ClInclude Include="UserMaintenance.h" />
     <ClInclude Include="BasicForm.h" />
-	<ClInclude Include="WeatherWarningMaintenance.h" />
+    <ClInclude Include="WeatherWarningMaintenance.h" />
     <ClInclude Include="ErrorWarning.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="UserStandarForm.h" />
+    <ClInclude Include="UserPremiumForm.h" />
+    <ClInclude Include="EstadisticaForm2.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WeatherStationView.rc" />
@@ -47,6 +53,6 @@
     <Image Include="CIA.jpeg" />
     <Image Include="FACI.jpg" />
     <Image Include="LogoPrueba2.jpg" />
-    <Image Include="TINKUY.jpg" /> 
+    <Image Include="TINKUY.jpg" />
   </ItemGroup>
 </Project>

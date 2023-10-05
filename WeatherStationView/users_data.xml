@@ -54,4 +54,16 @@
     <Password>holas</Password>
     <Name>mundos</Name>
   </User>
+  <User>
+    <Id>16</Id>
+    <Email>asda</Email>
+    <Password>sadsad</Password>
+    <Name>adasdasdsa</Name>
+  </User>
+  <User>
+    <Id>17</Id>
+    <Email>Jamin</Email>
+    <Password>j123</Password>
+    <Name>Jamin</Name>
+  </User>
 </ArrayOfUser>

@@ -1,5 +1,6 @@
 #pragma once
-#include "Standard.h"
+#include "UserStandarForm.h"
+
 
 namespace WeatherStationView {
 
@@ -154,10 +155,24 @@ namespace WeatherStationView {
 	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+
 	MessageBox::Show("Pago Confirmado");
 	this->Close();
-	Standard^ standard = gcnew Standard();
-	standard->Show();
+
+/*
+	if (flag == 0) {
+		MessageBox::Show("Hola Mundo");
+
+
+	}
+	else {
+		MessageBox::Show("Adios Mundo");
+	}
+	*/
+
+	UserStandarForm obj;
+	obj.ShowDialog();
 
 }
 };
