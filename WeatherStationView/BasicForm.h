@@ -2,7 +2,7 @@
 
 #include "Config.h"
 
-
+#include "MembresiaForm.h"
 namespace WeatherStationView {
 
 	using namespace System;
@@ -92,6 +92,9 @@ namespace WeatherStationView {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->Hora = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Humedad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -104,9 +107,6 @@ namespace WeatherStationView {
 			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -138,6 +138,7 @@ namespace WeatherStationView {
 			this->label2->Size = System::Drawing::Size(124, 25);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Temperatura";
+			this->label2->Click += gcnew System::EventHandler(this, &BasicForm::label2_Click);
 			// 
 			// label3
 			// 
@@ -165,6 +166,7 @@ namespace WeatherStationView {
 			this->label4->Size = System::Drawing::Size(150, 25);
 			this->label4->TabIndex = 3;
 			this->label4->Text = L"Calidad del Aire";
+			this->label4->Click += gcnew System::EventHandler(this, &BasicForm::label4_Click);
 			// 
 			// button1
 			// 
@@ -258,6 +260,30 @@ namespace WeatherStationView {
 			this->panel1->TabIndex = 8;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BasicForm::panel1_Paint);
 			// 
+			// textBox4
+			// 
+			this->textBox4->Location = System::Drawing::Point(781, 494);
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->Size = System::Drawing::Size(100, 30);
+			this->textBox4->TabIndex = 14;
+			this->textBox4->TextChanged += gcnew System::EventHandler(this, &BasicForm::textBox4_TextChanged);
+			// 
+			// textBox3
+			// 
+			this->textBox3->Location = System::Drawing::Point(781, 392);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(100, 30);
+			this->textBox3->TabIndex = 13;
+			this->textBox3->TextChanged += gcnew System::EventHandler(this, &BasicForm::textBox3_TextChanged);
+			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(781, 295);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(100, 30);
+			this->textBox2->TabIndex = 12;
+			this->textBox2->TextChanged += gcnew System::EventHandler(this, &BasicForm::textBox2_TextChanged);
+			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->AllowUserToOrderColumns = true;
@@ -315,6 +341,7 @@ namespace WeatherStationView {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(100, 30);
 			this->textBox1->TabIndex = 10;
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &BasicForm::textBox1_TextChanged);
 			// 
 			// label7
 			// 
@@ -353,6 +380,7 @@ namespace WeatherStationView {
 			this->label5->Size = System::Drawing::Size(67, 25);
 			this->label5->TabIndex = 7;
 			this->label5->Text = L"Fecha";
+			this->label5->Click += gcnew System::EventHandler(this, &BasicForm::label5_Click);
 			// 
 			// dateTimePicker1
 			// 
@@ -389,27 +417,6 @@ namespace WeatherStationView {
 			this->comboBox1->TabIndex = 0;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &BasicForm::comboBox1_SelectedIndexChanged);
 			// 
-			// textBox2
-			// 
-			this->textBox2->Location = System::Drawing::Point(781, 295);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 30);
-			this->textBox2->TabIndex = 12;
-			// 
-			// textBox3
-			// 
-			this->textBox3->Location = System::Drawing::Point(781, 392);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(100, 30);
-			this->textBox3->TabIndex = 13;
-			// 
-			// textBox4
-			// 
-			this->textBox4->Location = System::Drawing::Point(781, 494);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(100, 30);
-			this->textBox4->TabIndex = 14;
-			// 
 			// BasicForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
@@ -438,8 +445,17 @@ namespace WeatherStationView {
 	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		MessageBox::Show("Suscribete a una Membresia para poder usar esta opción");
+
+		MembresiaForm obj;
+		obj.ShowDialog();
 	}
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	MembresiaForm obj;
+	obj.ShowDialog();
+
 
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -449,23 +465,23 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	if ((comboBox1->Text == "CIA")) {
 		pictureBox1->Image = Image::FromFile("CIA.jpeg");
-		MessageBox::Show("Cambios Realizados");
+		MessageBox::Show("Cambios Realizados CIA");
 
 	}
 	else if ((comboBox1->Text == "FACI")) {
 
 		pictureBox1->Image = Image::FromFile("FACI.jpg");
-		MessageBox::Show("ZZZ FACI");
+		MessageBox::Show("Cambios Realizados FACI");
 	}
 	else if ((comboBox1->Text == "TINKUY")) {
 
 		pictureBox1->Image = Image::FromFile("TINKUY.jpg");
-		MessageBox::Show("ZZZ TINKUY.jpg");
+		MessageBox::Show("Cambios RealizadosTINKUY.jpg");
 	}
 	else if ((comboBox1->Text == "BIBLIOTECA CENTRAL")) {
 
 		pictureBox1->Image = Image::FromFile("BIBLIOTECA CENTRAL.jpg");
-		MessageBox::Show("ZZZ BIBLIOTECA CENTRAL");
+		MessageBox::Show("Cambios Realizados  BIBLIOTECA CENTRAL");
 	}
 	else if ((comboBox1->Text == "")) {
 		pictureBox1->Image = Image::FromFile("LogoPrueba.jpg");
@@ -489,6 +505,20 @@ private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }
 private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+}
+private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void textBox4_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

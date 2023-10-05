@@ -120,6 +120,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -127,8 +128,11 @@
     <ClCompile Include="BasicForm.cpp" />
     <ClCompile Include="COMaintenanceForm.cpp" />
     <ClCompile Include="ErrorWarning.cpp" />
+    <ClCompile Include="EstadisticaForm2.cpp" />
     <ClCompile Include="MembershipMaintenanceForm.cpp" />
     <ClCompile Include="MembresiaForm.cpp" />
+    <ClCompile Include="UserPremiumForm.cpp" />
+    <ClCompile Include="UserStandarForm.cpp" />
     <ClCompile Include="WeatherWarningMaintenance.cpp" />
     <ClCompile Include="PaymentMethodForm.cpp" />
     <ClCompile Include="Config.cpp" />
@@ -153,10 +157,19 @@
     <ClInclude Include="ErrorWarning.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="EstadisticaForm2.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MembershipMaintenanceForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MembresiaForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UserPremiumForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UserStandarForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="WeatherWarningMaintenance.h">
@@ -207,11 +220,20 @@
     <EmbeddedResource Include="ErrorWarning.resx">
       <DependentUpon>ErrorWarning.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EstadisticaForm2.resx">
+      <DependentUpon>EstadisticaForm2.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MembershipMaintenanceForm.resx">
       <DependentUpon>MembershipMaintenanceForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MembresiaForm.resx">
       <DependentUpon>MembresiaForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserPremiumForm.resx">
+      <DependentUpon>UserPremiumForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserStandarForm.resx">
+      <DependentUpon>UserStandarForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WeatherWarningMaintenance.resx">
       <DependentUpon>WeatherWarningMaintenance.h</DependentUpon>

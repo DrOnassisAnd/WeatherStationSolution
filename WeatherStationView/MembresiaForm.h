@@ -1,6 +1,6 @@
-#include "Standard.h"
+
 #include "PaymentMethodForm.h"
-#include "BasicForm.h"
+
 
 
 #pragma once
@@ -380,10 +380,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	user->Membresia = Membresia;
 	Controller::Controller::AddUser(user);
 	*/
-	BasicForm obj;
-	obj.ShowDialog();
-
-	this->Close();
+	MessageBox::Show("Ya eres un USUARIO BASIC :)");
 
 	//WeatherStationForm^ mainform = gcnew WeatherStationForm();
 	//mainform->Close();
