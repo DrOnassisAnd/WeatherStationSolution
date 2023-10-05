@@ -4,6 +4,7 @@
 using namespace System;
 
 namespace Model {
+    [Serializable]
     public ref class AlertaError {
     public:
         property String^ IdError;
