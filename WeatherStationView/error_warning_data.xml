@@ -7,9 +7,9 @@
     <IdError>0</IdError>
   </AlertaError>
   <AlertaError>
-    <limitValue>15</limitValue>
-    <ErrorDate>2023-07-31T09:09:32</ErrorDate>
-    <IdSensor>12</IdSensor>
-    <IdError>1</IdError>
+    <limitValue>230</limitValue>
+    <ErrorDate>2023-10-27T11:08:00</ErrorDate>
+    <IdSensor>268</IdSensor>
+    <IdError>2</IdError>
   </AlertaError>
 </ArrayOfAlertaError>

@@ -415,10 +415,6 @@ void WeatherStationPersistance::Persistance::AddMembresia(Membresia^ membresias)
 }
 
 
-void WeatherStationPersistance::Persistance::AddWeatherWarning(AlertaMeteorologica^ alertaMeteorologica) {
-	WeatherWarningList->Add(alertaMeteorologica);
-	PersistTextFile(WEATHER_WARNING_FILE, WeatherWarningList);
-}
 
 Ajustes^ WeatherStationPersistance::Persistance::QueryPrevAjustes() {
 	AjustesList = (Ajustes^)LoadTextFile(AJUSTES_FILE);
