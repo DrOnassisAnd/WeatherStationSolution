@@ -27,6 +27,8 @@ namespace WeatherStationView {
 			//
 			this->selectedWeatherWarningId;
 			this->originalWeatherWarningId;
+			this->StringDateTime;
+			this->selectedDateTime;
 		}
 
 	protected:
@@ -62,12 +64,15 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Label^ lblTemp;
 	private: String^ selectedWeatherWarningId="";
     private: String^ originalWeatherWarningId="";
+	private: String^ StringDateTime = "";
+	private: DateTime selectedDateTime = DateTime(2020, 11, 20, 16, 52, 0);
 	private: System::Windows::Forms::Label^ lblIdSensor;
 	private: System::Windows::Forms::TextBox^ txtIdSensor;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnIdWarning;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnIdSensor;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ columnRefValue;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ columnDate;
+	private: System::Windows::Forms::Label^ lblDescription;
 
 
 
@@ -98,20 +103,21 @@ namespace WeatherStationView {
 			this->btnEdit = (gcnew System::Windows::Forms::Button());
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
 			this->dgvWeatherWarning = (gcnew System::Windows::Forms::DataGridView());
-			this->lblTemp = (gcnew System::Windows::Forms::Label());
-			this->lblIdSensor = (gcnew System::Windows::Forms::Label());
-			this->txtIdSensor = (gcnew System::Windows::Forms::TextBox());
 			this->ColumnIdWarning = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ColumnIdSensor = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->columnRefValue = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->columnDate = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->lblTemp = (gcnew System::Windows::Forms::Label());
+			this->lblIdSensor = (gcnew System::Windows::Forms::Label());
+			this->txtIdSensor = (gcnew System::Windows::Forms::TextBox());
+			this->lblDescription = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvWeatherWarning))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// lblValorRef
 			// 
 			this->lblValorRef->AutoSize = true;
-			this->lblValorRef->Location = System::Drawing::Point(34, 82);
+			this->lblValorRef->Location = System::Drawing::Point(34, 70);
 			this->lblValorRef->Name = L"lblValorRef";
 			this->lblValorRef->Size = System::Drawing::Size(51, 13);
 			this->lblValorRef->TabIndex = 1;
@@ -120,7 +126,7 @@ namespace WeatherStationView {
 			// lblFechaHora
 			// 
 			this->lblFechaHora->AutoSize = true;
-			this->lblFechaHora->Location = System::Drawing::Point(34, 115);
+			this->lblFechaHora->Location = System::Drawing::Point(34, 107);
 			this->lblFechaHora->Name = L"lblFechaHora";
 			this->lblFechaHora->Size = System::Drawing::Size(30, 13);
 			this->lblFechaHora->TabIndex = 2;
@@ -128,19 +134,19 @@ namespace WeatherStationView {
 			// 
 			// txtRefValue
 			// 
-			this->txtRefValue->Location = System::Drawing::Point(118, 82);
+			this->txtRefValue->Location = System::Drawing::Point(118, 67);
 			this->txtRefValue->Name = L"txtRefValue";
 			this->txtRefValue->Size = System::Drawing::Size(121, 20);
 			this->txtRefValue->TabIndex = 4;
 			// 
 			// dtpDateTime
 			// 
-			this->dtpDateTime->Location = System::Drawing::Point(118, 115);
+			this->dtpDateTime->Location = System::Drawing::Point(118, 100);
 			this->dtpDateTime->Name = L"dtpDateTime";
 			this->dtpDateTime->Size = System::Drawing::Size(200, 20);
 			this->dtpDateTime->TabIndex = 5;
 			this->dtpDateTime->Value = System::DateTime(2023, 10, 2, 0, 0, 0, 0);
-			this->dtpDateTime->ValueChanged += gcnew System::EventHandler(this, &WeatherWarningMaintenance::dateTimePicker1_ValueChanged);
+			this->dtpDateTime->ValueChanged += gcnew System::EventHandler(this, &WeatherWarningMaintenance::dtpDateTime_ValueChanged);
 			// 
 			// btnAdd
 			// 
@@ -160,6 +166,7 @@ namespace WeatherStationView {
 			this->btnEdit->TabIndex = 8;
 			this->btnEdit->Text = L"Edit";
 			this->btnEdit->UseVisualStyleBackColor = true;
+			this->btnEdit->Click += gcnew System::EventHandler(this, &WeatherWarningMaintenance::btnEdit_Click);
 			// 
 			// btnDelete
 			// 
@@ -182,34 +189,7 @@ namespace WeatherStationView {
 			this->dgvWeatherWarning->Name = L"dgvWeatherWarning";
 			this->dgvWeatherWarning->Size = System::Drawing::Size(489, 133);
 			this->dgvWeatherWarning->TabIndex = 10;
-			this->dgvWeatherWarning->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &WeatherWarningMaintenance::dgvWeatherWarning_CellContentClick);
-			// 
-			// lblTemp
-			// 
-			this->lblTemp->AutoSize = true;
-			this->lblTemp->Location = System::Drawing::Point(271, 51);
-			this->lblTemp->Name = L"lblTemp";
-			this->lblTemp->Size = System::Drawing::Size(35, 13);
-			this->lblTemp->TabIndex = 11;
-			this->lblTemp->Text = L"label1";
-			this->lblTemp->Click += gcnew System::EventHandler(this, &WeatherWarningMaintenance::lblTemp_Click);
-			// 
-			// lblIdSensor
-			// 
-			this->lblIdSensor->AutoSize = true;
-			this->lblIdSensor->Location = System::Drawing::Point(34, 51);
-			this->lblIdSensor->Name = L"lblIdSensor";
-			this->lblIdSensor->Size = System::Drawing::Size(49, 13);
-			this->lblIdSensor->TabIndex = 12;
-			this->lblIdSensor->Text = L"IdSensor";
-			// 
-			// txtIdSensor
-			// 
-			this->txtIdSensor->Location = System::Drawing::Point(118, 48);
-			this->txtIdSensor->Name = L"txtIdSensor";
-			this->txtIdSensor->Size = System::Drawing::Size(121, 20);
-			this->txtIdSensor->TabIndex = 13;
-			this->txtIdSensor->TextChanged += gcnew System::EventHandler(this, &WeatherWarningMaintenance::txtIdSensor_TextChanged);
+			this->dgvWeatherWarning->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &WeatherWarningMaintenance::dgvWeatherWarning_CellClick);
 			// 
 			// ColumnIdWarning
 			// 
@@ -231,11 +211,48 @@ namespace WeatherStationView {
 			this->columnDate->HeaderText = L"Date";
 			this->columnDate->Name = L"columnDate";
 			// 
+			// lblTemp
+			// 
+			this->lblTemp->AutoSize = true;
+			this->lblTemp->Location = System::Drawing::Point(360, 51);
+			this->lblTemp->Name = L"lblTemp";
+			this->lblTemp->Size = System::Drawing::Size(35, 13);
+			this->lblTemp->TabIndex = 11;
+			this->lblTemp->Text = L"label1";
+			this->lblTemp->Visible = false;
+			this->lblTemp->Click += gcnew System::EventHandler(this, &WeatherWarningMaintenance::lblTemp_Click);
+			// 
+			// lblIdSensor
+			// 
+			this->lblIdSensor->AutoSize = true;
+			this->lblIdSensor->Location = System::Drawing::Point(34, 35);
+			this->lblIdSensor->Name = L"lblIdSensor";
+			this->lblIdSensor->Size = System::Drawing::Size(49, 13);
+			this->lblIdSensor->TabIndex = 12;
+			this->lblIdSensor->Text = L"IdSensor";
+			// 
+			// txtIdSensor
+			// 
+			this->txtIdSensor->Location = System::Drawing::Point(118, 35);
+			this->txtIdSensor->Name = L"txtIdSensor";
+			this->txtIdSensor->Size = System::Drawing::Size(121, 20);
+			this->txtIdSensor->TabIndex = 13;
+			// 
+			// lblDescription
+			// 
+			this->lblDescription->AutoSize = true;
+			this->lblDescription->Location = System::Drawing::Point(34, 9);
+			this->lblDescription->Name = L"lblDescription";
+			this->lblDescription->Size = System::Drawing::Size(152, 13);
+			this->lblDescription->TabIndex = 14;
+			this->lblDescription->Text = L"Insert Data from Top to Bottom";
+			// 
 			// WeatherWarningMaintenance
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(538, 341);
+			this->Controls->Add(this->lblDescription);
 			this->Controls->Add(this->txtIdSensor);
 			this->Controls->Add(this->lblIdSensor);
 			this->Controls->Add(this->lblTemp);
@@ -259,8 +276,9 @@ namespace WeatherStationView {
 #pragma endregion
 
 
-	private: System::Void dateTimePicker1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
-		
+	private: System::Void dtpDateTime_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+		selectedDateTime = dtpDateTime->Value;
+		StringDateTime = selectedDateTime.ToString("dd-MM-yyyy HH:mm:ss");
 	}
     private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
     }
@@ -271,11 +289,8 @@ namespace WeatherStationView {
 
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
 		
-		//String^ StringDateTime = (dtpDateTime->Value).ToString("dd/MM/yyyy HH:mm:ss");
 		String^ IdSensor = txtIdSensor->Text->Trim();
 		String^ RefValue = txtRefValue->Text;
-		DateTime selectedDateTime = dtpDateTime->Value;
-		String^ StringDateTime = selectedDateTime.ToString("dd-MM-yyyy HH:mm:ss");
 		this->lblTemp->Text = StringDateTime;
 
 		List<AlertaMeteorologica^>^ alertaMeteorologicas = Controller::Controller::QueryWeatherWarning();
@@ -322,11 +337,6 @@ namespace WeatherStationView {
   }
 
   private: System::Void dgvWeatherWarning_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) { 
-
-  }
-
-  private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-	  if (dgvWeatherWarning->SelectedCells->Count > 0) {
 		  int rowIndex = dgvWeatherWarning->SelectedCells[0]->RowIndex;
 		  int columnIndex = dgvWeatherWarning->SelectedCells[0]->ColumnIndex;
 		  // Ahora tienes el índice de fila (rowIndex) y el índice de columna (columnIndex) de la celda seleccionada.
@@ -334,15 +344,40 @@ namespace WeatherStationView {
 		  String^ stringValue = dynamic_cast<String^>(cellValue);
 		  originalWeatherWarningId = stringValue;
 		  selectedWeatherWarningId = originalWeatherWarningId->Trim();
-	  }
+
+		  AlertaMeteorologica^ alertaMeteorologica = Controller::Controller::QueryWeatherWarningbyId(selectedWeatherWarningId);
+
+		  int      extractedIdSensor = alertaMeteorologica->IdSensor;
+		  double   extractedRefValue = alertaMeteorologica->ValorRef;
+		  DateTime extractedDateTime = DateTime::Parse(StringDateTime);
+
+		  txtIdSensor->Text = extractedIdSensor.ToString();
+		  txtRefValue->Text = extractedRefValue.ToString();
+		  dtpDateTime->Value = extractedDateTime;
+  
+  }
+
+  private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+
 	  AlertaMeteorologica^ alertaMeteorologica = Controller::Controller::QueryWeatherWarningbyId(selectedWeatherWarningId);
 	  
 	  Controller::Controller::DeleteWeatherWarning(selectedWeatherWarningId);
 	  ShowWeatherWarningData();
   }
-private: System::Void dgvWeatherWarning_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+
+private: System::Void btnEdit_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	if (dgvWeatherWarning->SelectedCells->Count > 0) {
+		AlertaMeteorologica^ alertaMeteorologica = gcnew AlertaMeteorologica();
+		alertaMeteorologica->IdAlerta = selectedWeatherWarningId;
+		alertaMeteorologica->ValorRef = Double::Parse(txtRefValue->Text->Trim());
+		alertaMeteorologica->IdSensor = Int32::Parse(txtIdSensor->Text->Trim());
+		alertaMeteorologica->FechaHora = dtpDateTime->Value;
+
+		Controller::Controller::UpdateWeatherWarning(alertaMeteorologica);
+		ShowWeatherWarningData();
+	}
 }
-private: System::Void txtIdSensor_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
+
 };
 }

@@ -15,8 +15,15 @@ namespace WeatherStationPersistance {
 		static List<SensorCalidadAire^>^ sCalidadAire = gcnew List<SensorCalidadAire^>();
 		static List<SensorCO^>^ sConcentracionCOList = gcnew List<SensorCO^>();
 		static List<SensorTemperaturaHumedad^>^ sTempHumList = gcnew List<SensorTemperaturaHumedad^>();
+
+		static List<SensorCalidadAire^>^ sCalidadAireList = gcnew List<SensorCalidadAire^>();
+
+	public:
+
 		static List<AlertaMeteorologica^>^ WeatherWarningList = gcnew List<AlertaMeteorologica^>();
+		static List<AlertaError^>^ ErrorWarningList = gcnew List<AlertaError^>();
 	public:	
+
 		//FilesConstants
 		//Users
 		static String^ WEATHER_STATION = "users_weather.txt";
@@ -27,7 +34,6 @@ namespace WeatherStationPersistance {
 
 		static String^ MEMBRESIA_FILE = "membresia_weather.txt";
 
-		static String^ CALIDAD_AIRE_FILE = "aire_data.txt";
 
 		static String^ TEMP_HUM_FILE = "temp_hum_data.txt";
 		static String^ TEMP_HUM_XML = "temp_hum_data.xml";
@@ -37,7 +43,22 @@ namespace WeatherStationPersistance {
 		static String^ CO_XML = "co_data.xml";
 		static String^ CO_BIN = "co_data.bin";
 
+
+
+		static String^ CALIDAD_AIRE_FILE = "calidad_aire_dataa.txt";
+		static String^ CALIDAD_AIRE_XML = "calidad_aire_dataa.xml";
+		static String^ CALIDAD_AIRE_BIN = "calidad_aire_dataa.bin";
+
+    
+    
+		//WeatherWarning
 		static String^ WEATHER_WARNING_FILE = "weather_warning_data.txt";
+		static String^ WEATHER_WARNING_XML = "weather_warning_data.xml";
+		static String^ WEATHER_WARNING_BIN = "weather_warning_data.bin";
+		//ErrorWarning
+		static String^ ERROR_WARNING_FILE = "error_warning_data.txt";
+		static String^ ERROR_WARNING_XML = "error_warning_data.xml";
+		static String^ ERROR_WARNING_BIN = "error_warning_data.bin";
 
 
 		//FileHandler
@@ -59,9 +80,9 @@ namespace WeatherStationPersistance {
 
 		static void AddAjustes(Ajustes^ ajustes);
 		static void AddMembresia(Membresia^ membresias);
-		static void AddAirQData(SensorCalidadAire^ sCalidadAire);
 		
-		static List<SensorCalidadAire^>^ QueryAirQData();
+		
+		
 		static Ajustes^ QueryPrevAjustes();
 		static Membresia^ QueryMembresia();
 
@@ -79,10 +100,28 @@ namespace WeatherStationPersistance {
 		static void UpdateCOData(SensorCO^ sConcentracionCO);
 		static void DeleteCOData(int IdMedicion, String^ IdSensor);
 
+
+		
+
+		//CalidadAire Methods
+		static void AddCalidadAireData(SensorCalidadAire^ sCalidadAire);
+		static List<SensorCalidadAire^>^ QueryCalidadAireData();
+		static SensorCalidadAire^ QueryCalidadAirebyIds(int IdMedicion, String^ IdSensor);
+		static void UpdateCalidadAireData(SensorCalidadAire^ sCalidadAire);
+		static void DeleteCalidadAireData(int IdMedicion, String^ IdSensor);
+//WeatherWarning Methods
 		static void AddWeatherWarning(AlertaMeteorologica^ alertaMeteorologica);
 		static List<AlertaMeteorologica^>^ QueryWeatherWarning();
 		static AlertaMeteorologica^ QueryWeatherWarningbyId(String^ selectedWeatherWarningId);
 		static void DeleteWeatherWarning(String^ WeatherWarningId);
+		static void UpdateWeatherWarning(AlertaMeteorologica^ alertaMeteorologica);
+
+		//ErrorWarning Methods
+		static void AddErrorWarning(AlertaError^ alertaError);
+		static List<AlertaError^>^ QueryErrorWarning();
+		static AlertaError^ QueryErrorWarningbyId(String^ selectedErrorWarningId);
+		static void DeleteErrorWarning(String^ ErrorWarningId);
+		static void UpdateErrorWarning(AlertaError^ alertaError);
 
 	};
 }

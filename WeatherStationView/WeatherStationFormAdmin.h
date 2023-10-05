@@ -7,6 +7,7 @@
 #include "TempHumMaintenanceForm.h"
 #include "UserMaintenance.h"
 #include "WeatherWarningMaintenance.h"
+#include "ErrorWarning.h"
 
 namespace WeatherStationView {
 
@@ -258,6 +259,7 @@ namespace WeatherStationView {
 			this->alertaErrorToolStripMenuItem1->Name = L"alertaErrorToolStripMenuItem1";
 			this->alertaErrorToolStripMenuItem1->Size = System::Drawing::Size(182, 22);
 			this->alertaErrorToolStripMenuItem1->Text = L"AlertaError";
+			this->alertaErrorToolStripMenuItem1->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::alertaErrorToolStripMenuItem1_Click);
 			// 
 			// WeatherStationFormAdmin
 			// 
@@ -318,6 +320,10 @@ private: System::Void temperaturaYHumedadToolStripMenuItem_Click(System::Object^
 
 private: System::Void alertaMeteorologicaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	WeatherWarningMaintenance obj;
+	obj.ShowDialog();
+}
+private: System::Void alertaErrorToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+	ErrorWarning obj;
 	obj.ShowDialog();
 }
 };
