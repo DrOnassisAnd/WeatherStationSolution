@@ -164,7 +164,6 @@ namespace WeatherStationView {
 			this->textBox2->Text = L"Password";
 			this->textBox2->UseSystemPasswordChar = true;
 			this->textBox2->Click += gcnew System::EventHandler(this, &WeatherStationForm::textBox2_Click);
-			this->textBox2->KeyDown += gcnew KeyEventHandler(this, &WeatherStationForm::TextBox_KeyDown);
 			// 
 			// panel3
 			// 
@@ -195,7 +194,6 @@ namespace WeatherStationView {
 			this->textBox1->Text = L"Username";
 			this->textBox1->Click += gcnew System::EventHandler(this, &WeatherStationForm::textBox1_Click);
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &WeatherStationForm::textBox1_TextChanged);
-			this->textBox1->KeyDown += gcnew KeyEventHandler(this, &WeatherStationForm::TextBox_KeyDown);
 			// 
 			// label5
 			// 

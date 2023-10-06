@@ -6,23 +6,48 @@
     <NivelCO>6</NivelCO>
   </SensorCO>
   <SensorCO>
-    <IdSensor>3</IdSensor>
+    <IdSensor>1</IdSensor>
     <IdMedicion>2</IdMedicion>
     <NivelCO>3</NivelCO>
   </SensorCO>
   <SensorCO>
-    <IdSensor>99</IdSensor>
+    <IdSensor>1</IdSensor>
     <IdMedicion>3</IdMedicion>
-    <NivelCO>66</NivelCO>
+    <NivelCO>50</NivelCO>
   </SensorCO>
   <SensorCO>
-    <IdSensor>564</IdSensor>
+    <IdSensor>2</IdSensor>
+    <IdMedicion>4</IdMedicion>
+    <NivelCO>32</NivelCO>
+  </SensorCO>
+  <SensorCO>
+    <IdSensor>2</IdSensor>
+    <IdMedicion>5</IdMedicion>
+    <NivelCO>54</NivelCO>
+  </SensorCO>
+  <SensorCO>
+    <IdSensor>2</IdSensor>
     <IdMedicion>6</IdMedicion>
-    <NivelCO>123</NivelCO>
+    <NivelCO>250</NivelCO>
   </SensorCO>
   <SensorCO>
-    <IdSensor>23</IdSensor>
+    <IdSensor>3</IdSensor>
     <IdMedicion>7</IdMedicion>
-    <NivelCO>213</NivelCO>
+    <NivelCO>32</NivelCO>
+  </SensorCO>
+  <SensorCO>
+    <IdSensor>3</IdSensor>
+    <IdMedicion>8</IdMedicion>
+    <NivelCO>205</NivelCO>
+  </SensorCO>
+  <SensorCO>
+    <IdSensor>3</IdSensor>
+    <IdMedicion>9</IdMedicion>
+    <NivelCO>55</NivelCO>
+  </SensorCO>
+  <SensorCO>
+    <IdSensor>3</IdSensor>
+    <IdMedicion>10</IdMedicion>
+    <NivelCO>312</NivelCO>
   </SensorCO>
 </ArrayOfSensorCO>

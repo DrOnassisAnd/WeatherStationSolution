@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfMembresia
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Membresia>
+    <tipoMembresia>1</tipoMembresia>
+    <nombreMiembro>1</nombreMiembro>
+    <fechaInicio>18/9/2023 15:50:21 </fechaInicio>
+    <fechaFinalizacion>14/10/2023 15:50:21</fechaFinalizacion>
+    <Metododepago>30</Metododepago>
+  </Membresia>
+</ArrayOfMembresia>
