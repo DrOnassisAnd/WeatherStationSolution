@@ -12,4 +12,10 @@
     <IdSensor>268</IdSensor>
     <IdError>2</IdError>
   </AlertaError>
+  <AlertaError>
+    <limitValue>32</limitValue>
+    <ErrorDate>2023-10-04T18:25:27</ErrorDate>
+    <IdSensor>12</IdSensor>
+    <IdError>2</IdError>
+  </AlertaError>
 </ArrayOfAlertaError>

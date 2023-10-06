@@ -8,14 +8,14 @@
     <Temperatura>12</Temperatura>
   </SensorTemperaturaHumedad>
   <SensorTemperaturaHumedad>
-    <IdSensor>2</IdSensor>
+    <IdSensor>1</IdSensor>
     <IdMedicion>3</IdMedicion>
     <Humedad>70</Humedad>
     <UnidadTemp>°F</UnidadTemp>
     <Temperatura>79</Temperatura>
   </SensorTemperaturaHumedad>
   <SensorTemperaturaHumedad>
-    <IdSensor>3</IdSensor>
+    <IdSensor>1</IdSensor>
     <IdMedicion>4</IdMedicion>
     <Humedad>85</Humedad>
     <UnidadTemp>°F</UnidadTemp>
@@ -29,10 +29,45 @@
     <Temperatura>30</Temperatura>
   </SensorTemperaturaHumedad>
   <SensorTemperaturaHumedad>
-    <IdSensor>4</IdSensor>
+    <IdSensor>2</IdSensor>
     <IdMedicion>6</IdMedicion>
     <Humedad>39</Humedad>
     <UnidadTemp>°C</UnidadTemp>
     <Temperatura>656</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <IdSensor>2</IdSensor>
+    <IdMedicion>7</IdMedicion>
+    <Humedad>45</Humedad>
+    <UnidadTemp>°C</UnidadTemp>
+    <Temperatura>11</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <IdSensor>3</IdSensor>
+    <IdMedicion>8</IdMedicion>
+    <Humedad>32</Humedad>
+    <UnidadTemp>°F</UnidadTemp>
+    <Temperatura>32</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <IdSensor>3</IdSensor>
+    <IdMedicion>9</IdMedicion>
+    <Humedad>232</Humedad>
+    <UnidadTemp>°C</UnidadTemp>
+    <Temperatura>322</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <IdSensor>3</IdSensor>
+    <IdMedicion>10</IdMedicion>
+    <Humedad>32</Humedad>
+    <UnidadTemp>°C</UnidadTemp>
+    <Temperatura>34</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <IdSensor>3</IdSensor>
+    <IdMedicion>11</IdMedicion>
+    <Humedad>21</Humedad>
+    <UnidadTemp>°C</UnidadTemp>
+    <Temperatura>43</Temperatura>
   </SensorTemperaturaHumedad>
 </ArrayOfSensorTemperaturaHumedad>
