@@ -20,7 +20,7 @@ namespace WeatherStationView {
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
-			//
+		    //
 		}
 
 	protected:
@@ -58,6 +58,7 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Button^ button5;
 
 	private:
 		/// <summary>
@@ -95,6 +96,7 @@ namespace WeatherStationView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->button5 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -102,7 +104,7 @@ namespace WeatherStationView {
 			// textBox4
 			// 
 			this->textBox4->Location = System::Drawing::Point(592, 393);
-			this->textBox4->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox4->Margin = System::Windows::Forms::Padding(2);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(76, 20);
 			this->textBox4->TabIndex = 33;
@@ -111,7 +113,7 @@ namespace WeatherStationView {
 			// textBox3
 			// 
 			this->textBox3->Location = System::Drawing::Point(592, 310);
-			this->textBox3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox3->Margin = System::Windows::Forms::Padding(2);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(76, 20);
 			this->textBox3->TabIndex = 32;
@@ -120,7 +122,7 @@ namespace WeatherStationView {
 			// textBox2
 			// 
 			this->textBox2->Location = System::Drawing::Point(592, 232);
-			this->textBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox2->Margin = System::Windows::Forms::Padding(2);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(76, 20);
 			this->textBox2->TabIndex = 31;
@@ -368,12 +370,23 @@ namespace WeatherStationView {
 			this->label4->Text = L"Calidad del Aire";
 			this->label4->Click += gcnew System::EventHandler(this, &UserStandarForm::label4_Click);
 			// 
+			// button5
+			// 
+			this->button5->Location = System::Drawing::Point(782, 255);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(145, 39);
+			this->button5->TabIndex = 34;
+			this->button5->Text = L"Mostrar";
+			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &UserStandarForm::button5_Click);
+			// 
 			// UserStandarForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Info;
 			this->ClientSize = System::Drawing::Size(936, 583);
+			this->Controls->Add(this->button5);
 			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);
@@ -393,7 +406,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->label4);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"UserStandarForm";
 			this->Text = L"UserStandarForm";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
@@ -454,7 +467,7 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 private: System::Void dateTimePicker1_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
+}
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -469,5 +482,8 @@ private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e)
 	}
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+}
 };
 }

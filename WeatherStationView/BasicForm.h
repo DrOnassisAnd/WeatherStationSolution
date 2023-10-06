@@ -483,23 +483,19 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	if ((comboBox1->Text == "CIA")) {
 		pictureBox1->Image = Image::FromFile("CIA.jpeg");
-		MessageBox::Show("Cambios Realizados CIA");
 
 	}
 	else if ((comboBox1->Text == "FACI")) {
 
 		pictureBox1->Image = Image::FromFile("FACI.jpg");
-		MessageBox::Show("Cambios Realizados FACI");
 	}
 	else if ((comboBox1->Text == "TINKUY")) {
 
 		pictureBox1->Image = Image::FromFile("TINKUY.jpg");
-		MessageBox::Show("Cambios RealizadosTINKUY.jpg");
 	}
 	else if ((comboBox1->Text == "BIBLIOTECA CENTRAL")) {
 
 		pictureBox1->Image = Image::FromFile("BIBLIOTECA CENTRAL.jpg");
-		MessageBox::Show("Cambios Realizados  BIBLIOTECA CENTRAL");
 	}
 	else if ((comboBox1->Text == "")) {
 		pictureBox1->Image = Image::FromFile("LogoPrueba.jpg");

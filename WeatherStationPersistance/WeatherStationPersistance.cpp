@@ -432,9 +432,6 @@ void WeatherStationPersistance::Persistance::AddAjustes(Ajustes^ ajustes) {
 	PersistTextFile(AJUSTES_FILE, AjustesList);
 }
 
-
-
-
 Ajustes^ WeatherStationPersistance::Persistance::QueryPrevAjustes() {
 	AjustesList = (Ajustes^)LoadTextFile(AJUSTES_FILE);
 	return AjustesList;

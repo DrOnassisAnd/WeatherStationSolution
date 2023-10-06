@@ -44,21 +44,15 @@
   </User>
   <User>
     <Id>14</Id>
-    <Email>aloh</Email>
-    <Password>Pratt</Password>
-    <Name>mundo2</Name>
+    <Email>chico</Email>
+    <Password>equipo</Password>
+    <Name>alianza</Name>
   </User>
   <User>
     <Id>15</Id>
     <Email>holas</Email>
     <Password>holas</Password>
     <Name>mundos</Name>
-  </User>
-  <User>
-    <Id>16</Id>
-    <Email>asda</Email>
-    <Password>sadsad</Password>
-    <Name>adasdasdsa</Name>
   </User>
   <User>
     <Id>17</Id>
@@ -74,8 +68,8 @@
   </User>
   <User>
     <Id>19</Id>
-    <Email>a</Email>
-    <Password>a</Password>
-    <Name>a</Name>
+    <Email>hola</Email>
+    <Password>holamundo</Password>
+    <Name>mundo</Name>
   </User>
 </ArrayOfUser>
