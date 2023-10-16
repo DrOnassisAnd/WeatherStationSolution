@@ -221,13 +221,12 @@ namespace WeatherStationView {
 		String^ FormatoHoras = comboBox6->Text;
 		String^ FormatoFecha = comboBox5->Text;
 		
-		Ajustes^ ajustes = gcnew Ajustes();
 		//user->Id = Id;
-		ajustes->UnidadTemp = UnidadTemp;
-		ajustes->FormatoHoras = FormatoHoras;
-		ajustes->FormatoFecha = FormatoFecha;
+		config->UnidadTemp = UnidadTemp;
+		config->FormatoHoras = FormatoHoras;
+		config->FormatoFecha = FormatoFecha;
 
-		Controller::Controller::AddAjustes(ajustes);
+		Controller::Controller::AddAjustes(config);
 		MessageBox::Show("Cambios Aplicados");
 		this->Hide();
 

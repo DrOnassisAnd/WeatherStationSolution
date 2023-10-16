@@ -1,4 +1,3 @@
-#include "BasicForm.h"
 #pragma once
 
 
@@ -19,13 +18,21 @@ namespace WeatherStationView {
 	public ref class RegisterForm : public System::Windows::Forms::Form
 	{
 	public:
-		RegisterForm(void)
+		RegisterForm(int isRegisterDone, User^ usuario)
 		{
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			this->isRegisterDone = isRegisterDone;
 			this->flag = 0;
+			this->user = usuario;
+		}
+		int GetBool() {
+			return isRegisterDone;
+		}
+		RegisterForm::User^ GetUser() {
+			return user;
 		}
 
 	protected:
@@ -41,6 +48,7 @@ namespace WeatherStationView {
 		}
 	private: System::Windows::Forms::Button^ button2;
 	protected:
+	private: User^ user;
 	private: System::Windows::Forms::Panel^ panel4;
 	private: System::Windows::Forms::TextBox^ txtName;
 
@@ -48,6 +56,7 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Panel^ panel3;
 	private: System::Windows::Forms::TextBox^ txtEmail;
 	private: int flag;
+	private: int isRegisterDone=0;
 
 
 	private: System::Windows::Forms::Label^ label4;
@@ -460,27 +469,26 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 			List<User^>^ users = Controller::Controller::QueryAllUser();
 			int lastIdIndex = users->Count;
 
-			User^ user = gcnew User();
+			User^ usuario = gcnew User();
 
 			if (lastIdIndex == 0) {
-				user->Id = 1;
+				usuario->Id = 1;
 			}
 			else {
 				User^ userLastId = users[lastIdIndex - 1];
-				user->Id = (userLastId->Id) + 1;
+				usuario->Id = (userLastId->Id) + 1;
 			}
 
-			user->Name = Name;
-			user->Password = Password;
-			user->Email = Email;
+			usuario->Name = Name;
+			usuario->Password = Password;
+			usuario->Email = Email;
 
-			Controller::Controller::AddUser(user);
+			Controller::Controller::AddUser(usuario);
+			user = usuario;
 
 			MessageBox::Show("Credenciales registradas. Bienvenido, " + user->Name);
-			//ShowUser();
+			isRegisterDone = 1;
 			this->Close();
-			BasicForm obj;
-			obj.ShowDialog();
 		}
 		else {
 			MessageBox::Show("Acepte los terminos y condiciones para registrarse");
@@ -492,20 +500,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	}
 
 }
-	   /*void ShowUser() {
-		   List<User^>^ user = Controller::Controller::QueryAllUser();
-		   //dgv->Rows->Clear();
-		   txtEmail->Text = "Que facil es LPOO";
-		   for (int i = 0; i < user->Count; i++) {
-			   User^ users = user[i];
-			   /*dgvRobots->Rows->Add(gcnew array<String^> {
-				   "" + robot->Id,
-					   robot->Brand,
-					   "" + robot->BatteryLevel,
-					   "" + robot->Speed
-			   });
-		   }
-}*/
+
 private: System::Void panel5_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {

@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfUser xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <User>
-    <Id>4</Id>
-    <Email>a20215007@pucp.edu.pe</Email>
-    <Password>orgoleS</Password>
-    <Name>PJ</Name>
-  </User>
-  <User>
-    <Id>6</Id>
-    <Email>hola@hug.pe</Email>
-    <Password>RS</Password>
-    <Name>HPratt3</Name>
-  </User>
-  <User>
     <Id>9</Id>
     <Email>RS</Email>
     <Password>RS2</Password>
@@ -21,7 +9,7 @@
   <User>
     <Id>10</Id>
     <Email>a20214997@pucp.edu.pe</Email>
-    <Password>LPOO_20214997</Password>
+    <Password>20214997</Password>
     <Name>JoaquinP7</Name>
   </User>
   <User>
@@ -29,24 +17,6 @@
     <Email>a@a.a</Email>
     <Password>a</Password>
     <Name>a</Name>
-  </User>
-  <User>
-    <Id>12</Id>
-    <Email>ConFeNomas</Email>
-    <Password>XML</Password>
-    <Name>SeLogro</Name>
-  </User>
-  <User>
-    <Id>13</Id>
-    <Email>hola</Email>
-    <Password>P</Password>
-    <Name>mundo</Name>
-  </User>
-  <User>
-    <Id>14</Id>
-    <Email>chico</Email>
-    <Password>equipo</Password>
-    <Name>alianza</Name>
   </User>
   <User>
     <Id>15</Id>
@@ -59,17 +29,5 @@
     <Email>Jamin</Email>
     <Password>j123</Password>
     <Name>Jamin</Name>
-  </User>
-  <User>
-    <Id>18</Id>
-    <Email>jolt</Email>
-    <Password>jolt</Password>
-    <Name>jolt</Name>
-  </User>
-  <User>
-    <Id>19</Id>
-    <Email>hola</Email>
-    <Password>holamundo</Password>
-    <Name>mundo</Name>
   </User>
 </ArrayOfUser>

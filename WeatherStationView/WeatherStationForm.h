@@ -1,5 +1,5 @@
 #pragma once
-//#include "RegisterForm.h"
+#include "RegisterForm.h"
 //#include "Config.h"
 //#include "MembresiaForm.h"
 #include "WeatherStationFormAdmin.h"
@@ -49,6 +49,7 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Panel^ panel1;
 	protected:
 	private: User^ user;
+	private: int isRegisterDone;
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
@@ -399,9 +400,7 @@ private: System::Void otherclick(System::Object^ sender, System::EventArgs^ e) {
 		WeatherStationFormAdmin^ obj = gcnew WeatherStationFormAdmin();
 		obj->ShowDialog();
 
-		while (obj->Visible == true) {
-			this->Hide();
-		}
+
 
 		this->Show();
 
@@ -412,13 +411,6 @@ private: System::Void otherclick(System::Object^ sender, System::EventArgs^ e) {
 		if (textBox2->Text == usercheck->Password) {
 			MessageBox::Show("Bienvenido " + usercheck->Name);
 			user = usercheck;
-			
-			/*
-			pseudocodigo no verificado
-			if (){
-				
-			}
-			*/
 			this->Hide();
 		}
 		else {
@@ -435,8 +427,23 @@ private: System::Void otherclick(System::Object^ sender, System::EventArgs^ e) {
 	}
 }
 private: System::Void registerbtn(System::Object^ sender, System::EventArgs^ e) {
-	//RegisterForm obj;
-	//obj.ShowDialog();
+
+	
+	RegisterForm^ regform = gcnew RegisterForm(isRegisterDone, user);
+	regform->ShowDialog();
+
+	isRegisterDone = regform->GetBool();
+
+	//isRegisterDone: si el registro no fue exitoso (p.e. se salió de la ventana, vuelve a popear WeatherStationForm
+	//caso contrario, ya abre el BasicForm
+	if (!isRegisterDone) {	
+		this->Show();
+	}
+	else {
+		user = regform->GetUser();
+		this->Hide();
+	}
+
 
 }
 private: System::Void WeatherStationForm_Load(System::Object^ sender, System::EventArgs^ e) {

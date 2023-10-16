@@ -1,1 +1,1 @@
-°C,Formato de 24 horas,yyyy/mm/dd
+°C,Formato de 24 horas,mm/dd/yyyy
