@@ -18,12 +18,14 @@ namespace WeatherStationView {
 	public ref class Config : public System::Windows::Forms::Form
 	{
 	public:
-		Config(void)
+		Config(Ajustes^ Config)
 		{
 			InitializeComponent();
-			//
-			//TODO: agregar código de constructor aquí
-			//
+			this->config = Config;
+		}
+
+		Config::Ajustes^ GetConfig() {
+			return config;
 		}
 
 	protected:
@@ -39,6 +41,7 @@ namespace WeatherStationView {
 		}
 	private: System::Windows::Forms::Label^ label1;
 	protected:
+	private: Ajustes^ config;
 	private: System::Windows::Forms::Label^ label2;
 
 
@@ -226,11 +229,11 @@ namespace WeatherStationView {
 
 		Controller::Controller::AddAjustes(ajustes);
 		MessageBox::Show("Cambios Aplicados");
-		this->Close();
+		this->Hide();
 
 	}
 	private: System::Void Cerrar_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->Close();
+		this->Hide();
 	}
 	private: System::Void linkLabel1_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 		this->comboBox1->SelectedIndex = 0;
@@ -238,17 +241,19 @@ namespace WeatherStationView {
 		this->comboBox6->SelectedIndex = 0;
 	}
 	private: System::Void Config_Load(System::Object^ sender, System::EventArgs^ e) {
-		Ajustes^ ajustes = Controller::Controller::QueryPrevAjustes();
-		if ((String^)(ajustes->UnidadTemp) == (String^)"°F") this->comboBox1->SelectedIndex = 1;
-		else this->comboBox1->SelectedIndex = 0;
+		config = Controller::Controller::QueryPrevAjustes();
+		if ((String^)(config->UnidadTemp) == (String^)"°F") { this->comboBox1->SelectedIndex = 1; }
+		else { this->comboBox1->SelectedIndex = 0; }
 		
 
-		if ((ajustes->FormatoHoras) == " Formato de 24 horas") this->comboBox6->SelectedIndex = 1;
-		else this->comboBox6->SelectedIndex = 0;
+		if ((config->FormatoHoras) == "Formato de 24 horas") { this->comboBox6->SelectedIndex = 1; }
+		else { this->comboBox6->SelectedIndex = 0; }
 
-		if ((ajustes->FormatoFecha) == " mm/dd/yyyy") this->comboBox5->SelectedIndex = 1;
-		else if ((ajustes->FormatoFecha) == " yyyy/mm/dd") this->comboBox5->SelectedIndex = 2;
-		else this->comboBox5->SelectedIndex = 0;
+		if ((config->FormatoFecha) == "mm/dd/yyyy") { this->comboBox5->SelectedIndex = 1; }
+		else if ((config->FormatoFecha) == "yyyy/mm/dd") { this->comboBox5->SelectedIndex = 2; }
+		else { this->comboBox5->SelectedIndex = 0; }
+
+		
 	}
 	private: System::Void comboBox5_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	}

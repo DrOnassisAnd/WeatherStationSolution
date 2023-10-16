@@ -1019,12 +1019,12 @@ namespace WeatherStationView {
 	private: System::Void dgv_Image_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}
 private: System::Void btn_Premium_Click(System::Object^ sender, System::EventArgs^ e) {
-	Config obj;
-	obj.ShowDialog();
+	//Config obj;
+	//obj.ShowDialog();
 }
 private: System::Void btn_Config_Click(System::Object^ sender, System::EventArgs^ e) {
-	Config obj;
-	obj.ShowDialog();
+	//Config obj;
+	//obj.ShowDialog();
 }
 
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1036,8 +1036,8 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	Application::Exit();
 }
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-	Config obj;
-	obj.ShowDialog();
+	//Config obj;
+	//obj.ShowDialog();
 }
 };
 }

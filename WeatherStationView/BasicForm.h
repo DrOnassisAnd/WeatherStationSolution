@@ -1,8 +1,9 @@
 #pragma once
 
 #include "Config.h"
-
+#include "WeatherStationForm.h"
 #include "MembresiaForm.h"
+
 namespace WeatherStationView {
 
 	using namespace System;
@@ -26,6 +27,8 @@ namespace WeatherStationView {
 			//TODO: agregar código de constructor aquí
 			this->StringDateTime;
 			this->selectedDateTime;
+			this->basicForm;
+			flag = 0;
 			//
 		}
 
@@ -40,6 +43,10 @@ namespace WeatherStationView {
 				delete components;
 			}
 		}
+	private: User^ user;
+	private: Ajustes^ config;
+	private: BasicForm^ basicForm;
+	private: int flag = 0;
 	private: System::Windows::Forms::Label^ label1;
 	protected:
 	private: System::Windows::Forms::Label^ label2;
@@ -69,6 +76,9 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::Button^ Mostrar;
+	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Label^ label10;
 
 
 
@@ -98,6 +108,9 @@ namespace WeatherStationView {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->Mostrar = (gcnew System::Windows::Forms::Button());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
@@ -113,7 +126,7 @@ namespace WeatherStationView {
 			this->dtpWeatherStationBasic = (gcnew System::Windows::Forms::DateTimePicker());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->Mostrar = (gcnew System::Windows::Forms::Button());
+			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -238,6 +251,9 @@ namespace WeatherStationView {
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::SystemColors::Info;
+			this->panel1->Controls->Add(this->label10);
+			this->panel1->Controls->Add(this->label9);
+			this->panel1->Controls->Add(this->label8);
 			this->panel1->Controls->Add(this->Mostrar);
 			this->panel1->Controls->Add(this->textBox4);
 			this->panel1->Controls->Add(this->textBox3);
@@ -267,6 +283,34 @@ namespace WeatherStationView {
 			this->panel1->Size = System::Drawing::Size(1240, 717);
 			this->panel1->TabIndex = 8;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BasicForm::panel1_Paint);
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(106, 20);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(51, 20);
+			this->label9->TabIndex = 17;
+			this->label9->Text = L"label9";
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(46, 20);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(51, 20);
+			this->label8->TabIndex = 16;
+			this->label8->Text = L"label8";
+			// 
+			// Mostrar
+			// 
+			this->Mostrar->Location = System::Drawing::Point(1033, 324);
+			this->Mostrar->Name = L"Mostrar";
+			this->Mostrar->Size = System::Drawing::Size(207, 77);
+			this->Mostrar->TabIndex = 15;
+			this->Mostrar->Text = L"Mostrar datos";
+			this->Mostrar->UseVisualStyleBackColor = true;
+			this->Mostrar->Click += gcnew System::EventHandler(this, &BasicForm::Mostrar_Click);
 			// 
 			// textBox4
 			// 
@@ -425,15 +469,14 @@ namespace WeatherStationView {
 			this->comboBox1->TabIndex = 0;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &BasicForm::comboBox1_SelectedIndexChanged);
 			// 
-			// Mostrar
+			// label10
 			// 
-			this->Mostrar->Location = System::Drawing::Point(1033, 324);
-			this->Mostrar->Name = L"Mostrar";
-			this->Mostrar->Size = System::Drawing::Size(207, 77);
-			this->Mostrar->TabIndex = 15;
-			this->Mostrar->Text = L"Mostrar datos";
-			this->Mostrar->UseVisualStyleBackColor = true;
-			this->Mostrar->Click += gcnew System::EventHandler(this, &BasicForm::Mostrar_Click);
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(804, 43);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(60, 20);
+			this->label10->TabIndex = 18;
+			this->label10->Text = L"label10";
 			// 
 			// BasicForm
 			// 
@@ -456,7 +499,18 @@ namespace WeatherStationView {
 		}
 #pragma endregion
 	private: System::Void BasicForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		
+		WeatherStationForm^ wcform = gcnew WeatherStationForm(user);
+		wcform->ControlBox = false;
+		wcform->ShowDialog();
+
+		user = wcform->GetUser();
+		
+		this->label8->Text = "Usuario";
+		this->label9->Text = user->Name;
+
 		this->comboBox1->SelectedIndex = 0;
+		
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -466,18 +520,26 @@ namespace WeatherStationView {
 
 		MessageBox::Show("Suscribete a una Membresia para poder usar esta opción");
 
-		MembresiaForm obj;
-		obj.ShowDialog();
+		MembresiaForm^ membform = gcnew MembresiaForm();
+		membform->ControlBox = false;
+		membform->ShowDialog();
+		//MembresiaForm obj;
+		//obj.ShowDialog();
 	}
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	MembresiaForm obj;
-	obj.ShowDialog();
-
+	MembresiaForm^ membform = gcnew MembresiaForm();
+	membform->ControlBox = true;
+	membform->ShowDialog();
 
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	Application::Exit();
+	
+	this->Hide();
+	
+	basicForm = gcnew BasicForm();
+	basicForm->Show();
+	
 }
 
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -514,10 +576,19 @@ private: System::Void dateTimePicker1_ValueChanged(System::Object^ sender, Syste
 private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
 
 }
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	Config obj;
-	obj.ShowDialog();
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { //Ajustes
+	Config^ confform = gcnew Config(config);
+	confform->ControlBox = false;
+	confform->ShowDialog();
+	config = confform->GetConfig();
+
+	flag = 1;
+	Reload(flag);
 }
+	   void Reload(int flag) {
+		   this->label10->Text =config->UnidadTemp;
+	   }
+
 private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {

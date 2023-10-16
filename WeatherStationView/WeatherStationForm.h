@@ -1,11 +1,11 @@
 #pragma once
-#include "RegisterForm.h"
-#include "Config.h"
-#include "MembresiaForm.h"
+//#include "RegisterForm.h"
+//#include "Config.h"
+//#include "MembresiaForm.h"
 #include "WeatherStationFormAdmin.h"
-#include "UserMaintenance.h"
+//#include "UserMaintenance.h"
 //
-#include "BasicForm.h"
+//#include "BasicForm.h"
 namespace WeatherStationView {
 
 	using namespace System;
@@ -14,6 +14,8 @@ namespace WeatherStationView {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace Model;
+	//using namespace Controller;
 
 	/// <summary>
 	/// Resumen de WeatherStationForm
@@ -21,12 +23,15 @@ namespace WeatherStationView {
 	public ref class WeatherStationForm : public System::Windows::Forms::Form
 	{
 	public:
-		WeatherStationForm(void)
+
+		WeatherStationForm(User^ usuario)
 		{
 			InitializeComponent();
-			//
-			//TODO: agregar código de constructor aquí
-			//
+			this->user = usuario;
+		}
+
+		WeatherStationForm::User^ GetUser() {
+			return user;
 		}
 
 	protected:
@@ -40,8 +45,10 @@ namespace WeatherStationView {
 				delete components;
 			}
 		}
+
 	private: System::Windows::Forms::Panel^ panel1;
 	protected:
+	private: User^ user;
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
@@ -59,6 +66,7 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Button^ button3;
 
 
 
@@ -82,6 +90,7 @@ namespace WeatherStationView {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(WeatherStationForm::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->label7 = (gcnew System::Windows::Forms::Label());
@@ -108,6 +117,7 @@ namespace WeatherStationView {
 			// 
 			this->panel1->BackColor = System::Drawing::SystemColors::Info;
 			this->panel1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
+			this->panel1->Controls->Add(this->button3);
 			this->panel1->Controls->Add(this->button2);
 			this->panel1->Controls->Add(this->panel4);
 			this->panel1->Controls->Add(this->panel3);
@@ -119,6 +129,22 @@ namespace WeatherStationView {
 			this->panel1->Size = System::Drawing::Size(560, 555);
 			this->panel1->TabIndex = 0;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &WeatherStationForm::panel1_Paint);
+			// 
+			// button3
+			// 
+			this->button3->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->button3->FlatAppearance->BorderSize = 0;
+			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button3->ForeColor = System::Drawing::Color::White;
+			this->button3->Location = System::Drawing::Point(439, 515);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(109, 28);
+			this->button3->TabIndex = 8;
+			this->button3->Text = L"Exit";
+			this->button3->UseVisualStyleBackColor = false;
+			this->button3->Click += gcnew System::EventHandler(this, &WeatherStationForm::button3_Click);
 			// 
 			// button2
 			// 
@@ -364,22 +390,36 @@ private: System::Void otherclick(System::Object^ sender, System::EventArgs^ e) {
 		textBox2->Text = "Password";
 	}*/
 
-
+	
 	User^ usercheck = Controller::Controller::QueryUserbyName(textBox1->Text);
 	//
+	
 	if ((textBox1->Text == "admin") && (textBox2->Text == "admin")) {
-		
-		WeatherStationFormAdmin obj;
-		obj.ShowDialog();
+		this->Hide();
+		WeatherStationFormAdmin^ obj = gcnew WeatherStationFormAdmin();
+		obj->ShowDialog();
+
+		while (obj->Visible == true) {
+			this->Hide();
+		}
+
+		this->Show();
 
 	}
-
+	
 	//
 	else if (usercheck != nullptr) {
 		if (textBox2->Text == usercheck->Password) {
 			MessageBox::Show("Bienvenido " + usercheck->Name);
-			BasicForm obj;
-			obj.ShowDialog();
+			user = usercheck;
+			
+			/*
+			pseudocodigo no verificado
+			if (){
+				
+			}
+			*/
+			this->Hide();
 		}
 		else {
 			MessageBox::Show("Contraseña incorrecta para " + usercheck->Name + ". Ingrese los datos de nuevo.");
@@ -395,8 +435,8 @@ private: System::Void otherclick(System::Object^ sender, System::EventArgs^ e) {
 	}
 }
 private: System::Void registerbtn(System::Object^ sender, System::EventArgs^ e) {
-	RegisterForm obj;
-	obj.ShowDialog();
+	//RegisterForm obj;
+	//obj.ShowDialog();
 
 }
 private: System::Void WeatherStationForm_Load(System::Object^ sender, System::EventArgs^ e) {
@@ -418,5 +458,8 @@ private:System::Void TextBox_KeyDown(System::Object^ sender, System::Windows::Fo
 	}
 }
 
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	Application::Exit();
+}
 };
 }

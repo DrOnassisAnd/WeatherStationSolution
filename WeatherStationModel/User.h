@@ -13,7 +13,9 @@ namespace Model {
         property String^ Name;
         property String^ Password;
         property String^ Email;
-        property int Id;    
+        property int Id; 
+        //property Membresia^ Membership;
+        //property Ajustes^ Configuration;
 
         User(){}
         User(String^ Name, String^ Password, String^ Email, int Id);
