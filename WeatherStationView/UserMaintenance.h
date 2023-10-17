@@ -267,11 +267,17 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	
 	List<User^>^ users = Controller::Controller::QueryAllUser();
 	int lastIdIndex = users->Count;
-
 	User^ user = gcnew User();
-	User^ userLastId = users[lastIdIndex-1];
 
-	user->Id = (userLastId->Id) + 1;
+	if (lastIdIndex == 0) {
+		user->Id = 1;
+	}
+	else {
+		User^ userLastId = users[lastIdIndex - 1];
+
+		user->Id = (userLastId->Id) + 1;
+	}
+	
 	user->Name = Name;
 	user->Password = Password;
 	user->Email = Email;

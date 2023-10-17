@@ -394,7 +394,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	//PaymentMethodForm^ pymform = gcnew PaymentMethodForm();
 	//pymform->ShowDialog();
 
-	membresia = gcnew Membresia(1, "Estandar", DateTime::Today, DateTime::Today);
+	membresia = gcnew Membresia(1, "Estandar", DateTime::Today, DateTime::Today); //parametros de prueba
 
 	this->Close();
 
@@ -405,7 +405,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	//PaymentMethodForm^ pymform = gcnew PaymentMethodForm();
 	//pymform->ShowDialog();
 
-	membresia = gcnew Membresia(1, "Premium", DateTime::Today, DateTime::Today);
+	membresia = gcnew Membresia(1, "Premium", DateTime::Today, DateTime::Today);//Parametros de prueba
 
 	this->Close();
 

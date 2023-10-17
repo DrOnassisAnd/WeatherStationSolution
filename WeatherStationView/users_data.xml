@@ -30,4 +30,16 @@
     <Password>j123</Password>
     <Name>Jamin</Name>
   </User>
+  <User>
+    <Id>18</Id>
+    <Email>hola</Email>
+    <Password>hola</Password>
+    <Name>mundo</Name>
+  </User>
+  <User>
+    <Id>19</Id>
+    <Email>1</Email>
+    <Password>123</Password>
+    <Name>12</Name>
+  </User>
 </ArrayOfUser>

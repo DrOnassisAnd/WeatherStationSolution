@@ -5,6 +5,7 @@
 using namespace System;
 
 namespace Model {
+ 
     public ref class Membresia {
     public:
         property int Id;

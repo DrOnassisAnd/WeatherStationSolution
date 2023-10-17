@@ -344,26 +344,35 @@ Object^ WeatherStationPersistance::Persistance::LoadBinaryFile(String^ fileName)
 		if (File::Exists(fileName)) {
 			file = gcnew FileStream(fileName, FileMode::Open, FileAccess::Read);
 			formatter = gcnew BinaryFormatter();
+		}
 
-			if (fileName->Equals(USERS_BIN)) {
-				result = formatter->Deserialize(file);
-			}//caso particular, cambia el nombre
-			else if (fileName->Equals(TEMP_HUM_FILE)) {
-				result = formatter->Deserialize(file);
-				}
-
-			else if (file->Equals(WEATHER_WARNING_BIN)) {
-				result = formatter->Deserialize(file);
+		if (fileName->Equals(USERS_BIN)) {
+			result = gcnew List<User^>();
+			if (File::Exists(fileName)) {
+				result = (List<User^>^)formatter->Deserialize(file);
 			}
-			else if (file->Equals(ERROR_WARNING_BIN)) {
-        
-			}
-        
-			else if (fileName->Equals(CO_XML)) {
-
-				result = formatter->Deserialize(file);
+		}//caso particular, cambia el nombre
+		else if (File::Exists(fileName) && fileName->Equals(TEMP_HUM_FILE)) {
+			result = gcnew List<SensorTemperaturaHumedad^>();
+			if (File::Exists(fileName)) {
+				result = (List<SensorTemperaturaHumedad^>^)formatter->Deserialize(file);
 			}
 		}
+		else if (File::Exists(fileName) && file->Equals(WEATHER_WARNING_BIN)) {
+			result = formatter->Deserialize(file);
+		}
+		else if (File::Exists(fileName) && file->Equals(ERROR_WARNING_BIN)) {
+			result = formatter->Deserialize(file);
+		}
+		else if (File::Exists(fileName) && fileName->Equals(CO_BIN)) {
+
+			result = formatter->Deserialize(file);
+		}
+
+	}
+	catch (NullReferenceException^ ex) {
+		//Acciones a realizar si ocurre una excepción del tipo NullReference.
+		throw ex;
 	}
 	catch (Exception^ ex) {
 		throw ex;
@@ -378,18 +387,21 @@ Object^ WeatherStationPersistance::Persistance::LoadBinaryFile(String^ fileName)
 void WeatherStationPersistance::Persistance::AddUser(User^user) {
 	UserList->Add(user);
 	//PersistTextFile(WEATHER_STATION, UserList);
-	PersistXMLFile(USERS_XML, UserList);
+	//PersistXMLFile(USERS_XML, UserList);
+	PersistBinaryFile(USERS_BIN, UserList);
 }
 
 List<User^>^ WeatherStationPersistance::Persistance::QueryAllUser() {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
-	UserList = (List<User^>^)LoadXMLFile(USERS_XML);
+	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
+	UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
 	return UserList;
 }
 
 User^ WeatherStationPersistance::Persistance::QueryUserbyName(String^ name) {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
-	UserList = (List<User^>^)LoadXMLFile(USERS_XML);
+	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
+	UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
 	for (int i = 0; i < UserList->Count; i++) {
 		if (UserList[i]->Name == name)
 			return UserList[i];
@@ -399,7 +411,8 @@ User^ WeatherStationPersistance::Persistance::QueryUserbyName(String^ name) {
 
 User^ WeatherStationPersistance::Persistance::QueryUserbyId(int Id) {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
-	UserList = (List<User^>^)LoadXMLFile(USERS_XML);
+	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
+	UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
 	for (int i = 0; i < UserList->Count; i++) {
 		if (UserList[i]->Id == Id)
 			return UserList[i];
@@ -413,8 +426,8 @@ void WeatherStationPersistance::Persistance::UpdateUser(User^ user) {
 			UserList[i] = user;
 	}
 	//PersistTextFile(WEATHER_STATION, UserList);
-	PersistXMLFile(USERS_XML, UserList);
-	//PersistBinaryFile(USERS_BIN, UserList);
+	//PersistXMLFile(USERS_XML, UserList);
+	PersistBinaryFile(USERS_BIN, UserList);
 }
 
 void WeatherStationPersistance::Persistance::DeleteUser(int userId) {
@@ -423,8 +436,8 @@ void WeatherStationPersistance::Persistance::DeleteUser(int userId) {
 			UserList->RemoveAt(i);
 	}
 	//PersistTextFile(WEATHER_STATION, UserList);
-	PersistXMLFile(USERS_XML, UserList);
-	//PersistBinaryFile(USERS_BIN, UserList);
+	//PersistXMLFile(USERS_XML, UserList);
+	PersistBinaryFile(USERS_BIN, UserList);
 }
 
 void WeatherStationPersistance::Persistance::AddAjustes(Ajustes^ ajustes) {

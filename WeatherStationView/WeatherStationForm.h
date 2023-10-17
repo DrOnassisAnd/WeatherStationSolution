@@ -191,6 +191,8 @@ namespace WeatherStationView {
 			this->textBox2->Text = L"Password";
 			this->textBox2->UseSystemPasswordChar = true;
 			this->textBox2->Click += gcnew System::EventHandler(this, &WeatherStationForm::textBox2_Click);
+			this->textBox2->TextChanged += gcnew System::EventHandler(this, &WeatherStationForm::textBox2_TextChanged);
+			this->textBox2->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &WeatherStationForm::TextBox_KeyDown);
 			// 
 			// panel3
 			// 
@@ -383,49 +385,14 @@ private: System::Void textBox2_Click(System::Object^ sender, System::EventArgs^ 
 	}
 }
 
-private: System::Void otherclick(System::Object^ sender, System::EventArgs^ e) {
-	/*if (textBox1->Text == "") {
-		textBox1->Text = "Username";
-	}
-	if (textBox2->Text == "") {
-		textBox2->Text = "Password";
-	}*/
-
+private: System::Void otherclick(System::Object^ sender, System::EventArgs^ e) { //log in
 	
-	User^ usercheck = Controller::Controller::QueryUserbyName(textBox1->Text);
-	//
+
+	SignIn();
 	
-	if ((textBox1->Text == "admin") && (textBox2->Text == "admin")) {
-		this->Hide();
-		WeatherStationFormAdmin^ obj = gcnew WeatherStationFormAdmin();
-		obj->ShowDialog();
-
-
-
-		this->Show();
-
-	}
-	
-	//
-	else if (usercheck != nullptr) {
-		if (textBox2->Text == usercheck->Password) {
-			MessageBox::Show("Bienvenido " + usercheck->Name);
-			user = usercheck;
-			this->Hide();
-		}
-		else {
-			MessageBox::Show("Contraseña incorrecta para " + usercheck->Name + ". Ingrese los datos de nuevo.");
-			this->textBox1->Text = L"Username";
-			this->textBox2->Text = L"Password";
-		}
-	}
-	else {
-		MessageBox::Show("Usuario o contraseña incorrectos. Ingrese los datos de nuevo.");
-		this->textBox1->Text = L"Username";
-		this->textBox2->Text = L"Password";
-
-	}
 }
+
+
 private: System::Void registerbtn(System::Object^ sender, System::EventArgs^ e) {
 
 	
@@ -457,16 +424,54 @@ private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Form
 }
 
 private:System::Void TextBox_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-	if (e->KeyCode == Keys::Escape)
+	if (e->KeyCode == Keys::Enter)
 	{
-		// Ejecutar la acción deseada
-		// Por ejemplo, mostrar un mensaje
+		SignIn();
+	}
+	else if (e->KeyCode == Keys::Escape) {
 		Application::Exit();
 	}
 }
 
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();
+}
+
+	   void SignIn() {
+		   User^ usercheck = Controller::Controller::QueryUserbyName(textBox1->Text);
+
+		   if ((textBox1->Text == "admin") && (textBox2->Text == "admin")) {
+			   this->Hide();
+			   WeatherStationFormAdmin^ obj = gcnew WeatherStationFormAdmin();
+			   obj->ShowDialog();
+
+
+
+			   this->Show();
+
+		   }
+
+		   //
+		   else if (usercheck != nullptr) {
+			   if (textBox2->Text == usercheck->Password) {
+				   MessageBox::Show("Bienvenido " + usercheck->Name);
+				   user = usercheck;
+				   this->Hide();
+			   }
+			   else {
+				   MessageBox::Show("Contraseña incorrecta para " + usercheck->Name + ". Ingrese los datos de nuevo.");
+				   this->textBox1->Text = L"Username";
+				   this->textBox2->Text = L"Password";
+			   }
+		   }
+		   else {
+			   MessageBox::Show("Usuario o contraseña incorrectos. Ingrese los datos de nuevo.");
+			   this->textBox1->Text = L"Username";
+			   this->textBox2->Text = L"Password";
+
+		   }
+	   }
+private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
