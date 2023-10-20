@@ -3,10 +3,14 @@
 using namespace System;
 using namespace Model;
 using namespace System::Collections::Generic;
+using namespace WeatherStationPersistance;
+using namespace System::IO::Ports;
 
 namespace Controller {
 	public ref class Controller
 	{
+	private:
+		static SerialPort^ ArduinoPort;
 		// TODO: Agregue aquí los métodos de esta clase.
 	public:
 		static void AddUser(User^);
@@ -64,6 +68,11 @@ namespace Controller {
 		static void DeleteErrorWarning(String^ ErrorWarningId);
 		static AlertaError^ QueryErrorWarningbyId(String^ selectedErrorWarningId);
 		static void UpdateErrorWarning(AlertaError^ alertaError);
+
+		//Serial
+		static void OpenPort();
+		static void ClosePort();
+		static String^ SendSensorsData();
 
 	};
 }

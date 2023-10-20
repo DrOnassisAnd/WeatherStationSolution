@@ -349,10 +349,10 @@ Object^ WeatherStationPersistance::Persistance::LoadBinaryFile(String^ fileName)
 		if (fileName->Equals(USERS_BIN)) {
 			result = gcnew List<User^>();
 			if (File::Exists(fileName)) {
-				result = (List<User^>^)formatter->Deserialize(file);
+				result = (List<User^>^)formatter->Deserialize(file); //AAAAAAAAAAAAAAAAAAAAAAAAaa
 			}
-		}//caso particular, cambia el nombre
-		else if (File::Exists(fileName) && fileName->Equals(TEMP_HUM_FILE)) {
+		}
+		else if (File::Exists(fileName) && fileName->Equals(TEMP_HUM_BIN)) {
 			result = gcnew List<SensorTemperaturaHumedad^>();
 			if (File::Exists(fileName)) {
 				result = (List<SensorTemperaturaHumedad^>^)formatter->Deserialize(file);
@@ -387,21 +387,21 @@ Object^ WeatherStationPersistance::Persistance::LoadBinaryFile(String^ fileName)
 void WeatherStationPersistance::Persistance::AddUser(User^user) {
 	UserList->Add(user);
 	//PersistTextFile(WEATHER_STATION, UserList);
-	//PersistXMLFile(USERS_XML, UserList);
-	PersistBinaryFile(USERS_BIN, UserList);
+	PersistXMLFile(USERS_XML, UserList);
+	//PersistBinaryFile(USERS_BIN, UserList);
 }
 
 List<User^>^ WeatherStationPersistance::Persistance::QueryAllUser() {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
-	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
-	UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
+	UserList = (List<User^>^)LoadXMLFile(USERS_XML);
+	//UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
 	return UserList;
 }
 
 User^ WeatherStationPersistance::Persistance::QueryUserbyName(String^ name) {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
-	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
-	UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
+	UserList = (List<User^>^)LoadXMLFile(USERS_XML);
+	//UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
 	for (int i = 0; i < UserList->Count; i++) {
 		if (UserList[i]->Name == name)
 			return UserList[i];
@@ -411,8 +411,8 @@ User^ WeatherStationPersistance::Persistance::QueryUserbyName(String^ name) {
 
 User^ WeatherStationPersistance::Persistance::QueryUserbyId(int Id) {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
-	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
-	UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
+	UserList = (List<User^>^)LoadXMLFile(USERS_XML);
+	//UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
 	for (int i = 0; i < UserList->Count; i++) {
 		if (UserList[i]->Id == Id)
 			return UserList[i];
@@ -426,8 +426,8 @@ void WeatherStationPersistance::Persistance::UpdateUser(User^ user) {
 			UserList[i] = user;
 	}
 	//PersistTextFile(WEATHER_STATION, UserList);
-	//PersistXMLFile(USERS_XML, UserList);
-	PersistBinaryFile(USERS_BIN, UserList);
+	PersistXMLFile(USERS_XML, UserList);
+	//PersistBinaryFile(USERS_BIN, UserList);
 }
 
 void WeatherStationPersistance::Persistance::DeleteUser(int userId) {
@@ -436,8 +436,8 @@ void WeatherStationPersistance::Persistance::DeleteUser(int userId) {
 			UserList->RemoveAt(i);
 	}
 	//PersistTextFile(WEATHER_STATION, UserList);
-	//PersistXMLFile(USERS_XML, UserList);
-	PersistBinaryFile(USERS_BIN, UserList);
+	PersistXMLFile(USERS_XML, UserList);
+	//PersistBinaryFile(USERS_BIN, UserList);
 }
 
 void WeatherStationPersistance::Persistance::AddAjustes(Ajustes^ ajustes) {

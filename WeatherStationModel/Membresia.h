@@ -5,7 +5,7 @@
 using namespace System;
 
 namespace Model {
- 
+    [Serializable]
     public ref class Membresia {
     public:
         property int Id;

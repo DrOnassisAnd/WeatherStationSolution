@@ -183,3 +183,39 @@ AlertaError^ Controller::Controller::QueryErrorWarningbyId(String^ selectedError
 void Controller::Controller::UpdateErrorWarning(AlertaError^ alertaError) {
 	WeatherStationPersistance::Persistance::UpdateErrorWarning(alertaError);
 }
+
+
+
+void Controller::Controller::OpenPort() {
+	try {
+		ArduinoPort = gcnew SerialPort();
+		ArduinoPort->PortName = "COM3";
+		ArduinoPort->BaudRate = 9600;
+		ArduinoPort->Open();
+	}
+	catch (Exception^ ex) {
+		throw(ex);
+	}
+}
+
+void Controller::Controller::ClosePort() {
+	try {
+		if (ArduinoPort->IsOpen) ArduinoPort->Close();
+	}
+	catch (Exception^ ex) {
+		throw(ex);
+	}
+}
+
+String^ Controller::Controller::SendSensorsData() {
+	
+	try {
+		OpenPort();
+		String^ sensordata = ArduinoPort->ReadLine();
+		ClosePort();
+		return sensordata;
+	}
+	catch (Exception^ ex) {
+		throw ex;
+	}
+}

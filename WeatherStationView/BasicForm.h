@@ -13,6 +13,7 @@ namespace WeatherStationView {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Collections::Generic;
+	using namespace System::IO::Ports;
 	using namespace Model;
 	/// <summary>
 	/// Resumen de BasicForm
@@ -46,6 +47,7 @@ namespace WeatherStationView {
 	private: Ajustes^ config;
 	private: Membresia^ membresiaGlobal;
 	private: BasicForm^ basicForm;
+
 	private: System::Windows::Forms::Label^ label1;
 	protected:
 	private: System::Windows::Forms::Label^ label2;
@@ -79,6 +81,10 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::Button^ Serial;
+	private: System::Windows::Forms::Timer^ timer1;
+
+	private: System::ComponentModel::IContainer^ components;
 
 
 
@@ -90,7 +96,7 @@ namespace WeatherStationView {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -99,6 +105,7 @@ namespace WeatherStationView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -108,6 +115,8 @@ namespace WeatherStationView {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->Serial = (gcnew System::Windows::Forms::Button());
+			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
@@ -127,7 +136,7 @@ namespace WeatherStationView {
 			this->dtpWeatherStationBasic = (gcnew System::Windows::Forms::DateTimePicker());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -252,6 +261,7 @@ namespace WeatherStationView {
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::SystemColors::Info;
+			this->panel1->Controls->Add(this->Serial);
 			this->panel1->Controls->Add(this->label11);
 			this->panel1->Controls->Add(this->label10);
 			this->panel1->Controls->Add(this->label9);
@@ -285,6 +295,25 @@ namespace WeatherStationView {
 			this->panel1->Size = System::Drawing::Size(1240, 717);
 			this->panel1->TabIndex = 8;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BasicForm::panel1_Paint);
+			// 
+			// Serial
+			// 
+			this->Serial->Location = System::Drawing::Point(919, 495);
+			this->Serial->Name = L"Serial";
+			this->Serial->Size = System::Drawing::Size(84, 25);
+			this->Serial->TabIndex = 20;
+			this->Serial->Text = L"Serial";
+			this->Serial->UseVisualStyleBackColor = true;
+			this->Serial->Click += gcnew System::EventHandler(this, &BasicForm::Serial_Click);
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(808, 580);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(60, 20);
+			this->label11->TabIndex = 19;
+			this->label11->Text = L"label11";
 			// 
 			// label10
 			// 
@@ -480,14 +509,10 @@ namespace WeatherStationView {
 			this->comboBox1->TabIndex = 0;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &BasicForm::comboBox1_SelectedIndexChanged);
 			// 
-			// label11
+			// timer1
 			// 
-			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(808, 580);
-			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(60, 20);
-			this->label11->TabIndex = 19;
-			this->label11->Text = L"label11";
+			this->timer1->Interval = 1000;
+			this->timer1->Tick += gcnew System::EventHandler(this, &BasicForm::timer_tick);
 			// 
 			// BasicForm
 			// 
@@ -530,6 +555,13 @@ namespace WeatherStationView {
 		Ajustes^ ajustes = gcnew Ajustes();
 		ajustes = Controller::Controller::QueryPrevAjustes();
 		label10->Text = ajustes->UnidadTemp;
+
+		//timer
+		timer1->Start();
+
+		//SerialPort^ serialPort = gcnew SerialPort("COM3", 9600, Parity::None, 8, StopBits::One); // Reemplaza "COMX" con el puerto COM al que está conectado tu Arduino
+		//serialPort->Open(); // Abre el puerto serie
+
 		
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -732,6 +764,16 @@ private: System::Void Mostrar_Click(System::Object^ sender, System::EventArgs^ e
 	else if ((DoubleTemp < maxTemp) && (IntHum >= maxHum) && (nivelCO >= maxNivelCO)) {
 		MessageBox::Show("Presencia de niveles altos de CO y humedad altos");
 	}
+}
+
+
+private: System::Void Serial_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ data = Controller::Controller::SendSensorsData();
+	textBox4->Text = data;
+}
+private: System::Void timer_tick(System::Object^ sender, System::EventArgs^ e) {
+	String^ data = Controller::Controller::SendSensorsData();
+	textBox4->Text = data;
 }
 };
 }

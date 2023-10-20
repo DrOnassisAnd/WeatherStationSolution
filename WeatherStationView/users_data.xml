@@ -42,4 +42,10 @@
     <Password>123</Password>
     <Name>12</Name>
   </User>
+  <User>
+    <Id>20</Id>
+    <Email>joaquin</Email>
+    <Password>joaquin</Password>
+    <Name>joaquin</Name>
+  </User>
 </ArrayOfUser>

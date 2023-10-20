@@ -9,11 +9,12 @@
  * User implementation
  */
 
-Model::User::User(String^ Name, String^ Password, String^ Email, int Id)
+Model::User::User(String^ Name, String^ Password, String^ Email, int Id, Membresia^ membresia)
 {
 	this->Id = Id;
 	this->Name = Name;
 	this->Password = Password;
 	this->Email = Email;
+	//this->membresia = membresia;
 
 }
