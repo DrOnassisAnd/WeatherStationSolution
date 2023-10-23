@@ -23,11 +23,11 @@ namespace Controller {
 		static void AddAjustes(Ajustes^);
 		static Ajustes^ QueryPrevAjustes();
 
-		static void AddMembresia(Membresia^);
+		/*static void AddMembresia(Membresia^);
 		static List<Membresia^>^ QueryMembresia();
 		static Membresia^ QueryMembresiabyId(int Id);
 		static void DeleteMembresia(int membresiaId);
-		static void UpdateMembresia(Membresia^);
+		static void UpdateMembresia(Membresia^);*/
 
 
 		static void AddTempHumData(SensorTemperaturaHumedad^ sTempHum);

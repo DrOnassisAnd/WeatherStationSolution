@@ -3,6 +3,7 @@
 using namespace System;
 
 namespace Model {
+    [Serializable]
     public ref class Ajustes {
     public:
         property String^ UnidadTemp;

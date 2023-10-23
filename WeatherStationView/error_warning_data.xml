@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfAlertaError xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <AlertaError>
-    <limitValue>13</limitValue>
-    <ErrorDate>2023-08-27T09:09:32</ErrorDate>
-    <IdSensor>15</IdSensor>
-    <IdError>0</IdError>
-  </AlertaError>
-  <AlertaError>
     <limitValue>230</limitValue>
     <ErrorDate>2023-10-27T11:08:00</ErrorDate>
     <IdSensor>268</IdSensor>

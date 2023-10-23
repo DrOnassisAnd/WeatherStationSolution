@@ -63,6 +63,9 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
+	private: System::Windows::Forms::Label^ FechaFin;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ FechaFindgv;
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -86,6 +89,7 @@ namespace WeatherStationView {
 			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -93,7 +97,9 @@ namespace WeatherStationView {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->FechaFin = (gcnew System::Windows::Forms::Label());
+			this->FechaFindgv = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -131,7 +137,7 @@ namespace WeatherStationView {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(680, 189);
+			this->button4->Location = System::Drawing::Point(675, 335);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(75, 23);
 			this->button4->TabIndex = 58;
@@ -142,14 +148,14 @@ namespace WeatherStationView {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
 				this->Column1,
-					this->Column4, this->Column2, this->Column3, this->Column5
+					this->Column4, this->Column2, this->Column3, this->Column5, this->FechaFindgv
 			});
 			this->dataGridView1->Location = System::Drawing::Point(12, 143);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->Size = System::Drawing::Size(662, 177);
+			this->dataGridView1->Size = System::Drawing::Size(757, 177);
 			this->dataGridView1->TabIndex = 57;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &UserMaintenance::Table_CellClick);
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &UserMaintenance::dataGridView1_CellContentClick);
@@ -182,9 +188,14 @@ namespace WeatherStationView {
 			this->Column3->Name = L"Column3";
 			this->Column3->Width = 125;
 			// 
+			// Column5
+			// 
+			this->Column5->HeaderText = L"Membresia";
+			this->Column5->Name = L"Column5";
+			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(680, 105);
+			this->button3->Location = System::Drawing::Point(675, 105);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(75, 23);
 			this->button3->TabIndex = 56;
@@ -194,7 +205,7 @@ namespace WeatherStationView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(680, 59);
+			this->button2->Location = System::Drawing::Point(675, 59);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 23);
 			this->button2->TabIndex = 55;
@@ -204,7 +215,7 @@ namespace WeatherStationView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(680, 12);
+			this->button1->Location = System::Drawing::Point(675, 12);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 54;
@@ -231,7 +242,7 @@ namespace WeatherStationView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(12, 105);
+			this->label1->Location = System::Drawing::Point(326, 17);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(58, 13);
 			this->label1->TabIndex = 63;
@@ -241,21 +252,39 @@ namespace WeatherStationView {
 			// 
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Basic", L"Estandar", L"Premium" });
-			this->comboBox1->Location = System::Drawing::Point(131, 102);
+			this->comboBox1->Location = System::Drawing::Point(445, 14);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(100, 21);
 			this->comboBox1->TabIndex = 64;
 			// 
-			// Column5
+			// dateTimePicker1
 			// 
-			this->Column5->HeaderText = L"Membresia";
-			this->Column5->Name = L"Column5";
+			this->dateTimePicker1->Location = System::Drawing::Point(445, 59);
+			this->dateTimePicker1->Name = L"dateTimePicker1";
+			this->dateTimePicker1->Size = System::Drawing::Size(200, 20);
+			this->dateTimePicker1->TabIndex = 65;
+			// 
+			// FechaFin
+			// 
+			this->FechaFin->AutoSize = true;
+			this->FechaFin->Location = System::Drawing::Point(326, 59);
+			this->FechaFin->Name = L"FechaFin";
+			this->FechaFin->Size = System::Drawing::Size(92, 13);
+			this->FechaFin->TabIndex = 66;
+			this->FechaFin->Text = L"FechaFinalizacion";
+			// 
+			// FechaFindgv
+			// 
+			this->FechaFindgv->HeaderText = L"FechaFin";
+			this->FechaFindgv->Name = L"FechaFindgv";
 			// 
 			// UserMaintenance
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(767, 335);
+			this->ClientSize = System::Drawing::Size(778, 370);
+			this->Controls->Add(this->FechaFin);
+			this->Controls->Add(this->dateTimePicker1);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox3);
@@ -283,10 +312,9 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	String^ Name = textBox2->Text;
 	String^ Password = textBox3->Text;
 	String^ Email = textBox4->Text;
-	
 
 	String^ TipoMembresia = comboBox1->SelectedItem->ToString();
-	
+	String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
 	
 	List<User^>^ users = Controller::Controller::QueryAllUser();
 	int lastIdIndex = users->Count;
@@ -297,16 +325,17 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	}
 	else {
 		User^ userLastId = users[lastIdIndex - 1];
-
 		user->Id = (userLastId->Id) + 1;
 	}
 	
-	//Membresia^ membresia = gcnew Membresia(user->Id, TipoMembresia, DateTime::Today, DateTime::Today);
+	Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
+	Ajustes^ ajustes = gcnew Ajustes("°C", "dd/mm/yyyy", "Formato de 12 horas");
 
 	user->Name = Name;
 	user->Password = Password;
 	user->Email = Email;
-	//user->membresia = membresia;
+	user->membresia = membresia;
+	user->ajustes = ajustes;
 
 	Controller::Controller::AddUser(user);
 	ShowUserData();
@@ -315,6 +344,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	textBox3->Text = "";
 	textBox4->Text = "";
 	comboBox1->SelectedIndex = 0;
+	dateTimePicker1->Value = DateTime::Today;
 
 }
 	   void ShowUserData() {
@@ -327,7 +357,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 					   user->Name,
 					   user->Password,
 					   user->Email,
-					   //user->membresia->TipoMembresia
+					   user->membresia->TipoMembresia,
+					   user->membresia->fechaFinalizacion
 			   });
 		   }
 	   }
@@ -350,7 +381,8 @@ private: System::Void Table_CellClick(System::Object^ sender, System::Windows::F
 	textBox2->Text = user->Name;
 	textBox3->Text = user->Password;
 	textBox4->Text = user->Email;
-	//comboBox1->SelectedItem = user->membresia->TipoMembresia;
+	comboBox1->SelectedItem = user->membresia->TipoMembresia;
+	dateTimePicker1->Value = DateTime::Parse(user->membresia->fechaFinalizacion);
 }
 
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //update
@@ -358,8 +390,8 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	String^ name = textBox2->Text;
 	String^ password = textBox3->Text;
 	String^ email = textBox4->Text;
-	//String^ TipoMembresia = comboBox1->SelectedItem->ToString();
-
+	String^ TipoMembresia = comboBox1->SelectedItem->ToString();
+	String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
 
 	User^ user = gcnew User();
 	user->Id = Id;
@@ -367,8 +399,12 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	user->Password = password;
 	user->Email = email;
 
-	//Membresia^ membresia = gcnew Membresia(user->Id, TipoMembresia, DateTime::Today, DateTime::Today);
-	//user->membresia = membresia;
+	
+	Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
+	Ajustes^ ajustes = gcnew Ajustes("°C", "dd/mm/yyyy", "Formato de 12 horas");
+
+	user->membresia = membresia;
+	user->ajustes = ajustes;
 
 	Controller::Controller::UpdateUser(user);
 	ShowUserData();

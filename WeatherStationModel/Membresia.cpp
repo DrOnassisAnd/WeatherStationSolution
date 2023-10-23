@@ -11,11 +11,9 @@
 
 
 
-Model::Membresia::Membresia(int Id, String^ TipoMembresia,DateTime^ fechaInicio, DateTime^ fechaFinalizacion)
+Model::Membresia::Membresia(String^ TipoMembresia,String^ fechaInicio, String^ fechaFinalizacion)
 
 {
-
-	this->Id = Id;
 	this->TipoMembresia = TipoMembresia;
 	this->fechaInicio = fechaInicio;
 	this->fechaFinalizacion = fechaFinalizacion;

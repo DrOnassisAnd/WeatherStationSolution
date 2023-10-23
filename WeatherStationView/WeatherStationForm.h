@@ -430,10 +430,12 @@ private:System::Void TextBox_KeyDown(System::Object^ sender, System::Windows::Fo
 	}
 	else if (e->KeyCode == Keys::Escape) {
 		Application::Exit();
+		MessageBox::Show("Gracias por utilizar WeatherStation");
 	}
 }
 
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	MessageBox::Show("Gracias por utilizar WeatherStation");
 	Application::Exit();
 }
 

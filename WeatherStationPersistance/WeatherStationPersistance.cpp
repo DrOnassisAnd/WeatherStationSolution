@@ -21,13 +21,13 @@ void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, O
 		Ajustes^ ajustes = (Ajustes^)persistObject;
 		writer->WriteLine(ajustes->UnidadTemp + "," + ajustes->FormatoHoras + "," + ajustes->FormatoFecha);
 	}
-	else if (persistObject->GetType() == List<Membresia^>::typeid) { 
+	/*else if (persistObject->GetType() == List<Membresia^>::typeid) { 
 		List<Membresia^>^ membresias = (List<Membresia^>^)persistObject;
 		for (int i = 0; i < membresias->Count; i++) {
 			Membresia^ r = membresias[i];
 			writer->WriteLine(r->Id + "," + r->fechaInicio + "," + r->fechaFinalizacion);
 		}
-	}
+	}*/
 	
 	else if (persistObject->GetType() == List<SensorTemperaturaHumedad^>::typeid) { //TempHum
 		List<SensorTemperaturaHumedad^>^ tempHum = (List<SensorTemperaturaHumedad^>^)persistObject;
@@ -160,7 +160,7 @@ Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
 			}
 		}
 		else if (fileName->Equals(MEMBRESIA_FILE)) {
-			result = gcnew List<Membresia^>();
+			/*result = gcnew List<Membresia^>();
 			while (true) {
 				String^ line = reader->ReadLine();
 				if (line == nullptr) break;
@@ -188,7 +188,7 @@ Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
 
 
 
-			}
+			}*/
 		}
 		else if (fileName->Equals(CALIDAD_AIRE_FILE)) {
 			result = gcnew List<SensorCalidadAire^>();
@@ -349,7 +349,7 @@ Object^ WeatherStationPersistance::Persistance::LoadBinaryFile(String^ fileName)
 		if (fileName->Equals(USERS_BIN)) {
 			result = gcnew List<User^>();
 			if (File::Exists(fileName)) {
-				result = (List<User^>^)formatter->Deserialize(file); //AAAAAAAAAAAAAAAAAAAAAAAAaa
+				result = (List<User^>^)formatter->Deserialize(file);
 			}
 		}
 		else if (File::Exists(fileName) && fileName->Equals(TEMP_HUM_BIN)) {
@@ -387,21 +387,21 @@ Object^ WeatherStationPersistance::Persistance::LoadBinaryFile(String^ fileName)
 void WeatherStationPersistance::Persistance::AddUser(User^user) {
 	UserList->Add(user);
 	//PersistTextFile(WEATHER_STATION, UserList);
-	PersistXMLFile(USERS_XML, UserList);
-	//PersistBinaryFile(USERS_BIN, UserList);
+	//PersistXMLFile(USERS_XML, UserList);
+	PersistBinaryFile(USERS_BIN, UserList);
 }
 
 List<User^>^ WeatherStationPersistance::Persistance::QueryAllUser() {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
-	UserList = (List<User^>^)LoadXMLFile(USERS_XML);
-	//UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
+	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
+	UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
 	return UserList;
 }
 
 User^ WeatherStationPersistance::Persistance::QueryUserbyName(String^ name) {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
-	UserList = (List<User^>^)LoadXMLFile(USERS_XML);
-	//UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
+	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
+	UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
 	for (int i = 0; i < UserList->Count; i++) {
 		if (UserList[i]->Name == name)
 			return UserList[i];
@@ -411,8 +411,8 @@ User^ WeatherStationPersistance::Persistance::QueryUserbyName(String^ name) {
 
 User^ WeatherStationPersistance::Persistance::QueryUserbyId(int Id) {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
-	UserList = (List<User^>^)LoadXMLFile(USERS_XML);
-	//UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
+	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
+	UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
 	for (int i = 0; i < UserList->Count; i++) {
 		if (UserList[i]->Id == Id)
 			return UserList[i];
@@ -426,8 +426,8 @@ void WeatherStationPersistance::Persistance::UpdateUser(User^ user) {
 			UserList[i] = user;
 	}
 	//PersistTextFile(WEATHER_STATION, UserList);
-	PersistXMLFile(USERS_XML, UserList);
-	//PersistBinaryFile(USERS_BIN, UserList);
+	//PersistXMLFile(USERS_XML, UserList);
+	PersistBinaryFile(USERS_BIN, UserList);
 }
 
 void WeatherStationPersistance::Persistance::DeleteUser(int userId) {
@@ -436,8 +436,8 @@ void WeatherStationPersistance::Persistance::DeleteUser(int userId) {
 			UserList->RemoveAt(i);
 	}
 	//PersistTextFile(WEATHER_STATION, UserList);
-	PersistXMLFile(USERS_XML, UserList);
-	//PersistBinaryFile(USERS_BIN, UserList);
+	//PersistXMLFile(USERS_XML, UserList);
+	PersistBinaryFile(USERS_BIN, UserList);
 }
 
 void WeatherStationPersistance::Persistance::AddAjustes(Ajustes^ ajustes) {
@@ -450,49 +450,49 @@ Ajustes^ WeatherStationPersistance::Persistance::QueryPrevAjustes() {
 	return AjustesList;
 }
 
-void WeatherStationPersistance::Persistance::AddMembresia(Membresia^ membresia) {
-	MembresiaList->Add(membresia);
-	//PersistTextFile(WEATHER_STATION, UserList);
-	PersistTextFile(MEMBRESIA_FILE, MembresiaList);
-}
+//void WeatherStationPersistance::Persistance::AddMembresia(Membresia^ membresia) {
+//	MembresiaList->Add(membresia);
+//	//PersistTextFile(WEATHER_STATION, UserList);
+//	PersistTextFile(MEMBRESIA_FILE, MembresiaList);
+//}
+//
+//List<Membresia^>^ WeatherStationPersistance::Persistance::QueryMembresia() {
+//	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
+//	MembresiaList = (List<Membresia^>^)LoadTextFile(MEMBRESIA_FILE);
+//	return MembresiaList;
+//}
 
-List<Membresia^>^ WeatherStationPersistance::Persistance::QueryMembresia() {
-	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
-	MembresiaList = (List<Membresia^>^)LoadTextFile(MEMBRESIA_FILE);
-	return MembresiaList;
-}
 
 
+//Membresia^ WeatherStationPersistance::Persistance::QueryMembresiabyId(int Id) {
+//	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
+//	MembresiaList = (List<Membresia^>^)LoadTextFile(MEMBRESIA_FILE);
+//	for (int i = 0; i < MembresiaList->Count; i++) {
+//		if (MembresiaList[i]->Id == Id)
+//			return MembresiaList[i];
+//	}
+//	return nullptr;
+//}
 
-Membresia^ WeatherStationPersistance::Persistance::QueryMembresiabyId(int Id) {
-	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
-	MembresiaList = (List<Membresia^>^)LoadTextFile(MEMBRESIA_FILE);
-	for (int i = 0; i < MembresiaList->Count; i++) {
-		if (MembresiaList[i]->Id == Id)
-			return MembresiaList[i];
-	}
-	return nullptr;
-}
+//void WeatherStationPersistance::Persistance::UpdateMembresia(Membresia^ membresia) {
+//	for (int i = 0; i < MembresiaList->Count; i++) {
+//		if (MembresiaList[i]->Id == membresia->Id)
+//			MembresiaList[i] = membresia;
+//	}
+//	//PersistTextFile(WEATHER_STATION, UserList);
+//	PersistTextFile(MEMBRESIA_FILE, MembresiaList);
+//	//PersistBinaryFile(USERS_BIN, UserList);
+//}
 
-void WeatherStationPersistance::Persistance::UpdateMembresia(Membresia^ membresia) {
-	for (int i = 0; i < MembresiaList->Count; i++) {
-		if (MembresiaList[i]->Id == membresia->Id)
-			MembresiaList[i] = membresia;
-	}
-	//PersistTextFile(WEATHER_STATION, UserList);
-	PersistTextFile(MEMBRESIA_FILE, MembresiaList);
-	//PersistBinaryFile(USERS_BIN, UserList);
-}
-
-void WeatherStationPersistance::Persistance::DeleteMembresia(int membresiaId) {
-	for (int i = 0; i < MembresiaList->Count; i++) {
-		if (MembresiaList[i]->Id == membresiaId)
-			MembresiaList->RemoveAt(i);
-	}
-	//PersistTextFile(WEATHER_STATION, UserList);
-	PersistTextFile(MEMBRESIA_FILE, MembresiaList);
-	//PersistBinaryFile(USERS_BIN, UserList);
-}
+//void WeatherStationPersistance::Persistance::DeleteMembresia(int membresiaId) {
+//	for (int i = 0; i < MembresiaList->Count; i++) {
+//		if (MembresiaList[i]->Id == membresiaId)
+//			MembresiaList->RemoveAt(i);
+//	}
+//	//PersistTextFile(WEATHER_STATION, UserList);
+//	PersistTextFile(MEMBRESIA_FILE, MembresiaList);
+//	//PersistBinaryFile(USERS_BIN, UserList);
+//}
 
 
 

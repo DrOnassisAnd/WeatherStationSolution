@@ -80,11 +80,11 @@ namespace WeatherStationPersistance {
 
 		static void AddAjustes(Ajustes^ ajustes);
 
-		static void AddMembresia(Membresia^ membresias);
+		/*static void AddMembresia(Membresia^ membresias);
 		static List<Membresia^>^ QueryMembresia();
 		static Membresia^ QueryMembresiabyId(int id);
 		static void UpdateMembresia(Membresia^ membresia);
-		static void DeleteMembresia(int membresiaId);
+		static void DeleteMembresia(int membresiaId);*/
 		
 		static Ajustes^ QueryPrevAjustes();
 

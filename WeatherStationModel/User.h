@@ -14,11 +14,11 @@ namespace Model {
         property String^ Password;
         property String^ Email;
         property int Id; 
-        //property Membresia^ membresia;
-        //property Ajustes^ Configuration;
+        property Membresia^ membresia;
+        property Ajustes^ ajustes;
 
         User(){}
-        User(String^ Name, String^ Password, String^ Email, int Id, Membresia^ membresia);
+        User(String^ Name, String^ Password, String^ Email, int Id, Membresia^ membresia, Ajustes^ ajustes);
     };
 }
 

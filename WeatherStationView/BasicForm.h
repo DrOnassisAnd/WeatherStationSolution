@@ -526,8 +526,10 @@ namespace WeatherStationView {
 			this->Name = L"BasicForm";
 			this->Text = L"BasicForm";
 			this->Load += gcnew System::EventHandler(this, &BasicForm::BasicForm_Load);
+			this->ControlBox = false;
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
@@ -552,12 +554,11 @@ namespace WeatherStationView {
 		this->comboBox1->SelectedIndex = 0;
 
 		//Ajustes
-		Ajustes^ ajustes = gcnew Ajustes();
-		ajustes = Controller::Controller::QueryPrevAjustes();
-		label10->Text = ajustes->UnidadTemp;
+		label10->Text = user->ajustes->UnidadTemp;
+		label11->Text = user->membresia->TipoMembresia;
 
 		//timer
-		timer1->Start();
+		//timer1->Start();
 
 		//SerialPort^ serialPort = gcnew SerialPort("COM3", 9600, Parity::None, 8, StopBits::One); // Reemplaza "COMX" con el puerto COM al que está conectado tu Arduino
 		//serialPort->Open(); // Abre el puerto serie
@@ -574,7 +575,7 @@ namespace WeatherStationView {
 
 		//Nota: To-Do: más adelante, el método deberá tener además un parámetro extra, este será la variable global User^ user
 		//Esto nos servira para el control de los botones al presionar tipos de membresia
-		MembresiaForm^ membform = gcnew MembresiaForm(membresiaGlobal);
+		MembresiaForm^ membform = gcnew MembresiaForm(membresiaGlobal, user);
 		membform->ControlBox = true;
 		membform->ShowDialog();
 
@@ -584,7 +585,7 @@ namespace WeatherStationView {
 	}
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	MembresiaForm^ membform = gcnew MembresiaForm(membresiaGlobal);
+	MembresiaForm^ membform = gcnew MembresiaForm(membresiaGlobal, user);
 	membform->ControlBox = true;
 	membform->ShowDialog();
 
@@ -595,7 +596,9 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 }
 
 	   void RefreshMembresia() {
-		   label11->Text = membresiaGlobal->TipoMembresia;
+		   user->membresia = membresiaGlobal;
+		   label11->Text = user->membresia->TipoMembresia;
+		   Controller::Controller::UpdateUser(user);
 		}
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	
@@ -635,7 +638,6 @@ private: System::Void dateTimePicker1_ValueChanged(System::Object^ sender, Syste
 	selectedDateTime = dtpWeatherStationBasic->Value;
 	StringDateTime = selectedDateTime.ToString("dd-MM-yyyy HH:mm:ss");
 	textBox1->Text=StringDateTime;
-
 }
 private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -650,7 +652,9 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	ReloadConfig();
 }
 	   void ReloadConfig() {
-		   this->label10->Text =config->UnidadTemp;
+		   user->ajustes = config;
+		   this->label10->Text =user->ajustes->UnidadTemp;
+		   Controller::Controller::UpdateUser(user);
 	   }
 
 private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {

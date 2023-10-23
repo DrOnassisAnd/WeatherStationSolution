@@ -270,8 +270,9 @@ namespace WeatherStationView {
 	}
 
 	private: System::Void userToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
-		UserMaintenance obj;
-		obj.ShowDialog();
+		UserMaintenance^ obj = gcnew UserMaintenance();
+		obj->ControlBox = false;
+		obj->ShowDialog();
 
 	}
 private: System::Void idToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {

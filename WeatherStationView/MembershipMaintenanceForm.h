@@ -229,7 +229,7 @@ namespace WeatherStationView {
 #pragma endregion
 	private: System::Void MembershipMaintenanceForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	
-		ShowMembresiaData();
+		//ShowMembresiaData();
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -237,53 +237,53 @@ private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e)
 }
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 
-	IdMembresia = Int32::Parse(dgvMembresia->Rows[dgvMembresia->SelectedCells[0]->RowIndex]
-		->Cells[0]->Value->ToString());
-	Membresia^ membresia = Controller::Controller::QueryMembresiabyId(IdMembresia);
+	//IdMembresia = Int32::Parse(dgvMembresia->Rows[dgvMembresia->SelectedCells[0]->RowIndex]
+		//->Cells[0]->Value->ToString());
+	//Membresia^ membresia = Controller::Controller::QueryMembresiabyId(IdMembresia);
 
 }
 private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	DateTime fechaInicio = dateTimePicker1->Value;
-	String^ StringDateTime = fechaInicio.ToString("dd-MM-yyyy HH:mm:ss");
-
-	DateTime fechaFinalizacion = dateTimePicker2->Value;
-	String^ StringDateTimezz = fechaFinalizacion.ToString("dd-MM-yyyy HH:mm:ss");
-
-	List<Membresia^>^ membresias = Controller::Controller::QueryMembresia();
-	int lastIdIndex = membresias->Count;
-
-	Membresia^ membresia = gcnew Membresia();
-	Membresia^ membresialastId = membresias[lastIdIndex - 1];
-	membresia->Id = (membresialastId->Id) + 1;
-	//int Id = Int32::Parse(txtId->Text);
-
-
-	//user->Id = Id;
-
-	membresia->fechaInicio = DateTime::Parse(StringDateTime);
-	membresia->fechaFinalizacion = DateTime::Parse(StringDateTimezz);
-
-
-	Controller::Controller::AddMembresia(membresia);
-	//ShowUser();
-	ShowMembresiaData();
-	// MessageBox::Show("Oki Doki");
-
-}
-
-	   void ShowMembresiaData() {
-		   List<Membresia^>^ membresias = Controller::Controller::QueryMembresia();
-		   dgvMembresia->Rows->Clear();
-		   for (int i = 0; i < membresias->Count; i++) {
-			   Membresia^ membresia = membresias[i];
-			   dgvMembresia->Rows->Add(gcnew array<String^> {
-				   "" + membresia->Id,
-					   "" + membresia->fechaInicio,
-					   "" + membresia->fechaFinalizacion,
-
-			   });
-		   }
+//	DateTime fechaInicio = dateTimePicker1->Value;
+//	String^ StringDateTime = fechaInicio.ToString("dd-MM-yyyy HH:mm:ss");
+//
+//	DateTime fechaFinalizacion = dateTimePicker2->Value;
+//	String^ StringDateTimezz = fechaFinalizacion.ToString("dd-MM-yyyy HH:mm:ss");
+//
+//	List<Membresia^>^ membresias = Controller::Controller::QueryMembresia();
+//	int lastIdIndex = membresias->Count;
+//
+//	Membresia^ membresia = gcnew Membresia();
+//	Membresia^ membresialastId = membresias[lastIdIndex - 1];
+//	membresia->Id = (membresialastId->Id) + 1;
+//	//int Id = Int32::Parse(txtId->Text);
+//
+//
+//	//user->Id = Id;
+//
+//	membresia->fechaInicio = DateTime::Parse(StringDateTime);
+//	membresia->fechaFinalizacion = DateTime::Parse(StringDateTimezz);
+//
+//
+//	Controller::Controller::AddMembresia(membresia);
+//	//ShowUser();
+//	ShowMembresiaData();
+//	// MessageBox::Show("Oki Doki");
+//
+//}
+//
+//	   void ShowMembresiaData() {
+//		   List<Membresia^>^ membresias = Controller::Controller::QueryMembresia();
+//		   dgvMembresia->Rows->Clear();
+//		   for (int i = 0; i < membresias->Count; i++) {
+//			   Membresia^ membresia = membresias[i];
+//			   dgvMembresia->Rows->Add(gcnew array<String^> {
+//				   "" + membresia->Id,
+//					   "" + membresia->fechaInicio,
+//					   "" + membresia->fechaFinalizacion,
+//
+//			   });
+//		   }
 	   }
 
 
@@ -303,21 +303,19 @@ private: System::Void dateTimePicker2_ValueChanged(System::Object^ sender, Syste
 }
 private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
 	
-	Controller::Controller::DeleteMembresia(IdMembresia);
-	ShowMembresiaData();
+	//Controller::Controller::DeleteMembresia(IdMembresia);
+	//ShowMembresiaData();
 }
 private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		DateTime FechaInicio = dateTimePicker1->Value;
-		DateTime FechaFin = dateTimePicker2->Value;
 
-		Membresia^ membresia = gcnew Membresia();
+		/*Membresia^ membresia = gcnew Membresia();
 		membresia->Id = IdMembresia;
-		membresia->fechaInicio = dateTimePicker1->Value;
-		membresia->fechaFinalizacion = dateTimePicker2->Value;
+		membresia->fechaInicio = dateTimePicker1->Value.ToString("yyyy-MM-dd");
+		membresia->fechaFinalizacion = dateTimePicker2->Value.ToString("yyyy-MM-dd");
 
 		Controller::Controller::UpdateMembresia(membresia);
-		ShowMembresiaData();
+		ShowMembresiaData();*/
 	/*
 	String^ name = textBox2->Text;
 	String^ password = textBox3->Text;
