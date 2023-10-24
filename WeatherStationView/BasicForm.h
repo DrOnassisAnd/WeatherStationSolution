@@ -30,6 +30,7 @@ namespace WeatherStationView {
 			this->selectedDateTime;
 			this->basicForm;
 			//
+			
 		}
 
 	protected:
@@ -47,6 +48,7 @@ namespace WeatherStationView {
 	private: Ajustes^ config;
 	private: Membresia^ membresiaGlobal;
 	private: BasicForm^ basicForm;
+	private: String^ IdSensor;
 
 	private: System::Windows::Forms::Label^ label1;
 	protected:
@@ -85,6 +87,7 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Timer^ timer1;
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::Label^ label12;
+	private: System::Windows::Forms::Label^ label13;
 
 	private: System::ComponentModel::IContainer^ components;
 
@@ -117,6 +120,7 @@ namespace WeatherStationView {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->Serial = (gcnew System::Windows::Forms::Button());
@@ -265,6 +269,7 @@ namespace WeatherStationView {
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::SystemColors::Info;
+			this->panel1->Controls->Add(this->label13);
 			this->panel1->Controls->Add(this->textBox5);
 			this->panel1->Controls->Add(this->label12);
 			this->panel1->Controls->Add(this->Serial);
@@ -301,6 +306,15 @@ namespace WeatherStationView {
 			this->panel1->Size = System::Drawing::Size(1240, 717);
 			this->panel1->TabIndex = 8;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BasicForm::panel1_Paint);
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Location = System::Drawing::Point(242, 97);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(75, 25);
+			this->label13->TabIndex = 23;
+			this->label13->Text = L"label13";
 			// 
 			// textBox5
 			// 
@@ -638,19 +652,23 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	if ((comboBox1->Text == "CIA")) {
 		pictureBox1->Image = Image::FromFile("CIA.jpeg");
+		IdSensor = "1";
 
 	}
 	else if ((comboBox1->Text == "FACI")) {
 
 		pictureBox1->Image = Image::FromFile("FACI.jpg");
+		IdSensor = "2";
 	}
 	else if ((comboBox1->Text == "TINKUY")) {
 
 		pictureBox1->Image = Image::FromFile("TINKUY.jpg");
+		IdSensor = "3";
 	}
 	else if ((comboBox1->Text == "BIBLIOTECA CENTRAL")) {
 
 		pictureBox1->Image = Image::FromFile("BIBLIOTECA CENTRAL.jpg");
+		IdSensor = "4";
 	}
 	else if ((comboBox1->Text == "")) {
 		pictureBox1->Image = Image::FromFile("LogoPrueba.jpg");
@@ -802,6 +820,8 @@ private: System::Void Serial_Click(System::Object^ sender, System::EventArgs^ e)
 	textBox4->Text = data;
 }
 private: System::Void timer_tick(System::Object^ sender, System::EventArgs^ e) {
+	this->label13->Text = IdSensor;
+
 	String^ data = Controller::Controller::SendSensorsData();
 	//
 	String^ temperatura = data->Substring(0, 2);
@@ -825,7 +845,7 @@ private: System::Void timer_tick(System::Object^ sender, System::EventArgs^ e) {
 	textBox4->Text = calidadAire;
 	textBox5->Text = co;
 
-	String^ IdSensor = "1";
+	
 
 
 	List<SensorCO^>^ COs = Controller::Controller::QueryCOData();
