@@ -76,6 +76,8 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvHora;
 	private: System::Windows::Forms::Label^ UbiGeoLabel;
 	private: System::Windows::Forms::ComboBox^ UbigeoCombo;
+	private: System::Windows::Forms::TextBox^ UnidadTBox;
+	private: System::Windows::Forms::Label^ UnidadTLabel;
 
 
 
@@ -130,6 +132,8 @@ namespace WeatherStationView {
 			this->CerrarBtn = (gcnew System::Windows::Forms::Button());
 			this->UbiGeoLabel = (gcnew System::Windows::Forms::Label());
 			this->UbigeoCombo = (gcnew System::Windows::Forms::ComboBox());
+			this->UnidadTBox = (gcnew System::Windows::Forms::TextBox());
+			this->UnidadTLabel = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -183,7 +187,7 @@ namespace WeatherStationView {
 			// 
 			// AirQBox
 			// 
-			this->AirQBox->Location = System::Drawing::Point(422, 32);
+			this->AirQBox->Location = System::Drawing::Point(443, 50);
 			this->AirQBox->Name = L"AirQBox";
 			this->AirQBox->Size = System::Drawing::Size(100, 20);
 			this->AirQBox->TabIndex = 6;
@@ -191,7 +195,7 @@ namespace WeatherStationView {
 			// AirQLabel
 			// 
 			this->AirQLabel->AutoSize = true;
-			this->AirQLabel->Location = System::Drawing::Point(300, 32);
+			this->AirQLabel->Location = System::Drawing::Point(300, 53);
 			this->AirQLabel->Name = L"AirQLabel";
 			this->AirQLabel->Size = System::Drawing::Size(63, 13);
 			this->AirQLabel->TabIndex = 7;
@@ -288,7 +292,7 @@ namespace WeatherStationView {
 			// UbiGeoLabel
 			// 
 			this->UbiGeoLabel->AutoSize = true;
-			this->UbiGeoLabel->Location = System::Drawing::Point(300, 68);
+			this->UbiGeoLabel->Location = System::Drawing::Point(300, 82);
 			this->UbiGeoLabel->Name = L"UbiGeoLabel";
 			this->UbiGeoLabel->Size = System::Drawing::Size(110, 13);
 			this->UbiGeoLabel->TabIndex = 16;
@@ -298,16 +302,34 @@ namespace WeatherStationView {
 			// 
 			this->UbigeoCombo->FormattingEnabled = true;
 			this->UbigeoCombo->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"FACI", L"CIA", L"BIBLIOTECA CENTRAL", L"TINKUY" });
-			this->UbigeoCombo->Location = System::Drawing::Point(422, 68);
+			this->UbigeoCombo->Location = System::Drawing::Point(443, 78);
 			this->UbigeoCombo->Name = L"UbigeoCombo";
 			this->UbigeoCombo->Size = System::Drawing::Size(121, 21);
 			this->UbigeoCombo->TabIndex = 17;
+			// 
+			// UnidadTBox
+			// 
+			this->UnidadTBox->Location = System::Drawing::Point(443, 23);
+			this->UnidadTBox->Name = L"UnidadTBox";
+			this->UnidadTBox->Size = System::Drawing::Size(100, 20);
+			this->UnidadTBox->TabIndex = 19;
+			// 
+			// UnidadTLabel
+			// 
+			this->UnidadTLabel->AutoSize = true;
+			this->UnidadTLabel->Location = System::Drawing::Point(300, 25);
+			this->UnidadTLabel->Name = L"UnidadTLabel";
+			this->UnidadTLabel->Size = System::Drawing::Size(104, 13);
+			this->UnidadTLabel->TabIndex = 18;
+			this->UnidadTLabel->Text = L"Unidad Temperatura";
 			// 
 			// SensorMaintenanceForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(761, 361);
+			this->Controls->Add(this->UnidadTBox);
+			this->Controls->Add(this->UnidadTLabel);
 			this->Controls->Add(this->UbigeoCombo);
 			this->Controls->Add(this->UbiGeoLabel);
 			this->Controls->Add(this->CerrarBtn);
@@ -341,6 +363,7 @@ private: System::Void AgregarBtn_Click(System::Object^ sender, System::EventArgs
 	int Humedad = Int32::Parse(HumBox->Text);
 	int ConcentracionCO = Int32::Parse(COBox->Text);
 	int AirQ = Int32::Parse(AirQBox->Text);
+	String^ UnidadTemp = UnidadTBox->Text;
 	String^ UbiGeo = UbigeoCombo->SelectedItem->ToString();
 
 	List<Ambiente^>^ sensorData = Controller::Controller::QueryAmbienteData();
@@ -372,7 +395,7 @@ private: System::Void AgregarBtn_Click(System::Object^ sender, System::EventArgs
 		IdSensor = 4;
 	}
 	
-	SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(IdSensor, Temperatura, "°C", Humedad);
+	SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(IdSensor, Temperatura, UnidadTemp, Humedad);
 	SensorCO^ CO = gcnew SensorCO(IdSensor, ConcentracionCO);
 	SensorCalidadAire^ airq = gcnew SensorCalidadAire(IdSensor, AirQ);
 
@@ -419,6 +442,7 @@ private: System::Void ModificarBtn_Click(System::Object^ sender, System::EventAr
 	int Humedad = Int32::Parse(HumBox->Text);
 	int ConcentracionCO = Int32::Parse(COBox->Text);
 	int AirQ = Int32::Parse(AirQBox->Text);
+	String^ UnidadTemp = UnidadTBox->Text;
 	String^ UbiGeo = UbigeoCombo->SelectedItem->ToString();
 
 	Ambiente^ ambiente = gcnew Ambiente();
@@ -442,7 +466,7 @@ private: System::Void ModificarBtn_Click(System::Object^ sender, System::EventAr
 		IdSensor = 4;
 	}
 
-	SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(IdSensor, Temperatura, "°C", Humedad);
+	SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(IdSensor, Temperatura, UnidadTemp, Humedad);
 	SensorCO^ CO = gcnew SensorCO(IdSensor, ConcentracionCO);
 	SensorCalidadAire^ airq = gcnew SensorCalidadAire(IdSensor, AirQ);
 
@@ -477,6 +501,7 @@ private: System::Void TableCellClick(System::Object^ sender, System::Windows::Fo
 	AirQBox->Text = dynamic_cast<SensorCalidadAire^>(ambiente->DataBase[2])->CalidadAire.ToString();
 	UbigeoCombo->SelectedItem = ambiente->UbicacionGeografica;
 	tiempoMedicion = ambiente->TiempoMedicion;
+	UnidadTBox->Text = dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->UnidadTemp;
 }
 };
 }
