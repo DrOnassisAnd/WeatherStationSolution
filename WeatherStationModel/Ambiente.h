@@ -15,5 +15,7 @@ namespace Model {
         property String^ UbicacionGeografica;
         property List<Sensor^>^ DataBase;
         property String^ TiempoMedicion;
+        property String^ FechaMedicion;
+
     };
 }
