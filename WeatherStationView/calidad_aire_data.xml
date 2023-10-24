@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSensorCalidadAire xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SensorCalidadAire>
+    <TiempoP>07:12:50 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>24</IdMedicion>
+    <CalidadAire>75</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <IdSensor>12</IdSensor>
+    <IdMedicion>25</IdMedicion>
+    <CalidadAire>23</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <IdSensor>4</IdSensor>
+    <IdMedicion>26</IdMedicion>
+    <CalidadAire>23</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:32:49 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>27</IdMedicion>
+    <CalidadAire>777</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:32:55 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>28</IdMedicion>
+    <CalidadAire>106</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:33:01 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>29</IdMedicion>
+    <CalidadAire>105</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:33:07 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>30</IdMedicion>
+    <CalidadAire>105</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:33:13 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>31</IdMedicion>
+    <CalidadAire>105</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:33:19 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>32</IdMedicion>
+    <CalidadAire>105</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:33:25 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>33</IdMedicion>
+    <CalidadAire>105</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:33:31 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>34</IdMedicion>
+    <CalidadAire>105</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:33:38 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>35</IdMedicion>
+    <CalidadAire>105</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:33:44 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>36</IdMedicion>
+    <CalidadAire>105</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:33:50 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>37</IdMedicion>
+    <CalidadAire>105</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:34:20 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>38</IdMedicion>
+    <CalidadAire>741</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:34:26 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>39</IdMedicion>
+    <CalidadAire>105</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:34:32 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>40</IdMedicion>
+    <CalidadAire>105</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:34:38 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>41</IdMedicion>
+    <CalidadAire>106</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:34:44 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>42</IdMedicion>
+    <CalidadAire>106</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:34:50 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>43</IdMedicion>
+    <CalidadAire>105</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:34:56 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>44</IdMedicion>
+    <CalidadAire>105</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:35:02 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>45</IdMedicion>
+    <CalidadAire>105</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:35:08 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>46</IdMedicion>
+    <CalidadAire>106</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:35:14 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>47</IdMedicion>
+    <CalidadAire>106</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:35:20 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>48</IdMedicion>
+    <CalidadAire>106</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:35:26 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>49</IdMedicion>
+    <CalidadAire>106</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:35:32 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>50</IdMedicion>
+    <CalidadAire>106</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:35:38 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>51</IdMedicion>
+    <CalidadAire>106</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:35:44 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>52</IdMedicion>
+    <CalidadAire>106</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:35:50 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>53</IdMedicion>
+    <CalidadAire>106</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:35:56 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>54</IdMedicion>
+    <CalidadAire>106</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:36:02 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>55</IdMedicion>
+    <CalidadAire>106</CalidadAire>
+  </SensorCalidadAire>
+  <SensorCalidadAire>
+    <TiempoP>07:36:08 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>56</IdMedicion>
+    <CalidadAire>107</CalidadAire>
+  </SensorCalidadAire>
+</ArrayOfSensorCalidadAire>

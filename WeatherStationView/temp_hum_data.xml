@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfSensorTemperaturaHumedad xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SensorTemperaturaHumedad>
+    <TiempoP>06:12:20 p. m.</TiempoP>
     <IdSensor>1</IdSensor>
     <IdMedicion>2</IdMedicion>
     <Humedad>12</Humedad>
@@ -8,66 +9,731 @@
     <Temperatura>12</Temperatura>
   </SensorTemperaturaHumedad>
   <SensorTemperaturaHumedad>
+    <TiempoP>06:30:20 p. m.</TiempoP>
     <IdSensor>1</IdSensor>
     <IdMedicion>3</IdMedicion>
-    <Humedad>70</Humedad>
-    <UnidadTemp>°F</UnidadTemp>
-    <Temperatura>79</Temperatura>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>18</Temperatura>
   </SensorTemperaturaHumedad>
   <SensorTemperaturaHumedad>
+    <TiempoP>06:30:26 p. m.</TiempoP>
     <IdSensor>1</IdSensor>
     <IdMedicion>4</IdMedicion>
-    <Humedad>85</Humedad>
-    <UnidadTemp>°F</UnidadTemp>
-    <Temperatura>29</Temperatura>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
   </SensorTemperaturaHumedad>
   <SensorTemperaturaHumedad>
-    <IdSensor>2</IdSensor>
+    <TiempoP>06:30:32 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
     <IdMedicion>5</IdMedicion>
-    <Humedad>75</Humedad>
-    <UnidadTemp>°F</UnidadTemp>
-    <Temperatura>30</Temperatura>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
   </SensorTemperaturaHumedad>
   <SensorTemperaturaHumedad>
-    <IdSensor>2</IdSensor>
+    <TiempoP>06:30:38 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
     <IdMedicion>6</IdMedicion>
-    <Humedad>39</Humedad>
-    <UnidadTemp>°C</UnidadTemp>
-    <Temperatura>656</Temperatura>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
   </SensorTemperaturaHumedad>
   <SensorTemperaturaHumedad>
-    <IdSensor>2</IdSensor>
+    <TiempoP>06:30:44 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
     <IdMedicion>7</IdMedicion>
-    <Humedad>45</Humedad>
-    <UnidadTemp>°C</UnidadTemp>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:30:50 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>8</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:30:56 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>9</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:31:02 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>10</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:31:08 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>11</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:31:15 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>12</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:31:21 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>13</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:31:27 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>14</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:31:33 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>15</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:31:39 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>16</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:31:45 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>17</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:31:51 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>18</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:31:57 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>19</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:32:03 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>20</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>18</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:32:09 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>21</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>18</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:52:52 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>22</IdMedicion>
+    <Humedad>19</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>18</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:52:59 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>23</IdMedicion>
+    <Humedad>75</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:53:05 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>24</IdMedicion>
+    <Humedad>75</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:53:11 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>25</IdMedicion>
+    <Humedad>76</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:53:17 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>26</IdMedicion>
+    <Humedad>76</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:53:23 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>27</IdMedicion>
+    <Humedad>76</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:53:29 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>28</IdMedicion>
+    <Humedad>76</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>06:53:35 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>29</IdMedicion>
+    <Humedad>76</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:07:04 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>30</IdMedicion>
+    <Humedad>97</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
     <Temperatura>11</Temperatura>
   </SensorTemperaturaHumedad>
   <SensorTemperaturaHumedad>
-    <IdSensor>3</IdSensor>
-    <IdMedicion>8</IdMedicion>
-    <Humedad>32</Humedad>
-    <UnidadTemp>°F</UnidadTemp>
-    <Temperatura>32</Temperatura>
+    <TiempoP>07:07:10 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>31</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
   </SensorTemperaturaHumedad>
   <SensorTemperaturaHumedad>
-    <IdSensor>3</IdSensor>
-    <IdMedicion>9</IdMedicion>
-    <Humedad>232</Humedad>
-    <UnidadTemp>°C</UnidadTemp>
-    <Temperatura>322</Temperatura>
+    <TiempoP>07:07:16 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>32</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
   </SensorTemperaturaHumedad>
   <SensorTemperaturaHumedad>
-    <IdSensor>3</IdSensor>
-    <IdMedicion>10</IdMedicion>
-    <Humedad>32</Humedad>
-    <UnidadTemp>°C</UnidadTemp>
-    <Temperatura>34</Temperatura>
+    <TiempoP>07:07:22 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>33</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
   </SensorTemperaturaHumedad>
   <SensorTemperaturaHumedad>
-    <IdSensor>3</IdSensor>
-    <IdMedicion>11</IdMedicion>
-    <Humedad>21</Humedad>
-    <UnidadTemp>°C</UnidadTemp>
-    <Temperatura>43</Temperatura>
+    <TiempoP>07:07:28 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>34</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:07:34 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>35</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:07:40 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>36</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:07:46 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>37</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:07:52 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>38</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:07:58 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>39</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:08:04 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>40</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:08:10 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>41</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:10:05 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>42</IdMedicion>
+    <Humedad>19</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:10:11 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>43</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:10:17 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>44</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:10:23 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>45</IdMedicion>
+    <Humedad>76</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:10:29 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>46</IdMedicion>
+    <Humedad>76</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:10:35 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>47</IdMedicion>
+    <Humedad>76</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:28:42 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>48</IdMedicion>
+    <Humedad>18</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:28:48 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>49</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>18</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:28:54 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>50</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>18</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:29:00 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>51</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>18</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:29:06 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>52</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>18</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:29:12 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>53</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>18</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:29:18 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>54</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>18</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:29:24 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>55</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>18</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:29:30 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>56</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>18</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:29:36 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>57</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>18</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:29:42 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>58</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>18</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:29:48 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>59</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>18</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:29:54 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>60</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>18</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:30:00 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>61</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:30:06 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>62</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:31:13 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>63</IdMedicion>
+    <Humedad>19</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:32:49 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>64</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:32:55 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>65</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:33:01 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>66</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:33:07 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>67</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:33:13 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>68</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:33:19 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>69</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:33:25 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>70</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:33:31 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>71</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:33:38 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>72</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:33:44 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>73</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:33:50 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>74</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:34:20 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>75</IdMedicion>
+    <Humedad>19</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:34:26 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>76</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:34:32 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>77</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:34:38 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>78</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:34:44 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>79</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:34:50 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>80</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:34:56 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>81</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:35:02 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>82</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:35:08 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>83</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:35:14 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>84</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:35:20 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>85</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:35:26 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>86</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:35:32 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>87</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:35:38 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>88</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:35:44 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>89</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:35:50 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>90</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:35:56 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>91</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:36:02 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>92</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>07:36:08 p. m.</TiempoP>
+    <IdSensor>1</IdSensor>
+    <IdMedicion>93</IdMedicion>
+    <Humedad>77</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>19</Temperatura>
   </SensorTemperaturaHumedad>
 </ArrayOfSensorTemperaturaHumedad>

@@ -9,8 +9,9 @@ namespace Model {
     public:
         property int IdMedicion;
         property String^ IdSensor;
+        property String^ TiempoP;
         Sensor() {}
-        Sensor(int IdMedicion, String^ IdSensor);
+        Sensor(int IdMedicion, String^ IdSensor, String^ TiempoP);
 
     };
 }

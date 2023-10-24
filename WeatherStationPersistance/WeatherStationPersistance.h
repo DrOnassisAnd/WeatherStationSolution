@@ -46,7 +46,7 @@ namespace WeatherStationPersistance {
 
 
 		static String^ CALIDAD_AIRE_FILE = "calidad_aire_dataa.txt";
-		static String^ CALIDAD_AIRE_XML = "calidad_aire_dataa.xml";
+		static String^ CALIDAD_AIRE_XML = "calidad_aire_data.xml";
 		static String^ CALIDAD_AIRE_BIN = "calidad_aire_dataa.bin";
 
     

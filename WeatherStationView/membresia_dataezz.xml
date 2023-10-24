@@ -1,0 +1,7 @@
+<ArrayOfMembresia xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Membresia>
+		<Id>4</Id>
+		<fechaInicio>2023-10-02T00:00:00</fechaInicio>
+		<fechaFinalizacion>2023-10-02T00:00:00</fechaFinalizacion>
+	</Membresia>
+</ArrayOfMembresia>

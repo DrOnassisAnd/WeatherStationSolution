@@ -134,6 +134,7 @@ void Controller::Controller::DeleteTHData(int IdMedicion, String^ IdSensor) {
 void Controller::Controller::AddCalidadAireData(SensorCalidadAire^ CalidadAire) {
 	//Se puede programar más cosas.
 	WeatherStationPersistance::Persistance::AddCalidadAireData(CalidadAire);
+
 }
 
 List<SensorCalidadAire^>^ Controller::Controller::QueryCalidadAireData() {
@@ -189,7 +190,7 @@ void Controller::Controller::UpdateErrorWarning(AlertaError^ alertaError) {
 void Controller::Controller::OpenPort() {
 	try {
 		ArduinoPort = gcnew SerialPort();
-		ArduinoPort->PortName = "COM3";
+		ArduinoPort->PortName = "COM5";
 		ArduinoPort->BaudRate = 9600;
 		ArduinoPort->Open();
 	}
