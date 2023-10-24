@@ -70,4 +70,20 @@
     <UnidadTemp>°C</UnidadTemp>
     <Temperatura>43</Temperatura>
   </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>11:13:08 a. m.</TiempoP>
+    <IdSensor>2</IdSensor>
+    <IdMedicion>12</IdMedicion>
+    <Humedad>68</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>22</Temperatura>
+  </SensorTemperaturaHumedad>
+  <SensorTemperaturaHumedad>
+    <TiempoP>11:14:08 a. m.</TiempoP>
+    <IdSensor>2</IdSensor>
+    <IdMedicion>13</IdMedicion>
+    <Humedad>68</Humedad>
+    <UnidadTemp>C°</UnidadTemp>
+    <Temperatura>22</Temperatura>
+  </SensorTemperaturaHumedad>
 </ArrayOfSensorTemperaturaHumedad>

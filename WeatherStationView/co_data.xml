@@ -50,4 +50,16 @@
     <IdMedicion>10</IdMedicion>
     <NivelCO>312</NivelCO>
   </SensorCO>
+  <SensorCO>
+    <TiempoP>11:13:08 a. m.</TiempoP>
+    <IdSensor>2</IdSensor>
+    <IdMedicion>11</IdMedicion>
+    <NivelCO>86</NivelCO>
+  </SensorCO>
+  <SensorCO>
+    <TiempoP>11:14:08 a. m.</TiempoP>
+    <IdSensor>2</IdSensor>
+    <IdMedicion>12</IdMedicion>
+    <NivelCO>84</NivelCO>
+  </SensorCO>
 </ArrayOfSensorCO>
