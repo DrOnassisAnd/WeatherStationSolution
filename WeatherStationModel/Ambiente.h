@@ -19,3 +19,11 @@ namespace Model {
 
     };
 }
+/* CO (segundo elemento (ind 1) es CO
+List<Ambiente^>^ data = Controller::Controller::QueryAmbienteData():
+for (i=0;data->Count;i++){
+    dynamic_cast<SensorTemperaturaHumedad^>(data[i]->DataBase[0])->Temperatura
+}
+
+
+*/
