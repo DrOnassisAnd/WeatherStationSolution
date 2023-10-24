@@ -15,7 +15,7 @@ namespace WeatherStationPersistance {
 		static List<SensorCalidadAire^>^ sCalidadAire = gcnew List<SensorCalidadAire^>();
 		static List<SensorCO^>^ sConcentracionCOList = gcnew List<SensorCO^>();
 		static List<SensorTemperaturaHumedad^>^ sTempHumList = gcnew List<SensorTemperaturaHumedad^>();
-
+		static List<Ambiente^>^ sAmbienteDB = gcnew List<Ambiente^>();
 		static List<SensorCalidadAire^>^ sCalidadAireList = gcnew List<SensorCalidadAire^>();
 
 	public:
@@ -43,7 +43,7 @@ namespace WeatherStationPersistance {
 		static String^ CO_XML = "co_data.xml";
 		static String^ CO_BIN = "co_data.bin";
 
-
+		static String^ SENSORDATA_BIN = "SensorData.bin";
 
 		static String^ CALIDAD_AIRE_FILE = "calidad_aire_dataa.txt";
 		static String^ CALIDAD_AIRE_XML = "calidad_aire_dataa.xml";
@@ -124,6 +124,13 @@ namespace WeatherStationPersistance {
 		static AlertaError^ QueryErrorWarningbyId(String^ selectedErrorWarningId);
 		static void DeleteErrorWarning(String^ ErrorWarningId);
 		static void UpdateErrorWarning(AlertaError^ alertaError);
+
+		//Ambiente Methods
+		static void AddAmbienteData(Ambiente^ sensordata);
+		static List<Ambiente^>^ QueryAmbienteData();
+		static Ambiente^ QueryAmbienteDatabyId(int IdMedicion);
+		static void DeleteAmbienteData(int IdMedicion);
+		static void UpdateAmbienteData(Ambiente^ sensordata);
 
 	};
 }

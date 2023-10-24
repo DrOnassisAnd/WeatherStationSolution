@@ -13,7 +13,7 @@ namespace Model {
         property String^ UnidadTemp;
         property int Humedad;
         SensorTemperaturaHumedad() {}
-        SensorTemperaturaHumedad(double Temperatura, String^ UnidadTemp, int Humedad);
+        SensorTemperaturaHumedad(int IdSensor, double Temperatura, String^ UnidadTemp, int Humedad);
     };
 
 }

@@ -9,10 +9,8 @@
  * Sensor implementation
  */
 
-Model::Sensor::Sensor(int IdMedicion, String^ IdSensor)
+Model::Sensor::Sensor(int IdSensor)
 {
-
-	this->IdMedicion = IdMedicion;
 	this->IdSensor = IdSensor;
 
 }

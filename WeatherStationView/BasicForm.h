@@ -85,6 +85,7 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Timer^ timer1;
 	private: System::Windows::Forms::TextBox^ textBox5;
 	private: System::Windows::Forms::Label^ label12;
+	private: System::Windows::Forms::Timer^ timer2;
 
 	private: System::ComponentModel::IContainer^ components;
 
@@ -117,6 +118,8 @@ namespace WeatherStationView {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->Serial = (gcnew System::Windows::Forms::Button());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
@@ -139,8 +142,7 @@ namespace WeatherStationView {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->timer2 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -301,6 +303,28 @@ namespace WeatherStationView {
 			this->panel1->Size = System::Drawing::Size(1240, 717);
 			this->panel1->TabIndex = 8;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BasicForm::panel1_Paint);
+			// 
+			// textBox5
+			// 
+			this->textBox5->Location = System::Drawing::Point(781, 512);
+			this->textBox5->Name = L"textBox5";
+			this->textBox5->Size = System::Drawing::Size(100, 26);
+			this->textBox5->TabIndex = 22;
+			this->textBox5->TextChanged += gcnew System::EventHandler(this, &BasicForm::textBox5_TextChanged);
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->BackColor = System::Drawing::SystemColors::Info;
+			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label12->Location = System::Drawing::Point(602, 512);
+			this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(139, 20);
+			this->label12->TabIndex = 21;
+			this->label12->Text = L"Concentracion CO";
+			this->label12->Click += gcnew System::EventHandler(this, &BasicForm::label12_Click);
 			// 
 			// Serial
 			// 
@@ -517,30 +541,13 @@ namespace WeatherStationView {
 			// 
 			// timer1
 			// 
-			this->timer1->Interval = 1000;
+			this->timer1->Interval = 60000;
 			this->timer1->Tick += gcnew System::EventHandler(this, &BasicForm::timer_tick);
 			// 
-			// textBox5
+			// timer2
 			// 
-			this->textBox5->Location = System::Drawing::Point(781, 512);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(100, 26);
-			this->textBox5->TabIndex = 22;
-			this->textBox5->TextChanged += gcnew System::EventHandler(this, &BasicForm::textBox5_TextChanged);
-			// 
-			// label12
-			// 
-			this->label12->AutoSize = true;
-			this->label12->BackColor = System::Drawing::SystemColors::Info;
-			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label12->Location = System::Drawing::Point(602, 512);
-			this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(139, 20);
-			this->label12->TabIndex = 21;
-			this->label12->Text = L"Concentracion CO";
-			this->label12->Click += gcnew System::EventHandler(this, &BasicForm::label12_Click);
+			this->timer2->Interval = 1000;
+			this->timer2->Tick += gcnew System::EventHandler(this, &BasicForm::Timer2_Tick);
 			// 
 			// BasicForm
 			// 
@@ -586,6 +593,7 @@ namespace WeatherStationView {
 
 		//timer
 		timer1->Start();
+		timer2->Start();
 
 		//SerialPort^ serialPort = gcnew SerialPort("COM3", 9600, Parity::None, 8, StopBits::One); // Reemplaza "COMX" con el puerto COM al que está conectado tu Arduino
 		//serialPort->Open(); // Abre el puerto serie
@@ -628,7 +636,8 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		   Controller::Controller::UpdateUser(user);
 		}
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	
+	timer1->Stop();
+	timer2->Stop();
 	this->Hide();
 	
 	basicForm = gcnew BasicForm();
@@ -707,94 +716,94 @@ private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void Mostrar_Click(System::Object^ sender, System::EventArgs^ e) {
-	int IdMedicion = 0;
-	String^ IdSensor = "";
-	int day   = selectedDateTime.Day;
-	int month = selectedDateTime.Month;
-	int year  = selectedDateTime.Year;
-	
-	if ((day==5)&&(month==10)&&(year==2023)) {
-		IdMedicion = 1;
-		IdSensor = "1";
-	}
-	else if ((day == 4) && (month == 10) && (year == 2023)) {
-		IdMedicion = 2;
-		IdSensor = "1";
-	}
-	else if ((day == 3) && (month == 10) && (year == 2023)) {
-		IdMedicion = 3;
-		IdSensor = "1";
-	}
-	else if ((day == 2) && (month == 10) && (year == 2023)) {
-		IdMedicion = 4;
-		IdSensor = "2";
-	}
-	else if ((day == 1) && (month == 10) && (year == 2023)) {
-		IdMedicion = 5;
-		IdSensor = "2";
-	}
-	else if ((day == 30) && (month == 9) && (year == 2023)) {
-		IdMedicion = 6;
-		IdSensor = "2";
-	}
-	else if ((day == 29) && (month == 9) && (year == 2023)) {
-		IdMedicion = 7;
-		IdSensor = "3";
-	}
-	else if ((day == 28) && (month == 9) && (year == 2023)) {
-		IdMedicion = 8;
-		IdSensor = "3";
-	}
-	else if ((day == 27) && (month == 9) && (year == 2023)) {
-		IdMedicion = 9;
-		IdSensor = "3";
-	}
-	else if ((day == 26) && (month == 9) && (year == 2023)) {
-		IdMedicion = 10;
-		IdSensor = "3";
-	}
-	else if ((day == 25) && (month == 9) && (year == 2023)) {
-		IdMedicion = 11;
-		IdSensor = "3";
-	}
-	else {
-		IdMedicion = 10;
-		IdSensor = "3";
-	}
-	SensorTemperaturaHumedad^ sTempHum = Controller::Controller::QueryTHbyIds(IdMedicion, IdSensor);
-	//Se muestra el valor de temperatura
-	Double DoubleTemp = sTempHum->Temperatura;
-	textBox2->Text = DoubleTemp.ToString();
-	//Se muestra el valor de  humedad
-	int IntHum = sTempHum->Humedad;
-	textBox3->Text = IntHum.ToString();
-	SensorCO^ sCO = Controller::Controller::QueryCObyIds(IdMedicion, IdSensor);
-	//Se muestra el nivel de CO 
-	int nivelCO = sCO->NivelCO;
-	textBox4->Text = "" + nivelCO;
+	//int IdMedicion = 0;
+	//String^ IdSensor = "";
+	//int day   = selectedDateTime.Day;
+	//int month = selectedDateTime.Month;
+	//int year  = selectedDateTime.Year;
+	//
+	//if ((day==5)&&(month==10)&&(year==2023)) {
+	//	IdMedicion = 1;
+	//	IdSensor = "1";
+	//}
+	//else if ((day == 4) && (month == 10) && (year == 2023)) {
+	//	IdMedicion = 2;
+	//	IdSensor = "1";
+	//}
+	//else if ((day == 3) && (month == 10) && (year == 2023)) {
+	//	IdMedicion = 3;
+	//	IdSensor = "1";
+	//}
+	//else if ((day == 2) && (month == 10) && (year == 2023)) {
+	//	IdMedicion = 4;
+	//	IdSensor = "2";
+	//}
+	//else if ((day == 1) && (month == 10) && (year == 2023)) {
+	//	IdMedicion = 5;
+	//	IdSensor = "2";
+	//}
+	//else if ((day == 30) && (month == 9) && (year == 2023)) {
+	//	IdMedicion = 6;
+	//	IdSensor = "2";
+	//}
+	//else if ((day == 29) && (month == 9) && (year == 2023)) {
+	//	IdMedicion = 7;
+	//	IdSensor = "3";
+	//}
+	//else if ((day == 28) && (month == 9) && (year == 2023)) {
+	//	IdMedicion = 8;
+	//	IdSensor = "3";
+	//}
+	//else if ((day == 27) && (month == 9) && (year == 2023)) {
+	//	IdMedicion = 9;
+	//	IdSensor = "3";
+	//}
+	//else if ((day == 26) && (month == 9) && (year == 2023)) {
+	//	IdMedicion = 10;
+	//	IdSensor = "3";
+	//}
+	//else if ((day == 25) && (month == 9) && (year == 2023)) {
+	//	IdMedicion = 11;
+	//	IdSensor = "3";
+	//}
+	//else {
+	//	IdMedicion = 10;
+	//	IdSensor = "3";
+	//}
+	//SensorTemperaturaHumedad^ sTempHum = Controller::Controller::QueryTHbyIds(IdMedicion, IdSensor);
+	////Se muestra el valor de temperatura
+	//Double DoubleTemp = sTempHum->Temperatura;
+	//textBox2->Text = DoubleTemp.ToString();
+	////Se muestra el valor de  humedad
+	//int IntHum = sTempHum->Humedad;
+	//textBox3->Text = IntHum.ToString();
+	//SensorCO^ sCO = Controller::Controller::QueryCObyIds(IdMedicion, IdSensor);
+	////Se muestra el nivel de CO 
+	//int nivelCO = sCO->NivelCO;
+	//textBox4->Text = "" + nivelCO;
 
-	double maxTemp    = 30;
-	int    maxNivelCO = 450;
-	int    maxHum     = 90;
+	//double maxTemp    = 30;
+	//int    maxNivelCO = 450;
+	//int    maxHum     = 90;
 
-	if ((DoubleTemp>=maxTemp)&&(IntHum<maxHum)&&(nivelCO<maxNivelCO)) {
-		MessageBox::Show("La temperatura es alta");
-	}
-	else if ((DoubleTemp >= maxTemp) && (IntHum>=maxHum) && (nivelCO < maxNivelCO)) {
-		MessageBox::Show("Hay temperatura y humedades altas ");
-	}
-	else if ((DoubleTemp >= maxTemp) && (IntHum<maxHum) && (nivelCO>=maxNivelCO)) {
-		MessageBox::Show("Hay temperatura y niveles de CO altos ");
-	}
-	else if ((DoubleTemp >= maxTemp) && (IntHum>=maxHum) && (nivelCO >= maxNivelCO)) {
-		MessageBox::Show("La temperatura, la humedad y el Nivel de CO son altos");
-	}
-	else if ((DoubleTemp < maxTemp) && (IntHum <maxHum) && (nivelCO >= maxNivelCO)) {
-		MessageBox::Show("Presencia de niveles altos de CO");
-	}
-	else if ((DoubleTemp < maxTemp) && (IntHum >= maxHum) && (nivelCO >= maxNivelCO)) {
-		MessageBox::Show("Presencia de niveles altos de CO y humedad altos");
-	}
+	//if ((DoubleTemp>=maxTemp)&&(IntHum<maxHum)&&(nivelCO<maxNivelCO)) {
+	//	MessageBox::Show("La temperatura es alta");
+	//}
+	//else if ((DoubleTemp >= maxTemp) && (IntHum>=maxHum) && (nivelCO < maxNivelCO)) {
+	//	MessageBox::Show("Hay temperatura y humedades altas ");
+	//}
+	//else if ((DoubleTemp >= maxTemp) && (IntHum<maxHum) && (nivelCO>=maxNivelCO)) {
+	//	MessageBox::Show("Hay temperatura y niveles de CO altos ");
+	//}
+	//else if ((DoubleTemp >= maxTemp) && (IntHum>=maxHum) && (nivelCO >= maxNivelCO)) {
+	//	MessageBox::Show("La temperatura, la humedad y el Nivel de CO son altos");
+	//}
+	//else if ((DoubleTemp < maxTemp) && (IntHum <maxHum) && (nivelCO >= maxNivelCO)) {
+	//	MessageBox::Show("Presencia de niveles altos de CO");
+	//}
+	//else if ((DoubleTemp < maxTemp) && (IntHum >= maxHum) && (nivelCO >= maxNivelCO)) {
+	//	MessageBox::Show("Presencia de niveles altos de CO y humedad altos");
+	//}
 }
 
 
@@ -817,14 +826,46 @@ private: System::Void timer_tick(System::Object^ sender, System::EventArgs^ e) {
 	String^ calidadAire = data->Substring(6, 3);
 	int calidadAireint = Int32::Parse(calidadAire);
 
+	
 	textBox2->Text = temperatura;
 	textBox3->Text = humedad;
 	textBox4->Text = calidadAire;
 	textBox5->Text = co;
+
+	Ambiente^ ambiente = gcnew Ambiente();
+	SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(1, temperaturaint, "°C", humedadint);
+	SensorCO^ CO = gcnew SensorCO(1, coint);
+	SensorCalidadAire^ airq = gcnew SensorCalidadAire(1, calidadAireint);
+
+	List<Sensor^>^ sensorList = gcnew List<Sensor^>();
+	sensorList->Add(TH);
+	sensorList->Add(CO);
+	sensorList->Add(airq);
+
+	ambiente->DataBase = sensorList;
+	ambiente->UbicacionGeografica = "TINKUY";
+	ambiente->TiempoMedicion = DateTime::Now.ToString("hh:mm:ss tt");
+
+	List<Ambiente^>^ sensorData = Controller::Controller::QueryAmbienteData();
+	int lastIdIndex = sensorData->Count;
+
+	if (lastIdIndex == 0) {
+		ambiente->IdMedicion = 1;
+	}
+	else {
+		Ambiente^ ambientelastId = sensorData[lastIdIndex - 1];
+		ambiente->IdMedicion = (ambientelastId->IdMedicion) + 1;
+	}
+
+	Controller::Controller::AddAmbienteData(ambiente);
+
 }
 private: System::Void label12_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void textBox5_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void Timer2_Tick(System::Object^ sender, System::EventArgs^ e) {
+	textBox1->Text = DateTime::Now.ToString("hh:mm:ss tt");
 }
 };
 }

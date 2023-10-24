@@ -189,7 +189,7 @@ void Controller::Controller::UpdateErrorWarning(AlertaError^ alertaError) {
 void Controller::Controller::OpenPort() {
 	try {
 		ArduinoPort = gcnew SerialPort();
-		ArduinoPort->PortName = "COM3";
+		ArduinoPort->PortName = "COM5";
 		ArduinoPort->BaudRate = 9600;
 		ArduinoPort->Open();
 	}
@@ -218,4 +218,28 @@ String^ Controller::Controller::SendSensorsData() {
 	catch (Exception^ ex) {
 		throw ex;
 	}
+}
+
+//Ambiente
+
+void Controller::Controller::AddAmbienteData(Ambiente^ sensorData) {
+	//Se puede programar más cosas.
+	WeatherStationPersistance::Persistance::AddAmbienteData(sensorData);
+}
+
+List<Ambiente^>^ Controller::Controller::QueryAmbienteData() {
+	//Se puede programar más cosas
+	return WeatherStationPersistance::Persistance::QueryAmbienteData();
+}
+
+Ambiente^ Controller::Controller::QueryAmbienteDatabyId(int IdMedicion) {
+	return WeatherStationPersistance::Persistance::QueryAmbienteDatabyId(IdMedicion);
+}
+
+void Controller::Controller::UpdateAmbienteData(Ambiente^ sensorData) {
+	WeatherStationPersistance::Persistance::UpdateAmbienteData(sensorData);
+}
+
+void Controller::Controller::DeleteAmbienteData(int IdMedicion) {
+	WeatherStationPersistance::Persistance::DeleteAmbienteData(IdMedicion);
 }

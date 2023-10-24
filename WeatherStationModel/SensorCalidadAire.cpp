@@ -9,9 +9,9 @@
  * SensorCalidadAire implementation
  */
 
-Model::SensorCalidadAire::SensorCalidadAire(int CalidadAire)
+Model::SensorCalidadAire::SensorCalidadAire(int IdSensor, int CalidadAire)
 {
-
+	this->IdSensor = IdSensor;
 	this->CalidadAire = CalidadAire;
 
 }

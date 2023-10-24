@@ -268,7 +268,7 @@ namespace WeatherStationView {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { //agregar
-		double Temperatura = Int32::Parse(textBox2->Text);
+		/*double Temperatura = Int32::Parse(textBox2->Text);
 		String^ IdSensor = textBox1->Text;
 		int Humedad = Int32::Parse(textBox3->Text);
 		String^ UnidadTemp = textBox4->Text;
@@ -290,11 +290,11 @@ namespace WeatherStationView {
 		textBox1->Text = "";
 		textBox2->Text = "";
 		textBox3->Text = "";
-		textBox4->Text = "";
+		textBox4->Text = "";*/
 
 	}
 		   void ShowTempHumData() {
-			   List<SensorTemperaturaHumedad^>^ THData = Controller::Controller::QueryTempHumData();
+			   /*List<SensorTemperaturaHumedad^>^ THData = Controller::Controller::QueryTempHumData();
 			   dataGridView1->Rows->Clear();
 			   for (int i = 0; i < THData->Count; i++) {
 				   SensorTemperaturaHumedad^ TH = THData[i];
@@ -305,20 +305,20 @@ namespace WeatherStationView {
 						TH->UnidadTemp,
 						"" + TH->Humedad
 				   });
-			   }
+			   }*/
 		    }
 	
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {//cerrar
-	this->Close();
+	//this->Close();
 }
 
 
 private: System::Void TempHumForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	ShowTempHumData();
+	//ShowTempHumData();
 }
 
 private: System::Void TH_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	IdMedicion = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
+	/*IdMedicion = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
 		->Cells[0]->Value->ToString());
 
 	String^ IdSensor = dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
@@ -329,13 +329,13 @@ private: System::Void TH_CellClick(System::Object^ sender, System::Windows::Form
 	textBox1->Text = sTempHum->IdSensor;
 	textBox2->Text = "" + sTempHum->Temperatura;
 	textBox4->Text = sTempHum->UnidadTemp;
-	textBox3->Text = "" + sTempHum->Humedad;
+	textBox3->Text = "" + sTempHum->Humedad;*/
 }
 //51243
 
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //Update
 	
-	String^ IdSensor = textBox1->Text;
+	/*String^ IdSensor = textBox1->Text;
 	int Temperatura = Int32::Parse(textBox2->Text);
 	String^ UnidadTemp = textBox4->Text;
 	int Humedad = Int32::Parse(textBox3->Text);
@@ -348,13 +348,13 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	sTempHum->Humedad = Humedad;
 
 	Controller::Controller::UpdateTHData(sTempHum);
-	ShowTempHumData();
+	ShowTempHumData();*/
 }
 
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) { //Delete
-	String^ IdSensor = textBox1->Text;
+	/*String^ IdSensor = textBox1->Text;
 	Controller::Controller::DeleteTHData(IdMedicion, IdSensor);
-	ShowTempHumData();
+	ShowTempHumData();*/
 
 }
 };

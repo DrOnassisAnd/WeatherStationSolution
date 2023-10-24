@@ -7,10 +7,9 @@ namespace Model {
     [Serializable]
     public ref class Sensor {
     public:
-        property int IdMedicion;
-        property String^ IdSensor;
+        property int IdSensor;
         Sensor() {}
-        Sensor(int IdMedicion, String^ IdSensor);
+        Sensor(int IdSensor);
 
     };
 }

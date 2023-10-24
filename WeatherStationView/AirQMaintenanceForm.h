@@ -241,11 +241,11 @@ namespace WeatherStationView {
 #pragma endregion
 	
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->Close();
+		//this->Close();
 	}
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	int CalidadAire = Int32::Parse(textBox2->Text);
+	/*int CalidadAire = Int32::Parse(textBox2->Text);
 	String^ IdSensor = textBox1->Text;
 
 	List<SensorCalidadAire^>^ airqs = Controller::Controller::QueryCalidadAireData();
@@ -261,9 +261,9 @@ namespace WeatherStationView {
 	ShowAirQData();
 
 	textBox1->Text = "";
-	textBox2->Text = "";
+	textBox2->Text = "";*/
 }
-	   void ShowAirQData() {
+	   /*void ShowAirQData() {
 		   List<SensorCalidadAire^>^ airqdata = Controller::Controller::QueryCalidadAireData();
 		   dataGridView1->Rows->Clear();
 		   for (int i = 0; i < airqdata->Count; i++) {
@@ -275,13 +275,13 @@ namespace WeatherStationView {
 			   });
 		   }
 		
-		   }
+		   }*/
 	private: System::Void AirQForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		ShowAirQData();
+		//ShowAirQData();
 	}
 
 private: System::Void AirQ_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	IdMedicion = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
+	/*IdMedicion = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
 		->Cells[0]->Value->ToString());
 
 	String^ IdSensor = dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
@@ -290,19 +290,19 @@ private: System::Void AirQ_CellClick(System::Object^ sender, System::Windows::Fo
 	SensorCalidadAire^ sCalidadAire = Controller::Controller::QueryCalidadAirebyIds(IdMedicion, IdSensor);
 
 	textBox1->Text = sCalidadAire->IdSensor;
-	textBox2->Text = "" + sCalidadAire->CalidadAire;
+	textBox2->Text = "" + sCalidadAire->CalidadAire;*/
 }
 
 
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ IdSensor = textBox1->Text;
+	/*String^ IdSensor = textBox1->Text;
 	Controller::Controller::DeleteCalidadAireData(IdMedicion, IdSensor);
-	ShowAirQData();
+	ShowAirQData();*/
 }
 
 
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ IdSensor = textBox1->Text;
+	/*String^ IdSensor = textBox1->Text;
 	int CalidadAire = Int32::Parse(textBox2->Text);
 
 	SensorCalidadAire^ sCalidadAire = gcnew SensorCalidadAire();
@@ -311,7 +311,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	sCalidadAire->CalidadAire = CalidadAire;
 
 	Controller::Controller::UpdateCalidadAireData(sCalidadAire);
-	ShowAirQData();
+	ShowAirQData();*/
 }
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }

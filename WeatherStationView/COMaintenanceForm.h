@@ -224,10 +224,10 @@ namespace WeatherStationView {
 		}
 #pragma endregion
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) { //cerrar
-		this->Close();
+		//this->Close();
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { //agregar
-	int NivelCO = Int32::Parse(textBox2->Text);
+	/*int NivelCO = Int32::Parse(textBox2->Text);
 	String^ IdSensor = textBox1->Text;
 
 	List<SensorCO^>^ COs = Controller::Controller::QueryCOData();
@@ -243,9 +243,9 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	ShowCOData();
 
 	textBox1->Text = "";
-	textBox2->Text = "";
+	textBox2->Text = "";*/
 }
-	   void ShowCOData() {
+	   /*void ShowCOData() {
 		   List<SensorCO^>^ COdata = Controller::Controller::QueryCOData();
 		   dataGridView1->Rows->Clear();
 		   for (int i = 0; i < COdata->Count; i++) {
@@ -256,14 +256,14 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 					   "" + CO->NivelCO
 			   });
 		   }
-	   }
+	   }*/
 
 private: System::Void COForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	ShowCOData();
+	//ShowCOData();
 }
 
 private: System::Void CO_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	IdMedicion = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
+	/*IdMedicion = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
 		->Cells[0]->Value->ToString());
 
 	String^ IdSensor = dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
@@ -272,18 +272,18 @@ private: System::Void CO_CellClick(System::Object^ sender, System::Windows::Form
 	SensorCO^ sCO = Controller::Controller::QueryCObyIds(IdMedicion, IdSensor);
 
 	textBox1->Text = sCO->IdSensor;
-	textBox2->Text = "" + sCO->NivelCO;
+	textBox2->Text = "" + sCO->NivelCO;*/
 }
 
 
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) { //eliminar
-	String^ IdSensor = textBox1->Text;
+	/*String^ IdSensor = textBox1->Text;
 	Controller::Controller::DeleteCOData(IdMedicion, IdSensor);
-	ShowCOData();
+	ShowCOData();*/
 
 }
 private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	String^ IdSensor = textBox1->Text;
+	/*String^ IdSensor = textBox1->Text;
 	int NivelCO = Int32::Parse(textBox2->Text);
 
 	SensorCO^ sCO = gcnew SensorCO();
@@ -292,7 +292,7 @@ private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^
 	sCO->NivelCO = NivelCO;
 
 	Controller::Controller::UpdateCOData(sCO);
-	ShowCOData();
+	ShowCOData();*/
 }
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }

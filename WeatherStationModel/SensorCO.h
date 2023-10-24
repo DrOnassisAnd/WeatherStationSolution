@@ -12,7 +12,7 @@ namespace Model {
 	public:
 		property int NivelCO;
 		SensorCO() {}
-		SensorCO(int NivelCO);
+		SensorCO(int IdSensor, int NivelCO);
 	};
 
 }

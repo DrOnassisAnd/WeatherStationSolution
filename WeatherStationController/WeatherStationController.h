@@ -74,5 +74,12 @@ namespace Controller {
 		static void ClosePort();
 		static String^ SendSensorsData();
 
+		//Ambiente
+		static void AddAmbienteData(Ambiente^ sensordata);
+		static List<Ambiente^>^ QueryAmbienteData();
+		static Ambiente^ QueryAmbienteDatabyId(int IdMedicion);
+		static void DeleteAmbienteData(int IdMedicion);
+		static void UpdateAmbienteData(Ambiente^ sensordata);
+
 	};
 }

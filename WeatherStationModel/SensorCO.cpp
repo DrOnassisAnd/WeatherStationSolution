@@ -9,9 +9,9 @@
  * SensorCO implementation
  */
 
-Model::SensorCO::SensorCO(int nivelCO)
+Model::SensorCO::SensorCO(int IdSensor, int nivelCO)
 {
-
+	this->IdSensor = IdSensor;
 	this->NivelCO = nivelCO;
 
 }
