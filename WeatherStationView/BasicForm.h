@@ -595,6 +595,7 @@ namespace WeatherStationView {
 
 		//se obtiene la clase user
 		user = wcform->GetUser();
+		config = user->ajustes;
 		
 		//Bienvenida al usuario
 		this->label8->Text = "Usuario";
@@ -699,6 +700,7 @@ private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e)
 
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { //Ajustes
+	
 	Config^ confform = gcnew Config(config);
 	confform->ControlBox = false;
 	confform->ShowDialog();

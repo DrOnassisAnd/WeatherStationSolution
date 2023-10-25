@@ -483,8 +483,8 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 			usuario->Password = Password;
 			usuario->Email = Email;
 
-			Membresia^ membresia = gcnew Membresia("Estandar", DateTime::Today.ToString("yyyy-MM-dd"), "2099-12-12");
-			Ajustes^ ajustes = gcnew Ajustes("°C", "dd/mm/yyyy", "Formato de 12 horas");
+			Membresia^ membresia = gcnew Membresia("Basic", DateTime::Today.ToString("yyyy-MM-dd"), "2099-12-12");
+			Ajustes^ ajustes = gcnew Ajustes(L"°C", "dd/mm/yyyy", "Formato de 12 horas");
 
 			usuario->membresia = membresia;
 			usuario->ajustes = ajustes;

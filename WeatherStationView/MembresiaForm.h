@@ -475,11 +475,6 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	}
 }
 
-	   void RefreshMembresia() {
-		   user->membresia = membresiaGlobal;
-		   //	label11->Text = user->membresia->TipoMembresia;
-		   Controller::Controller::UpdateUser(user);
-	   }
 private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
