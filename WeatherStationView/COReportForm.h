@@ -96,7 +96,7 @@ namespace WeatherStationView {
 		for (int i = 0; i < ConcentracionCO->Count; i++) {
 			chart1->Series["NivelCO"]->Points->Add(dynamic_cast<SensorCO^>(ConcentracionCO[i]->DataBase[1])->NivelCO);
 			chart1->Series["NivelCO"]->Points[i]->AxisLabel = (ConcentracionCO[i]->TiempoMedicion);
-			chart1->Series["NivelCO"]->Points[i]->Label = Convert::ToString((dynamic_cast<SensorCO^>(ConcentracionCO[i]->DataBase[1])->NivelCO));
+			//chart1->Series["NivelCO"]->Points[i]->Label = Convert::ToString((dynamic_cast<SensorCO^>(ConcentracionCO[i]->DataBase[1])->NivelCO));
 		}
 	}
 	};

@@ -121,6 +121,7 @@ namespace WeatherStationView {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->Serial = (gcnew System::Windows::Forms::Button());
@@ -146,7 +147,6 @@ namespace WeatherStationView {
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->timer2 = (gcnew System::Windows::Forms::Timer(this->components));
-			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -308,6 +308,15 @@ namespace WeatherStationView {
 			this->panel1->Size = System::Drawing::Size(1240, 717);
 			this->panel1->TabIndex = 8;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BasicForm::panel1_Paint);
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Location = System::Drawing::Point(231, 97);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(75, 25);
+			this->label13->TabIndex = 23;
+			this->label13->Text = L"label13";
 			// 
 			// textBox5
 			// 
@@ -553,15 +562,6 @@ namespace WeatherStationView {
 			// 
 			this->timer2->Interval = 1000;
 			this->timer2->Tick += gcnew System::EventHandler(this, &BasicForm::Timer2_Tick);
-			// 
-			// label13
-			// 
-			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(231, 97);
-			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(75, 25);
-			this->label13->TabIndex = 23;
-			this->label13->Text = L"label13";
 			// 
 			// BasicForm
 			// 

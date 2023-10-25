@@ -101,7 +101,7 @@ namespace WeatherStationView {
 		for (int i = 0; i < Temperatura->Count; i++) {
 			chart1->Series["Temperatura"]->Points->Add(dynamic_cast<SensorTemperaturaHumedad^>(Temperatura[i]->DataBase[0])->Temperatura);
 			chart1->Series["Temperatura"]->Points[i]->AxisLabel = (Temperatura[i]->TiempoMedicion);
-			chart1->Series["Temperatura"]->Points[i]->Label = Convert::ToString((dynamic_cast<SensorTemperaturaHumedad^>(Temperatura[i]->DataBase[0])->Temperatura));
+			//chart1->Series["Temperatura"]->Points[i]->Label = Convert::ToString((dynamic_cast<SensorTemperaturaHumedad^>(Temperatura[i]->DataBase[0])->Temperatura));
 		}
 	}
 	};

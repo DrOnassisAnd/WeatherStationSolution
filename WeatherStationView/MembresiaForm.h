@@ -48,6 +48,10 @@ namespace WeatherStationView {
 	protected:
 	private: Membresia^ membresia;
 	private: User^ user;
+	private: Membresia^ membresiaGlobal;
+	private: int isRegisterDone;
+		   
+
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Label^ label1;
@@ -442,17 +446,40 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 
 	
 }
+
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	
+
+
 	if (user->membresia->TipoMembresia == "Premium") {
 		MessageBox::Show("Ya eres un usuario " + user->membresia->TipoMembresia);
 	}
 	else {
-		membresia = gcnew Membresia("Premium", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));//Parametros de prueba
-		MessageBox::Show("Ahora eres un usuario Premium");
-		this->Close();
+		PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone);
+		payform->ControlBox = true;
+		payform->ShowDialog();
+
+		isRegisterDone = payform->GetBool();
+
+		//isRegisterDone: si el registro no fue exitoso (p.e. se salió de la ventana, vuelve a popear WeatherStationForm
+		//caso contrario, ya abre el BasicForm
+		if (!isRegisterDone) {
+			this->Show();
+		}
+		else {
+			membresia = gcnew Membresia("Premium", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));//Parametros de prueba
+			MessageBox::Show("Ahora eres un usuario Premium");
+			this->Close();
+		}
+
+	
 	}
 }
+
+	   void RefreshMembresia() {
+		   user->membresia = membresiaGlobal;
+		   //	label11->Text = user->membresia->TipoMembresia;
+		   Controller::Controller::UpdateUser(user);
+	   }
 private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
