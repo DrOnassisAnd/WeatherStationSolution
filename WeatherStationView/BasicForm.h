@@ -833,9 +833,9 @@ private: System::Void Serial_Click(System::Object^ sender, System::EventArgs^ e)
 }
 private: System::Void timer_tick(System::Object^ sender, System::EventArgs^ e) {
 	
-
+	//Recopilando informacion de Sensado del  ARDUINO 1 CIA
 	String^ data = Controller::Controller::SendSensorsData();
-
+	/////Asignacion de Valores de los sensados DESERIALIZACION
 	String^ temperatura = data->Substring(0, 2);
 	int temperaturaint = Int32::Parse(temperatura);
 
@@ -847,8 +847,7 @@ private: System::Void timer_tick(System::Object^ sender, System::EventArgs^ e) {
 
 	String^ calidadAire = data->Substring(6, 3);
 	int calidadAireint = Int32::Parse(calidadAire);
-
-	
+	////Mostrar en el form ARDUINO 1
 	textBox2->Text = temperatura;
 	textBox3->Text = humedad;
 	textBox4->Text = calidadAire;

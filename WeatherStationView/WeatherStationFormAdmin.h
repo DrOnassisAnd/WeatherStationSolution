@@ -10,6 +10,13 @@
 #include "ErrorWarning.h"
 #include "SensorMaintenanceForm.h"
 
+//Reporte
+#include "TemperaturaReportForm.h"
+#include "HumedadReporteForm.h"
+#include "COReportForm.h"
+#include "CalidadAireForm.h"
+
+
 namespace WeatherStationView {
 
 	using namespace System;
@@ -83,6 +90,10 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::ToolStripMenuItem^ alertaToolStripMenuItem1;
 	private: System::Windows::Forms::ToolStripMenuItem^ alertaMeteorologicaToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ alertaErrorToolStripMenuItem1;
+	private: System::Windows::Forms::ToolStripMenuItem^ graficosTempToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ graficosHumToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ graficosNivelCOToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ graficoCalidadAireToolStripMenuItem;
 
 
 
@@ -113,6 +124,10 @@ namespace WeatherStationView {
 			this->userToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ambienteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->estaditicaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->graficosTempToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->graficosHumToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->graficosNivelCOToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->graficoCalidadAireToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->sensorToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->alertaToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->alertaMeteorologicaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -129,8 +144,8 @@ namespace WeatherStationView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
-			this->menuStrip1->Size = System::Drawing::Size(871, 24);
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(1161, 28);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -138,14 +153,14 @@ namespace WeatherStationView {
 			// 
 			this->toolStripMenuItem1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->salirToolStripMenuItem });
 			this->toolStripMenuItem1->Name = L"toolStripMenuItem1";
-			this->toolStripMenuItem1->Size = System::Drawing::Size(60, 20);
+			this->toolStripMenuItem1->Size = System::Drawing::Size(73, 24);
 			this->toolStripMenuItem1->Text = L"Archivo";
 			this->toolStripMenuItem1->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::toolStripMenuItem1_Click);
 			// 
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(96, 22);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(121, 26);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::salirToolStripMenuItem_Click);
 			// 
@@ -156,20 +171,20 @@ namespace WeatherStationView {
 					this->userToolStripMenuItem1
 			});
 			this->userToolStripMenuItem->Name = L"userToolStripMenuItem";
-			this->userToolStripMenuItem->Size = System::Drawing::Size(46, 20);
+			this->userToolStripMenuItem->Size = System::Drawing::Size(56, 24);
 			this->userToolStripMenuItem->Text = L"Perfil";
 			// 
 			// membresiaToolStripMenuItem1
 			// 
 			this->membresiaToolStripMenuItem1->Name = L"membresiaToolStripMenuItem1";
-			this->membresiaToolStripMenuItem1->Size = System::Drawing::Size(133, 22);
+			this->membresiaToolStripMenuItem1->Size = System::Drawing::Size(166, 26);
 			this->membresiaToolStripMenuItem1->Text = L"Membresia";
 			this->membresiaToolStripMenuItem1->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::membresiaToolStripMenuItem1_Click);
 			// 
 			// userToolStripMenuItem1
 			// 
 			this->userToolStripMenuItem1->Name = L"userToolStripMenuItem1";
-			this->userToolStripMenuItem1->Size = System::Drawing::Size(133, 22);
+			this->userToolStripMenuItem1->Size = System::Drawing::Size(166, 26);
 			this->userToolStripMenuItem1->Text = L"User";
 			this->userToolStripMenuItem1->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::userToolStripMenuItem1_Click);
 			// 
@@ -180,20 +195,52 @@ namespace WeatherStationView {
 					this->sensorToolStripMenuItem1, this->alertaToolStripMenuItem1
 			});
 			this->ambienteToolStripMenuItem->Name = L"ambienteToolStripMenuItem";
-			this->ambienteToolStripMenuItem->Size = System::Drawing::Size(74, 20);
+			this->ambienteToolStripMenuItem->Size = System::Drawing::Size(92, 24);
 			this->ambienteToolStripMenuItem->Text = L"Ambiente ";
 			// 
 			// estaditicaToolStripMenuItem
 			// 
+			this->estaditicaToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+				this->graficosTempToolStripMenuItem,
+					this->graficosHumToolStripMenuItem, this->graficosNivelCOToolStripMenuItem, this->graficoCalidadAireToolStripMenuItem
+			});
 			this->estaditicaToolStripMenuItem->Name = L"estaditicaToolStripMenuItem";
-			this->estaditicaToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->estaditicaToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->estaditicaToolStripMenuItem->Text = L"Estadistica";
 			this->estaditicaToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::estaditicaToolStripMenuItem_Click);
+			// 
+			// graficosTempToolStripMenuItem
+			// 
+			this->graficosTempToolStripMenuItem->Name = L"graficosTempToolStripMenuItem";
+			this->graficosTempToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->graficosTempToolStripMenuItem->Text = L"GraficosTemp";
+			this->graficosTempToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::graficosTempToolStripMenuItem_Click);
+			// 
+			// graficosHumToolStripMenuItem
+			// 
+			this->graficosHumToolStripMenuItem->Name = L"graficosHumToolStripMenuItem";
+			this->graficosHumToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->graficosHumToolStripMenuItem->Text = L"GraficosHum";
+			this->graficosHumToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::graficosHumToolStripMenuItem_Click);
+			// 
+			// graficosNivelCOToolStripMenuItem
+			// 
+			this->graficosNivelCOToolStripMenuItem->Name = L"graficosNivelCOToolStripMenuItem";
+			this->graficosNivelCOToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->graficosNivelCOToolStripMenuItem->Text = L"GraficosNivelCO";
+			this->graficosNivelCOToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::graficosNivelCOToolStripMenuItem_Click);
+			// 
+			// graficoCalidadAireToolStripMenuItem
+			// 
+			this->graficoCalidadAireToolStripMenuItem->Name = L"graficoCalidadAireToolStripMenuItem";
+			this->graficoCalidadAireToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->graficoCalidadAireToolStripMenuItem->Text = L"GraficoCalidadAire";
+			this->graficoCalidadAireToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::graficoCalidadAireToolStripMenuItem_Click);
 			// 
 			// sensorToolStripMenuItem1
 			// 
 			this->sensorToolStripMenuItem1->Name = L"sensorToolStripMenuItem1";
-			this->sensorToolStripMenuItem1->Size = System::Drawing::Size(180, 22);
+			this->sensorToolStripMenuItem1->Size = System::Drawing::Size(224, 26);
 			this->sensorToolStripMenuItem1->Text = L"Sensores";
 			this->sensorToolStripMenuItem1->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::sensorToolStripMenuItem1_Click);
 			// 
@@ -204,30 +251,31 @@ namespace WeatherStationView {
 					this->alertaErrorToolStripMenuItem1
 			});
 			this->alertaToolStripMenuItem1->Name = L"alertaToolStripMenuItem1";
-			this->alertaToolStripMenuItem1->Size = System::Drawing::Size(180, 22);
+			this->alertaToolStripMenuItem1->Size = System::Drawing::Size(224, 26);
 			this->alertaToolStripMenuItem1->Text = L"Alerta";
 			// 
 			// alertaMeteorologicaToolStripMenuItem
 			// 
 			this->alertaMeteorologicaToolStripMenuItem->Name = L"alertaMeteorologicaToolStripMenuItem";
-			this->alertaMeteorologicaToolStripMenuItem->Size = System::Drawing::Size(182, 22);
+			this->alertaMeteorologicaToolStripMenuItem->Size = System::Drawing::Size(230, 26);
 			this->alertaMeteorologicaToolStripMenuItem->Text = L"AlertaMeteorologica";
 			this->alertaMeteorologicaToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::alertaMeteorologicaToolStripMenuItem_Click);
 			// 
 			// alertaErrorToolStripMenuItem1
 			// 
 			this->alertaErrorToolStripMenuItem1->Name = L"alertaErrorToolStripMenuItem1";
-			this->alertaErrorToolStripMenuItem1->Size = System::Drawing::Size(182, 22);
+			this->alertaErrorToolStripMenuItem1->Size = System::Drawing::Size(230, 26);
 			this->alertaErrorToolStripMenuItem1->Text = L"AlertaError";
 			this->alertaErrorToolStripMenuItem1->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::alertaErrorToolStripMenuItem1_Click);
 			// 
 			// WeatherStationFormAdmin
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(871, 401);
+			this->ClientSize = System::Drawing::Size(1161, 494);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"WeatherStationFormAdmin";
 			this->Text = L"WeatherStationFormAdmin";
 			this->Load += gcnew System::EventHandler(this, &WeatherStationFormAdmin::WeatherStationFormAdmin_Load);
@@ -289,6 +337,23 @@ private: System::Void alertaErrorToolStripMenuItem1_Click(System::Object^ sender
 }
 private: System::Void sensorToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
 	SensorMaintenanceForm^ obj = gcnew SensorMaintenanceForm();
+	obj->ShowDialog();
+}
+private: System::Void graficosTempToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	TemperaturaReportForm^ obj = gcnew TemperaturaReportForm();
+	obj->ShowDialog();
+}
+private: System::Void graficosHumToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	HumedadReporteForm^ obj = gcnew HumedadReporteForm();
+	obj->ShowDialog();
+}
+private: System::Void graficosNivelCOToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	COReportForm^ obj = gcnew COReportForm();
+	obj->ShowDialog();
+}
+private: System::Void graficoCalidadAireToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	CalidadAireForm^ obj = gcnew CalidadAireForm();
 	obj->ShowDialog();
 }
 };

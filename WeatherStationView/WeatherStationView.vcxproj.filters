@@ -20,6 +20,10 @@
     <ClCompile Include="UserStandarForm.cpp" />
     <ClCompile Include="UserPremiumForm.cpp" />
     <ClCompile Include="EstadisticaForm2.cpp" />
+    <ClCompile Include="COReportForm.cpp" />
+    <ClCompile Include="HumedadReporteForm.cpp" />
+    <ClCompile Include="TemperaturaReportForm.cpp" />
+    <ClCompile Include="CalidadAireForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MembresiaForm.h" />
@@ -42,6 +46,10 @@
     <ClInclude Include="UserStandarForm.h" />
     <ClInclude Include="UserPremiumForm.h" />
     <ClInclude Include="EstadisticaForm2.h" />
+    <ClInclude Include="COReportForm.h" />
+    <ClInclude Include="HumedadReporteForm.h" />
+    <ClInclude Include="TemperaturaReportForm.h" />
+    <ClInclude Include="CalidadAireForm.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WeatherStationView.rc" />
