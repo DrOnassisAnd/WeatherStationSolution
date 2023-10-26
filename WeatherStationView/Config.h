@@ -240,7 +240,7 @@ namespace WeatherStationView {
 		this->comboBox6->SelectedIndex = 0;
 	}
 	private: System::Void Config_Load(System::Object^ sender, System::EventArgs^ e) {
-		config = Controller::Controller::QueryPrevAjustes();
+		
 		if ((String^)(config->UnidadTemp) == (String^)"°F") { this->comboBox1->SelectedIndex = 1; }
 		else { this->comboBox1->SelectedIndex = 0; }
 		
@@ -251,7 +251,6 @@ namespace WeatherStationView {
 		if ((config->FormatoFecha) == "mm/dd/yyyy") { this->comboBox5->SelectedIndex = 1; }
 		else if ((config->FormatoFecha) == "yyyy/mm/dd") { this->comboBox5->SelectedIndex = 2; }
 		else { this->comboBox5->SelectedIndex = 0; }
-
 		
 	}
 	private: System::Void comboBox5_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {

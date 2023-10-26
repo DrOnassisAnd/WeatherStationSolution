@@ -126,11 +126,17 @@
   <ItemGroup>
     <ClCompile Include="AirQMaintenanceForm.cpp" />
     <ClCompile Include="BasicForm.cpp" />
+    <ClCompile Include="CalidadAireForm.cpp" />
     <ClCompile Include="COMaintenanceForm.cpp" />
+    <ClCompile Include="COReportForm.cpp" />
     <ClCompile Include="ErrorWarning.cpp" />
     <ClCompile Include="EstadisticaForm2.cpp" />
+    <ClCompile Include="HumedadReporteForm.cpp" />
     <ClCompile Include="MembershipMaintenanceForm.cpp" />
     <ClCompile Include="MembresiaForm.cpp" />
+    <ClCompile Include="SensorsReport.cpp" />
+    <ClCompile Include="StatisticsForm.cpp" />
+    <ClCompile Include="TemperaturaReportForm.cpp" />
     <ClCompile Include="UserPremiumForm.cpp" />
     <ClCompile Include="UserStandarForm.cpp" />
     <ClCompile Include="WeatherWarningMaintenance.cpp" />
@@ -151,7 +157,13 @@
     <ClInclude Include="BasicForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CalidadAireForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="COMaintenanceForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="COReportForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ErrorWarning.h">
@@ -160,10 +172,22 @@
     <ClInclude Include="EstadisticaForm2.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="HumedadReporteForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MembershipMaintenanceForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MembresiaForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="SensorsReport.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="StatisticsForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="TemperaturaReportForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="UserPremiumForm.h">
@@ -211,11 +235,17 @@
     <EmbeddedResource Include="BasicForm.resx">
       <DependentUpon>BasicForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CalidadAireForm.resx">
+      <DependentUpon>CalidadAireForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="COMaintenanceForm.resx">
       <DependentUpon>COMaintenanceForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Config.resx">
       <DependentUpon>Config.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COReportForm.resx">
+      <DependentUpon>COReportForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ErrorWarning.resx">
       <DependentUpon>ErrorWarning.h</DependentUpon>
@@ -223,11 +253,20 @@
     <EmbeddedResource Include="EstadisticaForm2.resx">
       <DependentUpon>EstadisticaForm2.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HumedadReporteForm.resx">
+      <DependentUpon>HumedadReporteForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MembershipMaintenanceForm.resx">
       <DependentUpon>MembershipMaintenanceForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MembresiaForm.resx">
       <DependentUpon>MembresiaForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SensorsReport.resx">
+      <DependentUpon>SensorsReport.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TemperaturaReportForm.resx">
+      <DependentUpon>TemperaturaReportForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserPremiumForm.resx">
       <DependentUpon>UserPremiumForm.h</DependentUpon>

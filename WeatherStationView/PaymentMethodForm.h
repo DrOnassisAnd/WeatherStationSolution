@@ -1,5 +1,5 @@
 #pragma once
-#include "UserStandarForm.h"
+// #include "UserStandarForm.h"
 
 
 namespace WeatherStationView {
@@ -20,12 +20,18 @@ namespace WeatherStationView {
 	public ref class PaymentMethodForm : public System::Windows::Forms::Form
 	{
 	public:
-		PaymentMethodForm()
+
+		PaymentMethodForm(int isRegisterDone)
 		{
 			InitializeComponent();
-			//
-			//TODO: agregar código de constructor aquí
-			//
+			this->isRegisterDone = isRegisterDone;
+		}
+		PaymentMethodForm::Membresia^ GetMembresia() {
+			return membresia;
+		}
+
+		int GetBool() {
+			return isRegisterDone;
 		}
 
 	protected:
@@ -41,11 +47,18 @@ namespace WeatherStationView {
 		}
 	private: System::Windows::Forms::Panel^ panel1;
 	protected:
+	private: Membresia^ membresia;
+	private: User^ user;
+	private: Membresia^ membresiaGlobal;
+	private: int isRegisterDone;
+
+
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::Button^ button1;
+
 
 	protected:
 
@@ -96,7 +109,7 @@ namespace WeatherStationView {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(246, 90);
+			this->textBox2->Location = System::Drawing::Point(246, 96);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(100, 22);
 			this->textBox2->TabIndex = 3;
@@ -104,7 +117,7 @@ namespace WeatherStationView {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(79, 90);
+			this->label2->Location = System::Drawing::Point(79, 96);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(34, 16);
 			this->label2->TabIndex = 2;
@@ -114,7 +127,7 @@ namespace WeatherStationView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(79, 60);
+			this->label1->Location = System::Drawing::Point(79, 48);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(117, 16);
 			this->label1->TabIndex = 1;
@@ -122,7 +135,7 @@ namespace WeatherStationView {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(246, 60);
+			this->textBox1->Location = System::Drawing::Point(246, 45);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(100, 22);
 			this->textBox1->TabIndex = 0;
@@ -143,6 +156,8 @@ namespace WeatherStationView {
 		}
 #pragma endregion
 	private: System::Void PaymentMethodForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		
+	
 	}
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
@@ -151,8 +166,21 @@ namespace WeatherStationView {
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
 
-	MessageBox::Show("Pago Confirmado");
-	this->Close();
+	if ((textBox1->Text == "1234") && (textBox2->Text == "1234")) {
+
+		isRegisterDone = 1;
+		this->Close();
+
+
+	}
+
+	else {
+		MessageBox::Show("DATOS incorrectos. Ingrese los datos de nuevo.");
+		this->textBox1->Text = "Numero";
+		this->textBox2->Text = "CCV";
+
+	}
+
 
 /*
 	if (flag == 0) {
@@ -164,9 +192,6 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		MessageBox::Show("Adios Mundo");
 	}
 	*/
-
-	UserStandarForm obj;
-	obj.ShowDialog();
 
 }
 };

@@ -79,16 +79,25 @@ namespace WeatherStationView {
 
 	private: System::Windows::Forms::Label^ UbiGeoLabel;
 	private: System::Windows::Forms::ComboBox^ UbigeoCombo;
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::TextBox^ UnidadTBox;
+	private: System::Windows::Forms::Label^ UnidadTLabel;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ UnidadTempdgv;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Fecha;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvHora;
-	private: System::Windows::Forms::TextBox^ UnidadTBox;
-	private: System::Windows::Forms::Label^ UnidadTLabel;
 
 
 
@@ -133,19 +142,20 @@ namespace WeatherStationView {
 			this->ModificarBtn = (gcnew System::Windows::Forms::Button());
 			this->EliminarBtn = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->CerrarBtn = (gcnew System::Windows::Forms::Button());
+			this->UbiGeoLabel = (gcnew System::Windows::Forms::Label());
+			this->UbigeoCombo = (gcnew System::Windows::Forms::ComboBox());
+			this->UnidadTBox = (gcnew System::Windows::Forms::TextBox());
+			this->UnidadTLabel = (gcnew System::Windows::Forms::Label());
 			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->UnidadTempdgv = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Fecha = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgvHora = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->CerrarBtn = (gcnew System::Windows::Forms::Button());
-			this->UbiGeoLabel = (gcnew System::Windows::Forms::Label());
-			this->UbigeoCombo = (gcnew System::Windows::Forms::ComboBox());
-			this->UnidadTBox = (gcnew System::Windows::Forms::TextBox());
-			this->UnidadTLabel = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -246,9 +256,9 @@ namespace WeatherStationView {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(9) {
 				this->Column6,
-					this->Column1, this->Column2, this->Column3, this->Column4, this->Column5, this->Fecha, this->dgvHora
+					this->Column1, this->UnidadTempdgv, this->Column2, this->Column3, this->Column4, this->Column5, this->Fecha, this->dgvHora
 			});
 			this->dataGridView1->Location = System::Drawing::Point(12, 179);
 			this->dataGridView1->Name = L"dataGridView1";
@@ -256,6 +266,52 @@ namespace WeatherStationView {
 			this->dataGridView1->Size = System::Drawing::Size(741, 177);
 			this->dataGridView1->TabIndex = 13;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &SensorMaintenanceForm::TableCellClick);
+			// 
+			// CerrarBtn
+			// 
+			this->CerrarBtn->Location = System::Drawing::Point(650, 134);
+			this->CerrarBtn->Name = L"CerrarBtn";
+			this->CerrarBtn->Size = System::Drawing::Size(75, 23);
+			this->CerrarBtn->TabIndex = 14;
+			this->CerrarBtn->Text = L"Cerrar";
+			this->CerrarBtn->UseVisualStyleBackColor = true;
+			this->CerrarBtn->Click += gcnew System::EventHandler(this, &SensorMaintenanceForm::CerrarBtn_Click);
+			// 
+			// UbiGeoLabel
+			// 
+			this->UbiGeoLabel->AutoSize = true;
+			this->UbiGeoLabel->Location = System::Drawing::Point(309, 82);
+			this->UbiGeoLabel->Name = L"UbiGeoLabel";
+			this->UbiGeoLabel->Size = System::Drawing::Size(110, 13);
+			this->UbiGeoLabel->TabIndex = 16;
+			this->UbiGeoLabel->Text = L"Ubicacion Geografica";
+			// 
+			// UbigeoCombo
+			// 
+			this->UbigeoCombo->FormattingEnabled = true;
+			this->UbigeoCombo->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"FACI", L"CIA", L"BIBLIOTECA CENTRAL", L"TINKUY" });
+			this->UbigeoCombo->Location = System::Drawing::Point(431, 78);
+			this->UbigeoCombo->Name = L"UbigeoCombo";
+			this->UbigeoCombo->Size = System::Drawing::Size(121, 21);
+			this->UbigeoCombo->TabIndex = 17;
+			// 
+			// UnidadTBox
+			// 
+			this->UnidadTBox->Location = System::Drawing::Point(433, 22);
+			this->UnidadTBox->Margin = System::Windows::Forms::Padding(2);
+			this->UnidadTBox->Name = L"UnidadTBox";
+			this->UnidadTBox->Size = System::Drawing::Size(76, 20);
+			this->UnidadTBox->TabIndex = 19;
+			// 
+			// UnidadTLabel
+			// 
+			this->UnidadTLabel->AutoSize = true;
+			this->UnidadTLabel->Location = System::Drawing::Point(309, 25);
+			this->UnidadTLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->UnidadTLabel->Name = L"UnidadTLabel";
+			this->UnidadTLabel->Size = System::Drawing::Size(104, 13);
+			this->UnidadTLabel->TabIndex = 18;
+			this->UnidadTLabel->Text = L"Unidad Temperatura";
 			// 
 			// Column6
 			// 
@@ -270,6 +326,11 @@ namespace WeatherStationView {
 			this->Column1->MinimumWidth = 6;
 			this->Column1->Name = L"Column1";
 			this->Column1->Width = 125;
+			// 
+			// UnidadTempdgv
+			// 
+			this->UnidadTempdgv->HeaderText = L"Unidad Temperatura";
+			this->UnidadTempdgv->Name = L"UnidadTempdgv";
 			// 
 			// Column2
 			// 
@@ -312,52 +373,6 @@ namespace WeatherStationView {
 			this->dgvHora->MinimumWidth = 6;
 			this->dgvHora->Name = L"dgvHora";
 			this->dgvHora->Width = 125;
-			// 
-			// CerrarBtn
-			// 
-			this->CerrarBtn->Location = System::Drawing::Point(650, 134);
-			this->CerrarBtn->Name = L"CerrarBtn";
-			this->CerrarBtn->Size = System::Drawing::Size(75, 23);
-			this->CerrarBtn->TabIndex = 14;
-			this->CerrarBtn->Text = L"Cerrar";
-			this->CerrarBtn->UseVisualStyleBackColor = true;
-			this->CerrarBtn->Click += gcnew System::EventHandler(this, &SensorMaintenanceForm::CerrarBtn_Click);
-			// 
-			// UbiGeoLabel
-			// 
-			this->UbiGeoLabel->AutoSize = true;
-			this->UbiGeoLabel->Location = System::Drawing::Point(309, 82);
-			this->UbiGeoLabel->Name = L"UbiGeoLabel";
-			this->UbiGeoLabel->Size = System::Drawing::Size(110, 13);
-			this->UbiGeoLabel->TabIndex = 16;
-			this->UbiGeoLabel->Text = L"Ubicacion Geografica";
-			// 
-			// UbigeoCombo
-			// 
-			this->UbigeoCombo->FormattingEnabled = true;
-			this->UbigeoCombo->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"FACI", L"CIA", L"BIBLIOTECA CENTRAL", L"TINKUY" });
-			this->UbigeoCombo->Location = System::Drawing::Point(431, 78);
-			this->UbigeoCombo->Name = L"UbigeoCombo";
-			this->UbigeoCombo->Size = System::Drawing::Size(121, 21);
-			this->UbigeoCombo->TabIndex = 17;
-			// 
-			// UnidadTBox
-			// 
-			this->UnidadTBox->Location = System::Drawing::Point(433, 22);
-			this->UnidadTBox->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->UnidadTBox->Name = L"UnidadTBox";
-			this->UnidadTBox->Size = System::Drawing::Size(76, 20);
-			this->UnidadTBox->TabIndex = 19;
-			// 
-			// UnidadTLabel
-			// 
-			this->UnidadTLabel->AutoSize = true;
-			this->UnidadTLabel->Location = System::Drawing::Point(309, 25);
-			this->UnidadTLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->UnidadTLabel->Name = L"UnidadTLabel";
-			this->UnidadTLabel->Size = System::Drawing::Size(104, 13);
-			this->UnidadTLabel->TabIndex = 18;
-			this->UnidadTLabel->Text = L"Unidad Temperatura";
 			// 
 			// SensorMaintenanceForm
 			// 
@@ -464,6 +479,7 @@ private: System::Void AgregarBtn_Click(System::Object^ sender, System::EventArgs
 			   dataGridView1->Rows->Add(gcnew array<String^> {
 				   "" + ambiente->IdMedicion,
 					   "" + dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->Temperatura, //temperatura
+					   dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->UnidadTemp,
 					   "" + dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->Humedad, //humedad
 					   "" + dynamic_cast<SensorCO^>(ambiente->DataBase[1])->NivelCO, //co
 					   "" + dynamic_cast<SensorCalidadAire^>(ambiente->DataBase[2])->CalidadAire, //airq
