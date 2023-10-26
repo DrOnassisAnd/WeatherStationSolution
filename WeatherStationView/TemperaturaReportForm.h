@@ -16,9 +16,10 @@ namespace WeatherStationView {
 	public ref class TemperaturaReportForm : public System::Windows::Forms::Form
 	{
 	public:
-		TemperaturaReportForm(void)
+		TemperaturaReportForm()
 		{
 			InitializeComponent();
+			
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -36,6 +37,7 @@ namespace WeatherStationView {
 			}
 		}
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
+	private: List<Ambiente^>^ ambiente;
 	protected:
 
 	private:
