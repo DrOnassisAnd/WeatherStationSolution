@@ -488,7 +488,14 @@ private: System::Void AgregarBtn_Click(System::Object^ sender, System::EventArgs
 					   ambiente->TiempoMedicion //hora
 			   });
 		   }
-
+		   /*
+		   sensordata = list<Ambiente^>^ ->list<Hola^>^
+		   Hola Ubicacion Temperatura
+		   Ambiente^ ->Tiempo
+		   dynamic_cast<STH^>
+		   y -> Temp
+		   x-> Tiempo (CIA-TINKUY-BIBLIO-FACI)
+		   */
 	   }
 
 private: System::Void ModificarBtn_Click(System::Object^ sender, System::EventArgs^ e) {

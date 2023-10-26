@@ -39,6 +39,7 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	protected:
 	private: List<Ambiente^>^ sensorData;
+	private: List<Ambiente^>^ ambiente_aux;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ UnidadTempdgv;
@@ -296,49 +297,49 @@ namespace WeatherStationView {
 		}
 #pragma endregion
 	private: System::Void Buscar_Click(System::Object^ sender, System::EventArgs^ e) {
-		List<Ambiente^>^ ambiente_aux = gcnew List<Ambiente^>(); //lista a ser filtrada
+		List<Ambiente^>^ ambiente_to_filter = gcnew List<Ambiente^>(); //lista a ser filtrada
 		if (CriterioBox->SelectedItem->ToString() == "Temperatura") {
-			for each (Ambiente^ dato in sensorData) {
+			for each (Ambiente^ dato in ambiente_aux) {
 				int temp = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Temperatura;
 				if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
 					// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
-					ambiente_aux->Add(dato);
+					ambiente_to_filter->Add(dato);
 				}
 			}
 		}
 		else if (CriterioBox->SelectedItem->ToString() == "Humedad") {
-			for each (Ambiente^ dato in sensorData) {
+			for each (Ambiente^ dato in ambiente_aux) {
 				int humedad = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Humedad;
 				if ((humedad >= Int32::Parse(MinBox->Text)) && (humedad <= Int32::Parse(MaxBox->Text))) {
 					// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
-					ambiente_aux->Add(dato);
+					ambiente_to_filter->Add(dato);
 				}
 			}
 		}
 		else if (CriterioBox->SelectedItem->ToString() == "Concentracion CO") {
-			for each (Ambiente^ dato in sensorData) {
+			for each (Ambiente^ dato in ambiente_aux) {
 				int CO = dynamic_cast<SensorCO^>(dato->DataBase[1])->NivelCO;
 				if ((CO >= Int32::Parse(MinBox->Text)) && (CO <= Int32::Parse(MaxBox->Text))) {
 					// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
-					ambiente_aux->Add(dato);
+					ambiente_to_filter->Add(dato);
 				}
 			}
 		}
 		else if (CriterioBox->SelectedItem->ToString() == "Calidad Aire") {
-			for each (Ambiente^ dato in sensorData) {
+			for each (Ambiente^ dato in ambiente_aux) {
 				int AirQ = dynamic_cast<SensorCalidadAire^>(dato->DataBase[2])->CalidadAire;
 				if ((AirQ >= Int32::Parse(MinBox->Text)) && (AirQ <= Int32::Parse(MaxBox->Text))) {
 					// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
-					ambiente_aux->Add(dato);
+					ambiente_to_filter->Add(dato);
 				}
 			}
 		}
 		else if (CriterioBox->SelectedItem->ToString() == "Ubicacion Geografica") {
-			for each (Ambiente^ dato in sensorData) {
+			for each (Ambiente^ dato in ambiente_aux) {
 				String^ ubiGeo = dato->UbicacionGeografica;
 				if (ubiGeo == MinBox->Text) {
 					// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
-					ambiente_aux->Add(dato);
+					ambiente_to_filter->Add(dato);
 				}
 			}
 		}
@@ -348,7 +349,8 @@ namespace WeatherStationView {
 		else {
 			MessageBox::Show("You shouldn't be here.");
 		}
-		ShowFilteredData(ambiente_aux);
+		ambiente_aux = ambiente_to_filter;
+		ShowFilteredData(ambiente_to_filter);
 	}
 
 private: System::Void SensorsReportLoad(System::Object^ sender, System::EventArgs^ e) {
@@ -356,6 +358,7 @@ private: System::Void SensorsReportLoad(System::Object^ sender, System::EventArg
 }
 	   void ShowAmbienteData() {
 		   sensorData = Controller::Controller::QueryAmbienteData();
+		   ambiente_aux = sensorData;
 		   dataGridView1->Rows->Clear();
 		   for (int i = 0; i < sensorData->Count; i++) {
 			   Ambiente^ ambiente = sensorData[i];
@@ -395,18 +398,26 @@ private: System::Void EleccionCriterio(System::Object^ sender, System::EventArgs
 	if (CriterioBox->SelectedItem->ToString() == "Temperatura") {
 		MinLabel->Text = "Temperatura minima";
 		MaxLabel->Text = "Temperatura maxima";
+		MaxLabel->Visible = true;
+		MaxBox->Visible = true;
 	}
 	else if (CriterioBox->SelectedItem->ToString() == "Humedad") {
 		MinLabel->Text = "Humedad minima";
 		MaxLabel->Text = "Humedad maxima";
+		MaxLabel->Visible = true;
+		MaxBox->Visible = true;
 	}
 	else if (CriterioBox->SelectedItem->ToString() == "Concentracion CO") {
 		MinLabel->Text = "Concentracion minima";
 		MaxLabel->Text = "Concentracion maxima";
+		MaxLabel->Visible = true;
+		MaxBox->Visible = true;
 	}
 	else if (CriterioBox->SelectedItem->ToString() == "Calidad Aire") {
 		MinLabel->Text = "Calidad Aire minima";
 		MaxLabel->Text = "Calidad Aire maxima";
+		MaxLabel->Visible = true;
+		MaxBox->Visible = true;
 	}
 	else if (CriterioBox->SelectedItem->ToString() == "Ubicacion Geografica") {
 		MinLabel->Text = "Ubicacion Seleccionada";
