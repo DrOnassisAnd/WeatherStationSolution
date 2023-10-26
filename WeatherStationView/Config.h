@@ -251,10 +251,6 @@ namespace WeatherStationView {
 		if ((config->FormatoFecha) == "mm/dd/yyyy") { this->comboBox5->SelectedIndex = 1; }
 		else if ((config->FormatoFecha) == "yyyy/mm/dd") { this->comboBox5->SelectedIndex = 2; }
 		else { this->comboBox5->SelectedIndex = 0; }
-
-
-		//falta verificar si funciona con un recien registrado
-
 		
 	}
 	private: System::Void comboBox5_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
