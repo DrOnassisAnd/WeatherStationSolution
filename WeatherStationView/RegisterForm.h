@@ -488,9 +488,15 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 			ajustes->UnidadTemp = Convert::ToChar(176)+"C"; //había un problema si colocaba °, por eso use su ascii
 			usuario->membresia = membresia;
 			//protección con membresia, parece que en algunos casos no entra (primer bug? :D)
+			int i = 0;
 			while (usuario->membresia == nullptr) {
 				Membresia^ membresia = gcnew Membresia("Basic", DateTime::Today.ToString("yyyy-MM-dd"), "2099-12-12");
 				usuario->membresia = membresia;
+				i++;
+				if (i == 100) {
+					MessageBox::Show("Catastrophic Error");
+					Application::Exit();
+				}
 			}
 			usuario->ajustes = ajustes;
 

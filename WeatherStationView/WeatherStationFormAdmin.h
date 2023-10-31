@@ -17,6 +17,8 @@
 #include "CalidadAireForm.h"
 
 #include "SensorsReport.h"
+#include "StatisticsForm.h"
+#include "UserReport2.h"
 
 namespace WeatherStationView {
 
@@ -97,6 +99,8 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::ToolStripMenuItem^ graficoCalidadAireToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ reporteToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ reportesSensoresToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ pieToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ reportesUsuarioToolStripMenuItem;
 
 
 
@@ -137,15 +141,17 @@ namespace WeatherStationView {
 			this->alertaErrorToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reportesSensoresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->pieToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->reportesUsuarioToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
 				this->toolStripMenuItem1,
-					this->userToolStripMenuItem, this->ambienteToolStripMenuItem, this->reporteToolStripMenuItem
+					this->userToolStripMenuItem, this->ambienteToolStripMenuItem, this->reporteToolStripMenuItem, this->pieToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
@@ -275,7 +281,10 @@ namespace WeatherStationView {
 			// 
 			// reporteToolStripMenuItem
 			// 
-			this->reporteToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->reportesSensoresToolStripMenuItem });
+			this->reporteToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->reportesSensoresToolStripMenuItem,
+					this->reportesUsuarioToolStripMenuItem
+			});
 			this->reporteToolStripMenuItem->Name = L"reporteToolStripMenuItem";
 			this->reporteToolStripMenuItem->Size = System::Drawing::Size(65, 20);
 			this->reporteToolStripMenuItem->Text = L"Reportes";
@@ -286,6 +295,20 @@ namespace WeatherStationView {
 			this->reportesSensoresToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->reportesSensoresToolStripMenuItem->Text = L"Reportes Sensores";
 			this->reportesSensoresToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::reportesSensoresToolStripMenuItem_Click);
+			// 
+			// pieToolStripMenuItem
+			// 
+			this->pieToolStripMenuItem->Name = L"pieToolStripMenuItem";
+			this->pieToolStripMenuItem->Size = System::Drawing::Size(35, 20);
+			this->pieToolStripMenuItem->Text = L"Pie";
+			this->pieToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::pieToolStripMenuItem_Click);
+			// 
+			// reportesUsuarioToolStripMenuItem
+			// 
+			this->reportesUsuarioToolStripMenuItem->Name = L"reportesUsuarioToolStripMenuItem";
+			this->reportesUsuarioToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->reportesUsuarioToolStripMenuItem->Text = L"Reportes Usuario";
+			this->reportesUsuarioToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::reportesUsuarioToolStripMenuItem_Click);
 			// 
 			// WeatherStationFormAdmin
 			// 
@@ -376,6 +399,14 @@ private: System::Void graficoCalidadAireToolStripMenuItem_Click(System::Object^ 
 }
 private: System::Void reportesSensoresToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	SensorsReport^ obj = gcnew SensorsReport();
+	obj->ShowDialog();
+}
+private: System::Void pieToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	StatisticsForm^ obj = gcnew StatisticsForm();
+	obj->ShowDialog();
+}
+private: System::Void reportesUsuarioToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	UserReport^ obj = gcnew UserReport();
 	obj->ShowDialog();
 }
 };

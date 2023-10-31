@@ -26,6 +26,8 @@
     <ClCompile Include="CalidadAireForm.cpp" />
     <ClCompile Include="StatisticsForm.cpp" />
     <ClCompile Include="SensorsReport.cpp" />
+    <ClCompile Include="UserReport2.cpp" />
+    <ClCompile Include="GraficosPuntosForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MembresiaForm.h" />
@@ -54,6 +56,8 @@
     <ClInclude Include="CalidadAireForm.h" />
     <ClInclude Include="StatisticsForm.h" />
     <ClInclude Include="SensorsReport.h" />
+    <ClInclude Include="UserReport2.h" />
+    <ClInclude Include="GraficosPuntosForm.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WeatherStationView.rc" />

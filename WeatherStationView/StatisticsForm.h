@@ -308,96 +308,54 @@ namespace WeatherStationView {
 		int StartHour = Int32::Parse(Start);
 		int EndHour = Int32::Parse(End);
 
-		////Verificamos si se sensó a esa hora
-		//array<double>^ InitialTemp = { 0,0,0,0 };
-		//array<double>^ MeanTemp = { 0,0,0,0 };
-		//array<double>^ CountTemp = { 0,0,0,0 };
+		//Verificamos si se sensó a esa hora
+		array<double>^ InitialTemp = { 0,0,0,0 };
+		array<double>^ MeanTemp = { 0,0,0,0 };
+		array<double>^ CountTemp = { 0,0,0,0 };
 
-		////Verificamos si se sensó a esa hora
-		//array<int>^ InitialHum = { 0,0,0,0 };
-		//array<double>^ MeanHum = { 0,0,0,0 };
-		//array<double>^ CountHum = { 0,0,0,0 };
+		//Verificamos si se sensó a esa hora
+		array<int>^ InitialHum = { 0,0,0,0 };
+		array<double>^ MeanHum = { 0,0,0,0 };
+		array<double>^ CountHum = { 0,0,0,0 };
 
-		////Verificamos si se sensó a esa hora
-		//array<int>^ InitialAir = { 0,0,0,0 };
-		//array<double>^ MeanAir = { 0,0,0,0 };
-		//array<double>^ CountAir = { 0,0,0,0 };
+		//Verificamos si se sensó a esa hora
+		array<int>^ InitialAir = { 0,0,0,0 };
+		array<double>^ MeanAir = { 0,0,0,0 };
+		array<double>^ CountAir = { 0,0,0,0 };
 
-		////Verificamos si se sensó a esa hora
-		//array<int>^ InitialCO = { 0,0,0,0 };
-		//array<double>^ MeanCO = { 0,0,0,0 };
-		//array<double>^ CountCO = { 0,0,0,0 };
+		//Verificamos si se sensó a esa hora
+		array<int>^ InitialCO = { 0,0,0,0 };
+		array<double>^ MeanCO = { 0,0,0,0 };
+		array<double>^ CountCO = { 0,0,0,0 };
 
 		////Extraemos los valores de temperatura por hora
-		//List<SensorTemperaturaHumedad^>^ TempList = Controller::Controller::QueryTempHumData();
+		List<Ambiente^>^ sensorData = Controller::Controller::QueryAmbienteData();
 
-		//for (int i = 0; i < TempList->Count; i++) {
-		//	String^ StrSelectedHour = (TempList[i]->TiempoP)->Substring(0, 2);
-		//	int SelectedHour = Int32::Parse(StrSelectedHour);
-		//	for (int j = 1; j <= 4; j++) {
-		//		if ((StartHour <= SelectedHour) && (SelectedHour < EndHour) && (j == Int32::Parse(TempList[i]->IdSensor))) {
-		//			CountTemp[j - 1]++;
-		//			InitialTemp[j - 1] = InitialTemp[j - 1] + TempList[i]->Temperatura;
-		//		}
-		//	}
-		//}
-
-
-		////Extraemos los valores de humedad por hora
-		//List<SensorTemperaturaHumedad^>^ HumList = Controller::Controller::QueryTempHumData();
-
-		//for (int i = 0; i < HumList->Count; i++) {
-		//	String^ StrSelectedHour = (HumList[i]->TiempoP)->Substring(0, 2);
-		//	int SelectedHour = Int32::Parse(StrSelectedHour);
-		//	for (int j = 1; j <= 4; j++) {
-		//		if ((StartHour <= SelectedHour) && (SelectedHour < EndHour) && (j == Int32::Parse(HumList[i]->IdSensor))) {
-		//			CountHum[j - 1]++;
-		//			InitialHum[j - 1] = InitialHum[j - 1] + HumList[i]->Humedad;
-		//		}
-		//	}
-		//}
+		for (int i = 0; i < sensorData->Count; i++) {
+			String^ StrSelectedHour = (sensorData[i]->TiempoMedicion)->Substring(0, 2);
+			int SelectedHour = Int32::Parse(StrSelectedHour);
+			for (int j = 1; j <= 4; j++) {
+				if ((StartHour <= SelectedHour) && (SelectedHour < EndHour) && (j == dynamic_cast<SensorTemperaturaHumedad^>(sensorData[i]->DataBase[0])->IdSensor)) {
+					CountTemp[j - 1]++;
+					InitialTemp[j - 1] = InitialTemp[j - 1] + dynamic_cast<SensorTemperaturaHumedad^>(sensorData[i]->DataBase[0])->Temperatura;
+				}
+			}
+		}
 
 
-		////Extraemos los valores de Calidad de aire por hora
-		//List<SensorCalidadAire^>^ AirQualityList = Controller::Controller::QueryCalidadAireData();
-
-		//for (int i = 0; i < AirQualityList->Count; i++) {
-		//	String^ StrSelectedHour = (AirQualityList[i]->TiempoP)->Substring(0, 2);
-		//	int SelectedHour = Int32::Parse(StrSelectedHour);
-		//	for (int j = 1; j <= 4; j++) {
-		//		if ((StartHour <= SelectedHour) && (SelectedHour < EndHour) && (j == Int32::Parse(AirQualityList[i]->IdSensor))) {
-		//			CountAir[j - 1]++;
-		//			InitialAir[j - 1] = InitialAir[j - 1] + AirQualityList[i]->CalidadAire;
-		//		}
-		//	}
-		//}
-
-		////Extraemos los valores de CO por hora
-		//List<SensorCO^>^ COList = Controller::Controller::QueryCOData();
-
-		//for (int i = 0; i < COList->Count; i++) {
-		//	String^ StrSelectedHour = (COList[i]->TiempoP)->Substring(0, 2);
-		//	int SelectedHour = Int32::Parse(StrSelectedHour);
-		//	for (int j = 1; j <= 4; j++) {
-		//		if ((StartHour <= SelectedHour) && (SelectedHour < EndHour) && (j == Int32::Parse(COList[i]->IdSensor))) {
-		//			CountCO[j - 1]++;
-		//			InitialCO[j - 1] = InitialCO[j - 1] + COList[i]->NivelCO;
-		//		}
-		//	}
-		//}
 
 
-		////Obtenemos temperatura promedio por hora
-		//for (int k = 1; k <= 4; k++) {
-		//	if (CountTemp[k - 1] != 0) {
-		//		MeanTemp[k - 1] = InitialTemp[k - 1] / CountTemp[k - 1];
-		//		MeanTemp[k - 1] = Math::Floor(MeanTemp[k - 1] * 10) / 10;
+		//Obtenemos temperatura promedio por hora
+		for (int k = 1; k <= 4; k++) {
+			if (CountTemp[k - 1] != 0) {
+				MeanTemp[k - 1] = InitialTemp[k - 1] / CountTemp[k - 1];
+				MeanTemp[k - 1] = Math::Floor(MeanTemp[k - 1] * 10) / 10;
 
-		//	}
-		//	else {
-		//		MeanTemp[k - 1] = 0;
-		//	}
-		//}
+			}
+			else {
+				MeanTemp[k - 1] = 0;
+			}
+		}
 
 		////Obtenemos humedad promedio por hora
 		//for (int k = 1; k <= 4; k++) {
@@ -435,12 +393,12 @@ namespace WeatherStationView {
 		//	}
 		//}
 
-		////Mostramos diagrama de Pie de temperatura
-		//for (int l = 1; l <= 4; l++) {
-		//	chTemperature->Series["Temperature"]->Points->Add(MeanTemp[l - 1]); // Coloco nombre a la serie	
-		//	chTemperature->Series["Temperature"]->Points[l - 1]->LegendText = "Sensor " + Convert::ToString(l); // Coloco nombre a la serie
-		//	chTemperature->Series["Temperature"]->Points[l - 1]->Label = Convert::ToString(MeanTemp[l - 1]);
-		//}
+		//Mostramos diagrama de Pie de temperatura
+		for (int l = 1; l <= 4; l++) {
+			chTemperature->Series["Temperature"]->Points->Add(MeanTemp[l - 1]); // Coloco nombre a la serie	
+			chTemperature->Series["Temperature"]->Points[l - 1]->LegendText = "Sensor " + Convert::ToString(l); // Coloco nombre a la serie
+			chTemperature->Series["Temperature"]->Points[l - 1]->Label = Convert::ToString(MeanTemp[l - 1]);
+		}
 
 		////Mostramos diagrama de Pie de humedad
 		//for (int l = 1; l <= 4; l++) {
