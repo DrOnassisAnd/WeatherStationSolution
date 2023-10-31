@@ -70,6 +70,7 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::Label^ label11;
 	private: System::Windows::Forms::Label^ label12;
+	private: System::Windows::Forms::Button^ button4;
 
 
 
@@ -116,6 +117,7 @@ namespace WeatherStationView {
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -127,7 +129,7 @@ namespace WeatherStationView {
 			this->button1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->button1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->button1->Location = System::Drawing::Point(81, 218);
-			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(109, 41);
 			this->button1->TabIndex = 0;
@@ -140,7 +142,7 @@ namespace WeatherStationView {
 			this->button2->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->button2->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->button2->Location = System::Drawing::Point(382, 308);
-			this->button2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button2->Margin = System::Windows::Forms::Padding(2);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(106, 41);
 			this->button2->TabIndex = 1;
@@ -155,7 +157,7 @@ namespace WeatherStationView {
 				static_cast<System::Byte>(0)));
 			this->button3->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->button3->Location = System::Drawing::Point(710, 363);
-			this->button3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button3->Margin = System::Windows::Forms::Padding(2);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(98, 41);
 			this->button3->TabIndex = 2;
@@ -221,7 +223,7 @@ namespace WeatherStationView {
 			// 
 			this->pictureBox1->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->pictureBox1->Location = System::Drawing::Point(35, 112);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(231, 176);
 			this->pictureBox1->TabIndex = 7;
@@ -231,7 +233,7 @@ namespace WeatherStationView {
 			// 
 			this->pictureBox2->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->pictureBox2->Location = System::Drawing::Point(328, 112);
-			this->pictureBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox2->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(246, 258);
 			this->pictureBox2->TabIndex = 8;
@@ -241,7 +243,7 @@ namespace WeatherStationView {
 			// 
 			this->pictureBox3->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->pictureBox3->Location = System::Drawing::Point(616, 112);
-			this->pictureBox3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox3->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox3->Name = L"pictureBox3";
 			this->pictureBox3->Size = System::Drawing::Size(268, 304);
 			this->pictureBox3->TabIndex = 9;
@@ -250,6 +252,7 @@ namespace WeatherStationView {
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FloralWhite;
+			this->panel1->Controls->Add(this->button4);
 			this->panel1->Controls->Add(this->label12);
 			this->panel1->Controls->Add(this->label11);
 			this->panel1->Controls->Add(this->label10);
@@ -269,7 +272,7 @@ namespace WeatherStationView {
 			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Controls->Add(this->pictureBox2);
 			this->panel1->Location = System::Drawing::Point(0, 0);
-			this->panel1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panel1->Margin = System::Windows::Forms::Padding(2);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(934, 470);
 			this->panel1->TabIndex = 10;
@@ -373,13 +376,28 @@ namespace WeatherStationView {
 			this->label5->Text = L"Descarga la base de datos \r\ncompleta en formato .csv.\r\n";
 			this->label5->Click += gcnew System::EventHandler(this, &MembresiaForm::label5_Click);
 			// 
+			// button4
+			// 
+			this->button4->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button4->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->button4->Location = System::Drawing::Point(786, 420);
+			this->button4->Margin = System::Windows::Forms::Padding(2);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(98, 41);
+			this->button4->TabIndex = 18;
+			this->button4->Text = L"Salir";
+			this->button4->UseVisualStyleBackColor = false;
+			this->button4->Click += gcnew System::EventHandler(this, &MembresiaForm::Salir_Click);
+			// 
 			// MembresiaForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(928, 459);
 			this->Controls->Add(this->panel1);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"MembresiaForm";
 			this->Text = L"MembresiaForm";
 			this->Load += gcnew System::EventHandler(this, &MembresiaForm::MembresiaForm_Load);
@@ -482,6 +500,9 @@ private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void Salir_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
 }
 };
 }
