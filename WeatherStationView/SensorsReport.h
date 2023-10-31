@@ -9,6 +9,7 @@ namespace WeatherStationView {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Collections::Generic;
+	using namespace System::Windows::Forms::DataVisualization::Charting;
 	using namespace Model;
 
 	/// <summary>
@@ -38,7 +39,7 @@ namespace WeatherStationView {
 		}
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	protected:
-	private: List<Ambiente^>^ sensorData;
+	private: List<Ambiente^>^ sensorData = Controller::Controller::QueryAmbienteData();
 	private: List<Ambiente^>^ ambiente_aux;
 	private: int soloFechas=0;
 	private: int solounDia=0;
@@ -85,6 +86,21 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::CheckBox^ checkBox1;
 	private: System::Windows::Forms::CheckBox^ checkBox2;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart4;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart3;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart2;
+	private: System::Windows::Forms::Label^ txtmedicion;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::ComboBox^ CriterioMedicionBox;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
+	private: System::Windows::Forms::CheckBox^ FACIChk;
+	private: System::Windows::Forms::CheckBox^ TinkuyChk;
+
+
+	private: System::Windows::Forms::CheckBox^ BiblioChk;
+
+	private: System::Windows::Forms::CheckBox^ CIAChk;
+
 
 
 
@@ -116,6 +132,30 @@ namespace WeatherStationView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea5 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series17 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series18 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series19 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series20 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea6 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series21 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series22 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series23 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series24 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea7 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend7 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series25 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series26 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series27 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series28 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea8 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend8 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series29 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series30 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series31 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series32 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -148,7 +188,22 @@ namespace WeatherStationView {
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->chart4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->chart3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->chart2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->txtmedicion = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->CriterioMedicionBox = (gcnew System::Windows::Forms::ComboBox());
+			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->FACIChk = (gcnew System::Windows::Forms::CheckBox());
+			this->TinkuyChk = (gcnew System::Windows::Forms::CheckBox());
+			this->BiblioChk = (gcnew System::Windows::Forms::CheckBox());
+			this->CIAChk = (gcnew System::Windows::Forms::CheckBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// dataGridView1
@@ -158,10 +213,10 @@ namespace WeatherStationView {
 				this->Column6,
 					this->Column1, this->UnidadTempdgv, this->Column2, this->Column3, this->Column4, this->Column5, this->Fecha, this->dgvHora
 			});
-			this->dataGridView1->Location = System::Drawing::Point(12, 97);
+			this->dataGridView1->Location = System::Drawing::Point(12, 141);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->Size = System::Drawing::Size(741, 177);
+			this->dataGridView1->Size = System::Drawing::Size(394, 312);
 			this->dataGridView1->TabIndex = 14;
 			// 
 			// Column6
@@ -227,7 +282,7 @@ namespace WeatherStationView {
 			// 
 			// CerrarBtn
 			// 
-			this->CerrarBtn->Location = System::Drawing::Point(667, 291);
+			this->CerrarBtn->Location = System::Drawing::Point(331, 466);
 			this->CerrarBtn->Name = L"CerrarBtn";
 			this->CerrarBtn->Size = System::Drawing::Size(75, 23);
 			this->CerrarBtn->TabIndex = 16;
@@ -237,7 +292,7 @@ namespace WeatherStationView {
 			// 
 			// BuscarBtn
 			// 
-			this->BuscarBtn->Location = System::Drawing::Point(667, 40);
+			this->BuscarBtn->Location = System::Drawing::Point(334, 38);
 			this->BuscarBtn->Name = L"BuscarBtn";
 			this->BuscarBtn->Size = System::Drawing::Size(75, 23);
 			this->BuscarBtn->TabIndex = 15;
@@ -247,7 +302,7 @@ namespace WeatherStationView {
 			// 
 			// MinBox
 			// 
-			this->MinBox->Location = System::Drawing::Point(213, 42);
+			this->MinBox->Location = System::Drawing::Point(12, 87);
 			this->MinBox->Name = L"MinBox";
 			this->MinBox->Size = System::Drawing::Size(112, 20);
 			this->MinBox->TabIndex = 17;
@@ -259,7 +314,7 @@ namespace WeatherStationView {
 				L"Temperatura", L"Humedad", L"Concentracion CO",
 					L"Calidad Aire", L"Ubicacion Geografica", L"Fecha-Hora"
 			});
-			this->CriterioBox->Location = System::Drawing::Point(21, 40);
+			this->CriterioBox->Location = System::Drawing::Point(21, 35);
 			this->CriterioBox->Name = L"CriterioBox";
 			this->CriterioBox->Size = System::Drawing::Size(121, 21);
 			this->CriterioBox->TabIndex = 18;
@@ -276,7 +331,7 @@ namespace WeatherStationView {
 			// 
 			// MaxBox
 			// 
-			this->MaxBox->Location = System::Drawing::Point(415, 42);
+			this->MaxBox->Location = System::Drawing::Point(215, 87);
 			this->MaxBox->Name = L"MaxBox";
 			this->MaxBox->Size = System::Drawing::Size(109, 20);
 			this->MaxBox->TabIndex = 20;
@@ -284,7 +339,7 @@ namespace WeatherStationView {
 			// MinLabel
 			// 
 			this->MinLabel->AutoSize = true;
-			this->MinLabel->Location = System::Drawing::Point(213, 15);
+			this->MinLabel->Location = System::Drawing::Point(12, 68);
 			this->MinLabel->Name = L"MinLabel";
 			this->MinLabel->Size = System::Drawing::Size(35, 13);
 			this->MinLabel->TabIndex = 21;
@@ -293,7 +348,7 @@ namespace WeatherStationView {
 			// MaxLabel
 			// 
 			this->MaxLabel->AutoSize = true;
-			this->MaxLabel->Location = System::Drawing::Point(412, 15);
+			this->MaxLabel->Location = System::Drawing::Point(213, 68);
 			this->MaxLabel->Name = L"MaxLabel";
 			this->MaxLabel->Size = System::Drawing::Size(35, 13);
 			this->MaxLabel->TabIndex = 22;
@@ -301,7 +356,7 @@ namespace WeatherStationView {
 			// 
 			// RestablecerBtn
 			// 
-			this->RestablecerBtn->Location = System::Drawing::Point(561, 291);
+			this->RestablecerBtn->Location = System::Drawing::Point(216, 466);
 			this->RestablecerBtn->Name = L"RestablecerBtn";
 			this->RestablecerBtn->Size = System::Drawing::Size(75, 23);
 			this->RestablecerBtn->TabIndex = 23;
@@ -311,28 +366,28 @@ namespace WeatherStationView {
 			// 
 			// HoraInicial
 			// 
-			this->HoraInicial->Location = System::Drawing::Point(213, 69);
+			this->HoraInicial->Location = System::Drawing::Point(12, 114);
 			this->HoraInicial->Name = L"HoraInicial";
 			this->HoraInicial->Size = System::Drawing::Size(28, 20);
 			this->HoraInicial->TabIndex = 24;
 			// 
 			// MinutoInicial
 			// 
-			this->MinutoInicial->Location = System::Drawing::Point(256, 69);
+			this->MinutoInicial->Location = System::Drawing::Point(55, 114);
 			this->MinutoInicial->Name = L"MinutoInicial";
 			this->MinutoInicial->Size = System::Drawing::Size(28, 20);
 			this->MinutoInicial->TabIndex = 25;
 			// 
 			// MinutoFinal
 			// 
-			this->MinutoFinal->Location = System::Drawing::Point(457, 69);
+			this->MinutoFinal->Location = System::Drawing::Point(257, 114);
 			this->MinutoFinal->Name = L"MinutoFinal";
 			this->MinutoFinal->Size = System::Drawing::Size(28, 20);
 			this->MinutoFinal->TabIndex = 30;
 			// 
 			// HoraFinal
 			// 
-			this->HoraFinal->Location = System::Drawing::Point(415, 69);
+			this->HoraFinal->Location = System::Drawing::Point(215, 114);
 			this->HoraFinal->Name = L"HoraFinal";
 			this->HoraFinal->Size = System::Drawing::Size(28, 20);
 			this->HoraFinal->TabIndex = 29;
@@ -341,7 +396,7 @@ namespace WeatherStationView {
 			// 
 			this->AMPM1->FormattingEnabled = true;
 			this->AMPM1->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"a.m.", L"p.m." });
-			this->AMPM1->Location = System::Drawing::Point(294, 69);
+			this->AMPM1->Location = System::Drawing::Point(93, 114);
 			this->AMPM1->Name = L"AMPM1";
 			this->AMPM1->Size = System::Drawing::Size(43, 21);
 			this->AMPM1->TabIndex = 31;
@@ -350,7 +405,7 @@ namespace WeatherStationView {
 			// 
 			this->AMPM2->FormattingEnabled = true;
 			this->AMPM2->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"a.m.", L"p.m." });
-			this->AMPM2->Location = System::Drawing::Point(493, 68);
+			this->AMPM2->Location = System::Drawing::Point(293, 113);
 			this->AMPM2->Name = L"AMPM2";
 			this->AMPM2->Size = System::Drawing::Size(43, 21);
 			this->AMPM2->TabIndex = 32;
@@ -358,7 +413,7 @@ namespace WeatherStationView {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(244, 72);
+			this->label2->Location = System::Drawing::Point(43, 117);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(10, 13);
 			this->label2->TabIndex = 33;
@@ -367,7 +422,7 @@ namespace WeatherStationView {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(445, 72);
+			this->label3->Location = System::Drawing::Point(245, 117);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(10, 13);
 			this->label3->TabIndex = 34;
@@ -375,14 +430,14 @@ namespace WeatherStationView {
 			// 
 			// dtp1
 			// 
-			this->dtp1->Location = System::Drawing::Point(213, 42);
+			this->dtp1->Location = System::Drawing::Point(12, 87);
 			this->dtp1->Name = L"dtp1";
 			this->dtp1->Size = System::Drawing::Size(193, 20);
 			this->dtp1->TabIndex = 35;
 			// 
 			// dtp2
 			// 
-			this->dtp2->Location = System::Drawing::Point(415, 42);
+			this->dtp2->Location = System::Drawing::Point(215, 87);
 			this->dtp2->Name = L"dtp2";
 			this->dtp2->Size = System::Drawing::Size(193, 20);
 			this->dtp2->TabIndex = 36;
@@ -390,7 +445,7 @@ namespace WeatherStationView {
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(12, 73);
+			this->checkBox1->Location = System::Drawing::Point(171, 15);
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(85, 17);
 			this->checkBox1->TabIndex = 37;
@@ -401,7 +456,7 @@ namespace WeatherStationView {
 			// checkBox2
 			// 
 			this->checkBox2->AutoSize = true;
-			this->checkBox2->Location = System::Drawing::Point(108, 73);
+			this->checkBox2->Location = System::Drawing::Point(170, 41);
 			this->checkBox2->Name = L"checkBox2";
 			this->checkBox2->Size = System::Drawing::Size(81, 17);
 			this->checkBox2->TabIndex = 38;
@@ -411,7 +466,7 @@ namespace WeatherStationView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(21, 291);
+			this->button1->Location = System::Drawing::Point(12, 466);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(121, 23);
 			this->button1->TabIndex = 39;
@@ -419,11 +474,242 @@ namespace WeatherStationView {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &SensorsReport::MostrarGraficosClick);
 			// 
+			// chart4
+			// 
+			chartArea5->Name = L"ChartArea1";
+			this->chart4->ChartAreas->Add(chartArea5);
+			legend5->Name = L"Legend1";
+			this->chart4->Legends->Add(legend5);
+			this->chart4->Location = System::Drawing::Point(485, 110);
+			this->chart4->Margin = System::Windows::Forms::Padding(2);
+			this->chart4->Name = L"chart4";
+			series17->ChartArea = L"ChartArea1";
+			series17->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series17->Legend = L"Legend1";
+			series17->Name = L"CIA";
+			series18->ChartArea = L"ChartArea1";
+			series18->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series18->Legend = L"Legend1";
+			series18->Name = L"FACI";
+			series19->ChartArea = L"ChartArea1";
+			series19->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series19->Legend = L"Legend1";
+			series19->Name = L"TINKUY";
+			series20->ChartArea = L"ChartArea1";
+			series20->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series20->Legend = L"Legend1";
+			series20->Name = L"BIBLIOTECA";
+			this->chart4->Series->Add(series17);
+			this->chart4->Series->Add(series18);
+			this->chart4->Series->Add(series19);
+			this->chart4->Series->Add(series20);
+			this->chart4->Size = System::Drawing::Size(576, 376);
+			this->chart4->TabIndex = 46;
+			this->chart4->Text = L"chart4";
+			// 
+			// chart3
+			// 
+			chartArea6->Name = L"ChartArea1";
+			this->chart3->ChartAreas->Add(chartArea6);
+			legend6->Name = L"Legend1";
+			this->chart3->Legends->Add(legend6);
+			this->chart3->Location = System::Drawing::Point(485, 113);
+			this->chart3->Margin = System::Windows::Forms::Padding(2);
+			this->chart3->Name = L"chart3";
+			series21->ChartArea = L"ChartArea1";
+			series21->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series21->Legend = L"Legend1";
+			series21->Name = L"CIA";
+			series22->ChartArea = L"ChartArea1";
+			series22->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series22->Legend = L"Legend1";
+			series22->Name = L"FACI";
+			series23->ChartArea = L"ChartArea1";
+			series23->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series23->Legend = L"Legend1";
+			series23->Name = L"TINKUY";
+			series24->ChartArea = L"ChartArea1";
+			series24->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series24->Legend = L"Legend1";
+			series24->Name = L"BIBLIOTECA";
+			this->chart3->Series->Add(series21);
+			this->chart3->Series->Add(series22);
+			this->chart3->Series->Add(series23);
+			this->chart3->Series->Add(series24);
+			this->chart3->Size = System::Drawing::Size(576, 376);
+			this->chart3->TabIndex = 45;
+			this->chart3->Text = L"chart3";
+			// 
+			// chart2
+			// 
+			chartArea7->Name = L"ChartArea1";
+			this->chart2->ChartAreas->Add(chartArea7);
+			legend7->Name = L"Legend1";
+			this->chart2->Legends->Add(legend7);
+			this->chart2->Location = System::Drawing::Point(485, 113);
+			this->chart2->Margin = System::Windows::Forms::Padding(2);
+			this->chart2->Name = L"chart2";
+			series25->ChartArea = L"ChartArea1";
+			series25->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series25->Legend = L"Legend1";
+			series25->Name = L"CIA";
+			series26->ChartArea = L"ChartArea1";
+			series26->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series26->Legend = L"Legend1";
+			series26->Name = L"FACI";
+			series27->ChartArea = L"ChartArea1";
+			series27->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series27->Legend = L"Legend1";
+			series27->Name = L"TINKUY";
+			series28->ChartArea = L"ChartArea1";
+			series28->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series28->Legend = L"Legend1";
+			series28->Name = L"BIBLIOTECA";
+			this->chart2->Series->Add(series25);
+			this->chart2->Series->Add(series26);
+			this->chart2->Series->Add(series27);
+			this->chart2->Series->Add(series28);
+			this->chart2->Size = System::Drawing::Size(576, 376);
+			this->chart2->TabIndex = 44;
+			this->chart2->Text = L"chart2";
+			// 
+			// txtmedicion
+			// 
+			this->txtmedicion->AutoSize = true;
+			this->txtmedicion->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtmedicion->Location = System::Drawing::Point(989, 73);
+			this->txtmedicion->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->txtmedicion->Name = L"txtmedicion";
+			this->txtmedicion->Size = System::Drawing::Size(51, 20);
+			this->txtmedicion->TabIndex = 43;
+			this->txtmedicion->Text = L"label3";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(544, 25);
+			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(50, 13);
+			this->label4->TabIndex = 42;
+			this->label4->Text = L"Medicion";
+			// 
+			// CriterioMedicionBox
+			// 
+			this->CriterioMedicionBox->FormattingEnabled = true;
+			this->CriterioMedicionBox->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
+				L"Temperatura", L"Humedad", L"Calidad del aire",
+					L"Nivel CO"
+			});
+			this->CriterioMedicionBox->Location = System::Drawing::Point(547, 40);
+			this->CriterioMedicionBox->Margin = System::Windows::Forms::Padding(2);
+			this->CriterioMedicionBox->Name = L"CriterioMedicionBox";
+			this->CriterioMedicionBox->Size = System::Drawing::Size(92, 21);
+			this->CriterioMedicionBox->TabIndex = 41;
+			this->CriterioMedicionBox->SelectedIndexChanged += gcnew System::EventHandler(this, &SensorsReport::CriterioMedicionBox_SelectedIndexChanged);
+			// 
+			// chart1
+			// 
+			chartArea8->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea8);
+			legend8->Name = L"Legend1";
+			this->chart1->Legends->Add(legend8);
+			this->chart1->Location = System::Drawing::Point(485, 113);
+			this->chart1->Margin = System::Windows::Forms::Padding(2);
+			this->chart1->Name = L"chart1";
+			series29->ChartArea = L"ChartArea1";
+			series29->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
+			series29->Legend = L"Legend1";
+			series29->Name = L"CIA";
+			series30->ChartArea = L"ChartArea1";
+			series30->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series30->Legend = L"Legend1";
+			series30->Name = L"FACI";
+			series31->ChartArea = L"ChartArea1";
+			series31->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series31->Legend = L"Legend1";
+			series31->Name = L"TINKUY";
+			series32->ChartArea = L"ChartArea1";
+			series32->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series32->Legend = L"Legend1";
+			series32->Name = L"BIBLIOTECA";
+			this->chart1->Series->Add(series29);
+			this->chart1->Series->Add(series30);
+			this->chart1->Series->Add(series31);
+			this->chart1->Series->Add(series32);
+			this->chart1->Size = System::Drawing::Size(576, 376);
+			this->chart1->TabIndex = 40;
+			this->chart1->Text = L"chart1";
+			// 
+			// FACIChk
+			// 
+			this->FACIChk->AutoSize = true;
+			this->FACIChk->Checked = true;
+			this->FACIChk->CheckState = System::Windows::Forms::CheckState::Checked;
+			this->FACIChk->Location = System::Drawing::Point(609, 77);
+			this->FACIChk->Name = L"FACIChk";
+			this->FACIChk->Size = System::Drawing::Size(49, 17);
+			this->FACIChk->TabIndex = 47;
+			this->FACIChk->Text = L"FACI";
+			this->FACIChk->UseVisualStyleBackColor = true;
+			this->FACIChk->CheckedChanged += gcnew System::EventHandler(this, &SensorsReport::FACI_Check);
+			// 
+			// TinkuyChk
+			// 
+			this->TinkuyChk->AutoSize = true;
+			this->TinkuyChk->Checked = true;
+			this->TinkuyChk->CheckState = System::Windows::Forms::CheckState::Checked;
+			this->TinkuyChk->Location = System::Drawing::Point(836, 76);
+			this->TinkuyChk->Name = L"TinkuyChk";
+			this->TinkuyChk->Size = System::Drawing::Size(66, 17);
+			this->TinkuyChk->TabIndex = 48;
+			this->TinkuyChk->Text = L"TINKUY";
+			this->TinkuyChk->UseVisualStyleBackColor = true;
+			this->TinkuyChk->CheckedChanged += gcnew System::EventHandler(this, &SensorsReport::TINKUY_Check);
+			// 
+			// BiblioChk
+			// 
+			this->BiblioChk->AutoSize = true;
+			this->BiblioChk->Checked = true;
+			this->BiblioChk->CheckState = System::Windows::Forms::CheckState::Checked;
+			this->BiblioChk->Location = System::Drawing::Point(679, 77);
+			this->BiblioChk->Name = L"BiblioChk";
+			this->BiblioChk->Size = System::Drawing::Size(141, 17);
+			this->BiblioChk->TabIndex = 49;
+			this->BiblioChk->Text = L"BIBLIOTECA CENTRAL";
+			this->BiblioChk->UseVisualStyleBackColor = true;
+			this->BiblioChk->CheckedChanged += gcnew System::EventHandler(this, &SensorsReport::BIBLIO_Check);
+			// 
+			// CIAChk
+			// 
+			this->CIAChk->AutoSize = true;
+			this->CIAChk->Checked = true;
+			this->CIAChk->CheckState = System::Windows::Forms::CheckState::Checked;
+			this->CIAChk->Location = System::Drawing::Point(547, 77);
+			this->CIAChk->Name = L"CIAChk";
+			this->CIAChk->Size = System::Drawing::Size(43, 17);
+			this->CIAChk->TabIndex = 50;
+			this->CIAChk->Text = L"CIA";
+			this->CIAChk->UseVisualStyleBackColor = true;
+			this->CIAChk->CheckedChanged += gcnew System::EventHandler(this, &SensorsReport::CIA_Check);
+			// 
 			// SensorsReport
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(765, 326);
+			this->ClientSize = System::Drawing::Size(1071, 499);
+			this->Controls->Add(this->CIAChk);
+			this->Controls->Add(this->BiblioChk);
+			this->Controls->Add(this->TinkuyChk);
+			this->Controls->Add(this->FACIChk);
+			this->Controls->Add(this->chart4);
+			this->Controls->Add(this->chart3);
+			this->Controls->Add(this->chart2);
+			this->Controls->Add(this->txtmedicion);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->CriterioMedicionBox);
+			this->Controls->Add(this->chart1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->checkBox2);
 			this->Controls->Add(this->checkBox1);
@@ -451,6 +737,10 @@ namespace WeatherStationView {
 			this->Text = L"SensorsReport";
 			this->Load += gcnew System::EventHandler(this, &SensorsReport::SensorsReportLoad);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -459,6 +749,7 @@ namespace WeatherStationView {
 	private: System::Void Buscar_Click(System::Object^ sender, System::EventArgs^ e) {
 		List<Ambiente^>^ ambiente_to_filter = gcnew List<Ambiente^>(); //lista a ser filtrada
 		if (CriterioBox->SelectedItem->ToString() == "Temperatura") {
+			//tabla
 			for each (Ambiente^ dato in ambiente_aux) {
 				int temp = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Temperatura;
 				if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
@@ -466,6 +757,49 @@ namespace WeatherStationView {
 					ambiente_to_filter->Add(dato);
 				}
 			}
+
+			//chart1
+			for (int i = 0; i < chart1->Series["CIA"]->Points->Count; i++) {
+				int temp = chart1->Series["CIA"]->Points[i]->YValues[0];
+				if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
+					chart1->Series["CIA"]->Points[i]->IsEmpty = false;
+				}
+				else {
+					chart1->Series["CIA"]->Points[i]->IsEmpty = true;
+				}
+			}
+
+			for (int i = 0; i < chart1->Series["FACI"]->Points->Count; i++) {
+				int temp = chart1->Series["FACI"]->Points[i]->YValues[0];
+				if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
+					chart1->Series["FACI"]->Points[i]->IsEmpty = false;
+				}
+				else {
+					chart1->Series["FACI"]->Points[i]->IsEmpty = true;
+				}
+			}
+
+			for (int i = 0; i < chart1->Series["BIBLIOTECA"]->Points->Count; i++) {
+				int temp = chart1->Series["BIBLIOTECA"]->Points[i]->YValues[0];
+				if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
+					chart1->Series["BIBLIOTECA"]->Points[i]->IsEmpty = false;
+				}
+				else {
+					chart1->Series["BIBLIOTECA"]->Points[i]->IsEmpty = true;
+				}
+			}
+
+			for (int i = 0; i < chart1->Series["TINKUY"]->Points->Count; i++) {
+				int temp = chart1->Series["TINKUY"]->Points[i]->YValues[0];
+				if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
+					chart1->Series["TINKUY"]->Points[i]->IsEmpty = false;
+				}
+				else {
+					chart1->Series["TINKUY"]->Points[i]->IsEmpty = true;
+				}
+			}
+			
+
 		}
 		else if (CriterioBox->SelectedItem->ToString() == "Humedad") {
 			for each (Ambiente^ dato in ambiente_aux) {
@@ -475,6 +809,8 @@ namespace WeatherStationView {
 					ambiente_to_filter->Add(dato);
 				}
 			}
+
+			//chart2... (completar)
 		}
 		else if (CriterioBox->SelectedItem->ToString() == "Concentracion CO") {
 			for each (Ambiente^ dato in ambiente_aux) {
@@ -602,6 +938,7 @@ private: System::Void SensorsReportLoad(System::Object^ sender, System::EventArg
 	MinLabel->Text = "Temperatura minima";
 	MaxLabel->Text = "Temperatura maxima";
 	CriterioBox->SelectedIndex = 0;
+	LoadCharts();
 	FechaVisible(0);
 
 	ShowAmbienteData();
@@ -686,7 +1023,7 @@ private: System::Void EleccionCriterio(System::Object^ sender, System::EventArgs
 		FechaVisible(0);
 	}
 	else if (CriterioBox->SelectedItem->ToString() == "Fecha-Hora") {
-		//to be implemented
+		//implemented
 		FechaVisible(1);
 		MinLabel->Text = "Ubicacion Seleccionada";
 		MaxLabel->Text = "Ubicacion Seleccionada";
@@ -728,6 +1065,7 @@ private: System::Void CerrarBtn_Click(System::Object^ sender, System::EventArgs^
 }
 private: System::Void Restablecer_Click(System::Object^ sender, System::EventArgs^ e) {
 	ShowAmbienteData();
+	LoadCharts();
 }
 private: System::Void SoloUnDia(System::Object^ sender, System::EventArgs^ e) {
 	solounDia++;
@@ -764,5 +1102,215 @@ private: System::Void SoloFechas(System::Object^ sender, System::EventArgs^ e) {
 private: System::Void MostrarGraficosClick(System::Object^ sender, System::EventArgs^ e) {
 	
 }
+	   void LoadCharts() {
+		   txtmedicion->Text = "Inicio";
+
+
+		   this->CriterioMedicionBox->SelectedIndex = 0;
+
+		   /******	DECLARACION DE VARIABLES ********/
+
+		   List<int>^ tempdata = Controller::Controller::GetTempfromAmbiente(sensorData);
+		   List<int>^ humdata = Controller::Controller::GetHumfromAmbiente(sensorData);
+		   List<int>^ codata = Controller::Controller::GetCOfromAmbiente(sensorData);
+		   List<int>^ airqdata = Controller::Controller::GetAirQfromAmbiente(sensorData);
+		   List<String^>^ datetimedata = Controller::Controller::GetDateTimefromAmbiente(sensorData);
+
+		   List<int>^ indexdataCIA = Controller::Controller::GetIndexfromAmbiente(sensorData, "CIA");
+		   List<int>^ indexdataFACI = Controller::Controller::GetIndexfromAmbiente(sensorData, "FACI");
+		   List<int>^ indexdataBIBLIO = Controller::Controller::GetIndexfromAmbiente(sensorData, "BIBLIOTECA CENTRAL");
+		   List<int>^ indexdataTINKUY = Controller::Controller::GetIndexfromAmbiente(sensorData, "TINKUY");
+
+		   //Listas con datos referentes a cada lugar
+
+		   List<int>^ tempdataCIA = gcnew List<int>();
+		   List<int>^ tempdataFACI = gcnew List<int>();
+		   List<int>^ tempdataBIBLIO = gcnew List<int>();
+		   List<int>^ tempdataTINKUY = gcnew List<int>();
+
+		   List<int>^ humdataCIA = gcnew List<int>();
+		   List<int>^ humdataFACI = gcnew List<int>();
+		   List<int>^ humdataBIBLIO = gcnew List<int>();
+		   List<int>^ humdataTINKUY = gcnew List<int>();
+
+		   List<int>^ codataCIA = gcnew List<int>();
+		   List<int>^ codataFACI = gcnew List<int>();
+		   List<int>^ codataBIBLIO = gcnew List<int>();
+		   List<int>^ codataTINKUY = gcnew List<int>();
+
+		   List<int>^ airqdataCIA = gcnew List<int>();
+		   List<int>^ airqdataFACI = gcnew List<int>();
+		   List<int>^ airqdataBIBLIO = gcnew List<int>();
+		   List<int>^ airqdataTINKUY = gcnew List<int>();
+
+		   List<String^>^ datetimeCIA = gcnew List<String^>();
+		   List<String^>^ datetimeFACI = gcnew List<String^>();
+		   List<String^>^ datetimeBIBLIO = gcnew List<String^>();
+		   List<String^>^ datetimeTINKUY = gcnew List<String^>();
+
+		   //se inicializa las listas con los datos respectivos de cada lugar
+
+		   for each (int index in indexdataCIA)
+		   {
+			   tempdataCIA->Add(tempdata[index]);
+			   humdataCIA->Add(humdata[index]);
+			   codataCIA->Add(codata[index]);
+			   airqdataCIA->Add(airqdata[index]);
+			   datetimeCIA->Add(datetimedata[index]);
+		   }
+
+		   for each (int index in indexdataFACI)
+		   {
+			   tempdataFACI->Add(tempdata[index]);
+			   humdataFACI->Add(humdata[index]);
+			   codataFACI->Add(codata[index]);
+			   airqdataFACI->Add(airqdata[index]);
+			   datetimeFACI->Add(datetimedata[index]);
+		   }
+
+		   for each (int index in indexdataBIBLIO)
+		   {
+			   tempdataBIBLIO->Add(tempdata[index]);
+			   humdataBIBLIO->Add(humdata[index]);
+			   codataBIBLIO->Add(codata[index]);
+			   airqdataBIBLIO->Add(airqdata[index]);
+			   datetimeBIBLIO->Add(datetimedata[index]);
+		   }
+
+		   for each (int index in indexdataTINKUY)
+		   {
+			   tempdataTINKUY->Add(tempdata[index]);
+			   humdataTINKUY->Add(humdata[index]);
+			   codataTINKUY->Add(codata[index]);
+			   airqdataTINKUY->Add(airqdata[index]);
+			   datetimeTINKUY->Add(datetimedata[index]);
+		   }
+
+		   chart1->Series["CIA"]->Points->DataBindXY(datetimeCIA, tempdataCIA);
+		   chart1->Series["FACI"]->Points->DataBindXY(datetimeFACI, tempdataFACI);
+		   chart1->Series["BIBLIOTECA"]->Points->DataBindXY(datetimeBIBLIO, tempdataBIBLIO);
+		   chart1->Series["TINKUY"]->Points->DataBindXY(datetimeTINKUY, tempdataTINKUY);
+
+		   chart2->Series["CIA"]->Points->DataBindXY(datetimeCIA, humdataCIA);
+		   chart2->Series["FACI"]->Points->DataBindXY(datetimeFACI, humdataFACI);
+		   chart2->Series["BIBLIOTECA"]->Points->DataBindXY(datetimeBIBLIO, humdataBIBLIO);
+		   chart2->Series["TINKUY"]->Points->DataBindXY(datetimeTINKUY, humdataTINKUY);
+
+		   chart3->Series["CIA"]->Points->DataBindXY(datetimeCIA, codataCIA);
+		   chart3->Series["FACI"]->Points->DataBindXY(datetimeFACI, codataFACI);
+		   chart3->Series["BIBLIOTECA"]->Points->DataBindXY(datetimeBIBLIO, codataBIBLIO);
+		   chart3->Series["TINKUY"]->Points->DataBindXY(datetimeTINKUY, codataTINKUY);
+
+		   chart4->Series["CIA"]->Points->DataBindXY(datetimeCIA, airqdataCIA);
+		   chart4->Series["FACI"]->Points->DataBindXY(datetimeFACI, airqdataFACI);
+		   chart4->Series["BIBLIOTECA"]->Points->DataBindXY(datetimeBIBLIO, airqdataBIBLIO);
+		   chart4->Series["TINKUY"]->Points->DataBindXY(datetimeTINKUY, airqdataTINKUY);
+
+		   chart1->Visible = true;
+		   chart2->Visible = false;
+		   chart3->Visible = false;
+		   chart4->Visible = false;
+	   }
+private: System::Void CriterioMedicionBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (CriterioMedicionBox->Text == "Temperatura") {
+		chart1->Visible = true;
+		chart2->Visible = false;
+		chart3->Visible = false;
+		chart4->Visible = false;
+	}
+	else if (CriterioMedicionBox->Text == "Humedad") {
+		chart1->Visible = false;
+		chart2->Visible = true;
+		chart3->Visible = false;
+		chart4->Visible = false;
+	}
+	else if (CriterioMedicionBox->Text == "Calidad del aire") {
+		chart1->Visible = false;
+		chart2->Visible = false;
+		chart3->Visible = true;
+		chart4->Visible = false;
+	}
+	else if (CriterioMedicionBox->Text == "Nivel CO") {
+		chart1->Visible = false;
+		chart2->Visible = false;
+		chart3->Visible = false;
+		chart4->Visible = true;
+	}
+}
+private: System::Void CIA_Check(System::Object^ sender, System::EventArgs^ e) {
+	RefreshbyCheck();
+}
+private: System::Void FACI_Check(System::Object^ sender, System::EventArgs^ e) {
+	RefreshbyCheck();
+}
+private: System::Void BIBLIO_Check(System::Object^ sender, System::EventArgs^ e) {
+	RefreshbyCheck();
+}
+private: System::Void TINKUY_Check(System::Object^ sender, System::EventArgs^ e) {
+	RefreshbyCheck();
+}
+	   void RefreshbyCheck(void){
+		   RefreshbyCIACheck();
+		   RefreshbyFACICheck();
+		   RefreshbyBiblioCheck();
+		   RefreshbyTinkuyCheck();
+	   }
+	   void RefreshbyCIACheck() {
+		   if (CIAChk->Checked == true) {
+			   chart1->Series["CIA"]->Enabled = true;
+			   chart2->Series["CIA"]->Enabled = true;
+			   chart3->Series["CIA"]->Enabled = true;
+			   chart4->Series["CIA"]->Enabled = true;
+		   }
+		   else {
+			   chart1->Series["CIA"]->Enabled = false;
+			   chart2->Series["CIA"]->Enabled = false;
+			   chart3->Series["CIA"]->Enabled = false;
+			   chart4->Series["CIA"]->Enabled = false;
+		   }
+		}
+	   void RefreshbyFACICheck() {
+		   if (FACIChk->Checked == true) {
+			   chart1->Series["FACI"]->Enabled = true;
+			   chart2->Series["FACI"]->Enabled = true;
+			   chart3->Series["FACI"]->Enabled = true;
+			   chart4->Series["FACI"]->Enabled = true;
+		   }
+		   else {
+			   chart1->Series["FACI"]->Enabled = false;
+			   chart2->Series["FACI"]->Enabled = false;
+			   chart3->Series["FACI"]->Enabled = false;
+			   chart4->Series["FACI"]->Enabled = false;
+		   }
+	   }
+	   void RefreshbyBiblioCheck() {
+		   if (BiblioChk->Checked == true) {
+			   chart1->Series["BIBLIOTECA"]->Enabled = true;
+			   chart2->Series["BIBLIOTECA"]->Enabled = true;
+			   chart3->Series["BIBLIOTECA"]->Enabled = true;
+			   chart4->Series["BIBLIOTECA"]->Enabled = true;
+		   }
+		   else {
+			   chart1->Series["BIBLIOTECA"]->Enabled = false;
+			   chart2->Series["BIBLIOTECA"]->Enabled = false;
+			   chart3->Series["BIBLIOTECA"]->Enabled = false;
+			   chart4->Series["BIBLIOTECA"]->Enabled = false;
+		   }
+	   }
+	   void RefreshbyTinkuyCheck(){
+		   if (TinkuyChk->Checked == true) {
+			   chart1->Series["TINKUY"]->Enabled = true;
+			   chart2->Series["TINKUY"]->Enabled = true;
+			   chart3->Series["TINKUY"]->Enabled = true;
+			   chart4->Series["TINKUY"]->Enabled = true;
+		   }
+		   else {
+			   chart1->Series["TINKUY"]->Enabled = false;
+			   chart2->Series["TINKUY"]->Enabled = false;
+			   chart3->Series["TINKUY"]->Enabled = false;
+			   chart4->Series["TINKUY"]->Enabled = false;
+		   }
+	   }
+
 };
 }
