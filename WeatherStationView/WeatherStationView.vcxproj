@@ -261,6 +261,9 @@
     <EmbeddedResource Include="EstadisticaForm2.resx">
       <DependentUpon>EstadisticaForm2.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GraficosPuntosForm.resx">
+      <DependentUpon>GraficosPuntosForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HumedadReporteForm.resx">
       <DependentUpon>HumedadReporteForm.h</DependentUpon>
     </EmbeddedResource>

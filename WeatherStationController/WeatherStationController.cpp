@@ -243,3 +243,63 @@ void Controller::Controller::UpdateAmbienteData(Ambiente^ sensorData) {
 void Controller::Controller::DeleteAmbienteData(int IdMedicion) {
 	WeatherStationPersistance::Persistance::DeleteAmbienteData(IdMedicion);
 }
+
+List<int>^ Controller::Controller::GetTempfromAmbiente(List<Ambiente^>^ sensordata) {
+	List<int>^ tempdata =  gcnew List<int>();
+	for each (Ambiente^ dato in sensordata) {
+		int temp = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Temperatura;
+		tempdata->Add(temp);
+	}
+	return tempdata;
+}
+
+List<int>^ Controller::Controller::GetHumfromAmbiente(List<Ambiente^>^ sensordata) {
+	List<int>^ humdata = gcnew List<int>();
+	for each (Ambiente^ dato in sensordata) {
+		int hum = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Humedad;
+		humdata->Add(hum);
+	}
+	return humdata;
+}
+
+List<int>^ Controller::Controller::GetCOfromAmbiente(List<Ambiente^>^ sensordata) {
+	List<int>^ COdata = gcnew List<int>();
+	for each (Ambiente^ dato in sensordata) {
+		int CO = dynamic_cast<SensorCO^>(dato->DataBase[1])->NivelCO;
+		COdata->Add(CO);
+	}
+	return COdata;
+}
+
+List<int>^ Controller::Controller::GetAirQfromAmbiente(List<Ambiente^>^ sensordata) {
+	List<int>^ airqdata = gcnew List<int>();
+	for each (Ambiente^ dato in sensordata) {
+		int airq = dynamic_cast<SensorCalidadAire^>(dato->DataBase[2])->CalidadAire;
+		airqdata->Add(airq);
+	}
+	return airqdata;
+}
+
+List<String^>^ Controller::Controller::GetDateTimefromAmbiente(List<Ambiente^>^ sensordata) {
+	List<String^>^ datetimedata = gcnew List<String^>();
+	for each (Ambiente^ dato in sensordata) {
+		String^ date = dato->FechaMedicion;
+		String^ time = dato->TiempoMedicion;
+		DateTime dateDT = DateTime::ParseExact(date, "yyyy-MM-dd", nullptr);
+		DateTime timeDT = DateTime::ParseExact(time, "hh:mm:ss tt", nullptr);
+		DateTime datetimeDT = dateDT.Date + timeDT.TimeOfDay;
+		String^ datetime = datetimeDT.ToString("yyyy-MM-dd hh:mm:ss tt");
+		datetimedata->Add(datetime);
+	}
+	return datetimedata;
+}
+
+List<int>^ Controller::Controller::GetIndexfromAmbiente(List<Ambiente^>^ sensordata, String^ UbiGeo) {
+	List<int>^ indexdata = gcnew List<int>();
+	for (int i = 0; i < sensordata->Count; i++){
+		if (sensordata[i]->UbicacionGeografica == UbiGeo) {
+			indexdata->Add(i);
+		}	
+	}
+	return indexdata;
+}

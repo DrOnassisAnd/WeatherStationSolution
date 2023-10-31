@@ -44,7 +44,7 @@ namespace Controller {
 		static void DeleteCOData(int IdMedicion, String^ IdSensor);
 
 
-	
+
 
 		//CalidadAire
 		static void AddCalidadAireData(SensorCalidadAire^ sCalidadAire);
@@ -53,8 +53,8 @@ namespace Controller {
 		static void UpdateCalidadAireData(SensorCalidadAire^ sCalidadAire);
 		static void DeleteCalidadAireData(int IdMedicion, String^ IdSensor);
 
-    
-  	//WeatherWarning
+
+		//WeatherWarning
 		static void AddWeatherWarning(AlertaMeteorologica^ alertaMeteorologica);
 		static List<AlertaMeteorologica^>^ QueryWeatherWarning();
 		static void DeleteWeatherWarning(String^ WeatherWarningId);
@@ -81,5 +81,13 @@ namespace Controller {
 		static void DeleteAmbienteData(int IdMedicion);
 		static void UpdateAmbienteData(Ambiente^ sensordata);
 
+		//TableMethods
+		static List<int>^ GetTempfromAmbiente(List<Ambiente^>^ sensordata);
+		static List<int>^ GetHumfromAmbiente(List<Ambiente^>^ sensordata);
+		static List<int>^ GetCOfromAmbiente(List<Ambiente^>^ sensordata);
+		static List<int>^ GetAirQfromAmbiente(List<Ambiente^>^ sensordata);
+		static List<String^>^ GetDateTimefromAmbiente(List<Ambiente^>^ sensordata);
+		static List<int>^ GetIndexfromAmbiente(List<Ambiente^>^ sensordata, String^ UbiGeo);
+	
 	};
 }

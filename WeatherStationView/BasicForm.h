@@ -544,7 +544,7 @@ namespace WeatherStationView {
 #pragma endregion
 	private: System::Void BasicForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		//INICIO 
-		IdSensor == "1";
+		IdSensor == "1";	
 		
 		//se abre el formulario de registro
 		WeatherStationForm^ wcform = gcnew WeatherStationForm(user);
