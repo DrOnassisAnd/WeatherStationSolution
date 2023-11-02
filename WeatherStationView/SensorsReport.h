@@ -18,12 +18,13 @@ namespace WeatherStationView {
 	public ref class SensorsReport : public System::Windows::Forms::Form
 	{
 	public:
-		SensorsReport(void)
+		SensorsReport(User^ User)
 		{
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			this->user = User;
 		}
 
 	protected:
@@ -39,6 +40,7 @@ namespace WeatherStationView {
 		}
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	protected:
+	private: User^ user;
 	private: List<Ambiente^>^ sensorData = Controller::Controller::QueryAmbienteData();
 	private: List<Ambiente^>^ ambiente_aux;
 	private: int soloFechas=0;
@@ -1069,21 +1071,48 @@ private: System::Void SensorsReportLoad(System::Object^ sender, System::EventArg
 		   sensorData = Controller::Controller::QueryAmbienteData();
 		   ambiente_aux = sensorData;
 		   dataGridView1->Rows->Clear();
-		   for (int i = 0; i < sensorData->Count; i++) {
-			   Ambiente^ ambiente = sensorData[i];
+		   if (user->membresia->TipoMembresia == "Premium") {
+			   for (int i = 0; i < sensorData->Count; i++) {
+				   Ambiente^ ambiente = sensorData[i];
 
-			   dataGridView1->Rows->Add(gcnew array<String^> {
-				   "" + ambiente->IdMedicion,
-					   "" + dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->Temperatura, //temperatura
-					   dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->UnidadTemp,
-					   "" + dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->Humedad, //humedad
-					   "" + dynamic_cast<SensorCO^>(ambiente->DataBase[1])->NivelCO, //co
-					   "" + dynamic_cast<SensorCalidadAire^>(ambiente->DataBase[2])->CalidadAire, //airq
-					   ambiente->UbicacionGeografica, //ubigeo
-					   ambiente->FechaMedicion, //fecha
-					   ambiente->TiempoMedicion //hora
-			   });
+				   dataGridView1->Rows->Add(gcnew array<String^> {
+					   "" + ambiente->IdMedicion,
+						   "" + dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->Temperatura, //temperatura
+						   dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->UnidadTemp,
+						   "" + dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->Humedad, //humedad
+						   "" + dynamic_cast<SensorCO^>(ambiente->DataBase[1])->NivelCO, //co
+						   "" + dynamic_cast<SensorCalidadAire^>(ambiente->DataBase[2])->CalidadAire, //airq
+						   ambiente->UbicacionGeografica, //ubigeo
+						   ambiente->FechaMedicion, //fecha
+						   ambiente->TiempoMedicion //hora
+				   });
+			   }
 		   }
+		   //Si es Estandar, se filtran los resultados una semana
+		   else if (user->membresia->TipoMembresia == "Estandar") {
+			   
+			   List<Ambiente^>^ ambiente_to_filter = gcnew List<Ambiente^>(); //lista a ser filtrada
+			   
+
+			   DateTime fechaFin = DateTime::Today;
+			   TimeSpan oneWeek = TimeSpan(7, 0, 0, 0);
+			   DateTime fechaInicio = fechaFin - oneWeek;
+
+			   for each (Ambiente^ dato in ambiente_aux) {
+				   DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
+				   DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				   DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
+
+				   if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
+					   ambiente_to_filter->Add(dato);
+				   }
+			   }
+
+			   ambiente_aux = ambiente_to_filter;
+			   ShowFilteredData(ambiente_to_filter);
+		   }
+
+		   
 	   }
 	   void ShowFilteredData(List<Ambiente^>^ ambiente_aux) {
 		   dataGridView1->Rows->Clear();
@@ -1323,7 +1352,12 @@ private: System::Void SoloFechas(System::Object^ sender, System::EventArgs^ e) {
 		   chart4->Series["BIBLIOTECA"]->Points->DataBindXY(datetimeBIBLIO, airqdataBIBLIO);
 		   chart4->Series["TINKUY"]->Points->DataBindXY(datetimeTINKUY, airqdataTINKUY);
 
-		   
+		   if (user->membresia->TipoMembresia == "Estandar") {
+			   DateTime fechaFin = DateTime::Today;
+			   TimeSpan oneWeek = TimeSpan(7, 0, 0, 0);
+			   DateTime fechaInicio = fechaFin - oneWeek;
+			   RefreshChartsbyDateTime(fechaInicio, fechaFin);
+		   }
 	   }
 private: System::Void CriterioMedicionBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	if (CriterioMedicionBox->Text == "Temperatura") {

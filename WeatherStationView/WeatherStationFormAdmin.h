@@ -398,8 +398,8 @@ private: System::Void graficoCalidadAireToolStripMenuItem_Click(System::Object^ 
 	obj->ShowDialog();
 }
 private: System::Void reportesSensoresToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	SensorsReport^ obj = gcnew SensorsReport();
-	obj->ShowDialog();
+	//SensorsReport^ obj = gcnew SensorsReport();
+	//obj->ShowDialog();
 }
 private: System::Void pieToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	StatisticsForm^ obj = gcnew StatisticsForm();

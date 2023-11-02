@@ -591,7 +591,7 @@ namespace WeatherStationView {
 			RefreshMembresia();
 		}
 		else{
-			SensorsReport^ obj = gcnew SensorsReport();
+			SensorsReport^ obj = gcnew SensorsReport(user);
 			obj->ControlBox = false;
 			obj->ShowDialog();
 		}
