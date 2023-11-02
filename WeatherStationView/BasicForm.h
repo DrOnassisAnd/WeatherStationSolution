@@ -3,7 +3,7 @@
 #include "Config.h"
 #include "WeatherStationForm.h"
 #include "MembresiaForm.h"
-#include "GraficosPuntosForm.h"
+#include "SensorsReport.h"
 
 namespace WeatherStationView {
 
@@ -123,6 +123,7 @@ namespace WeatherStationView {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
@@ -144,7 +145,6 @@ namespace WeatherStationView {
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->timer2 = (gcnew System::Windows::Forms::Timer(this->components));
-			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -257,10 +257,10 @@ namespace WeatherStationView {
 			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button4->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button4->Location = System::Drawing::Point(1030, 234);
+			this->button4->Location = System::Drawing::Point(1015, 251);
 			this->button4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(197, 62);
+			this->button4->Size = System::Drawing::Size(212, 62);
 			this->button4->TabIndex = 7;
 			this->button4->Text = L"Estadística";
 			this->button4->UseVisualStyleBackColor = false;
@@ -302,6 +302,17 @@ namespace WeatherStationView {
 			this->panel1->Size = System::Drawing::Size(1240, 717);
 			this->panel1->TabIndex = 8;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BasicForm::panel1_Paint);
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label10->Location = System::Drawing::Point(668, 24);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(177, 64);
+			this->label10->TabIndex = 23;
+			this->label10->Text = L"label10";
 			// 
 			// textBox5
 			// 
@@ -510,17 +521,6 @@ namespace WeatherStationView {
 			this->timer2->Interval = 1000;
 			this->timer2->Tick += gcnew System::EventHandler(this, &BasicForm::Timer2_Tick);
 			// 
-			// label10
-			// 
-			this->label10->AutoSize = true;
-			this->label10->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label10->Location = System::Drawing::Point(668, 24);
-			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(177, 64);
-			this->label10->TabIndex = 23;
-			this->label10->Text = L"label10";
-			// 
 			// BasicForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
@@ -591,7 +591,8 @@ namespace WeatherStationView {
 			RefreshMembresia();
 		}
 		else{
-			GraficosPuntosForm^ obj = gcnew GraficosPuntosForm();
+			SensorsReport^ obj = gcnew SensorsReport();
+			obj->ControlBox = false;
 			obj->ShowDialog();
 		}
 	}
