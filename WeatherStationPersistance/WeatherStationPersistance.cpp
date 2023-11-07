@@ -5,6 +5,19 @@ using namespace System::Xml::Serialization;
 using namespace System::Runtime::Serialization::Formatters::Binary;
 using namespace System::IO;
 using namespace System::Globalization;
+
+
+SqlConnection^ WeatherStationPersistance::Persistance::GetConnection() {
+	SqlConnection^ conn = gcnew SqlConnection();
+	String^ password = "uPAXrnSA";
+	conn->ConnectionString = "Server=200.16.7.140;Database=a20212422;User ID=a20212422;Password=" + password + ";";
+	conn->Open();
+	return conn;
+}
+
+
+
+
 void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, Object^ persistObject) {
 	FileStream^ file;
 	StreamWriter^ writer;
@@ -433,6 +446,12 @@ void WeatherStationPersistance::Persistance::DeleteUser(int userId) {
 	//PersistTextFile(WEATHER_STATION, UserList);
 	//PersistXMLFile(USERS_XML, UserList);
 	PersistBinaryFile(USERS_BIN, UserList);
+
+
+
+
+
+
 }
 
 void WeatherStationPersistance::Persistance::AddAjustes(Ajustes^ ajustes) {
@@ -749,21 +768,161 @@ void WeatherStationPersistance::Persistance::UpdateErrorWarning(AlertaError^ ale
 	PersistXMLFile(ERROR_WARNING_XML, ErrorWarningList);
 }
 
+
+
+List<Ambiente^>^ WeatherStationPersistance::Persistance::LoadAmbientes() {
+	List<Ambiente^>^ ambientelist = gcnew List<Ambiente^>();
+	SqlConnection^ conn;
+	SqlDataReader^ reader;
+	try {
+		//Paso 1: Se obtiene la conexión
+		conn = GetConnection();
+		//Paso 2: Se prepara la sentencia SQL
+		/*
+		SqlCommand^ cmd = gcnew SqlCommand("SELECT * FROM ROBOT_WAITER", conn);
+		*/
+		/*
+		String^ sqlStr = "dbo.usp_QueryAmbienteData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		*/
+
+		SqlCommand^ cmd = gcnew SqlCommand("SELECT * FROM AMBIENTE", conn);
+		/*cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		cmd->Prepare();
+		*/
+		//Paso 3: Se ejecuta la sentencia
+		reader = cmd->ExecuteReader();
+		//Paso 4: Se procesa los resultados
+		while (reader->Read()) {	
+			Ambiente^ ambiente = gcnew Ambiente();
+			
+			ambiente->IdMedicion = Convert::ToInt32(reader["ID"]->ToString());
+
+			ambiente->UbicacionGeografica = reader["UBIGEO"]->ToString();
+			String^ UbiGeo;
+			int idSensor{};
+
+			UbiGeo=(ambiente->UbicacionGeografica);
+
+			if (UbiGeo == "FACI") {
+				idSensor = 1;
+			}
+			else if (UbiGeo == "CIA") {
+				idSensor = 2;
+			}
+			else if (UbiGeo == "BIBLIOTECA CENTRAL") {
+				idSensor = 3;
+			}
+			else if (UbiGeo == "TINKUY") {
+				idSensor = 4;
+			}
+			// Crear un objeto SensorTemperaturaHumedad y asignar valores de temperatura
+			SensorTemperaturaHumedad^ sensorTH = gcnew SensorTemperaturaHumedad();
+			sensorTH->IdSensor = idSensor;
+			sensorTH->Temperatura = Convert::ToInt32(reader["TEMP"]->ToString());
+			sensorTH->UnidadTemp = reader["UNIDADTEMP"]->ToString();
+			sensorTH->Humedad = Convert::ToInt32(reader["HUM"]->ToString());
+			// Crear un objeto SensorNivelCO y asignar valores
+			SensorCO^ sensorNivelCO = gcnew SensorCO();
+			sensorNivelCO->NivelCO = Convert::ToInt32(reader["CONCCO"]->ToString());
+			sensorNivelCO->IdSensor = idSensor;
+			// Crear un objeto SensorCalidadAire y asignar valores
+			SensorCalidadAire^ sensorCalidadAire = gcnew SensorCalidadAire();
+			sensorCalidadAire->CalidadAire = Convert::ToInt32(reader["CALAIRE"]->ToString());
+			sensorCalidadAire->IdSensor = idSensor;
+			// Agregar el sensor a la lista de sensores en el ambiente
+			List<Sensor^>^ sensorList = gcnew List<Sensor^>();
+			sensorList->Add(sensorTH);
+			sensorList->Add(sensorNivelCO);
+			sensorList->Add(sensorCalidadAire);
+
+			ambiente->DataBase = sensorList;
+
+			ambiente->FechaMedicion = reader["TMED"]->ToString();
+			ambiente->TiempoMedicion = reader["FEMED"]->ToString();
+			ambientelist->Add(ambiente);
+		}
+	}
+	catch (Exception^ ex) {
+	}
+	finally {
+		//Paso 5: Se cierran los objetos de conexión
+		if (reader != nullptr) reader->Close();
+		if (conn != nullptr) conn->Close();
+	}
+	return ambientelist;
+}
+
+
+
+
 void WeatherStationPersistance::Persistance::AddAmbienteData(Ambiente^ sensordata) {
-	sAmbienteDB->Add(sensordata);
-	PersistBinaryFile(SENSORDATA_BIN, sAmbienteDB);
+		//sAmbienteDB->Add(sensordata);
+	// PersistBinaryFile(SENSORDATA_BIN, sAmbienteDB);
+
+	SqlConnection^ conn;
+	try {
+		/* Paso 1: Se obtiene la conexión a la BD */
+		conn = GetConnection();
+
+		/* Paso 2: Se prepara la sentencia SQL */
+		/*
+		* 		String^ sqlStr = "dbo.usp_AddAmbienteData";
+		String^ sqlStr = "INSERT INTO Robot_Waiter(BRAND, SPEED, BATTERY_LEVEL) " +
+			"VALUES('" + robot->Brand + "'," + robot->Speed + ", " + robot->BatteryLevel + ")";
+		*/
+		String^ sqlStr = "dbo.usp_AddAmbienteData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		/**/
+		cmd->Parameters->Add("@TEMP", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@UNIDADTEMP", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@HUM", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@CONCCO", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@CALAIRE", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@UBIGEO", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@TMED", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@FEMED", System::Data::SqlDbType::VarChar, 200);
+
+		SqlParameter^ outputIdParam = gcnew SqlParameter("@ID", System::Data::SqlDbType::Int);
+		outputIdParam->Direction = System::Data::ParameterDirection::Output;
+		cmd->Parameters->Add(outputIdParam);
+		cmd->Prepare();
+
+		cmd->Parameters["@TEMP"]->Value = dynamic_cast<SensorTemperaturaHumedad^>(sensordata->DataBase[0])->Temperatura;
+		cmd->Parameters["@UNIDADTEMP"]->Value = dynamic_cast<SensorTemperaturaHumedad^>(sensordata->DataBase[0])->UnidadTemp;
+		cmd->Parameters["@HUM"]->Value = dynamic_cast<SensorTemperaturaHumedad^>(sensordata->DataBase[0])->Humedad;
+		cmd->Parameters["@CONCCO"]->Value = dynamic_cast<SensorCO^>(sensordata->DataBase[1])->NivelCO;
+		cmd->Parameters["@CALAIRE"]->Value = dynamic_cast<SensorCalidadAire^>(sensordata->DataBase[2])->CalidadAire;
+		cmd->Parameters["@UBIGEO"]->Value = sensordata->UbicacionGeografica;
+		cmd->Parameters["@TMED"]->Value = sensordata->TiempoMedicion;
+		cmd->Parameters["@FEMED"]->Value = sensordata->FechaMedicion;
+
+		/* Paso 3: Se ejecuta la sentencia SQL */
+		cmd->ExecuteNonQuery();
+	}
+	catch (Exception^ ex) {
+		//Guardar en el log o mandar un correo electrónico al Administrador
+	}
+	finally {
+		/* Paso 4: Se cierran los objetos de conexión */
+		if (conn != nullptr) conn->Close();
+	}
+
 }
 
 List<Ambiente^>^ WeatherStationPersistance::Persistance::QueryAmbienteData() {
 	//ErrorWarningList = (List<AlertaError^>^)LoadTextFile(ERROR_WARNING_FILE);
-	sAmbienteDB = (List<Ambiente^>^)LoadBinaryFile(SENSORDATA_BIN);
+	//sAmbienteDB = (List<Ambiente^>^)LoadBinaryFile(SENSORDATA_BIN);
+	sAmbienteDB = LoadAmbientes();
 	return sAmbienteDB;
 }
 
 Ambiente^ WeatherStationPersistance::Persistance::QueryAmbienteDatabyId(int IdMedicion) {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
 	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
-	sAmbienteDB = (List<Ambiente^>^)LoadBinaryFile(SENSORDATA_BIN);
+	//sAmbienteDB = (List<Ambiente^>^)LoadBinaryFile(SENSORDATA_BIN);
+	sAmbienteDB = LoadAmbientes();
 	for (int i = 0; i < sAmbienteDB->Count; i++) {
 		if (sAmbienteDB[i]->IdMedicion == IdMedicion)
 			return sAmbienteDB[i];
@@ -772,21 +931,102 @@ Ambiente^ WeatherStationPersistance::Persistance::QueryAmbienteDatabyId(int IdMe
 }
 
 void WeatherStationPersistance::Persistance::UpdateAmbienteData(Ambiente^ sensorData) {
+	//sAmbienteDB = LoadAmbientes();
 	for (int i = 0; i < sAmbienteDB->Count; i++) {
 		if (sAmbienteDB[i]->IdMedicion == sensorData->IdMedicion)
 			sAmbienteDB[i] = sensorData;
 	}
 	//PersistTextFile(WEATHER_STATION, UserList);
 	//PersistXMLFile(USERS_XML, UserList);
-	PersistBinaryFile(SENSORDATA_BIN, sAmbienteDB);
+	// PersistBinaryFile(SENSORDATA_BIN, sAmbienteDB);
+	SqlConnection^ conn;
+	try {
+		/* Paso 1: Se obtiene la oconexión a la BD */
+		conn = GetConnection();
+
+		/* Paso 2: Se prepara la sentencia SQL */
+		/*
+		String^ sqlStr = "UPDATE Robot_Waiter " +
+			"SET BRAND='" + robot->Brand + "', " +
+			" SPEED=" + robot->Speed + ", " +
+			" BATTERY_LEVEL=" + robot->BatteryLevel +
+			" WHERE id=" + robot->Id;
+		*/
+		String^ sqlStr = "dbo.usp_UpdateAmbienteData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@TEMP", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@UNIDADTEMP", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@HUM", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@CONCCO", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@CALAIRE", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@UBIGEO", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@TMED", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@FEMED", System::Data::SqlDbType::VarChar, 200);
+		cmd->Prepare();
+		cmd->Parameters["@ID"]->Value = sensorData->IdMedicion;
+		cmd->Parameters["@TEMP"]->Value = dynamic_cast<SensorTemperaturaHumedad^>(sensorData->DataBase[0])->Temperatura;
+		cmd->Parameters["@UNIDADTEMP"]->Value = dynamic_cast<SensorTemperaturaHumedad^>(sensorData->DataBase[0])->UnidadTemp;
+		cmd->Parameters["@HUM"]->Value = dynamic_cast<SensorTemperaturaHumedad^>(sensorData->DataBase[0])->Humedad;
+		cmd->Parameters["@CONCCO"]->Value = dynamic_cast<SensorCO^>(sensorData->DataBase[1])->NivelCO;
+		cmd->Parameters["@CALAIRE"]->Value = dynamic_cast<SensorCalidadAire^>(sensorData->DataBase[2])->CalidadAire;
+		cmd->Parameters["@UBIGEO"]->Value = sensorData->UbicacionGeografica;
+		cmd->Parameters["@TMED"]->Value = sensorData->TiempoMedicion;
+		cmd->Parameters["@FEMED"]->Value = sensorData->FechaMedicion;
+
+		/* Paso 3: Se ejecuta la sentencia SQL */
+		cmd->ExecuteNonQuery();
+	}
+	catch (Exception^ ex) {
+	}
+	finally {
+		/* Paso 4: Se cierra la conexión */
+		if (conn != nullptr) conn->Close();
+	}
+
+
 }
 
 void WeatherStationPersistance::Persistance::DeleteAmbienteData(int IdMedicion) {
+	/*
 	for (int i = 0; i < sAmbienteDB->Count; i++) {
 		if (sAmbienteDB[i]->IdMedicion == IdMedicion)
 			sAmbienteDB->RemoveAt(i);
 	}
+	*/
 	//PersistTextFile(WEATHER_STATION, UserList);
 	//PersistXMLFile(USERS_XML, UserList);
-	PersistBinaryFile(SENSORDATA_BIN, sAmbienteDB);
+	// PersistBinaryFile(SENSORDATA_BIN, sAmbienteDB);
+
+	SqlConnection^ conn;
+
+	try {
+		/* Paso 1: Se obtiene la oconexión a la BD */
+		conn = GetConnection();
+
+		/* Paso 2: Se prepara la sentencia SQL */
+		/*
+		String^ sqlStr = "DELETE FROM Robot_Waiter " +
+			" WHERE id=" + robotId;
+		*/
+		String^ sqlStr = "dbo.usp_DeleteAmbienteData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
+		cmd->Prepare();
+		cmd->Parameters["@ID"]->Value = IdMedicion;
+
+		/* Paso 3: Se ejecuta la sentencia SQL */
+		cmd->ExecuteNonQuery();
+	}
+	catch (Exception^ ex) {
+
+	}
+	finally {
+		/* Paso 4: Se cierra la conexión */
+		if (conn != nullptr) conn->Close();
+	}
+
+	
 }

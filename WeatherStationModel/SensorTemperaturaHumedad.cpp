@@ -8,7 +8,7 @@
 /**
  * SensorTemperaturaHumedad implementation
  */
-Model::SensorTemperaturaHumedad::SensorTemperaturaHumedad(int IdSensor, double Temperatura, String^ UnidadTemp, int Humedad)
+Model::SensorTemperaturaHumedad::SensorTemperaturaHumedad(int IdSensor, int Temperatura, String^ UnidadTemp, int Humedad)
 {
 
 	this->Temperatura = Temperatura;

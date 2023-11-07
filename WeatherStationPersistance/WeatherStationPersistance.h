@@ -4,6 +4,7 @@ using namespace System;
 using namespace System;
 using namespace Model;
 using namespace System::Collections::Generic;
+using namespace System::Data::SqlClient;
 
 namespace WeatherStationPersistance {
 	public ref class Persistance
@@ -49,7 +50,7 @@ namespace WeatherStationPersistance {
 		static String^ CALIDAD_AIRE_XML = "calidad_aire_dataa.xml";
 		static String^ CALIDAD_AIRE_BIN = "calidad_aire_dataa.bin";
 
-    
+		
     
 		//WeatherWarning
 		static String^ WEATHER_WARNING_FILE = "weather_warning_data.txt";
@@ -124,6 +125,10 @@ namespace WeatherStationPersistance {
 		static AlertaError^ QueryErrorWarningbyId(String^ selectedErrorWarningId);
 		static void DeleteErrorWarning(String^ ErrorWarningId);
 		static void UpdateErrorWarning(AlertaError^ alertaError);
+
+		// ConexionSql
+		static SqlConnection^ GetConnection();
+		static List<Ambiente^>^ LoadAmbientes();
 
 		//Ambiente Methods
 		static void AddAmbienteData(Ambiente^ sensordata);
