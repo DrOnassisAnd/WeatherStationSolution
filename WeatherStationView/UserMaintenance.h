@@ -358,6 +358,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 					   user->Password,
 					   user->Email,
 					   user->membresia->TipoMembresia,
+					   user->membresia->fechaInicio,
 					   user->membresia->fechaFinalizacion
 			   });
 		   }

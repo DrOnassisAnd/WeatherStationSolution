@@ -89,6 +89,7 @@ namespace WeatherStationPersistance {
 		
 		static Ajustes^ QueryPrevAjustes();
 
+
 		//TempHum Methods
 		static void AddTempHumData(SensorTemperaturaHumedad^ sTempHum);
 		static List<SensorTemperaturaHumedad^>^ QueryTempHumData();
@@ -129,6 +130,7 @@ namespace WeatherStationPersistance {
 		// ConexionSql
 		static SqlConnection^ GetConnection();
 		static List<Ambiente^>^ LoadAmbientes();
+		static List<User^>^ LoadUser();
 
 		static List<User^>^ LoadUser();
 
@@ -139,5 +141,15 @@ namespace WeatherStationPersistance {
 		static void DeleteAmbienteData(int IdMedicion);
 		static void UpdateAmbienteData(Ambiente^ sensordata);
 
+
+		
+		//User Methods
+		//static void AddUserData(User^ user);
+		//static List<User^>^ QueryAllUser();
+		//static User^ QueryUserbyId(int Id);
+		//static void DeleteUser(int userId);
+		//static void UpdateUser(User^ user);
+
+	
 	};
 }
