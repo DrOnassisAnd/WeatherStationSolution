@@ -393,16 +393,79 @@ Object^ WeatherStationPersistance::Persistance::LoadBinaryFile(String^ fileName)
 
 
 void WeatherStationPersistance::Persistance::AddUser(User^user) {
-	UserList->Add(user);
+	//UserList->Add(user);
 	//PersistTextFile(WEATHER_STATION, UserList);
 	//PersistXMLFile(USERS_XML, UserList);
-	PersistBinaryFile(USERS_BIN, UserList);
+	//PersistBinaryFile(USERS_BIN, UserList);
+
+
+	SqlConnection^ conn;
+	try {
+		/* Paso 1: Se obtiene la conexión a la BD */
+		conn = GetConnection();
+
+		/* Paso 2: Se prepara la sentencia SQL */
+		/*
+		* 		String^ sqlStr = "dbo.usp_AddAmbienteData";
+		String^ sqlStr = "INSERT INTO Robot_Waiter(BRAND, SPEED, BATTERY_LEVEL) " +
+			"VALUES('" + robot->Brand + "'," + robot->Speed + ", " + robot->BatteryLevel + ")";
+		*/
+		String^ sqlStr = "dbo.usp_AddUserData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		/**/
+		cmd->Parameters->Add("@NOMBRE", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@CONTRASENA", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@EMAIL", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@TIPOMEMBRESIA", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@FECHAINICIO", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@FECHAFINALIZACION", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@UNIDADTEMP", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@FORMATOHORAS", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@FORMATOFECHAS", System::Data::SqlDbType::VarChar, 200);
+
+		SqlParameter^ outputIdParam = gcnew SqlParameter("@ID", System::Data::SqlDbType::Int);
+		outputIdParam->Direction = System::Data::ParameterDirection::Output;
+		cmd->Parameters->Add(outputIdParam);
+		cmd->Prepare();
+		cmd->Parameters["@NOMBRE"]->Value = user->Name;
+		cmd->Parameters["@CONTRASENA"]->Value = user->Password;
+		cmd->Parameters["@EMAIL"]->Value = user->Email;
+		cmd->Parameters["@TIPOMEMBRESIA"]->Value = user->membresia->TipoMembresia;
+		cmd->Parameters["@FECHAINICIO"]->Value = user->membresia->fechaInicio;
+		cmd->Parameters["@FECHAFINALIZACION"]->Value = user->membresia->fechaFinalizacion;
+		cmd->Parameters["@UNIDADTEMP"]->Value = user->ajustes->UnidadTemp;
+		cmd->Parameters["@FORMATOHORAS"]->Value = user->ajustes->FormatoHoras;
+		cmd->Parameters["@FORMATOFECHAS"]->Value = user->ajustes->FormatoFecha;
+
+
+
+		/*
+		cmd->Parameters["@UNIDADTEMP"]->Value = dynamic_cast<SensorTemperaturaHumedad^>(sensordata->DataBase[0])->UnidadTemp;
+		cmd->Parameters["@HUM"]->Value = dynamic_cast<SensorTemperaturaHumedad^>(sensordata->DataBase[0])->Humedad;
+		cmd->Parameters["@CONCCO"]->Value = dynamic_cast<SensorCO^>(sensordata->DataBase[1])->NivelCO;
+		cmd->Parameters["@CALAIRE"]->Value = dynamic_cast<SensorCalidadAire^>(sensordata->DataBase[2])->CalidadAire;
+		cmd->Parameters["@UBIGEO"]->Value = sensordata->UbicacionGeografica;
+		cmd->Parameters["@TMED"]->Value = sensordata->TiempoMedicion;
+		cmd->Parameters["@FEMED"]->Value = sensordata->FechaMedicion;
+		*/
+		/* Paso 3: Se ejecuta la sentencia SQL */
+		cmd->ExecuteNonQuery();
+	}
+	catch (Exception^ ex) {
+		//Guardar en el log o mandar un correo electrónico al Administrador
+	}
+	finally {
+		/* Paso 4: Se cierran los objetos de conexión */
+		if (conn != nullptr) conn->Close();
+	}
 }
 
 List<User^>^ WeatherStationPersistance::Persistance::QueryAllUser() {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
 	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
-	UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
+	//UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
+	UserList = LoadUser();
 	return UserList;
 }
 
@@ -433,19 +496,96 @@ void WeatherStationPersistance::Persistance::UpdateUser(User^ user) {
 		if (UserList[i]->Id == user->Id)
 			UserList[i] = user;
 	}
+
+	SqlConnection^ conn;
+	try {
+		/* Paso 1: Se obtiene la oconexión a la BD */
+		conn = GetConnection();
+
+		/* Paso 2: Se prepara la sentencia SQL */
+		/*
+		String^ sqlStr = "UPDATE Robot_Waiter " +
+			"SET BRAND='" + robot->Brand + "', " +
+			" SPEED=" + robot->Speed + ", " +
+			" BATTERY_LEVEL=" + robot->BatteryLevel +
+			" WHERE id=" + robot->Id;
+		*/
+		String^ sqlStr = "dbo.usp_UpdateUserData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@NOMBRE", System::Data::SqlDbType::VarChar,200);
+		cmd->Parameters->Add("@CONTRASENA", System::Data::SqlDbType::VarChar,200);
+		cmd->Parameters->Add("@EMAIL", System::Data::SqlDbType::VarChar,200);
+		cmd->Parameters->Add("@TIPOMEMBRESIA", System::Data::SqlDbType::VarChar,200);
+		cmd->Parameters->Add("@FECHAINICIO", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@FECHAFINALIZACION", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@UNIDADTEMP", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@FORMATOHORAS", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@FORMATOFECHAS", System::Data::SqlDbType::VarChar, 200);
+		cmd->Prepare();
+		cmd->Parameters["@ID"]->Value = user->Id;
+		cmd->Parameters["@NOMBRE"]->Value = user->Name;
+		cmd->Parameters["@CONTRASENA"]->Value = user->Password;
+		cmd->Parameters["@EMAIL"]->Value = user->Email;
+		cmd->Parameters["@TIPOMEMBRESIA"]->Value = user->membresia->TipoMembresia;
+		cmd->Parameters["@FECHAINICIO"]->Value = user->membresia->fechaInicio;
+		cmd->Parameters["@FECHAFINALIZACION"]->Value = user->membresia->fechaFinalizacion;
+		cmd->Parameters["@UNIDADTEMP"]->Value = user->ajustes->UnidadTemp;
+		cmd->Parameters["@FORMATOHORAS"]->Value = user->ajustes->FormatoHoras;
+		cmd->Parameters["@FORMATOFECHAS"]->Value = user->ajustes->FormatoFecha;
+
+		/* Paso 3: Se ejecuta la sentencia SQL */
+		cmd->ExecuteNonQuery();
+	}
+	catch (Exception^ ex) {
+	}
+	finally {
+		/* Paso 4: Se cierra la conexión */
+		if (conn != nullptr) conn->Close();
+	}
+
 	//PersistTextFile(WEATHER_STATION, UserList);
 	//PersistXMLFile(USERS_XML, UserList);
-	PersistBinaryFile(USERS_BIN, UserList);
+	//PersistBinaryFile(USERS_BIN, UserList);
 }
 
 void WeatherStationPersistance::Persistance::DeleteUser(int userId) {
-	for (int i = 0; i < UserList->Count; i++) {
+	/*for (int i = 0; i < UserList->Count; i++) {
 		if (UserList[i]->Id == userId)
 			UserList->RemoveAt(i);
-	}
+	}*/
 	//PersistTextFile(WEATHER_STATION, UserList);
 	//PersistXMLFile(USERS_XML, UserList);
-	PersistBinaryFile(USERS_BIN, UserList);
+	//PersistBinaryFile(USERS_BIN, UserList);
+	SqlConnection^ conn;
+
+	try {
+		/* Paso 1: Se obtiene la oconexión a la BD */
+		conn = GetConnection();
+
+		/* Paso 2: Se prepara la sentencia SQL */
+		/*
+		String^ sqlStr = "DELETE FROM Robot_Waiter " +
+			" WHERE id=" + robotId;
+		*/
+		String^ sqlStr = "dbo.usp_DeleteUserData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
+		cmd->Prepare();
+		cmd->Parameters["@ID"]->Value = userId;
+
+		/* Paso 3: Se ejecuta la sentencia SQL */
+		cmd->ExecuteNonQuery();
+	}
+	catch (Exception^ ex) {
+
+	}
+	finally {
+		/* Paso 4: Se cierra la conexión */
+		if (conn != nullptr) conn->Close();
+	}
 
 
 
@@ -852,6 +992,64 @@ List<Ambiente^>^ WeatherStationPersistance::Persistance::LoadAmbientes() {
 	}
 	return ambientelist;
 }
+List<User^>^ WeatherStationPersistance::Persistance::LoadUser() {
+	List<User^>^ userlist = gcnew List<User^>();
+	SqlConnection^ conn;
+	SqlDataReader^ reader;
+	try {
+		//Paso 1: Se obtiene la conexión
+		conn = GetConnection();
+		//Paso 2: Se prepara la sentencia SQL
+		/*
+		SqlCommand^ cmd = gcnew SqlCommand("SELECT * FROM ROBOT_WAITER", conn);
+		*/
+		/*
+		String^ sqlStr = "dbo.usp_QueryAmbienteData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		*/
+
+		SqlCommand^ cmd = gcnew SqlCommand("SELECT * FROM USUARIO", conn);
+		/*cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		cmd->Prepare();
+		*/
+		//Paso 3: Se ejecuta la sentencia
+		reader = cmd->ExecuteReader();
+		//Paso 4: Se procesa los resultados
+		while (reader->Read()) {
+			User^ user = gcnew User();
+
+			user->Id= Convert::ToInt32(reader["ID"]->ToString());
+			user->Name = reader["NOMBRE"]->ToString();
+			user->Password = reader["CONTRASENA"]->ToString();
+			user->Email = reader["EMAIL"]->ToString();
+			
+			Membresia^ membresia = gcnew Membresia();
+			membresia->TipoMembresia = reader["TIPOMEMBRESIA"]->ToString();
+			membresia->fechaFinalizacion= reader["FECHAFINALIZACION"]->ToString();
+			membresia->fechaInicio = reader["FECHAINICIO"]->ToString();
+
+			user->membresia = membresia;
+
+			Ajustes^ ajustes = gcnew Ajustes();
+			ajustes->UnidadTemp = reader["UNIDADTEMP"]->ToString();;
+			ajustes->FormatoHoras = reader["FORMATOHORAS"]->ToString();
+			ajustes->FormatoFecha = reader["FORMATOFECHAS"]->ToString();
+
+			user->ajustes = ajustes;
+
+			userlist->Add(user);
+		}
+	}
+	catch (Exception^ ex) {
+	}
+	finally {
+		//Paso 5: Se cierran los objetos de conexión
+		if (reader != nullptr) reader->Close();
+		if (conn != nullptr) conn->Close();
+	}
+	return userlist;
+}
+
 
 
 
@@ -910,6 +1108,7 @@ void WeatherStationPersistance::Persistance::AddAmbienteData(Ambiente^ sensordat
 	}
 
 }
+
 
 List<Ambiente^>^ WeatherStationPersistance::Persistance::QueryAmbienteData() {
 	//ErrorWarningList = (List<AlertaError^>^)LoadTextFile(ERROR_WARNING_FILE);
