@@ -997,7 +997,7 @@ namespace WeatherStationView {
 			
 			for each (Ambiente^ dato in ambiente_aux) {
 				DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1006,7 +1006,7 @@ namespace WeatherStationView {
 			}
 			for each (Ambiente^ dato in ambiente_aux_2) {
 				DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1025,7 +1025,7 @@ namespace WeatherStationView {
 
 			for each (Ambiente^ dato in ambiente_aux) {
 				DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1034,7 +1034,7 @@ namespace WeatherStationView {
 			}
 			for each (Ambiente^ dato in ambiente_aux_2) {
 				DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1051,7 +1051,7 @@ namespace WeatherStationView {
 
 			for each (Ambiente^ dato in ambiente_aux) {
 				DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1060,7 +1060,7 @@ namespace WeatherStationView {
 			}
 			for each (Ambiente^ dato in ambiente_aux_2) {
 				DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1086,7 +1086,7 @@ namespace WeatherStationView {
 
 			for each (Ambiente ^ dato in ambiente_aux) {
 				DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1095,7 +1095,7 @@ namespace WeatherStationView {
 			}
 			for each (Ambiente^ dato in ambiente_aux_2) {
 				DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1164,7 +1164,7 @@ private: System::Void SensorsReportLoad(System::Object^ sender, System::EventArg
 
 			   for each (Ambiente^ dato in ambiente_aux) {
 				   DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				   DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				   DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				   DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				   if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1173,7 +1173,7 @@ private: System::Void SensorsReportLoad(System::Object^ sender, System::EventArg
 			   }
 			   for each (Ambiente^ dato in ambiente_aux_2) {
 				   DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				   DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				   DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				   DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				   if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1562,7 +1562,7 @@ private: System::Void TINKUY_Check(System::Object^ sender, System::EventArgs^ e)
 	   }
 	   void RefreshChartsbyDateTime(DateTime fechaInicio, DateTime fechaFin) {
 		   for (int i = 0; i < chart1->Series["CIA"]->Points->Count; i++) {
-			   DateTime datetimeValue = DateTime::ParseExact(datetimeCIA[i], "yyyy-MM-dd hh:mm:ss tt", nullptr);
+			   DateTime datetimeValue = DateTime::ParseExact(datetimeCIA[i], "yyyy-MM-dd HH:mm:ss", nullptr);
 			   if ((datetimeValue >= fechaInicio) && (datetimeValue <= fechaFin)) {
 				   chart1->Series["CIA"]->Points[i]->IsEmpty = false;
 				   chart2->Series["CIA"]->Points[i]->IsEmpty = false;
@@ -1579,7 +1579,7 @@ private: System::Void TINKUY_Check(System::Object^ sender, System::EventArgs^ e)
 		   }
 
 		   for (int i = 0; i < chart1->Series["FACI"]->Points->Count; i++) {
-			   DateTime datetimeValue = DateTime::ParseExact(datetimeFACI[i], "yyyy-MM-dd hh:mm:ss tt", nullptr);
+			   DateTime datetimeValue = DateTime::ParseExact(datetimeFACI[i], "yyyy-MM-dd HH:mm:ss", nullptr);
 			   if ((datetimeValue >= fechaInicio) && (datetimeValue <= fechaFin)) {
 				   chart1->Series["FACI"]->Points[i]->IsEmpty = false;
 				   chart2->Series["FACI"]->Points[i]->IsEmpty = false;
@@ -1596,7 +1596,7 @@ private: System::Void TINKUY_Check(System::Object^ sender, System::EventArgs^ e)
 		   }
 
 		   for (int i = 0; i < chart1->Series["TINKUY"]->Points->Count; i++) {
-			   DateTime datetimeValue = DateTime::ParseExact(datetimeTINKUY[i], "yyyy-MM-dd hh:mm:ss tt", nullptr);
+			   DateTime datetimeValue = DateTime::ParseExact(datetimeTINKUY[i], "yyyy-MM-dd HH:mm:ss", nullptr);
 			   if ((datetimeValue >= fechaInicio) && (datetimeValue <= fechaFin)) {
 				   chart1->Series["TINKUY"]->Points[i]->IsEmpty = false;
 				   chart2->Series["TINKUY"]->Points[i]->IsEmpty = false;
@@ -1613,7 +1613,7 @@ private: System::Void TINKUY_Check(System::Object^ sender, System::EventArgs^ e)
 		   }
 
 		   for (int i = 0; i < chart1->Series["BIBLIOTECA"]->Points->Count; i++) {
-			   DateTime datetimeValue = DateTime::ParseExact(datetimeBIBLIO[i], "yyyy-MM-dd hh:mm:ss tt", nullptr);
+			   DateTime datetimeValue = DateTime::ParseExact(datetimeBIBLIO[i], "yyyy-MM-dd HH:mm:ss", nullptr);
 			   if ((datetimeValue >= fechaInicio) && (datetimeValue <= fechaFin)) {
 				   chart1->Series["BIBLIOTECA"]->Points[i]->IsEmpty = false;
 				   chart2->Series["BIBLIOTECA"]->Points[i]->IsEmpty = false;

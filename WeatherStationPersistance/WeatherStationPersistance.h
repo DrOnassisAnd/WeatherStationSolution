@@ -130,6 +130,8 @@ namespace WeatherStationPersistance {
 		static SqlConnection^ GetConnection();
 		static List<Ambiente^>^ LoadAmbientes();
 
+		static List<User^>^ LoadUser();
+
 		//Ambiente Methods
 		static void AddAmbienteData(Ambiente^ sensordata);
 		static List<Ambiente^>^ QueryAmbienteData();
