@@ -925,10 +925,12 @@ List<Ambiente^>^ WeatherStationPersistance::Persistance::LoadAmbientes() {
 		String^ sqlStr = "dbo.usp_QueryAmbienteData";
 		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
 		*/
-
-		SqlCommand^ cmd = gcnew SqlCommand("SELECT * FROM AMBIENTE", conn);
-		/*cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		String^ sqlStr = "dbo.usp_QueryAmbienteData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
 		cmd->Prepare();
+
+		/*
 		*/
 		//Paso 3: Se ejecuta la sentencia
 		reader = cmd->ExecuteReader();
@@ -978,8 +980,8 @@ List<Ambiente^>^ WeatherStationPersistance::Persistance::LoadAmbientes() {
 
 			ambiente->DataBase = sensorList;
 
-			ambiente->FechaMedicion = reader["TMED"]->ToString();
-			ambiente->TiempoMedicion = reader["FEMED"]->ToString();
+			ambiente->TiempoMedicion = reader["TMED"]->ToString();
+			ambiente->FechaMedicion = reader["FEMED"]->ToString();
 			ambientelist->Add(ambiente);
 		}
 	}
@@ -1050,6 +1052,66 @@ List<User^>^ WeatherStationPersistance::Persistance::LoadUser() {
 	return userlist;
 }
 
+
+
+List<User^>^ WeatherStationPersistance::Persistance::LoadUser() {
+
+	List<User^>^ userlist = gcnew List<User^>();
+	SqlConnection^ conn;
+	SqlDataReader^ reader;
+	try {
+		//Paso 1: Se obtiene la conexión
+		conn = GetConnection();
+		//Paso 2: Se prepara la sentencia SQL
+		/*
+		SqlCommand^ cmd = gcnew SqlCommand("SELECT * FROM ROBOT_WAITER", conn);
+		*/
+		/*
+		String^ sqlStr = "dbo.usp_QueryAmbienteData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		*/
+
+		SqlCommand^ cmd = gcnew SqlCommand("SELECT * FROM USUARIO", conn);
+		/*cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		cmd->Prepare();
+		*/
+		//Paso 3: Se ejecuta la sentencia
+		reader = cmd->ExecuteReader();
+		//Paso 4: Se procesa los resultados
+		while (reader->Read()) {
+			User^ user = gcnew User();
+
+			user->Id = Convert::ToInt32(reader["ID"]->ToString());
+			user->Name = reader["NOMBRE"]->ToString();
+			user->Password = reader["CONTRASENA"]->ToString();
+			user->Email = reader["EMAIL"]->ToString();
+
+			Membresia^ membresia = gcnew Membresia();
+			membresia->TipoMembresia = reader["TIPOMEMBRESIA"]->ToString();
+			membresia->fechaFinalizacion = reader["FECHAFINALIZACION"]->ToString();
+			membresia->fechaInicio = reader["FECHAINICIO"]->ToString();
+
+			user->membresia = membresia;
+
+			Ajustes^ ajustes = gcnew Ajustes();
+			ajustes->UnidadTemp = reader["UNIDADTEMP"]->ToString();;
+			ajustes->FormatoHoras = reader["FORMATOHORAS"]->ToString();
+			ajustes->FormatoFecha = reader["FORMATOFECHAS"]->ToString();
+
+			user->ajustes = ajustes;
+
+			userlist->Add(user);
+		}
+	}
+	catch (Exception^ ex) {
+	}
+	finally {
+		//Paso 5: Se cierran los objetos de conexión
+		if (reader != nullptr) reader->Close();
+		if (conn != nullptr) conn->Close();
+	}
+	return userlist;
+}
 
 
 
@@ -1126,7 +1188,50 @@ Ambiente^ WeatherStationPersistance::Persistance::QueryAmbienteDatabyId(int IdMe
 		if (sAmbienteDB[i]->IdMedicion == IdMedicion)
 			return sAmbienteDB[i];
 	}
+
 	return nullptr;
+
+	/*
+	RobotWaiter^ robot;
+	SqlConnection^ conn;
+	SqlDataReader^ reader;
+	try {
+		//Paso 1: Se obtiene la conexión
+		conn = GetConnection();
+		//Paso 2: Se prepara la sentencia SQL
+		String^ sqlStr = "dbo.usp_QueryRobotWaiterById";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		cmd->Parameters->Add("@id", System::Data::SqlDbType::Int);
+		cmd->Prepare();
+		cmd->Parameters["@id"]->Value = robotId;
+		cmd->Prepare();
+
+		//Paso 3: Se ejecuta la sentencia
+		reader = cmd->ExecuteReader();
+		//Paso 4: Se procesa los resultados
+		if (reader->Read()) {
+			robot = gcnew RobotWaiter();
+			robot->Id = Convert::ToInt32(reader["Id"]->ToString());
+			robot->Brand = reader["Brand"]->ToString();
+			robot->Speed = Convert::ToInt32(reader["Speed"]->ToString());
+			robot->BatteryLevel = Convert::ToInt32(reader["BATTERY_LEVEL"]->ToString());
+		}
+	}
+	catch (Exception^ ex) {
+	}
+	finally {
+		//Paso 5: Se cierran los objetos de conexión
+		if (reader != nullptr) reader->Close();
+		if (conn != nullptr) conn->Close();
+	}
+	return robot;
+
+
+
+
+	*/
+
 }
 
 void WeatherStationPersistance::Persistance::UpdateAmbienteData(Ambiente^ sensorData) {

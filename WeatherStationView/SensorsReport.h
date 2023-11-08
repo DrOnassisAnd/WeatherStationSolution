@@ -221,10 +221,11 @@ namespace WeatherStationView {
 				this->Column6,
 					this->Column1, this->UnidadTempdgv, this->Column2, this->Column3, this->Column4, this->Column5, this->Fecha, this->dgvHora
 			});
-			this->dataGridView1->Location = System::Drawing::Point(12, 141);
+			this->dataGridView1->Location = System::Drawing::Point(16, 174);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->Size = System::Drawing::Size(394, 312);
+			this->dataGridView1->Size = System::Drawing::Size(525, 384);
 			this->dataGridView1->TabIndex = 14;
 			// 
 			// Column6
@@ -244,7 +245,9 @@ namespace WeatherStationView {
 			// UnidadTempdgv
 			// 
 			this->UnidadTempdgv->HeaderText = L"Unidad Temperatura";
+			this->UnidadTempdgv->MinimumWidth = 6;
 			this->UnidadTempdgv->Name = L"UnidadTempdgv";
+			this->UnidadTempdgv->Width = 125;
 			// 
 			// Column2
 			// 
@@ -290,9 +293,10 @@ namespace WeatherStationView {
 			// 
 			// CerrarBtn
 			// 
-			this->CerrarBtn->Location = System::Drawing::Point(331, 466);
+			this->CerrarBtn->Location = System::Drawing::Point(441, 574);
+			this->CerrarBtn->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->CerrarBtn->Name = L"CerrarBtn";
-			this->CerrarBtn->Size = System::Drawing::Size(75, 23);
+			this->CerrarBtn->Size = System::Drawing::Size(100, 28);
 			this->CerrarBtn->TabIndex = 16;
 			this->CerrarBtn->Text = L"Cerrar";
 			this->CerrarBtn->UseVisualStyleBackColor = true;
@@ -300,9 +304,10 @@ namespace WeatherStationView {
 			// 
 			// BuscarBtn
 			// 
-			this->BuscarBtn->Location = System::Drawing::Point(334, 38);
+			this->BuscarBtn->Location = System::Drawing::Point(445, 47);
+			this->BuscarBtn->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->BuscarBtn->Name = L"BuscarBtn";
-			this->BuscarBtn->Size = System::Drawing::Size(75, 23);
+			this->BuscarBtn->Size = System::Drawing::Size(100, 28);
 			this->BuscarBtn->TabIndex = 15;
 			this->BuscarBtn->Text = L"Buscar";
 			this->BuscarBtn->UseVisualStyleBackColor = true;
@@ -310,9 +315,10 @@ namespace WeatherStationView {
 			// 
 			// MinBox
 			// 
-			this->MinBox->Location = System::Drawing::Point(21, 87);
+			this->MinBox->Location = System::Drawing::Point(28, 107);
+			this->MinBox->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->MinBox->Name = L"MinBox";
-			this->MinBox->Size = System::Drawing::Size(112, 20);
+			this->MinBox->Size = System::Drawing::Size(148, 22);
 			this->MinBox->TabIndex = 17;
 			// 
 			// CriterioBox
@@ -322,51 +328,57 @@ namespace WeatherStationView {
 				L"Temperatura", L"Humedad", L"Concentracion CO",
 					L"Calidad Aire", L"Fecha-Hora"
 			});
-			this->CriterioBox->Location = System::Drawing::Point(21, 35);
+			this->CriterioBox->Location = System::Drawing::Point(28, 43);
+			this->CriterioBox->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->CriterioBox->Name = L"CriterioBox";
-			this->CriterioBox->Size = System::Drawing::Size(121, 21);
+			this->CriterioBox->Size = System::Drawing::Size(160, 24);
 			this->CriterioBox->TabIndex = 18;
 			this->CriterioBox->SelectedIndexChanged += gcnew System::EventHandler(this, &SensorsReport::EleccionCriterio);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(18, 15);
+			this->label1->Location = System::Drawing::Point(24, 18);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(105, 13);
+			this->label1->Size = System::Drawing::Size(133, 16);
 			this->label1->TabIndex = 19;
 			this->label1->Text = L"Criterio de Búsqueda";
 			// 
 			// MaxBox
 			// 
-			this->MaxBox->Location = System::Drawing::Point(215, 87);
+			this->MaxBox->Location = System::Drawing::Point(287, 107);
+			this->MaxBox->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->MaxBox->Name = L"MaxBox";
-			this->MaxBox->Size = System::Drawing::Size(109, 20);
+			this->MaxBox->Size = System::Drawing::Size(144, 22);
 			this->MaxBox->TabIndex = 20;
 			// 
 			// MinLabel
 			// 
 			this->MinLabel->AutoSize = true;
-			this->MinLabel->Location = System::Drawing::Point(12, 68);
+			this->MinLabel->Location = System::Drawing::Point(16, 84);
+			this->MinLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->MinLabel->Name = L"MinLabel";
-			this->MinLabel->Size = System::Drawing::Size(35, 13);
+			this->MinLabel->Size = System::Drawing::Size(44, 16);
 			this->MinLabel->TabIndex = 21;
 			this->MinLabel->Text = L"label2";
 			// 
 			// MaxLabel
 			// 
 			this->MaxLabel->AutoSize = true;
-			this->MaxLabel->Location = System::Drawing::Point(213, 68);
+			this->MaxLabel->Location = System::Drawing::Point(284, 84);
+			this->MaxLabel->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->MaxLabel->Name = L"MaxLabel";
-			this->MaxLabel->Size = System::Drawing::Size(35, 13);
+			this->MaxLabel->Size = System::Drawing::Size(44, 16);
 			this->MaxLabel->TabIndex = 22;
 			this->MaxLabel->Text = L"label3";
 			// 
 			// RestablecerBtn
 			// 
-			this->RestablecerBtn->Location = System::Drawing::Point(15, 466);
+			this->RestablecerBtn->Location = System::Drawing::Point(20, 574);
+			this->RestablecerBtn->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->RestablecerBtn->Name = L"RestablecerBtn";
-			this->RestablecerBtn->Size = System::Drawing::Size(75, 23);
+			this->RestablecerBtn->Size = System::Drawing::Size(100, 28);
 			this->RestablecerBtn->TabIndex = 23;
 			this->RestablecerBtn->Text = L"Restablecer";
 			this->RestablecerBtn->UseVisualStyleBackColor = true;
@@ -374,89 +386,99 @@ namespace WeatherStationView {
 			// 
 			// HoraInicial
 			// 
-			this->HoraInicial->Location = System::Drawing::Point(12, 114);
+			this->HoraInicial->Location = System::Drawing::Point(16, 140);
+			this->HoraInicial->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->HoraInicial->Name = L"HoraInicial";
-			this->HoraInicial->Size = System::Drawing::Size(28, 20);
+			this->HoraInicial->Size = System::Drawing::Size(36, 22);
 			this->HoraInicial->TabIndex = 24;
 			// 
 			// MinutoInicial
 			// 
-			this->MinutoInicial->Location = System::Drawing::Point(55, 114);
+			this->MinutoInicial->Location = System::Drawing::Point(73, 140);
+			this->MinutoInicial->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->MinutoInicial->Name = L"MinutoInicial";
-			this->MinutoInicial->Size = System::Drawing::Size(28, 20);
+			this->MinutoInicial->Size = System::Drawing::Size(36, 22);
 			this->MinutoInicial->TabIndex = 25;
 			// 
 			// MinutoFinal
 			// 
-			this->MinutoFinal->Location = System::Drawing::Point(257, 114);
+			this->MinutoFinal->Location = System::Drawing::Point(343, 140);
+			this->MinutoFinal->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->MinutoFinal->Name = L"MinutoFinal";
-			this->MinutoFinal->Size = System::Drawing::Size(28, 20);
+			this->MinutoFinal->Size = System::Drawing::Size(36, 22);
 			this->MinutoFinal->TabIndex = 30;
 			// 
 			// HoraFinal
 			// 
-			this->HoraFinal->Location = System::Drawing::Point(215, 114);
+			this->HoraFinal->Location = System::Drawing::Point(287, 140);
+			this->HoraFinal->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->HoraFinal->Name = L"HoraFinal";
-			this->HoraFinal->Size = System::Drawing::Size(28, 20);
+			this->HoraFinal->Size = System::Drawing::Size(36, 22);
 			this->HoraFinal->TabIndex = 29;
 			// 
 			// AMPM1
 			// 
 			this->AMPM1->FormattingEnabled = true;
 			this->AMPM1->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"a.m.", L"p.m." });
-			this->AMPM1->Location = System::Drawing::Point(93, 114);
+			this->AMPM1->Location = System::Drawing::Point(124, 140);
+			this->AMPM1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->AMPM1->Name = L"AMPM1";
-			this->AMPM1->Size = System::Drawing::Size(43, 21);
+			this->AMPM1->Size = System::Drawing::Size(56, 24);
 			this->AMPM1->TabIndex = 31;
 			// 
 			// AMPM2
 			// 
 			this->AMPM2->FormattingEnabled = true;
 			this->AMPM2->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"a.m.", L"p.m." });
-			this->AMPM2->Location = System::Drawing::Point(293, 113);
+			this->AMPM2->Location = System::Drawing::Point(391, 139);
+			this->AMPM2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->AMPM2->Name = L"AMPM2";
-			this->AMPM2->Size = System::Drawing::Size(43, 21);
+			this->AMPM2->Size = System::Drawing::Size(56, 24);
 			this->AMPM2->TabIndex = 32;
 			// 
 			// dosPuntos1
 			// 
 			this->dosPuntos1->AutoSize = true;
-			this->dosPuntos1->Location = System::Drawing::Point(43, 117);
+			this->dosPuntos1->Location = System::Drawing::Point(57, 144);
+			this->dosPuntos1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->dosPuntos1->Name = L"dosPuntos1";
-			this->dosPuntos1->Size = System::Drawing::Size(10, 13);
+			this->dosPuntos1->Size = System::Drawing::Size(10, 16);
 			this->dosPuntos1->TabIndex = 33;
 			this->dosPuntos1->Text = L":";
 			// 
 			// dosPuntos2
 			// 
 			this->dosPuntos2->AutoSize = true;
-			this->dosPuntos2->Location = System::Drawing::Point(245, 117);
+			this->dosPuntos2->Location = System::Drawing::Point(327, 144);
+			this->dosPuntos2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->dosPuntos2->Name = L"dosPuntos2";
-			this->dosPuntos2->Size = System::Drawing::Size(10, 13);
+			this->dosPuntos2->Size = System::Drawing::Size(10, 16);
 			this->dosPuntos2->TabIndex = 34;
 			this->dosPuntos2->Text = L":";
 			// 
 			// dtp1
 			// 
-			this->dtp1->Location = System::Drawing::Point(12, 87);
+			this->dtp1->Location = System::Drawing::Point(16, 107);
+			this->dtp1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->dtp1->Name = L"dtp1";
-			this->dtp1->Size = System::Drawing::Size(193, 20);
+			this->dtp1->Size = System::Drawing::Size(256, 22);
 			this->dtp1->TabIndex = 35;
 			// 
 			// dtp2
 			// 
-			this->dtp2->Location = System::Drawing::Point(215, 87);
+			this->dtp2->Location = System::Drawing::Point(287, 107);
+			this->dtp2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->dtp2->Name = L"dtp2";
-			this->dtp2->Size = System::Drawing::Size(193, 20);
+			this->dtp2->Size = System::Drawing::Size(256, 22);
 			this->dtp2->TabIndex = 36;
 			// 
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
-			
-			this->checkBox1->Location = System::Drawing::Point(171, 15);
+			this->checkBox1->Location = System::Drawing::Point(228, 18);
+			this->checkBox1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(85, 17);
+			this->checkBox1->Size = System::Drawing::Size(105, 20);
 			this->checkBox1->TabIndex = 37;
 			this->checkBox1->Text = L"Solo Fechas";
 			this->checkBox1->UseVisualStyleBackColor = true;
@@ -465,9 +487,10 @@ namespace WeatherStationView {
 			// checkBox2
 			// 
 			this->checkBox2->AutoSize = true;
-			this->checkBox2->Location = System::Drawing::Point(170, 41);
+			this->checkBox2->Location = System::Drawing::Point(227, 50);
+			this->checkBox2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->checkBox2->Name = L"checkBox2";
-			this->checkBox2->Size = System::Drawing::Size(81, 17);
+			this->checkBox2->Size = System::Drawing::Size(96, 20);
 			this->checkBox2->TabIndex = 38;
 			this->checkBox2->Text = L"Solo un día";
 			this->checkBox2->UseVisualStyleBackColor = true;
@@ -479,8 +502,8 @@ namespace WeatherStationView {
 			this->chart4->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->chart4->Legends->Add(legend1);
-			this->chart4->Location = System::Drawing::Point(485, 110);
-			this->chart4->Margin = System::Windows::Forms::Padding(2);
+			this->chart4->Location = System::Drawing::Point(647, 135);
+			this->chart4->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->chart4->Name = L"chart4";
 			series1->ChartArea = L"ChartArea1";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
@@ -502,7 +525,7 @@ namespace WeatherStationView {
 			this->chart4->Series->Add(series2);
 			this->chart4->Series->Add(series3);
 			this->chart4->Series->Add(series4);
-			this->chart4->Size = System::Drawing::Size(576, 376);
+			this->chart4->Size = System::Drawing::Size(768, 463);
 			this->chart4->TabIndex = 46;
 			this->chart4->Text = L"chart4";
 			// 
@@ -512,8 +535,8 @@ namespace WeatherStationView {
 			this->chart3->ChartAreas->Add(chartArea2);
 			legend2->Name = L"Legend1";
 			this->chart3->Legends->Add(legend2);
-			this->chart3->Location = System::Drawing::Point(485, 113);
-			this->chart3->Margin = System::Windows::Forms::Padding(2);
+			this->chart3->Location = System::Drawing::Point(647, 139);
+			this->chart3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->chart3->Name = L"chart3";
 			series5->ChartArea = L"ChartArea1";
 			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
@@ -535,7 +558,7 @@ namespace WeatherStationView {
 			this->chart3->Series->Add(series6);
 			this->chart3->Series->Add(series7);
 			this->chart3->Series->Add(series8);
-			this->chart3->Size = System::Drawing::Size(576, 376);
+			this->chart3->Size = System::Drawing::Size(768, 463);
 			this->chart3->TabIndex = 45;
 			this->chart3->Text = L"chart3";
 			// 
@@ -545,8 +568,8 @@ namespace WeatherStationView {
 			this->chart2->ChartAreas->Add(chartArea3);
 			legend3->Name = L"Legend1";
 			this->chart2->Legends->Add(legend3);
-			this->chart2->Location = System::Drawing::Point(485, 113);
-			this->chart2->Margin = System::Windows::Forms::Padding(2);
+			this->chart2->Location = System::Drawing::Point(647, 139);
+			this->chart2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->chart2->Name = L"chart2";
 			series9->ChartArea = L"ChartArea1";
 			series9->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
@@ -568,7 +591,7 @@ namespace WeatherStationView {
 			this->chart2->Series->Add(series10);
 			this->chart2->Series->Add(series11);
 			this->chart2->Series->Add(series12);
-			this->chart2->Size = System::Drawing::Size(576, 376);
+			this->chart2->Size = System::Drawing::Size(768, 463);
 			this->chart2->TabIndex = 44;
 			this->chart2->Text = L"chart2";
 			// 
@@ -577,20 +600,18 @@ namespace WeatherStationView {
 			this->txtmedicion->AutoSize = true;
 			this->txtmedicion->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtmedicion->Location = System::Drawing::Point(989, 73);
-			this->txtmedicion->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->txtmedicion->Location = System::Drawing::Point(1319, 90);
 			this->txtmedicion->Name = L"txtmedicion";
-			this->txtmedicion->Size = System::Drawing::Size(51, 20);
+			this->txtmedicion->Size = System::Drawing::Size(64, 25);
 			this->txtmedicion->TabIndex = 43;
 			this->txtmedicion->Text = L"label3";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(544, 25);
-			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label4->Location = System::Drawing::Point(725, 31);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(50, 13);
+			this->label4->Size = System::Drawing::Size(62, 16);
 			this->label4->TabIndex = 42;
 			this->label4->Text = L"Medicion";
 			// 
@@ -601,10 +622,10 @@ namespace WeatherStationView {
 				L"Temperatura", L"Humedad", L"Nivel CO",
 					L"Calidad del aire"
 			});
-			this->CriterioMedicionBox->Location = System::Drawing::Point(547, 40);
-			this->CriterioMedicionBox->Margin = System::Windows::Forms::Padding(2);
+			this->CriterioMedicionBox->Location = System::Drawing::Point(729, 49);
+			this->CriterioMedicionBox->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->CriterioMedicionBox->Name = L"CriterioMedicionBox";
-			this->CriterioMedicionBox->Size = System::Drawing::Size(92, 21);
+			this->CriterioMedicionBox->Size = System::Drawing::Size(121, 24);
 			this->CriterioMedicionBox->TabIndex = 41;
 			this->CriterioMedicionBox->SelectedIndexChanged += gcnew System::EventHandler(this, &SensorsReport::CriterioMedicionBox_SelectedIndexChanged);
 			// 
@@ -614,8 +635,8 @@ namespace WeatherStationView {
 			this->chart1->ChartAreas->Add(chartArea4);
 			legend4->Name = L"Legend1";
 			this->chart1->Legends->Add(legend4);
-			this->chart1->Location = System::Drawing::Point(485, 113);
-			this->chart1->Margin = System::Windows::Forms::Padding(2);
+			this->chart1->Location = System::Drawing::Point(647, 139);
+			this->chart1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->chart1->Name = L"chart1";
 			series13->ChartArea = L"ChartArea1";
 			series13->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
@@ -637,7 +658,7 @@ namespace WeatherStationView {
 			this->chart1->Series->Add(series14);
 			this->chart1->Series->Add(series15);
 			this->chart1->Series->Add(series16);
-			this->chart1->Size = System::Drawing::Size(576, 376);
+			this->chart1->Size = System::Drawing::Size(768, 463);
 			this->chart1->TabIndex = 40;
 			this->chart1->Text = L"chart1";
 			// 
@@ -646,9 +667,10 @@ namespace WeatherStationView {
 			this->FACIChk->AutoSize = true;
 			this->FACIChk->Checked = true;
 			this->FACIChk->CheckState = System::Windows::Forms::CheckState::Checked;
-			this->FACIChk->Location = System::Drawing::Point(609, 77);
+			this->FACIChk->Location = System::Drawing::Point(812, 95);
+			this->FACIChk->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->FACIChk->Name = L"FACIChk";
-			this->FACIChk->Size = System::Drawing::Size(49, 17);
+			this->FACIChk->Size = System::Drawing::Size(58, 20);
 			this->FACIChk->TabIndex = 47;
 			this->FACIChk->Text = L"FACI";
 			this->FACIChk->UseVisualStyleBackColor = true;
@@ -659,9 +681,10 @@ namespace WeatherStationView {
 			this->TinkuyChk->AutoSize = true;
 			this->TinkuyChk->Checked = true;
 			this->TinkuyChk->CheckState = System::Windows::Forms::CheckState::Checked;
-			this->TinkuyChk->Location = System::Drawing::Point(836, 76);
+			this->TinkuyChk->Location = System::Drawing::Point(1115, 94);
+			this->TinkuyChk->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->TinkuyChk->Name = L"TinkuyChk";
-			this->TinkuyChk->Size = System::Drawing::Size(66, 17);
+			this->TinkuyChk->Size = System::Drawing::Size(78, 20);
 			this->TinkuyChk->TabIndex = 48;
 			this->TinkuyChk->Text = L"TINKUY";
 			this->TinkuyChk->UseVisualStyleBackColor = true;
@@ -672,9 +695,10 @@ namespace WeatherStationView {
 			this->BiblioChk->AutoSize = true;
 			this->BiblioChk->Checked = true;
 			this->BiblioChk->CheckState = System::Windows::Forms::CheckState::Checked;
-			this->BiblioChk->Location = System::Drawing::Point(679, 77);
+			this->BiblioChk->Location = System::Drawing::Point(905, 95);
+			this->BiblioChk->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->BiblioChk->Name = L"BiblioChk";
-			this->BiblioChk->Size = System::Drawing::Size(141, 17);
+			this->BiblioChk->Size = System::Drawing::Size(172, 20);
 			this->BiblioChk->TabIndex = 49;
 			this->BiblioChk->Text = L"BIBLIOTECA CENTRAL";
 			this->BiblioChk->UseVisualStyleBackColor = true;
@@ -685,9 +709,10 @@ namespace WeatherStationView {
 			this->CIAChk->AutoSize = true;
 			this->CIAChk->Checked = true;
 			this->CIAChk->CheckState = System::Windows::Forms::CheckState::Checked;
-			this->CIAChk->Location = System::Drawing::Point(547, 77);
+			this->CIAChk->Location = System::Drawing::Point(729, 95);
+			this->CIAChk->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->CIAChk->Name = L"CIAChk";
-			this->CIAChk->Size = System::Drawing::Size(43, 17);
+			this->CIAChk->Size = System::Drawing::Size(50, 20);
 			this->CIAChk->TabIndex = 50;
 			this->CIAChk->Text = L"CIA";
 			this->CIAChk->UseVisualStyleBackColor = true;
@@ -695,9 +720,9 @@ namespace WeatherStationView {
 			// 
 			// SensorsReport
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1071, 499);
+			this->ClientSize = System::Drawing::Size(1428, 614);
 			this->Controls->Add(this->CIAChk);
 			this->Controls->Add(this->BiblioChk);
 			this->Controls->Add(this->TinkuyChk);
@@ -731,6 +756,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->CerrarBtn);
 			this->Controls->Add(this->BuscarBtn);
 			this->Controls->Add(this->dataGridView1);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"SensorsReport";
 			this->Text = L"SensorsReport";
 			this->Load += gcnew System::EventHandler(this, &SensorsReport::SensorsReportLoad);
@@ -997,7 +1023,7 @@ namespace WeatherStationView {
 			
 			for each (Ambiente^ dato in ambiente_aux) {
 				DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1006,7 +1032,7 @@ namespace WeatherStationView {
 			}
 			for each (Ambiente^ dato in ambiente_aux_2) {
 				DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1025,7 +1051,7 @@ namespace WeatherStationView {
 
 			for each (Ambiente^ dato in ambiente_aux) {
 				DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1034,7 +1060,7 @@ namespace WeatherStationView {
 			}
 			for each (Ambiente^ dato in ambiente_aux_2) {
 				DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1051,7 +1077,7 @@ namespace WeatherStationView {
 
 			for each (Ambiente^ dato in ambiente_aux) {
 				DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1060,7 +1086,7 @@ namespace WeatherStationView {
 			}
 			for each (Ambiente^ dato in ambiente_aux_2) {
 				DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1086,7 +1112,7 @@ namespace WeatherStationView {
 
 			for each (Ambiente ^ dato in ambiente_aux) {
 				DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1095,7 +1121,7 @@ namespace WeatherStationView {
 			}
 			for each (Ambiente^ dato in ambiente_aux_2) {
 				DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1164,7 +1190,7 @@ private: System::Void SensorsReportLoad(System::Object^ sender, System::EventArg
 
 			   for each (Ambiente^ dato in ambiente_aux) {
 				   DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				   DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				   DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				   DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				   if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1173,7 +1199,7 @@ private: System::Void SensorsReportLoad(System::Object^ sender, System::EventArg
 			   }
 			   for each (Ambiente^ dato in ambiente_aux_2) {
 				   DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-				   DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "hh:mm:ss tt", nullptr);
+				   DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
 				   DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
 				   if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
@@ -1562,7 +1588,7 @@ private: System::Void TINKUY_Check(System::Object^ sender, System::EventArgs^ e)
 	   }
 	   void RefreshChartsbyDateTime(DateTime fechaInicio, DateTime fechaFin) {
 		   for (int i = 0; i < chart1->Series["CIA"]->Points->Count; i++) {
-			   DateTime datetimeValue = DateTime::ParseExact(datetimeCIA[i], "yyyy-MM-dd hh:mm:ss tt", nullptr);
+			   DateTime datetimeValue = DateTime::ParseExact(datetimeCIA[i], "yyyy-MM-dd HH:mm:ss", nullptr);
 			   if ((datetimeValue >= fechaInicio) && (datetimeValue <= fechaFin)) {
 				   chart1->Series["CIA"]->Points[i]->IsEmpty = false;
 				   chart2->Series["CIA"]->Points[i]->IsEmpty = false;
@@ -1579,7 +1605,7 @@ private: System::Void TINKUY_Check(System::Object^ sender, System::EventArgs^ e)
 		   }
 
 		   for (int i = 0; i < chart1->Series["FACI"]->Points->Count; i++) {
-			   DateTime datetimeValue = DateTime::ParseExact(datetimeFACI[i], "yyyy-MM-dd hh:mm:ss tt", nullptr);
+			   DateTime datetimeValue = DateTime::ParseExact(datetimeFACI[i], "yyyy-MM-dd HH:mm:ss", nullptr);
 			   if ((datetimeValue >= fechaInicio) && (datetimeValue <= fechaFin)) {
 				   chart1->Series["FACI"]->Points[i]->IsEmpty = false;
 				   chart2->Series["FACI"]->Points[i]->IsEmpty = false;
@@ -1596,7 +1622,7 @@ private: System::Void TINKUY_Check(System::Object^ sender, System::EventArgs^ e)
 		   }
 
 		   for (int i = 0; i < chart1->Series["TINKUY"]->Points->Count; i++) {
-			   DateTime datetimeValue = DateTime::ParseExact(datetimeTINKUY[i], "yyyy-MM-dd hh:mm:ss tt", nullptr);
+			   DateTime datetimeValue = DateTime::ParseExact(datetimeTINKUY[i], "yyyy-MM-dd HH:mm:ss", nullptr);
 			   if ((datetimeValue >= fechaInicio) && (datetimeValue <= fechaFin)) {
 				   chart1->Series["TINKUY"]->Points[i]->IsEmpty = false;
 				   chart2->Series["TINKUY"]->Points[i]->IsEmpty = false;
@@ -1613,7 +1639,7 @@ private: System::Void TINKUY_Check(System::Object^ sender, System::EventArgs^ e)
 		   }
 
 		   for (int i = 0; i < chart1->Series["BIBLIOTECA"]->Points->Count; i++) {
-			   DateTime datetimeValue = DateTime::ParseExact(datetimeBIBLIO[i], "yyyy-MM-dd hh:mm:ss tt", nullptr);
+			   DateTime datetimeValue = DateTime::ParseExact(datetimeBIBLIO[i], "yyyy-MM-dd HH:mm:ss", nullptr);
 			   if ((datetimeValue >= fechaInicio) && (datetimeValue <= fechaFin)) {
 				   chart1->Series["BIBLIOTECA"]->Points[i]->IsEmpty = false;
 				   chart2->Series["BIBLIOTECA"]->Points[i]->IsEmpty = false;
