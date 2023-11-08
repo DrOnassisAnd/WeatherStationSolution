@@ -494,7 +494,7 @@ private: System::Void AgregarBtn_Click(System::Object^ sender, System::EventArgs
 
 	ambiente->DataBase = sensorList;
 
-	ambiente->TiempoMedicion = DateTime::Now.ToString("hh:mm:ss tt");
+	ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
 	ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
 
 	Controller::Controller::AddAmbienteData(ambiente);

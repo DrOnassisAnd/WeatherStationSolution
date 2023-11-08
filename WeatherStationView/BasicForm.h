@@ -846,7 +846,7 @@ private: System::Void timer_tick(System::Object^ sender, System::EventArgs^ e) {
 	}
 
 
-	ambiente->TiempoMedicion = DateTime::Now.ToString("hh:mm:ss tt");
+	ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
 	ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
 	List<Ambiente^>^ sensorData = Controller::Controller::QueryAmbienteData();
 	int lastIdIndex = sensorData->Count;
@@ -867,7 +867,7 @@ private: System::Void label12_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void textBox5_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void Timer2_Tick(System::Object^ sender, System::EventArgs^ e) {
-	textBox1->Text = DateTime::Now.ToString("hh:mm:ss tt");
+	textBox1->Text = DateTime::Now.ToString("HH:mm:ss");
 }
 };
 }
