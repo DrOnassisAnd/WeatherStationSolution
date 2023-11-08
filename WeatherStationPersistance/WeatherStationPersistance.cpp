@@ -840,8 +840,8 @@ List<Ambiente^>^ WeatherStationPersistance::Persistance::LoadAmbientes() {
 
 			ambiente->DataBase = sensorList;
 
-			ambiente->FechaMedicion = reader["TMED"]->ToString();
-			ambiente->TiempoMedicion = reader["FEMED"]->ToString();
+			ambiente->TiempoMedicion = reader["TMED"]->ToString();
+			ambiente->FechaMedicion = reader["FEMED"]->ToString();
 			ambientelist->Add(ambiente);
 		}
 	}
