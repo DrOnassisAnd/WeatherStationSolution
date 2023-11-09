@@ -329,7 +329,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	}
 	
 	Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
-	Ajustes^ ajustes = gcnew Ajustes("°C", "dd/mm/yyyy", "Formato de 12 horas");
+	Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
 
 	user->Name = Name;
 	user->Password = Password;

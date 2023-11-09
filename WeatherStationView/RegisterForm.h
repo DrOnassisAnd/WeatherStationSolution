@@ -484,7 +484,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 			usuario->Email = Email;
 
 			Membresia^ membresia = gcnew Membresia("Basic", DateTime::Today.ToString("yyyy-MM-dd"), "2099-12-12");
-			Ajustes^ ajustes = gcnew Ajustes("°C", "dd/mm/yyyy", "Formato de 12 horas");
+			Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
 			ajustes->UnidadTemp = Convert::ToChar(176)+"C"; //había un problema si colocaba °, por eso use su ascii
 			usuario->membresia = membresia;
 			//protección con membresia, parece que en algunos casos no entra (primer bug? :D)
