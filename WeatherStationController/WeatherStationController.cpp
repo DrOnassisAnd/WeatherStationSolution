@@ -286,9 +286,9 @@ List<String^>^ Controller::Controller::GetDateTimefromAmbiente(List<Ambiente^>^ 
 		String^ date = dato->FechaMedicion;
 		String^ time = dato->TiempoMedicion;
 		DateTime dateDT = DateTime::ParseExact(date, "yyyy-MM-dd", nullptr);
-		DateTime timeDT = DateTime::ParseExact(time, "hh:mm:ss tt", nullptr);
+		DateTime timeDT = DateTime::ParseExact(time, "HH:mm:ss", nullptr);
 		DateTime datetimeDT = dateDT.Date + timeDT.TimeOfDay;
-		String^ datetime = datetimeDT.ToString("yyyy-MM-dd hh:mm:ss tt");
+		String^ datetime = datetimeDT.ToString("yyyy-MM-dd HH:mm:ss");
 		datetimedata->Add(datetime);
 	}
 	return datetimedata;

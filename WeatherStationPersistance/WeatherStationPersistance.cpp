@@ -472,7 +472,8 @@ List<User^>^ WeatherStationPersistance::Persistance::QueryAllUser() {
 User^ WeatherStationPersistance::Persistance::QueryUserbyName(String^ name) {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
 	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
-	UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
+	//UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
+	UserList = LoadUser();
 	for (int i = 0; i < UserList->Count; i++) {
 		if (UserList[i]->Name == name)
 			return UserList[i];
@@ -483,7 +484,8 @@ User^ WeatherStationPersistance::Persistance::QueryUserbyName(String^ name) {
 User^ WeatherStationPersistance::Persistance::QueryUserbyId(int Id) {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
 	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
-	UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
+	//UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
+	UserList = LoadUser();
 	for (int i = 0; i < UserList->Count; i++) {
 		if (UserList[i]->Id == Id)
 			return UserList[i];
@@ -978,8 +980,8 @@ List<Ambiente^>^ WeatherStationPersistance::Persistance::LoadAmbientes() {
 
 			ambiente->DataBase = sensorList;
 
-			ambiente->FechaMedicion = reader["TMED"]->ToString();
-			ambiente->TiempoMedicion = reader["FEMED"]->ToString();
+			ambiente->TiempoMedicion = reader["TMED"]->ToString();
+			ambiente->FechaMedicion = reader["FEMED"]->ToString();
 			ambientelist->Add(ambiente);
 		}
 	}
