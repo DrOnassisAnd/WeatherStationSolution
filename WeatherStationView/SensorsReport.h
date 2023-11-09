@@ -453,7 +453,6 @@ namespace WeatherStationView {
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
-			
 			this->checkBox1->Location = System::Drawing::Point(171, 15);
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(85, 17);
@@ -504,7 +503,7 @@ namespace WeatherStationView {
 			this->chart4->Series->Add(series4);
 			this->chart4->Size = System::Drawing::Size(576, 376);
 			this->chart4->TabIndex = 46;
-			this->chart4->Text = L"chart4";
+			this->chart4->Text = L"7";
 			// 
 			// chart3
 			// 
@@ -732,7 +731,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->BuscarBtn);
 			this->Controls->Add(this->dataGridView1);
 			this->Name = L"SensorsReport";
-			this->Text = L"SensorsReport";
+			this->Text = L"\'";
 			this->Load += gcnew System::EventHandler(this, &SensorsReport::SensorsReportLoad);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart4))->EndInit();

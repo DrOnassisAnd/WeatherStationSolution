@@ -28,6 +28,7 @@
     <ClCompile Include="SensorsReport.cpp" />
     <ClCompile Include="UserReport2.cpp" />
     <ClCompile Include="GraficosPuntosForm.cpp" />
+    <ClCompile Include="NewPie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MembresiaForm.h" />
@@ -58,6 +59,7 @@
     <ClInclude Include="SensorsReport.h" />
     <ClInclude Include="UserReport2.h" />
     <ClInclude Include="GraficosPuntosForm.h" />
+    <ClInclude Include="NewPie.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WeatherStationView.rc" />

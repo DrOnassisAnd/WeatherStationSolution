@@ -4,6 +4,7 @@
 #include "WeatherStationForm.h"
 #include "MembresiaForm.h"
 #include "SensorsReport.h"
+#include "NewPie.h"
 
 namespace WeatherStationView {
 
@@ -90,6 +91,7 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Label^ label12;
 	private: System::Windows::Forms::Timer^ timer2;
 	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::Button^ btnPie;
 
 
 	private: System::ComponentModel::IContainer^ components;
@@ -145,6 +147,7 @@ namespace WeatherStationView {
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->timer2 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->btnPie = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -269,6 +272,7 @@ namespace WeatherStationView {
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::SystemColors::Info;
+			this->panel1->Controls->Add(this->btnPie);
 			this->panel1->Controls->Add(this->label10);
 			this->panel1->Controls->Add(this->textBox5);
 			this->panel1->Controls->Add(this->label12);
@@ -520,6 +524,21 @@ namespace WeatherStationView {
 			// 
 			this->timer2->Interval = 1000;
 			this->timer2->Tick += gcnew System::EventHandler(this, &BasicForm::Timer2_Tick);
+			// 
+			// btnPie
+			// 
+			this->btnPie->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->btnPie->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnPie->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->btnPie->Location = System::Drawing::Point(1015, 371);
+			this->btnPie->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->btnPie->Name = L"btnPie";
+			this->btnPie->Size = System::Drawing::Size(212, 62);
+			this->btnPie->TabIndex = 24;
+			this->btnPie->Text = L"VistaRapida";
+			this->btnPie->UseVisualStyleBackColor = false;
+			this->btnPie->Click += gcnew System::EventHandler(this, &BasicForm::btnPie_Click);
 			// 
 			// BasicForm
 			// 
@@ -868,6 +887,10 @@ private: System::Void textBox5_TextChanged(System::Object^ sender, System::Event
 }
 private: System::Void Timer2_Tick(System::Object^ sender, System::EventArgs^ e) {
 	textBox1->Text = DateTime::Now.ToString("HH:mm:ss");
+}
+private: System::Void btnPie_Click(System::Object^ sender, System::EventArgs^ e) {
+	NewPie^ pieform = gcnew NewPie();
+	pieform->ShowDialog();
 }
 };
 }
