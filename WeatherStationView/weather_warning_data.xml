@@ -12,4 +12,10 @@
     <IdSensor>13</IdSensor>
     <IdAlerta>1</IdAlerta>
   </AlertaMeteorologica>
+  <AlertaMeteorologica>
+    <FechaHora>2023-10-18T00:00:00</FechaHora>
+    <ValorRef>45</ValorRef>
+    <IdSensor>1</IdSensor>
+    <IdAlerta>2</IdAlerta>
+  </AlertaMeteorologica>
 </ArrayOfAlertaMeteorologica>

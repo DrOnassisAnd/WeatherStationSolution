@@ -51,7 +51,7 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ FechaFindgv;
-	private: System::Windows::Forms::Button^ button1;
+
 	private: System::Windows::Forms::Button^ RestablecerBtn;
 	private: System::Windows::Forms::Button^ CerrarBtn;
 
@@ -79,7 +79,6 @@ namespace WeatherStationView {
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->FechaFindgv = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->RestablecerBtn = (gcnew System::Windows::Forms::Button());
 			this->CerrarBtn = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
@@ -88,9 +87,10 @@ namespace WeatherStationView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(20, 12);
+			this->label1->Location = System::Drawing::Point(30, 18);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(105, 13);
+			this->label1->Size = System::Drawing::Size(158, 20);
 			this->label1->TabIndex = 42;
 			this->label1->Text = L"Criterio de Búsqueda";
 			// 
@@ -98,23 +98,26 @@ namespace WeatherStationView {
 			// 
 			this->CriterioBox->FormattingEnabled = true;
 			this->CriterioBox->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Nombre", L"Membresia" });
-			this->CriterioBox->Location = System::Drawing::Point(23, 37);
+			this->CriterioBox->Location = System::Drawing::Point(34, 57);
+			this->CriterioBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->CriterioBox->Name = L"CriterioBox";
-			this->CriterioBox->Size = System::Drawing::Size(121, 21);
+			this->CriterioBox->Size = System::Drawing::Size(180, 28);
 			this->CriterioBox->TabIndex = 41;
 			// 
 			// MinBox
 			// 
-			this->MinBox->Location = System::Drawing::Point(215, 39);
+			this->MinBox->Location = System::Drawing::Point(322, 60);
+			this->MinBox->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->MinBox->Name = L"MinBox";
-			this->MinBox->Size = System::Drawing::Size(112, 20);
+			this->MinBox->Size = System::Drawing::Size(166, 26);
 			this->MinBox->TabIndex = 40;
 			// 
 			// BuscarBtn
 			// 
-			this->BuscarBtn->Location = System::Drawing::Point(669, 37);
+			this->BuscarBtn->Location = System::Drawing::Point(1004, 57);
+			this->BuscarBtn->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->BuscarBtn->Name = L"BuscarBtn";
-			this->BuscarBtn->Size = System::Drawing::Size(75, 23);
+			this->BuscarBtn->Size = System::Drawing::Size(112, 35);
 			this->BuscarBtn->TabIndex = 39;
 			this->BuscarBtn->Text = L"Buscar";
 			this->BuscarBtn->UseVisualStyleBackColor = true;
@@ -127,10 +130,11 @@ namespace WeatherStationView {
 				this->Column1,
 					this->Column4, this->Column2, this->Column3, this->Column5, this->FechaFindgv
 			});
-			this->dataGridView1->Location = System::Drawing::Point(12, 93);
+			this->dataGridView1->Location = System::Drawing::Point(18, 143);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->Size = System::Drawing::Size(748, 173);
+			this->dataGridView1->Size = System::Drawing::Size(1122, 266);
 			this->dataGridView1->TabIndex = 58;
 			// 
 			// Column1
@@ -164,28 +168,23 @@ namespace WeatherStationView {
 			// Column5
 			// 
 			this->Column5->HeaderText = L"Membresia";
+			this->Column5->MinimumWidth = 8;
 			this->Column5->Name = L"Column5";
+			this->Column5->Width = 150;
 			// 
 			// FechaFindgv
 			// 
 			this->FechaFindgv->HeaderText = L"FechaFin";
+			this->FechaFindgv->MinimumWidth = 8;
 			this->FechaFindgv->Name = L"FechaFindgv";
-			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(27, 277);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(121, 23);
-			this->button1->TabIndex = 61;
-			this->button1->Text = L"Mostrar Graficos";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &UserReport::GraficosClick);
+			this->FechaFindgv->Width = 150;
 			// 
 			// RestablecerBtn
 			// 
-			this->RestablecerBtn->Location = System::Drawing::Point(567, 277);
+			this->RestablecerBtn->Location = System::Drawing::Point(850, 426);
+			this->RestablecerBtn->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->RestablecerBtn->Name = L"RestablecerBtn";
-			this->RestablecerBtn->Size = System::Drawing::Size(75, 23);
+			this->RestablecerBtn->Size = System::Drawing::Size(112, 35);
 			this->RestablecerBtn->TabIndex = 60;
 			this->RestablecerBtn->Text = L"Restablecer";
 			this->RestablecerBtn->UseVisualStyleBackColor = true;
@@ -193,9 +192,10 @@ namespace WeatherStationView {
 			// 
 			// CerrarBtn
 			// 
-			this->CerrarBtn->Location = System::Drawing::Point(673, 277);
+			this->CerrarBtn->Location = System::Drawing::Point(1010, 426);
+			this->CerrarBtn->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->CerrarBtn->Name = L"CerrarBtn";
-			this->CerrarBtn->Size = System::Drawing::Size(75, 23);
+			this->CerrarBtn->Size = System::Drawing::Size(112, 35);
 			this->CerrarBtn->TabIndex = 59;
 			this->CerrarBtn->Text = L"Cerrar";
 			this->CerrarBtn->UseVisualStyleBackColor = true;
@@ -203,10 +203,9 @@ namespace WeatherStationView {
 			// 
 			// UserReport
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(773, 308);
-			this->Controls->Add(this->button1);
+			this->ClientSize = System::Drawing::Size(1160, 474);
 			this->Controls->Add(this->RestablecerBtn);
 			this->Controls->Add(this->CerrarBtn);
 			this->Controls->Add(this->dataGridView1);
@@ -214,6 +213,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->CriterioBox);
 			this->Controls->Add(this->MinBox);
 			this->Controls->Add(this->BuscarBtn);
+			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"UserReport";
 			this->Text = L"UserReport";
 			this->Load += gcnew System::EventHandler(this, &UserReport::UserReportLoad);

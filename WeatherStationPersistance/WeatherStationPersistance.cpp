@@ -472,7 +472,7 @@ List<User^>^ WeatherStationPersistance::Persistance::QueryAllUser() {
 User^ WeatherStationPersistance::Persistance::QueryUserbyName(String^ name) {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
 	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
-	UserList = (List<User^>^)LoadUser();
+	UserList = LoadUser();
 	for (int i = 0; i < UserList->Count; i++) {
 		if (UserList[i]->Name == name)
 			return UserList[i];
@@ -483,7 +483,7 @@ User^ WeatherStationPersistance::Persistance::QueryUserbyName(String^ name) {
 User^ WeatherStationPersistance::Persistance::QueryUserbyId(int Id) {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
 	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
-	UserList = (List<User^>^)LoadUser();
+	UserList = LoadUser();
 	for (int i = 0; i < UserList->Count; i++) {
 		if (UserList[i]->Id == Id)
 			return UserList[i];
@@ -994,68 +994,6 @@ List<Ambiente^>^ WeatherStationPersistance::Persistance::LoadAmbientes() {
 	}
 	return ambientelist;
 }
-
-List<User^>^ WeatherStationPersistance::Persistance::LoadUser() {
-
-	List<User^>^ userlist = gcnew List<User^>();
-	SqlConnection^ conn;
-	SqlDataReader^ reader;
-	try {
-		//Paso 1: Se obtiene la conexión
-		conn = GetConnection();
-		//Paso 2: Se prepara la sentencia SQL
-		/*
-		SqlCommand^ cmd = gcnew SqlCommand("SELECT * FROM ROBOT_WAITER", conn);
-		*/
-		/*
-		String^ sqlStr = "dbo.usp_QueryAmbienteData";
-		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
-		*/
-
-		SqlCommand^ cmd = gcnew SqlCommand("SELECT * FROM USUARIO", conn);
-		/*cmd->CommandType = System::Data::CommandType::StoredProcedure;
-		cmd->Prepare();
-		*/
-		//Paso 3: Se ejecuta la sentencia
-		reader = cmd->ExecuteReader();
-		//Paso 4: Se procesa los resultados
-		while (reader->Read()) {
-			User^ user = gcnew User();
-
-			user->Id = Convert::ToInt32(reader["ID"]->ToString());
-			user->Name = reader["NOMBRE"]->ToString();
-			user->Password = reader["CONTRASENA"]->ToString();
-			user->Email = reader["EMAIL"]->ToString();
-
-			Membresia^ membresia = gcnew Membresia();
-			membresia->TipoMembresia = reader["TIPOMEMBRESIA"]->ToString();
-			membresia->fechaFinalizacion = reader["FECHAFINALIZACION"]->ToString();
-			membresia->fechaInicio = reader["FECHAINICIO"]->ToString();
-
-			user->membresia = membresia;
-
-			Ajustes^ ajustes = gcnew Ajustes();
-			ajustes->UnidadTemp = reader["UNIDADTEMP"]->ToString();;
-			ajustes->FormatoHoras = reader["FORMATOHORAS"]->ToString();
-			ajustes->FormatoFecha = reader["FORMATOFECHAS"]->ToString();
-
-			user->ajustes = ajustes;
-
-			userlist->Add(user);
-		}
-	}
-	catch (Exception^ ex) {
-	}
-	finally {
-		//Paso 5: Se cierran los objetos de conexión
-		if (reader != nullptr) reader->Close();
-		if (conn != nullptr) conn->Close();
-	}
-	return userlist;
-}
-
-
-
 
 void WeatherStationPersistance::Persistance::AddAmbienteData(Ambiente^ sensordata) {
 		//sAmbienteDB->Add(sensordata);

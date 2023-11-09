@@ -22,14 +22,14 @@ namespace WeatherStationView {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar cÃ³digo de constructor aquÃ­
 			//
 			this->user = User;
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estÃ©n usando.
 		/// </summary>
 		~SensorsReport()
 		{
@@ -130,14 +130,14 @@ namespace WeatherStationView {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseÃ±ador necesaria.
 		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// MÃ©todo necesario para admitir el DiseÃ±ador. No se puede modificar
+		/// el contenido de este mÃ©todo con el editor de cÃ³digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -333,7 +333,7 @@ namespace WeatherStationView {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(105, 13);
 			this->label1->TabIndex = 19;
-			this->label1->Text = L"Criterio de Búsqueda";
+			this->label1->Text = L"Criterio de BÃºsqueda";
 			// 
 			// MaxBox
 			// 
@@ -466,7 +466,7 @@ namespace WeatherStationView {
 			this->checkBox2->Name = L"checkBox2";
 			this->checkBox2->Size = System::Drawing::Size(81, 17);
 			this->checkBox2->TabIndex = 38;
-			this->checkBox2->Text = L"Solo un día";
+			this->checkBox2->Text = L"Solo un dÃ­a";
 			this->checkBox2->UseVisualStyleBackColor = true;
 			this->checkBox2->CheckedChanged += gcnew System::EventHandler(this, &SensorsReport::SoloUnDia);
 			// 
@@ -721,14 +721,14 @@ namespace WeatherStationView {
 			for each (Ambiente ^ dato in ambiente_aux) {
 				int temp = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Temperatura;
 				if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
-					// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
+					// El valor de Temperatura estÃ¡ dentro del rango, agrega el dato filtrado a la nueva lista.
 					ambiente_to_filter->Add(dato);
 				}
 			}
 			for each (Ambiente ^ dato in ambiente_aux_2) {
 				int temp = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Temperatura;
 				if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
-					// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
+					// El valor de Temperatura estÃ¡ dentro del rango, agrega el dato filtrado a la nueva lista.
 					ambiente_to_filter_2->Add(dato);
 				}
 			}
@@ -780,14 +780,14 @@ namespace WeatherStationView {
 			for each (Ambiente ^ dato in ambiente_aux) {
 				int humedad = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Humedad;
 				if ((humedad >= Int32::Parse(MinBox->Text)) && (humedad <= Int32::Parse(MaxBox->Text))) {
-					// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
+					// El valor de Temperatura estÃ¡ dentro del rango, agrega el dato filtrado a la nueva lista.
 					ambiente_to_filter->Add(dato);
 				}
 			}
 			for each (Ambiente ^ dato in ambiente_aux_2) {
 				int humedad = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Humedad;
 				if ((humedad >= Int32::Parse(MinBox->Text)) && (humedad <= Int32::Parse(MaxBox->Text))) {
-					// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
+					// El valor de Temperatura estÃ¡ dentro del rango, agrega el dato filtrado a la nueva lista.
 					ambiente_to_filter_2->Add(dato);
 				}
 			}
@@ -838,14 +838,14 @@ namespace WeatherStationView {
 			for each (Ambiente ^ dato in ambiente_aux) {
 				int CO = dynamic_cast<SensorCO^>(dato->DataBase[1])->NivelCO;
 				if ((CO >= Int32::Parse(MinBox->Text)) && (CO <= Int32::Parse(MaxBox->Text))) {
-					// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
+					// El valor de Temperatura estÃ¡ dentro del rango, agrega el dato filtrado a la nueva lista.
 					ambiente_to_filter->Add(dato);
 				}
 			}
 			for each (Ambiente ^ dato in ambiente_aux_2) {
 				int CO = dynamic_cast<SensorCO^>(dato->DataBase[1])->NivelCO;
 				if ((CO >= Int32::Parse(MinBox->Text)) && (CO <= Int32::Parse(MaxBox->Text))) {
-					// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
+					// El valor de Temperatura estÃ¡ dentro del rango, agrega el dato filtrado a la nueva lista.
 					ambiente_to_filter_2->Add(dato);
 				}
 			}
@@ -954,7 +954,7 @@ namespace WeatherStationView {
 			int Hora1 = Int32::Parse(HoraInicial->Text);
 			int Min1 = Int32::Parse(MinutoInicial->Text);
 			String^ ampm1 = AMPM1->SelectedItem->ToString();
-			int factor1 = (ampm1 == "a.m.") ? 0 : 12; //if fino, a ? b : c, a condicion, b Sí, c No
+			int factor1 = (ampm1 == "a.m.") ? 0 : 12; //if fino, a ? b : c, a condicion, b SÃ­, c No
 			fechaInicio = fechaInicio.Date.AddHours(Hora1 + factor1).AddMinutes(Min1).AddSeconds(0);
 
 			DateTime fechaFin = dtp2->Value;
@@ -1043,7 +1043,7 @@ namespace WeatherStationView {
 			int Hora1 = Int32::Parse(HoraInicial->Text);
 			int Min1 = Int32::Parse(MinutoInicial->Text);
 			String^ ampm1 = AMPM1->SelectedItem->ToString();
-			int factor1 = (ampm1 == "a.m.") ? 0 : 12; //if fino, a ? b : c, a condicion, b Sí, c No
+			int factor1 = (ampm1 == "a.m.") ? 0 : 12; //if fino, a ? b : c, a condicion, b SÃ­, c No
 			fechaInicio = fechaInicio.Date.AddHours(Hora1 + factor1).AddMinutes(Min1).AddSeconds(0);
 
 
@@ -1176,6 +1176,7 @@ namespace WeatherStationView {
 				   });
 			   }
 		   }
+
 	private: System::Void EleccionCriterio(System::Object^ sender, System::EventArgs^ e) {
 		if (CriterioBox->SelectedItem->ToString() == "Temperatura") {
 			MinLabel->Text = "Temperatura minima";
@@ -1265,6 +1266,7 @@ namespace WeatherStationView {
 				   checkBox2->Visible = false;
 				   dosPuntos1->Visible = false;
 				   dosPuntos2->Visible = false;
+
 			   }
 		   }
 	private: System::Void CerrarBtn_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1456,6 +1458,7 @@ namespace WeatherStationView {
 
 
 		   }
+
 		   void RefreshbyCIACheck() {
 			   if (CIAChk->Checked == true) {
 				   chart1->Series["CIA"]->Enabled = true;
@@ -1469,6 +1472,7 @@ namespace WeatherStationView {
 				   chart3->Series["CIA"]->Enabled = false;
 				   chart4->Series["CIA"]->Enabled = false;
 			   }
+
 
 		   }
 		   void RefreshbyFACICheck() {
@@ -1485,12 +1489,14 @@ namespace WeatherStationView {
 				   chart4->Series["FACI"]->Enabled = false;
 			   }
 		   }
+
 		   void RefreshbyBiblioCheck() {
 			   if (BiblioChk->Checked == true) {
 				   chart1->Series["BIBLIOTECA"]->Enabled = true;
 				   chart2->Series["BIBLIOTECA"]->Enabled = true;
 				   chart3->Series["BIBLIOTECA"]->Enabled = true;
 				   chart4->Series["BIBLIOTECA"]->Enabled = true;
+
 			   }
 			   else {
 				   chart1->Series["BIBLIOTECA"]->Enabled = false;
@@ -1499,12 +1505,14 @@ namespace WeatherStationView {
 				   chart4->Series["BIBLIOTECA"]->Enabled = false;
 			   }
 		   }
+
 		   void RefreshbyTinkuyCheck() {
 			   if (TinkuyChk->Checked == true) {
 				   chart1->Series["TINKUY"]->Enabled = true;
 				   chart2->Series["TINKUY"]->Enabled = true;
 				   chart3->Series["TINKUY"]->Enabled = true;
 				   chart4->Series["TINKUY"]->Enabled = true;
+
 			   }
 			   else {
 				   chart1->Series["TINKUY"]->Enabled = false;
@@ -1522,6 +1530,7 @@ namespace WeatherStationView {
 					   chart3->Series["CIA"]->Points[i]->IsEmpty = false;
 					   chart4->Series["CIA"]->Points[i]->IsEmpty = false;
 
+
 				   }
 				   else {
 					   chart1->Series["CIA"]->Points[i]->IsEmpty = true;
@@ -1538,6 +1547,7 @@ namespace WeatherStationView {
 					   chart2->Series["FACI"]->Points[i]->IsEmpty = false;
 					   chart3->Series["FACI"]->Points[i]->IsEmpty = false;
 					   chart4->Series["FACI"]->Points[i]->IsEmpty = false;
+
 
 				   }
 				   else {

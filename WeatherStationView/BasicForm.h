@@ -26,7 +26,7 @@ namespace WeatherStationView {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar cÃ³digo de constructor aquÃ­
 			this->StringDateTime;
 			this->selectedDateTime;
 			this->basicForm;
@@ -36,7 +36,7 @@ namespace WeatherStationView {
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estÃ©n usando.
 		/// </summary>
 		~BasicForm()
 		{
@@ -102,14 +102,14 @@ namespace WeatherStationView {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseÃ±ador necesaria.
 		/// </summary>
 
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// MÃ©todo necesario para admitir el DiseÃ±ador. No se puede modificar
+		/// el contenido de este mÃ©todo con el editor de cÃ³digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -239,7 +239,7 @@ namespace WeatherStationView {
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(212, 61);
 			this->button3->TabIndex = 6;
-			this->button3->Text = L"Membresía";
+			this->button3->Text = L"MembresÃ­a";
 			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &BasicForm::button3_Click);
 			// 
@@ -254,7 +254,7 @@ namespace WeatherStationView {
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(212, 62);
 			this->button4->TabIndex = 7;
-			this->button4->Text = L"Estadística";
+			this->button4->Text = L"EstadÃ­stica";
 			this->button4->UseVisualStyleBackColor = false;
 			this->button4->Click += gcnew System::EventHandler(this, &BasicForm::button4_Click);
 			// 
@@ -516,7 +516,7 @@ namespace WeatherStationView {
 		timer1->Start();
 		timer2->Start();
 
-		//SerialPort^ serialPort = gcnew SerialPort("COM3", 9600, Parity::None, 8, StopBits::One); // Reemplaza "COMX" con el puerto COM al que está conectado tu Arduino
+		//SerialPort^ serialPort = gcnew SerialPort("COM3", 9600, Parity::None, 8, StopBits::One); // Reemplaza "COMX" con el puerto COM al que estÃ¡ conectado tu Arduino
 		//serialPort->Open(); // Abre el puerto serie
 
 		
@@ -528,7 +528,7 @@ namespace WeatherStationView {
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		if (user->membresia->TipoMembresia == "Basic") {
-			MessageBox::Show("Suscribete a una Membresia para poder usar esta opción");
+			MessageBox::Show("Suscribete a una Membresia para poder usar esta opciÃ³n");
 			MembresiaForm^ membform = gcnew MembresiaForm(membresiaGlobal, user);
 			membform->ControlBox = false;
 			membform->ShowDialog();
@@ -736,7 +736,7 @@ private: System::Void Mostrar_Click(System::Object^ sender, System::EventArgs^ e
 		   int calidadAireint = Int32::Parse(calidadAire_cia);
 
 		   Ambiente^ ambiente = gcnew Ambiente();
-		   SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(1, temperaturaint, "°C", humedadint);
+		   SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(1, temperaturaint, "Â°C", humedadint);
 		   SensorCO^ CO = gcnew SensorCO(1, coint);
 		   SensorCalidadAire^ airq = gcnew SensorCalidadAire(1, calidadAireint);
 
@@ -778,12 +778,12 @@ private: System::Void Mostrar_Click(System::Object^ sender, System::EventArgs^ e
 
 		   Controller::Controller::AddAmbienteData(ambiente);
 
-		   //Luego seguiría la recopilacion de datos del sensor 2, 3 y 4 (claro está, esos valores deben
+		   //Luego seguirï¿½a la recopilacion de datos del sensor 2, 3 y 4 (claro estï¿½, esos valores deben
 		   //ser generados)
 	   
 		   //por lo tanto, Ambiente ha recibido cuatro listas y las ha enviado a la database
 
-		   //sin embargo, solo se puede mostrar una de las 4 datos Ambiente^. La elección dependerá del
+		   //sin embargo, solo se puede mostrar una de las 4 datos Ambiente^. La elecciï¿½n dependerï¿½ del
 		   // valor del comboBox
 		   
 		   if ((comboBox1->SelectedItem->ToString()) == "CIA") {
@@ -800,6 +800,7 @@ private: System::Void Mostrar_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void timer_tick(System::Object^ sender, System::EventArgs^ e) {
 	
 	TransmisionDataArduino();
+
 
 }
 private: System::Void label12_Click(System::Object^ sender, System::EventArgs^ e) {
