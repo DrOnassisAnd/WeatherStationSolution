@@ -210,10 +210,24 @@ void Controller::Controller::ClosePort() {
 String^ Controller::Controller::SendSensorsData() {
 	
 	try {
+
 		OpenPort();
 		String^ sensordata = ArduinoPort->ReadLine();
 		ClosePort();
 		return sensordata;
+	}
+	catch (Exception^ ex) {
+		throw ex;
+	}
+}
+
+void Controller::Controller::SendFlag()
+{
+	//Pasos para la comunicación serial con un HW externo.
+	try {
+		OpenPort();
+		ArduinoPort->Write(Convert::ToString(1));
+		ClosePort();
 	}
 	catch (Exception^ ex) {
 		throw ex;
@@ -290,6 +304,7 @@ List<String^>^ Controller::Controller::GetDateTimefromAmbiente(List<Ambiente^>^ 
 		DateTime datetimeDT = dateDT.Date + timeDT.TimeOfDay;
 		String^ datetime = datetimeDT.ToString("yyyy-MM-dd HH:mm:ss");
 		datetimedata->Add(datetime);
+
 	}
 	return datetimedata;
 }
@@ -303,3 +318,6 @@ List<int>^ Controller::Controller::GetIndexfromAmbiente(List<Ambiente^>^ sensord
 	}
 	return indexdata;
 }
+
+
+
