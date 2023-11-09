@@ -26,7 +26,7 @@ namespace WeatherStationView {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar cÃ³digo de constructor aquÃ­
 			this->StringDateTime;
 			this->selectedDateTime;
 			this->basicForm;
@@ -36,7 +36,7 @@ namespace WeatherStationView {
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estÃ©n usando.
 		/// </summary>
 		~BasicForm()
 		{
@@ -102,14 +102,14 @@ namespace WeatherStationView {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseÃ±ador necesaria.
 		/// </summary>
 
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// MÃ©todo necesario para admitir el DiseÃ±ador. No se puede modificar
+		/// el contenido de este mÃ©todo con el editor de cÃ³digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -153,7 +153,9 @@ namespace WeatherStationView {
 			this->label1->Location = System::Drawing::Point(31, 127);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(62, 25);
+
+			this->label1->Size = System::Drawing::Size(74, 29);
+
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Lugar";
 			this->label1->Click += gcnew System::EventHandler(this, &BasicForm::label1_Click);
@@ -167,7 +169,9 @@ namespace WeatherStationView {
 			this->label2->Location = System::Drawing::Point(602, 300);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(124, 25);
+
+			this->label2->Size = System::Drawing::Size(152, 29);
+
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Temperatura";
 			this->label2->Click += gcnew System::EventHandler(this, &BasicForm::label2_Click);
@@ -181,7 +185,9 @@ namespace WeatherStationView {
 			this->label3->Location = System::Drawing::Point(602, 392);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(97, 25);
+
+			this->label3->Size = System::Drawing::Size(118, 29);
+
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Humedad";
 			this->label3->Click += gcnew System::EventHandler(this, &BasicForm::label3_Click);
@@ -195,7 +201,9 @@ namespace WeatherStationView {
 			this->label4->Location = System::Drawing::Point(602, 458);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(150, 25);
+
+			this->label4->Size = System::Drawing::Size(185, 29);
+
 			this->label4->TabIndex = 3;
 			this->label4->Text = L"Calidad del Aire";
 			this->label4->Click += gcnew System::EventHandler(this, &BasicForm::label4_Click);
@@ -241,7 +249,7 @@ namespace WeatherStationView {
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(212, 61);
 			this->button3->TabIndex = 6;
-			this->button3->Text = L"Membresía";
+			this->button3->Text = L"MembresÃ­a";
 			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &BasicForm::button3_Click);
 			// 
@@ -256,7 +264,7 @@ namespace WeatherStationView {
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(212, 62);
 			this->button4->TabIndex = 7;
-			this->button4->Text = L"Estadística";
+			this->button4->Text = L"EstadÃ­stica";
 			this->button4->UseVisualStyleBackColor = false;
 			this->button4->Click += gcnew System::EventHandler(this, &BasicForm::button4_Click);
 			// 
@@ -303,7 +311,9 @@ namespace WeatherStationView {
 				static_cast<System::Byte>(0)));
 			this->label10->Location = System::Drawing::Point(668, 24);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(220, 80);
+
+			this->label10->Size = System::Drawing::Size(266, 97);
+
 			this->label10->TabIndex = 23;
 			this->label10->Text = L"label10";
 			// 
@@ -311,7 +321,10 @@ namespace WeatherStationView {
 			// 
 			this->textBox5->Location = System::Drawing::Point(781, 512);
 			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(100, 30);
+
+			this->textBox5->Size = System::Drawing::Size(100, 35);
+
+	
 			this->textBox5->TabIndex = 22;
 			this->textBox5->TextChanged += gcnew System::EventHandler(this, &BasicForm::textBox5_TextChanged);
 			// 
@@ -324,7 +337,9 @@ namespace WeatherStationView {
 			this->label12->Location = System::Drawing::Point(602, 512);
 			this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(175, 25);
+
+			this->label12->Size = System::Drawing::Size(210, 29);
+
 			this->label12->TabIndex = 21;
 			this->label12->Text = L"Concentracion CO";
 			this->label12->Click += gcnew System::EventHandler(this, &BasicForm::label12_Click);
@@ -334,7 +349,9 @@ namespace WeatherStationView {
 			this->label9->AutoSize = true;
 			this->label9->Location = System::Drawing::Point(106, 20);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(64, 25);
+
+			this->label9->Size = System::Drawing::Size(79, 29);
+
 			this->label9->TabIndex = 17;
 			this->label9->Text = L"label9";
 			// 
@@ -343,7 +360,9 @@ namespace WeatherStationView {
 			this->label8->AutoSize = true;
 			this->label8->Location = System::Drawing::Point(46, 20);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(64, 25);
+
+			this->label8->Size = System::Drawing::Size(79, 29);
+
 			this->label8->TabIndex = 16;
 			this->label8->Text = L"label8";
 			// 
@@ -351,7 +370,9 @@ namespace WeatherStationView {
 			// 
 			this->textBox4->Location = System::Drawing::Point(781, 458);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(100, 30);
+
+			this->textBox4->Size = System::Drawing::Size(100, 35);
+
 			this->textBox4->TabIndex = 14;
 			this->textBox4->TextChanged += gcnew System::EventHandler(this, &BasicForm::textBox4_TextChanged);
 			// 
@@ -359,7 +380,9 @@ namespace WeatherStationView {
 			// 
 			this->textBox3->Location = System::Drawing::Point(781, 392);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(100, 30);
+
+			this->textBox3->Size = System::Drawing::Size(100, 35);
+
 			this->textBox3->TabIndex = 13;
 			this->textBox3->TextChanged += gcnew System::EventHandler(this, &BasicForm::textBox3_TextChanged);
 			// 
@@ -367,7 +390,9 @@ namespace WeatherStationView {
 			// 
 			this->textBox2->Location = System::Drawing::Point(781, 295);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 30);
+
+			this->textBox2->Size = System::Drawing::Size(100, 35);
+
 			this->textBox2->TabIndex = 12;
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &BasicForm::textBox2_TextChanged);
 			// 
@@ -376,7 +401,9 @@ namespace WeatherStationView {
 			this->textBox1->Location = System::Drawing::Point(781, 211);
 			this->textBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 30);
+
+			this->textBox1->Size = System::Drawing::Size(100, 35);
+
 			this->textBox1->TabIndex = 10;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &BasicForm::textBox1_TextChanged);
 			// 
@@ -388,7 +415,9 @@ namespace WeatherStationView {
 			this->label7->Location = System::Drawing::Point(602, 211);
 			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(54, 25);
+
+			this->label7->Size = System::Drawing::Size(65, 29);
+
 			this->label7->TabIndex = 9;
 			this->label7->Text = L"Hora";
 			this->label7->Click += gcnew System::EventHandler(this, &BasicForm::label7_Click);
@@ -401,7 +430,9 @@ namespace WeatherStationView {
 			this->label6->Location = System::Drawing::Point(313, 19);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(458, 80);
+
+			this->label6->Size = System::Drawing::Size(546, 97);
+
 			this->label6->TabIndex = 8;
 			this->label6->Text = L"Weather Station";
 			this->label6->Click += gcnew System::EventHandler(this, &BasicForm::label6_Click);
@@ -414,7 +445,9 @@ namespace WeatherStationView {
 			this->label5->Location = System::Drawing::Point(434, 122);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(67, 25);
+
+			this->label5->Size = System::Drawing::Size(80, 29);
+
 			this->label5->TabIndex = 7;
 			this->label5->Text = L"Fecha";
 			this->label5->Click += gcnew System::EventHandler(this, &BasicForm::label5_Click);
@@ -426,7 +459,9 @@ namespace WeatherStationView {
 			this->dtpWeatherStationBasic->Location = System::Drawing::Point(542, 122);
 			this->dtpWeatherStationBasic->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->dtpWeatherStationBasic->Name = L"dtpWeatherStationBasic";
-			this->dtpWeatherStationBasic->Size = System::Drawing::Size(349, 30);
+
+			this->dtpWeatherStationBasic->Size = System::Drawing::Size(349, 35);
+
 			this->dtpWeatherStationBasic->TabIndex = 4;
 			this->dtpWeatherStationBasic->ValueChanged += gcnew System::EventHandler(this, &BasicForm::dateTimePicker1_ValueChanged);
 			// 
@@ -450,7 +485,9 @@ namespace WeatherStationView {
 			this->comboBox1->Location = System::Drawing::Point(177, 127);
 			this->comboBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(180, 35);
+
+			this->comboBox1->Size = System::Drawing::Size(180, 40);
+
 			this->comboBox1->TabIndex = 0;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &BasicForm::comboBox1_SelectedIndexChanged);
 			// 
@@ -466,7 +503,9 @@ namespace WeatherStationView {
 			// 
 			// BasicForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
+
+			this->AutoScaleDimensions = System::Drawing::SizeF(14, 29);
+
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1240, 717);
 			this->ControlBox = false;
@@ -513,7 +552,7 @@ namespace WeatherStationView {
 		timer1->Start();
 		timer2->Start();
 
-		//SerialPort^ serialPort = gcnew SerialPort("COM3", 9600, Parity::None, 8, StopBits::One); // Reemplaza "COMX" con el puerto COM al que está conectado tu Arduino
+		//SerialPort^ serialPort = gcnew SerialPort("COM3", 9600, Parity::None, 8, StopBits::One); // Reemplaza "COMX" con el puerto COM al que estÃ¡ conectado tu Arduino
 		//serialPort->Open(); // Abre el puerto serie
 
 		
@@ -525,7 +564,7 @@ namespace WeatherStationView {
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		if (user->membresia->TipoMembresia == "Basic") {
-			MessageBox::Show("Suscribete a una Membresia para poder usar esta opción");
+			MessageBox::Show("Suscribete a una Membresia para poder usar esta opciÃ³n");
 			MembresiaForm^ membform = gcnew MembresiaForm(membresiaGlobal, user);
 			membform->ControlBox = false;
 			membform->ShowDialog();
@@ -764,7 +803,7 @@ private: System::Void Serial_Click(System::Object^ sender, System::EventArgs^ e)
 		   textBox5->Text = co;
 
 		   Ambiente^ ambiente = gcnew Ambiente();
-		   SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(1, temperaturaint, "°C", humedadint);
+		   SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(1, temperaturaint, "Â°C", humedadint);
 		   SensorCO^ CO = gcnew SensorCO(1, coint);
 		   SensorCalidadAire^ airq = gcnew SensorCalidadAire(1, calidadAireint);
 
@@ -816,6 +855,7 @@ private: System::Void Serial_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void timer_tick(System::Object^ sender, System::EventArgs^ e) {
 	
 	TransmisionDataArduino();
+
 
 }
 private: System::Void label12_Click(System::Object^ sender, System::EventArgs^ e) {
