@@ -132,7 +132,7 @@ namespace WeatherStationPersistance {
 		static List<Ambiente^>^ LoadAmbientes();
 		static List<User^>^ LoadUser();
 
-		static List<User^>^ LoadUser();
+		
 
 		//Ambiente Methods
 		static void AddAmbienteData(Ambiente^ sensordata);
