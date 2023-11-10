@@ -87,6 +87,9 @@ namespace Controller {
 		static List<int>^ GetCOfromAmbiente(List<Ambiente^>^ sensordata);
 		static List<int>^ GetAirQfromAmbiente(List<Ambiente^>^ sensordata);
 		static List<String^>^ GetDateTimefromAmbiente(List<Ambiente^>^ sensordata);
+		static List<String^>^ GetOnlyHora(List<Ambiente^>^ sensordata);
+		static List<String^>^ GetOnlyFecha(List<Ambiente^>^ sensordata);
+
 		static List<int>^ GetIndexfromAmbiente(List<Ambiente^>^ sensordata, String^ UbiGeo);
 		static void SendFlag();
 	};

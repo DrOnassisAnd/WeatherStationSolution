@@ -51,7 +51,7 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ FechaFindgv;
-	private: System::Windows::Forms::Button^ button1;
+
 	private: System::Windows::Forms::Button^ RestablecerBtn;
 	private: System::Windows::Forms::Button^ CerrarBtn;
 
@@ -79,7 +79,6 @@ namespace WeatherStationView {
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->FechaFindgv = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->RestablecerBtn = (gcnew System::Windows::Forms::Button());
 			this->CerrarBtn = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
@@ -171,19 +170,9 @@ namespace WeatherStationView {
 			this->FechaFindgv->HeaderText = L"FechaFin";
 			this->FechaFindgv->Name = L"FechaFindgv";
 			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(27, 277);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(121, 23);
-			this->button1->TabIndex = 61;
-			this->button1->Text = L"Mostrar Graficos";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &UserReport::GraficosClick);
-			// 
 			// RestablecerBtn
 			// 
-			this->RestablecerBtn->Location = System::Drawing::Point(567, 277);
+			this->RestablecerBtn->Location = System::Drawing::Point(23, 277);
 			this->RestablecerBtn->Name = L"RestablecerBtn";
 			this->RestablecerBtn->Size = System::Drawing::Size(75, 23);
 			this->RestablecerBtn->TabIndex = 60;
@@ -206,7 +195,6 @@ namespace WeatherStationView {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(773, 308);
-			this->Controls->Add(this->button1);
 			this->Controls->Add(this->RestablecerBtn);
 			this->Controls->Add(this->CerrarBtn);
 			this->Controls->Add(this->dataGridView1);

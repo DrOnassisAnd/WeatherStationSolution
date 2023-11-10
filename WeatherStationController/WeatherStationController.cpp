@@ -189,7 +189,7 @@ void Controller::Controller::UpdateErrorWarning(AlertaError^ alertaError) {
 void Controller::Controller::OpenPort() {
 	try {
 		ArduinoPort = gcnew SerialPort();
-		ArduinoPort->PortName = "COM5";
+		ArduinoPort->PortName = "COM3";
 		ArduinoPort->BaudRate = 9600;
 		ArduinoPort->Open();
 	}
@@ -308,6 +308,55 @@ List<String^>^ Controller::Controller::GetDateTimefromAmbiente(List<Ambiente^>^ 
 	}
 	return datetimedata;
 }
+
+List<String^>^ Controller::Controller::GetOnlyHora(List<Ambiente^>^ sensordata)
+{
+	List<String^>^ datetimedata = gcnew List<String^>();
+	for each (Ambiente ^ dato in sensordata) {
+		String^ date = dato->TiempoMedicion;
+
+		/*
+		String^ time = dato->TiempoMedicion;
+		DateTime dateDT = DateTime::ParseExact(date, "yyyy-MM-dd", nullptr);
+		DateTime timeDT = DateTime::ParseExact(time, "HH:mm:ss", nullptr);
+		DateTime datetimeDT = dateDT.Date + timeDT.TimeOfDay;
+		String^ datetime = datetimeDT.ToString("yyyy-MM-dd HH:mm:ss");*/
+
+		datetimedata->Add(date);
+
+	}
+	return datetimedata;
+
+}
+
+
+List<String^>^ Controller::Controller::GetOnlyFecha(List<Ambiente^>^ sensordata)
+{
+	List<String^>^ datetimedata = gcnew List<String^>();
+	for each (Ambiente ^ dato in sensordata) {
+		String^ date = dato->FechaMedicion;
+
+		/*
+		String^ time = dato->TiempoMedicion;
+		DateTime dateDT = DateTime::ParseExact(date, "yyyy-MM-dd", nullptr);
+		DateTime timeDT = DateTime::ParseExact(time, "HH:mm:ss", nullptr);
+		DateTime datetimeDT = dateDT.Date + timeDT.TimeOfDay;
+		String^ datetime = datetimeDT.ToString("yyyy-MM-dd HH:mm:ss");*/
+
+		datetimedata->Add(date);
+
+	}
+	return datetimedata;
+
+}
+
+
+
+
+
+
+
+
 
 List<int>^ Controller::Controller::GetIndexfromAmbiente(List<Ambiente^>^ sensordata, String^ UbiGeo) {
 	List<int>^ indexdata = gcnew List<int>();

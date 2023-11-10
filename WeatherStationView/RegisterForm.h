@@ -218,7 +218,6 @@ namespace WeatherStationView {
 			this->label5->TabIndex = 8;
 			this->label5->Text = L"Register your information so that you can create an account and have access to in"
 				L"credible meteorological data.";
-			this->label5->Click += gcnew System::EventHandler(this, &RegisterForm::label5_Click);
 			// 
 			// panel1
 			// 
@@ -260,7 +259,6 @@ namespace WeatherStationView {
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(635, 555);
 			this->panel2->TabIndex = 13;
-			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &RegisterForm::panel2_Paint);
 			// 
 			// bindingNavigator1
 			// 
@@ -356,7 +354,6 @@ namespace WeatherStationView {
 			this->bindingNavigatorMoveNextItem->RightToLeftAutoMirrorImage = true;
 			this->bindingNavigatorMoveNextItem->Size = System::Drawing::Size(29, 28);
 			this->bindingNavigatorMoveNextItem->Text = L"Mover siguiente";
-			this->bindingNavigatorMoveNextItem->Click += gcnew System::EventHandler(this, &RegisterForm::bindingNavigatorMoveNextItem_Click);
 			// 
 			// bindingNavigatorMoveLastItem
 			// 
@@ -396,7 +393,6 @@ namespace WeatherStationView {
 			this->label3->Size = System::Drawing::Size(263, 28);
 			this->label3->TabIndex = 15;
 			this->label3->Text = L"Insert an Email:";
-			this->label3->Click += gcnew System::EventHandler(this, &RegisterForm::label3_Click);
 			// 
 			// label2
 			// 
@@ -421,7 +417,6 @@ namespace WeatherStationView {
 			this->label1->Size = System::Drawing::Size(263, 28);
 			this->label1->TabIndex = 13;
 			this->label1->Text = L"Create a Username:";
-			this->label1->Click += gcnew System::EventHandler(this, &RegisterForm::label1_Click);
 			// 
 			// RegisterForm
 			// 
@@ -518,20 +513,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 
 }
 
-private: System::Void panel5_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-}
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void bindingNavigatorMoveNextItem_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void panel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-}
+
 private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	flag++;	
 }

@@ -5,6 +5,10 @@
 #include "MembresiaForm.h"
 #include "SensorsReport.h"
 
+#include "NewPie.h"
+
+
+
 namespace WeatherStationView {
 
 	using namespace System;
@@ -50,7 +54,16 @@ namespace WeatherStationView {
 	private: Membresia^ membresiaGlobal;
 	private: BasicForm^ basicForm;
 	private: String^ IdSensor;
-
+	private: Random^ rand = gcnew Random();
+	private: int minTemp = 17;
+	private: int maxTemp = 25;
+	private: int minHum = 50;
+	private: int maxHum = 99;
+	private: int minCO = 50;
+	private: int maxCO = 200;
+	private: int minAQ = 100;
+	private: int maxAQ = 175;
+	private: double gaussian;
 	private: System::Windows::Forms::Label^ label1;
 	protected:
 	private: System::Windows::Forms::Label^ label2;
@@ -90,6 +103,8 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Label^ label12;
 	private: System::Windows::Forms::Timer^ timer2;
 	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::Label^ UnidadTemplbl;
+	private: System::Windows::Forms::Button^ button5;
 
 
 	private: System::ComponentModel::IContainer^ components;
@@ -123,6 +138,8 @@ namespace WeatherStationView {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->UnidadTemplbl = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->label12 = (gcnew System::Windows::Forms::Label());
@@ -219,7 +236,7 @@ namespace WeatherStationView {
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button2->Location = System::Drawing::Point(1030, 651);
+			this->button2->Location = System::Drawing::Point(1032, 512);
 			this->button2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(174, 52);
@@ -249,7 +266,7 @@ namespace WeatherStationView {
 			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button4->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button4->Location = System::Drawing::Point(1015, 251);
+			this->button4->Location = System::Drawing::Point(1015, 231);
 			this->button4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(212, 62);
@@ -261,6 +278,8 @@ namespace WeatherStationView {
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::SystemColors::Info;
+			this->panel1->Controls->Add(this->button5);
+			this->panel1->Controls->Add(this->UnidadTemplbl);
 			this->panel1->Controls->Add(this->label10);
 			this->panel1->Controls->Add(this->textBox5);
 			this->panel1->Controls->Add(this->label12);
@@ -290,8 +309,32 @@ namespace WeatherStationView {
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(1240, 717);
+			this->panel1->Size = System::Drawing::Size(1240, 570);
 			this->panel1->TabIndex = 8;
+			// 
+			// button5
+			// 
+			this->button5->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->button5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button5->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->button5->Location = System::Drawing::Point(1015, 323);
+			this->button5->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(212, 62);
+			this->button5->TabIndex = 25;
+			this->button5->Text = L"Más Graficos";
+			this->button5->UseVisualStyleBackColor = false;
+			this->button5->Click += gcnew System::EventHandler(this, &BasicForm::button5_Click);
+			// 
+			// UnidadTemplbl
+			// 
+			this->UnidadTemplbl->AutoSize = true;
+			this->UnidadTemplbl->Location = System::Drawing::Point(830, 285);
+			this->UnidadTemplbl->Name = L"UnidadTemplbl";
+			this->UnidadTemplbl->Size = System::Drawing::Size(60, 20);
+			this->UnidadTemplbl->TabIndex = 24;
+			this->UnidadTemplbl->Text = L"label11";
 			// 
 			// label10
 			// 
@@ -308,7 +351,7 @@ namespace WeatherStationView {
 			// 
 			this->textBox5->Location = System::Drawing::Point(781, 512);
 			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(110, 26);
+			this->textBox5->Size = System::Drawing::Size(43, 26);
 			this->textBox5->TabIndex = 22;
 			this->textBox5->TextChanged += gcnew System::EventHandler(this, &BasicForm::textBox5_TextChanged);
 			// 
@@ -346,23 +389,23 @@ namespace WeatherStationView {
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(781, 458);
+			this->textBox4->Location = System::Drawing::Point(781, 436);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(110, 26);
+			this->textBox4->Size = System::Drawing::Size(43, 26);
 			this->textBox4->TabIndex = 14;
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(781, 392);
+			this->textBox3->Location = System::Drawing::Point(781, 361);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(110, 26);
+			this->textBox3->Size = System::Drawing::Size(43, 26);
 			this->textBox3->TabIndex = 13;
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(781, 295);
+			this->textBox2->Location = System::Drawing::Point(781, 282);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(110, 26);
+			this->textBox2->Size = System::Drawing::Size(43, 26);
 			this->textBox2->TabIndex = 12;
 			// 
 			// textBox1
@@ -414,9 +457,11 @@ namespace WeatherStationView {
 			// 
 			this->dtpWeatherStationBasic->CalendarFont = (gcnew System::Drawing::Font(L"Palatino Linotype", 10.2F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->dtpWeatherStationBasic->Enabled = false;
 			this->dtpWeatherStationBasic->Location = System::Drawing::Point(542, 122);
 			this->dtpWeatherStationBasic->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->dtpWeatherStationBasic->Name = L"dtpWeatherStationBasic";
+			this->dtpWeatherStationBasic->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->dtpWeatherStationBasic->Size = System::Drawing::Size(349, 26);
 			this->dtpWeatherStationBasic->TabIndex = 4;
 			// 
@@ -436,7 +481,7 @@ namespace WeatherStationView {
 			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"FACI", L"CIA", L"BIBLIOTECA CENTRAL", L"TINKUY" });
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"CIA", L"FACI", L"BIBLIOTECA CENTRAL", L"TINKUY" });
 			this->comboBox1->Location = System::Drawing::Point(177, 127);
 			this->comboBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->comboBox1->Name = L"comboBox1";
@@ -458,7 +503,7 @@ namespace WeatherStationView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1240, 717);
+			this->ClientSize = System::Drawing::Size(1240, 570);
 			this->ControlBox = false;
 			this->Controls->Add(this->panel1);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -497,7 +542,7 @@ namespace WeatherStationView {
 
 		membresiaGlobal = user->membresia;
 		//
-		this->comboBox1->SelectedIndex = 1; //CIA
+		this->comboBox1->SelectedIndex = 0; //CIA
 
 		
 		if (user->ajustes->FormatoHoras == "Formato de 12 horas") {
@@ -507,7 +552,8 @@ namespace WeatherStationView {
 			textBox1->Text = DateTime::Now.ToString("HH:mm:ss");
 		}
 		else {
-			MessageBox::Show("Al otro ciclo sera");
+			MessageBox::Show("ARREGLEN LA BASE DE DATOS");
+			Application::Exit();
 		}
 		//Ajustes
 		//Dato Prueba
@@ -572,22 +618,26 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 	if ((comboBox1->Text == "CIA")) {
 		pictureBox1->Image = Image::FromFile("CIA.jpeg");
 		IdSensor = "1";
+		TransmisionDataArduino();
 		
 	}
 	else if ((comboBox1->Text == "FACI")) {
 
 		pictureBox1->Image = Image::FromFile("FACI.jpg");
 		IdSensor = "2";
+		TransmisionDataArduino();
 	}
 	else if ((comboBox1->Text == "TINKUY")) {
 
 		pictureBox1->Image = Image::FromFile("TINKUY.jpg");
 		IdSensor = "3";
+		TransmisionDataArduino();
 	}
 	else if ((comboBox1->Text == "BIBLIOTECA CENTRAL")) {
 
 		pictureBox1->Image = Image::FromFile("BIBLIOTECA CENTRAL.jpg");
 		IdSensor = "4";
+		TransmisionDataArduino();
 	}
 	else if ((comboBox1->Text == "")) {
 		pictureBox1->Image = Image::FromFile("LogoPrueba.jpg");
@@ -614,6 +664,13 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	   void ReloadConfig() {
 		   user->ajustes = config;
 		   Controller::Controller::UpdateUser(user);
+
+		   TransmisionDataArduino();
+		   
+		   //String^ c = (textBox2->Text);
+		   //int f = Int32::Parse(textBox2->Text) * 1.8 + 32;
+		   //textBox2->Text = user->ajustes->UnidadTemp == "°C" ? c : f.ToString();
+		   //UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
 	   }
 
 
@@ -624,54 +681,6 @@ private: System::Void Mostrar_Click(System::Object^ sender, System::EventArgs^ e
 	//int month = selectedDateTime.Month;
 	//int year  = selectedDateTime.Year;
 	//
-	//if ((day==5)&&(month==10)&&(year==2023)) {
-	//	IdMedicion = 1;
-	//	IdSensor = "1";
-	//}
-	//else if ((day == 4) && (month == 10) && (year == 2023)) {
-	//	IdMedicion = 2;
-	//	IdSensor = "1";
-	//}
-	//else if ((day == 3) && (month == 10) && (year == 2023)) {
-	//	IdMedicion = 3;
-	//	IdSensor = "1";
-	//}
-	//else if ((day == 2) && (month == 10) && (year == 2023)) {
-	//	IdMedicion = 4;
-	//	IdSensor = "2";
-	//}
-	//else if ((day == 1) && (month == 10) && (year == 2023)) {
-	//	IdMedicion = 5;
-	//	IdSensor = "2";
-	//}
-	//else if ((day == 30) && (month == 9) && (year == 2023)) {
-	//	IdMedicion = 6;
-	//	IdSensor = "2";
-	//}
-	//else if ((day == 29) && (month == 9) && (year == 2023)) {
-	//	IdMedicion = 7;
-	//	IdSensor = "3";
-	//}
-	//else if ((day == 28) && (month == 9) && (year == 2023)) {
-	//	IdMedicion = 8;
-	//	IdSensor = "3";
-	//}
-	//else if ((day == 27) && (month == 9) && (year == 2023)) {
-	//	IdMedicion = 9;
-	//	IdSensor = "3";
-	//}
-	//else if ((day == 26) && (month == 9) && (year == 2023)) {
-	//	IdMedicion = 10;
-	//	IdSensor = "3";
-	//}
-	//else if ((day == 25) && (month == 9) && (year == 2023)) {
-	//	IdMedicion = 11;
-	//	IdSensor = "3";
-	//}
-	//else {
-	//	IdMedicion = 10;
-	//	IdSensor = "3";
-	//}
 	//SensorTemperaturaHumedad^ sTempHum = Controller::Controller::QueryTHbyIds(IdMedicion, IdSensor);
 	////Se muestra el valor de temperatura
 	//Double DoubleTemp = sTempHum->Temperatura;
@@ -724,21 +733,21 @@ private: System::Void Mostrar_Click(System::Object^ sender, System::EventArgs^ e
 		   IdSensor = data->Substring(0, 1);
 
 		   String^ temperatura_cia = data->Substring(2, 2);
-		   int temperaturaint = Int32::Parse(temperatura_cia);
+		   int temperatura_cia_int = Int32::Parse(temperatura_cia);
 
 		   String^ humedad_cia = data->Substring(4, 3);
-		   int humedadint = Int32::Parse(humedad_cia);
+		   int humedad_cia_int = Int32::Parse(humedad_cia);
 
 		   String^ co_cia = data->Substring(7, 3);
-		   int coint = Int32::Parse(co_cia);
+		   int co_cia_int = Int32::Parse(co_cia);
 
 		   String^ calidadAire_cia = data->Substring(10, 3);
-		   int calidadAireint = Int32::Parse(calidadAire_cia);
+		   int calidadAire_cia_int = Int32::Parse(calidadAire_cia);
 
 		   Ambiente^ ambiente = gcnew Ambiente();
-		   SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(1, temperaturaint, "°C", humedadint);
-		   SensorCO^ CO = gcnew SensorCO(1, coint);
-		   SensorCalidadAire^ airq = gcnew SensorCalidadAire(1, calidadAireint);
+		   SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(1, temperatura_cia_int, Convert::ToChar(176) + "C", humedad_cia_int);
+		   SensorCO^ CO = gcnew SensorCO(1, co_cia_int);
+		   SensorCalidadAire^ airq = gcnew SensorCalidadAire(1, calidadAire_cia_int);
 
 		   List<Sensor^>^ sensorList = gcnew List<Sensor^>();
 		   sensorList->Add(TH);
@@ -779,7 +788,133 @@ private: System::Void Mostrar_Click(System::Object^ sender, System::EventArgs^ e
 		   Controller::Controller::AddAmbienteData(ambiente);
 
 		   //Luego seguiría la recopilacion de datos del sensor 2, 3 y 4 (claro está, esos valores deben
-		   //ser generados)
+		   //ser generados (random))
+
+		   //Sensor 2 (FACI)
+		   
+		   gaussian = RandomGaussian(rand);
+		   int temp_faci = MapToRange(gaussian, -1.0, 1.0, minTemp, maxTemp);;
+
+		   gaussian = RandomGaussian(rand);
+		   int hum_faci = MapToRange(gaussian, -1.0, 1.0, minHum, maxHum);;
+
+		   gaussian = RandomGaussian(rand);
+		   int co_faci = MapToRange(gaussian, -1.0, 1.0, minCO, maxCO);;
+
+		   gaussian = RandomGaussian(rand);
+		   int aq_faci = MapToRange(gaussian, -1.0, 1.0, minAQ, maxAQ);
+
+		   ambiente = gcnew Ambiente();
+		   TH = gcnew SensorTemperaturaHumedad(2, temp_faci, Convert::ToChar(176) + "C", hum_faci);
+		   CO = gcnew SensorCO(2, co_faci);
+		   airq = gcnew SensorCalidadAire(2, aq_faci);
+
+		   sensorList = gcnew List<Sensor^>();
+		   sensorList->Add(TH);
+		   sensorList->Add(CO);
+		   sensorList->Add(airq);
+
+		   ambiente->DataBase = sensorList;
+		   ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
+		   ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
+		   ambiente->UbicacionGeografica = "FACI";
+
+		   sensorData = Controller::Controller::QueryAmbienteData();
+		   lastIdIndex = sensorData->Count;
+
+		   if (lastIdIndex == 0) {
+			   ambiente->IdMedicion = 1;
+		   }
+		   else {
+			   Ambiente^ ambientelastId = sensorData[lastIdIndex - 1];
+			   ambiente->IdMedicion = (ambientelastId->IdMedicion) + 1;
+		   }
+
+		   Controller::Controller::AddAmbienteData(ambiente);
+
+		   //Sensor 3 (BIBLIOTECA CENTRAL)
+
+		   gaussian = RandomGaussian(rand);
+		   int temp_bc = MapToRange(gaussian, -1.0, 1.0, minTemp, maxTemp);;
+
+		   gaussian = RandomGaussian(rand);
+		   int hum_bc = MapToRange(gaussian, -1.0, 1.0, minHum, maxHum);;
+
+		   gaussian = RandomGaussian(rand);
+		   int co_bc = MapToRange(gaussian, -1.0, 1.0, minCO, maxCO);;
+
+		   gaussian = RandomGaussian(rand);
+		   int aq_bc = MapToRange(gaussian, -1.0, 1.0, minAQ, maxAQ);
+
+		   ambiente = gcnew Ambiente();
+		   TH = gcnew SensorTemperaturaHumedad(3, temp_bc, Convert::ToChar(176) + "C", hum_bc);
+		   CO = gcnew SensorCO(3, co_bc);
+		   airq = gcnew SensorCalidadAire(3, aq_bc);
+
+		   sensorList = gcnew List<Sensor^>();
+		   sensorList->Add(TH);
+		   sensorList->Add(CO);
+		   sensorList->Add(airq);
+
+		   ambiente->DataBase = sensorList;
+		   ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
+		   ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
+		   ambiente->UbicacionGeografica = "BIBLIOTECA CENTRAL";
+
+		   sensorData = Controller::Controller::QueryAmbienteData();
+		   lastIdIndex = sensorData->Count;
+
+		   if (lastIdIndex == 0) {
+			   ambiente->IdMedicion = 1;
+		   }
+		   else {
+			   Ambiente^ ambientelastId = sensorData[lastIdIndex - 1];
+			   ambiente->IdMedicion = (ambientelastId->IdMedicion) + 1;
+		   }
+
+		   Controller::Controller::AddAmbienteData(ambiente);
+
+		   //Sensor 4 (TINKUY)
+
+		   gaussian = RandomGaussian(rand);
+		   int temp_tinkuy = MapToRange(gaussian, -1.0, 1.0, minTemp, maxTemp);
+
+		   gaussian = RandomGaussian(rand);
+		   int hum_tinkuy = MapToRange(gaussian, -1.0, 1.0, minHum, maxHum);
+
+		   gaussian = RandomGaussian(rand);
+		   int co_tinkuy = MapToRange(gaussian, -1.0, 1.0, minCO, maxCO);
+
+		   gaussian = RandomGaussian(rand);
+		   int aq_tinkuy = MapToRange(gaussian, -1.0, 1.0, minAQ, maxAQ);
+
+		   ambiente = gcnew Ambiente();
+		   TH = gcnew SensorTemperaturaHumedad(4, temp_tinkuy, Convert::ToChar(176) + "C", hum_tinkuy);
+		   CO = gcnew SensorCO(4, co_tinkuy);
+		   airq = gcnew SensorCalidadAire(4, aq_tinkuy);
+
+		   sensorList = gcnew List<Sensor^>();
+		   sensorList->Add(TH);
+		   sensorList->Add(CO);
+		   sensorList->Add(airq);
+
+		   ambiente->DataBase = sensorList;
+		   ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
+		   ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
+		   ambiente->UbicacionGeografica = "TINKUY";
+
+		   sensorData = Controller::Controller::QueryAmbienteData();
+		   lastIdIndex = sensorData->Count;
+
+		   if (lastIdIndex == 0) {
+			   ambiente->IdMedicion = 1;
+		   }
+		   else {
+			   Ambiente^ ambientelastId = sensorData[lastIdIndex - 1];
+			   ambiente->IdMedicion = (ambientelastId->IdMedicion) + 1;
+		   }
+
+		   Controller::Controller::AddAmbienteData(ambiente);
 	   
 		   //por lo tanto, Ambiente ha recibido cuatro listas y las ha enviado a la database
 
@@ -787,17 +922,44 @@ private: System::Void Mostrar_Click(System::Object^ sender, System::EventArgs^ e
 		   // valor del comboBox
 		   
 		   if ((comboBox1->SelectedItem->ToString()) == "CIA") {
-			   textBox2->Text = temperatura_cia;
-			   textBox3->Text = humedad_cia;
-			   textBox4->Text = calidadAire_cia;
-			   textBox5->Text = co_cia;
+			   textBox3->Text = humedad_cia_int.ToString();
+			   int temperatura_cia_f = temperatura_cia_int * 1.8 + 32;
+			   textBox2->Text = user->ajustes->UnidadTemp == "°C" ? (temperatura_cia_int).ToString() : temperatura_cia_f.ToString();
+			   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
+			   textBox4->Text = calidadAire_cia_int.ToString();
+			   textBox5->Text = co_cia_int.ToString();
 		   }
+		   else if ((comboBox1->SelectedItem->ToString()) == "FACI") {
+			   textBox3->Text = hum_faci.ToString();
+			   int temp_faci_f = temp_faci * 1.8 + 32;
+			   textBox2->Text = user->ajustes->UnidadTemp == "°C" ? (temp_faci).ToString() : temp_faci_f.ToString();
+			   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
+			   textBox4->Text = aq_faci.ToString();
+			   textBox5->Text = co_faci.ToString();
+		   }
+		   else if ((comboBox1->SelectedItem->ToString()) == "BIBLIOTECA CENTRAL") {
+			   textBox3->Text = hum_bc.ToString();
+			   int temp_bc_f = temp_bc * 1.8 + 32;
+			   textBox2->Text = user->ajustes->UnidadTemp == "°C" ? (temp_bc).ToString() : temp_bc_f.ToString();
+			   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
+			   textBox4->Text = aq_bc.ToString();
+			   textBox5->Text = co_bc.ToString();
+		   }
+		   else if ((comboBox1->SelectedItem->ToString()) == "TINKUY") {
+			   textBox3->Text = hum_tinkuy.ToString();
+			   int temp_tinkuy_f = temp_tinkuy * 1.8 + 32;
+			   textBox2->Text = user->ajustes->UnidadTemp == "°C" ? (temp_tinkuy).ToString() : temp_tinkuy_f.ToString();
+			   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
+			   textBox4->Text = aq_tinkuy.ToString();
+			   textBox5->Text = co_tinkuy.ToString();
+		   }
+			
 		   
 		   
 	   
 	   
 	   }
-private: System::Void timer_tick(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void timer_tick(System::Object^ sender, System::EventArgs^ e) { //cada minuto
 	
 	TransmisionDataArduino();
 
@@ -806,7 +968,7 @@ private: System::Void label12_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void textBox5_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void Timer2_Tick(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void Timer2_Tick(System::Object^ sender, System::EventArgs^ e) { //cada segundo
 	if (user->ajustes->FormatoHoras == "Formato de 12 horas") {
 		textBox1->Text = DateTime::Now.ToString("hh:mm:ss tt");
 	}
@@ -814,8 +976,41 @@ private: System::Void Timer2_Tick(System::Object^ sender, System::EventArgs^ e) 
 		textBox1->Text = DateTime::Now.ToString("HH:mm:ss");
 	}
 	else {
-		MessageBox::Show("Al otro ciclo sera");
+		MessageBox::Show("NO TOQUEN LA BASE DE DATOS");
+		Application::Exit();
 	}
+}
+	   double RandomGaussian(Random^ rand) {
+		   // Genera dos números aleatorios uniformes en el intervalo (0, 1]
+		   double u1 = 1.0 - rand->NextDouble();
+		   double u2 = 1.0 - rand->NextDouble();
+
+		   // Aplica la transformación de Box-Muller
+		   double z = sqrt(-2.0 * log(u1)) * cos(2.0 * Math::PI * u2);
+
+		   return z;
+	   }
+	   double MapToRange(double value, double fromLow, double fromHigh, double toLow, double toHigh) {
+		   return toLow + (toHigh - toLow) * (value - fromLow) / (fromHigh - fromLow);
+	   }
+private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	if (user->membresia->TipoMembresia == "Basic") {
+		MessageBox::Show("Suscribete a una Membresia para poder usar esta opción");
+		MembresiaForm^ membform = gcnew MembresiaForm(membresiaGlobal, user);
+		membform->ControlBox = false;
+		membform->ShowDialog();
+		membresiaGlobal = membform->GetMembresia();
+		RefreshMembresia();
+	}
+	else {
+		NewPie^ pieform = gcnew NewPie();
+		pieform->ShowDialog();
+	}
+
+	
+
+
 }
 };
 }
