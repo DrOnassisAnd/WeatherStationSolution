@@ -44,8 +44,6 @@ namespace WeatherStationView {
 	private: List<Ambiente^>^ sensorData = Controller::Controller::QueryAmbienteData();
 	private: List<Ambiente^>^ ambiente_aux;
 	private: List<Ambiente^>^ ambiente_aux_2;
-	private: int soloFechas = 0;
-	private: int solounDia = 0;
 	private: List<String^>^ datetimeCIA = gcnew List<String^>();
 	private: List<String^>^ solohoraslistaCIA = gcnew List<String^>();
 	private: List<String^>^ soloFechaListaCIA = gcnew List<String^>();
@@ -124,6 +122,7 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::CheckBox^ BiblioChk;
 
 	private: System::Windows::Forms::CheckBox^ CIAChk;
+private: System::Windows::Forms::CheckBox^ isFahrenheit;
 
 
 
@@ -156,30 +155,30 @@ namespace WeatherStationView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series7 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series8 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series9 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series10 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series11 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series12 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series13 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series14 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series15 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series16 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea9 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend9 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series33 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series34 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series35 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series36 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea10 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend10 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series37 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series38 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series39 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series40 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea11 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend11 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series41 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series42 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series43 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series44 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea12 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend12 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series45 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series46 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series47 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series48 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -219,6 +218,7 @@ namespace WeatherStationView {
 			this->TinkuyChk = (gcnew System::Windows::Forms::CheckBox());
 			this->BiblioChk = (gcnew System::Windows::Forms::CheckBox());
 			this->CIAChk = (gcnew System::Windows::Forms::CheckBox());
+			this->isFahrenheit = (gcnew System::Windows::Forms::CheckBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart4))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart3))->BeginInit();
@@ -314,7 +314,7 @@ namespace WeatherStationView {
 			// 
 			// BuscarBtn
 			// 
-			this->BuscarBtn->Location = System::Drawing::Point(322, 44);
+			this->BuscarBtn->Location = System::Drawing::Point(333, 44);
 			this->BuscarBtn->Name = L"BuscarBtn";
 			this->BuscarBtn->Size = System::Drawing::Size(75, 23);
 			this->BuscarBtn->TabIndex = 15;
@@ -378,7 +378,7 @@ namespace WeatherStationView {
 			// 
 			// RestablecerBtn
 			// 
-			this->RestablecerBtn->Location = System::Drawing::Point(322, 15);
+			this->RestablecerBtn->Location = System::Drawing::Point(333, 15);
 			this->RestablecerBtn->Name = L"RestablecerBtn";
 			this->RestablecerBtn->Size = System::Drawing::Size(75, 23);
 			this->RestablecerBtn->TabIndex = 23;
@@ -488,147 +488,136 @@ namespace WeatherStationView {
 			// 
 			// chart4
 			// 
-			chartArea1->Name = L"ChartArea1";
-			this->chart4->ChartAreas->Add(chartArea1);
-			legend1->Name = L"Legend1";
-			this->chart4->Legends->Add(legend1);
+			chartArea9->Name = L"ChartArea1";
+			this->chart4->ChartAreas->Add(chartArea9);
+			legend9->Name = L"Legend1";
+			this->chart4->Legends->Add(legend9);
 			this->chart4->Location = System::Drawing::Point(451, 138);
 			this->chart4->Margin = System::Windows::Forms::Padding(2, 1, 2, 1);
 			this->chart4->Name = L"chart4";
-			series1->ChartArea = L"ChartArea1";
-			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series1->Legend = L"Legend1";
-			series1->Name = L"CIA";
-			series2->ChartArea = L"ChartArea1";
-			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series2->Legend = L"Legend1";
-			series2->Name = L"FACI";
-			series3->ChartArea = L"ChartArea1";
-			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series3->Legend = L"Legend1";
-			series3->Name = L"TINKUY";
-			series4->ChartArea = L"ChartArea1";
-			series4->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series4->Legend = L"Legend1";
-			series4->Name = L"BIBLIOTECA";
-			this->chart4->Series->Add(series1);
-			this->chart4->Series->Add(series2);
-			this->chart4->Series->Add(series3);
-			this->chart4->Series->Add(series4);
-			this->chart4->Size = System::Drawing::Size(458, 307);
+			series33->ChartArea = L"ChartArea1";
+			series33->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
+			series33->Legend = L"Legend1";
+			series33->Name = L"CIA";
+			series33->YValuesPerPoint = 2;
+			series34->ChartArea = L"ChartArea1";
+			series34->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series34->Legend = L"Legend1";
+			series34->Name = L"FACI";
+			series35->ChartArea = L"ChartArea1";
+			series35->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
+			series35->Legend = L"Legend1";
+			series35->Name = L"TINKUY";
+			series36->ChartArea = L"ChartArea1";
+			series36->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
+			series36->Legend = L"Legend1";
+			series36->Name = L"BIBLIOTECA";
+			this->chart4->Series->Add(series33);
+			this->chart4->Series->Add(series34);
+			this->chart4->Series->Add(series35);
+			this->chart4->Series->Add(series36);
+			this->chart4->Size = System::Drawing::Size(458, 302);
 			this->chart4->TabIndex = 46;
 			this->chart4->Text = L"chart4";
-			chart4->ChartAreas["ChartArea1"]->AxisX->Title = "Fecha";
-			chart4->ChartAreas["ChartArea1"]->AxisY->Title = "Calidad Aire";
-			chart4->Titles->Add("Calidad Aire vs Fecha");
 			// 
 			// chart3
 			// 
-			chartArea2->Name = L"ChartArea1";
-			this->chart3->ChartAreas->Add(chartArea2);
-			legend2->Name = L"Legend1";
-			this->chart3->Legends->Add(legend2);
+			chartArea10->Name = L"ChartArea1";
+			this->chart3->ChartAreas->Add(chartArea10);
+			legend10->Name = L"Legend1";
+			this->chart3->Legends->Add(legend10);
 			this->chart3->Location = System::Drawing::Point(451, 138);
 			this->chart3->Margin = System::Windows::Forms::Padding(2, 1, 2, 1);
 			this->chart3->Name = L"chart3";
-			series5->ChartArea = L"ChartArea1";
-			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series5->Legend = L"Legend1";
-			series5->Name = L"CIA";
-			series6->ChartArea = L"ChartArea1";
-			series6->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series6->Legend = L"Legend1";
-			series6->Name = L"FACI";
-			series7->ChartArea = L"ChartArea1";
-			series7->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series7->Legend = L"Legend1";
-			series7->Name = L"TINKUY";
-			series8->ChartArea = L"ChartArea1";
-			series8->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series8->Legend = L"Legend1";
-			series8->Name = L"BIBLIOTECA";
-			this->chart3->Series->Add(series5);
-			this->chart3->Series->Add(series6);
-			this->chart3->Series->Add(series7);
-			this->chart3->Series->Add(series8);
-			this->chart3->Size = System::Drawing::Size(458, 307);
+			series37->ChartArea = L"ChartArea1";
+			series37->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
+			series37->Legend = L"Legend1";
+			series37->Name = L"CIA";
+			series38->ChartArea = L"ChartArea1";
+			series38->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
+			series38->Legend = L"Legend1";
+			series38->Name = L"FACI";
+			series39->ChartArea = L"ChartArea1";
+			series39->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
+			series39->Legend = L"Legend1";
+			series39->Name = L"TINKUY";
+			series40->ChartArea = L"ChartArea1";
+			series40->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
+			series40->Legend = L"Legend1";
+			series40->Name = L"BIBLIOTECA";
+			this->chart3->Series->Add(series37);
+			this->chart3->Series->Add(series38);
+			this->chart3->Series->Add(series39);
+			this->chart3->Series->Add(series40);
+			this->chart3->Size = System::Drawing::Size(458, 302);
 			this->chart3->TabIndex = 45;
 			this->chart3->Text = L"chart3";
-			chart3->ChartAreas["ChartArea1"]->AxisX->Title = "Fecha";
-			chart3->ChartAreas["ChartArea1"]->AxisY->Title = "Concentracion CO";
-			chart3->Titles->Add("Concentracion CO vs Fecha");
 			// 
 			// chart2
 			// 
-			chartArea3->Name = L"ChartArea1";
-			this->chart2->ChartAreas->Add(chartArea3);
-			legend3->Name = L"Legend1";
-			this->chart2->Legends->Add(legend3);
+			chartArea11->Name = L"ChartArea1";
+			this->chart2->ChartAreas->Add(chartArea11);
+			legend11->Name = L"Legend1";
+			this->chart2->Legends->Add(legend11);
 			this->chart2->Location = System::Drawing::Point(451, 138);
 			this->chart2->Margin = System::Windows::Forms::Padding(2, 1, 2, 1);
 			this->chart2->Name = L"chart2";
-			series9->ChartArea = L"ChartArea1";
-			series9->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series9->Legend = L"Legend1";
-			series9->Name = L"CIA";
-			series10->ChartArea = L"ChartArea1";
-			series10->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series10->Legend = L"Legend1";
-			series10->Name = L"FACI";
-			series11->ChartArea = L"ChartArea1";
-			series11->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series11->Legend = L"Legend1";
-			series11->Name = L"TINKUY";
-			series12->ChartArea = L"ChartArea1";
-			series12->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
-			series12->Legend = L"Legend1";
-			series12->Name = L"BIBLIOTECA";
-			this->chart2->Series->Add(series9);
-			this->chart2->Series->Add(series10);
-			this->chart2->Series->Add(series11);
-			this->chart2->Series->Add(series12);
+			series41->ChartArea = L"ChartArea1";
+			series41->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
+			series41->Legend = L"Legend1";
+			series41->Name = L"CIA";
+			series42->ChartArea = L"ChartArea1";
+			series42->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
+			series42->Legend = L"Legend1";
+			series42->Name = L"FACI";
+			series43->ChartArea = L"ChartArea1";
+			series43->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
+			series43->Legend = L"Legend1";
+			series43->Name = L"TINKUY";
+			series44->ChartArea = L"ChartArea1";
+			series44->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
+			series44->Legend = L"Legend1";
+			series44->Name = L"BIBLIOTECA";
+			this->chart2->Series->Add(series41);
+			this->chart2->Series->Add(series42);
+			this->chart2->Series->Add(series43);
+			this->chart2->Series->Add(series44);
 			this->chart2->Size = System::Drawing::Size(458, 307);
 			this->chart2->TabIndex = 44;
 			this->chart2->Text = L"chart2";
-			chart2->ChartAreas["ChartArea1"]->AxisX->Title = "Fecha";
-			chart2->ChartAreas["ChartArea1"]->AxisY->Title = "Humedad";
-			chart2->Titles->Add("Humedad vs Fecha");
 			// 
 			// chart1
 			// 
-			chartArea4->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea4);
-			legend4->Name = L"Legend1";
-			this->chart1->Legends->Add(legend4);
+			chartArea12->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea12);
+			legend12->Name = L"Legend1";
+			this->chart1->Legends->Add(legend12);
 			this->chart1->Location = System::Drawing::Point(451, 138);
 			this->chart1->Margin = System::Windows::Forms::Padding(2, 1, 2, 1);
 			this->chart1->Name = L"chart1";
-			series13->ChartArea = L"ChartArea1";
-			series13->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series13->Legend = L"Legend1";
-			series13->Name = L"CIA";
-			series14->ChartArea = L"ChartArea1";
-			series14->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series14->Legend = L"Legend1";
-			series14->Name = L"FACI";
-			series15->ChartArea = L"ChartArea1";
-			series15->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
-			series15->Legend = L"Legend1";
-			series15->Name = L"TINKUY";
-			series16->ChartArea = L"ChartArea1";
-			series16->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series16->Legend = L"Legend1";
-			series16->Name = L"BIBLIOTECA";
-			this->chart1->Series->Add(series13);
-			this->chart1->Series->Add(series14);
-			this->chart1->Series->Add(series15);
-			this->chart1->Series->Add(series16);
+			series45->ChartArea = L"ChartArea1";
+			series45->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
+			series45->Legend = L"Legend1";
+			series45->Name = L"CIA";
+			series46->ChartArea = L"ChartArea1";
+			series46->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
+			series46->Legend = L"Legend1";
+			series46->Name = L"FACI";
+			series47->ChartArea = L"ChartArea1";
+			series47->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
+			series47->Legend = L"Legend1";
+			series47->Name = L"TINKUY";
+			series48->ChartArea = L"ChartArea1";
+			series48->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
+			series48->Legend = L"Legend1";
+			series48->Name = L"BIBLIOTECA";
+			this->chart1->Series->Add(series45);
+			this->chart1->Series->Add(series46);
+			this->chart1->Series->Add(series47);
+			this->chart1->Series->Add(series48);
 			this->chart1->Size = System::Drawing::Size(458, 307);
 			this->chart1->TabIndex = 40;
 			this->chart1->Text = L"chart1";
-			chart1->ChartAreas["ChartArea1"]->AxisX->Title = "Fecha";
-			chart1->ChartAreas["ChartArea1"]->AxisY->Title = "Temperatura";
-			chart1->Titles->Add("Temperatura vs Fecha");
 			// 
 			// FACIChk
 			// 
@@ -682,11 +671,23 @@ namespace WeatherStationView {
 			this->CIAChk->UseVisualStyleBackColor = true;
 			this->CIAChk->CheckedChanged += gcnew System::EventHandler(this, &SensorsReport::CIA_Check);
 			// 
+			// isFahrenheit
+			// 
+			this->isFahrenheit->AutoSize = true;
+			this->isFahrenheit->Location = System::Drawing::Point(215, 38);
+			this->isFahrenheit->Name = L"isFahrenheit";
+			this->isFahrenheit->Size = System::Drawing::Size(113, 17);
+			this->isFahrenheit->TabIndex = 51;
+			this->isFahrenheit->Text = L"Grados Fahrenheit";
+			this->isFahrenheit->UseVisualStyleBackColor = true;
+			this->isFahrenheit->CheckedChanged += gcnew System::EventHandler(this, &SensorsReport::isFahrenheit_CheckedChanged);
+			// 
 			// SensorsReport
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(929, 481);
+			this->Controls->Add(this->isFahrenheit);
 			this->Controls->Add(this->CIAChk);
 			this->Controls->Add(this->BiblioChk);
 			this->Controls->Add(this->TinkuyChk);
@@ -735,14 +736,14 @@ namespace WeatherStationView {
 		List<Ambiente^>^ ambiente_to_filter_2 = gcnew List<Ambiente^>(); //lista a ser filtrada
 		if (CriterioBox->SelectedItem->ToString() == "Temperatura") {
 			//tabla
-			for each (Ambiente ^ dato in ambiente_aux) {
+			for each (Ambiente^ dato in ambiente_aux) {
 				int temp = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Temperatura;
 				if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
 					// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
 					ambiente_to_filter->Add(dato);
 				}
 			}
-			for each (Ambiente ^ dato in ambiente_aux_2) {
+			for each (Ambiente^ dato in ambiente_aux_2) {
 				int temp = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Temperatura;
 				if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
 					// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
@@ -966,7 +967,7 @@ namespace WeatherStationView {
 		}
 		//Ubicacion Geografica: Se piensa actualizar, para observar data de varios lugares con el mismo
 		// boton que se utiliza en los chart
-		else if ((CriterioBox->SelectedItem->ToString() == "Fecha-Hora") && (soloFechas % 2 == 0) && (solounDia % 2 == 0)) {
+		else if ((CriterioBox->SelectedItem->ToString() == "Fecha-Hora") && (checkBox1->Checked==0) && (checkBox2->Checked== 0)) {
 			DateTime fechaInicio = dtp1->Value;
 			int Hora1 = Int32::Parse(HoraInicial->Text);
 			int Min1 = Int32::Parse(MinutoInicial->Text);
@@ -1002,7 +1003,7 @@ namespace WeatherStationView {
 			RefreshChartsbyDateTime(fechaInicio, fechaFin);
 
 		}
-		else if ((CriterioBox->SelectedItem->ToString() == "Fecha-Hora") && (soloFechas % 2 == 1) && (solounDia % 2 == 0)) {
+		else if ((CriterioBox->SelectedItem->ToString() == "Fecha-Hora") && (checkBox1->Checked) && (checkBox2->Checked == 0)) {
 			DateTime fechaInicio = dtp1->Value;
 			fechaInicio = fechaInicio.Date.AddHours(0).AddMinutes(0).AddSeconds(0);
 
@@ -1029,7 +1030,7 @@ namespace WeatherStationView {
 			}
 			RefreshChartsbyDateTime(fechaInicio, fechaFin);
 		}
-		else if ((CriterioBox->SelectedItem->ToString() == "Fecha-Hora") && (soloFechas % 2 == 1) && (solounDia % 2 == 1)) {
+		else if ((CriterioBox->SelectedItem->ToString() == "Fecha-Hora") && (checkBox1->Checked) && (checkBox2->Checked)) {
 			DateTime fechaInicio = dtp1->Value;
 			fechaInicio = fechaInicio.Date.AddHours(0).AddMinutes(0).AddSeconds(0);
 
@@ -1055,7 +1056,7 @@ namespace WeatherStationView {
 			}
 			RefreshChartsbyDateTime(fechaInicio, fechaFin);
 		}
-		else if ((CriterioBox->SelectedItem->ToString() == "Fecha-Hora") && (soloFechas % 2 == 0) && (solounDia % 2 == 1)) {
+		else if ((CriterioBox->SelectedItem->ToString() == "Fecha-Hora") && (checkBox1->Checked == 0) && (checkBox2->Checked)) {
 			DateTime fechaInicio = dtp1->Value;
 			int Hora1 = Int32::Parse(HoraInicial->Text);
 			int Min1 = Int32::Parse(MinutoInicial->Text);
@@ -1093,6 +1094,8 @@ namespace WeatherStationView {
 		else {
 			MessageBox::Show("You shouldn't be here.");
 		}
+
+		
 		ambiente_aux = ambiente_to_filter;
 		ambiente_aux_2 = ambiente_to_filter_2;
 
@@ -1195,12 +1198,15 @@ namespace WeatherStationView {
 		   }
 
 	private: System::Void EleccionCriterio(System::Object^ sender, System::EventArgs^ e) {
+		MinBox->Text = "";
+		MaxBox->Text = "";
 		if (CriterioBox->SelectedItem->ToString() == "Temperatura") {
 			MinLabel->Text = "Temperatura minima";
 			MinBox->Visible = true;
 			MaxLabel->Text = "Temperatura maxima";
 			MaxLabel->Visible = true;
 			MaxBox->Visible = true;
+			isFahrenheit->Visible = true;
 			FechaVisible(0);
 			chart1->Visible = true;
 			chart2->Visible = false;
@@ -1213,6 +1219,7 @@ namespace WeatherStationView {
 			MaxLabel->Text = "Humedad maxima";
 			MaxLabel->Visible = true;
 			MaxBox->Visible = true;
+			isFahrenheit->Visible = false;
 			FechaVisible(0);
 			chart1->Visible = false;
 			chart2->Visible = true;
@@ -1225,11 +1232,13 @@ namespace WeatherStationView {
 			MaxLabel->Text = "Concentracion maxima";
 			MaxLabel->Visible = true;
 			MaxBox->Visible = true;
+			isFahrenheit->Visible = false;
 			FechaVisible(0);
 			chart1->Visible = false;
 			chart2->Visible = false;
 			chart3->Visible = true;
 			chart4->Visible = false;
+
 		}
 		else if (CriterioBox->SelectedItem->ToString() == "Calidad Aire") {
 			MinLabel->Text = "Calidad Aire minima";
@@ -1237,6 +1246,7 @@ namespace WeatherStationView {
 			MaxLabel->Text = "Calidad Aire maxima";
 			MaxLabel->Visible = true;
 			MaxBox->Visible = true;
+			isFahrenheit->Visible = false;
 			FechaVisible(0);
 			chart1->Visible = false;
 			chart2->Visible = false;
@@ -1250,6 +1260,37 @@ namespace WeatherStationView {
 			MaxLabel->Text = "Fecha Fin";
 			MinBox->Visible = false;
 			MaxBox->Visible = false;
+			isFahrenheit->Visible = false;
+
+			if (checkBox2->Checked) {
+				dtp2->Visible = false;
+				MaxLabel->Visible = false;			
+			}
+			else {
+				dtp2->Visible = true;
+				MaxLabel->Visible = true;
+			}
+
+			if (checkBox1->Checked) {
+				HoraFinal->Visible = false;
+				HoraInicial->Visible = false;
+				MinutoFinal->Visible = false;
+				MinutoInicial->Visible = false;
+				AMPM1->Visible = false;
+				AMPM2->Visible = false;
+				dosPuntos1->Visible = false;
+				dosPuntos2->Visible = false;
+			}
+			else {
+				HoraFinal->Visible = true;
+				HoraInicial->Visible = true;
+				MinutoFinal->Visible = true;
+				MinutoInicial->Visible = true;
+				AMPM1->Visible = true;
+				AMPM2->Visible = true;
+				dosPuntos1->Visible = true;
+				dosPuntos2->Visible = true;
+			}
 		}
 		else {
 			MessageBox::Show("You shouldn't be here.");
@@ -1290,17 +1331,29 @@ namespace WeatherStationView {
 		this->Close();
 	}
 	private: System::Void Restablecer_Click(System::Object^ sender, System::EventArgs^ e) {
-		ShowAmbienteData();
-		LoadCharts();
-
 		this->CIAChk->Checked = true;
 		this->FACIChk->Checked = true;
 		this->BiblioChk->Checked = true;
 		this->TinkuyChk->Checked = true;
+
+		MinBox->Text = "";
+		MaxBox->Text = "";
+		HoraInicial->Text = "";
+		HoraFinal->Text = "";
+		MinutoInicial->Text = "";
+		MinutoFinal->Text = "";
+		AMPM1->SelectedIndex = 0;
+		AMPM2->SelectedIndex = 0;
+		dtp1->Value = DateTime::Today;
+		dtp2->Value = DateTime::Today;
+
+		isFahrenheit->Checked = false;
+
+		ShowAmbienteData();
+		LoadCharts();
 	}
 	private: System::Void SoloUnDia(System::Object^ sender, System::EventArgs^ e) {
-		solounDia++;
-		if (solounDia % 2) {
+		if (checkBox2->Checked) {
 			dtp2->Visible = false;
 			MaxLabel->Visible = false;
 		}
@@ -1310,8 +1363,8 @@ namespace WeatherStationView {
 		}
 	}
 	private: System::Void SoloFechas(System::Object^ sender, System::EventArgs^ e) {
-		soloFechas++;
-		if (soloFechas % 2) {
+
+		if (checkBox1->Checked) {
 			HoraFinal->Visible = false;
 			HoraInicial->Visible = false;
 			MinutoFinal->Visible = false;
@@ -1652,5 +1705,87 @@ namespace WeatherStationView {
 			   }
 		   }
 
-	};
+	private: System::Void isFahrenheit_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+		F_Check();
+	}
+		   void F_Check() {
+		
+			   for each (Ambiente^ dato in ambiente_aux) {
+				   int temp = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Temperatura;
+				   if (isFahrenheit->Checked) { //C a F
+					   dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Temperatura = temp * 1.8 + 32; //C a F
+					   dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->UnidadTemp = Convert::ToChar(176) + "F";
+				   }
+				   else if (isFahrenheit->Checked == 0) { // F a C
+					   dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Temperatura = Math::Round((temp-32)*5/(double)9, 0); //F a C
+					   dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->UnidadTemp = Convert::ToChar(176) + "C";
+				   }
+
+			   }
+
+			   if (isFahrenheit->Checked) {
+				   for each (DataPoint^ point in chart1->Series["CIA"]->Points)
+				   {
+					   int originalY = point->YValues[0];
+					   int newY = originalY * 1.8 + 32; // Duplicar el valor Y (puedes usar tu lógica aquí)
+					   point->YValues[0] = newY;
+				   }
+				   for each (DataPoint^ point in chart1->Series["FACI"]->Points)
+				   {
+					   int originalY = point->YValues[0];
+					   int newY = originalY * 1.8 + 32; // Duplicar el valor Y (puedes usar tu lógica aquí)
+					   point->YValues[0] = newY;
+				   }
+				   for each (DataPoint^ point in chart1->Series["BIBLIOTECA"]->Points)
+				   {
+					   int originalY = point->YValues[0];
+					   int newY = originalY * 1.8 + 32; // Duplicar el valor Y (puedes usar tu lógica aquí)
+					   point->YValues[0] = newY;
+				   }
+				   for each (DataPoint^ point in chart1->Series["TINKUY"]->Points)
+				   {
+					   int originalY = point->YValues[0];
+					   int newY = originalY * 1.8 + 32; // Duplicar el valor Y (puedes usar tu lógica aquí)
+					   point->YValues[0] = newY;
+				   }
+				   chart1->Invalidate();
+				   chart1->ChartAreas[0]->AxisY->Minimum = 0;
+				   chart1->ChartAreas[0]->AxisY->Maximum = 100;
+			   }
+			   else {
+				   for each (DataPoint^ point in chart1->Series["CIA"]->Points)
+				   {
+					   int originalY = point->YValues[0];
+					   int newY = Math::Round((originalY - 32) * 5 / (double)9, 0); // Duplicar el valor Y (puedes usar tu lógica aquí)
+					   point->YValues[0] = newY;
+				   }
+				   for each (DataPoint^ point in chart1->Series["FACI"]->Points)
+				   {
+					   int originalY = point->YValues[0];
+					   int newY = Math::Round((originalY - 32) * 5 / (double)9, 0); // Duplicar el valor Y (puedes usar tu lógica aquí)
+					   point->YValues[0] = newY;
+				   }
+				   for each (DataPoint^ point in chart1->Series["BIBLIOTECA"]->Points)
+				   {
+					   int originalY = point->YValues[0];
+					   int newY = Math::Round((originalY - 32) * 5 / (double)9, 0); // Duplicar el valor Y (puedes usar tu lógica aquí)
+					   point->YValues[0] = newY;
+				   }
+				   for each (DataPoint^ point in chart1->Series["TINKUY"]->Points)
+				   {
+					   int originalY = point->YValues[0];
+					   int newY = Math::Round((originalY - 32) * 5 / (double)9, 0); // Duplicar el valor Y (puedes usar tu lógica aquí)
+					   point->YValues[0] = newY;
+				   }
+				   chart1->Invalidate();
+				   chart1->ChartAreas[0]->AxisY->Minimum = 0;
+				   chart1->ChartAreas[0]->AxisY->Maximum = 40;
+			   }
+			   
+
+			  
+			   ShowFilteredData(ambiente_aux);
+		   }
+
+};
 }

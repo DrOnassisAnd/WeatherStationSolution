@@ -1132,48 +1132,7 @@ Ambiente^ WeatherStationPersistance::Persistance::QueryAmbienteDatabyId(int IdMe
 
 	return nullptr;
 
-	/*
-	RobotWaiter^ robot;
-	SqlConnection^ conn;
-	SqlDataReader^ reader;
-	try {
-		//Paso 1: Se obtiene la conexión
-		conn = GetConnection();
-		//Paso 2: Se prepara la sentencia SQL
-		String^ sqlStr = "dbo.usp_QueryRobotWaiterById";
-		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
-		cmd->CommandType = System::Data::CommandType::StoredProcedure;
-		cmd->Parameters->Add("@id", System::Data::SqlDbType::Int);
-		cmd->Prepare();
-		cmd->Parameters["@id"]->Value = robotId;
-		cmd->Prepare();
-
-		//Paso 3: Se ejecuta la sentencia
-		reader = cmd->ExecuteReader();
-		//Paso 4: Se procesa los resultados
-		if (reader->Read()) {
-			robot = gcnew RobotWaiter();
-			robot->Id = Convert::ToInt32(reader["Id"]->ToString());
-			robot->Brand = reader["Brand"]->ToString();
-			robot->Speed = Convert::ToInt32(reader["Speed"]->ToString());
-			robot->BatteryLevel = Convert::ToInt32(reader["BATTERY_LEVEL"]->ToString());
-		}
 	}
-	catch (Exception^ ex) {
-	}
-	finally {
-		//Paso 5: Se cierran los objetos de conexión
-		if (reader != nullptr) reader->Close();
-		if (conn != nullptr) conn->Close();
-	}
-	return robot;
-
-
-
-
-	*/
-
-}
 
 void WeatherStationPersistance::Persistance::UpdateAmbienteData(Ambiente^ sensorData) {
 	//sAmbienteDB = LoadAmbientes();
@@ -1275,3 +1234,5 @@ void WeatherStationPersistance::Persistance::DeleteAmbienteData(int IdMedicion) 
 
 	
 }
+
+

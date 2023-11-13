@@ -542,7 +542,7 @@ namespace WeatherStationView {
 
 		membresiaGlobal = user->membresia;
 		//
-		this->comboBox1->SelectedIndex = 0; //CIA
+		//this->comboBox1->SelectedIndex = 0; //CIA
 
 		
 		if (user->ajustes->FormatoHoras == "Formato de 12 horas") {
@@ -558,9 +558,10 @@ namespace WeatherStationView {
 		//Ajustes
 		//Dato Prueba
 		//TransmisionDataArduino();
+ 
 		//timer
-		timer1->Start();
-		timer2->Start();
+		//timer1->Start();
+		//timer2->Start();
 
 		//SerialPort^ serialPort = gcnew SerialPort("COM3", 9600, Parity::None, 8, StopBits::One); // Reemplaza "COMX" con el puerto COM al que está conectado tu Arduino
 		//serialPort->Open(); // Abre el puerto serie
