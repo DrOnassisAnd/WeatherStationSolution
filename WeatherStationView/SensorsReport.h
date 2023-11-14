@@ -64,6 +64,8 @@ namespace WeatherStationView {
 	private: List<String^>^ soloFechaListaTINKUY = gcnew List<String^>();
 
 	private: int flag = 0;
+	private: int minValue = 0;
+	private: int maxValue = 0;
 
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
@@ -738,66 +740,72 @@ private: System::Windows::Forms::CheckBox^ isFahrenheit;
 		List<Ambiente^>^ ambiente_to_filter_2 = gcnew List<Ambiente^>(); //lista a ser filtrada
 		if (CriterioBox->SelectedItem->ToString() == "Temperatura") {
 			if (MinBox->Text != "" && MaxBox->Text != "") {
-				if (Int32::Parse(MaxBox->Text) >= Int32::Parse(MinBox->Text) && Int32::Parse(MinBox->Text) > 0) {
-					//tabla
-					for each (Ambiente^ dato in ambiente_aux) {
-						int temp = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Temperatura;
-						if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
-							// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
-							ambiente_to_filter->Add(dato);
+				if (Int32::TryParse(MinBox->Text, minValue) && Int32::TryParse(MaxBox->Text, maxValue)) {
+					if ((maxValue > minValue) && minValue > 0) {
+						//tabla
+						for each (Ambiente ^ dato in ambiente_aux) {
+							int temp = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Temperatura;
+							if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
+								// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
+								ambiente_to_filter->Add(dato);
+							}
 						}
-					}
-					for each (Ambiente ^ dato in ambiente_aux_2) {
-						int temp = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Temperatura;
-						if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
-							// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
-							ambiente_to_filter_2->Add(dato);
+						for each (Ambiente ^ dato in ambiente_aux_2) {
+							int temp = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Temperatura;
+							if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
+								// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
+								ambiente_to_filter_2->Add(dato);
+							}
 						}
-					}
 
-					//chart1: temp
-					for (int i = 0; i < chart1->Series["CIA"]->Points->Count; i++) {
-						int temp = chart1->Series["CIA"]->Points[i]->YValues[0];
-						if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
-							chart1->Series["CIA"]->Points[i]->IsEmpty = false;
+						//chart1: temp
+						for (int i = 0; i < chart1->Series["CIA"]->Points->Count; i++) {
+							int temp = chart1->Series["CIA"]->Points[i]->YValues[0];
+							if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
+								chart1->Series["CIA"]->Points[i]->IsEmpty = false;
+							}
+							else {
+								chart1->Series["CIA"]->Points[i]->IsEmpty = true;
+							}
 						}
-						else {
-							chart1->Series["CIA"]->Points[i]->IsEmpty = true;
-						}
-					}
 
-					for (int i = 0; i < chart1->Series["FACI"]->Points->Count; i++) {
-						int temp = chart1->Series["FACI"]->Points[i]->YValues[0];
-						if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
-							chart1->Series["FACI"]->Points[i]->IsEmpty = false;
+						for (int i = 0; i < chart1->Series["FACI"]->Points->Count; i++) {
+							int temp = chart1->Series["FACI"]->Points[i]->YValues[0];
+							if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
+								chart1->Series["FACI"]->Points[i]->IsEmpty = false;
+							}
+							else {
+								chart1->Series["FACI"]->Points[i]->IsEmpty = true;
+							}
 						}
-						else {
-							chart1->Series["FACI"]->Points[i]->IsEmpty = true;
-						}
-					}
 
-					for (int i = 0; i < chart1->Series["BIBLIOTECA"]->Points->Count; i++) {
-						int temp = chart1->Series["BIBLIOTECA"]->Points[i]->YValues[0];
-						if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
-							chart1->Series["BIBLIOTECA"]->Points[i]->IsEmpty = false;
+						for (int i = 0; i < chart1->Series["BIBLIOTECA"]->Points->Count; i++) {
+							int temp = chart1->Series["BIBLIOTECA"]->Points[i]->YValues[0];
+							if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
+								chart1->Series["BIBLIOTECA"]->Points[i]->IsEmpty = false;
+							}
+							else {
+								chart1->Series["BIBLIOTECA"]->Points[i]->IsEmpty = true;
+							}
 						}
-						else {
-							chart1->Series["BIBLIOTECA"]->Points[i]->IsEmpty = true;
-						}
-					}
 
-					for (int i = 0; i < chart1->Series["TINKUY"]->Points->Count; i++) {
-						int temp = chart1->Series["TINKUY"]->Points[i]->YValues[0];
-						if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
-							chart1->Series["TINKUY"]->Points[i]->IsEmpty = false;
+						for (int i = 0; i < chart1->Series["TINKUY"]->Points->Count; i++) {
+							int temp = chart1->Series["TINKUY"]->Points[i]->YValues[0];
+							if ((temp >= Int32::Parse(MinBox->Text)) && (temp <= Int32::Parse(MaxBox->Text))) {
+								chart1->Series["TINKUY"]->Points[i]->IsEmpty = false;
+							}
+							else {
+								chart1->Series["TINKUY"]->Points[i]->IsEmpty = true;
+							}
 						}
-						else {
-							chart1->Series["TINKUY"]->Points[i]->IsEmpty = true;
-						}
+						flag = 1;
+					}
+					else {
+						MessageBox::Show("El dato menor no puede ser el mayor. Los datos deben ser enteros positivos.");
 					}
 				}
 				else {
-					MessageBox::Show("El dato menor no puede ser el mayor. Los datos deben ser enteros positivos.");
+					MessageBox::Show("Los datos ingresados deben ser numéricos");
 				}
 			}
 			else {
@@ -808,68 +816,73 @@ private: System::Windows::Forms::CheckBox^ isFahrenheit;
 		
 		else if (CriterioBox->SelectedItem->ToString() == "Humedad") {
 			if (MinBox->Text != "" && MaxBox->Text != "") {
-				if (Int32::Parse(MaxBox->Text) >= Int32::Parse(MinBox->Text) && Int32::Parse(MinBox->Text) > 0) {
+				if (Int32::TryParse(MinBox->Text, minValue) && Int32::TryParse(MaxBox->Text, maxValue)) {
+					if ((maxValue > minValue) && minValue > 0) {
+						for each (Ambiente ^ dato in ambiente_aux) {
+							int humedad = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Humedad;
+							if ((humedad >= Int32::Parse(MinBox->Text)) && (humedad <= Int32::Parse(MaxBox->Text))) {
+								// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
+								ambiente_to_filter->Add(dato);
+							}
+						}
+						for each (Ambiente ^ dato in ambiente_aux_2) {
+							int humedad = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Humedad;
+							if ((humedad >= Int32::Parse(MinBox->Text)) && (humedad <= Int32::Parse(MaxBox->Text))) {
+								// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
+								ambiente_to_filter_2->Add(dato);
+							}
+						}
 
-					for each (Ambiente^ dato in ambiente_aux) {
-						int humedad = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Humedad;
-						if ((humedad >= Int32::Parse(MinBox->Text)) && (humedad <= Int32::Parse(MaxBox->Text))) {
-							// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
-							ambiente_to_filter->Add(dato);
+						//chart2... humedad
+						for (int i = 0; i < chart2->Series["CIA"]->Points->Count; i++) {
+							int humedad = chart2->Series["CIA"]->Points[i]->YValues[0];
+							if ((humedad >= Int32::Parse(MinBox->Text)) && (humedad <= Int32::Parse(MaxBox->Text))) {
+								chart2->Series["CIA"]->Points[i]->IsEmpty = false;
+							}
+							else {
+								chart2->Series["CIA"]->Points[i]->IsEmpty = true;
+							}
 						}
-					}
-					for each (Ambiente ^ dato in ambiente_aux_2) {
-						int humedad = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Humedad;
-						if ((humedad >= Int32::Parse(MinBox->Text)) && (humedad <= Int32::Parse(MaxBox->Text))) {
-							// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
-							ambiente_to_filter_2->Add(dato);
-						}
-					}
 
-					//chart2... humedad
-					for (int i = 0; i < chart2->Series["CIA"]->Points->Count; i++) {
-						int humedad = chart2->Series["CIA"]->Points[i]->YValues[0];
-						if ((humedad >= Int32::Parse(MinBox->Text)) && (humedad <= Int32::Parse(MaxBox->Text))) {
-							chart2->Series["CIA"]->Points[i]->IsEmpty = false;
+						for (int i = 0; i < chart2->Series["FACI"]->Points->Count; i++) {
+							int humedad = chart2->Series["FACI"]->Points[i]->YValues[0];
+							if ((humedad >= Int32::Parse(MinBox->Text)) && (humedad <= Int32::Parse(MaxBox->Text))) {
+								chart2->Series["FACI"]->Points[i]->IsEmpty = false;
+							}
+							else {
+								chart2->Series["FACI"]->Points[i]->IsEmpty = true;
+							}
 						}
-						else {
-							chart2->Series["CIA"]->Points[i]->IsEmpty = true;
-						}
-					}
 
-					for (int i = 0; i < chart2->Series["FACI"]->Points->Count; i++) {
-						int humedad = chart2->Series["FACI"]->Points[i]->YValues[0];
-						if ((humedad >= Int32::Parse(MinBox->Text)) && (humedad <= Int32::Parse(MaxBox->Text))) {
-							chart2->Series["FACI"]->Points[i]->IsEmpty = false;
+						for (int i = 0; i < chart2->Series["BIBLIOTECA"]->Points->Count; i++) {
+							int humedad = chart2->Series["BIBLIOTECA"]->Points[i]->YValues[0];
+							if ((humedad >= Int32::Parse(MinBox->Text)) && (humedad <= Int32::Parse(MaxBox->Text))) {
+								chart2->Series["BIBLIOTECA"]->Points[i]->IsEmpty = false;
+							}
+							else {
+								chart2->Series["BIBLIOTECA"]->Points[i]->IsEmpty = true;
+							}
 						}
-						else {
-							chart2->Series["FACI"]->Points[i]->IsEmpty = true;
-						}
-					}
 
-					for (int i = 0; i < chart2->Series["BIBLIOTECA"]->Points->Count; i++) {
-						int humedad = chart2->Series["BIBLIOTECA"]->Points[i]->YValues[0];
-						if ((humedad >= Int32::Parse(MinBox->Text)) && (humedad <= Int32::Parse(MaxBox->Text))) {
-							chart2->Series["BIBLIOTECA"]->Points[i]->IsEmpty = false;
+						for (int i = 0; i < chart2->Series["TINKUY"]->Points->Count; i++) {
+							int humedad = chart2->Series["TINKUY"]->Points[i]->YValues[0];
+							if ((humedad >= Int32::Parse(MinBox->Text)) && (humedad <= Int32::Parse(MaxBox->Text))) {
+								chart2->Series["TINKUY"]->Points[i]->IsEmpty = false;
+							}
+							else {
+								chart2->Series["TINKUY"]->Points[i]->IsEmpty = true;
+							}
 						}
-						else {
-							chart2->Series["BIBLIOTECA"]->Points[i]->IsEmpty = true;
-						}
+						flag = 1;
 					}
-
-					for (int i = 0; i < chart2->Series["TINKUY"]->Points->Count; i++) {
-						int humedad = chart2->Series["TINKUY"]->Points[i]->YValues[0];
-						if ((humedad >= Int32::Parse(MinBox->Text)) && (humedad <= Int32::Parse(MaxBox->Text))) {
-							chart2->Series["TINKUY"]->Points[i]->IsEmpty = false;
-						}
-						else {
-							chart2->Series["TINKUY"]->Points[i]->IsEmpty = true;
-						}
+					else {
+						MessageBox::Show("El dato menor no puede ser el mayor. Los datos deben ser enteros positivos.");
 					}
-					flag = 1;
 				}
 				else {
-					MessageBox::Show("El dato menor no puede ser el mayor. Los datos deben ser enteros positivos.");
+					MessageBox::Show("Los datos ingresados deben ser numéricos");
 				}
+
 			}
 			else {
 				MessageBox::Show("Por favor complete los datos antes de filtrar.");
@@ -877,67 +890,71 @@ private: System::Windows::Forms::CheckBox^ isFahrenheit;
 		}
 		else if (CriterioBox->SelectedItem->ToString() == "Concentracion CO") {
 			if (MinBox->Text != "" && MaxBox->Text != "") {
-				if (Int32::Parse(MaxBox->Text) >= Int32::Parse(MinBox->Text) && Int32::Parse(MinBox->Text) > 0) {
-					//tabla
-					for each (Ambiente ^ dato in ambiente_aux) {
-						int CO = dynamic_cast<SensorCO^>(dato->DataBase[1])->NivelCO;
-						if ((CO >= Int32::Parse(MinBox->Text)) && (CO <= Int32::Parse(MaxBox->Text))) {
-							// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
-							ambiente_to_filter->Add(dato);
+				if (Int32::TryParse(MinBox->Text, minValue) && Int32::TryParse(MaxBox->Text, maxValue)) {
+					if ((maxValue > minValue) && minValue > 0) {						//tabla
+						for each (Ambiente ^ dato in ambiente_aux) {
+							int CO = dynamic_cast<SensorCO^>(dato->DataBase[1])->NivelCO;
+							if ((CO >= Int32::Parse(MinBox->Text)) && (CO <= Int32::Parse(MaxBox->Text))) {
+								// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
+								ambiente_to_filter->Add(dato);
+							}
 						}
-					}
-					for each (Ambiente ^ dato in ambiente_aux_2) {
-						int CO = dynamic_cast<SensorCO^>(dato->DataBase[1])->NivelCO;
-						if ((CO >= Int32::Parse(MinBox->Text)) && (CO <= Int32::Parse(MaxBox->Text))) {
-							// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
-							ambiente_to_filter_2->Add(dato);
+						for each (Ambiente ^ dato in ambiente_aux_2) {
+							int CO = dynamic_cast<SensorCO^>(dato->DataBase[1])->NivelCO;
+							if ((CO >= Int32::Parse(MinBox->Text)) && (CO <= Int32::Parse(MaxBox->Text))) {
+								// El valor de Temperatura está dentro del rango, agrega el dato filtrado a la nueva lista.
+								ambiente_to_filter_2->Add(dato);
+							}
 						}
-					}
 
-					//chart3
-					for (int i = 0; i < chart3->Series["CIA"]->Points->Count; i++) {
-						int CO = chart3->Series["CIA"]->Points[i]->YValues[0];
-						if ((CO >= Int32::Parse(MinBox->Text)) && (CO <= Int32::Parse(MaxBox->Text))) {
-							chart3->Series["CIA"]->Points[i]->IsEmpty = false;
+						//chart3
+						for (int i = 0; i < chart3->Series["CIA"]->Points->Count; i++) {
+							int CO = chart3->Series["CIA"]->Points[i]->YValues[0];
+							if ((CO >= Int32::Parse(MinBox->Text)) && (CO <= Int32::Parse(MaxBox->Text))) {
+								chart3->Series["CIA"]->Points[i]->IsEmpty = false;
+							}
+							else {
+								chart3->Series["CIA"]->Points[i]->IsEmpty = true;
+							}
 						}
-						else {
-							chart3->Series["CIA"]->Points[i]->IsEmpty = true;
-						}
-					}
 
-					for (int i = 0; i < chart3->Series["FACI"]->Points->Count; i++) {
-						int CO = chart3->Series["FACI"]->Points[i]->YValues[0];
-						if ((CO >= Int32::Parse(MinBox->Text)) && (CO <= Int32::Parse(MaxBox->Text))) {
-							chart3->Series["FACI"]->Points[i]->IsEmpty = false;
+						for (int i = 0; i < chart3->Series["FACI"]->Points->Count; i++) {
+							int CO = chart3->Series["FACI"]->Points[i]->YValues[0];
+							if ((CO >= Int32::Parse(MinBox->Text)) && (CO <= Int32::Parse(MaxBox->Text))) {
+								chart3->Series["FACI"]->Points[i]->IsEmpty = false;
+							}
+							else {
+								chart3->Series["FACI"]->Points[i]->IsEmpty = true;
+							}
 						}
-						else {
-							chart3->Series["FACI"]->Points[i]->IsEmpty = true;
-						}
-					}
 
-					for (int i = 0; i < chart3->Series["BIBLIOTECA"]->Points->Count; i++) {
-						int CO = chart3->Series["BIBLIOTECA"]->Points[i]->YValues[0];
-						if ((CO >= Int32::Parse(MinBox->Text)) && (CO <= Int32::Parse(MaxBox->Text))) {
-							chart3->Series["BIBLIOTECA"]->Points[i]->IsEmpty = false;
+						for (int i = 0; i < chart3->Series["BIBLIOTECA"]->Points->Count; i++) {
+							int CO = chart3->Series["BIBLIOTECA"]->Points[i]->YValues[0];
+							if ((CO >= Int32::Parse(MinBox->Text)) && (CO <= Int32::Parse(MaxBox->Text))) {
+								chart3->Series["BIBLIOTECA"]->Points[i]->IsEmpty = false;
+							}
+							else {
+								chart3->Series["BIBLIOTECA"]->Points[i]->IsEmpty = true;
+							}
 						}
-						else {
-							chart3->Series["BIBLIOTECA"]->Points[i]->IsEmpty = true;
-						}
-					}
 
-					for (int i = 0; i < chart3->Series["TINKUY"]->Points->Count; i++) {
-						int CO = chart3->Series["TINKUY"]->Points[i]->YValues[0];
-						if ((CO >= Int32::Parse(MinBox->Text)) && (CO <= Int32::Parse(MaxBox->Text))) {
-							chart3->Series["TINKUY"]->Points[i]->IsEmpty = false;
+						for (int i = 0; i < chart3->Series["TINKUY"]->Points->Count; i++) {
+							int CO = chart3->Series["TINKUY"]->Points[i]->YValues[0];
+							if ((CO >= Int32::Parse(MinBox->Text)) && (CO <= Int32::Parse(MaxBox->Text))) {
+								chart3->Series["TINKUY"]->Points[i]->IsEmpty = false;
+							}
+							else {
+								chart3->Series["TINKUY"]->Points[i]->IsEmpty = true;
+							}
 						}
-						else {
-							chart3->Series["TINKUY"]->Points[i]->IsEmpty = true;
-						}
+						flag = 1;
 					}
-					flag = 1;
+					else {
+						MessageBox::Show("El dato menor no puede ser el mayor. Los datos deben ser enteros positivos.");
+					}
 				}
 				else {
-					MessageBox::Show("El dato menor no puede ser el mayor. Los datos deben ser enteros positivos.");
+					MessageBox::Show("Los datos ingresados deben ser numéricos");
 				}
 			}
 			else {
@@ -947,65 +964,70 @@ private: System::Windows::Forms::CheckBox^ isFahrenheit;
 		}
 		else if (CriterioBox->SelectedItem->ToString() == "Calidad Aire") {
 			if (MinBox->Text != "" && MaxBox->Text != "") {
-				if (Int32::Parse(MaxBox->Text) >= Int32::Parse(MinBox->Text) && Int32::Parse(MinBox->Text) > 0) {
-					//tabla
-					for each (Ambiente ^ dato in ambiente_aux) {
-						int AirQ = dynamic_cast<SensorCalidadAire^>(dato->DataBase[2])->CalidadAire;
-						if ((AirQ >= Int32::Parse(MinBox->Text)) && (AirQ <= Int32::Parse(MaxBox->Text))) {
-							ambiente_to_filter->Add(dato);
+				if (Int32::TryParse(MinBox->Text, minValue) && Int32::TryParse(MaxBox->Text, maxValue)) {
+					if ((maxValue > minValue) && minValue > 0) {
+						//tabla
+						for each (Ambiente ^ dato in ambiente_aux) {
+							int AirQ = dynamic_cast<SensorCalidadAire^>(dato->DataBase[2])->CalidadAire;
+							if ((AirQ >= Int32::Parse(MinBox->Text)) && (AirQ <= Int32::Parse(MaxBox->Text))) {
+								ambiente_to_filter->Add(dato);
+							}
 						}
-					}
-					for each (Ambiente ^ dato in ambiente_aux_2) {
-						int AirQ = dynamic_cast<SensorCalidadAire^>(dato->DataBase[2])->CalidadAire;
-						if ((AirQ >= Int32::Parse(MinBox->Text)) && (AirQ <= Int32::Parse(MaxBox->Text))) {
-							ambiente_to_filter_2->Add(dato);
+						for each (Ambiente ^ dato in ambiente_aux_2) {
+							int AirQ = dynamic_cast<SensorCalidadAire^>(dato->DataBase[2])->CalidadAire;
+							if ((AirQ >= Int32::Parse(MinBox->Text)) && (AirQ <= Int32::Parse(MaxBox->Text))) {
+								ambiente_to_filter_2->Add(dato);
+							}
 						}
-					}
 
-					//chart4
-					for (int i = 0; i < chart4->Series["CIA"]->Points->Count; i++) {
-						int AirQ = chart4->Series["CIA"]->Points[i]->YValues[0];
-						if ((AirQ >= Int32::Parse(MinBox->Text)) && (AirQ <= Int32::Parse(MaxBox->Text))) {
-							chart4->Series["CIA"]->Points[i]->IsEmpty = false;
+						//chart4
+						for (int i = 0; i < chart4->Series["CIA"]->Points->Count; i++) {
+							int AirQ = chart4->Series["CIA"]->Points[i]->YValues[0];
+							if ((AirQ >= Int32::Parse(MinBox->Text)) && (AirQ <= Int32::Parse(MaxBox->Text))) {
+								chart4->Series["CIA"]->Points[i]->IsEmpty = false;
+							}
+							else {
+								chart4->Series["CIA"]->Points[i]->IsEmpty = true;
+							}
 						}
-						else {
-							chart4->Series["CIA"]->Points[i]->IsEmpty = true;
-						}
-					}
 
-					for (int i = 0; i < chart4->Series["FACI"]->Points->Count; i++) {
-						int AirQ = chart4->Series["FACI"]->Points[i]->YValues[0];
-						if ((AirQ >= Int32::Parse(MinBox->Text)) && (AirQ <= Int32::Parse(MaxBox->Text))) {
-							chart4->Series["FACI"]->Points[i]->IsEmpty = false;
+						for (int i = 0; i < chart4->Series["FACI"]->Points->Count; i++) {
+							int AirQ = chart4->Series["FACI"]->Points[i]->YValues[0];
+							if ((AirQ >= Int32::Parse(MinBox->Text)) && (AirQ <= Int32::Parse(MaxBox->Text))) {
+								chart4->Series["FACI"]->Points[i]->IsEmpty = false;
+							}
+							else {
+								chart4->Series["FACI"]->Points[i]->IsEmpty = true;
+							}
 						}
-						else {
-							chart4->Series["FACI"]->Points[i]->IsEmpty = true;
-						}
-					}
 
-					for (int i = 0; i < chart4->Series["BIBLIOTECA"]->Points->Count; i++) {
-						int AirQ = chart4->Series["BIBLIOTECA"]->Points[i]->YValues[0];
-						if ((AirQ >= Int32::Parse(MinBox->Text)) && (AirQ <= Int32::Parse(MaxBox->Text))) {
-							chart4->Series["BIBLIOTECA"]->Points[i]->IsEmpty = false;
+						for (int i = 0; i < chart4->Series["BIBLIOTECA"]->Points->Count; i++) {
+							int AirQ = chart4->Series["BIBLIOTECA"]->Points[i]->YValues[0];
+							if ((AirQ >= Int32::Parse(MinBox->Text)) && (AirQ <= Int32::Parse(MaxBox->Text))) {
+								chart4->Series["BIBLIOTECA"]->Points[i]->IsEmpty = false;
+							}
+							else {
+								chart4->Series["BIBLIOTECA"]->Points[i]->IsEmpty = true;
+							}
 						}
-						else {
-							chart4->Series["BIBLIOTECA"]->Points[i]->IsEmpty = true;
-						}
-					}
 
-					for (int i = 0; i < chart4->Series["TINKUY"]->Points->Count; i++) {
-						int AirQ = chart4->Series["TINKUY"]->Points[i]->YValues[0];
-						if ((AirQ >= Int32::Parse(MinBox->Text)) && (AirQ <= Int32::Parse(MaxBox->Text))) {
-							chart4->Series["TINKUY"]->Points[i]->IsEmpty = false;
+						for (int i = 0; i < chart4->Series["TINKUY"]->Points->Count; i++) {
+							int AirQ = chart4->Series["TINKUY"]->Points[i]->YValues[0];
+							if ((AirQ >= Int32::Parse(MinBox->Text)) && (AirQ <= Int32::Parse(MaxBox->Text))) {
+								chart4->Series["TINKUY"]->Points[i]->IsEmpty = false;
+							}
+							else {
+								chart4->Series["TINKUY"]->Points[i]->IsEmpty = true;
+							}
 						}
-						else {
-							chart4->Series["TINKUY"]->Points[i]->IsEmpty = true;
-						}
+						flag = 1;
 					}
-					flag = 1;
+					else {
+						MessageBox::Show("El dato menor no puede ser el mayor. Los datos deben ser enteros positivos.");
+					}
 				}
 				else {
-					MessageBox::Show("El dato menor no puede ser el mayor. Los datos deben ser enteros positivos.");
+					MessageBox::Show("Los datos ingresados deben ser numéricos");
 				}
 			}
 			else {
@@ -1016,44 +1038,51 @@ private: System::Windows::Forms::CheckBox^ isFahrenheit;
 			if (HoraInicial->Text != "" && HoraFinal->Text != "" && MinutoFinal->Text != "" && MinutoInicial->Text != "") {
 				
 				DateTime fechaInicio = dtp1->Value;
-				int Hora1 = Int32::Parse(HoraInicial->Text);
-				int Min1 = Int32::Parse(MinutoInicial->Text);
-				String^ ampm1 = AMPM1->SelectedItem->ToString();
-				int factor1 = (ampm1 == "a.m.") ? 0 : 12; //if fino, a ? b : c, a condicion, b Sí, c No
-				fechaInicio = fechaInicio.Date.AddHours(Hora1 + factor1).AddMinutes(Min1).AddSeconds(0);
+				int Hora1;
+				int Min1;
 
 				DateTime fechaFin = dtp2->Value;
-				int Hora2 = Int32::Parse(HoraFinal->Text);
-				int Min2 = Int32::Parse(MinutoFinal->Text);
-				String^ ampm2 = AMPM2->SelectedItem->ToString();
-				int factor2 = (ampm2 == "a.m.") ? 0 : 12;
-				fechaFin = fechaFin.Date.AddHours(Hora2 + factor2).AddMinutes(Min2).AddSeconds(0);
+				int Hora2;
+				int Min2;
 
-				if ((Hora1 >= 0 && Hora1 <= 12) && (Min1 >= 0 && Min1 <= 60) && (Hora2 >= 0 && Hora2 <= 12) && (Min2 >= 0 && Min2 <= 60) && (fechaInicio < fechaFin)) {
+				if (Int32::TryParse(HoraInicial->Text, Hora1) && Int32::TryParse(MinutoInicial->Text, Min1) && Int32::TryParse(HoraFinal->Text, Hora2) && Int32::TryParse(MinutoFinal->Text, Min2)){					
+					String^ ampm1 = AMPM1->SelectedItem->ToString();
+					int factor1 = (ampm1 == "a.m.") ? 0 : 12; //if fino, a ? b : c, a condicion, b Sí, c No
+					fechaInicio = fechaInicio.Date.AddHours(Hora1 + factor1).AddMinutes(Min1).AddSeconds(0);
+				
+					String^ ampm2 = AMPM2->SelectedItem->ToString();
+					int factor2 = (ampm2 == "a.m.") ? 0 : 12;
+					fechaFin = fechaFin.Date.AddHours(Hora2 + factor2).AddMinutes(Min2).AddSeconds(0);
 
-					for each (Ambiente ^ dato in ambiente_aux) {
-						DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-						DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
-						DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
+					if ((Hora1 >= 0 && Hora1 <= 12) && (Min1 >= 0 && Min1 <= 60) && (Hora2 >= 0 && Hora2 <= 12) && (Min2 >= 0 && Min2 <= 60) && (fechaInicio < fechaFin)) {
 
-						if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
-							ambiente_to_filter->Add(dato);
+						for each (Ambiente ^ dato in ambiente_aux) {
+							DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
+							DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
+							DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
+
+							if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
+								ambiente_to_filter->Add(dato);
+							}
 						}
-					}
-					for each (Ambiente ^ dato in ambiente_aux_2) {
-						DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-						DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
-						DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
+						for each (Ambiente ^ dato in ambiente_aux_2) {
+							DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
+							DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
+							DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
-						if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
-							ambiente_to_filter_2->Add(dato);
+							if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
+								ambiente_to_filter_2->Add(dato);
+							}
 						}
+						RefreshChartsbyDateTime(fechaInicio, fechaFin);
+						flag = 1;
 					}
-					RefreshChartsbyDateTime(fechaInicio, fechaFin);
-					flag = 1;
+					else {
+						MessageBox::Show("Asegurarse de que los valores de fecha y hora estén en los límites respectivos.");
+					}
 				}
 				else {
-					MessageBox::Show("Asegurarse de que los valores de fecha y hora estén en los límites respectivos.");
+					MessageBox::Show("Los datos ingresados deben ser numéricos");
 				}
 			}
 			else {
@@ -1130,46 +1159,55 @@ private: System::Windows::Forms::CheckBox^ isFahrenheit;
 		}
 		else if ((CriterioBox->SelectedItem->ToString() == "Fecha-Hora") && (checkBox1->Checked == 0) && (checkBox2->Checked)) {
 			if (HoraInicial->Text != "" && MinutoInicial->Text != "" && HoraFinal->Text != "" && MinutoFinal->Text != ""){
+
+
 				DateTime fechaInicio = dtp1->Value;
-				int Hora1 = Int32::Parse(HoraInicial->Text);
-				int Min1 = Int32::Parse(MinutoInicial->Text);
-				String^ ampm1 = AMPM1->SelectedItem->ToString();
-				int factor1 = (ampm1 == "a.m.") ? 0 : 12; //if fino, a ? b : c, a condicion, b Sí, c No
-				fechaInicio = fechaInicio.Date.AddHours(Hora1 + factor1).AddMinutes(Min1).AddSeconds(0);
+				int Hora1;
+				int Min1;
+
+				DateTime fechaFin = dtp2->Value;
+				int Hora2;
+				int Min2;
+
+				if (Int32::TryParse(HoraInicial->Text, Hora1) && Int32::TryParse(MinutoInicial->Text, Min1) && Int32::TryParse(HoraFinal->Text, Hora2) && Int32::TryParse(MinutoFinal->Text, Min2)) {
+					String^ ampm1 = AMPM1->SelectedItem->ToString();
+					int factor1 = (ampm1 == "a.m.") ? 0 : 12; //if fino, a ? b : c, a condicion, b Sí, c No
+					fechaInicio = fechaInicio.Date.AddHours(Hora1 + factor1).AddMinutes(Min1).AddSeconds(0);
+
+					String^ ampm2 = AMPM2->SelectedItem->ToString();
+					int factor2 = (ampm2 == "a.m.") ? 0 : 12;
+					DateTime fechaFin = fechaInicio.Date.AddHours(Hora2 + factor2).AddMinutes(Min2).AddSeconds(0);
+
+					if ((Hora1 >= 0 && Hora1 <= 12) && (Min1 >= 0 && Min1 <= 60) && (Hora2 >= 0 && Hora2 <= 12) && (Min2 >= 0 && Min2 <= 60) && (fechaInicio < fechaFin)) {
 
 
-				int Hora2 = Int32::Parse(HoraFinal->Text);
-				int Min2 = Int32::Parse(MinutoFinal->Text);
-				String^ ampm2 = AMPM2->SelectedItem->ToString();
-				int factor2 = (ampm2 == "a.m.") ? 0 : 12;
-				DateTime fechaFin = fechaInicio.Date.AddHours(Hora2 + factor2).AddMinutes(Min2).AddSeconds(0);
+						for each (Ambiente ^ dato in ambiente_aux) {
+							DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
+							DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
+							DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
-				if ((Hora1 >= 0 && Hora1 <= 12) && (Min1 >= 0 && Min1 <= 60) && (Hora2 >= 0 && Hora2 <= 12) && (Min2 >= 0 && Min2 <= 60) && (fechaInicio < fechaFin)) {
-
-
-					for each (Ambiente ^ dato in ambiente_aux) {
-						DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-						DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
-						DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
-
-						if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
-							ambiente_to_filter->Add(dato);
+							if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
+								ambiente_to_filter->Add(dato);
+							}
 						}
-					}
-					for each (Ambiente ^ dato in ambiente_aux_2) {
-						DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
-						DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
-						DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
+						for each (Ambiente ^ dato in ambiente_aux_2) {
+							DateTime fechaSensor = DateTime::ParseExact(dato->FechaMedicion, "yyyy-MM-dd", nullptr);
+							DateTime horaSensor = DateTime::ParseExact(dato->TiempoMedicion, "HH:mm:ss", nullptr);
+							DateTime fechaYHora = fechaSensor.Date + horaSensor.TimeOfDay; //gpts
 
-						if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
-							ambiente_to_filter_2->Add(dato);
+							if ((fechaYHora >= fechaInicio) && (fechaYHora <= fechaFin)) {
+								ambiente_to_filter_2->Add(dato);
+							}
 						}
+						RefreshChartsbyDateTime(fechaInicio, fechaFin);
+						flag = 1;
 					}
-					RefreshChartsbyDateTime(fechaInicio, fechaFin);
-					flag = 1;
+					else {
+						MessageBox::Show("Asegurarse de que los valores de fecha y hora estén en los límites respectivos.");
+					}
 				}
 				else {
-					MessageBox::Show("Asegurarse de que los valores de fecha y hora estén en los límites respectivos.");
+					MessageBox::Show("Los datos ingresados deben ser numéricos");
 				}
 			}
 			else {

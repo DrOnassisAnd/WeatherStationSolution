@@ -452,69 +452,81 @@ namespace WeatherStationView {
 private: System::Void AgregarBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	if (TempBox->Text != "" && HumBox->Text != "" && COBox->Text != "" && AirQBox->Text != "") {
-		int Temperatura = Int32::Parse(TempBox->Text);
-		int Humedad = Int32::Parse(HumBox->Text);
-		int ConcentracionCO = Int32::Parse(COBox->Text);
-		int AirQ = Int32::Parse(AirQBox->Text);
+		int Temperatura;
+		int Humedad;
+		int ConcentracionCO;
+		int AirQ;
 
-		if (Temperatura > 0 && Humedad > 0 && ConcentracionCO > 0 && AirQ > 0) {
-			String^ UnidadTemp = UnidadTlbl->Text;
-			String^ UbiGeo = UbigeoCombo->SelectedItem->ToString();
+		bool isTempNumeric = Int32::TryParse(TempBox->Text, Temperatura);
+		bool isHumNumeric = Int32::TryParse(HumBox->Text, Humedad);
+		bool isCONumeric = Int32::TryParse(COBox->Text, ConcentracionCO);
+		bool isAirQNumeric = Int32::TryParse(AirQBox->Text, AirQ);
+	
+		if (isTempNumeric && isHumNumeric && isCONumeric && isAirQNumeric) {
+			if (Temperatura > 0 && Humedad > 0 && ConcentracionCO > 0 && AirQ > 0) {
+				String^ UnidadTemp = Convert::ToChar(176) + "C"; //siempre
+				String^ UbiGeo = UbigeoCombo->SelectedItem->ToString();
 
-			List<Ambiente^>^ sensorData = Controller::Controller::QueryAmbienteData();
-			int lastIdIndex = sensorData->Count;
-			Ambiente^ ambiente = gcnew Ambiente();
+				List<Ambiente^>^ sensorData = Controller::Controller::QueryAmbienteData();
+				int lastIdIndex = sensorData->Count;
+				Ambiente^ ambiente = gcnew Ambiente();
 
-			if (lastIdIndex == 0) {
-				ambiente->IdMedicion = 1;
+				if (lastIdIndex == 0) {
+					ambiente->IdMedicion = 1;
+				}
+				else {
+					Ambiente^ ambientelastId = sensorData[lastIdIndex - 1];
+					ambiente->IdMedicion = (ambientelastId->IdMedicion) + 1;
+				}
+
+				//Ingresar los datos en Ambiente
+				ambiente->UbicacionGeografica = UbiGeo;
+				int IdSensor;
+
+				if (UbiGeo == "FACI") {
+					IdSensor = 1;
+				}
+				else if (UbiGeo == "CIA") {
+					IdSensor = 2;
+				}
+				else if (UbiGeo == "BIBLIOTECA CENTRAL") {
+					IdSensor = 3;
+				}
+				else if (UbiGeo == "TINKUY") {
+					IdSensor = 4;
+				}
+				if(isFahrenheit->Checked) Temperatura = Math::Round((Temperatura - 32) * 5 / (double)9, 0);
+				SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(IdSensor, Temperatura, UnidadTemp, Humedad);
+				SensorCO^ CO = gcnew SensorCO(IdSensor, ConcentracionCO);
+				SensorCalidadAire^ airq = gcnew SensorCalidadAire(IdSensor, AirQ);
+
+				List<Sensor^>^ sensorList = gcnew List<Sensor^>();
+				sensorList->Add(TH);
+				sensorList->Add(CO);
+				sensorList->Add(airq);
+
+				ambiente->DataBase = sensorList;
+
+				ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
+				ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
+
+				Controller::Controller::AddAmbienteData(ambiente);
+				ShowAmbienteData();
+
+				if (isFahrenheit->Checked) F_Check();
+
+				TempBox->Text = "";
+				HumBox->Text = "";
+				COBox->Text = "";
+				AirQBox->Text = "";
+				UbigeoCombo->SelectedIndex = 0;
 			}
 			else {
-				Ambiente^ ambientelastId = sensorData[lastIdIndex - 1];
-				ambiente->IdMedicion = (ambientelastId->IdMedicion) + 1;
+				MessageBox::Show("Los datos ingresados deben ser números positivos");
 			}
-
-			//Ingresar los datos en Ambiente
-			ambiente->UbicacionGeografica = UbiGeo;
-			int IdSensor;
-
-			if (UbiGeo == "FACI") {
-				IdSensor = 1;
-			}
-			else if (UbiGeo == "CIA") {
-				IdSensor = 2;
-			}
-			else if (UbiGeo == "BIBLIOTECA CENTRAL") {
-				IdSensor = 3;
-			}
-			else if (UbiGeo == "TINKUY") {
-				IdSensor = 4;
-			}
-
-			SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(IdSensor, Temperatura, UnidadTemp, Humedad);
-			SensorCO^ CO = gcnew SensorCO(IdSensor, ConcentracionCO);
-			SensorCalidadAire^ airq = gcnew SensorCalidadAire(IdSensor, AirQ);
-
-			List<Sensor^>^ sensorList = gcnew List<Sensor^>();
-			sensorList->Add(TH);
-			sensorList->Add(CO);
-			sensorList->Add(airq);
-
-			ambiente->DataBase = sensorList;
-
-			ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
-			ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
-
-			Controller::Controller::AddAmbienteData(ambiente);
-			ShowAmbienteData();
-
-			TempBox->Text = "";
-			HumBox->Text = "";
-			COBox->Text = "";
-			AirQBox->Text = "";
-			UbigeoCombo->SelectedIndex = 0;
 		}
 		else {
-			MessageBox::Show("Los datos ingresados deben ser números positivos");
+			MessageBox::Show("Los valores ingresados deben ser números.");
 		}
 	}
 	else {
@@ -565,62 +577,75 @@ private: System::Void AgregarBtn_Click(System::Object^ sender, System::EventArgs
 private: System::Void ModificarBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	if (TempBox->Text != "" && HumBox->Text != "" && COBox->Text != "" && AirQBox->Text != "") {
-		int Temperatura = Int32::Parse(TempBox->Text);
-		int Humedad = Int32::Parse(HumBox->Text);
-		int ConcentracionCO = Int32::Parse(COBox->Text);
-		int AirQ = Int32::Parse(AirQBox->Text);
+		int Temperatura;
+		int Humedad;
+		int ConcentracionCO;
+		int AirQ;
 
-		if (Temperatura > 0 && Humedad > 0 && ConcentracionCO > 0 && AirQ > 0) {
-			String^ UnidadTemp = UnidadTlbl->Text;
-			String^ UbiGeo = UbigeoCombo->SelectedItem->ToString();
+		bool isTempNumeric = Int32::TryParse(TempBox->Text, Temperatura);
+		bool isHumNumeric = Int32::TryParse(HumBox->Text, Humedad);
+		bool isCONumeric = Int32::TryParse(COBox->Text, ConcentracionCO);
+		bool isAirQNumeric = Int32::TryParse(AirQBox->Text, AirQ);
 
-			Ambiente^ ambiente = gcnew Ambiente();
+		if (isTempNumeric && isHumNumeric && isCONumeric && isAirQNumeric) {
+			if (Temperatura > 0 && Humedad > 0 && ConcentracionCO > 0 && AirQ > 0) {
+				String^ UnidadTemp = Convert::ToChar(176) + "C"; //siempre
+				String^ UbiGeo = UbigeoCombo->SelectedItem->ToString();
 
-			ambiente->IdMedicion = idMedicion;
-			ambiente->UbicacionGeografica = UbiGeo;
-			ambiente->FechaMedicion = fechaMedicion;
-			ambiente->TiempoMedicion = tiempoMedicion;
+				Ambiente^ ambiente = gcnew Ambiente();
 
-			int IdSensor;
+				ambiente->IdMedicion = idMedicion;
+				ambiente->UbicacionGeografica = UbiGeo;
+				ambiente->FechaMedicion = fechaMedicion;
+				ambiente->TiempoMedicion = tiempoMedicion;
 
-			if (UbiGeo == "FACI") {
-				IdSensor = 1;
+				int IdSensor;
+
+				if (UbiGeo == "FACI") {
+					IdSensor = 1;
+				}
+				else if (UbiGeo == "CIA") {
+					IdSensor = 2;
+				}
+				else if (UbiGeo == "BIBLIOTECA CENTRAL") {
+					IdSensor = 3;
+				}
+				else if (UbiGeo == "TINKUY") {
+					IdSensor = 4;
+				}
+
+				if (isFahrenheit->Checked) Temperatura = Math::Round((Temperatura - 32) * 5 / (double)9, 0);
+				SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(IdSensor, Temperatura, UnidadTemp, Humedad);
+				SensorCO^ CO = gcnew SensorCO(IdSensor, ConcentracionCO);
+				SensorCalidadAire^ airq = gcnew SensorCalidadAire(IdSensor, AirQ);
+
+				List<Sensor^>^ sensorList = gcnew List<Sensor^>();
+				sensorList->Add(TH);
+				sensorList->Add(CO);
+				sensorList->Add(airq);
+
+				ambiente->DataBase = sensorList;
+
+				Controller::Controller::UpdateAmbienteData(ambiente);
+
+				TempBox->Text = "";
+				HumBox->Text = "";
+				COBox->Text = "";
+				AirQBox->Text = "";
+				UbigeoCombo->SelectedIndex = 0;
+				idMedicion = 0;
+
+				ShowAmbienteData();
+				if (isFahrenheit->Checked) F_Check();
 			}
-			else if (UbiGeo == "CIA") {
-				IdSensor = 2;
+			else {
+				MessageBox::Show("Los datos ingresados deben ser números positivos");
 			}
-			else if (UbiGeo == "BIBLIOTECA CENTRAL") {
-				IdSensor = 3;
-			}
-			else if (UbiGeo == "TINKUY") {
-				IdSensor = 4;
-			}
-
-			SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(IdSensor, Temperatura, UnidadTemp, Humedad);
-			SensorCO^ CO = gcnew SensorCO(IdSensor, ConcentracionCO);
-			SensorCalidadAire^ airq = gcnew SensorCalidadAire(IdSensor, AirQ);
-
-			List<Sensor^>^ sensorList = gcnew List<Sensor^>();
-			sensorList->Add(TH);
-			sensorList->Add(CO);
-			sensorList->Add(airq);
-
-			ambiente->DataBase = sensorList;
-
-			Controller::Controller::UpdateAmbienteData(ambiente);
-
-			TempBox->Text = "";
-			HumBox->Text = "";
-			COBox->Text = "";
-			AirQBox->Text = "";
-			UbigeoCombo->SelectedIndex = 0;
-			idMedicion = 0;
-
-			ShowAmbienteData();
 		}
 		else {
-			MessageBox::Show("Los datos ingresados deben ser números positivos");
+			MessageBox::Show("Los valores ingresados deben ser números.");
 		}
+
 	}
 	else {
 		MessageBox::Show("Por favor complete los datos antes de modificar.");
@@ -639,6 +664,7 @@ private: System::Void EliminarBtn_Click(System::Object^ sender, System::EventArg
 		idMedicion = 0;
 
 		ShowAmbienteData();
+		if (isFahrenheit->Checked) F_Check();
 	}
 	else {
 		MessageBox::Show("Por favor seleccione un dato antes de eliminar.");
