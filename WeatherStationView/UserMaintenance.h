@@ -55,17 +55,24 @@ namespace WeatherStationView {
 
 	private: System::Windows::Forms::Label^ label2;
 
+
+
+
+
+	private: int Id;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::ComboBox^ comboBox1;
+
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
+	private: System::Windows::Forms::Label^ FechaFin;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
-	private: int Id;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
-	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
-	private: System::Windows::Forms::Label^ FechaFin;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ FechaFindgv;
+
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -85,11 +92,6 @@ namespace WeatherStationView {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -99,6 +101,12 @@ namespace WeatherStationView {
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->FechaFin = (gcnew System::Windows::Forms::Label());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->FechaFindgv = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
@@ -148,9 +156,9 @@ namespace WeatherStationView {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
 				this->Column1,
-					this->Column4, this->Column2, this->Column3, this->Column5, this->FechaFindgv
+					this->Column4, this->Column2, this->Column3, this->Column5, this->Column6, this->FechaFindgv
 			});
 			this->dataGridView1->Location = System::Drawing::Point(12, 143);
 			this->dataGridView1->Name = L"dataGridView1";
@@ -158,39 +166,6 @@ namespace WeatherStationView {
 			this->dataGridView1->Size = System::Drawing::Size(757, 177);
 			this->dataGridView1->TabIndex = 57;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &UserMaintenance::Table_CellClick);
-			// 
-			// Column1
-			// 
-			this->Column1->HeaderText = L"Id";
-			this->Column1->MinimumWidth = 6;
-			this->Column1->Name = L"Column1";
-			this->Column1->Width = 125;
-			// 
-			// Column4
-			// 
-			this->Column4->HeaderText = L"Name";
-			this->Column4->MinimumWidth = 6;
-			this->Column4->Name = L"Column4";
-			this->Column4->Width = 125;
-			// 
-			// Column2
-			// 
-			this->Column2->HeaderText = L"Password";
-			this->Column2->MinimumWidth = 6;
-			this->Column2->Name = L"Column2";
-			this->Column2->Width = 125;
-			// 
-			// Column3
-			// 
-			this->Column3->HeaderText = L"Email";
-			this->Column3->MinimumWidth = 6;
-			this->Column3->Name = L"Column3";
-			this->Column3->Width = 125;
-			// 
-			// Column5
-			// 
-			this->Column5->HeaderText = L"Membresia";
-			this->Column5->Name = L"Column5";
 			// 
 			// button3
 			// 
@@ -272,6 +247,44 @@ namespace WeatherStationView {
 			this->FechaFin->TabIndex = 66;
 			this->FechaFin->Text = L"FechaFinalizacion";
 			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"Id";
+			this->Column1->MinimumWidth = 6;
+			this->Column1->Name = L"Column1";
+			this->Column1->Width = 125;
+			// 
+			// Column4
+			// 
+			this->Column4->HeaderText = L"Name";
+			this->Column4->MinimumWidth = 6;
+			this->Column4->Name = L"Column4";
+			this->Column4->Width = 125;
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Password";
+			this->Column2->MinimumWidth = 6;
+			this->Column2->Name = L"Column2";
+			this->Column2->Width = 125;
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"Email";
+			this->Column3->MinimumWidth = 6;
+			this->Column3->Name = L"Column3";
+			this->Column3->Width = 125;
+			// 
+			// Column5
+			// 
+			this->Column5->HeaderText = L"Membresia";
+			this->Column5->Name = L"Column5";
+			// 
+			// Column6
+			// 
+			this->Column6->HeaderText = L"FechaInicio";
+			this->Column6->Name = L"Column6";
+			// 
 			// FechaFindgv
 			// 
 			this->FechaFindgv->HeaderText = L"FechaFin";
@@ -313,40 +326,44 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	String^ Email = textBox4->Text;
 
 	if (Name != "" && Password != "" && Email != "") {
+		if (dateTimePicker1->Value > DateTime::Today) {
+			String^ TipoMembresia = comboBox1->SelectedItem->ToString();
+			String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
 
-		String^ TipoMembresia = comboBox1->SelectedItem->ToString();
-		String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
+			List<User^>^ users = Controller::Controller::QueryAllUser();
+			int lastIdIndex = users->Count;
+			User^ user = gcnew User();
 
-		List<User^>^ users = Controller::Controller::QueryAllUser();
-		int lastIdIndex = users->Count;
-		User^ user = gcnew User();
+			if (lastIdIndex == 0) {
+				user->Id = 1;
+			}
+			else {
+				User^ userLastId = users[lastIdIndex - 1];
+				user->Id = (userLastId->Id) + 1;
+			}
 
-		if (lastIdIndex == 0) {
-			user->Id = 1;
+			Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
+			Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
+
+			user->Name = Name;
+			user->Password = Password;
+			user->Email = Email;
+			user->membresia = membresia;
+			user->ajustes = ajustes;
+
+			Controller::Controller::AddUser(user);
+			ShowUserData();
+
+			textBox2->Text = "";
+			textBox3->Text = "";
+			textBox4->Text = "";
+			comboBox1->SelectedIndex = 0;
+			dateTimePicker1->Value = DateTime::Today;
+			Id = 0;
 		}
 		else {
-			User^ userLastId = users[lastIdIndex - 1];
-			user->Id = (userLastId->Id) + 1;
+			MessageBox::Show("La fecha de finalización debe ser mayor que la fecha de inicio.");
 		}
-
-		Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
-		Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
-
-		user->Name = Name;
-		user->Password = Password;
-		user->Email = Email;
-		user->membresia = membresia;
-		user->ajustes = ajustes;
-
-		Controller::Controller::AddUser(user);
-		ShowUserData();
-
-		textBox2->Text = "";
-		textBox3->Text = "";
-		textBox4->Text = "";
-		comboBox1->SelectedIndex = 0;
-		dateTimePicker1->Value = DateTime::Today;
-		Id = 0;
 	}
 	else {
 		MessageBox::Show("Por favor complete los espacios antes de añadir un dato.");
@@ -425,32 +442,37 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	String^ email = textBox4->Text;
 
 	if (name != "" && password != "" && email != "") {
-		String^ TipoMembresia = comboBox1->SelectedItem->ToString();
-		String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
+		if (dateTimePicker1->Value > DateTime::Today) {
+			String^ TipoMembresia = comboBox1->SelectedItem->ToString();
+			String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
 
-		User^ user = gcnew User();
-		user->Id = Id;
-		user->Name = name;
-		user->Password = password;
-		user->Email = email;
+			User^ user = gcnew User();
+			user->Id = Id;
+			user->Name = name;
+			user->Password = password;
+			user->Email = email;
 
 
-		Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
-		Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
+			Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
+			Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
 
-		user->membresia = membresia;
-		user->ajustes = ajustes;
+			user->membresia = membresia;
+			user->ajustes = ajustes;
 
-		Controller::Controller::UpdateUser(user);
+			Controller::Controller::UpdateUser(user);
 
-		textBox2->Text = "";
-		textBox3->Text = "";
-		textBox4->Text = "";
-		comboBox1->SelectedIndex = 0;
-		dateTimePicker1->Value = DateTime::Today;
-		Id = 0;
+			textBox2->Text = "";
+			textBox3->Text = "";
+			textBox4->Text = "";
+			comboBox1->SelectedIndex = 0;
+			dateTimePicker1->Value = DateTime::Today;
+			Id = 0;
 
-		ShowUserData();
+			ShowUserData();
+		}
+		else {
+			MessageBox::Show("La fecha de finalización debe ser mayor que la fecha de inicio.");
+		}
 	}
 	else {
 		MessageBox::Show("Por favor complete los datos antes de modificar.");
