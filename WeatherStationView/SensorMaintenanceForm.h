@@ -445,69 +445,75 @@ namespace WeatherStationView {
 		}
 #pragma endregion
 	private: System::Void SensorMaintenanceForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		UbigeoCombo->SelectedIndex = 0;
 		ShowAmbienteData();
 	}
 
 private: System::Void AgregarBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	int Temperatura = Int32::Parse(TempBox->Text);
-	int Humedad = Int32::Parse(HumBox->Text);
-	int ConcentracionCO = Int32::Parse(COBox->Text);
-	int AirQ = Int32::Parse(AirQBox->Text);
-	String^ UnidadTemp = UnidadTlbl->Text;
-	String^ UbiGeo = UbigeoCombo->SelectedItem->ToString();
 
-	List<Ambiente^>^ sensorData = Controller::Controller::QueryAmbienteData();
-	int lastIdIndex = sensorData->Count;
-	Ambiente^ ambiente = gcnew Ambiente();
+	if (TempBox->Text != "" && HumBox->Text != "" && COBox->Text != "" && AirQBox->Text != "") {
+		int Temperatura = Int32::Parse(TempBox->Text);
+		int Humedad = Int32::Parse(HumBox->Text);
+		int ConcentracionCO = Int32::Parse(COBox->Text);
+		int AirQ = Int32::Parse(AirQBox->Text);
+		String^ UnidadTemp = UnidadTlbl->Text;
+		String^ UbiGeo = UbigeoCombo->SelectedItem->ToString();
 
-	if (lastIdIndex == 0) {
-		ambiente->IdMedicion = 1;
+		List<Ambiente^>^ sensorData = Controller::Controller::QueryAmbienteData();
+		int lastIdIndex = sensorData->Count;
+		Ambiente^ ambiente = gcnew Ambiente();
+
+		if (lastIdIndex == 0) {
+			ambiente->IdMedicion = 1;
+		}
+		else {
+			Ambiente^ ambientelastId = sensorData[lastIdIndex - 1];
+			ambiente->IdMedicion = (ambientelastId->IdMedicion) + 1;
+		}
+
+		//Ingresar los datos en Ambiente
+		ambiente->UbicacionGeografica = UbiGeo;
+		int IdSensor;
+
+		if (UbiGeo == "FACI") {
+			IdSensor = 1;
+		}
+		else if (UbiGeo == "CIA") {
+			IdSensor = 2;
+		}
+		else if (UbiGeo == "BIBLIOTECA CENTRAL") {
+			IdSensor = 3;
+		}
+		else if (UbiGeo == "TINKUY") {
+			IdSensor = 4;
+		}
+
+		SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(IdSensor, Temperatura, UnidadTemp, Humedad);
+		SensorCO^ CO = gcnew SensorCO(IdSensor, ConcentracionCO);
+		SensorCalidadAire^ airq = gcnew SensorCalidadAire(IdSensor, AirQ);
+
+		List<Sensor^>^ sensorList = gcnew List<Sensor^>();
+		sensorList->Add(TH);
+		sensorList->Add(CO);
+		sensorList->Add(airq);
+
+		ambiente->DataBase = sensorList;
+
+		ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
+		ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
+
+		Controller::Controller::AddAmbienteData(ambiente);
+		ShowAmbienteData();
+
+		TempBox->Text = "";
+		HumBox->Text = "";
+		COBox->Text = "";
+		AirQBox->Text = "";
+		UbigeoCombo->SelectedIndex = 0;
 	}
 	else {
-		Ambiente^ ambientelastId = sensorData[lastIdIndex - 1];
-		ambiente->IdMedicion = (ambientelastId->IdMedicion) + 1;
+		MessageBox::Show("Por favor complete los espacios antes de añadir un dato.");
 	}
-
-	//Ingresar los datos en Ambiente
-	ambiente->UbicacionGeografica = UbiGeo;
-	int IdSensor;
-
-	if (UbiGeo == "FACI") {
-		IdSensor = 1;
-	}
-	else if (UbiGeo == "CIA") {
-		IdSensor = 2;
-	}
-	else if (UbiGeo == "BIBLIOTECA CENTRAL") {
-		IdSensor = 3;
-	}
-	else if (UbiGeo == "TINKUY") {
-		IdSensor = 4;
-	}
-	
-	SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(IdSensor, Temperatura, UnidadTemp, Humedad);
-	SensorCO^ CO = gcnew SensorCO(IdSensor, ConcentracionCO);
-	SensorCalidadAire^ airq = gcnew SensorCalidadAire(IdSensor, AirQ);
-
-	List<Sensor^>^ sensorList = gcnew List<Sensor^>();
-	sensorList->Add(TH);
-	sensorList->Add(CO);
-	sensorList->Add(airq);
-
-	ambiente->DataBase = sensorList;
-
-	ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
-	ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
-
-	Controller::Controller::AddAmbienteData(ambiente);
-	ShowAmbienteData();
-
-	TempBox->Text = "";
-	HumBox->Text = "";
-	COBox->Text = "";
-	AirQBox->Text = "";
-	UbigeoCombo->SelectedIndex = 0;
-	
 }
 	   void ShowAmbienteData() {
 		   List<Ambiente^>^ sensorData = gcnew List<Ambiente^>();
@@ -552,54 +558,79 @@ private: System::Void AgregarBtn_Click(System::Object^ sender, System::EventArgs
 
 private: System::Void ModificarBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	int Temperatura = Int32::Parse(TempBox->Text);
-	int Humedad = Int32::Parse(HumBox->Text);
-	int ConcentracionCO = Int32::Parse(COBox->Text);
-	int AirQ = Int32::Parse(AirQBox->Text);
-	String^ UnidadTemp = UnidadTlbl->Text;
-	String^ UbiGeo = UbigeoCombo->SelectedItem->ToString();
+	if (TempBox->Text != "" && HumBox->Text != "" && COBox->Text != "" && AirQBox->Text != "") {
+		int Temperatura = Int32::Parse(TempBox->Text);
+		int Humedad = Int32::Parse(HumBox->Text);
+		int ConcentracionCO = Int32::Parse(COBox->Text);
+		int AirQ = Int32::Parse(AirQBox->Text);
+		String^ UnidadTemp = UnidadTlbl->Text;
+		String^ UbiGeo = UbigeoCombo->SelectedItem->ToString();
 
-	Ambiente^ ambiente = gcnew Ambiente();
+		Ambiente^ ambiente = gcnew Ambiente();
 
-	ambiente->IdMedicion = idMedicion;
-	ambiente->UbicacionGeografica = UbiGeo;
-	ambiente->FechaMedicion = fechaMedicion;
-	ambiente->TiempoMedicion = tiempoMedicion;
-	
-	int IdSensor;
+		ambiente->IdMedicion = idMedicion;
+		ambiente->UbicacionGeografica = UbiGeo;
+		ambiente->FechaMedicion = fechaMedicion;
+		ambiente->TiempoMedicion = tiempoMedicion;
 
-	if (UbiGeo == "FACI") {
-		IdSensor = 1;
+		int IdSensor;
+
+		if (UbiGeo == "FACI") {
+			IdSensor = 1;
+		}
+		else if (UbiGeo == "CIA") {
+			IdSensor = 2;
+		}
+		else if (UbiGeo == "BIBLIOTECA CENTRAL") {
+			IdSensor = 3;
+		}
+		else if (UbiGeo == "TINKUY") {
+			IdSensor = 4;
+		}
+
+		SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(IdSensor, Temperatura, UnidadTemp, Humedad);
+		SensorCO^ CO = gcnew SensorCO(IdSensor, ConcentracionCO);
+		SensorCalidadAire^ airq = gcnew SensorCalidadAire(IdSensor, AirQ);
+
+		List<Sensor^>^ sensorList = gcnew List<Sensor^>();
+		sensorList->Add(TH);
+		sensorList->Add(CO);
+		sensorList->Add(airq);
+
+		ambiente->DataBase = sensorList;
+
+		Controller::Controller::UpdateAmbienteData(ambiente);
+
+		TempBox->Text = "";
+		HumBox->Text = "";
+		COBox->Text = "";
+		AirQBox->Text = "";
+		UbigeoCombo->SelectedIndex = 0;
+		idMedicion = 0;
+
+		ShowAmbienteData();
 	}
-	else if (UbiGeo == "CIA") {
-		IdSensor = 2;
+	else {
+		MessageBox::Show("Por favor complete los datos antes de modificar.");
 	}
-	else if (UbiGeo == "BIBLIOTECA CENTRAL") {
-		IdSensor = 3;
-	}
-	else if (UbiGeo == "TINKUY") {
-		IdSensor = 4;
-	}
-
-	SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(IdSensor, Temperatura, UnidadTemp, Humedad);
-	SensorCO^ CO = gcnew SensorCO(IdSensor, ConcentracionCO);
-	SensorCalidadAire^ airq = gcnew SensorCalidadAire(IdSensor, AirQ);
-
-	List<Sensor^>^ sensorList = gcnew List<Sensor^>();
-	sensorList->Add(TH);
-	sensorList->Add(CO);
-	sensorList->Add(airq);
-
-	ambiente->DataBase = sensorList;
-
-	Controller::Controller::UpdateAmbienteData(ambiente);
-	ShowAmbienteData();
-
 }
 
 private: System::Void EliminarBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	Controller::Controller::DeleteAmbienteData(idMedicion);
-	ShowAmbienteData();
+	if (Controller::Controller::QueryAmbienteDatabyId(idMedicion) != nullptr) {
+		Controller::Controller::DeleteAmbienteData(idMedicion);
+
+		TempBox->Text = "";
+		HumBox->Text = "";
+		COBox->Text = "";
+		AirQBox->Text = "";
+		UbigeoCombo->SelectedIndex = 0;
+		idMedicion = 0;
+
+		ShowAmbienteData();
+	}
+	else {
+		MessageBox::Show("Por favor seleccione un dato antes de eliminar.");
+	}
 }
 
 private: System::Void CerrarBtn_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -607,25 +638,35 @@ private: System::Void CerrarBtn_Click(System::Object^ sender, System::EventArgs^
 }
 
 private: System::Void TableCellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	idMedicion = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
-		->Cells[0]->Value->ToString());
-	Ambiente^ ambiente = Controller::Controller::QueryAmbienteDatabyId(idMedicion);
-	if (isFahrenheit->Checked) {
-		TempBox->Text = ((int)(dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->Temperatura * 1.8 + 32)).ToString();
-		UnidadTlbl->Text = Convert::ToChar(176) + "F";
+	if (dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]->Cells[0]->Value != nullptr) {
+		idMedicion = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
+			->Cells[0]->Value->ToString());
+		Ambiente^ ambiente = Controller::Controller::QueryAmbienteDatabyId(idMedicion);
+		if (isFahrenheit->Checked) {
+			TempBox->Text = ((int)(dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->Temperatura * 1.8 + 32)).ToString();
+			UnidadTlbl->Text = Convert::ToChar(176) + "F";
+		}
+		else {
+			TempBox->Text = dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->Temperatura.ToString();
+			UnidadTlbl->Text = dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->UnidadTemp;
+
+		}
+		HumBox->Text = dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->Humedad.ToString();
+		COBox->Text = dynamic_cast<SensorCO^>(ambiente->DataBase[1])->NivelCO.ToString();
+		AirQBox->Text = dynamic_cast<SensorCalidadAire^>(ambiente->DataBase[2])->CalidadAire.ToString();
+		UbigeoCombo->SelectedItem = ambiente->UbicacionGeografica;
+
+		fechaMedicion = ambiente->FechaMedicion;
+		tiempoMedicion = ambiente->TiempoMedicion;
 	}
 	else {
-		TempBox->Text = dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->Temperatura.ToString();
-		UnidadTlbl->Text = dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->UnidadTemp;
-
+		TempBox->Text = "";
+		HumBox->Text = "";
+		COBox->Text = "";
+		AirQBox->Text = "";
+		UbigeoCombo->SelectedIndex = 0;
+		idMedicion = 0;
 	}
-	HumBox->Text = dynamic_cast<SensorTemperaturaHumedad^>(ambiente->DataBase[0])->Humedad.ToString();
-	COBox->Text = dynamic_cast<SensorCO^>(ambiente->DataBase[1])->NivelCO.ToString();
-	AirQBox->Text = dynamic_cast<SensorCalidadAire^>(ambiente->DataBase[2])->CalidadAire.ToString();
-	UbigeoCombo->SelectedItem = ambiente->UbicacionGeografica;
-
-	fechaMedicion = ambiente->FechaMedicion;
-	tiempoMedicion = ambiente->TiempoMedicion;
 }
 private: System::Void isFahrenheit_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	F_Check();

@@ -158,7 +158,6 @@ namespace WeatherStationView {
 			this->dataGridView1->Size = System::Drawing::Size(757, 177);
 			this->dataGridView1->TabIndex = 57;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &UserMaintenance::Table_CellClick);
-			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &UserMaintenance::dataGridView1_CellContentClick);
 			// 
 			// Column1
 			// 
@@ -313,39 +312,45 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	String^ Password = textBox3->Text;
 	String^ Email = textBox4->Text;
 
-	String^ TipoMembresia = comboBox1->SelectedItem->ToString();
-	String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
-	
-	List<User^>^ users = Controller::Controller::QueryAllUser();
-	int lastIdIndex = users->Count;
-	User^ user = gcnew User();
+	if (Name != "" && Password != "" && Email != "") {
 
-	if (lastIdIndex == 0) {
-		user->Id = 1;
+		String^ TipoMembresia = comboBox1->SelectedItem->ToString();
+		String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
+
+		List<User^>^ users = Controller::Controller::QueryAllUser();
+		int lastIdIndex = users->Count;
+		User^ user = gcnew User();
+
+		if (lastIdIndex == 0) {
+			user->Id = 1;
+		}
+		else {
+			User^ userLastId = users[lastIdIndex - 1];
+			user->Id = (userLastId->Id) + 1;
+		}
+
+		Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
+		Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
+
+		user->Name = Name;
+		user->Password = Password;
+		user->Email = Email;
+		user->membresia = membresia;
+		user->ajustes = ajustes;
+
+		Controller::Controller::AddUser(user);
+		ShowUserData();
+
+		textBox2->Text = "";
+		textBox3->Text = "";
+		textBox4->Text = "";
+		comboBox1->SelectedIndex = 0;
+		dateTimePicker1->Value = DateTime::Today;
+		Id = 0;
 	}
 	else {
-		User^ userLastId = users[lastIdIndex - 1];
-		user->Id = (userLastId->Id) + 1;
+		MessageBox::Show("Por favor complete los espacios antes de añadir un dato.");
 	}
-	
-	Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
-	Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
-
-	user->Name = Name;
-	user->Password = Password;
-	user->Email = Email;
-	user->membresia = membresia;
-	user->ajustes = ajustes;
-
-	Controller::Controller::AddUser(user);
-	ShowUserData();
-
-	textBox2->Text = "";
-	textBox3->Text = "";
-	textBox4->Text = "";
-	comboBox1->SelectedIndex = 0;
-	dateTimePicker1->Value = DateTime::Today;
-
 }
 	   void ShowUserData() {
 		   List<User^>^ users = Controller::Controller::QueryAllUser();
@@ -369,21 +374,48 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 }
 	   private: System::Void User_Load(System::Object^ sender, System::EventArgs^ e) {
 		   ShowUserData();
+		   comboBox1->SelectedIndex = 0;
 	   }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) { //eliminar
-	Controller::Controller::DeleteUser(Id);
-	ShowUserData();
+	if (Controller::Controller::QueryUserbyId(Id) != nullptr) {
+		Controller::Controller::DeleteUser(Id);
+
+		textBox2->Text = "";
+		textBox3->Text = "";
+		textBox4->Text = "";
+		comboBox1->SelectedIndex = 0;
+		dateTimePicker1->Value = DateTime::Today;
+		Id = 0;
+
+		ShowUserData();
+	}
+	else {
+		MessageBox::Show("Por favor seleccione un dato antes de eliminar.");
+	}
 }
 
 private: System::Void Table_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	Id = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
-		->Cells[0]->Value->ToString());
-	User^ user = Controller::Controller::QueryUserbyId(Id);
-	textBox2->Text = user->Name;
-	textBox3->Text = user->Password;
-	textBox4->Text = user->Email;
-	comboBox1->SelectedItem = user->membresia->TipoMembresia;
-	dateTimePicker1->Value = DateTime::Parse(user->membresia->fechaFinalizacion);
+	if (dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]->Cells[0]->Value != nullptr) {
+		Id = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
+			->Cells[0]->Value->ToString());
+		User^ user = Controller::Controller::QueryUserbyId(Id);
+		if (user != nullptr) {
+			textBox2->Text = user->Name;
+			textBox3->Text = user->Password;
+			textBox4->Text = user->Email;
+			comboBox1->SelectedItem = user->membresia->TipoMembresia;
+			dateTimePicker1->Value = DateTime::Parse(user->membresia->fechaFinalizacion);
+		}
+	}
+	else {
+		textBox2->Text = "";
+		textBox3->Text = "";
+		textBox4->Text = "";
+		comboBox1->SelectedIndex = 0;
+		dateTimePicker1->Value = DateTime::Today;
+		Id = 0;
+	}
+	
 }
 
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //update
@@ -391,27 +423,39 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	String^ name = textBox2->Text;
 	String^ password = textBox3->Text;
 	String^ email = textBox4->Text;
-	String^ TipoMembresia = comboBox1->SelectedItem->ToString();
-	String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
 
-	User^ user = gcnew User();
-	user->Id = Id;
-	user->Name = name;
-	user->Password = password;
-	user->Email = email;
+	if (name != "" && password != "" && email != "") {
+		String^ TipoMembresia = comboBox1->SelectedItem->ToString();
+		String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
 
-	
-	Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
-	Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
+		User^ user = gcnew User();
+		user->Id = Id;
+		user->Name = name;
+		user->Password = password;
+		user->Email = email;
 
-	user->membresia = membresia;
-	user->ajustes = ajustes;
 
-	Controller::Controller::UpdateUser(user);
-	ShowUserData();
+		Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
+		Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
+
+		user->membresia = membresia;
+		user->ajustes = ajustes;
+
+		Controller::Controller::UpdateUser(user);
+
+		textBox2->Text = "";
+		textBox3->Text = "";
+		textBox4->Text = "";
+		comboBox1->SelectedIndex = 0;
+		dateTimePicker1->Value = DateTime::Today;
+		Id = 0;
+
+		ShowUserData();
+	}
+	else {
+		MessageBox::Show("Por favor complete los datos antes de modificar.");
+	}
 }
 
-private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-}
 };
 }

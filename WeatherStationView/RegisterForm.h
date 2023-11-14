@@ -464,7 +464,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 
 }
 	void Register() {
-		if ((txtEmail->Text != "") || (txtPassword->Text != "") || (txtName->Text != "")) {
+		if ((txtEmail->Text != "") && (txtPassword->Text != "") && (txtName->Text != "")) {
 
 			if (checkBox1->Checked) {
 				String^ Name = txtName->Text;
