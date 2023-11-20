@@ -1012,14 +1012,6 @@ private: System::Void Timer2_Tick(System::Object^ sender, System::EventArgs^ e) 
 		MessageBox::Show("NO TOQUEN LA BASE DE DATOS");
 		Application::Exit();
 	}
-	if(points<=maxpoints){
-		points++;
-		ptslabel->Text = points.ToString();
-	}
-	else{
-		MessageBox::Show("Al otro ciclo será");
-		Application::Exit();
-	}
 }
 	   double RandomGaussian(Random^ rand) {
 		   // Genera dos números aleatorios uniformes en el intervalo (0, 1]

@@ -10,6 +10,7 @@ namespace WeatherStationView {
 	using namespace System::Drawing;
 	using namespace System::Collections::Generic;
 	using namespace System::Windows::Forms::DataVisualization::Charting;
+	using namespace System::Xml;
 	using namespace Model;
 
 	/// <summary>
@@ -127,6 +128,7 @@ namespace WeatherStationView {
 
 	private: System::Windows::Forms::CheckBox^ CIAChk;
 private: System::Windows::Forms::CheckBox^ isFahrenheit;
+private: System::Windows::Forms::Button^ CSVBtn;
 
 
 
@@ -223,6 +225,7 @@ private: System::Windows::Forms::CheckBox^ isFahrenheit;
 			this->BiblioChk = (gcnew System::Windows::Forms::CheckBox());
 			this->CIAChk = (gcnew System::Windows::Forms::CheckBox());
 			this->isFahrenheit = (gcnew System::Windows::Forms::CheckBox());
+			this->CSVBtn = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart4))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart3))->BeginInit();
@@ -686,11 +689,22 @@ private: System::Windows::Forms::CheckBox^ isFahrenheit;
 			this->isFahrenheit->UseVisualStyleBackColor = true;
 			this->isFahrenheit->CheckedChanged += gcnew System::EventHandler(this, &SensorsReport::isFahrenheit_CheckedChanged);
 			// 
+			// CSVBtn
+			// 
+			this->CSVBtn->Location = System::Drawing::Point(798, 445);
+			this->CSVBtn->Name = L"CSVBtn";
+			this->CSVBtn->Size = System::Drawing::Size(75, 23);
+			this->CSVBtn->TabIndex = 52;
+			this->CSVBtn->Text = L"Export to CSV";
+			this->CSVBtn->UseVisualStyleBackColor = true;
+			this->CSVBtn->Click += gcnew System::EventHandler(this, &SensorsReport::CSVBtn_Click);
+			// 
 			// SensorsReport
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(929, 481);
+			this->Controls->Add(this->CSVBtn);
 			this->Controls->Add(this->isFahrenheit);
 			this->Controls->Add(this->CIAChk);
 			this->Controls->Add(this->BiblioChk);
@@ -1916,5 +1930,31 @@ private: System::Windows::Forms::CheckBox^ isFahrenheit;
 			   ShowFilteredData(ambiente_aux);
 		   }
 
+private: System::Void CSVBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	ExportarDataGridViewAXML(dataGridView1, "C:\\sensorsdata\\sensorsdata.xml");
+
+}
+
+	void ExportarDataGridViewAXML(DataGridView^ dataGridView, String^ filePath) {
+		XmlTextWriter^ writer = gcnew XmlTextWriter(filePath, nullptr);
+		writer->Formatting = Formatting::Indented;
+		writer->WriteStartDocument();
+		writer->WriteStartElement("Data");
+
+		for (int i = 0; i < (dataGridView->Rows->Count - 1); i++) {
+			writer->WriteStartElement("Row");
+			for (int j = 0; j < dataGridView->Columns->Count; j++) {
+				writer->WriteStartElement(dataGridView->Columns[j]->HeaderText->Replace(" ", ""));
+				writer->WriteString(dataGridView->Rows[i]->Cells[j]->Value->ToString());
+				writer->WriteEndElement();
+			}
+			writer->WriteEndElement();
+		}
+
+		writer->WriteEndElement();
+		writer->WriteEndDocument();
+		writer->Close();
+	}
 };
 }

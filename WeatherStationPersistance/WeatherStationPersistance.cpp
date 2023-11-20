@@ -106,6 +106,10 @@ void WeatherStationPersistance::Persistance::PersistXMLFile(String^ fileName, Ob
 			XmlSerializer^ xmlSerializer = gcnew XmlSerializer(List<AlertaError^>::typeid);
 			xmlSerializer->Serialize(writer, persistObject);
 		}//si hay casos particulares :' La unica diferencia es el tipo de dato User^ nada mas
+		else if (persistObject->GetType() == String::typeid) {
+			XmlSerializer^ xmlSerializer = gcnew XmlSerializer(String::typeid);
+			xmlSerializer->Serialize(writer, persistObject);
+		}
 	}
 	catch (Exception^ ex) {
 		throw ex;
