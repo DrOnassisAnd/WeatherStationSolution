@@ -29,6 +29,7 @@
     <ClCompile Include="UserReport2.cpp" />
     <ClCompile Include="GraficosPuntosForm.cpp" />
     <ClCompile Include="NewPie.cpp" />
+    <ClCompile Include="TriviaForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MembresiaForm.h" />
@@ -60,6 +61,7 @@
     <ClInclude Include="UserReport2.h" />
     <ClInclude Include="GraficosPuntosForm.h" />
     <ClInclude Include="NewPie.h" />
+    <ClInclude Include="TriviaForm.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WeatherStationView.rc" />

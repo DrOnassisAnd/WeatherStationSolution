@@ -29,8 +29,14 @@ void Controller::Controller::DeleteUser(int userId) {
 	WeatherStationPersistance::Persistance::DeleteUser(userId);
 }
 
-//
+//Trivia
+List<Pregunta^>^ Controller::Controller::QueryAllPregunta() {
+	//Se puede programar más cosas
+	return WeatherStationPersistance::Persistance::QueryAllPregunta();
+}
 
+
+//
 void Controller::Controller::AddAjustes(Ajustes^ ajustes) {
 	//Se puede programar más cosas.
 	WeatherStationPersistance::Persistance::AddAjustes(ajustes);

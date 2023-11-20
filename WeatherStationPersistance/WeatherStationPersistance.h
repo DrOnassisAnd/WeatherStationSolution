@@ -18,11 +18,13 @@ namespace WeatherStationPersistance {
 		static List<SensorTemperaturaHumedad^>^ sTempHumList = gcnew List<SensorTemperaturaHumedad^>();
 		static List<Ambiente^>^ sAmbienteDB = gcnew List<Ambiente^>();
 		static List<SensorCalidadAire^>^ sCalidadAireList = gcnew List<SensorCalidadAire^>();
+		static List<Pregunta^>^ PreguntasList = gcnew List<Pregunta^>();
 
 	public:
 
 		static List<AlertaMeteorologica^>^ WeatherWarningList = gcnew List<AlertaMeteorologica^>();
 		static List<AlertaError^>^ ErrorWarningList = gcnew List<AlertaError^>();
+
 	public:	
 
 		//FilesConstants
@@ -81,6 +83,14 @@ namespace WeatherStationPersistance {
 
 		static void AddAjustes(Ajustes^ ajustes);
 
+		//Preguntas Methods
+		static void AddPregunta(Pregunta^ Pregunta);
+		static List<Pregunta^>^ QueryAllPregunta();
+		//static Pregunta^ QueryPreguntabyId(int id);
+		//static void UpdatePregunta(Pregunta^ Pregunta);
+		//static void DeletePregunta(int PreguntaId);
+
+
 		/*static void AddMembresia(Membresia^ membresias);
 		static List<Membresia^>^ QueryMembresia();
 		static Membresia^ QueryMembresiabyId(int id);
@@ -130,6 +140,7 @@ namespace WeatherStationPersistance {
 		// ConexionSql
 		static SqlConnection^ GetConnection();
 		static List<Ambiente^>^ LoadAmbientes();
+		static List<Pregunta^>^ LoadPreguntas();
 		static List<User^>^ LoadUser();
 
 		//Ambiente Methods

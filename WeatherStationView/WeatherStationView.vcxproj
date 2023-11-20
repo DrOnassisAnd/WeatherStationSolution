@@ -139,6 +139,7 @@
     <ClCompile Include="SensorsReport.cpp" />
     <ClCompile Include="StatisticsForm.cpp" />
     <ClCompile Include="TemperaturaReportForm.cpp" />
+    <ClCompile Include="TriviaForm.cpp" />
     <ClCompile Include="UserPremiumForm.cpp" />
     <ClCompile Include="UserReport2.cpp" />
     <ClCompile Include="UserStandarForm.cpp" />
@@ -197,6 +198,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="TemperaturaReportForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="TriviaForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="UserPremiumForm.h">
@@ -286,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TemperaturaReportForm.resx">
       <DependentUpon>TemperaturaReportForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TriviaForm.resx">
+      <DependentUpon>TriviaForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserPremiumForm.resx">
       <DependentUpon>UserPremiumForm.h</DependentUpon>

@@ -599,6 +599,17 @@ void WeatherStationPersistance::Persistance::AddAjustes(Ajustes^ ajustes) {
 	PersistTextFile(AJUSTES_FILE, AjustesList);
 }
 
+void WeatherStationPersistance::Persistance::AddPregunta(Pregunta^ Pregunta)
+{
+	throw gcnew System::NotImplementedException();
+}
+
+List<Pregunta^>^ WeatherStationPersistance::Persistance::QueryAllPregunta()
+{
+	PreguntasList = LoadPreguntas();
+	return PreguntasList;
+}
+
 Ajustes^ WeatherStationPersistance::Persistance::QueryPrevAjustes() {
 	AjustesList = (Ajustes^)LoadTextFile(AJUSTES_FILE);
 	return AjustesList;
@@ -994,6 +1005,58 @@ List<Ambiente^>^ WeatherStationPersistance::Persistance::LoadAmbientes() {
 	}
 	return ambientelist;
 }
+
+
+List<Pregunta^>^ WeatherStationPersistance::Persistance::LoadPreguntas() {
+	List<Pregunta^>^ preguntalist = gcnew List<Pregunta^>();
+	SqlConnection^ conn;
+	SqlDataReader^ reader;
+	try {
+		//Paso 1: Se obtiene la conexión
+		conn = GetConnection();
+		//Paso 2: Se prepara la sentencia SQL
+		/*
+		SqlCommand^ cmd = gcnew SqlCommand("SELECT * FROM ROBOT_WAITER", conn);
+		*/
+		/*
+		String^ sqlStr = "dbo.usp_QueryAmbienteData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		*/
+		String^ sqlStr = "dbo.usp_QueryPreguntas";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		cmd->Prepare();
+
+		/*
+		*/
+		//Paso 3: Se ejecuta la sentencia
+		reader = cmd->ExecuteReader();
+		//Paso 4: Se procesa los resultados
+		while (reader->Read()) {
+			Pregunta^ pregunta = gcnew Pregunta();
+
+			pregunta->id = Convert::ToInt32(reader["ID"]->ToString());
+
+			pregunta->Enunciado = reader["ENUNCIADO"]->ToString();
+
+			pregunta->Respuesta1 = reader["RESPUESTA1"]->ToString();
+			pregunta->Respuesta2 = reader["RESPUESTA2"]->ToString();
+			pregunta->Respuesta3 = reader["RESPUESTA3"]->ToString();
+			pregunta->RPTACORRECT = reader["RPTACORRECT"]->ToString();
+
+			preguntalist->Add(pregunta);
+		}
+	}
+	catch (Exception^ ex) {
+	}
+	finally {
+		//Paso 5: Se cierran los objetos de conexión
+		if (reader != nullptr) reader->Close();
+		if (conn != nullptr) conn->Close();
+	}
+	return preguntalist;
+}
+
 
 List<User^>^ WeatherStationPersistance::Persistance::LoadUser() {
 

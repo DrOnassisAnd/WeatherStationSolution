@@ -13,13 +13,22 @@ namespace Controller {
 		static SerialPort^ ArduinoPort;
 		// TODO: Agregue aquí los métodos de esta clase.
 	public:
+
+		//Usuario
 		static void AddUser(User^);
 		static List<User^>^ QueryAllUser();
 		static User^ QueryUserbyName(String^ name);
 		static User^ QueryUserbyId(int Id);
 		static void DeleteUser(int userId);
 		static void UpdateUser(User^);
+		//Agreguen Puntos PLs
 
+
+		//Trivia
+		static List<Pregunta^>^ QueryAllPregunta();
+
+
+		//Ajustes
 		static void AddAjustes(Ajustes^);
 		static Ajustes^ QueryPrevAjustes();
 
