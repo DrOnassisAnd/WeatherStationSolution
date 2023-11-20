@@ -1931,8 +1931,20 @@ private: System::Windows::Forms::Button^ CSVBtn;
 		   }
 
 private: System::Void CSVBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	/*SaveFileDialog^ saveFileDialog1 = gcnew SaveFileDialog();
+	saveFileDialog1->Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+	saveFileDialog1->Title = "Guardar como archivo XML";
+	saveFileDialog1->RestoreDirectory = true;
 
-	ExportarDataGridViewAXML(dataGridView1, "C:\\sensorsdata\\sensorsdata.xml");
+	if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+	{
+		String^ filePath = saveFileDialog1->FileName;
+		ExportarDataGridViewAXML(dataGridView1, filePath);
+	}*/
+
+	String^ filePath = "C:\\sensorsdata\\sensorsdata.xml";
+	ExportarDataGridViewAXML(dataGridView1, filePath);
+
 
 }
 
