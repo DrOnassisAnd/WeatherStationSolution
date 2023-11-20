@@ -64,6 +64,7 @@ namespace WeatherStationView {
 
 	private: int points = 0;
 	private: int numeropregunta=0;
+	private: Random^ rand = gcnew Random();
 	private: List<Pregunta^>^ PreguntasList;
 	private: int timeout = 30;
 	private: Pregunta^ pregunta;
@@ -273,7 +274,7 @@ namespace WeatherStationView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(616, 290);
+			this->ClientSize = System::Drawing::Size(626, 290);
 			this->Controls->Add(this->pointslbl);
 			this->Controls->Add(this->TusPuntoslbl);
 			this->Controls->Add(this->TiempoRestantelbl);
@@ -306,6 +307,7 @@ namespace WeatherStationView {
 		pointslbl->Text = points.ToString();
 		Respuestalbl->Visible = false;
 		Sgtepregunta->Enabled = false;
+		numeropregunta = rand->Next(PreguntasList->Count);
 		LoadPreguntas();
 		
 	}
@@ -366,12 +368,10 @@ private: System::Void respuestaBtn_Click(System::Object^ sender, System::EventAr
 		   this->RespuestaA->Text = pregunta->Respuesta1;
 		   this->RespuestaB->Text = pregunta->Respuesta2;
 		   this->RespuestaC->Text = pregunta->Respuesta3;
-		   numeropregunta++;
+		   numeropregunta = rand->Next(PreguntasList->Count);
 
-		   if (numeropregunta >= PreguntasList->Count) {
-			   numeropregunta = 0;
-		   }
 	   }
+
 	   void UpdateTimeout() {
 		   if (timeout < 0) {
 			   if (pressedBtn == false) {
