@@ -57,17 +57,44 @@ namespace WeatherStationView {
 	private: BasicForm^ basicForm;
 	private: String^ IdSensor;
 	private: Random^ rand = gcnew Random();
+
 	private: int minTemp = 17;
-	private: int maxTemp = 25;
-	private: int minHum = 50;
+	private: int maxTemp = 28;
+	private: int minHum = 60;
 	private: int maxHum = 99;
-	private: int minCO = 50;
+	private: int minCO = 75;
 	private: int maxCO = 200;
 	private: int minAQ = 100;
 	private: int maxAQ = 175;
+
+	private: int deltaTemp = 2; //20
+	private: int deltaHum = 2; //70
+	private: int deltaCO = 10; //125
+	private: int deltaAirQ = 10; //120
+
+	private: int temp_faci = 20;
+	private: int hum_faci = 70;
+	private: int co_faci = 125;
+	private: int aq_faci = 120;
+		   
+	private: int temp_bc = 20;
+	private: int hum_bc = 75;
+	private: int co_bc = 125;
+	private: int aq_bc = 120;
+
+	private: int temp_tinkuy = 20;
+	private: int hum_tinkuy = 70;
+	private: int co_tinkuy = 125;
+	private: int aq_tinkuy = 120;
+
+	private: int delta;
+
 	private: double gaussian;
-	private: int points = 0;
-	private: int maxpoints = 30; //discutir
+
+	private: int TotalPoints = 0;
+	private: int pointsperDay = 0;
+	private: const int maxpoints = 30; //discutir
+	private: int counter = 0;
 	private: System::Windows::Forms::Label^ label1;
 	protected:
 	private: System::Windows::Forms::Label^ label2;
@@ -109,7 +136,8 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::Label^ UnidadTemplbl;
 	private: System::Windows::Forms::Button^ button5;
-	private: System::Windows::Forms::Button^ button6;
+	private: System::Windows::Forms::Button^ TriviaBtn;
+
 	private: System::Windows::Forms::Label^ ptslabel;
 
 
@@ -143,7 +171,7 @@ namespace WeatherStationView {
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->ptslabel = (gcnew System::Windows::Forms::Label());
-			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->TriviaBtn = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->UnidadTemplbl = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
@@ -176,7 +204,7 @@ namespace WeatherStationView {
 			this->label1->Location = System::Drawing::Point(31, 127);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(62, 25);
+			this->label1->Size = System::Drawing::Size(50, 20);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Lugar";
 			this->label1->Click += gcnew System::EventHandler(this, &BasicForm::label1_Click);
@@ -190,7 +218,7 @@ namespace WeatherStationView {
 			this->label2->Location = System::Drawing::Point(602, 285);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(124, 25);
+			this->label2->Size = System::Drawing::Size(100, 20);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Temperatura";
 			// 
@@ -203,7 +231,7 @@ namespace WeatherStationView {
 			this->label3->Location = System::Drawing::Point(602, 361);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(97, 25);
+			this->label3->Size = System::Drawing::Size(79, 20);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Humedad";
 			this->label3->Click += gcnew System::EventHandler(this, &BasicForm::label3_Click);
@@ -217,7 +245,7 @@ namespace WeatherStationView {
 			this->label4->Location = System::Drawing::Point(602, 436);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(150, 25);
+			this->label4->Size = System::Drawing::Size(119, 20);
 			this->label4->TabIndex = 3;
 			this->label4->Text = L"Calidad del Aire";
 			// 
@@ -285,7 +313,7 @@ namespace WeatherStationView {
 			// 
 			this->panel1->BackColor = System::Drawing::SystemColors::Info;
 			this->panel1->Controls->Add(this->ptslabel);
-			this->panel1->Controls->Add(this->button6);
+			this->panel1->Controls->Add(this->TriviaBtn);
 			this->panel1->Controls->Add(this->button5);
 			this->panel1->Controls->Add(this->UnidadTemplbl);
 			this->panel1->Controls->Add(this->label10);
@@ -325,24 +353,24 @@ namespace WeatherStationView {
 			this->ptslabel->AutoSize = true;
 			this->ptslabel->Location = System::Drawing::Point(116, 62);
 			this->ptslabel->Name = L"ptslabel";
-			this->ptslabel->Size = System::Drawing::Size(75, 25);
+			this->ptslabel->Size = System::Drawing::Size(60, 20);
 			this->ptslabel->TabIndex = 29;
 			this->ptslabel->Text = L"label14";
 			// 
-			// button6
+			// TriviaBtn
 			// 
-			this->button6->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->button6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->TriviaBtn->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->TriviaBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button6->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button6->Location = System::Drawing::Point(1015, 404);
-			this->button6->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(212, 62);
-			this->button6->TabIndex = 26;
-			this->button6->Text = L"Trivia";
-			this->button6->UseVisualStyleBackColor = false;
-			this->button6->Click += gcnew System::EventHandler(this, &BasicForm::button6_Click);
+			this->TriviaBtn->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->TriviaBtn->Location = System::Drawing::Point(1015, 404);
+			this->TriviaBtn->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->TriviaBtn->Name = L"TriviaBtn";
+			this->TriviaBtn->Size = System::Drawing::Size(212, 62);
+			this->TriviaBtn->TabIndex = 26;
+			this->TriviaBtn->Text = L"Trivia";
+			this->TriviaBtn->UseVisualStyleBackColor = false;
+			this->TriviaBtn->Click += gcnew System::EventHandler(this, &BasicForm::TriviaBtn_Click);
 			// 
 			// button5
 			// 
@@ -364,7 +392,7 @@ namespace WeatherStationView {
 			this->UnidadTemplbl->AutoSize = true;
 			this->UnidadTemplbl->Location = System::Drawing::Point(830, 285);
 			this->UnidadTemplbl->Name = L"UnidadTemplbl";
-			this->UnidadTemplbl->Size = System::Drawing::Size(75, 25);
+			this->UnidadTemplbl->Size = System::Drawing::Size(60, 20);
 			this->UnidadTemplbl->TabIndex = 24;
 			this->UnidadTemplbl->Text = L"label11";
 			// 
@@ -375,7 +403,7 @@ namespace WeatherStationView {
 				static_cast<System::Byte>(0)));
 			this->label10->Location = System::Drawing::Point(668, 24);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(220, 80);
+			this->label10->Size = System::Drawing::Size(177, 64);
 			this->label10->TabIndex = 23;
 			this->label10->Text = L"label10";
 			// 
@@ -383,9 +411,8 @@ namespace WeatherStationView {
 			// 
 			this->textBox5->Location = System::Drawing::Point(781, 512);
 			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(43, 30);
+			this->textBox5->Size = System::Drawing::Size(43, 26);
 			this->textBox5->TabIndex = 22;
-			this->textBox5->TextChanged += gcnew System::EventHandler(this, &BasicForm::textBox5_TextChanged);
 			// 
 			// label12
 			// 
@@ -396,17 +423,16 @@ namespace WeatherStationView {
 			this->label12->Location = System::Drawing::Point(602, 511);
 			this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(175, 25);
+			this->label12->Size = System::Drawing::Size(139, 20);
 			this->label12->TabIndex = 21;
 			this->label12->Text = L"Concentracion CO";
-			this->label12->Click += gcnew System::EventHandler(this, &BasicForm::label12_Click);
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
 			this->label9->Location = System::Drawing::Point(106, 20);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(64, 25);
+			this->label9->Size = System::Drawing::Size(51, 20);
 			this->label9->TabIndex = 17;
 			this->label9->Text = L"label9";
 			// 
@@ -415,7 +441,7 @@ namespace WeatherStationView {
 			this->label8->AutoSize = true;
 			this->label8->Location = System::Drawing::Point(46, 20);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(64, 25);
+			this->label8->Size = System::Drawing::Size(51, 20);
 			this->label8->TabIndex = 16;
 			this->label8->Text = L"label8";
 			// 
@@ -423,21 +449,21 @@ namespace WeatherStationView {
 			// 
 			this->textBox4->Location = System::Drawing::Point(781, 436);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(43, 30);
+			this->textBox4->Size = System::Drawing::Size(43, 26);
 			this->textBox4->TabIndex = 14;
 			// 
 			// textBox3
 			// 
 			this->textBox3->Location = System::Drawing::Point(781, 361);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(43, 30);
+			this->textBox3->Size = System::Drawing::Size(43, 26);
 			this->textBox3->TabIndex = 13;
 			// 
 			// textBox2
 			// 
 			this->textBox2->Location = System::Drawing::Point(781, 282);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(43, 30);
+			this->textBox2->Size = System::Drawing::Size(43, 26);
 			this->textBox2->TabIndex = 12;
 			// 
 			// textBox1
@@ -445,7 +471,7 @@ namespace WeatherStationView {
 			this->textBox1->Location = System::Drawing::Point(781, 211);
 			this->textBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(110, 30);
+			this->textBox1->Size = System::Drawing::Size(110, 26);
 			this->textBox1->TabIndex = 10;
 			// 
 			// label7
@@ -456,7 +482,7 @@ namespace WeatherStationView {
 			this->label7->Location = System::Drawing::Point(602, 211);
 			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(54, 25);
+			this->label7->Size = System::Drawing::Size(44, 20);
 			this->label7->TabIndex = 9;
 			this->label7->Text = L"Hora";
 			// 
@@ -468,10 +494,9 @@ namespace WeatherStationView {
 			this->label6->Location = System::Drawing::Point(313, 19);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(458, 80);
+			this->label6->Size = System::Drawing::Size(365, 64);
 			this->label6->TabIndex = 8;
 			this->label6->Text = L"Weather Station";
-			this->label6->Click += gcnew System::EventHandler(this, &BasicForm::label6_Click);
 			// 
 			// label5
 			// 
@@ -481,7 +506,7 @@ namespace WeatherStationView {
 			this->label5->Location = System::Drawing::Point(434, 122);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(67, 25);
+			this->label5->Size = System::Drawing::Size(54, 20);
 			this->label5->TabIndex = 7;
 			this->label5->Text = L"Fecha";
 			// 
@@ -494,7 +519,7 @@ namespace WeatherStationView {
 			this->dtpWeatherStationBasic->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->dtpWeatherStationBasic->Name = L"dtpWeatherStationBasic";
 			this->dtpWeatherStationBasic->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->dtpWeatherStationBasic->Size = System::Drawing::Size(349, 30);
+			this->dtpWeatherStationBasic->Size = System::Drawing::Size(349, 26);
 			this->dtpWeatherStationBasic->TabIndex = 4;
 			// 
 			// pictureBox1
@@ -506,7 +531,6 @@ namespace WeatherStationView {
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 1;
 			this->pictureBox1->TabStop = false;
-			this->pictureBox1->Click += gcnew System::EventHandler(this, &BasicForm::pictureBox1_Click);
 			// 
 			// comboBox1
 			// 
@@ -517,7 +541,7 @@ namespace WeatherStationView {
 			this->comboBox1->Location = System::Drawing::Point(177, 127);
 			this->comboBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(180, 35);
+			this->comboBox1->Size = System::Drawing::Size(180, 30);
 			this->comboBox1->TabIndex = 0;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &BasicForm::comboBox1_SelectedIndexChanged);
 			// 
@@ -533,7 +557,7 @@ namespace WeatherStationView {
 			// 
 			// BasicForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1240, 570);
 			this->ControlBox = false;
@@ -678,12 +702,7 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 	
 
 }
-private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-}
 
-private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
-
-}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { //Ajustes
 	
 	Config^ confform = gcnew Config(config);
@@ -705,51 +724,6 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		   //textBox2->Text = user->ajustes->UnidadTemp == "°C" ? c : f.ToString();
 		   //UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
 	   }
-
-
-private: System::Void Mostrar_Click(System::Object^ sender, System::EventArgs^ e) {
-	//int IdMedicion = 0;
-	//String^ IdSensor = "";
-	//int day   = selectedDateTime.Day;
-	//int month = selectedDateTime.Month;
-	//int year  = selectedDateTime.Year;
-	//
-	//SensorTemperaturaHumedad^ sTempHum = Controller::Controller::QueryTHbyIds(IdMedicion, IdSensor);
-	////Se muestra el valor de temperatura
-	//Double DoubleTemp = sTempHum->Temperatura;
-	//textBox2->Text = DoubleTemp.ToString();
-	////Se muestra el valor de  humedad
-	//int IntHum = sTempHum->Humedad;
-	//textBox3->Text = IntHum.ToString();
-	//SensorCO^ sCO = Controller::Controller::QueryCObyIds(IdMedicion, IdSensor);
-	////Se muestra el nivel de CO 
-	//int nivelCO = sCO->NivelCO;
-	//textBox4->Text = "" + nivelCO;
-
-	//double maxTemp    = 30;
-	//int    maxNivelCO = 450;
-	//int    maxHum     = 90;
-
-	//if ((DoubleTemp>=maxTemp)&&(IntHum<maxHum)&&(nivelCO<maxNivelCO)) {
-	//	MessageBox::Show("La temperatura es alta");
-	//}
-	//else if ((DoubleTemp >= maxTemp) && (IntHum>=maxHum) && (nivelCO < maxNivelCO)) {
-	//	MessageBox::Show("Hay temperatura y humedades altas ");
-	//}
-	//else if ((DoubleTemp >= maxTemp) && (IntHum<maxHum) && (nivelCO>=maxNivelCO)) {
-	//	MessageBox::Show("Hay temperatura y niveles de CO altos ");
-	//}
-	//else if ((DoubleTemp >= maxTemp) && (IntHum>=maxHum) && (nivelCO >= maxNivelCO)) {
-	//	MessageBox::Show("La temperatura, la humedad y el Nivel de CO son altos");
-	//}
-	//else if ((DoubleTemp < maxTemp) && (IntHum <maxHum) && (nivelCO >= maxNivelCO)) {
-	//	MessageBox::Show("Presencia de niveles altos de CO");
-	//}
-	//else if ((DoubleTemp < maxTemp) && (IntHum >= maxHum) && (nivelCO >= maxNivelCO)) {
-	//	MessageBox::Show("Presencia de niveles altos de CO y humedad altos");
-	//}
-}
-
 
 	   void TransmisionDataArduino(){
 
@@ -824,18 +798,30 @@ private: System::Void Mostrar_Click(System::Object^ sender, System::EventArgs^ e
 		   //ser generados (random))
 
 		   //Sensor 2 (FACI)
-		   
-		   gaussian = RandomGaussian(rand);
-		   int temp_faci = MapToRange(gaussian, -1.0, 1.0, minTemp, maxTemp);;
 
-		   gaussian = RandomGaussian(rand);
-		   int hum_faci = MapToRange(gaussian, -1.0, 1.0, minHum, maxHum);;
+		   delta = (rand->Next(deltaTemp * 2 + 1) - deltaTemp);
+		   temp_faci = temp_faci + delta;
+		   if ((temp_faci < minTemp) || (temp_faci > maxTemp)) {
+			   temp_faci = 20;
+		   }
 
-		   gaussian = RandomGaussian(rand);
-		   int co_faci = MapToRange(gaussian, -1.0, 1.0, minCO, maxCO);;
+		   delta = (rand->Next(deltaHum * 2 + 1) - deltaHum);
+		   hum_faci += delta;
+		   if ((hum_faci < minHum) || (hum_faci > maxHum)) {
+			   hum_faci = 20;
+		   }
 
-		   gaussian = RandomGaussian(rand);
-		   int aq_faci = MapToRange(gaussian, -1.0, 1.0, minAQ, maxAQ);
+		   delta = (rand->Next(deltaCO * 2 + 1) - deltaCO);
+		   co_faci += delta;
+		   if ((co_faci < minCO) || (co_faci > maxCO)) {
+			   co_faci = 20;
+		   }
+
+		   delta = (rand->Next(deltaAirQ * 2 + 1) - deltaAirQ);
+		   aq_faci += delta;
+		   if ((aq_faci < minAQ) || (aq_faci > maxAQ)) {
+			   aq_faci = 20;
+		   }
 
 		   ambiente = gcnew Ambiente();
 		   TH = gcnew SensorTemperaturaHumedad(2, temp_faci, Convert::ToChar(176) + "C", hum_faci);
@@ -867,17 +853,29 @@ private: System::Void Mostrar_Click(System::Object^ sender, System::EventArgs^ e
 
 		   //Sensor 3 (BIBLIOTECA CENTRAL)
 
-		   gaussian = RandomGaussian(rand);
-		   int temp_bc = MapToRange(gaussian, -1.0, 1.0, minTemp, maxTemp);;
+		   delta = (rand->Next(deltaTemp * 2 + 1) - deltaTemp);
+		   temp_bc = temp_faci + delta;
+		   if ((temp_bc < minTemp) || (temp_bc > maxTemp)) {
+			   temp_bc = 20;
+		   }
 
-		   gaussian = RandomGaussian(rand);
-		   int hum_bc = MapToRange(gaussian, -1.0, 1.0, minHum, maxHum);;
+		   delta = (rand->Next(deltaHum * 2 + 1) - deltaHum);
+		   hum_bc += delta;
+		   if ((hum_bc < minHum) || (hum_bc > maxHum)) {
+			   hum_bc = 20;
+		   }
 
-		   gaussian = RandomGaussian(rand);
-		   int co_bc = MapToRange(gaussian, -1.0, 1.0, minCO, maxCO);;
+		   delta = (rand->Next(deltaCO * 2 + 1) - deltaCO);
+		   co_bc += delta;
+		   if ((co_bc < minCO) || (co_bc > maxCO)) {
+			   co_bc = 20;
+		   }
 
-		   gaussian = RandomGaussian(rand);
-		   int aq_bc = MapToRange(gaussian, -1.0, 1.0, minAQ, maxAQ);
+		   delta = (rand->Next(deltaAirQ * 2 + 1) - deltaAirQ);
+		   aq_bc += delta;
+		   if ((aq_bc < minAQ) || (aq_bc > maxAQ)) {
+			   aq_bc = 20;
+		   }
 
 		   ambiente = gcnew Ambiente();
 		   TH = gcnew SensorTemperaturaHumedad(3, temp_bc, Convert::ToChar(176) + "C", hum_bc);
@@ -909,20 +907,32 @@ private: System::Void Mostrar_Click(System::Object^ sender, System::EventArgs^ e
 
 		   //Sensor 4 (TINKUY)
 
-		   gaussian = RandomGaussian(rand);
-		   int temp_tinkuy = MapToRange(gaussian, -1.0, 1.0, minTemp, maxTemp);
+		   delta = (rand->Next(deltaTemp * 2 + 1) - deltaTemp);
+		   temp_tinkuy = temp_faci + delta;
+		   if ((temp_tinkuy < minTemp) || (temp_tinkuy > maxTemp)) {
+			   temp_tinkuy = 20;
+		   }
 
-		   gaussian = RandomGaussian(rand);
-		   int hum_tinkuy = MapToRange(gaussian, -1.0, 1.0, minHum, maxHum);
+		   delta = (rand->Next(deltaHum * 2 + 1) - deltaHum);
+		   hum_tinkuy += delta;
+		   if ((hum_tinkuy < minHum) || (hum_tinkuy > maxHum)) {
+			   hum_tinkuy = 20;
+		   }
 
-		   gaussian = RandomGaussian(rand);
-		   int co_tinkuy = MapToRange(gaussian, -1.0, 1.0, minCO, maxCO);
+		   delta = (rand->Next(deltaCO * 2 + 1) - deltaCO);
+		   co_tinkuy += delta;
+		   if ((co_tinkuy < minCO) || (co_tinkuy > maxCO)) {
+			   co_tinkuy = 20;
+		   }
 
-		   gaussian = RandomGaussian(rand);
-		   int aq_tinkuy = MapToRange(gaussian, -1.0, 1.0, minAQ, maxAQ);
+		   delta = (rand->Next(deltaAirQ * 2 + 1) - deltaAirQ);
+		   aq_tinkuy += delta;
+		   if ((aq_tinkuy < minAQ) || (aq_tinkuy > maxAQ)) {
+			   aq_tinkuy = 20;
+		   }
 
 		   ambiente = gcnew Ambiente();
-		   TH = gcnew SensorTemperaturaHumedad(4, temp_tinkuy, Convert::ToChar(176) + "C", hum_tinkuy);
+		   TH = gcnew SensorTemperaturaHumedad(4, temp_tinkuy, Convert::ToChar(176) + "C", hum_bc);
 		   CO = gcnew SensorCO(4, co_tinkuy);
 		   airq = gcnew SensorCalidadAire(4, aq_tinkuy);
 
@@ -995,12 +1005,23 @@ private: System::Void Mostrar_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void timer_tick(System::Object^ sender, System::EventArgs^ e) { //cada minuto
 	
 	TransmisionDataArduino();
+	counter++;
+	if (counter == 5) {
+		if (pointsperDay < maxpoints) {
+			TotalPoints += 2;
+			pointsperDay += 2;
+			if (pointsperDay >= maxpoints) {
+				pointsperDay = maxpoints;
+			}
+		}
+		else {
+			MessageBox::Show("Has alcanzado el máximos de puntos por hoy. Vuelve mañana para obtener más puntos.");
+		}
+	}
+
 
 }
-private: System::Void label12_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void textBox5_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
+
 private: System::Void Timer2_Tick(System::Object^ sender, System::EventArgs^ e) { //cada segundo
 	if (user->ajustes->FormatoHoras == "Formato de 12 horas") {
 		textBox1->Text = DateTime::Now.ToString("hh:mm:ss tt");
@@ -1009,7 +1030,7 @@ private: System::Void Timer2_Tick(System::Object^ sender, System::EventArgs^ e) 
 		textBox1->Text = DateTime::Now.ToString("HH:mm:ss");
 	}
 	else {
-		MessageBox::Show("NO TOQUEN LA BASE DE DATOS");
+		MessageBox::Show("NO TOQUEN LA BASE DE DATOS. BUCLE INFINITO AHHHHHHHHHHHHHHHHHH");
 		Application::Exit();
 	}
 }
@@ -1041,17 +1062,17 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 		pieform->ShowDialog();
 	}
 
-	
-
-
 }
-private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
-
+private: System::Void TriviaBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 	timer2->Stop(); //test
-	TriviaForm^ triviaForm = gcnew TriviaForm(points);
-	triviaForm->ShowDialog();
-
-
+	if (pointsperDay < maxpoints) {
+		TriviaForm^ triviaForm = gcnew TriviaForm(pointsperDay);
+		triviaForm->ShowDialog();
+		pointsperDay = triviaForm->GetPoints();
+	}
+	else {
+		MessageBox::Show("Has alcanzado el máximos de puntos por hoy. Vuelve mañana para obtener más puntos.");
+	}
 }
 };
 }

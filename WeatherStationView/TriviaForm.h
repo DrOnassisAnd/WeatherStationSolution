@@ -28,7 +28,7 @@ namespace WeatherStationView {
 			
 		}
 
-		int GetConfig() {
+		int GetPoints() {
 			return points;
 		}
 
@@ -68,6 +68,7 @@ namespace WeatherStationView {
 	private: int timeout = 30;
 	private: Pregunta^ pregunta;
 	private: bool pressedBtn = false; 
+	private: int maxpoints = 30;
 
 	private: System::Windows::Forms::RichTextBox^ EnunciadoBox1;
 	private: System::Windows::Forms::Label^ timeoutlbl;
@@ -333,6 +334,12 @@ private: System::Void respuestaBtn_Click(System::Object^ sender, System::EventAr
 				points += 5;
 				Respuestalbl->Visible = true;
 				Respuestalbl->Text = "Respuesta correcta: !Muy bien!";
+				if (points >= maxpoints) {
+					points = maxpoints;
+					pointslbl->Text = points.ToString();
+					MessageBox::Show("Has alcanzado el máximos de puntos por hoy. Vuelve mañana para obtener más puntos.");
+					this->Close();
+				}
 			}
 			else {
 				Respuestalbl->Visible = true;

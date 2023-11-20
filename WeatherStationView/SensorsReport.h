@@ -1942,7 +1942,7 @@ private: System::Void CSVBtn_Click(System::Object^ sender, System::EventArgs^ e)
 		ExportarDataGridViewAXML(dataGridView1, filePath);
 	}*/
 
-	String^ filePath = "C:\\sensorsdata\\sensorsdata.xml";
+	String^ filePath = "C:\\sensorsdata\\sensorsdata.xls";
 	ExportarDataGridViewAXML(dataGridView1, filePath);
 
 
