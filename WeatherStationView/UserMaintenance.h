@@ -94,7 +94,7 @@ namespace WeatherStationView {
 
 	private: System::Windows::Forms::TextBox^ PuntoTotalesText;
 	private: System::Windows::Forms::TextBox^ CCVText;
-	private: System::Windows::Forms::Label^ label5;
+
 
 
 
@@ -146,7 +146,6 @@ namespace WeatherStationView {
 			this->PuntosDiarioText = (gcnew System::Windows::Forms::TextBox());
 			this->PuntoTotalesText = (gcnew System::Windows::Forms::TextBox());
 			this->CCVText = (gcnew System::Windows::Forms::TextBox());
-			this->label5 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -351,7 +350,7 @@ namespace WeatherStationView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(435, 21);
+			this->label1->Location = System::Drawing::Point(438, 15);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(75, 16);
@@ -362,7 +361,7 @@ namespace WeatherStationView {
 			// 
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Basic", L"Estandar", L"Premium" });
-			this->comboBox1->Location = System::Drawing::Point(593, 17);
+			this->comboBox1->Location = System::Drawing::Point(593, 13);
 			this->comboBox1->Margin = System::Windows::Forms::Padding(4);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(132, 24);
@@ -370,7 +369,7 @@ namespace WeatherStationView {
 			// 
 			// dateTimePicker1
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(593, 131);
+			this->dateTimePicker1->Location = System::Drawing::Point(593, 126);
 			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(4);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(265, 22);
@@ -379,7 +378,7 @@ namespace WeatherStationView {
 			// FechaFin
 			// 
 			this->FechaFin->AutoSize = true;
-			this->FechaFin->Location = System::Drawing::Point(435, 131);
+			this->FechaFin->Location = System::Drawing::Point(438, 131);
 			this->FechaFin->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->FechaFin->Name = L"FechaFin";
 			this->FechaFin->Size = System::Drawing::Size(116, 16);
@@ -389,7 +388,7 @@ namespace WeatherStationView {
 			// PuntosTotalesLabel
 			// 
 			this->PuntosTotalesLabel->AutoSize = true;
-			this->PuntosTotalesLabel->Location = System::Drawing::Point(438, 57);
+			this->PuntosTotalesLabel->Location = System::Drawing::Point(438, 52);
 			this->PuntosTotalesLabel->Name = L"PuntosTotalesLabel";
 			this->PuntosTotalesLabel->Size = System::Drawing::Size(94, 16);
 			this->PuntosTotalesLabel->TabIndex = 67;
@@ -397,7 +396,7 @@ namespace WeatherStationView {
 			// 
 			// NumeroCuentaText
 			// 
-			this->NumeroCuentaText->Location = System::Drawing::Point(1046, 62);
+			this->NumeroCuentaText->Location = System::Drawing::Point(1049, 29);
 			this->NumeroCuentaText->Name = L"NumeroCuentaText";
 			this->NumeroCuentaText->Size = System::Drawing::Size(140, 22);
 			this->NumeroCuentaText->TabIndex = 68;
@@ -405,7 +404,7 @@ namespace WeatherStationView {
 			// PuntosDiariosLabel
 			// 
 			this->PuntosDiariosLabel->AutoSize = true;
-			this->PuntosDiariosLabel->Location = System::Drawing::Point(438, 101);
+			this->PuntosDiariosLabel->Location = System::Drawing::Point(438, 94);
 			this->PuntosDiariosLabel->Name = L"PuntosDiariosLabel";
 			this->PuntosDiariosLabel->Size = System::Drawing::Size(94, 16);
 			this->PuntosDiariosLabel->TabIndex = 69;
@@ -414,7 +413,7 @@ namespace WeatherStationView {
 			// NumerodeCuentaLabel
 			// 
 			this->NumerodeCuentaLabel->AutoSize = true;
-			this->NumerodeCuentaLabel->Location = System::Drawing::Point(927, 62);
+			this->NumerodeCuentaLabel->Location = System::Drawing::Point(930, 29);
 			this->NumerodeCuentaLabel->Name = L"NumerodeCuentaLabel";
 			this->NumerodeCuentaLabel->Size = System::Drawing::Size(113, 16);
 			this->NumerodeCuentaLabel->TabIndex = 70;
@@ -423,7 +422,7 @@ namespace WeatherStationView {
 			// CCVLabel
 			// 
 			this->CCVLabel->AutoSize = true;
-			this->CCVLabel->Location = System::Drawing::Point(930, 101);
+			this->CCVLabel->Location = System::Drawing::Point(930, 75);
 			this->CCVLabel->Name = L"CCVLabel";
 			this->CCVLabel->Size = System::Drawing::Size(34, 16);
 			this->CCVLabel->TabIndex = 71;
@@ -431,40 +430,30 @@ namespace WeatherStationView {
 			// 
 			// PuntosDiarioText
 			// 
-			this->PuntosDiarioText->Location = System::Drawing::Point(593, 94);
+			this->PuntosDiarioText->Location = System::Drawing::Point(593, 89);
 			this->PuntosDiarioText->Name = L"PuntosDiarioText";
 			this->PuntosDiarioText->Size = System::Drawing::Size(140, 22);
 			this->PuntosDiarioText->TabIndex = 72;
 			// 
 			// PuntoTotalesText
 			// 
-			this->PuntoTotalesText->Location = System::Drawing::Point(593, 59);
+			this->PuntoTotalesText->Location = System::Drawing::Point(593, 52);
 			this->PuntoTotalesText->Name = L"PuntoTotalesText";
 			this->PuntoTotalesText->Size = System::Drawing::Size(154, 22);
 			this->PuntoTotalesText->TabIndex = 73;
 			// 
 			// CCVText
 			// 
-			this->CCVText->Location = System::Drawing::Point(1046, 101);
+			this->CCVText->Location = System::Drawing::Point(1049, 75);
 			this->CCVText->Name = L"CCVText";
 			this->CCVText->Size = System::Drawing::Size(154, 22);
 			this->CCVText->TabIndex = 74;
-			// 
-			// label5
-			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(0, 0);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(44, 16);
-			this->label5->TabIndex = 75;
-			this->label5->Text = L"label5";
 			// 
 			// UserMaintenance
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1609, 455);
-			this->Controls->Add(this->label5);
 			this->Controls->Add(this->CCVText);
 			this->Controls->Add(this->PuntoTotalesText);
 			this->Controls->Add(this->PuntosDiarioText);
@@ -625,9 +614,16 @@ private: System::Void Table_CellClick(System::Object^ sender, System::Windows::F
 			textBox2->Text = user->Name;
 			textBox3->Text = user->Password;
 			textBox4->Text = user->Email;
-
-
 			comboBox1->SelectedItem = user->membresia->TipoMembresia;
+
+			PuntoTotalesText->Text = user->PuntosTotales.ToString();
+			PuntosDiarioText->Text = user->PuntosDiarios.ToString();
+			
+			NumeroCuentaText->Text = user->NumeroDeCuentaUser.ToString();
+			CCVText->Text = user->CCVUSER.ToString();
+
+
+
 			dateTimePicker1->Value = DateTime::Parse(user->membresia->fechaFinalizacion);
 		}
 	}
@@ -635,6 +631,13 @@ private: System::Void Table_CellClick(System::Object^ sender, System::Windows::F
 		textBox2->Text = "";
 		textBox3->Text = "";
 		textBox4->Text = "";
+		
+		PuntoTotalesText->Text = "";
+		PuntosDiarioText->Text = "";
+		NumeroCuentaText->Text = "";
+		CCVText->Text = "";
+
+
 		comboBox1->SelectedIndex = 0;
 		dateTimePicker1->Value = DateTime::Today;
 		Id = 0;
@@ -689,6 +692,13 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 			textBox2->Text = "";
 			textBox3->Text = "";
 			textBox4->Text = "";
+
+			PuntoTotalesText->Text = "";
+			PuntosDiarioText->Text = "";
+			NumeroCuentaText->Text = "";
+			CCVText->Text = "";
+
+
 			comboBox1->SelectedIndex = 0;
 			dateTimePicker1->Value = DateTime::Today;
 			Id = 0;
