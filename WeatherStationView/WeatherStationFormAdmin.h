@@ -392,6 +392,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"WeatherStationFormAdmin";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"WeatherStationFormAdmin";
 			this->Load += gcnew System::EventHandler(this, &WeatherStationFormAdmin::WeatherStationFormAdmin_Load);
 			this->menuStrip1->ResumeLayout(false);

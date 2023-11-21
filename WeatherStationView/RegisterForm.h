@@ -432,6 +432,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->panel2);
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"RegisterForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"RegisterForm";
 			this->panel4->ResumeLayout(false);
 			this->panel4->PerformLayout();

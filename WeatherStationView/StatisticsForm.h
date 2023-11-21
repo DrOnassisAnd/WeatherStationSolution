@@ -278,6 +278,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->txtStart);
 			this->Controls->Add(this->chTemperature);
 			this->Name = L"StatisticsForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"StatisticsForm";
 			this->Load += gcnew System::EventHandler(this, &StatisticsForm::StatisticsForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chTemperature))->EndInit();

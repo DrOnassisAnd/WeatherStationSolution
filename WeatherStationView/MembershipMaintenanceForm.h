@@ -105,9 +105,10 @@ namespace WeatherStationView {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(91, 68);
+			this->label3->Location = System::Drawing::Point(68, 55);
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(76, 16);
+			this->label3->Size = System::Drawing::Size(62, 13);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"FechaInicio";
 			this->label3->Click += gcnew System::EventHandler(this, &MembershipMaintenanceForm::label3_Click);
@@ -115,9 +116,10 @@ namespace WeatherStationView {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(51, 109);
+			this->label4->Location = System::Drawing::Point(38, 89);
+			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(116, 16);
+			this->label4->Size = System::Drawing::Size(92, 13);
 			this->label4->TabIndex = 3;
 			this->label4->Text = L"FechaFinalizacion";
 			this->label4->Click += gcnew System::EventHandler(this, &MembershipMaintenanceForm::label4_Click);
@@ -130,11 +132,12 @@ namespace WeatherStationView {
 				this->Id, this->fechainicial,
 					this->fechafinal
 			});
-			this->dgvMembresia->Location = System::Drawing::Point(38, 255);
+			this->dgvMembresia->Location = System::Drawing::Point(28, 207);
+			this->dgvMembresia->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->dgvMembresia->Name = L"dgvMembresia";
 			this->dgvMembresia->RowHeadersWidth = 51;
 			this->dgvMembresia->RowTemplate->Height = 24;
-			this->dgvMembresia->Size = System::Drawing::Size(675, 150);
+			this->dgvMembresia->Size = System::Drawing::Size(506, 122);
 			this->dgvMembresia->TabIndex = 5;
 			this->dgvMembresia->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MembershipMaintenanceForm::dataGridView1_CellContentClick);
 			// 
@@ -161,9 +164,10 @@ namespace WeatherStationView {
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(69, 216);
+			this->btnAdd->Location = System::Drawing::Point(52, 176);
+			this->btnAdd->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnAdd->Name = L"btnAdd";
-			this->btnAdd->Size = System::Drawing::Size(75, 23);
+			this->btnAdd->Size = System::Drawing::Size(56, 19);
 			this->btnAdd->TabIndex = 10;
 			this->btnAdd->Text = L"Agregar";
 			this->btnAdd->UseVisualStyleBackColor = true;
@@ -171,9 +175,10 @@ namespace WeatherStationView {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(207, 216);
+			this->btnUpdate->Location = System::Drawing::Point(155, 176);
+			this->btnUpdate->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(75, 23);
+			this->btnUpdate->Size = System::Drawing::Size(56, 19);
 			this->btnUpdate->TabIndex = 11;
 			this->btnUpdate->Text = L"Modificar";
 			this->btnUpdate->UseVisualStyleBackColor = true;
@@ -181,9 +186,10 @@ namespace WeatherStationView {
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(361, 216);
+			this->btnDelete->Location = System::Drawing::Point(271, 176);
+			this->btnDelete->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnDelete->Name = L"btnDelete";
-			this->btnDelete->Size = System::Drawing::Size(75, 23);
+			this->btnDelete->Size = System::Drawing::Size(56, 19);
 			this->btnDelete->TabIndex = 12;
 			this->btnDelete->Text = L"Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
@@ -191,25 +197,27 @@ namespace WeatherStationView {
 			// 
 			// dateTimePicker1
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(173, 68);
+			this->dateTimePicker1->Location = System::Drawing::Point(130, 55);
+			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(200, 22);
+			this->dateTimePicker1->Size = System::Drawing::Size(151, 20);
 			this->dateTimePicker1->TabIndex = 13;
 			this->dateTimePicker1->ValueChanged += gcnew System::EventHandler(this, &MembershipMaintenanceForm::dateTimePicker1_ValueChanged);
 			// 
 			// dateTimePicker2
 			// 
-			this->dateTimePicker2->Location = System::Drawing::Point(173, 109);
+			this->dateTimePicker2->Location = System::Drawing::Point(130, 89);
+			this->dateTimePicker2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->dateTimePicker2->Name = L"dateTimePicker2";
-			this->dateTimePicker2->Size = System::Drawing::Size(200, 22);
+			this->dateTimePicker2->Size = System::Drawing::Size(151, 20);
 			this->dateTimePicker2->TabIndex = 14;
 			this->dateTimePicker2->ValueChanged += gcnew System::EventHandler(this, &MembershipMaintenanceForm::dateTimePicker2_ValueChanged);
 			// 
 			// MembershipMaintenanceForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(753, 432);
+			this->ClientSize = System::Drawing::Size(565, 351);
 			this->Controls->Add(this->dateTimePicker2);
 			this->Controls->Add(this->dateTimePicker1);
 			this->Controls->Add(this->btnDelete);
@@ -218,7 +226,9 @@ namespace WeatherStationView {
 			this->Controls->Add(this->dgvMembresia);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"MembershipMaintenanceForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"MembershipMaintenanceForm";
 			this->Load += gcnew System::EventHandler(this, &MembershipMaintenanceForm::MembershipMaintenanceForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvMembresia))->EndInit();

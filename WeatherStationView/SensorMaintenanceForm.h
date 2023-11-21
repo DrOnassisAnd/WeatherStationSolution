@@ -408,9 +408,8 @@ namespace WeatherStationView {
 			this->UnidadTlbl->AutoSize = true;
 			this->UnidadTlbl->Location = System::Drawing::Point(431, 26);
 			this->UnidadTlbl->Name = L"UnidadTlbl";
-			this->UnidadTlbl->Size = System::Drawing::Size(78, 13);
+			this->UnidadTlbl->Size = System::Drawing::Size(0, 13);
 			this->UnidadTlbl->TabIndex = 53;
-			this->UnidadTlbl->Text = Convert::ToChar(176) + "C";
 			// 
 			// SensorMaintenanceForm
 			// 
@@ -436,6 +435,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->HumLabel);
 			this->Controls->Add(this->TempLabel);
 			this->Name = L"SensorMaintenanceForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"SensorMaintenanceForm";
 			this->Load += gcnew System::EventHandler(this, &SensorMaintenanceForm::SensorMaintenanceForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();

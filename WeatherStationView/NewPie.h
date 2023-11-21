@@ -166,18 +166,18 @@ private: System::Windows::Forms::PictureBox^ pbAirq;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea9 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend9 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series9 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea10 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend10 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series10 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea11 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend11 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series11 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea12 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend12 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series12 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->chTemp = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -205,17 +205,17 @@ private: System::Windows::Forms::PictureBox^ pbAirq;
 			// 
 			// chTemp
 			// 
-			chartArea9->Name = L"ChartArea1";
-			this->chTemp->ChartAreas->Add(chartArea9);
-			legend9->Name = L"Legend1";
-			this->chTemp->Legends->Add(legend9);
+			chartArea1->Name = L"ChartArea1";
+			this->chTemp->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->chTemp->Legends->Add(legend1);
 			this->chTemp->Location = System::Drawing::Point(29, 34);
 			this->chTemp->Name = L"chTemp";
-			series9->ChartArea = L"ChartArea1";
-			series9->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series9->Legend = L"Legend1";
-			series9->Name = L"Temp";
-			this->chTemp->Series->Add(series9);
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series1->Legend = L"Legend1";
+			series1->Name = L"Temp";
+			this->chTemp->Series->Add(series1);
 			this->chTemp->Size = System::Drawing::Size(221, 206);
 			this->chTemp->TabIndex = 0;
 			this->chTemp->Text = L"chart1";
@@ -270,51 +270,51 @@ private: System::Windows::Forms::PictureBox^ pbAirq;
 			// 
 			// chHum
 			// 
-			chartArea10->Name = L"ChartArea1";
-			this->chHum->ChartAreas->Add(chartArea10);
-			legend10->Name = L"Legend1";
-			this->chHum->Legends->Add(legend10);
+			chartArea2->Name = L"ChartArea1";
+			this->chHum->ChartAreas->Add(chartArea2);
+			legend2->Name = L"Legend1";
+			this->chHum->Legends->Add(legend2);
 			this->chHum->Location = System::Drawing::Point(346, 34);
 			this->chHum->Name = L"chHum";
-			series10->ChartArea = L"ChartArea1";
-			series10->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series10->Legend = L"Legend1";
-			series10->Name = L"Hum";
-			this->chHum->Series->Add(series10);
+			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series2->Legend = L"Legend1";
+			series2->Name = L"Hum";
+			this->chHum->Series->Add(series2);
 			this->chHum->Size = System::Drawing::Size(221, 206);
 			this->chHum->TabIndex = 9;
 			this->chHum->Text = L"chart1";
 			// 
 			// chCO
 			// 
-			chartArea11->Name = L"ChartArea1";
-			this->chCO->ChartAreas->Add(chartArea11);
-			legend11->Name = L"Legend1";
-			this->chCO->Legends->Add(legend11);
+			chartArea3->Name = L"ChartArea1";
+			this->chCO->ChartAreas->Add(chartArea3);
+			legend3->Name = L"Legend1";
+			this->chCO->Legends->Add(legend3);
 			this->chCO->Location = System::Drawing::Point(29, 315);
 			this->chCO->Name = L"chCO";
-			series11->ChartArea = L"ChartArea1";
-			series11->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series11->Legend = L"Legend1";
-			series11->Name = L"CO";
-			this->chCO->Series->Add(series11);
+			series3->ChartArea = L"ChartArea1";
+			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series3->Legend = L"Legend1";
+			series3->Name = L"CO";
+			this->chCO->Series->Add(series3);
 			this->chCO->Size = System::Drawing::Size(221, 206);
 			this->chCO->TabIndex = 10;
 			this->chCO->Text = L"chart1";
 			// 
 			// chAir
 			// 
-			chartArea12->Name = L"ChartArea1";
-			this->chAir->ChartAreas->Add(chartArea12);
-			legend12->Name = L"Legend1";
-			this->chAir->Legends->Add(legend12);
+			chartArea4->Name = L"ChartArea1";
+			this->chAir->ChartAreas->Add(chartArea4);
+			legend4->Name = L"Legend1";
+			this->chAir->Legends->Add(legend4);
 			this->chAir->Location = System::Drawing::Point(346, 315);
 			this->chAir->Name = L"chAir";
-			series12->ChartArea = L"ChartArea1";
-			series12->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series12->Legend = L"Legend1";
-			series12->Name = L"Airq";
-			this->chAir->Series->Add(series12);
+			series4->ChartArea = L"ChartArea1";
+			series4->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series4->Legend = L"Legend1";
+			series4->Name = L"Airq";
+			this->chAir->Series->Add(series4);
 			this->chAir->Size = System::Drawing::Size(221, 206);
 			this->chAir->TabIndex = 11;
 			this->chAir->Text = L"chart1";
@@ -401,6 +401,7 @@ private: System::Windows::Forms::PictureBox^ pbAirq;
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->chTemp);
 			this->Name = L"NewPie";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"NewPie";
 			this->Load += gcnew System::EventHandler(this, &NewPie::NewPie_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chTemp))->EndInit();

@@ -203,6 +203,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->MinBox);
 			this->Controls->Add(this->BuscarBtn);
 			this->Name = L"UserReport";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"UserReport";
 			this->Load += gcnew System::EventHandler(this, &UserReport::UserReportLoad);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();

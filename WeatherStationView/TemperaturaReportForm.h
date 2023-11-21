@@ -67,7 +67,7 @@ namespace WeatherStationView {
 			legend1->Name = L"Legend1";
 			this->chart1->Legends->Add(legend1);
 			this->chart1->Location = System::Drawing::Point(0, 0);
-			this->chart1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->chart1->Margin = System::Windows::Forms::Padding(2);
 			this->chart1->Name = L"chart1";
 			series1->ChartArea = L"ChartArea1";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Point;
@@ -86,8 +86,9 @@ namespace WeatherStationView {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(701, 360);
 			this->Controls->Add(this->chart1);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"TemperaturaReportForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"TemperaturaReportForm";
 			this->Load += gcnew System::EventHandler(this, &TemperaturaReportForm::TemperaturaReportForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();

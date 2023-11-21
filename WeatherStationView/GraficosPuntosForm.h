@@ -135,9 +135,6 @@ namespace WeatherStationView {
 			this->chart1->Size = System::Drawing::Size(688, 459);
 			this->chart1->TabIndex = 0;
 			this->chart1->Text = L"chart1";
-			//this->chart1->ChartAreas[0]->AxisX->Title = "Tiempo";
-			//this->chart1->ChartAreas[0]->AxisY->Title = "Temperatura";
-			
 			// 
 			// CriterioMedicionBox
 			// 
@@ -207,8 +204,6 @@ namespace WeatherStationView {
 			this->chart2->Size = System::Drawing::Size(688, 459);
 			this->chart2->TabIndex = 9;
 			this->chart2->Text = L"chart2";
-			//this->chart2->ChartAreas[0]->AxisX->Title = "Tiempo";
-			//this->chart2->ChartAreas[0]->AxisY->Title = "Humedad";
 			// 
 			// chart3
 			// 
@@ -242,8 +237,6 @@ namespace WeatherStationView {
 			this->chart3->Size = System::Drawing::Size(688, 459);
 			this->chart3->TabIndex = 10;
 			this->chart3->Text = L"chart3";
-			//this->chart3->ChartAreas[0]->AxisX->Title = "Tiempo";
-			//this->chart3->ChartAreas[0]->AxisY->Title = "Concentracion CO";
 			// 
 			// chart4
 			// 
@@ -277,8 +270,6 @@ namespace WeatherStationView {
 			this->chart4->Size = System::Drawing::Size(688, 459);
 			this->chart4->TabIndex = 11;
 			this->chart4->Text = L"chart4";
-			//this->chart4->ChartAreas[0]->AxisX->Title = "Tiempo";
-			//this->chart4->ChartAreas[0]->AxisY->Title = "Calidad Aire";
 			// 
 			// GraficosPuntosForm
 			// 
@@ -294,6 +285,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->chart1);
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"GraficosPuntosForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"GraficosPuntosForm";
 			this->Load += gcnew System::EventHandler(this, &GraficosPuntosForm::GraficosPuntosForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();

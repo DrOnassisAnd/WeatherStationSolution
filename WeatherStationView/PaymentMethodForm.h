@@ -109,7 +109,7 @@ namespace WeatherStationView {
 			// button2
 			// 
 			this->button2->Location = System::Drawing::Point(221, 130);
-			this->button2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button2->Margin = System::Windows::Forms::Padding(2);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(124, 25);
 			this->button2->TabIndex = 10;
@@ -173,6 +173,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->panel1);
 			this->Margin = System::Windows::Forms::Padding(2, 3, 2, 3);
 			this->Name = L"PaymentMethodForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"PaymentMethodForm";
 			this->Load += gcnew System::EventHandler(this, &PaymentMethodForm::PaymentMethodForm_Load);
 			this->panel1->ResumeLayout(false);

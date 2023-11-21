@@ -291,6 +291,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->label1);
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"TriviaForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"TriviaForm";
 			this->Load += gcnew System::EventHandler(this, &TriviaForm::TriviaForm_Load);
 			this->ResumeLayout(false);

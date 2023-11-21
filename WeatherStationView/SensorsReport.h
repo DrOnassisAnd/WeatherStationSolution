@@ -738,6 +738,7 @@ private: System::Windows::Forms::Button^ CSVBtn;
 			this->Controls->Add(this->BuscarBtn);
 			this->Controls->Add(this->dataGridView1);
 			this->Name = L"SensorsReport";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"SensorsReport";
 			this->Load += gcnew System::EventHandler(this, &SensorsReport::SensorsReportLoad);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
