@@ -428,6 +428,13 @@ void WeatherStationPersistance::Persistance::AddUser(User^user) {
 		cmd->Parameters->Add("@FORMATOHORAS", System::Data::SqlDbType::VarChar, 200);
 		cmd->Parameters->Add("@FORMATOFECHAS", System::Data::SqlDbType::VarChar, 200);
 
+		cmd->Parameters->Add("@PUNTOSTOTALES", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@PUNTOSDIARIOS", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@FECHAACTUALIZACION", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@NUMERODECUENTA", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@CCV", System::Data::SqlDbType::Int);
+		//cmd->Parameters->Add("@PREGUNTASCONTESTADAS", System::Data::SqlDbType::VarChar, -1); // VARCHAR(MAX) 
+
 		SqlParameter^ outputIdParam = gcnew SqlParameter("@ID", System::Data::SqlDbType::Int);
 		outputIdParam->Direction = System::Data::ParameterDirection::Output;
 		cmd->Parameters->Add(outputIdParam);
@@ -442,7 +449,12 @@ void WeatherStationPersistance::Persistance::AddUser(User^user) {
 		cmd->Parameters["@FORMATOHORAS"]->Value = user->ajustes->FormatoHoras;
 		cmd->Parameters["@FORMATOFECHAS"]->Value = user->ajustes->FormatoFecha;
 
-
+		cmd->Parameters["@PUNTOSTOTALES"]->Value = user->PuntosTotales;
+		cmd->Parameters["@PUNTOSDIARIOS"]->Value = user->PuntosDiarios;
+		cmd->Parameters["@FECHAACTUALIZACION"]->Value = user->fechaUltimaActualizacion;
+		cmd->Parameters["@NUMERODECUENTA"]->Value = user->NumeroDeCuentaUser;
+		cmd->Parameters["@CCV"]->Value = user->CCVUSER;
+		//cmd->Parameters["@PREGUNTASCONTESTADAS"]->Value = user->PreguntasContestadas;
 
 		/*
 		cmd->Parameters["@UNIDADTEMP"]->Value = dynamic_cast<SensorTemperaturaHumedad^>(sensordata->DataBase[0])->UnidadTemp;
@@ -527,6 +539,17 @@ void WeatherStationPersistance::Persistance::UpdateUser(User^ user) {
 		cmd->Parameters->Add("@UNIDADTEMP", System::Data::SqlDbType::VarChar, 200);
 		cmd->Parameters->Add("@FORMATOHORAS", System::Data::SqlDbType::VarChar, 200);
 		cmd->Parameters->Add("@FORMATOFECHAS", System::Data::SqlDbType::VarChar, 200);
+
+		cmd->Parameters->Add("@PUNTOSTOTALES", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@PUNTOSDIARIOS", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@FECHAACTUALIZACION", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@NUMERODECUENTA", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@CCV", System::Data::SqlDbType::Int);
+
+
+
+
+
 		cmd->Prepare();
 		cmd->Parameters["@ID"]->Value = user->Id;
 		cmd->Parameters["@NOMBRE"]->Value = user->Name;
@@ -538,6 +561,13 @@ void WeatherStationPersistance::Persistance::UpdateUser(User^ user) {
 		cmd->Parameters["@UNIDADTEMP"]->Value = user->ajustes->UnidadTemp;
 		cmd->Parameters["@FORMATOHORAS"]->Value = user->ajustes->FormatoHoras;
 		cmd->Parameters["@FORMATOFECHAS"]->Value = user->ajustes->FormatoFecha;
+
+
+		cmd->Parameters["@PUNTOSTOTALES"]->Value = user->PuntosTotales;
+		cmd->Parameters["@PUNTOSDIARIOS"]->Value = user->PuntosDiarios;
+		cmd->Parameters["@FECHAACTUALIZACION"]->Value = user->fechaUltimaActualizacion;
+		cmd->Parameters["@NUMERODECUENTA"]->Value = user->NumeroDeCuentaUser;
+		cmd->Parameters["@CCV"]->Value = user->CCVUSER;
 
 		/* Paso 3: Se ejecuta la sentencia SQL */
 		cmd->ExecuteNonQuery();
@@ -1092,6 +1122,7 @@ List<User^>^ WeatherStationPersistance::Persistance::LoadUser() {
 			user->Id = Convert::ToInt32(reader["ID"]->ToString());
 			user->Name = reader["NOMBRE"]->ToString();
 			user->Password = reader["CONTRASENA"]->ToString();
+
 			user->Email = reader["EMAIL"]->ToString();
 
 			Membresia^ membresia = gcnew Membresia();
@@ -1107,6 +1138,15 @@ List<User^>^ WeatherStationPersistance::Persistance::LoadUser() {
 			ajustes->FormatoFecha = reader["FORMATOFECHAS"]->ToString();
 
 			user->ajustes = ajustes;
+
+			//
+			user->PuntosTotales = Convert::ToInt32(reader["PUNTOSTOTALES"]->ToString());
+			user->PuntosDiarios = Convert::ToInt32(reader["PUNTOSDIARIOS"]->ToString());
+			
+			user->fechaUltimaActualizacion = reader["FECHAACTUALIZACION"]->ToString();
+
+			user->NumeroDeCuentaUser = Convert::ToInt32(reader["NUMERODECUENTA"]->ToString());
+			user->CCVUSER = Convert::ToInt32(reader["CCV"]->ToString());
 
 			userlist->Add(user);
 		}

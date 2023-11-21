@@ -125,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AirQMaintenanceForm.cpp" />
+    <ClCompile Include="BancoTarjetas.cpp" />
     <ClCompile Include="BasicForm.cpp" />
     <ClCompile Include="CalidadAireForm.cpp" />
     <ClCompile Include="COMaintenanceForm.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="AirQMaintenanceForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="BancoTarjetas.h" />
     <ClInclude Include="BasicForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -247,6 +249,7 @@
   <ItemGroup>
     <EmbeddedResource Include="AirQMaintenanceForm.resx">
       <DependentUpon>AirQMaintenanceForm.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="BasicForm.resx">
       <DependentUpon>BasicForm.h</DependentUpon>

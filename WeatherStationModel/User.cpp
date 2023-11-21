@@ -19,3 +19,8 @@ Model::User::User(String^ Name, String^ Password, String^ Email, int Id, Membres
 	this->membresia = membresia;
 
 }
+
+
+
+
+
