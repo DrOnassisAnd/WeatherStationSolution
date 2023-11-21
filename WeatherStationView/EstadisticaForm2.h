@@ -66,10 +66,10 @@ namespace WeatherStationView {
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button3->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button3->Location = System::Drawing::Point(835, 50);
-			this->button3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->button3->Location = System::Drawing::Point(626, 41);
+			this->button3->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(212, 61);
+			this->button3->Size = System::Drawing::Size(159, 50);
 			this->button3->TabIndex = 26;
 			this->button3->Text = L"Descargar CSV";
 			this->button3->UseVisualStyleBackColor = false;
@@ -81,25 +81,28 @@ namespace WeatherStationView {
 			this->chart1->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->chart1->Legends->Add(legend1);
-			this->chart1->Location = System::Drawing::Point(64, 50);
+			this->chart1->Location = System::Drawing::Point(48, 41);
+			this->chart1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->chart1->Name = L"chart1";
 			series1->ChartArea = L"ChartArea1";
 			series1->Legend = L"Legend1";
 			series1->Name = L"Series1";
 			this->chart1->Series->Add(series1);
-			this->chart1->Size = System::Drawing::Size(644, 380);
+			this->chart1->Size = System::Drawing::Size(483, 309);
 			this->chart1->TabIndex = 27;
 			this->chart1->Text = L"chart1";
 			// 
 			// EstadisticaForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Info;
-			this->ClientSize = System::Drawing::Size(1093, 452);
+			this->ClientSize = System::Drawing::Size(820, 367);
 			this->Controls->Add(this->chart1);
 			this->Controls->Add(this->button3);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"EstadisticaForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"EstadisticaForm";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
 			this->ResumeLayout(false);

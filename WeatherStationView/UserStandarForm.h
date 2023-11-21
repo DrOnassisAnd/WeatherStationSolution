@@ -408,6 +408,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->label4);
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"UserStandarForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"UserStandarForm";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();

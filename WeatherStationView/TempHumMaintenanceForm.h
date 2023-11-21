@@ -188,7 +188,6 @@ namespace WeatherStationView {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(100, 20);
 			this->textBox1->TabIndex = 39;
-
 			// 
 			// label2
 			// 
@@ -259,6 +258,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Name = L"TempHumMaintenanceForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"TempHumMaintenanceForm";
 			this->Load += gcnew System::EventHandler(this, &TempHumMaintenanceForm::TempHumForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();

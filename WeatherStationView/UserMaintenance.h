@@ -151,46 +151,41 @@ namespace WeatherStationView {
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(175, 52);
-			this->textBox3->Margin = System::Windows::Forms::Padding(4);
+			this->textBox3->Location = System::Drawing::Point(131, 42);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(132, 22);
+			this->textBox3->Size = System::Drawing::Size(100, 20);
 			this->textBox3->TabIndex = 62;
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(175, 85);
-			this->textBox4->Margin = System::Windows::Forms::Padding(4);
+			this->textBox4->Location = System::Drawing::Point(131, 69);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(132, 22);
+			this->textBox4->Size = System::Drawing::Size(100, 20);
 			this->textBox4->TabIndex = 61;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(16, 89);
-			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label3->Location = System::Drawing::Point(12, 72);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(41, 16);
+			this->label3->Size = System::Drawing::Size(32, 13);
 			this->label3->TabIndex = 60;
 			this->label3->Text = L"Email";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(16, 52);
-			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label4->Location = System::Drawing::Point(12, 42);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(67, 16);
+			this->label4->Size = System::Drawing::Size(53, 13);
 			this->label4->TabIndex = 59;
 			this->label4->Text = L"Password";
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(900, 412);
-			this->button4->Margin = System::Windows::Forms::Padding(4);
+			this->button4->Location = System::Drawing::Point(675, 335);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(100, 28);
+			this->button4->Size = System::Drawing::Size(75, 23);
 			this->button4->TabIndex = 58;
 			this->button4->Text = L"Cerrar";
 			this->button4->UseVisualStyleBackColor = true;
@@ -204,11 +199,10 @@ namespace WeatherStationView {
 					this->Column4, this->Column2, this->Column3, this->Column5, this->Column6, this->FechaFindgv, this->PuntosTotales, this->PuntosDiarios,
 					this->FechaActualizacion, this->NumeroCuenta, this->CCV
 			});
-			this->dataGridView1->Location = System::Drawing::Point(16, 176);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(4);
+			this->dataGridView1->Location = System::Drawing::Point(12, 143);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->Size = System::Drawing::Size(1551, 218);
+			this->dataGridView1->Size = System::Drawing::Size(1163, 177);
 			this->dataGridView1->TabIndex = 57;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &UserMaintenance::Table_CellClick);
 			// 
@@ -298,10 +292,9 @@ namespace WeatherStationView {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(1428, 131);
-			this->button3->Margin = System::Windows::Forms::Padding(4);
+			this->button3->Location = System::Drawing::Point(1071, 106);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(100, 28);
+			this->button3->Size = System::Drawing::Size(75, 23);
 			this->button3->TabIndex = 56;
 			this->button3->Text = L"Eliminar";
 			this->button3->UseVisualStyleBackColor = true;
@@ -309,10 +302,9 @@ namespace WeatherStationView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(1428, 75);
-			this->button2->Margin = System::Windows::Forms::Padding(4);
+			this->button2->Location = System::Drawing::Point(1071, 61);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(100, 28);
+			this->button2->Size = System::Drawing::Size(75, 23);
 			this->button2->TabIndex = 55;
 			this->button2->Text = L"Modificar";
 			this->button2->UseVisualStyleBackColor = true;
@@ -320,10 +312,9 @@ namespace WeatherStationView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(1428, 17);
-			this->button1->Margin = System::Windows::Forms::Padding(4);
+			this->button1->Location = System::Drawing::Point(1071, 14);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(100, 28);
+			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 54;
 			this->button1->Text = L"Agregar";
 			this->button1->UseVisualStyleBackColor = true;
@@ -331,29 +322,26 @@ namespace WeatherStationView {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(175, 15);
-			this->textBox2->Margin = System::Windows::Forms::Padding(4);
+			this->textBox2->Location = System::Drawing::Point(131, 12);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(132, 22);
+			this->textBox2->Size = System::Drawing::Size(100, 20);
 			this->textBox2->TabIndex = 53;
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(16, 15);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Location = System::Drawing::Point(12, 12);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(44, 16);
+			this->label2->Size = System::Drawing::Size(35, 13);
 			this->label2->TabIndex = 51;
 			this->label2->Text = L"Name";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(438, 15);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(328, 12);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(75, 16);
+			this->label1->Size = System::Drawing::Size(58, 13);
 			this->label1->TabIndex = 63;
 			this->label1->Text = L"Membresia";
 			// 
@@ -361,99 +349,104 @@ namespace WeatherStationView {
 			// 
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Basic", L"Estandar", L"Premium" });
-			this->comboBox1->Location = System::Drawing::Point(593, 13);
-			this->comboBox1->Margin = System::Windows::Forms::Padding(4);
+			this->comboBox1->Location = System::Drawing::Point(445, 11);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(132, 24);
+			this->comboBox1->Size = System::Drawing::Size(100, 21);
 			this->comboBox1->TabIndex = 64;
 			// 
 			// dateTimePicker1
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(593, 126);
-			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(4);
+			this->dateTimePicker1->Location = System::Drawing::Point(445, 102);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(265, 22);
+			this->dateTimePicker1->Size = System::Drawing::Size(200, 20);
 			this->dateTimePicker1->TabIndex = 65;
 			// 
 			// FechaFin
 			// 
 			this->FechaFin->AutoSize = true;
-			this->FechaFin->Location = System::Drawing::Point(438, 131);
-			this->FechaFin->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->FechaFin->Location = System::Drawing::Point(328, 106);
 			this->FechaFin->Name = L"FechaFin";
-			this->FechaFin->Size = System::Drawing::Size(116, 16);
+			this->FechaFin->Size = System::Drawing::Size(92, 13);
 			this->FechaFin->TabIndex = 66;
 			this->FechaFin->Text = L"FechaFinalizacion";
 			// 
 			// PuntosTotalesLabel
 			// 
 			this->PuntosTotalesLabel->AutoSize = true;
-			this->PuntosTotalesLabel->Location = System::Drawing::Point(438, 52);
+			this->PuntosTotalesLabel->Location = System::Drawing::Point(328, 42);
+			this->PuntosTotalesLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->PuntosTotalesLabel->Name = L"PuntosTotalesLabel";
-			this->PuntosTotalesLabel->Size = System::Drawing::Size(94, 16);
+			this->PuntosTotalesLabel->Size = System::Drawing::Size(75, 13);
 			this->PuntosTotalesLabel->TabIndex = 67;
 			this->PuntosTotalesLabel->Text = L"PuntosTotales";
 			// 
 			// NumeroCuentaText
 			// 
-			this->NumeroCuentaText->Location = System::Drawing::Point(1049, 29);
+			this->NumeroCuentaText->Location = System::Drawing::Point(787, 24);
+			this->NumeroCuentaText->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->NumeroCuentaText->Name = L"NumeroCuentaText";
-			this->NumeroCuentaText->Size = System::Drawing::Size(140, 22);
+			this->NumeroCuentaText->Size = System::Drawing::Size(106, 20);
 			this->NumeroCuentaText->TabIndex = 68;
 			// 
 			// PuntosDiariosLabel
 			// 
 			this->PuntosDiariosLabel->AutoSize = true;
-			this->PuntosDiariosLabel->Location = System::Drawing::Point(438, 94);
+			this->PuntosDiariosLabel->Location = System::Drawing::Point(328, 76);
+			this->PuntosDiariosLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->PuntosDiariosLabel->Name = L"PuntosDiariosLabel";
-			this->PuntosDiariosLabel->Size = System::Drawing::Size(94, 16);
+			this->PuntosDiariosLabel->Size = System::Drawing::Size(75, 13);
 			this->PuntosDiariosLabel->TabIndex = 69;
 			this->PuntosDiariosLabel->Text = L"Puntos Diarios";
 			// 
 			// NumerodeCuentaLabel
 			// 
 			this->NumerodeCuentaLabel->AutoSize = true;
-			this->NumerodeCuentaLabel->Location = System::Drawing::Point(930, 29);
+			this->NumerodeCuentaLabel->Location = System::Drawing::Point(698, 24);
+			this->NumerodeCuentaLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->NumerodeCuentaLabel->Name = L"NumerodeCuentaLabel";
-			this->NumerodeCuentaLabel->Size = System::Drawing::Size(113, 16);
+			this->NumerodeCuentaLabel->Size = System::Drawing::Size(90, 13);
 			this->NumerodeCuentaLabel->TabIndex = 70;
 			this->NumerodeCuentaLabel->Text = L"NumerodeCuenta";
 			// 
 			// CCVLabel
 			// 
 			this->CCVLabel->AutoSize = true;
-			this->CCVLabel->Location = System::Drawing::Point(930, 75);
+			this->CCVLabel->Location = System::Drawing::Point(698, 61);
+			this->CCVLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->CCVLabel->Name = L"CCVLabel";
-			this->CCVLabel->Size = System::Drawing::Size(34, 16);
+			this->CCVLabel->Size = System::Drawing::Size(28, 13);
 			this->CCVLabel->TabIndex = 71;
 			this->CCVLabel->Text = L"CCV";
 			// 
 			// PuntosDiarioText
 			// 
-			this->PuntosDiarioText->Location = System::Drawing::Point(593, 89);
+			this->PuntosDiarioText->Location = System::Drawing::Point(445, 72);
+			this->PuntosDiarioText->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->PuntosDiarioText->Name = L"PuntosDiarioText";
-			this->PuntosDiarioText->Size = System::Drawing::Size(140, 22);
+			this->PuntosDiarioText->Size = System::Drawing::Size(106, 20);
 			this->PuntosDiarioText->TabIndex = 72;
 			// 
 			// PuntoTotalesText
 			// 
-			this->PuntoTotalesText->Location = System::Drawing::Point(593, 52);
+			this->PuntoTotalesText->Location = System::Drawing::Point(445, 42);
+			this->PuntoTotalesText->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->PuntoTotalesText->Name = L"PuntoTotalesText";
-			this->PuntoTotalesText->Size = System::Drawing::Size(154, 22);
+			this->PuntoTotalesText->Size = System::Drawing::Size(116, 20);
 			this->PuntoTotalesText->TabIndex = 73;
 			// 
 			// CCVText
 			// 
-			this->CCVText->Location = System::Drawing::Point(1049, 75);
+			this->CCVText->Location = System::Drawing::Point(787, 61);
+			this->CCVText->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->CCVText->Name = L"CCVText";
-			this->CCVText->Size = System::Drawing::Size(154, 22);
+			this->CCVText->Size = System::Drawing::Size(116, 20);
 			this->CCVText->TabIndex = 74;
 			// 
 			// UserMaintenance
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1609, 455);
+			this->ClientSize = System::Drawing::Size(1028, 370);
 			this->Controls->Add(this->CCVText);
 			this->Controls->Add(this->PuntoTotalesText);
 			this->Controls->Add(this->PuntosDiarioText);
@@ -477,8 +470,8 @@ namespace WeatherStationView {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->label2);
-			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"UserMaintenance";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"UserMaintenance";
 			this->Load += gcnew System::EventHandler(this, &UserMaintenance::User_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();

@@ -291,6 +291,9 @@
     <EmbeddedResource Include="SensorsReport.resx">
       <DependentUpon>SensorsReport.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StatisticsForm.resx">
+      <DependentUpon>StatisticsForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TemperaturaReportForm.resx">
       <DependentUpon>TemperaturaReportForm.h</DependentUpon>
     </EmbeddedResource>

@@ -102,7 +102,7 @@ namespace WeatherStationView {
 			// textBox4
 			// 
 			this->textBox4->Location = System::Drawing::Point(601, 389);
-			this->textBox4->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox4->Margin = System::Windows::Forms::Padding(2);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(76, 20);
 			this->textBox4->TabIndex = 33;
@@ -110,7 +110,7 @@ namespace WeatherStationView {
 			// textBox3
 			// 
 			this->textBox3->Location = System::Drawing::Point(601, 306);
-			this->textBox3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox3->Margin = System::Windows::Forms::Padding(2);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(76, 20);
 			this->textBox3->TabIndex = 32;
@@ -118,7 +118,7 @@ namespace WeatherStationView {
 			// textBox2
 			// 
 			this->textBox2->Location = System::Drawing::Point(601, 228);
-			this->textBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox2->Margin = System::Windows::Forms::Padding(2);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(76, 20);
 			this->textBox2->TabIndex = 31;
@@ -376,8 +376,9 @@ namespace WeatherStationView {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->label4);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"UserPremiumForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"UserPremiumForm";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();

@@ -238,6 +238,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->lbllimitValue);
 			this->Controls->Add(this->lblIdSensor);
 			this->Name = L"ErrorWarning";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"ErrorWarning";
 			this->Load += gcnew System::EventHandler(this, &ErrorWarning::ErrorWarning_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvErrorWarning))->EndInit();
