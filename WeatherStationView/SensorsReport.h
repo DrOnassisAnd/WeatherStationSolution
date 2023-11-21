@@ -11,6 +11,7 @@ namespace WeatherStationView {
 	using namespace System::Collections::Generic;
 	using namespace System::Windows::Forms::DataVisualization::Charting;
 	using namespace System::Xml;
+	using namespace System::IO;
 	using namespace Model;
 
 	/// <summary>
@@ -1931,21 +1932,16 @@ private: System::Windows::Forms::Button^ CSVBtn;
 		   }
 
 private: System::Void CSVBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	/*SaveFileDialog^ saveFileDialog1 = gcnew SaveFileDialog();
-	saveFileDialog1->Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
-	saveFileDialog1->Title = "Guardar como archivo XML";
+	SaveFileDialog^ saveFileDialog1 = gcnew SaveFileDialog();
+	saveFileDialog1->Filter = "Excel files (*.xls)|*.xls|All files (*.*)|*.*";
+	saveFileDialog1->Title = "Guardar como archivo XLS";
 	saveFileDialog1->RestoreDirectory = true;
 
 	if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 	{
 		String^ filePath = saveFileDialog1->FileName;
 		ExportarDataGridViewAXML(dataGridView1, filePath);
-	}*/
-
-	String^ filePath = "C:\\sensorsdata\\sensorsdata.xls";
-	ExportarDataGridViewAXML(dataGridView1, filePath);
-
-
+	}
 }
 
 	void ExportarDataGridViewAXML(DataGridView^ dataGridView, String^ filePath) {
