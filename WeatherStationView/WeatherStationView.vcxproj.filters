@@ -74,5 +74,14 @@
     <Image Include="FACI.jpg" />
     <Image Include="LogoPrueba2.jpg" />
     <Image Include="TINKUY.jpg" />
+    <Image Include="LogoReporte.png" />
+    <Image Include="LogoAdmin.png" />
+    <Image Include="User.png" />
+    <Image Include="Report.png" />
+    <Image Include="Sensors.png" />
+    <Image Include="Airq.png" />
+    <Image Include="CO.png" />
+    <Image Include="Humidity.png" />
+    <Image Include="Temperature.png" />
   </ItemGroup>
 </Project>
