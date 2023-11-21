@@ -150,14 +150,9 @@ namespace WeatherStationPersistance {
 		static void DeleteAmbienteData(int IdMedicion);
 		static void UpdateAmbienteData(Ambiente^ sensordata);
 
+		//More Ambiente Methods
+		static Ambiente^ QueryLastUbiGeoData(String^ ubigeo);
 
-		
-		//User Methods
-		//static void AddUserData(User^ user);
-		//static List<User^>^ QueryAllUser();
-		//static User^ QueryUserbyId(int Id);
-		//static void DeleteUser(int userId);
-		//static void UpdateUser(User^ user);
 
 	
 	};

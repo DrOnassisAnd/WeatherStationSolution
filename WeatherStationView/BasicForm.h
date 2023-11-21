@@ -597,8 +597,8 @@ namespace WeatherStationView {
 		this->label10->Text = user->membresia->TipoMembresia;
 
 		membresiaGlobal = user->membresia;
-		//
-		//this->comboBox1->SelectedIndex = 0; //CIA
+
+		this->comboBox1->SelectedIndex = 0; //CIA
 
 		
 		if (user->ajustes->FormatoHoras == "Formato de 12 horas") {
@@ -611,17 +611,10 @@ namespace WeatherStationView {
 			MessageBox::Show("ARREGLEN LA BASE DE DATOS");
 			Application::Exit();
 		}
-		//Ajustes
-		//Dato Prueba
-		//TransmisionDataArduino();
  
 		//timer
-		//timer1->Start();
+		timer1->Start();
 		timer2->Start();
-
-		//SerialPort^ serialPort = gcnew SerialPort("COM3", 9600, Parity::None, 8, StopBits::One); // Reemplaza "COMX" con el puerto COM al que está conectado tu Arduino
-		//serialPort->Open(); // Abre el puerto serie
-
 		
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -675,26 +668,41 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 	if ((comboBox1->Text == "CIA")) {
 		pictureBox1->Image = Image::FromFile("CIA.jpeg");
 		IdSensor = "1";
-		TransmisionDataArduino();
-		
+		Ambiente^ CIA = Controller::Controller::QueryLastUbiGeoData("CIA");
+		textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(CIA->DataBase[0])->Temperatura).ToString();
+		textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(CIA->DataBase[0])->Humedad).ToString();
+		textBox4->Text = (dynamic_cast<SensorCO^>(CIA->DataBase[1])->NivelCO).ToString();
+		textBox5->Text = (dynamic_cast<SensorCalidadAire^>(CIA->DataBase[2])->CalidadAire).ToString();
 	}
 	else if ((comboBox1->Text == "FACI")) {
 
 		pictureBox1->Image = Image::FromFile("FACI.jpg");
 		IdSensor = "2";
-		TransmisionDataArduino();
+		Ambiente^ FACI = Controller::Controller::QueryLastUbiGeoData("FACI");
+		textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(FACI->DataBase[0])->Temperatura).ToString();
+		textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(FACI->DataBase[0])->Humedad).ToString();
+		textBox4->Text = (dynamic_cast<SensorCO^>(FACI->DataBase[1])->NivelCO).ToString();
+		textBox5->Text = (dynamic_cast<SensorCalidadAire^>(FACI->DataBase[2])->CalidadAire).ToString();
 	}
 	else if ((comboBox1->Text == "TINKUY")) {
 
 		pictureBox1->Image = Image::FromFile("TINKUY.jpg");
 		IdSensor = "3";
-		TransmisionDataArduino();
+		Ambiente^ TINKUY = Controller::Controller::QueryLastUbiGeoData("TINKUY");
+		textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(TINKUY->DataBase[0])->Temperatura).ToString();
+		textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(TINKUY->DataBase[0])->Humedad).ToString();
+		textBox4->Text = (dynamic_cast<SensorCO^>(TINKUY->DataBase[1])->NivelCO).ToString();
+		textBox5->Text = (dynamic_cast<SensorCalidadAire^>(TINKUY->DataBase[2])->CalidadAire).ToString();
 	}
 	else if ((comboBox1->Text == "BIBLIOTECA CENTRAL")) {
 
 		pictureBox1->Image = Image::FromFile("BIBLIOTECA CENTRAL.jpg");
 		IdSensor = "4";
-		TransmisionDataArduino();
+		Ambiente^ BIBLIO = Controller::Controller::QueryLastUbiGeoData("BIBLIOTECA CENTRAL");
+		textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(BIBLIO->DataBase[0])->Temperatura).ToString();
+		textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(BIBLIO->DataBase[0])->Humedad).ToString();
+		textBox4->Text = (dynamic_cast<SensorCO^>(BIBLIO->DataBase[1])->NivelCO).ToString();
+		textBox5->Text = (dynamic_cast<SensorCalidadAire^>(BIBLIO->DataBase[2])->CalidadAire).ToString();
 	}
 	else if ((comboBox1->Text == "")) {
 		pictureBox1->Image = Image::FromFile("LogoPrueba.jpg");
@@ -808,19 +816,19 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		   delta = (rand->Next(deltaHum * 2 + 1) - deltaHum);
 		   hum_faci += delta;
 		   if ((hum_faci < minHum) || (hum_faci > maxHum)) {
-			   hum_faci = 20;
+			   hum_faci = 70;
 		   }
 
 		   delta = (rand->Next(deltaCO * 2 + 1) - deltaCO);
 		   co_faci += delta;
 		   if ((co_faci < minCO) || (co_faci > maxCO)) {
-			   co_faci = 20;
+			   co_faci = 125;
 		   }
 
 		   delta = (rand->Next(deltaAirQ * 2 + 1) - deltaAirQ);
 		   aq_faci += delta;
 		   if ((aq_faci < minAQ) || (aq_faci > maxAQ)) {
-			   aq_faci = 20;
+			   aq_faci = 120;
 		   }
 
 		   ambiente = gcnew Ambiente();
@@ -862,19 +870,19 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		   delta = (rand->Next(deltaHum * 2 + 1) - deltaHum);
 		   hum_bc += delta;
 		   if ((hum_bc < minHum) || (hum_bc > maxHum)) {
-			   hum_bc = 20;
+			   hum_bc = 70;
 		   }
 
 		   delta = (rand->Next(deltaCO * 2 + 1) - deltaCO);
 		   co_bc += delta;
 		   if ((co_bc < minCO) || (co_bc > maxCO)) {
-			   co_bc = 20;
+			   co_bc = 125;
 		   }
 
 		   delta = (rand->Next(deltaAirQ * 2 + 1) - deltaAirQ);
 		   aq_bc += delta;
 		   if ((aq_bc < minAQ) || (aq_bc > maxAQ)) {
-			   aq_bc = 20;
+			   aq_bc = 120;
 		   }
 
 		   ambiente = gcnew Ambiente();
@@ -916,19 +924,19 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		   delta = (rand->Next(deltaHum * 2 + 1) - deltaHum);
 		   hum_tinkuy += delta;
 		   if ((hum_tinkuy < minHum) || (hum_tinkuy > maxHum)) {
-			   hum_tinkuy = 20;
+			   hum_tinkuy = 70;
 		   }
 
 		   delta = (rand->Next(deltaCO * 2 + 1) - deltaCO);
 		   co_tinkuy += delta;
 		   if ((co_tinkuy < minCO) || (co_tinkuy > maxCO)) {
-			   co_tinkuy = 20;
+			   co_tinkuy = 125;
 		   }
 
 		   delta = (rand->Next(deltaAirQ * 2 + 1) - deltaAirQ);
 		   aq_tinkuy += delta;
 		   if ((aq_tinkuy < minAQ) || (aq_tinkuy > maxAQ)) {
-			   aq_tinkuy = 20;
+			   aq_tinkuy = 120;
 		   }
 
 		   ambiente = gcnew Ambiente();

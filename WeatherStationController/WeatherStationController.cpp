@@ -255,6 +255,9 @@ List<Ambiente^>^ Controller::Controller::QueryAmbienteData() {
 Ambiente^ Controller::Controller::QueryAmbienteDatabyId(int IdMedicion) {
 	return WeatherStationPersistance::Persistance::QueryAmbienteDatabyId(IdMedicion);
 }
+Ambiente^ Controller::Controller::QueryLastUbiGeoData(String^ ubigeo) {
+	return WeatherStationPersistance::Persistance::QueryLastUbiGeoData(ubigeo);
+}
 
 void Controller::Controller::UpdateAmbienteData(Ambiente^ sensorData) {
 	WeatherStationPersistance::Persistance::UpdateAmbienteData(sensorData);
@@ -263,6 +266,8 @@ void Controller::Controller::UpdateAmbienteData(Ambiente^ sensorData) {
 void Controller::Controller::DeleteAmbienteData(int IdMedicion) {
 	WeatherStationPersistance::Persistance::DeleteAmbienteData(IdMedicion);
 }
+
+
 
 List<int>^ Controller::Controller::GetTempfromAmbiente(List<Ambiente^>^ sensordata) {
 	List<int>^ tempdata =  gcnew List<int>();

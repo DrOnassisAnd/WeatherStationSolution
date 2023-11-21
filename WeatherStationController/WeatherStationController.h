@@ -89,6 +89,7 @@ namespace Controller {
 		static Ambiente^ QueryAmbienteDatabyId(int IdMedicion);
 		static void DeleteAmbienteData(int IdMedicion);
 		static void UpdateAmbienteData(Ambiente^ sensordata);
+		static Ambiente^ QueryLastUbiGeoData(String^ ubigeo);
 
 		//TableMethods
 		static List<int>^ GetTempfromAmbiente(List<Ambiente^>^ sensordata);

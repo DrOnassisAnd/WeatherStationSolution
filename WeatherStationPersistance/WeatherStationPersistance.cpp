@@ -649,52 +649,6 @@ Ajustes^ WeatherStationPersistance::Persistance::QueryPrevAjustes() {
 	return AjustesList;
 }
 
-//void WeatherStationPersistance::Persistance::AddMembresia(Membresia^ membresia) {
-//	MembresiaList->Add(membresia);
-//	//PersistTextFile(WEATHER_STATION, UserList);
-//	PersistTextFile(MEMBRESIA_FILE, MembresiaList);
-//}
-//
-//List<Membresia^>^ WeatherStationPersistance::Persistance::QueryMembresia() {
-//	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
-//	MembresiaList = (List<Membresia^>^)LoadTextFile(MEMBRESIA_FILE);
-//	return MembresiaList;
-//}
-
-
-
-//Membresia^ WeatherStationPersistance::Persistance::QueryMembresiabyId(int Id) {
-//	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
-//	MembresiaList = (List<Membresia^>^)LoadTextFile(MEMBRESIA_FILE);
-//	for (int i = 0; i < MembresiaList->Count; i++) {
-//		if (MembresiaList[i]->Id == Id)
-//			return MembresiaList[i];
-//	}
-//	return nullptr;
-//}
-
-//void WeatherStationPersistance::Persistance::UpdateMembresia(Membresia^ membresia) {
-//	for (int i = 0; i < MembresiaList->Count; i++) {
-//		if (MembresiaList[i]->Id == membresia->Id)
-//			MembresiaList[i] = membresia;
-//	}
-//	//PersistTextFile(WEATHER_STATION, UserList);
-//	PersistTextFile(MEMBRESIA_FILE, MembresiaList);
-//	//PersistBinaryFile(USERS_BIN, UserList);
-//}
-
-//void WeatherStationPersistance::Persistance::DeleteMembresia(int membresiaId) {
-//	for (int i = 0; i < MembresiaList->Count; i++) {
-//		if (MembresiaList[i]->Id == membresiaId)
-//			MembresiaList->RemoveAt(i);
-//	}
-//	//PersistTextFile(WEATHER_STATION, UserList);
-//	PersistTextFile(MEMBRESIA_FILE, MembresiaList);
-//	//PersistBinaryFile(USERS_BIN, UserList);
-//}
-
-
-
 //temperatura humedad
 
 void WeatherStationPersistance::Persistance::AddTempHumData(SensorTemperaturaHumedad^ tempHum) {
@@ -1226,6 +1180,16 @@ List<Ambiente^>^ WeatherStationPersistance::Persistance::QueryAmbienteData() {
 	sAmbienteDB = LoadAmbientes();
 	return sAmbienteDB;
 }
+
+Ambiente^ WeatherStationPersistance::Persistance::QueryLastUbiGeoData(String^ ubigeo) {
+	sAmbienteDB = LoadAmbientes();
+	for (int i = sAmbienteDB->Count - 1; i >= 0; i--) {
+		if (sAmbienteDB[i]->UbicacionGeografica == ubigeo)
+			return sAmbienteDB[i];
+	}
+	return nullptr;
+}
+
 
 Ambiente^ WeatherStationPersistance::Persistance::QueryAmbienteDatabyId(int IdMedicion) {
 	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
