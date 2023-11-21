@@ -446,6 +446,8 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 			   this->Hide();
 			   WeatherStationFormAdmin^ obj = gcnew WeatherStationFormAdmin();
 			   obj->ShowDialog();
+			  
+
 
 			   this->Show();
 

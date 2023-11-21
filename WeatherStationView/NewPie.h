@@ -140,6 +140,14 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chAir;
 	private: System::Windows::Forms::Button^ btnMin;
 	private: System::Windows::Forms::Button^ btnMax;
+private: System::Windows::Forms::PictureBox^ pbTemperature;
+private: System::Windows::Forms::PictureBox^ pbHumidity;
+private: System::Windows::Forms::PictureBox^ pbCO;
+private: System::Windows::Forms::PictureBox^ pbAirq;
+
+
+
+
 
 
 
@@ -158,18 +166,18 @@ namespace WeatherStationView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea9 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend9 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series9 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea10 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend10 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series10 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea11 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend11 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series11 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea12 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend12 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series12 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->chTemp = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -181,25 +189,33 @@ namespace WeatherStationView {
 			this->chAir = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->btnMin = (gcnew System::Windows::Forms::Button());
 			this->btnMax = (gcnew System::Windows::Forms::Button());
+			this->pbTemperature = (gcnew System::Windows::Forms::PictureBox());
+			this->pbHumidity = (gcnew System::Windows::Forms::PictureBox());
+			this->pbCO = (gcnew System::Windows::Forms::PictureBox());
+			this->pbAirq = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chTemp))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chHum))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chCO))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chAir))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbTemperature))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbHumidity))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbCO))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbAirq))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// chTemp
 			// 
-			chartArea1->Name = L"ChartArea1";
-			this->chTemp->ChartAreas->Add(chartArea1);
-			legend1->Name = L"Legend1";
-			this->chTemp->Legends->Add(legend1);
+			chartArea9->Name = L"ChartArea1";
+			this->chTemp->ChartAreas->Add(chartArea9);
+			legend9->Name = L"Legend1";
+			this->chTemp->Legends->Add(legend9);
 			this->chTemp->Location = System::Drawing::Point(29, 34);
 			this->chTemp->Name = L"chTemp";
-			series1->ChartArea = L"ChartArea1";
-			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series1->Legend = L"Legend1";
-			series1->Name = L"Temp";
-			this->chTemp->Series->Add(series1);
+			series9->ChartArea = L"ChartArea1";
+			series9->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series9->Legend = L"Legend1";
+			series9->Name = L"Temp";
+			this->chTemp->Series->Add(series9);
 			this->chTemp->Size = System::Drawing::Size(221, 206);
 			this->chTemp->TabIndex = 0;
 			this->chTemp->Text = L"chart1";
@@ -209,36 +225,36 @@ namespace WeatherStationView {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(29, 15);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(67, 13);
+			this->label1->Size = System::Drawing::Size(87, 13);
 			this->label1->TabIndex = 4;
-			this->label1->Text = L"Temperatura";
+			this->label1->Text = L"Temperatura (°C)";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(354, 15);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(56, 13);
+			this->label2->Size = System::Drawing::Size(70, 13);
 			this->label2->TabIndex = 5;
-			this->label2->Text = L"Humedad ";
+			this->label2->Text = L"Humedad (%)";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(29, 266);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(46, 13);
+			this->label3->Size = System::Drawing::Size(75, 13);
 			this->label3->TabIndex = 6;
-			this->label3->Text = L"NivelCO";
+			this->label3->Text = L"NivelCO (ppm)";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
 			this->label4->Location = System::Drawing::Point(354, 266);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(60, 13);
+			this->label4->Size = System::Drawing::Size(89, 13);
 			this->label4->TabIndex = 7;
-			this->label4->Text = L"CalidadAire";
+			this->label4->Text = L"CalidadAire (ppm)";
 			// 
 			// btnMean
 			// 
@@ -254,51 +270,51 @@ namespace WeatherStationView {
 			// 
 			// chHum
 			// 
-			chartArea2->Name = L"ChartArea1";
-			this->chHum->ChartAreas->Add(chartArea2);
-			legend2->Name = L"Legend1";
-			this->chHum->Legends->Add(legend2);
+			chartArea10->Name = L"ChartArea1";
+			this->chHum->ChartAreas->Add(chartArea10);
+			legend10->Name = L"Legend1";
+			this->chHum->Legends->Add(legend10);
 			this->chHum->Location = System::Drawing::Point(346, 34);
 			this->chHum->Name = L"chHum";
-			series2->ChartArea = L"ChartArea1";
-			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series2->Legend = L"Legend1";
-			series2->Name = L"Hum";
-			this->chHum->Series->Add(series2);
+			series10->ChartArea = L"ChartArea1";
+			series10->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series10->Legend = L"Legend1";
+			series10->Name = L"Hum";
+			this->chHum->Series->Add(series10);
 			this->chHum->Size = System::Drawing::Size(221, 206);
 			this->chHum->TabIndex = 9;
 			this->chHum->Text = L"chart1";
 			// 
 			// chCO
 			// 
-			chartArea3->Name = L"ChartArea1";
-			this->chCO->ChartAreas->Add(chartArea3);
-			legend3->Name = L"Legend1";
-			this->chCO->Legends->Add(legend3);
+			chartArea11->Name = L"ChartArea1";
+			this->chCO->ChartAreas->Add(chartArea11);
+			legend11->Name = L"Legend1";
+			this->chCO->Legends->Add(legend11);
 			this->chCO->Location = System::Drawing::Point(29, 315);
 			this->chCO->Name = L"chCO";
-			series3->ChartArea = L"ChartArea1";
-			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series3->Legend = L"Legend1";
-			series3->Name = L"CO";
-			this->chCO->Series->Add(series3);
+			series11->ChartArea = L"ChartArea1";
+			series11->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series11->Legend = L"Legend1";
+			series11->Name = L"CO";
+			this->chCO->Series->Add(series11);
 			this->chCO->Size = System::Drawing::Size(221, 206);
 			this->chCO->TabIndex = 10;
 			this->chCO->Text = L"chart1";
 			// 
 			// chAir
 			// 
-			chartArea4->Name = L"ChartArea1";
-			this->chAir->ChartAreas->Add(chartArea4);
-			legend4->Name = L"Legend1";
-			this->chAir->Legends->Add(legend4);
+			chartArea12->Name = L"ChartArea1";
+			this->chAir->ChartAreas->Add(chartArea12);
+			legend12->Name = L"Legend1";
+			this->chAir->Legends->Add(legend12);
 			this->chAir->Location = System::Drawing::Point(346, 315);
 			this->chAir->Name = L"chAir";
-			series4->ChartArea = L"ChartArea1";
-			series4->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series4->Legend = L"Legend1";
-			series4->Name = L"Airq";
-			this->chAir->Series->Add(series4);
+			series12->ChartArea = L"ChartArea1";
+			series12->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series12->Legend = L"Legend1";
+			series12->Name = L"Airq";
+			this->chAir->Series->Add(series12);
 			this->chAir->Size = System::Drawing::Size(221, 206);
 			this->chAir->TabIndex = 11;
 			this->chAir->Text = L"chart1";
@@ -327,11 +343,52 @@ namespace WeatherStationView {
 			this->btnMax->UseVisualStyleBackColor = false;
 			this->btnMax->Click += gcnew System::EventHandler(this, &NewPie::btnMax_Click);
 			// 
+			// pbTemperature
+			// 
+			this->pbTemperature->Location = System::Drawing::Point(54, 54);
+			this->pbTemperature->Name = L"pbTemperature";
+			this->pbTemperature->Size = System::Drawing::Size(171, 165);
+			this->pbTemperature->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pbTemperature->TabIndex = 14;
+			this->pbTemperature->TabStop = false;
+			// 
+			// pbHumidity
+			// 
+			this->pbHumidity->Location = System::Drawing::Point(370, 54);
+			this->pbHumidity->Name = L"pbHumidity";
+			this->pbHumidity->Size = System::Drawing::Size(171, 165);
+			this->pbHumidity->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pbHumidity->TabIndex = 15;
+			this->pbHumidity->TabStop = false;
+			// 
+			// pbCO
+			// 
+			this->pbCO->Location = System::Drawing::Point(54, 336);
+			this->pbCO->Name = L"pbCO";
+			this->pbCO->Size = System::Drawing::Size(171, 165);
+			this->pbCO->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pbCO->TabIndex = 16;
+			this->pbCO->TabStop = false;
+			// 
+			// pbAirq
+			// 
+			this->pbAirq->Location = System::Drawing::Point(370, 336);
+			this->pbAirq->Name = L"pbAirq";
+			this->pbAirq->Size = System::Drawing::Size(171, 165);
+			this->pbAirq->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pbAirq->TabIndex = 17;
+			this->pbAirq->TabStop = false;
+			// 
 			// NewPie
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(820, 518);
+			this->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->ClientSize = System::Drawing::Size(820, 544);
+			this->Controls->Add(this->pbAirq);
+			this->Controls->Add(this->pbCO);
+			this->Controls->Add(this->pbHumidity);
+			this->Controls->Add(this->pbTemperature);
 			this->Controls->Add(this->btnMax);
 			this->Controls->Add(this->btnMin);
 			this->Controls->Add(this->chAir);
@@ -350,15 +407,25 @@ namespace WeatherStationView {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chHum))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chCO))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chAir))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbTemperature))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbHumidity))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbCO))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbAirq))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 	private: System::Void NewPie_Load(System::Object^ sender, System::EventArgs^ e) {
+		pbTemperature->Image = Image::FromFile("Temperature.png");
+		pbHumidity->Image = Image::FromFile("Humidity.png");
+		pbCO->Image = Image::FromFile("CO.png");
+		pbAirq->Image = Image::FromFile("Airq.png");
+
 
 		for each (int index in indexdataCIA)
 		{
+
 			tempdataCIA->Add(tempdata[index]);
 			humdataCIA->Add(humdata[index]);
 			codataCIA->Add(codata[index]);
@@ -394,6 +461,13 @@ namespace WeatherStationView {
 		}
 	}
 		   void refresh() {
+
+
+			   pbTemperature->Visible = false;
+			   pbHumidity->Visible = false;
+			   pbCO->Visible = false;
+			   pbAirq->Visible = false;
+
 			   chTemp->Series["Temp"]->Points->Clear();
 			   chTemp->Update();
 			   chTemp->Refresh();
