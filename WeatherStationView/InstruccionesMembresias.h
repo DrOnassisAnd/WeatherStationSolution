@@ -23,13 +23,13 @@ namespace WeatherStationView {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar cÛdigo de constructor aquÌ
+			//TODO: agregar c√≥digo de constructor aqu√≠
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estÈn usando.
+		/// Limpiar los recursos que se est√©n usando.
 		/// </summary>
 		~InstruccionesMembresias()
 		{
@@ -74,14 +74,16 @@ namespace WeatherStationView {
 
 	private:
 		/// <summary>
-		/// Variable del diseÒador necesaria.
+		/// Variable del dise√±ador necesaria.
 		/// </summary>
+
 		System::ComponentModel::Container^ components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// MÈtodo necesario para admitir el DiseÒador. No se puede modificar
-		/// el contenido de este mÈtodo con el editor de cÛdigo.
+		/// M√©todo necesario para admitir el Dise√±ador. No se puede modificar
+		/// el contenido de este m√©todo con el editor de c√≥digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -121,7 +123,7 @@ namespace WeatherStationView {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(506, 56);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"øCÛmo obtener una membresia\?";
+			this->label1->Text = L"¬øC√≥mo obtener una membresia\?";
 			// 
 			// label2
 			// 
@@ -184,7 +186,7 @@ namespace WeatherStationView {
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(338, 26);
 			this->label8->TabIndex = 30;
-			this->label8->Text = L"Se tendra un PronÛstico del clima";
+			this->label8->Text = L"Se tendra un Pron√≥stico del clima";
 			// 
 			// label7
 			// 
@@ -195,7 +197,7 @@ namespace WeatherStationView {
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(319, 52);
 			this->label7->TabIndex = 29;
-			this->label7->Text = L"Visualiza una Tabla Estadistica \r\nde los datos m·s relavantes.\r\n";
+			this->label7->Text = L"Visualiza una Tabla Estadistica \r\nde los datos m√°s relavantes.\r\n";
 			// 
 			// label4
 			// 
@@ -227,7 +229,7 @@ namespace WeatherStationView {
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(338, 26);
 			this->label12->TabIndex = 38;
-			this->label12->Text = L"Se tendra un PronÛstico del clima";
+			this->label12->Text = L"Se tendra un Pron√≥stico del clima";
 			// 
 			// label11
 			// 
@@ -238,7 +240,7 @@ namespace WeatherStationView {
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(319, 52);
 			this->label11->TabIndex = 37;
-			this->label11->Text = L"Visualiza una Tabla Estadistica \r\nde los datos m·s relavantes.\r\n";
+			this->label11->Text = L"Visualiza una Tabla Estadistica \r\nde los datos m√°s relavantes.\r\n";
 			// 
 			// label10
 			// 
@@ -373,6 +375,7 @@ namespace WeatherStationView {
 #pragma endregion
 	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void pictureBox1_LoadCompleted(System::Object^ sender, System::ComponentModel::AsyncCompletedEventArgs^ e) {

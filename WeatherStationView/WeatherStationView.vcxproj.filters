@@ -33,6 +33,7 @@
     <ClCompile Include="BancoTarjetas.cpp" />
     <ClCompile Include="TablaRankingForm.cpp" />
     <ClCompile Include="InstruccionesMembresias.cpp" />
+
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MembresiaForm.h" />

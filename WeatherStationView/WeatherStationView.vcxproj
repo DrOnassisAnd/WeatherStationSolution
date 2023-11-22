@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -286,6 +286,9 @@
     <EmbeddedResource Include="HumedadReporteForm.resx">
       <DependentUpon>HumedadReporteForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InstruccionesMembresias.resx">
+      <DependentUpon>InstruccionesMembresias.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MembershipMaintenanceForm.resx">
       <DependentUpon>MembershipMaintenanceForm.h</DependentUpon>
       <SubType>Designer</SubType>
@@ -387,6 +390,9 @@
       <Isolated>false</Isolated>
       <EmbedInteropTypes>true</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="jpg1.bin" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
