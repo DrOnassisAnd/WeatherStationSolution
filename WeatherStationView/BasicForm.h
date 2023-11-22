@@ -4,7 +4,7 @@
 #include "WeatherStationForm.h"
 #include "MembresiaForm.h"
 #include "SensorsReport.h"
-
+#include "InstruccionesMembresias.h"
 #include "NewPie.h"
 
 #include "TriviaForm.h"
@@ -719,6 +719,7 @@ private: System::Windows::Forms::Button^ button6;
 			obj->ShowDialog();
 		}
 	}
+	/*
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		MembresiaForm^ membform = gcnew MembresiaForm(membresiaGlobal, user);
@@ -726,6 +727,15 @@ private: System::Windows::Forms::Button^ button6;
 		membform->ShowDialog();
 
 		membresiaGlobal = membform->GetMembresia();
+	*/	
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	//MessageBox::Show("Obten una membresía para mejorar tu impacto ambiental. Gana ECOCOINS respondiendo la trivia o adquiérelos para avanzar más rápido. ¡20 ecocoins equivalen a 1 dólar! Tu contribución cuenta. ¡Comencemos!");
+	InstruccionesMembresias^ membform = gcnew InstruccionesMembresias();
+	//membform->ControlBox = false;
+	membform->ShowDialog();
+
+	//membresiaGlobal = membform->GetMembresia();
+
 
 		RefreshMembresia();
 

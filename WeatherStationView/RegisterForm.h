@@ -143,12 +143,14 @@ namespace WeatherStationView {
 			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+
 			this->button2->Location = System::Drawing::Point(92, 450);
 			this->button2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(388, 47);
+
 			this->button2->TabIndex = 7;
-			this->button2->Text = L"Create Account";
+			this->button2->Text = L"Crear Cuenta";
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &RegisterForm::button2_Click);
 			// 
@@ -156,18 +158,23 @@ namespace WeatherStationView {
 			// 
 			this->panel4->BackColor = System::Drawing::Color::Linen;
 			this->panel4->Controls->Add(this->txtName);
+
 			this->panel4->Location = System::Drawing::Point(93, 257);
 			this->panel4->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->panel4->Name = L"panel4";
 			this->panel4->Size = System::Drawing::Size(387, 47);
+
 			this->panel4->TabIndex = 11;
 			// 
 			// txtName
 			// 
+
 			this->txtName->Location = System::Drawing::Point(21, 14);
 			this->txtName->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txtName->Name = L"txtName";
 			this->txtName->Size = System::Drawing::Size(343, 22);
+
+
 			this->txtName->TabIndex = 1;
 			this->txtName->TextChanged += gcnew System::EventHandler(this, &RegisterForm::textBox2_TextChanged);
 			this->txtName->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &RegisterForm::txtName_KeyDown);
@@ -176,18 +183,23 @@ namespace WeatherStationView {
 			// 
 			this->panel3->BackColor = System::Drawing::Color::Linen;
 			this->panel3->Controls->Add(this->txtEmail);
+
 			this->panel3->Location = System::Drawing::Point(93, 160);
 			this->panel3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->panel3->Name = L"panel3";
 			this->panel3->Size = System::Drawing::Size(387, 47);
+
 			this->panel3->TabIndex = 10;
 			// 
 			// txtEmail
 			// 
+
 			this->txtEmail->Location = System::Drawing::Point(20, 11);
 			this->txtEmail->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txtEmail->Name = L"txtEmail";
 			this->txtEmail->Size = System::Drawing::Size(343, 22);
+
+
 			this->txtEmail->TabIndex = 0;
 			this->txtEmail->TextChanged += gcnew System::EventHandler(this, &RegisterForm::textBox1_TextChanged);
 			this->txtEmail->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &RegisterForm::txtEmail_KeyDown);
@@ -199,11 +211,13 @@ namespace WeatherStationView {
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label4->ForeColor = System::Drawing::Color::Black;
+
 			this->label4->Location = System::Drawing::Point(199, 36);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(176, 46);
+
 			this->label4->TabIndex = 9;
-			this->label4->Text = L"Register";
+			this->label4->Text = L"Regístrate";
 			this->label4->Click += gcnew System::EventHandler(this, &RegisterForm::label4_Click);
 			// 
 			// label5
@@ -212,29 +226,35 @@ namespace WeatherStationView {
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label5->ForeColor = System::Drawing::Color::Black;
+
 			this->label5->Location = System::Drawing::Point(89, 87);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(409, 50);
+
 			this->label5->TabIndex = 8;
-			this->label5->Text = L"Register your information so that you can create an account and have access to in"
-				L"credible meteorological data.";
+			this->label5->Text = L"Registra tu información para crear tu cuenta y tener acceso a increible informaci"
+				L"ón meteorológica";
 			// 
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::Linen;
 			this->panel1->Controls->Add(this->txtPassword);
+
 			this->panel1->Location = System::Drawing::Point(93, 362);
 			this->panel1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(387, 47);
+
 			this->panel1->TabIndex = 12;
 			// 
 			// txtPassword
 			// 
+
 			this->txtPassword->Location = System::Drawing::Point(21, 14);
 			this->txtPassword->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txtPassword->Name = L"txtPassword";
 			this->txtPassword->Size = System::Drawing::Size(343, 22);
+
 			this->txtPassword->TabIndex = 1;
 			this->txtPassword->UseSystemPasswordChar = true;
 			this->txtPassword->TextChanged += gcnew System::EventHandler(this, &RegisterForm::textBox3_TextChanged);
@@ -255,10 +275,12 @@ namespace WeatherStationView {
 			this->panel2->Controls->Add(this->label5);
 			this->panel2->Controls->Add(this->label4);
 			this->panel2->ForeColor = System::Drawing::SystemColors::Control;
+
 			this->panel2->Location = System::Drawing::Point(1, -27);
 			this->panel2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(635, 555);
+
 			this->panel2->TabIndex = 13;
 			// 
 			// bindingNavigator1
@@ -279,8 +301,11 @@ namespace WeatherStationView {
 			this->bindingNavigator1->MoveNextItem = this->bindingNavigatorMoveNextItem;
 			this->bindingNavigator1->MovePreviousItem = this->bindingNavigatorMovePreviousItem;
 			this->bindingNavigator1->Name = L"bindingNavigator1";
+			this->bindingNavigator1->Padding = System::Windows::Forms::Padding(0, 0, 3, 0);
 			this->bindingNavigator1->PositionItem = this->bindingNavigatorPositionItem;
+			
 			this->bindingNavigator1->Size = System::Drawing::Size(635, 27);
+
 			this->bindingNavigator1->TabIndex = 17;
 			this->bindingNavigator1->Text = L"bindingNavigator1";
 			// 
@@ -290,13 +315,17 @@ namespace WeatherStationView {
 			this->bindingNavigatorAddNewItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"bindingNavigatorAddNewItem.Image")));
 			this->bindingNavigatorAddNewItem->Name = L"bindingNavigatorAddNewItem";
 			this->bindingNavigatorAddNewItem->RightToLeftAutoMirrorImage = true;
+
 			this->bindingNavigatorAddNewItem->Size = System::Drawing::Size(29, 24);
+
 			this->bindingNavigatorAddNewItem->Text = L"Agregar nuevo";
 			// 
 			// bindingNavigatorCountItem
 			// 
 			this->bindingNavigatorCountItem->Name = L"bindingNavigatorCountItem";
+
 			this->bindingNavigatorCountItem->Size = System::Drawing::Size(48, 24);
+
 			this->bindingNavigatorCountItem->Text = L"de {0}";
 			this->bindingNavigatorCountItem->ToolTipText = L"Número total de elementos";
 			// 
@@ -306,7 +335,9 @@ namespace WeatherStationView {
 			this->bindingNavigatorDeleteItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"bindingNavigatorDeleteItem.Image")));
 			this->bindingNavigatorDeleteItem->Name = L"bindingNavigatorDeleteItem";
 			this->bindingNavigatorDeleteItem->RightToLeftAutoMirrorImage = true;
+
 			this->bindingNavigatorDeleteItem->Size = System::Drawing::Size(29, 24);
+
 			this->bindingNavigatorDeleteItem->Text = L"Eliminar";
 			// 
 			// bindingNavigatorMoveFirstItem
@@ -315,7 +346,9 @@ namespace WeatherStationView {
 			this->bindingNavigatorMoveFirstItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"bindingNavigatorMoveFirstItem.Image")));
 			this->bindingNavigatorMoveFirstItem->Name = L"bindingNavigatorMoveFirstItem";
 			this->bindingNavigatorMoveFirstItem->RightToLeftAutoMirrorImage = true;
+
 			this->bindingNavigatorMoveFirstItem->Size = System::Drawing::Size(29, 24);
+
 			this->bindingNavigatorMoveFirstItem->Text = L"Mover primero";
 			// 
 			// bindingNavigatorMovePreviousItem
@@ -324,13 +357,15 @@ namespace WeatherStationView {
 			this->bindingNavigatorMovePreviousItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"bindingNavigatorMovePreviousItem.Image")));
 			this->bindingNavigatorMovePreviousItem->Name = L"bindingNavigatorMovePreviousItem";
 			this->bindingNavigatorMovePreviousItem->RightToLeftAutoMirrorImage = true;
+
 			this->bindingNavigatorMovePreviousItem->Size = System::Drawing::Size(29, 24);
+
 			this->bindingNavigatorMovePreviousItem->Text = L"Mover anterior";
 			// 
 			// bindingNavigatorSeparator
 			// 
 			this->bindingNavigatorSeparator->Name = L"bindingNavigatorSeparator";
-			this->bindingNavigatorSeparator->Size = System::Drawing::Size(6, 27);
+			this->bindingNavigatorSeparator->Size = System::Drawing::Size(6, 31);
 			// 
 			// bindingNavigatorPositionItem
 			// 
@@ -338,14 +373,16 @@ namespace WeatherStationView {
 			this->bindingNavigatorPositionItem->AutoSize = false;
 			this->bindingNavigatorPositionItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9));
 			this->bindingNavigatorPositionItem->Name = L"bindingNavigatorPositionItem";
+
 			this->bindingNavigatorPositionItem->Size = System::Drawing::Size(49, 27);
+
 			this->bindingNavigatorPositionItem->Text = L"0";
 			this->bindingNavigatorPositionItem->ToolTipText = L"Posición actual";
 			// 
 			// bindingNavigatorSeparator1
 			// 
 			this->bindingNavigatorSeparator1->Name = L"bindingNavigatorSeparator1";
-			this->bindingNavigatorSeparator1->Size = System::Drawing::Size(6, 27);
+			this->bindingNavigatorSeparator1->Size = System::Drawing::Size(6, 31);
 			// 
 			// bindingNavigatorMoveNextItem
 			// 
@@ -353,7 +390,9 @@ namespace WeatherStationView {
 			this->bindingNavigatorMoveNextItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"bindingNavigatorMoveNextItem.Image")));
 			this->bindingNavigatorMoveNextItem->Name = L"bindingNavigatorMoveNextItem";
 			this->bindingNavigatorMoveNextItem->RightToLeftAutoMirrorImage = true;
+
 			this->bindingNavigatorMoveNextItem->Size = System::Drawing::Size(29, 24);
+
 			this->bindingNavigatorMoveNextItem->Text = L"Mover siguiente";
 			// 
 			// bindingNavigatorMoveLastItem
@@ -362,24 +401,28 @@ namespace WeatherStationView {
 			this->bindingNavigatorMoveLastItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"bindingNavigatorMoveLastItem.Image")));
 			this->bindingNavigatorMoveLastItem->Name = L"bindingNavigatorMoveLastItem";
 			this->bindingNavigatorMoveLastItem->RightToLeftAutoMirrorImage = true;
+
 			this->bindingNavigatorMoveLastItem->Size = System::Drawing::Size(29, 24);
+
 			this->bindingNavigatorMoveLastItem->Text = L"Mover último";
 			// 
 			// bindingNavigatorSeparator2
 			// 
 			this->bindingNavigatorSeparator2->Name = L"bindingNavigatorSeparator2";
-			this->bindingNavigatorSeparator2->Size = System::Drawing::Size(6, 27);
+			this->bindingNavigatorSeparator2->Size = System::Drawing::Size(6, 31);
 			// 
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
 			this->checkBox1->ForeColor = System::Drawing::Color::Black;
+
 			this->checkBox1->Location = System::Drawing::Point(100, 426);
 			this->checkBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(214, 20);
+
 			this->checkBox1->TabIndex = 16;
-			this->checkBox1->Text = L"Agree to Terms and Conditions";
+			this->checkBox1->Text = L"Acepto los Términos y Condiciones";
 			this->checkBox1->UseVisualStyleBackColor = true;
 			this->checkBox1->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &RegisterForm::checkBox1_KeyDown);
 			// 
@@ -389,11 +432,13 @@ namespace WeatherStationView {
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::Black;
+
 			this->label3->Location = System::Drawing::Point(96, 130);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(263, 28);
+
 			this->label3->TabIndex = 15;
-			this->label3->Text = L"Insert an Email:";
+			this->label3->Text = L"Ingresa tu Email:";
 			// 
 			// label2
 			// 
@@ -401,11 +446,13 @@ namespace WeatherStationView {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::Color::Black;
+
 			this->label2->Location = System::Drawing::Point(91, 332);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(263, 28);
+
 			this->label2->TabIndex = 14;
-			this->label2->Text = L"Create a Password:";
+			this->label2->Text = L"Crea tu Contraseña";
 			// 
 			// label1
 			// 
@@ -413,19 +460,23 @@ namespace WeatherStationView {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::Black;
+
 			this->label1->Location = System::Drawing::Point(89, 226);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(263, 28);
+
 			this->label1->TabIndex = 13;
-			this->label1->Text = L"Create a Username:";
+			this->label1->Text = L"Crea tu Usuario";
 			// 
 			// RegisterForm
 			// 
+
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(627, 523);
 			this->Controls->Add(this->panel2);
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
 			this->Name = L"RegisterForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"RegisterForm";
