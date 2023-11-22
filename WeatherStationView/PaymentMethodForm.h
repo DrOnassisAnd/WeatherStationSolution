@@ -21,10 +21,11 @@ namespace WeatherStationView {
 	{
 	public:
 
-		PaymentMethodForm(int isRegisterDone)
+		PaymentMethodForm(int isRegisterDone, double D)
 		{
 			InitializeComponent();
 			this->isRegisterDone = isRegisterDone;
+			this->dollars = D;
 		}
 		PaymentMethodForm::Membresia^ GetMembresia() {
 			return membresia;
@@ -51,6 +52,7 @@ namespace WeatherStationView {
 	private: User^ user;
 	private: Membresia^ membresiaGlobal;
 	private: int isRegisterDone;
+	private: double dollars;
 
 
 	private: System::Windows::Forms::Label^ label2;
@@ -311,12 +313,11 @@ namespace WeatherStationView {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
-
+		//logica de login
 		if ((textBox1->Text == "1234") && (textBox2->Text == "1234")) {
 
 			isRegisterDone = 1;
-			this->Close();
-
+			this->Close();			
 
 		}
 
