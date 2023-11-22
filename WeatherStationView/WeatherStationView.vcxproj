@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -133,6 +133,7 @@
     <ClCompile Include="EstadisticaForm2.cpp" />
     <ClCompile Include="GraficosPuntosForm.cpp" />
     <ClCompile Include="HumedadReporteForm.cpp" />
+    <ClCompile Include="InstruccionesMembresias.cpp" />
     <ClCompile Include="MembershipMaintenanceForm.cpp" />
     <ClCompile Include="MembresiaForm.cpp" />
     <ClCompile Include="NewPie.cpp" />
@@ -180,6 +181,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="HumedadReporteForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="InstruccionesMembresias.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MembershipMaintenanceForm.h">
@@ -275,6 +279,9 @@
     <EmbeddedResource Include="HumedadReporteForm.resx">
       <DependentUpon>HumedadReporteForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InstruccionesMembresias.resx">
+      <DependentUpon>InstruccionesMembresias.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MembershipMaintenanceForm.resx">
       <DependentUpon>MembershipMaintenanceForm.h</DependentUpon>
       <SubType>Designer</SubType>
@@ -345,6 +352,7 @@
     <ResourceCompile Include="WeatherStationView.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\..\OneDrive\Imágenes\ECOCOIN.png" />
     <Image Include="BIBLIOTECA CENTRAL.jpg" />
     <Image Include="CIA.jpeg" />
     <Image Include="FACI.jpg" />
@@ -363,6 +371,9 @@
       <Isolated>false</Isolated>
       <EmbedInteropTypes>true</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="jpg1.bin" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

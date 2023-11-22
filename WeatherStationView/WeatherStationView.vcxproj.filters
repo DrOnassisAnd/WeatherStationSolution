@@ -30,6 +30,7 @@
     <ClCompile Include="GraficosPuntosForm.cpp" />
     <ClCompile Include="NewPie.cpp" />
     <ClCompile Include="TriviaForm.cpp" />
+    <ClCompile Include="InstruccionesMembresias.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MembresiaForm.h" />
@@ -62,6 +63,7 @@
     <ClInclude Include="GraficosPuntosForm.h" />
     <ClInclude Include="NewPie.h" />
     <ClInclude Include="TriviaForm.h" />
+    <ClInclude Include="InstruccionesMembresias.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WeatherStationView.rc" />

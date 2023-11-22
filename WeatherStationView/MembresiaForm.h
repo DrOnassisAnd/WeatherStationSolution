@@ -72,8 +72,15 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Label^ label12;
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Label^ label13;
+
+
+
 	private: System::Windows::Forms::Label^ label15;
 	private: System::Windows::Forms::Label^ label14;
+
+
+
+
 
 
 
@@ -113,6 +120,9 @@ namespace WeatherStationView {
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
@@ -122,9 +132,6 @@ namespace WeatherStationView {
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label13 = (gcnew System::Windows::Forms::Label());
-			this->label14 = (gcnew System::Windows::Forms::Label());
-			this->label15 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -147,11 +154,11 @@ namespace WeatherStationView {
 			// 
 			this->button2->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->button2->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button2->Location = System::Drawing::Point(573, 474);
+			this->button2->Location = System::Drawing::Point(684, 488);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(159, 63);
+			this->button2->Size = System::Drawing::Size(166, 63);
 			this->button2->TabIndex = 1;
-			this->button2->Text = L"Empezar";
+			this->button2->Text = L"Adquirir Ecocoins";
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &MembresiaForm::button2_Click);
 			// 
@@ -161,7 +168,7 @@ namespace WeatherStationView {
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button3->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button3->Location = System::Drawing::Point(1065, 558);
+			this->button3->Location = System::Drawing::Point(1163, 578);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(147, 63);
 			this->button3->TabIndex = 2;
@@ -173,14 +180,14 @@ namespace WeatherStationView {
 			// 
 			this->label1->AutoSize = true;
 			this->label1->BackColor = System::Drawing::Color::FloralWhite;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 19.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::Black;
-			this->label1->Location = System::Drawing::Point(483, 11);
+			this->label1->Location = System::Drawing::Point(554, 9);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(420, 54);
+			this->label1->Size = System::Drawing::Size(264, 71);
 			this->label1->TabIndex = 3;
-			this->label1->Text = L"Elige tu plan Premium\r\n";
+			this->label1->Text = L"Elige tu plan\r\n";
 			this->label1->Click += gcnew System::EventHandler(this, &MembresiaForm::label1_Click);
 			// 
 			// label2
@@ -276,9 +283,43 @@ namespace WeatherStationView {
 			this->panel1->Controls->Add(this->pictureBox2);
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(1401, 723);
+			this->panel1->Size = System::Drawing::Size(1419, 748);
 			this->panel1->TabIndex = 10;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MembresiaForm::panel1_Paint);
+			// 
+			// label15
+			// 
+			this->label15->AutoSize = true;
+			this->label15->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label15->Location = System::Drawing::Point(165, 101);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(121, 50);
+			this->label15->TabIndex = 24;
+			this->label15->Text = L"GRATIS";
+			this->label15->Click += gcnew System::EventHandler(this, &MembresiaForm::label15_Click);
+			// 
+			// label14
+			// 
+			this->label14->AutoSize = true;
+			this->label14->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label14->Location = System::Drawing::Point(1012, 101);
+			this->label14->Name = L"label14";
+			this->label14->Size = System::Drawing::Size(216, 50);
+			this->label14->TabIndex = 23;
+			this->label14->Text = L"300 ECOCOINS";
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label13->Location = System::Drawing::Point(574, 101);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(216, 50);
+			this->label13->TabIndex = 19;
+			this->label13->Text = L"100 ECOCOINS";
 			// 
 			// button4
 			// 
@@ -286,9 +327,9 @@ namespace WeatherStationView {
 			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button4->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button4->Location = System::Drawing::Point(1179, 646);
+			this->button4->Location = System::Drawing::Point(1220, 647);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(147, 63);
+			this->button4->Size = System::Drawing::Size(132, 47);
 			this->button4->TabIndex = 18;
 			this->button4->Text = L"Salir";
 			this->button4->UseVisualStyleBackColor = false;
@@ -384,39 +425,6 @@ namespace WeatherStationView {
 			this->label5->Text = L"Descarga la base de datos \r\ncompleta en formato .csv.\r\n";
 			this->label5->Click += gcnew System::EventHandler(this, &MembresiaForm::label5_Click);
 			// 
-			// label13
-			// 
-			this->label13->AutoSize = true;
-			this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label13->Location = System::Drawing::Point(589, 119);
-			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(170, 32);
-			this->label13->TabIndex = 19;
-			this->label13->Text = L" $15 al mes";
-			// 
-			// label14
-			// 
-			this->label14->AutoSize = true;
-			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label14->Location = System::Drawing::Point(1042, 119);
-			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(170, 32);
-			this->label14->TabIndex = 20;
-			this->label14->Text = L" $30 al mes";
-			// 
-			// label15
-			// 
-			this->label15->AutoSize = true;
-			this->label15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label15->Location = System::Drawing::Point(152, 119);
-			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(96, 32);
-			this->label15->TabIndex = 21;
-			this->label15->Text = L"Gratis";
-			// 
 			// MembresiaForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
@@ -436,6 +444,8 @@ namespace WeatherStationView {
 		}
 #pragma endregion
 	private: System::Void MembresiaForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		//pictureBox->Image = Image::FromFile("ECOCOIN.png");
+
 
 	}
 	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -550,5 +560,15 @@ namespace WeatherStationView {
 		this->Close();
 	}
 
-	};
+	private: System::Void pictureBox4_LoadCompleted(System::Object^ sender, System::ComponentModel::AsyncCompletedEventArgs^ e) {
+		pictureBox1->Image = Image::FromFile("ECOCOIN.png");
+	}
+private: System::Void pictureBox4_Click(System::Object^ sender, System::EventArgs^ e) {
+
+}
+private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label15_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+};
 }
