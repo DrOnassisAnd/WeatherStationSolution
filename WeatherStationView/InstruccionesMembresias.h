@@ -23,13 +23,13 @@ namespace WeatherStationView {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar cÃ³digo de constructor aquÃ­
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estÃ©n usando.
 		/// </summary>
 		~InstruccionesMembresias()
 		{
@@ -74,14 +74,16 @@ namespace WeatherStationView {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseÃ±ador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
+		System::ComponentModel::Container^ components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// MÃ©todo necesario para admitir el DiseÃ±ador. No se puede modificar
+		/// el contenido de este mÃ©todo con el editor de cÃ³digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -121,7 +123,7 @@ namespace WeatherStationView {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(506, 56);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"¿Cómo obtener una membresia\?";
+			this->label1->Text = L"Â¿CÃ³mo obtener una membresia\?";
 			// 
 			// label2
 			// 
@@ -184,7 +186,7 @@ namespace WeatherStationView {
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(338, 26);
 			this->label8->TabIndex = 30;
-			this->label8->Text = L"Se tendra un Pronóstico del clima";
+			this->label8->Text = L"Se tendra un PronÃ³stico del clima";
 			// 
 			// label7
 			// 
@@ -195,7 +197,7 @@ namespace WeatherStationView {
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(319, 52);
 			this->label7->TabIndex = 29;
-			this->label7->Text = L"Visualiza una Tabla Estadistica \r\nde los datos más relavantes.\r\n";
+			this->label7->Text = L"Visualiza una Tabla Estadistica \r\nde los datos mÃ¡s relavantes.\r\n";
 			// 
 			// label4
 			// 
@@ -227,7 +229,7 @@ namespace WeatherStationView {
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(338, 26);
 			this->label12->TabIndex = 38;
-			this->label12->Text = L"Se tendra un Pronóstico del clima";
+			this->label12->Text = L"Se tendra un PronÃ³stico del clima";
 			// 
 			// label11
 			// 
@@ -238,7 +240,7 @@ namespace WeatherStationView {
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(319, 52);
 			this->label11->TabIndex = 37;
-			this->label11->Text = L"Visualiza una Tabla Estadistica \r\nde los datos más relavantes.\r\n";
+			this->label11->Text = L"Visualiza una Tabla Estadistica \r\nde los datos mÃ¡s relavantes.\r\n";
 			// 
 			// label10
 			// 
@@ -373,27 +375,28 @@ namespace WeatherStationView {
 #pragma endregion
 	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void pictureBox1_LoadCompleted(System::Object^ sender, System::ComponentModel::AsyncCompletedEventArgs^ e) {
-	pictureBox1->Image = Image::FromFile("ECOCOIN.png");
-}
 
-private: System::Void InstruccionesMembresias_Load(System::Object^ sender, System::EventArgs^ e) {
-	pictureBox1->Image = Image::FromFile("ECOCOIN.png");
-}
-private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	/*PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone);
-	payform->ControlBox = true;
-	payform->ShowDialog();
-	isRegisterDone = 1;
-	*/
-}
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	/*TriviaForm^ triviaForm = gcnew TriviaForm(pointsperDay);
-	triviaForm->ShowDialog();
-	pointsperDay = triviaForm->GetPoints
-	*/
-}
-};
+	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pictureBox1_LoadCompleted(System::Object^ sender, System::ComponentModel::AsyncCompletedEventArgs^ e) {
+		//pictureBox1->Image = Image::FromFile("ECOCOIN.png");
+	}
+
+	private: System::Void InstruccionesMembresias_Load(System::Object^ sender, System::EventArgs^ e) {
+		//pictureBox1->Image = Image::FromFile("ECOCOIN.png");
+	}
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		/*PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone);
+		payform->ControlBox = true;
+		payform->ShowDialog();
+		isRegisterDone = 1;
+		*/
+	}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		/*TriviaForm^ triviaForm = gcnew TriviaForm(pointsperDay);
+		triviaForm->ShowDialog();
+		pointsperDay = triviaForm->GetPoints
+		*/
+	}
+	};
 }

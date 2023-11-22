@@ -378,6 +378,7 @@
     <Image Include="Temperature.png" />
     <Image Include="TINKUY.jpg" />
     <Image Include="User.png" />
+    <Image Include="_dce79eb2-a9b7-465b-91c7-76f2bc2627d0.jpg" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Interop.Excel.1.9">
