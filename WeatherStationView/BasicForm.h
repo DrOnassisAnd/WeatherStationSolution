@@ -6,7 +6,7 @@
 #include "SensorsReport.h"
 #include "InstruccionesMembresias.h"
 #include "NewPie.h"
-
+#include "TiendaPuntos.h"
 #include "TriviaForm.h"
 
 #include "TablaRankingForm.h"
@@ -34,7 +34,7 @@ namespace WeatherStationView {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar cÃ³digo de constructor aquÃ­
 			this->StringDateTime;
 			this->selectedDateTime;
 			this->basicForm;
@@ -44,7 +44,7 @@ namespace WeatherStationView {
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estÃ©n usando.
 		/// </summary>
 		~BasicForm()
 		{
@@ -146,10 +146,16 @@ private: System::Windows::Forms::Label^ PuntosDiariosLabel;
 private: System::Windows::Forms::Label^ label13;
 private: System::Windows::Forms::Button^ button6;
 private: System::Windows::Forms::CheckBox^ checkBox1;
+
 private: System::Windows::Forms::Label^ label14;
 private: System::Windows::Forms::Label^ label16;
 private: System::Windows::Forms::Label^ label15;
 private: System::Windows::Forms::Panel^ panel2;
+
+private: System::Windows::Forms::Button^ button7;
+private: System::Windows::Forms::LinkLabel^ linkLabel2;
+private: System::Windows::Forms::LinkLabel^ linkLabel1;
+
 
 
 
@@ -160,14 +166,14 @@ private: System::Windows::Forms::Panel^ panel2;
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseÃ±ador necesaria.
 		/// </summary>
 
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// MÃ©todo necesario para admitir el DiseÃ±ador. No se puede modificar
+		/// el contenido de este mÃ©todo con el editor de cÃ³digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -181,9 +187,18 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
+
+			this->linkLabel2 = (gcnew System::Windows::Forms::LinkLabel());
+			this->button7 = (gcnew System::Windows::Forms::Button());
+			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
+			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->PuntosDiariosLabel = (gcnew System::Windows::Forms::Label());
+			this->label13 = (gcnew System::Windows::Forms::Label());
+
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->ptslabel = (gcnew System::Windows::Forms::Label());
 			this->label13 = (gcnew System::Windows::Forms::Label());
@@ -211,6 +226,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->timer2 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
 			this->panel1->SuspendLayout();
 			this->panel2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -227,7 +243,9 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->label1->Location = System::Drawing::Point(31, 135);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
+
 			this->label1->Size = System::Drawing::Size(87, 32);
+
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Lugar";
 			this->label1->Click += gcnew System::EventHandler(this, &BasicForm::label1_Click);
@@ -242,7 +260,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->label2->Location = System::Drawing::Point(558, 285);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(124, 25);
+			this->label2->Size = System::Drawing::Size(100, 20);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Temperatura";
 			// 
@@ -256,7 +274,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->label3->Location = System::Drawing::Point(558, 361);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(97, 25);
+			this->label3->Size = System::Drawing::Size(79, 20);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Humedad";
 			this->label3->Click += gcnew System::EventHandler(this, &BasicForm::label3_Click);
@@ -271,7 +289,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->label4->Location = System::Drawing::Point(558, 436);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(150, 25);
+			this->label4->Size = System::Drawing::Size(119, 20);
 			this->label4->TabIndex = 3;
 			this->label4->Text = L"Calidad del Aire";
 			// 
@@ -323,7 +341,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(144, 56);
 			this->button3->TabIndex = 6;
-			this->button3->Text = L"Membresía";
+			this->button3->Text = L"MembresÃ­a";
 			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &BasicForm::button3_Click);
 			// 
@@ -339,17 +357,19 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(163, 57);
 			this->button4->TabIndex = 7;
-			this->button4->Text = L"Estadística";
+			this->button4->Text = L"EstadÃ­stica";
 			this->button4->UseVisualStyleBackColor = false;
 			this->button4->Click += gcnew System::EventHandler(this, &BasicForm::button4_Click);
 			// 
 			// panel1
 			// 
+
 			this->panel1->BackColor = System::Drawing::Color::PowderBlue;
 			this->panel1->Controls->Add(this->panel2);
 			this->panel1->Controls->Add(this->label16);
 			this->panel1->Controls->Add(this->label15);
 			this->panel1->Controls->Add(this->label14);
+
 			this->panel1->Controls->Add(this->checkBox1);
 			this->panel1->Controls->Add(this->button6);
 			this->panel1->Controls->Add(this->TriviaBtn);
@@ -475,7 +495,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->label16->Name = L"label16";
 			this->label16->Size = System::Drawing::Size(272, 50);
 			this->label16->TabIndex = 37;
-			this->label16->Text = L"Visualiza Gráficas del clima \r\nde los ambientes de la PUCP:";
+			this->label16->Text = L"Visualiza GrÃ¡ficas del clima \r\nde los ambientes de la PUCP:";
 			// 
 			// label15
 			// 
@@ -496,6 +516,33 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->label14->Size = System::Drawing::Size(356, 25);
 			this->label14->TabIndex = 35;
 			this->label14->Text = L"Juega en la Trivia Diaria y Gana Puntos";
+
+			// linkLabel2
+			// 
+			this->linkLabel2->AutoSize = true;
+			this->linkLabel2->Location = System::Drawing::Point(732, 121);
+			this->linkLabel2->Name = L"linkLabel2";
+			this->linkLabel2->Size = System::Drawing::Size(183, 20);
+			this->linkLabel2->TabIndex = 36;
+			this->linkLabel2->TabStop = true;
+			this->linkLabel2->Text = L"Â¿QuÃ© son los EcoCoins\?";
+			this->linkLabel2->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &BasicForm::linkLabel2_LinkClicked);
+			// 
+			// button7
+			// 
+			this->button7->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->button7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button7->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->button7->Location = System::Drawing::Point(1066, 498);
+			this->button7->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(165, 55);
+			this->button7->TabIndex = 35;
+			this->button7->Text = L"Compra Puntos";
+			this->button7->UseVisualStyleBackColor = false;
+			this->button7->Click += gcnew System::EventHandler(this, &BasicForm::button7_Click);
+
 			// 
 			// checkBox1
 			// 
@@ -503,7 +550,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->checkBox1->ForeColor = System::Drawing::SystemColors::InfoText;
 			this->checkBox1->Location = System::Drawing::Point(410, 101);
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(153, 29);
+			this->checkBox1->Size = System::Drawing::Size(123, 24);
 			this->checkBox1->TabIndex = 34;
 			this->checkBox1->Text = L"Modo Oscuro";
 			this->checkBox1->UseVisualStyleBackColor = true;
@@ -524,6 +571,43 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->button6->Text = L"Ranking";
 			this->button6->UseVisualStyleBackColor = false;
 			this->button6->Click += gcnew System::EventHandler(this, &BasicForm::button6_Click);
+			
+			// PuntosDiariosLabel
+			// 
+			this->PuntosDiariosLabel->AutoSize = true;
+			this->PuntosDiariosLabel->ForeColor = System::Drawing::Color::Black;
+			this->PuntosDiariosLabel->Location = System::Drawing::Point(866, 101);
+			this->PuntosDiariosLabel->Name = L"PuntosDiariosLabel";
+			this->PuntosDiariosLabel->Size = System::Drawing::Size(67, 20);
+			this->PuntosDiariosLabel->TabIndex = 32;
+			this->PuntosDiariosLabel->Text = L"PdLabel";
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Location = System::Drawing::Point(717, 101);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(130, 20);
+			this->label13->TabIndex = 31;
+			this->label13->Text = L"EcoCoins Diarios";
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(717, 61);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(133, 20);
+			this->label11->TabIndex = 30;
+			this->label11->Text = L"EcoCoins Totales";
+			// 
+			// ptslabel
+			// 
+			this->ptslabel->AutoSize = true;
+			this->ptslabel->Location = System::Drawing::Point(866, 61);
+			this->ptslabel->Name = L"ptslabel";
+			this->ptslabel->Size = System::Drawing::Size(60, 20);
+			this->ptslabel->TabIndex = 29;
+			this->ptslabel->Text = L"label14";
 			// 
 			// TriviaBtn
 			// 
@@ -553,7 +637,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(165, 55);
 			this->button5->TabIndex = 25;
-			this->button5->Text = L"Más Graficos";
+			this->button5->Text = L"MÃ¡s Graficos";
 			this->button5->UseVisualStyleBackColor = false;
 			this->button5->Click += gcnew System::EventHandler(this, &BasicForm::button5_Click);
 			// 
@@ -564,7 +648,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->UnidadTemplbl->ForeColor = System::Drawing::Color::Black;
 			this->UnidadTemplbl->Location = System::Drawing::Point(786, 285);
 			this->UnidadTemplbl->Name = L"UnidadTemplbl";
-			this->UnidadTemplbl->Size = System::Drawing::Size(75, 25);
+			this->UnidadTemplbl->Size = System::Drawing::Size(60, 20);
 			this->UnidadTemplbl->TabIndex = 24;
 			this->UnidadTemplbl->Text = L"label11";
 			// 
@@ -577,7 +661,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->label10->ForeColor = System::Drawing::Color::DarkBlue;
 			this->label10->Location = System::Drawing::Point(383, 4);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(220, 80);
+			this->label10->Size = System::Drawing::Size(177, 64);
 			this->label10->TabIndex = 23;
 			this->label10->Text = L"label10";
 			// 
@@ -586,7 +670,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->textBox5->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBox5->Location = System::Drawing::Point(737, 512);
 			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(43, 30);
+			this->textBox5->Size = System::Drawing::Size(43, 26);
 			this->textBox5->TabIndex = 22;
 			// 
 			// label12
@@ -599,16 +683,36 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->label12->Location = System::Drawing::Point(558, 511);
 			this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(175, 25);
+			this->label12->Size = System::Drawing::Size(139, 20);
 			this->label12->TabIndex = 21;
 			this->label12->Text = L"Concentracion CO";
 			// 
+
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(792, 19);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(51, 20);
+			this->label9->TabIndex = 17;
+			this->label9->Text = L"label9";
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(732, 19);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(51, 20);
+			this->label8->TabIndex = 16;
+			this->label8->Text = L"label8";
+			// 
+
 			// textBox4
 			// 
 			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBox4->Location = System::Drawing::Point(737, 436);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(43, 30);
+			this->textBox4->Size = System::Drawing::Size(43, 26);
 			this->textBox4->TabIndex = 14;
 			// 
 			// textBox3
@@ -616,7 +720,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBox3->Location = System::Drawing::Point(737, 361);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(43, 30);
+			this->textBox3->Size = System::Drawing::Size(43, 26);
 			this->textBox3->TabIndex = 13;
 			// 
 			// textBox2
@@ -624,7 +728,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBox2->Location = System::Drawing::Point(737, 282);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(43, 30);
+			this->textBox2->Size = System::Drawing::Size(43, 26);
 			this->textBox2->TabIndex = 12;
 			// 
 			// textBox1
@@ -633,7 +737,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->textBox1->Location = System::Drawing::Point(737, 211);
 			this->textBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(110, 30);
+			this->textBox1->Size = System::Drawing::Size(110, 26);
 			this->textBox1->TabIndex = 10;
 			// 
 			// label7
@@ -646,7 +750,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->label7->Location = System::Drawing::Point(558, 211);
 			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(54, 25);
+			this->label7->Size = System::Drawing::Size(44, 20);
 			this->label7->TabIndex = 9;
 			this->label7->Text = L"Hora";
 			// 
@@ -660,7 +764,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->label6->Location = System::Drawing::Point(9, 4);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(458, 80);
+			this->label6->Size = System::Drawing::Size(365, 64);
 			this->label6->TabIndex = 8;
 			this->label6->Text = L"Weather Station";
 			// 
@@ -674,7 +778,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->label5->Location = System::Drawing::Point(558, 158);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(67, 25);
+			this->label5->Size = System::Drawing::Size(54, 20);
 			this->label5->TabIndex = 7;
 			this->label5->Text = L"Fecha";
 			// 
@@ -688,7 +792,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->dtpWeatherStationBasic->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->dtpWeatherStationBasic->Name = L"dtpWeatherStationBasic";
 			this->dtpWeatherStationBasic->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->dtpWeatherStationBasic->Size = System::Drawing::Size(349, 30);
+			this->dtpWeatherStationBasic->Size = System::Drawing::Size(349, 26);
 			this->dtpWeatherStationBasic->TabIndex = 4;
 			// 
 			// pictureBox1
@@ -711,7 +815,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->comboBox1->Location = System::Drawing::Point(177, 135);
 			this->comboBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(180, 35);
+			this->comboBox1->Size = System::Drawing::Size(180, 30);
 			this->comboBox1->TabIndex = 0;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &BasicForm::comboBox1_SelectedIndexChanged);
 			// 
@@ -725,12 +829,23 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->timer2->Interval = 1000;
 			this->timer2->Tick += gcnew System::EventHandler(this, &BasicForm::Timer2_Tick);
 			// 
+			// linkLabel1
+			// 
+			this->linkLabel1->AutoSize = true;
+			this->linkLabel1->Location = System::Drawing::Point(0, 0);
+			this->linkLabel1->Name = L"linkLabel1";
+			this->linkLabel1->Size = System::Drawing::Size(80, 20);
+			this->linkLabel1->TabIndex = 9;
+			this->linkLabel1->TabStop = true;
+			this->linkLabel1->Text = L"linkLabel1";
+			// 
 			// BasicForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1255, 687);
 			this->ControlBox = false;
+			this->Controls->Add(this->linkLabel1);
 			this->Controls->Add(this->panel1);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -744,6 +859,7 @@ private: System::Windows::Forms::Panel^ panel2;
 			this->panel2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -820,7 +936,7 @@ private: System::Windows::Forms::Panel^ panel2;
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		if (user->membresia->TipoMembresia == "Basic") {
-			MessageBox::Show("Suscribete a una Membresia para poder usar esta opción");
+			MessageBox::Show("Suscribete a una Membresia para poder usar esta opciÃ³n");
 			MembresiaForm^ membform = gcnew MembresiaForm(membresiaGlobal, user);
 			membform->ControlBox = false;
 			membform->ShowDialog();
@@ -929,7 +1045,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 			   //String^ c = (textBox2->Text);
 			   //int f = Int32::Parse(textBox2->Text) * 1.8 + 32;
-			   //textBox2->Text = user->ajustes->UnidadTemp == "°C" ? c : f.ToString();
+			   //textBox2->Text = user->ajustes->UnidadTemp == "Â°C" ? c : f.ToString();
 			   //UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
 		   }
 
@@ -998,7 +1114,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 			   Controller::Controller::AddAmbienteData(ambiente);
 
-			   //Luego seguiría la recopilacion de datos del sensor 2, 3 y 4 (claro está, esos valores deben
+			   //Luego seguirÃ­a la recopilacion de datos del sensor 2, 3 y 4 (claro estÃ¡, esos valores deben
 			   //ser generados (random))
 
 			   //Sensor 2 (FACI)
@@ -1165,13 +1281,13 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 			   //por lo tanto, Ambiente ha recibido cuatro listas y las ha enviado a la database
 
-			   //sin embargo, solo se puede mostrar una de las 4 datos Ambiente^. La elección dependerá del
+			   //sin embargo, solo se puede mostrar una de las 4 datos Ambiente^. La elecciÃ³n dependerÃ¡ del
 			   // valor del comboBox
 
 			   if ((comboBox1->SelectedItem->ToString()) == "CIA") {
 				   textBox3->Text = humedad_cia_int.ToString();
 				   int temperatura_cia_f = temperatura_cia_int * 1.8 + 32;
-				   textBox2->Text = user->ajustes->UnidadTemp == "°C" ? (temperatura_cia_int).ToString() : temperatura_cia_f.ToString();
+				   textBox2->Text = user->ajustes->UnidadTemp == "Â°C" ? (temperatura_cia_int).ToString() : temperatura_cia_f.ToString();
 				   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
 				   textBox4->Text = calidadAire_cia_int.ToString();
 				   textBox5->Text = co_cia_int.ToString();
@@ -1179,7 +1295,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 			   else if ((comboBox1->SelectedItem->ToString()) == "FACI") {
 				   textBox3->Text = hum_faci.ToString();
 				   int temp_faci_f = temp_faci * 1.8 + 32;
-				   textBox2->Text = user->ajustes->UnidadTemp == "°C" ? (temp_faci).ToString() : temp_faci_f.ToString();
+				   textBox2->Text = user->ajustes->UnidadTemp == "Â°C" ? (temp_faci).ToString() : temp_faci_f.ToString();
 				   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
 				   textBox4->Text = aq_faci.ToString();
 				   textBox5->Text = co_faci.ToString();
@@ -1187,7 +1303,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 			   else if ((comboBox1->SelectedItem->ToString()) == "BIBLIOTECA CENTRAL") {
 				   textBox3->Text = hum_bc.ToString();
 				   int temp_bc_f = temp_bc * 1.8 + 32;
-				   textBox2->Text = user->ajustes->UnidadTemp == "°C" ? (temp_bc).ToString() : temp_bc_f.ToString();
+				   textBox2->Text = user->ajustes->UnidadTemp == "Â°C" ? (temp_bc).ToString() : temp_bc_f.ToString();
 				   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
 				   textBox4->Text = aq_bc.ToString();
 				   textBox5->Text = co_bc.ToString();
@@ -1195,7 +1311,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 			   else if ((comboBox1->SelectedItem->ToString()) == "TINKUY") {
 				   textBox3->Text = hum_tinkuy.ToString();
 				   int temp_tinkuy_f = temp_tinkuy * 1.8 + 32;
-				   textBox2->Text = user->ajustes->UnidadTemp == "°C" ? (temp_tinkuy).ToString() : temp_tinkuy_f.ToString();
+				   textBox2->Text = user->ajustes->UnidadTemp == "Â°C" ? (temp_tinkuy).ToString() : temp_tinkuy_f.ToString();
 				   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
 				   textBox4->Text = aq_tinkuy.ToString();
 				   textBox5->Text = co_tinkuy.ToString();
@@ -1240,7 +1356,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		if (user->membresia->TipoMembresia == "Basic") {
-			MessageBox::Show("Suscribete a una Membresia para poder usar esta opción");
+			MessageBox::Show("Suscribete a una Membresia para poder usar esta opciÃ³n");
 			MembresiaForm^ membform = gcnew MembresiaForm(membresiaGlobal, user);
 			membform->ControlBox = false;
 			membform->ShowDialog();
@@ -1268,7 +1384,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 		}
 		else {
-			MessageBox::Show("Has alcanzado el máximos de puntos por hoy. Vuelve mañana para obtener más puntos.");
+			MessageBox::Show("Has alcanzado el mÃ¡ximos de puntos por hoy. Vuelve maÃ±ana para obtener mÃ¡s puntos.");
 		}
 	}
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
@@ -1280,8 +1396,10 @@ private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 
+
 	//cambio de modo oscuro a claro y viceserva
 	//Claro
+
 	if (checkBox1->Checked == true) {
 
 		this->panel1->BackColor = System::Drawing::Color::SlateGray;
@@ -1290,6 +1408,7 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 
 		this->button1->ForeColor = System::Drawing::SystemColors::Desktop;
 		this->button1->BackColor = System::Drawing::SystemColors::ActiveCaption;
+
 
 		this->button2->ForeColor = System::Drawing::SystemColors::Desktop;
 		this->button2->BackColor = System::Drawing::SystemColors::ActiveCaption;
@@ -1367,11 +1486,11 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 		this->label16->ForeColor = System::Drawing::Color::White;
 
 
-
 	}
 	//Oscuro
 	else {
 	
+
 		this->panel1->BackColor = System::Drawing::Color::PowderBlue;
 
 
@@ -1468,10 +1587,21 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 		//		label->ForeColor = System::Drawing::Color::DarkBlue;
 		//	}
 		//}
+
 	
 	}
 
 
+}
+private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
+	TiendaPuntos^ tpuntos = gcnew TiendaPuntos();
+	tpuntos->ControlBox = false;
+	tpuntos->ShowDialog();
+}
+private: System::Void linkLabel2_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
+	InstruccionesMembresias^ imform = gcnew InstruccionesMembresias();
+	imform->ControlBox = false;
+	imform->ShowDialog();
 }
 };
 }

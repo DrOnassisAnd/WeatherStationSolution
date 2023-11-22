@@ -486,7 +486,7 @@ namespace WeatherStationView {
 				System::Windows::Forms::DialogResult result = MessageBox::Show("¿Estás seguro que deseas continuar?", "Confirmación", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
 				if (result == System::Windows::Forms::DialogResult::Yes) {
 					membresia = gcnew Membresia("Estandar", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));
-					PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone);
+					PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone, 1);
 					payform->ControlBox = true;
 					payform->ShowDialog();
 					isRegisterDone = payform->GetBool();
@@ -502,7 +502,7 @@ namespace WeatherStationView {
 			}
 			else {
 				membresia = gcnew Membresia("Estandar", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));
-				PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone);
+				PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone, 1);
 				payform->ControlBox = true;
 				payform->ShowDialog();
 				isRegisterDone = payform->GetBool();
@@ -527,7 +527,7 @@ namespace WeatherStationView {
 			MessageBox::Show("Ya eres un usuario " + user->membresia->TipoMembresia);
 		}
 		else {
-			PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone);
+			PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone, 1);
 			payform->ControlBox = true;
 			payform->ShowDialog();
 

@@ -33,7 +33,7 @@
     <ClCompile Include="BancoTarjetas.cpp" />
     <ClCompile Include="TablaRankingForm.cpp" />
     <ClCompile Include="InstruccionesMembresias.cpp" />
-
+    <ClCompile Include="TiendaPuntos.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MembresiaForm.h" />
@@ -69,6 +69,7 @@
     <ClInclude Include="BancoTarjetas.h" />
     <ClInclude Include="TablaRankingForm.h" />
     <ClInclude Include="InstruccionesMembresias.h" />
+    <ClInclude Include="TiendaPuntos.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WeatherStationView.rc" />
@@ -91,5 +92,8 @@
     <Image Include="Humidity.png" />
     <Image Include="Temperature.png" />
     <Image Include="_dce79eb2-a9b7-465b-91c7-76f2bc2627d0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="jpg1.bin" />
   </ItemGroup>
 </Project>
