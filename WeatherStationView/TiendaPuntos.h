@@ -46,12 +46,19 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Button^ button3;
 
 	private: int ecocoins;
-	private: double dollars;
-	private: const double factor = 0.05; //1 ecocoin vale (factor) dollars
+	private: double soles;
+	private: const double factor = 0.2; //1 ecocoin vale (factor) soles
 	private: int isRegisterDone;
 
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::RadioButton^ radioButton3;
+	private: System::Windows::Forms::RadioButton^ radioButton2;
+	private: System::Windows::Forms::RadioButton^ radioButton1;
+	private: System::Windows::Forms::RadioButton^ radioButton4;
 
 
 	private:
@@ -76,19 +83,26 @@ namespace WeatherStationView {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton4 = (gcnew System::Windows::Forms::RadioButton());
 			this->SuspendLayout();
 			// 
 			// DollarsTextBox
 			// 
 			this->DollarsTextBox->Enabled = false;
-			this->DollarsTextBox->Location = System::Drawing::Point(303, 102);
+			this->DollarsTextBox->Location = System::Drawing::Point(295, 95);
 			this->DollarsTextBox->Name = L"DollarsTextBox";
 			this->DollarsTextBox->Size = System::Drawing::Size(36, 20);
 			this->DollarsTextBox->TabIndex = 55;
 			// 
 			// ECtextBox
 			// 
-			this->ECtextBox->Location = System::Drawing::Point(140, 102);
+			this->ECtextBox->Location = System::Drawing::Point(132, 95);
 			this->ECtextBox->Name = L"ECtextBox";
 			this->ECtextBox->Size = System::Drawing::Size(46, 20);
 			this->ECtextBox->TabIndex = 54;
@@ -97,16 +111,16 @@ namespace WeatherStationView {
 			// label18
 			// 
 			this->label18->AutoSize = true;
-			this->label18->Location = System::Drawing::Point(345, 105);
+			this->label18->Location = System::Drawing::Point(337, 98);
 			this->label18->Name = L"label18";
-			this->label18->Size = System::Drawing::Size(41, 13);
+			this->label18->Size = System::Drawing::Size(31, 13);
 			this->label18->TabIndex = 53;
-			this->label18->Text = L"dolares";
+			this->label18->Text = L"soles";
 			// 
 			// label17
 			// 
 			this->label17->AutoSize = true;
-			this->label17->Location = System::Drawing::Point(192, 105);
+			this->label17->Location = System::Drawing::Point(184, 98);
 			this->label17->Name = L"label17";
 			this->label17->Size = System::Drawing::Size(108, 13);
 			this->label17->TabIndex = 52;
@@ -115,7 +129,7 @@ namespace WeatherStationView {
 			// label16
 			// 
 			this->label16->AutoSize = true;
-			this->label16->Location = System::Drawing::Point(62, 105);
+			this->label16->Location = System::Drawing::Point(54, 98);
 			this->label16->Name = L"label16";
 			this->label16->Size = System::Drawing::Size(72, 13);
 			this->label16->TabIndex = 51;
@@ -126,7 +140,7 @@ namespace WeatherStationView {
 			this->label15->AutoSize = true;
 			this->label15->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label15->Location = System::Drawing::Point(50, 67);
+			this->label15->Location = System::Drawing::Point(18, 53);
 			this->label15->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label15->Name = L"label15";
 			this->label15->Size = System::Drawing::Size(195, 34);
@@ -139,7 +153,7 @@ namespace WeatherStationView {
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button3->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button3->Location = System::Drawing::Point(106, 197);
+			this->button3->Location = System::Drawing::Point(105, 230);
 			this->button3->Margin = System::Windows::Forms::Padding(2);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(121, 41);
@@ -154,7 +168,7 @@ namespace WeatherStationView {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button1->Location = System::Drawing::Point(445, 197);
+			this->button1->Location = System::Drawing::Point(448, 230);
 			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(121, 41);
@@ -167,20 +181,104 @@ namespace WeatherStationView {
 			// 
 			this->label3->AutoSize = true;
 			this->label3->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
-			this->label3->Location = System::Drawing::Point(43, 26);
+			this->label3->Location = System::Drawing::Point(11, 19);
 			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(356, 26);
+			this->label3->Size = System::Drawing::Size(357, 26);
 			this->label3->TabIndex = 58;
 			this->label3->Text = L"Adquiere ecocoins para acelerar tu progreso y adquirir membresías.\r\n ¡20 ecocoins"
-				L" equivalen a 1 dólar! Tu contribución cuenta. ¡Comencemos!";
+				L" equivalen a 4 soles! Tu contribución cuenta. ¡Comencemos!";
 			this->label3->TextAlign = System::Drawing::ContentAlignment::TopCenter;
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(534, 133);
+			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(35, 13);
+			this->label7->TabIndex = 64;
+			this->label7->Text = L"label7";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(530, 94);
+			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(35, 13);
+			this->label6->TabIndex = 63;
+			this->label6->Text = L"label6";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(442, 133);
+			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(35, 13);
+			this->label5->TabIndex = 62;
+			this->label5->Text = L"label5";
+			// 
+			// radioButton3
+			// 
+			this->radioButton3->AutoSize = true;
+			this->radioButton3->Location = System::Drawing::Point(39, 161);
+			this->radioButton3->Margin = System::Windows::Forms::Padding(2);
+			this->radioButton3->Name = L"radioButton3";
+			this->radioButton3->Size = System::Drawing::Size(129, 17);
+			this->radioButton3->TabIndex = 61;
+			this->radioButton3->TabStop = true;
+			this->radioButton3->Text = L"100 puntos a 18 soles";
+			this->radioButton3->UseVisualStyleBackColor = true;
+			// 
+			// radioButton2
+			// 
+			this->radioButton2->AutoSize = true;
+			this->radioButton2->Location = System::Drawing::Point(39, 129);
+			this->radioButton2->Margin = System::Windows::Forms::Padding(2);
+			this->radioButton2->Name = L"radioButton2";
+			this->radioButton2->Size = System::Drawing::Size(123, 17);
+			this->radioButton2->TabIndex = 60;
+			this->radioButton2->TabStop = true;
+			this->radioButton2->Text = L"60 puntos a 11 soles";
+			this->radioButton2->UseVisualStyleBackColor = true;
+			// 
+			// radioButton1
+			// 
+			this->radioButton1->AutoSize = true;
+			this->radioButton1->Location = System::Drawing::Point(39, 98);
+			this->radioButton1->Margin = System::Windows::Forms::Padding(2);
+			this->radioButton1->Name = L"radioButton1";
+			this->radioButton1->Size = System::Drawing::Size(14, 13);
+			this->radioButton1->TabIndex = 59;
+			this->radioButton1->TabStop = true;
+			this->radioButton1->UseVisualStyleBackColor = true;
+			// 
+			// radioButton4
+			// 
+			this->radioButton4->AutoSize = true;
+			this->radioButton4->Location = System::Drawing::Point(39, 191);
+			this->radioButton4->Margin = System::Windows::Forms::Padding(2);
+			this->radioButton4->Name = L"radioButton4";
+			this->radioButton4->Size = System::Drawing::Size(129, 17);
+			this->radioButton4->TabIndex = 65;
+			this->radioButton4->TabStop = true;
+			this->radioButton4->Text = L"300 puntos a 54 soles";
+			this->radioButton4->UseVisualStyleBackColor = true;
 			// 
 			// TiendaPuntos
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(620, 282);
+			this->Controls->Add(this->radioButton4);
+			this->Controls->Add(this->label7);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->radioButton3);
+			this->Controls->Add(this->radioButton2);
+			this->Controls->Add(this->radioButton1);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->button3);
@@ -217,9 +315,53 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 }
 
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (ValidateECTextBox()) {
-		double dollars = Double::Parse(DollarsTextBox->Text);
-		PaymentMethodForm^ pymform = gcnew PaymentMethodForm(isRegisterDone, dollars); //isRegisterDone
+	if (radioButton1->Checked == true) {
+		if (ValidateECTextBox()) {
+			double soles = Double::Parse(DollarsTextBox->Text);
+			PaymentMethodForm^ pymform = gcnew PaymentMethodForm(isRegisterDone, soles); //isRegisterDone
+			pymform->ControlBox = false;
+			pymform->ShowDialog();
+			isRegisterDone = pymform->GetBool();
+			if (!isRegisterDone) {
+				this->Show();
+			}
+			else {
+				this->Close();
+			}
+		}
+		else {
+			MessageBox::Show("Por favor seleccione un valor correcto");
+		}
+	}
+	else if (radioButton2->Checked) {
+		soles = 11;
+		PaymentMethodForm^ pymform = gcnew PaymentMethodForm(isRegisterDone, soles); //isRegisterDone
+		pymform->ControlBox = false;
+		pymform->ShowDialog();
+		isRegisterDone = pymform->GetBool();
+		if (!isRegisterDone) {
+			this->Show();
+		}
+		else {
+			this->Close();
+		}
+	}
+	else if (radioButton3->Checked){
+		soles = 18;
+		PaymentMethodForm^ pymform = gcnew PaymentMethodForm(isRegisterDone, soles); //isRegisterDone
+		pymform->ControlBox = false;
+		pymform->ShowDialog();
+		isRegisterDone = pymform->GetBool();
+		if (!isRegisterDone) {
+			this->Show();
+		}
+		else {
+			this->Close();
+		}
+	}
+	else if (radioButton4->Checked) {
+		soles = 54;
+		PaymentMethodForm^ pymform = gcnew PaymentMethodForm(isRegisterDone, soles); //isRegisterDone
 		pymform->ControlBox = false;
 		pymform->ShowDialog();
 		isRegisterDone = pymform->GetBool();
@@ -231,8 +373,10 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		}
 	}
 	else {
-		MessageBox::Show("Al otro ciclo será");
+		MessageBox::Show("Por favor seleccione una opción.");
 	}
+
+
 	
 }
 };

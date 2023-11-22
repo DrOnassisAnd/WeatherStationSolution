@@ -147,6 +147,8 @@ private: System::Windows::Forms::Label^ label13;
 private: System::Windows::Forms::Button^ button6;
 private: System::Windows::Forms::CheckBox^ checkBox1;
 private: System::Windows::Forms::Button^ button7;
+private: System::Windows::Forms::LinkLabel^ linkLabel2;
+private: System::Windows::Forms::LinkLabel^ linkLabel1;
 
 
 
@@ -178,6 +180,8 @@ private: System::Windows::Forms::Button^ button7;
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->linkLabel2 = (gcnew System::Windows::Forms::LinkLabel());
+			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->PuntosDiariosLabel = (gcnew System::Windows::Forms::Label());
@@ -204,7 +208,7 @@ private: System::Windows::Forms::Button^ button7;
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->timer2 = (gcnew System::Windows::Forms::Timer(this->components));
-			this->button7 = (gcnew System::Windows::Forms::Button());
+			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -326,6 +330,7 @@ private: System::Windows::Forms::Button^ button7;
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->panel1->Controls->Add(this->linkLabel2);
 			this->panel1->Controls->Add(this->button7);
 			this->panel1->Controls->Add(this->checkBox1);
 			this->panel1->Controls->Add(this->button6);
@@ -369,6 +374,32 @@ private: System::Windows::Forms::Button^ button7;
 			this->panel1->TabIndex = 8;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BasicForm::panel1_Paint);
 			// 
+			// linkLabel2
+			// 
+			this->linkLabel2->AutoSize = true;
+			this->linkLabel2->Location = System::Drawing::Point(732, 121);
+			this->linkLabel2->Name = L"linkLabel2";
+			this->linkLabel2->Size = System::Drawing::Size(183, 20);
+			this->linkLabel2->TabIndex = 36;
+			this->linkLabel2->TabStop = true;
+			this->linkLabel2->Text = L"¿Qué son los EcoCoins\?";
+			this->linkLabel2->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &BasicForm::linkLabel2_LinkClicked);
+			// 
+			// button7
+			// 
+			this->button7->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->button7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button7->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->button7->Location = System::Drawing::Point(1066, 498);
+			this->button7->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(165, 55);
+			this->button7->TabIndex = 35;
+			this->button7->Text = L"Compra Puntos";
+			this->button7->UseVisualStyleBackColor = false;
+			this->button7->Click += gcnew System::EventHandler(this, &BasicForm::button7_Click);
+			// 
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
@@ -410,18 +441,18 @@ private: System::Windows::Forms::Button^ button7;
 			this->label13->AutoSize = true;
 			this->label13->Location = System::Drawing::Point(717, 101);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(112, 20);
+			this->label13->Size = System::Drawing::Size(130, 20);
 			this->label13->TabIndex = 31;
-			this->label13->Text = L"Puntos Diarios";
+			this->label13->Text = L"EcoCoins Diarios";
 			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
 			this->label11->Location = System::Drawing::Point(717, 61);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(115, 20);
+			this->label11->Size = System::Drawing::Size(133, 20);
 			this->label11->TabIndex = 30;
-			this->label11->Text = L"Puntos Totales";
+			this->label11->Text = L"EcoCoins Totales";
 			// 
 			// ptslabel
 			// 
@@ -632,20 +663,15 @@ private: System::Windows::Forms::Button^ button7;
 			this->timer2->Interval = 1000;
 			this->timer2->Tick += gcnew System::EventHandler(this, &BasicForm::Timer2_Tick);
 			// 
-			// button7
+			// linkLabel1
 			// 
-			this->button7->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->button7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button7->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button7->Location = System::Drawing::Point(1066, 498);
-			this->button7->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(165, 55);
-			this->button7->TabIndex = 35;
-			this->button7->Text = L"Compra Puntos";
-			this->button7->UseVisualStyleBackColor = false;
-			this->button7->Click += gcnew System::EventHandler(this, &BasicForm::button7_Click);
+			this->linkLabel1->AutoSize = true;
+			this->linkLabel1->Location = System::Drawing::Point(0, 0);
+			this->linkLabel1->Name = L"linkLabel1";
+			this->linkLabel1->Size = System::Drawing::Size(80, 20);
+			this->linkLabel1->TabIndex = 9;
+			this->linkLabel1->TabStop = true;
+			this->linkLabel1->Text = L"linkLabel1";
 			// 
 			// BasicForm
 			// 
@@ -653,6 +679,7 @@ private: System::Windows::Forms::Button^ button7;
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1255, 687);
 			this->ControlBox = false;
+			this->Controls->Add(this->linkLabel1);
 			this->Controls->Add(this->panel1);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -664,6 +691,7 @@ private: System::Windows::Forms::Button^ button7;
 			this->panel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -1221,6 +1249,11 @@ private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e
 	TiendaPuntos^ tpuntos = gcnew TiendaPuntos();
 	tpuntos->ControlBox = false;
 	tpuntos->ShowDialog();
+}
+private: System::Void linkLabel2_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
+	InstruccionesMembresias^ imform = gcnew InstruccionesMembresias();
+	imform->ControlBox = false;
+	imform->ShowDialog();
 }
 };
 }
