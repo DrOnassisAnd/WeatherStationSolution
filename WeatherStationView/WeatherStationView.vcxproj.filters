@@ -31,6 +31,7 @@
     <ClCompile Include="NewPie.cpp" />
     <ClCompile Include="TriviaForm.cpp" />
     <ClCompile Include="BancoTarjetas.cpp" />
+    <ClCompile Include="TablaRankingForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MembresiaForm.h" />
@@ -64,6 +65,7 @@
     <ClInclude Include="NewPie.h" />
     <ClInclude Include="TriviaForm.h" />
     <ClInclude Include="BancoTarjetas.h" />
+    <ClInclude Include="TablaRankingForm.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WeatherStationView.rc" />
@@ -85,5 +87,6 @@
     <Image Include="CO.png" />
     <Image Include="Humidity.png" />
     <Image Include="Temperature.png" />
+    <Image Include="_dce79eb2-a9b7-465b-91c7-76f2bc2627d0.jpg" />
   </ItemGroup>
 </Project>
