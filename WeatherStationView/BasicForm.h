@@ -145,6 +145,7 @@ private: System::Windows::Forms::Label^ label11;
 private: System::Windows::Forms::Label^ PuntosDiariosLabel;
 private: System::Windows::Forms::Label^ label13;
 private: System::Windows::Forms::Button^ button6;
+private: System::Windows::Forms::CheckBox^ checkBox1;
 
 
 
@@ -176,6 +177,8 @@ private: System::Windows::Forms::Button^ button6;
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
+			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->PuntosDiariosLabel = (gcnew System::Windows::Forms::Label());
 			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
@@ -200,7 +203,6 @@ private: System::Windows::Forms::Button^ button6;
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->timer2 = (gcnew System::Windows::Forms::Timer(this->components));
-			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -225,7 +227,7 @@ private: System::Windows::Forms::Button^ button6;
 			this->label2->BackColor = System::Drawing::SystemColors::Info;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(602, 285);
+			this->label2->Location = System::Drawing::Point(558, 285);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(124, 25);
@@ -238,7 +240,7 @@ private: System::Windows::Forms::Button^ button6;
 			this->label3->BackColor = System::Drawing::SystemColors::Info;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(602, 361);
+			this->label3->Location = System::Drawing::Point(558, 361);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(97, 25);
@@ -252,7 +254,7 @@ private: System::Windows::Forms::Button^ button6;
 			this->label4->BackColor = System::Drawing::SystemColors::Info;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(602, 436);
+			this->label4->Location = System::Drawing::Point(558, 436);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(150, 25);
@@ -265,10 +267,10 @@ private: System::Windows::Forms::Button^ button6;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button1->Location = System::Drawing::Point(1015, 19);
+			this->button1->Location = System::Drawing::Point(1066, 19);
 			this->button1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(212, 69);
+			this->button1->Size = System::Drawing::Size(176, 46);
 			this->button1->TabIndex = 4;
 			this->button1->Text = L"Ajustes";
 			this->button1->UseVisualStyleBackColor = false;
@@ -280,7 +282,7 @@ private: System::Windows::Forms::Button^ button6;
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button2->Location = System::Drawing::Point(1032, 512);
+			this->button2->Location = System::Drawing::Point(1068, 621);
 			this->button2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(174, 52);
@@ -295,10 +297,10 @@ private: System::Windows::Forms::Button^ button6;
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button3->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button3->Location = System::Drawing::Point(1015, 135);
+			this->button3->Location = System::Drawing::Point(1066, 111);
 			this->button3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(212, 61);
+			this->button3->Size = System::Drawing::Size(176, 59);
 			this->button3->TabIndex = 6;
 			this->button3->Text = L"Membresía";
 			this->button3->UseVisualStyleBackColor = false;
@@ -310,10 +312,10 @@ private: System::Windows::Forms::Button^ button6;
 			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button4->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button4->Location = System::Drawing::Point(1015, 231);
+			this->button4->Location = System::Drawing::Point(1068, 329);
 			this->button4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(212, 62);
+			this->button4->Size = System::Drawing::Size(163, 57);
 			this->button4->TabIndex = 7;
 			this->button4->Text = L"Estadística";
 			this->button4->UseVisualStyleBackColor = false;
@@ -321,7 +323,8 @@ private: System::Windows::Forms::Button^ button6;
 			// 
 			// panel1
 			// 
-			this->panel1->BackColor = System::Drawing::SystemColors::Info;
+			this->panel1->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
+			this->panel1->Controls->Add(this->checkBox1);
 			this->panel1->Controls->Add(this->button6);
 			this->panel1->Controls->Add(this->PuntosDiariosLabel);
 			this->panel1->Controls->Add(this->label13);
@@ -359,14 +362,41 @@ private: System::Windows::Forms::Button^ button6;
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(1240, 570);
+			this->panel1->Size = System::Drawing::Size(1255, 687);
 			this->panel1->TabIndex = 8;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BasicForm::panel1_Paint);
+			// 
+			// checkBox1
+			// 
+			this->checkBox1->AutoSize = true;
+			this->checkBox1->Location = System::Drawing::Point(410, 101);
+			this->checkBox1->Name = L"checkBox1";
+			this->checkBox1->Size = System::Drawing::Size(153, 29);
+			this->checkBox1->TabIndex = 34;
+			this->checkBox1->Text = L"Modo Oscuro";
+			this->checkBox1->UseVisualStyleBackColor = true;
+			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &BasicForm::checkBox1_CheckedChanged);
+			// 
+			// button6
+			// 
+			this->button6->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->button6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button6->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->button6->Location = System::Drawing::Point(579, 611);
+			this->button6->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(184, 62);
+			this->button6->TabIndex = 33;
+			this->button6->Text = L"Ranking";
+			this->button6->UseVisualStyleBackColor = false;
+			this->button6->Click += gcnew System::EventHandler(this, &BasicForm::button6_Click);
 			// 
 			// PuntosDiariosLabel
 			// 
 			this->PuntosDiariosLabel->AutoSize = true;
-			this->PuntosDiariosLabel->Location = System::Drawing::Point(180, 102);
+			this->PuntosDiariosLabel->ForeColor = System::Drawing::Color::Black;
+			this->PuntosDiariosLabel->Location = System::Drawing::Point(866, 101);
 			this->PuntosDiariosLabel->Name = L"PuntosDiariosLabel";
 			this->PuntosDiariosLabel->Size = System::Drawing::Size(84, 25);
 			this->PuntosDiariosLabel->TabIndex = 32;
@@ -375,7 +405,7 @@ private: System::Windows::Forms::Button^ button6;
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(31, 102);
+			this->label13->Location = System::Drawing::Point(717, 101);
 			this->label13->Name = L"label13";
 			this->label13->Size = System::Drawing::Size(138, 25);
 			this->label13->TabIndex = 31;
@@ -384,7 +414,7 @@ private: System::Windows::Forms::Button^ button6;
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(31, 62);
+			this->label11->Location = System::Drawing::Point(717, 61);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(143, 25);
 			this->label11->TabIndex = 30;
@@ -393,7 +423,7 @@ private: System::Windows::Forms::Button^ button6;
 			// ptslabel
 			// 
 			this->ptslabel->AutoSize = true;
-			this->ptslabel->Location = System::Drawing::Point(180, 62);
+			this->ptslabel->Location = System::Drawing::Point(866, 61);
 			this->ptslabel->Name = L"ptslabel";
 			this->ptslabel->Size = System::Drawing::Size(75, 25);
 			this->ptslabel->TabIndex = 29;
@@ -405,7 +435,7 @@ private: System::Windows::Forms::Button^ button6;
 			this->TriviaBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->TriviaBtn->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->TriviaBtn->Location = System::Drawing::Point(1015, 404);
+			this->TriviaBtn->Location = System::Drawing::Point(791, 611);
 			this->TriviaBtn->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->TriviaBtn->Name = L"TriviaBtn";
 			this->TriviaBtn->Size = System::Drawing::Size(212, 62);
@@ -420,10 +450,10 @@ private: System::Windows::Forms::Button^ button6;
 			this->button5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button5->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button5->Location = System::Drawing::Point(1015, 323);
+			this->button5->Location = System::Drawing::Point(1066, 421);
 			this->button5->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(212, 62);
+			this->button5->Size = System::Drawing::Size(165, 55);
 			this->button5->TabIndex = 25;
 			this->button5->Text = L"Más Graficos";
 			this->button5->UseVisualStyleBackColor = false;
@@ -432,7 +462,7 @@ private: System::Windows::Forms::Button^ button6;
 			// UnidadTemplbl
 			// 
 			this->UnidadTemplbl->AutoSize = true;
-			this->UnidadTemplbl->Location = System::Drawing::Point(830, 285);
+			this->UnidadTemplbl->Location = System::Drawing::Point(786, 285);
 			this->UnidadTemplbl->Name = L"UnidadTemplbl";
 			this->UnidadTemplbl->Size = System::Drawing::Size(75, 25);
 			this->UnidadTemplbl->TabIndex = 24;
@@ -443,7 +473,8 @@ private: System::Windows::Forms::Button^ button6;
 			this->label10->AutoSize = true;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->Location = System::Drawing::Point(668, 24);
+			this->label10->ForeColor = System::Drawing::SystemColors::Desktop;
+			this->label10->Location = System::Drawing::Point(449, 4);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(220, 80);
 			this->label10->TabIndex = 23;
@@ -451,7 +482,7 @@ private: System::Windows::Forms::Button^ button6;
 			// 
 			// textBox5
 			// 
-			this->textBox5->Location = System::Drawing::Point(781, 512);
+			this->textBox5->Location = System::Drawing::Point(737, 512);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(43, 30);
 			this->textBox5->TabIndex = 22;
@@ -462,7 +493,7 @@ private: System::Windows::Forms::Button^ button6;
 			this->label12->BackColor = System::Drawing::SystemColors::Info;
 			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label12->Location = System::Drawing::Point(602, 511);
+			this->label12->Location = System::Drawing::Point(558, 511);
 			this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(175, 25);
@@ -472,7 +503,7 @@ private: System::Windows::Forms::Button^ button6;
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(106, 20);
+			this->label9->Location = System::Drawing::Point(792, 19);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(64, 25);
 			this->label9->TabIndex = 17;
@@ -481,7 +512,7 @@ private: System::Windows::Forms::Button^ button6;
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(46, 20);
+			this->label8->Location = System::Drawing::Point(732, 19);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(64, 25);
 			this->label8->TabIndex = 16;
@@ -489,28 +520,28 @@ private: System::Windows::Forms::Button^ button6;
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(781, 436);
+			this->textBox4->Location = System::Drawing::Point(737, 436);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(43, 30);
 			this->textBox4->TabIndex = 14;
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(781, 361);
+			this->textBox3->Location = System::Drawing::Point(737, 361);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(43, 30);
 			this->textBox3->TabIndex = 13;
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(781, 282);
+			this->textBox2->Location = System::Drawing::Point(737, 282);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(43, 30);
 			this->textBox2->TabIndex = 12;
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(781, 211);
+			this->textBox1->Location = System::Drawing::Point(737, 211);
 			this->textBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(110, 30);
@@ -521,7 +552,7 @@ private: System::Windows::Forms::Button^ button6;
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(602, 211);
+			this->label7->Location = System::Drawing::Point(558, 211);
 			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(54, 25);
@@ -533,7 +564,8 @@ private: System::Windows::Forms::Button^ button6;
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(313, 19);
+			this->label6->ForeColor = System::Drawing::SystemColors::Desktop;
+			this->label6->Location = System::Drawing::Point(9, 4);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(458, 80);
@@ -545,7 +577,7 @@ private: System::Windows::Forms::Button^ button6;
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(434, 122);
+			this->label5->Location = System::Drawing::Point(558, 158);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(67, 25);
@@ -557,7 +589,7 @@ private: System::Windows::Forms::Button^ button6;
 			this->dtpWeatherStationBasic->CalendarFont = (gcnew System::Drawing::Font(L"Palatino Linotype", 10.2F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->dtpWeatherStationBasic->Enabled = false;
-			this->dtpWeatherStationBasic->Location = System::Drawing::Point(542, 122);
+			this->dtpWeatherStationBasic->Location = System::Drawing::Point(666, 158);
 			this->dtpWeatherStationBasic->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->dtpWeatherStationBasic->Name = L"dtpWeatherStationBasic";
 			this->dtpWeatherStationBasic->RightToLeft = System::Windows::Forms::RightToLeft::No;
@@ -597,26 +629,11 @@ private: System::Windows::Forms::Button^ button6;
 			this->timer2->Interval = 1000;
 			this->timer2->Tick += gcnew System::EventHandler(this, &BasicForm::Timer2_Tick);
 			// 
-			// button6
-			// 
-			this->button6->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->button6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button6->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button6->Location = System::Drawing::Point(854, 418);
-			this->button6->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(129, 43);
-			this->button6->TabIndex = 33;
-			this->button6->Text = L"Ranking";
-			this->button6->UseVisualStyleBackColor = false;
-			this->button6->Click += gcnew System::EventHandler(this, &BasicForm::button6_Click);
-			// 
 			// BasicForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1240, 570);
+			this->ClientSize = System::Drawing::Size(1255, 687);
 			this->ControlBox = false;
 			this->Controls->Add(this->panel1);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -1161,6 +1178,25 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
 	TablaRankingForm^ rankingform = gcnew TablaRankingForm(user);
 	rankingform->ShowDialog();
+
+}
+private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+
+
+	if (checkBox1->Checked == true) {
+		this->panel1->BackColor = System::Drawing::SystemColors::Desktop;
+		this->PuntosDiariosLabel->ForeColor = System::Drawing::Color::White;
+		this->button1->ForeColor = System::Drawing::SystemColors::Desktop;
+		this->button1->BackColor = System::Drawing::SystemColors::ActiveCaption;
+	
+	}
+	else {
+	
+		this->panel1->BackColor = System::Drawing::SystemColors::Info;
+		this->PuntosDiariosLabel->ForeColor = System::Drawing::Color::Black;
+	
+	}
+
 
 }
 };
