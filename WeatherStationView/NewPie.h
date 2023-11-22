@@ -144,6 +144,8 @@ private: System::Windows::Forms::PictureBox^ pbTemperature;
 private: System::Windows::Forms::PictureBox^ pbHumidity;
 private: System::Windows::Forms::PictureBox^ pbCO;
 private: System::Windows::Forms::PictureBox^ pbAirq;
+private: System::Windows::Forms::Button^ CerrarBtn;
+
 
 
 
@@ -193,6 +195,7 @@ private: System::Windows::Forms::PictureBox^ pbAirq;
 			this->pbHumidity = (gcnew System::Windows::Forms::PictureBox());
 			this->pbCO = (gcnew System::Windows::Forms::PictureBox());
 			this->pbAirq = (gcnew System::Windows::Forms::PictureBox());
+			this->CerrarBtn = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chTemp))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chHum))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chCO))->BeginInit();
@@ -379,12 +382,25 @@ private: System::Windows::Forms::PictureBox^ pbAirq;
 			this->pbAirq->TabIndex = 17;
 			this->pbAirq->TabStop = false;
 			// 
+			// CerrarBtn
+			// 
+			this->CerrarBtn->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->CerrarBtn->ForeColor = System::Drawing::SystemColors::Control;
+			this->CerrarBtn->Location = System::Drawing::Point(636, 481);
+			this->CerrarBtn->Name = L"CerrarBtn";
+			this->CerrarBtn->Size = System::Drawing::Size(99, 40);
+			this->CerrarBtn->TabIndex = 18;
+			this->CerrarBtn->Text = L"Salir";
+			this->CerrarBtn->UseVisualStyleBackColor = false;
+			this->CerrarBtn->Click += gcnew System::EventHandler(this, &NewPie::CerrarBtn_Click);
+			// 
 			// NewPie
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::WhiteSmoke;
 			this->ClientSize = System::Drawing::Size(820, 544);
+			this->Controls->Add(this->CerrarBtn);
 			this->Controls->Add(this->pbAirq);
 			this->Controls->Add(this->pbCO);
 			this->Controls->Add(this->pbHumidity);
@@ -659,5 +675,8 @@ private: System::Windows::Forms::PictureBox^ pbAirq;
 			   }
 			   return max;
 		   }
-	};
+	private: System::Void CerrarBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+	}
+};
 }

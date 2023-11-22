@@ -11,7 +11,7 @@ namespace WeatherStationView {
 	using namespace System::Drawing;
 	using namespace System::Collections::Generic;
 	using namespace Model;
-	//hola
+	//hola mundo AHHHHHHHHHHHHHHHHHHHHHHHHHh
 
 	/// <summary>
 	/// Resumen de InstruccionesMembresias
@@ -44,8 +44,12 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Label^ label3;
 	private: int isRegisterDone;
 	private: int pointsperDay = 0;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::PictureBox^ pictureBox2;
+
+	private: int ecocoins;
+	private: double dollars;
+	private: const double factor = 0.05; //1 ecocoin vale (factor) dollars
+
+
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label7;
@@ -64,6 +68,15 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Label^ label14;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::Label^ label15;
+	private: System::Windows::Forms::Label^ label16;
+	private: System::Windows::Forms::Label^ label17;
+	private: System::Windows::Forms::Label^ label18;
+	private: System::Windows::Forms::TextBox^ ECtextBox;
+	private: System::Windows::Forms::TextBox^ DollarsTextBox;
+	private: System::Windows::Forms::Button^ CerrarBtn;
+
+
 
 
 
@@ -91,8 +104,6 @@ namespace WeatherStationView {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
@@ -108,8 +119,13 @@ namespace WeatherStationView {
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->label16 = (gcnew System::Windows::Forms::Label());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->ECtextBox = (gcnew System::Windows::Forms::TextBox());
+			this->DollarsTextBox = (gcnew System::Windows::Forms::TextBox());
+			this->CerrarBtn = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->SuspendLayout();
@@ -119,9 +135,10 @@ namespace WeatherStationView {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 16, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(374, 18);
+			this->label1->Location = System::Drawing::Point(142, 11);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(506, 56);
+			this->label1->Size = System::Drawing::Size(350, 39);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"¿Cómo obtener una membresia\?";
 			// 
@@ -130,9 +147,10 @@ namespace WeatherStationView {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(562, 60);
+			this->label2->Location = System::Drawing::Point(268, 38);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(138, 43);
+			this->label2->Size = System::Drawing::Size(93, 29);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"ECOCOINS";
 			// 
@@ -140,40 +158,24 @@ namespace WeatherStationView {
 			// 
 			this->label3->AutoSize = true;
 			this->label3->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
-			this->label3->Location = System::Drawing::Point(342, 103);
+			this->label3->Location = System::Drawing::Point(121, 66);
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(554, 60);
+			this->label3->Size = System::Drawing::Size(373, 39);
 			this->label3->TabIndex = 3;
 			this->label3->Text = resources->GetString(L"label3.Text");
 			this->label3->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			this->label3->Click += gcnew System::EventHandler(this, &InstruccionesMembresias::label3_Click);
-			// 
-			// pictureBox1
-			// 
-			this->pictureBox1->Location = System::Drawing::Point(72, 18);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(204, 173);
-			this->pictureBox1->TabIndex = 4;
-			this->pictureBox1->TabStop = false;
-			this->pictureBox1->LoadCompleted += gcnew System::ComponentModel::AsyncCompletedEventHandler(this, &InstruccionesMembresias::pictureBox1_LoadCompleted);
-			this->pictureBox1->Click += gcnew System::EventHandler(this, &InstruccionesMembresias::pictureBox1_Click);
-			// 
-			// pictureBox2
-			// 
-			this->pictureBox2->Location = System::Drawing::Point(983, 18);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(204, 173);
-			this->pictureBox2->TabIndex = 5;
-			this->pictureBox2->TabStop = false;
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(193, 299);
+			this->label9->Location = System::Drawing::Point(129, 194);
+			this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(362, 52);
+			this->label9->Size = System::Drawing::Size(246, 36);
 			this->label9->TabIndex = 31;
 			this->label9->Text = L"Visualiza los Datos de Temperatura,\r\nHumedad, Calidad de Aire y CO.\r\n";
 			// 
@@ -182,9 +184,10 @@ namespace WeatherStationView {
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->Location = System::Drawing::Point(193, 446);
+			this->label8->Location = System::Drawing::Point(129, 290);
+			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(338, 26);
+			this->label8->Size = System::Drawing::Size(230, 18);
 			this->label8->TabIndex = 30;
 			this->label8->Text = L"Se tendra un Pronóstico del clima";
 			// 
@@ -193,9 +196,10 @@ namespace WeatherStationView {
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(193, 372);
+			this->label7->Location = System::Drawing::Point(129, 242);
+			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(319, 52);
+			this->label7->Size = System::Drawing::Size(214, 36);
 			this->label7->TabIndex = 29;
 			this->label7->Text = L"Visualiza una Tabla Estadistica \r\nde los datos más relavantes.\r\n";
 			// 
@@ -205,18 +209,20 @@ namespace WeatherStationView {
 			this->label4->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(202, 257);
+			this->label4->Location = System::Drawing::Point(135, 167);
+			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(116, 29);
+			this->label4->Size = System::Drawing::Size(82, 20);
 			this->label4->TabIndex = 27;
 			this->label4->Text = L"Estandar";
 			// 
 			// pictureBox3
 			// 
 			this->pictureBox3->BackColor = System::Drawing::SystemColors::ControlLightLight;
-			this->pictureBox3->Location = System::Drawing::Point(186, 246);
+			this->pictureBox3->Location = System::Drawing::Point(124, 160);
+			this->pictureBox3->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(380, 244);
+			this->pictureBox3->Size = System::Drawing::Size(253, 159);
 			this->pictureBox3->TabIndex = 28;
 			this->pictureBox3->TabStop = false;
 			// 
@@ -225,9 +231,10 @@ namespace WeatherStationView {
 			this->label12->AutoSize = true;
 			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label12->Location = System::Drawing::Point(628, 409);
+			this->label12->Location = System::Drawing::Point(419, 266);
+			this->label12->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(338, 26);
+			this->label12->Size = System::Drawing::Size(230, 18);
 			this->label12->TabIndex = 38;
 			this->label12->Text = L"Se tendra un Pronóstico del clima";
 			// 
@@ -236,9 +243,10 @@ namespace WeatherStationView {
 			this->label11->AutoSize = true;
 			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label11->Location = System::Drawing::Point(628, 352);
+			this->label11->Location = System::Drawing::Point(419, 229);
+			this->label11->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(319, 52);
+			this->label11->Size = System::Drawing::Size(214, 36);
 			this->label11->TabIndex = 37;
 			this->label11->Text = L"Visualiza una Tabla Estadistica \r\nde los datos más relavantes.\r\n";
 			// 
@@ -247,9 +255,10 @@ namespace WeatherStationView {
 			this->label10->AutoSize = true;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->Location = System::Drawing::Point(628, 289);
+			this->label10->Location = System::Drawing::Point(419, 188);
+			this->label10->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(362, 52);
+			this->label10->Size = System::Drawing::Size(246, 36);
 			this->label10->TabIndex = 36;
 			this->label10->Text = L"Visualiza los Datos de Temperatura,\r\nHumedad, Calidad de Aire y CO.\r\n";
 			// 
@@ -258,18 +267,20 @@ namespace WeatherStationView {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(628, 446);
+			this->label5->Location = System::Drawing::Point(419, 290);
+			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(526, 26);
+			this->label5->Size = System::Drawing::Size(360, 18);
 			this->label5->TabIndex = 35;
 			this->label5->Text = L"Descarga la base de datos completa en formato .csv.\r\n";
 			// 
 			// pictureBox4
 			// 
 			this->pictureBox4->BackColor = System::Drawing::SystemColors::ControlLightLight;
-			this->pictureBox4->Location = System::Drawing::Point(614, 246);
+			this->pictureBox4->Location = System::Drawing::Point(409, 160);
+			this->pictureBox4->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox4->Name = L"pictureBox4";
-			this->pictureBox4->Size = System::Drawing::Size(552, 244);
+			this->pictureBox4->Size = System::Drawing::Size(368, 159);
 			this->pictureBox4->TabIndex = 34;
 			this->pictureBox4->TabStop = false;
 			// 
@@ -278,9 +289,10 @@ namespace WeatherStationView {
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(276, 194);
+			this->label6->Location = System::Drawing::Point(184, 126);
+			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(216, 50);
+			this->label6->Size = System::Drawing::Size(147, 34);
 			this->label6->TabIndex = 40;
 			this->label6->Text = L"100 ECOCOINS";
 			// 
@@ -290,9 +302,10 @@ namespace WeatherStationView {
 			this->label13->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label13->Location = System::Drawing::Point(645, 257);
+			this->label13->Location = System::Drawing::Point(430, 167);
+			this->label13->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(117, 29);
+			this->label13->Size = System::Drawing::Size(78, 20);
 			this->label13->TabIndex = 39;
 			this->label13->Text = L"Premium";
 			// 
@@ -301,9 +314,10 @@ namespace WeatherStationView {
 			this->label14->AutoSize = true;
 			this->label14->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label14->Location = System::Drawing::Point(774, 193);
+			this->label14->Location = System::Drawing::Point(516, 125);
+			this->label14->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(216, 50);
+			this->label14->Size = System::Drawing::Size(147, 34);
 			this->label14->TabIndex = 41;
 			this->label14->Text = L"300 ECOCOINS";
 			// 
@@ -313,9 +327,10 @@ namespace WeatherStationView {
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button2->Location = System::Drawing::Point(679, 517);
+			this->button2->Location = System::Drawing::Point(453, 336);
+			this->button2->Margin = System::Windows::Forms::Padding(2);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(166, 63);
+			this->button2->Size = System::Drawing::Size(111, 41);
 			this->button2->TabIndex = 42;
 			this->button2->Text = L"Trivia";
 			this->button2->UseVisualStyleBackColor = false;
@@ -327,20 +342,98 @@ namespace WeatherStationView {
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button3->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button3->Location = System::Drawing::Point(384, 517);
+			this->button3->Location = System::Drawing::Point(256, 336);
+			this->button3->Margin = System::Windows::Forms::Padding(2);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(182, 63);
+			this->button3->Size = System::Drawing::Size(121, 41);
 			this->button3->TabIndex = 43;
 			this->button3->Text = L"Aquirir Ecocoins";
 			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &InstruccionesMembresias::button3_Click);
 			// 
+			// label15
+			// 
+			this->label15->AutoSize = true;
+			this->label15->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label15->Location = System::Drawing::Point(565, 16);
+			this->label15->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(195, 34);
+			this->label15->TabIndex = 44;
+			this->label15->Text = L"COMPRA ECOCOINS";
+			// 
+			// label16
+			// 
+			this->label16->AutoSize = true;
+			this->label16->Location = System::Drawing::Point(577, 54);
+			this->label16->Name = L"label16";
+			this->label16->Size = System::Drawing::Size(72, 13);
+			this->label16->TabIndex = 45;
+			this->label16->Text = L"La compra de";
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Location = System::Drawing::Point(707, 54);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(108, 13);
+			this->label17->TabIndex = 46;
+			this->label17->Text = L"ecocoins equivalen a";
+			// 
+			// label18
+			// 
+			this->label18->AutoSize = true;
+			this->label18->Location = System::Drawing::Point(860, 54);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(41, 13);
+			this->label18->TabIndex = 47;
+			this->label18->Text = L"dolares";
+			// 
+			// ECtextBox
+			// 
+			this->ECtextBox->Location = System::Drawing::Point(655, 51);
+			this->ECtextBox->Name = L"ECtextBox";
+			this->ECtextBox->Size = System::Drawing::Size(46, 20);
+			this->ECtextBox->TabIndex = 48;
+			this->ECtextBox->TextChanged += gcnew System::EventHandler(this, &InstruccionesMembresias::textBox1_TextChanged);
+			// 
+			// DollarsTextBox
+			// 
+			this->DollarsTextBox->Enabled = false;
+			this->DollarsTextBox->Location = System::Drawing::Point(818, 51);
+			this->DollarsTextBox->Name = L"DollarsTextBox";
+			this->DollarsTextBox->Size = System::Drawing::Size(36, 20);
+			this->DollarsTextBox->TabIndex = 49;
+			// 
+			// CerrarBtn
+			// 
+			this->CerrarBtn->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->CerrarBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->CerrarBtn->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->CerrarBtn->Location = System::Drawing::Point(830, 514);
+			this->CerrarBtn->Margin = System::Windows::Forms::Padding(2);
+			this->CerrarBtn->Name = L"CerrarBtn";
+			this->CerrarBtn->Size = System::Drawing::Size(111, 41);
+			this->CerrarBtn->TabIndex = 50;
+			this->CerrarBtn->Text = L"Salir";
+			this->CerrarBtn->UseVisualStyleBackColor = false;
+			this->CerrarBtn->Click += gcnew System::EventHandler(this, &InstruccionesMembresias::CerrarBtn_Click);
+			// 
 			// InstruccionesMembresias
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Window;
-			this->ClientSize = System::Drawing::Size(1263, 606);
+			this->ClientSize = System::Drawing::Size(991, 566);
+			this->Controls->Add(this->CerrarBtn);
+			this->Controls->Add(this->DollarsTextBox);
+			this->Controls->Add(this->ECtextBox);
+			this->Controls->Add(this->label18);
+			this->Controls->Add(this->label17);
+			this->Controls->Add(this->label16);
+			this->Controls->Add(this->label15);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label14);
@@ -356,16 +449,13 @@ namespace WeatherStationView {
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->pictureBox3);
-			this->Controls->Add(this->pictureBox2);
-			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"InstruccionesMembresias";
 			this->Text = L"InstruccionesMembresias";
 			this->Load += gcnew System::EventHandler(this, &InstruccionesMembresias::InstruccionesMembresias_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			this->ResumeLayout(false);
@@ -398,5 +488,20 @@ namespace WeatherStationView {
 		pointsperDay = triviaForm->GetPoints
 		*/
 	}
-	};
+	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+		if (ValidateECTextBox()) DollarsTextBox->Text =  (Double::Parse(ECtextBox->Text) * factor).ToString();
+	}
+		   int ValidateECTextBox() {
+			   double ec;
+			   if (Double::TryParse(ECtextBox->Text, ec)) {
+				   if ((ec > 0) && (ec < 1000)) {
+					   return 1;
+				   }
+			   }
+			   return 0;
+		   }
+private: System::Void CerrarBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+};
 }

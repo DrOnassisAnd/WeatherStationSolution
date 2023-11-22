@@ -634,7 +634,7 @@ private: System::Windows::Forms::Button^ button6;
 #pragma endregion
 	private: System::Void BasicForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		//INICIO 
-		IdSensor == "1";
+		IdSensor = "1";
 
 		
 		//se abre el formulario de registro
@@ -672,11 +672,12 @@ private: System::Windows::Forms::Button^ button6;
 		if (fechaUltimaAct1 < fechaRef) {
 			
 				user->PuntosDiarios = 0;
-
-
-
-				
+				PuntosDiariosLabel->Text = (user->PuntosDiarios).ToString();
+				Controller::Controller::UpdateUser(user);				
 			}
+		else {
+			PuntosDiariosLabel->Text = (user->PuntosDiarios).ToString();
+		}
 
 
 		if (user->ajustes->FormatoHoras == "Formato de 12 horas") {
@@ -693,9 +694,8 @@ private: System::Windows::Forms::Button^ button6;
 		//timer
 		timer1->Start();
 		timer2->Start();
-		TransmisionDataArduino();
-		Controller::Controller::UpdateUser(user);
-		PuntosDiariosLabel->Text = (user->PuntosDiarios).ToString();
+		//TransmisionDataArduino();
+		
 
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -728,18 +728,12 @@ private: System::Windows::Forms::Button^ button6;
 		membresiaGlobal = membform->GetMembresia();
 	*/	
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	//MessageBox::Show("Obten una membresía para mejorar tu impacto ambiental. Gana ECOCOINS respondiendo la trivia o adquiérelos para avanzar más rápido. ¡20 ecocoins equivalen a 1 dólar! Tu contribución cuenta. ¡Comencemos!");
 	InstruccionesMembresias^ membform = gcnew InstruccionesMembresias();
-	//membform->ControlBox = false;
+	membform->ControlBox = false;
 	membform->ShowDialog();
 
-	//membresiaGlobal = membform->GetMembresia();
-
-
-		RefreshMembresia();
-
-	}
-
+	//RefreshMembresia();
+}
 		   void RefreshMembresia() {
 			   user->membresia = membresiaGlobal;
 			   this->label10->Text = user->membresia->TipoMembresia;
@@ -825,10 +819,6 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		   }
 
 		   void TransmisionDataArduino() {
-
-			   /*
-			   8-11 23:44 intentando explicar posible implementacion a datos simultaneos para cuatro ubi geos
-			   */
 
 			   //Recopilacion de datos de ARDUINO 1 ("CIA")
 
@@ -1095,11 +1085,6 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 				   textBox4->Text = aq_tinkuy.ToString();
 				   textBox5->Text = co_tinkuy.ToString();
 			   }
-
-
-
-			   
-
 		   }
 	private: System::Void timer_tick(System::Object^ sender, System::EventArgs^ e) { //cada minuto
 
@@ -1136,19 +1121,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 			Application::Exit();
 		}
 	}
-		   double RandomGaussian(Random^ rand) {
-			   // Genera dos números aleatorios uniformes en el intervalo (0, 1]
-			   double u1 = 1.0 - rand->NextDouble();
-			   double u2 = 1.0 - rand->NextDouble();
 
-			   // Aplica la transformación de Box-Muller
-			   double z = sqrt(-2.0 * log(u1)) * cos(2.0 * Math::PI * u2);
-
-			   return z;
-		   }
-		   double MapToRange(double value, double fromLow, double fromHigh, double toLow, double toHigh) {
-			   return toLow + (toHigh - toLow) * (value - fromLow) / (fromHigh - fromLow);
-		   }
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		if (user->membresia->TipoMembresia == "Basic") {
@@ -1161,6 +1134,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		}
 		else {
 			NewPie^ pieform = gcnew NewPie();
+			pieform->ControlBox = false;
 			pieform->ShowDialog();
 		}
 
@@ -1170,6 +1144,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		if (user->PuntosDiarios < maxpoints) {
 			//Paso de Parametros
 			TriviaForm^ triviaForm = gcnew TriviaForm(user);
+			triviaForm->ControlBox = false;
 			triviaForm->ShowDialog();
 			user = triviaForm->GetUser();
 			Controller::Controller::UpdateUser(user);
@@ -1184,8 +1159,8 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
 private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
-	TablaRankingForm^ tabraform = gcnew TablaRankingForm();
-	tabraform->ShowDialog();
+	TablaRankingForm^ rankingform = gcnew TablaRankingForm(user);
+	rankingform->ShowDialog();
 
 }
 };

@@ -19,9 +19,10 @@ namespace WeatherStationView {
 	public ref class TablaRankingForm : public System::Windows::Forms::Form
 	{
 	public:
-		TablaRankingForm(void)
+		TablaRankingForm(User^ U)
 		{
 			InitializeComponent();
+			this->user = U;
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -43,6 +44,15 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Posición;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Usuario;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ PuntosConseguidos;
+
+	private: User^ user;
+	private: Color sombreado1 = Color::Gold;
+	private: Color sombreado2 = Color::DarkGray;
+	private: Color sombreado3 = Color::Goldenrod;
+	private: Color sombreadoUserNormal = Color::LightBlue;
+	private: Color sombreadoUser1 = BlanquearColores(sombreado1);
+	private: Color sombreadoUser2 = BlanquearColores(sombreado2);
+	private: Color sombreadoUser3 = BlanquearColores(sombreado3);
 	protected:
 
 	private:
@@ -90,7 +100,6 @@ namespace WeatherStationView {
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->Size = System::Drawing::Size(719, 347);
 			this->dataGridView1->TabIndex = 1;
-			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &TablaRankingForm::dataGridView1_CellContentClick);
 			// 
 			// Posición
 			// 
@@ -129,11 +138,54 @@ namespace WeatherStationView {
 
 		}
 #pragma endregion
-	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	}
+
 private: System::Void TablaRankingForm_Load(System::Object^ sender, System::EventArgs^ e) {
 
 	MostrarRanking();
+
+	String^ Name = user->Name;
+
+	for (int i = 0; i < (dataGridView1->Rows->Count-1); i++)
+	{
+		if (i == 0) // Sombrear las tres primeras filas
+		{
+			dataGridView1->Rows[i]->DefaultCellStyle->BackColor = sombreado1;
+		}
+		else if (i == 1) 
+		{
+			dataGridView1->Rows[i]->DefaultCellStyle->BackColor = sombreado2;
+		}
+		if (i == 2) 
+		{
+			dataGridView1->Rows[i]->DefaultCellStyle->BackColor = sombreado3;
+		}
+
+		// Obtener el nombre de la persona en la fila actual
+		String^ nombredgv = (dataGridView1->Rows[i]->Cells["Usuario"]->Value)->ToString();
+
+		if (nombredgv == Name) // Sombrear la fila del usuario actual
+		{	
+			if (i == 0) // Sombrear las tres primeras filas
+			{
+				dataGridView1->Rows[i]->DefaultCellStyle->BackColor = sombreadoUser1;
+			}
+			else if (i == 1)
+			{
+				dataGridView1->Rows[i]->DefaultCellStyle->BackColor = sombreadoUser2;
+			}
+			if (i == 2)
+			{
+				dataGridView1->Rows[i]->DefaultCellStyle->BackColor = sombreadoUser3;
+			}
+			else if (i >= 3) // Si no está entre las tres primeras filas ni es el usuario actual
+			{
+				dataGridView1->Rows[i]->DefaultCellStyle->BackColor = sombreadoUserNormal;
+			}
+		}
+		
+	}
+	
+
 
 
 
@@ -170,14 +222,23 @@ private: System::Void TablaRankingForm_Load(System::Object^ sender, System::Even
 		   }
 	   }
 
+	   Color BlanquearColores(Color color) {
 
+		   // Obtener los componentes RGB del color dorado
+		   int red = color.R;
+		   int green = color.G;
+		   int blue = color.B;
 
+		   // Aumentar el brillo del color dorado (haciendo el color más claro)
+		   red = Math::Min(255, (int)(red * 2)); // Aumentar el valor de rojo
+		   green = Math::Min(255, (int)(green * 2)); // Aumentar el valor de verde
+		   blue = Math::Min(255, (int)(blue * 2)); // Aumentar el valor de azul
 
+		   // Crear un nuevo color con los valores ajustados
+		   Color colorClaro = Color::FromArgb(red, green, blue);
 
+		   return colorClaro;
 
-
-
-
-
+	   }
 };
 }
