@@ -32,6 +32,7 @@
     <ClCompile Include="TriviaForm.cpp" />
     <ClCompile Include="BancoTarjetas.cpp" />
     <ClCompile Include="TablaRankingForm.cpp" />
+    <ClCompile Include="InstruccionesMembresias.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MembresiaForm.h" />
@@ -66,6 +67,7 @@
     <ClInclude Include="TriviaForm.h" />
     <ClInclude Include="BancoTarjetas.h" />
     <ClInclude Include="TablaRankingForm.h" />
+    <ClInclude Include="InstruccionesMembresias.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WeatherStationView.rc" />

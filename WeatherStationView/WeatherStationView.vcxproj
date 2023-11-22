@@ -134,6 +134,7 @@
     <ClCompile Include="EstadisticaForm2.cpp" />
     <ClCompile Include="GraficosPuntosForm.cpp" />
     <ClCompile Include="HumedadReporteForm.cpp" />
+    <ClCompile Include="InstruccionesMembresias.cpp" />
     <ClCompile Include="MembershipMaintenanceForm.cpp" />
     <ClCompile Include="MembresiaForm.cpp" />
     <ClCompile Include="NewPie.cpp" />
@@ -183,6 +184,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="HumedadReporteForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="InstruccionesMembresias.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MembershipMaintenanceForm.h">
