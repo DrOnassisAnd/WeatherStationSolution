@@ -378,22 +378,22 @@ private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArg
 private: System::Void pictureBox1_LoadCompleted(System::Object^ sender, System::ComponentModel::AsyncCompletedEventArgs^ e) {
 	pictureBox1->Image = Image::FromFile("ECOCOIN.png");
 }
-private: System::Void InstruccionesMembresiasLoad(System::Object^ sender, System::EventArgs^ e) {
 
-}
 private: System::Void InstruccionesMembresias_Load(System::Object^ sender, System::EventArgs^ e) {
 	pictureBox1->Image = Image::FromFile("ECOCOIN.png");
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone);
+	/*PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone);
 	payform->ControlBox = true;
 	payform->ShowDialog();
 	isRegisterDone = 1;
+	*/
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	TriviaForm^ triviaForm = gcnew TriviaForm(pointsperDay);
+	/*TriviaForm^ triviaForm = gcnew TriviaForm(pointsperDay);
 	triviaForm->ShowDialog();
-	pointsperDay = triviaForm->GetPoints();
+	pointsperDay = triviaForm->GetPoints
+	*/
 }
 };
 }
