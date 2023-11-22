@@ -114,6 +114,10 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Label^ label7;
 
 
 
@@ -157,6 +161,10 @@ namespace WeatherStationView {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbImage))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbUser))->BeginInit();
@@ -242,12 +250,12 @@ namespace WeatherStationView {
 			// 
 			// btnLogOut
 			// 
-			this->btnLogOut->BackColor = System::Drawing::Color::Black;
+			this->btnLogOut->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->btnLogOut->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnLogOut->ForeColor = System::Drawing::Color::White;
-			this->btnLogOut->Location = System::Drawing::Point(1012, 407);
-			this->btnLogOut->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnLogOut->ForeColor = System::Drawing::Color::Aqua;
+			this->btnLogOut->Location = System::Drawing::Point(1015, 610);
+			this->btnLogOut->Margin = System::Windows::Forms::Padding(4);
 			this->btnLogOut->Name = L"btnLogOut";
 			this->btnLogOut->Size = System::Drawing::Size(133, 55);
 			this->btnLogOut->TabIndex = 1;
@@ -261,10 +269,10 @@ namespace WeatherStationView {
 			this->btnUser->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnUser->ForeColor = System::Drawing::Color::White;
-			this->btnUser->Location = System::Drawing::Point(501, 42);
-			this->btnUser->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnUser->Location = System::Drawing::Point(441, 115);
+			this->btnUser->Margin = System::Windows::Forms::Padding(4);
 			this->btnUser->Name = L"btnUser";
-			this->btnUser->Size = System::Drawing::Size(180, 103);
+			this->btnUser->Size = System::Drawing::Size(148, 52);
 			this->btnUser->TabIndex = 2;
 			this->btnUser->Text = L"Usuario";
 			this->btnUser->UseVisualStyleBackColor = false;
@@ -276,12 +284,12 @@ namespace WeatherStationView {
 			this->btnUserReport->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnUserReport->ForeColor = System::Drawing::Color::White;
-			this->btnUserReport->Location = System::Drawing::Point(501, 206);
-			this->btnUserReport->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnUserReport->Location = System::Drawing::Point(441, 237);
+			this->btnUserReport->Margin = System::Windows::Forms::Padding(4);
 			this->btnUserReport->Name = L"btnUserReport";
-			this->btnUserReport->Size = System::Drawing::Size(180, 103);
+			this->btnUserReport->Size = System::Drawing::Size(180, 48);
 			this->btnUserReport->TabIndex = 3;
-			this->btnUserReport->Text = L"Reporte Usurario";
+			this->btnUserReport->Text = L"Reporte Usuario";
 			this->btnUserReport->UseVisualStyleBackColor = false;
 			this->btnUserReport->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::btnUserReport_Click);
 			// 
@@ -291,10 +299,10 @@ namespace WeatherStationView {
 			this->btnSensors->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnSensors->ForeColor = System::Drawing::Color::White;
-			this->btnSensors->Location = System::Drawing::Point(501, 359);
-			this->btnSensors->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnSensors->Location = System::Drawing::Point(441, 395);
+			this->btnSensors->Margin = System::Windows::Forms::Padding(4);
 			this->btnSensors->Name = L"btnSensors";
-			this->btnSensors->Size = System::Drawing::Size(180, 103);
+			this->btnSensors->Size = System::Drawing::Size(167, 55);
 			this->btnSensors->TabIndex = 4;
 			this->btnSensors->Text = L"Sensores";
 			this->btnSensors->UseVisualStyleBackColor = false;
@@ -303,7 +311,7 @@ namespace WeatherStationView {
 			// pbImage
 			// 
 			this->pbImage->Location = System::Drawing::Point(103, 237);
-			this->pbImage->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->pbImage->Margin = System::Windows::Forms::Padding(4);
 			this->pbImage->Name = L"pbImage";
 			this->pbImage->Size = System::Drawing::Size(201, 183);
 			this->pbImage->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -313,8 +321,8 @@ namespace WeatherStationView {
 			// 
 			// pbUser
 			// 
-			this->pbUser->Location = System::Drawing::Point(769, 42);
-			this->pbUser->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->pbUser->Location = System::Drawing::Point(908, 75);
+			this->pbUser->Margin = System::Windows::Forms::Padding(4);
 			this->pbUser->Name = L"pbUser";
 			this->pbUser->Size = System::Drawing::Size(109, 103);
 			this->pbUser->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -323,8 +331,8 @@ namespace WeatherStationView {
 			// 
 			// pbReport
 			// 
-			this->pbReport->Location = System::Drawing::Point(769, 206);
-			this->pbReport->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->pbReport->Location = System::Drawing::Point(908, 211);
+			this->pbReport->Margin = System::Windows::Forms::Padding(4);
 			this->pbReport->Name = L"pbReport";
 			this->pbReport->Size = System::Drawing::Size(109, 103);
 			this->pbReport->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -333,8 +341,8 @@ namespace WeatherStationView {
 			// 
 			// pbSensors
 			// 
-			this->pbSensors->Location = System::Drawing::Point(769, 359);
-			this->pbSensors->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->pbSensors->Location = System::Drawing::Point(908, 359);
+			this->pbSensors->Margin = System::Windows::Forms::Padding(4);
 			this->pbSensors->Name = L"pbSensors";
 			this->pbSensors->Size = System::Drawing::Size(109, 91);
 			this->pbSensors->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -344,10 +352,10 @@ namespace WeatherStationView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->BackColor = System::Drawing::SystemColors::WindowText;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::Color::Black;
+			this->label1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->label1->Location = System::Drawing::Point(7, 30);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
@@ -358,10 +366,10 @@ namespace WeatherStationView {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->BackColor = System::Drawing::Color::Transparent;
+			this->label2->BackColor = System::Drawing::SystemColors::WindowText;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::Black;
+			this->label2->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->label2->Location = System::Drawing::Point(113, 75);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
@@ -372,10 +380,10 @@ namespace WeatherStationView {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->BackColor = System::Drawing::Color::Transparent;
+			this->label3->BackColor = System::Drawing::SystemColors::WindowText;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->ForeColor = System::Drawing::Color::Black;
+			this->label3->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->label3->Location = System::Drawing::Point(240, 121);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
@@ -383,12 +391,68 @@ namespace WeatherStationView {
 			this->label3->TabIndex = 11;
 			this->label3->Text = L"Admin";
 			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->ForeColor = System::Drawing::Color::Aqua;
+			this->label4->Location = System::Drawing::Point(379, 9);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(304, 22);
+			this->label4->TabIndex = 12;
+			this->label4->Text = L"Realice el Mantenimiento que desee:";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->ForeColor = System::Drawing::Color::Aqua;
+			this->label5->Location = System::Drawing::Point(390, 75);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(448, 22);
+			this->label5->TabIndex = 13;
+			this->label5->Text = L"Accede a la base de Datos de los usuario Registrados:";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label6->ForeColor = System::Drawing::Color::Aqua;
+			this->label6->Location = System::Drawing::Point(398, 211);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(343, 22);
+			this->label6->TabIndex = 14;
+			this->label6->Text = L"Filtre los Usuario de acuerdo a su criterio:";
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label7->ForeColor = System::Drawing::Color::Aqua;
+			this->label7->Location = System::Drawing::Point(398, 359);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(432, 22);
+			this->label7->TabIndex = 15;
+			this->label7->Text = L"Accede a una Base de Datos de los datos sensados:";
+			// 
 			// WeatherStationFormAdmin
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::Info;
-			this->ClientSize = System::Drawing::Size(1161, 494);
+			this->BackColor = System::Drawing::Color::Cyan;
+			this->ClientSize = System::Drawing::Size(1161, 667);
+			this->Controls->Add(this->label7);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
@@ -402,7 +466,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->btnLogOut);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"WeatherStationFormAdmin";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"WeatherStationFormAdmin";
@@ -419,6 +483,7 @@ namespace WeatherStationView {
 		}
 #pragma endregion
 	private: System::Void WeatherStationFormAdmin_Load(System::Object^ sender, System::EventArgs^ e) {
+
 
 		pbImage->Image = Image::FromFile("LogoReporte.png");
 		pbUser->Image = Image::FromFile("User.png");
