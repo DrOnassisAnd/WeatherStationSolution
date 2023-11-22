@@ -1,3 +1,7 @@
+
+
+
+
 #pragma once
 #include "RegisterForm.h"
 //#include "Config.h"
@@ -93,22 +97,22 @@ namespace WeatherStationView {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(WeatherStationForm::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			this->panel2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -116,7 +120,7 @@ namespace WeatherStationView {
 			// 
 			// panel1
 			// 
-			this->panel1->BackColor = System::Drawing::SystemColors::Desktop;
+			this->panel1->BackColor = System::Drawing::Color::Cyan;
 			this->panel1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->panel1->Controls->Add(this->label9);
 			this->panel1->Controls->Add(this->label6);
@@ -130,12 +134,51 @@ namespace WeatherStationView {
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Right;
 			this->panel1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->panel1->ForeColor = System::Drawing::Color::SkyBlue;
-			this->panel1->Location = System::Drawing::Point(350, 0);
+			this->panel1->ForeColor = System::Drawing::Color::AntiqueWhite;
+			this->panel1->Location = System::Drawing::Point(387, 0);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(560, 555);
+			this->panel1->Size = System::Drawing::Size(641, 555);
 			this->panel1->TabIndex = 0;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &WeatherStationForm::panel1_Paint);
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->BackColor = System::Drawing::Color::Aqua;
+			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label9->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label9->Location = System::Drawing::Point(40, 23);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(579, 25);
+			this->label9->TabIndex = 9;
+			this->label9->Text = L"\"La estación meteorológica que conecta tu mundo con el entorno\"";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->BackColor = System::Drawing::Color::Aqua;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label6->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label6->Location = System::Drawing::Point(288, 262);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(103, 29);
+			this->label6->TabIndex = 1;
+			this->label6->Text = L"Usuario";
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->BackColor = System::Drawing::Color::Aqua;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label7->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label7->Location = System::Drawing::Point(288, 353);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(124, 25);
+			this->label7->TabIndex = 7;
+			this->label7->Text = L"Contraseña";
 			// 
 			// button3
 			// 
@@ -143,50 +186,36 @@ namespace WeatherStationView {
 			this->button3->FlatAppearance->BorderSize = 0;
 			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button3->ForeColor = System::Drawing::Color::Turquoise;
-			this->button3->Location = System::Drawing::Point(439, 515);
+			this->button3->ForeColor = System::Drawing::Color::Cyan;
+			this->button3->Location = System::Drawing::Point(517, 510);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(109, 28);
+			this->button3->Size = System::Drawing::Size(112, 33);
 			this->button3->TabIndex = 8;
 			this->button3->Text = L"Exit";
 			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &WeatherStationForm::button3_Click);
 			// 
-			// button2
+			// textBox1
 			// 
-			this->button2->BackColor = System::Drawing::Color::Black;
-			this->button2->FlatAppearance->BorderSize = 0;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox1->BackColor = System::Drawing::Color::Black;
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button2->ForeColor = System::Drawing::Color::Turquoise;
-			this->button2->Location = System::Drawing::Point(183, 433);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(194, 43);
-			this->button2->TabIndex = 4;
-			this->button2->Text = L"Sign In";
-			this->button2->UseVisualStyleBackColor = false;
-			this->button2->Click += gcnew System::EventHandler(this, &WeatherStationForm::otherclick);
-			// 
-			// label7
-			// 
-			this->label7->AutoSize = true;
-			this->label7->BackColor = System::Drawing::SystemColors::Desktop;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label7->ForeColor = System::Drawing::Color::Turquoise;
-			this->label7->Location = System::Drawing::Point(133, 366);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(92, 20);
-			this->label7->TabIndex = 7;
-			this->label7->Text = L"Contraseña";
+			this->textBox1->ForeColor = System::Drawing::Color::Aqua;
+			this->textBox1->Location = System::Drawing::Point(268, 294);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(153, 34);
+			this->textBox1->TabIndex = 0;
+			this->textBox1->Text = L"Username";
+			this->textBox1->Click += gcnew System::EventHandler(this, &WeatherStationForm::textBox1_Click);
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &WeatherStationForm::textBox1_TextChanged);
 			// 
 			// textBox2
 			// 
-			this->textBox2->BackColor = System::Drawing::SystemColors::InfoText;
-			this->textBox2->ForeColor = System::Drawing::Color::Turquoise;
-			this->textBox2->Location = System::Drawing::Point(254, 368);
+			this->textBox2->BackColor = System::Drawing::Color::Black;
+			this->textBox2->ForeColor = System::Drawing::Color::Aqua;
+			this->textBox2->Location = System::Drawing::Point(280, 381);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(141, 29);
+			this->textBox2->Size = System::Drawing::Size(141, 34);
 			this->textBox2->TabIndex = 1;
 			this->textBox2->Text = L"Password";
 			this->textBox2->UseSystemPasswordChar = true;
@@ -194,54 +223,44 @@ namespace WeatherStationView {
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &WeatherStationForm::textBox2_TextChanged);
 			this->textBox2->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &WeatherStationForm::TextBox_KeyDown);
 			// 
-			// label6
+			// button2
 			// 
-			this->label6->AutoSize = true;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button2->BackColor = System::Drawing::Color::Black;
+			this->button2->FlatAppearance->BorderSize = 0;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->ForeColor = System::Drawing::Color::Turquoise;
-			this->label6->Location = System::Drawing::Point(133, 304);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(74, 24);
-			this->label6->TabIndex = 1;
-			this->label6->Text = L"Usuario";
-			// 
-			// textBox1
-			// 
-			this->textBox1->BackColor = System::Drawing::SystemColors::InfoText;
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox1->ForeColor = System::Drawing::Color::Turquoise;
-			this->textBox1->Location = System::Drawing::Point(254, 309);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(153, 29);
-			this->textBox1->TabIndex = 0;
-			this->textBox1->Text = L"Username";
-			this->textBox1->Click += gcnew System::EventHandler(this, &WeatherStationForm::textBox1_Click);
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &WeatherStationForm::textBox1_TextChanged);
+			this->button2->ForeColor = System::Drawing::Color::DarkTurquoise;
+			this->button2->Location = System::Drawing::Point(220, 454);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(246, 49);
+			this->button2->TabIndex = 4;
+			this->button2->Text = L"Sign In";
+			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &WeatherStationForm::otherclick);
 			// 
 			// label5
 			// 
-			this->label5->BackColor = System::Drawing::Color::Transparent;
-			this->label5->ForeColor = System::Drawing::Color::Turquoise;
-			this->label5->Location = System::Drawing::Point(59, 182);
+			this->label5->BackColor = System::Drawing::Color::Aqua;
+			this->label5->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label5->Location = System::Drawing::Point(104, 180);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(515, 64);
 			this->label5->TabIndex = 4;
-			this->label5->Text = L"Sign in to your account so you can have access to the meteorological data";
+			this->label5->Text = L"Inicia sesión en tu cuenta para que puedas \r\ntener acceso a los datos meteorológi"
+				L"cos";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->BackColor = System::Drawing::Color::Transparent;
+			this->label4->BackColor = System::Drawing::Color::Black;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->ForeColor = System::Drawing::Color::Turquoise;
-			this->label4->Location = System::Drawing::Point(237, 120);
+			this->label4->ForeColor = System::Drawing::Color::Aqua;
+			this->label4->Location = System::Drawing::Point(206, 105);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(123, 37);
+			this->label4->Size = System::Drawing::Size(260, 46);
 			this->label4->TabIndex = 4;
-			this->label4->Text = L"Sign In";
+			this->label4->Text = L"Inicia Sesión";
 			this->label4->Click += gcnew System::EventHandler(this, &WeatherStationForm::label4_Click_1);
 			// 
 			// panel2
@@ -258,9 +277,22 @@ namespace WeatherStationView {
 			this->panel2->ForeColor = System::Drawing::Color::Violet;
 			this->panel2->Location = System::Drawing::Point(0, 0);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(350, 555);
+			this->panel2->Size = System::Drawing::Size(387, 555);
 			this->panel2->TabIndex = 1;
 			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &WeatherStationForm::panel2_Paint);
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label8->ForeColor = System::Drawing::Color::Cyan;
+			this->label8->Location = System::Drawing::Point(12, 381);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(350, 50);
+			this->label8->TabIndex = 8;
+			this->label8->Text = L"\"Tu ventana al clima: precisión y datos \r\n            en la palma de tu mano.\"\r\n";
+			this->label8->Click += gcnew System::EventHandler(this, &WeatherStationForm::label8_Click);
 			// 
 			// pictureBox1
 			// 
@@ -279,7 +311,7 @@ namespace WeatherStationView {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::Turquoise;
-			this->button1->Location = System::Drawing::Point(94, 478);
+			this->button1->Location = System::Drawing::Point(115, 499);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(133, 44);
 			this->button1->TabIndex = 3;
@@ -294,9 +326,9 @@ namespace WeatherStationView {
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::Turquoise;
-			this->label3->Location = System::Drawing::Point(112, 449);
+			this->label3->Location = System::Drawing::Point(121, 440);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(100, 17);
+			this->label3->Size = System::Drawing::Size(116, 20);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"No Account\?";
 			// 
@@ -310,7 +342,7 @@ namespace WeatherStationView {
 			this->label2->ForeColor = System::Drawing::Color::Turquoise;
 			this->label2->Location = System::Drawing::Point(179, 62);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(126, 39);
+			this->label2->Size = System::Drawing::Size(154, 48);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Station";
 			// 
@@ -324,39 +356,15 @@ namespace WeatherStationView {
 			this->label1->ForeColor = System::Drawing::Color::Turquoise;
 			this->label1->Location = System::Drawing::Point(26, 23);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(147, 39);
+			this->label1->Size = System::Drawing::Size(179, 48);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Weather";
 			// 
-			// label8
-			// 
-			this->label8->AutoSize = true;
-			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label8->ForeColor = System::Drawing::Color::Cyan;
-			this->label8->Location = System::Drawing::Point(19, 388);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(280, 40);
-			this->label8->TabIndex = 8;
-			this->label8->Text = L"\"Tu ventana al clima: precisión y datos \r\n            en la palma de tu mano.\"\r\n";
-			// 
-			// label9
-			// 
-			this->label9->AutoSize = true;
-			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label9->ForeColor = System::Drawing::Color::Cyan;
-			this->label9->Location = System::Drawing::Point(59, 42);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(475, 20);
-			this->label9->TabIndex = 9;
-			this->label9->Text = L"\"La estación meteorológica que conecta tu mundo con el entorno\"";
-			// 
 			// WeatherStationForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(910, 555);
+			this->ClientSize = System::Drawing::Size(1028, 555);
 			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->panel1);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -496,6 +504,8 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void label4_Click_1(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label8_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
