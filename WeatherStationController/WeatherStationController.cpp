@@ -195,7 +195,7 @@ void Controller::Controller::UpdateErrorWarning(AlertaError^ alertaError) {
 void Controller::Controller::OpenPort() {
 	try {
 		ArduinoPort = gcnew SerialPort();
-		ArduinoPort->PortName = "COM3";
+		ArduinoPort->PortName = "COM5";
 		ArduinoPort->BaudRate = 9600;
 		ArduinoPort->Open();
 	}
@@ -214,7 +214,7 @@ void Controller::Controller::ClosePort() {
 }
 
 String^ Controller::Controller::SendSensorsData() {
-	
+
 	try {
 
 		OpenPort();
@@ -255,6 +255,9 @@ List<Ambiente^>^ Controller::Controller::QueryAmbienteData() {
 Ambiente^ Controller::Controller::QueryAmbienteDatabyId(int IdMedicion) {
 	return WeatherStationPersistance::Persistance::QueryAmbienteDatabyId(IdMedicion);
 }
+Ambiente^ Controller::Controller::QueryLastUbiGeoData(String^ ubigeo) {
+	return WeatherStationPersistance::Persistance::QueryLastUbiGeoData(ubigeo);
+}
 
 void Controller::Controller::UpdateAmbienteData(Ambiente^ sensorData) {
 	WeatherStationPersistance::Persistance::UpdateAmbienteData(sensorData);
@@ -264,9 +267,11 @@ void Controller::Controller::DeleteAmbienteData(int IdMedicion) {
 	WeatherStationPersistance::Persistance::DeleteAmbienteData(IdMedicion);
 }
 
+
+
 List<int>^ Controller::Controller::GetTempfromAmbiente(List<Ambiente^>^ sensordata) {
-	List<int>^ tempdata =  gcnew List<int>();
-	for each (Ambiente^ dato in sensordata) {
+	List<int>^ tempdata = gcnew List<int>();
+	for each (Ambiente ^ dato in sensordata) {
 		int temp = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Temperatura;
 		tempdata->Add(temp);
 	}
@@ -275,7 +280,7 @@ List<int>^ Controller::Controller::GetTempfromAmbiente(List<Ambiente^>^ sensorda
 
 List<int>^ Controller::Controller::GetHumfromAmbiente(List<Ambiente^>^ sensordata) {
 	List<int>^ humdata = gcnew List<int>();
-	for each (Ambiente^ dato in sensordata) {
+	for each (Ambiente ^ dato in sensordata) {
 		int hum = dynamic_cast<SensorTemperaturaHumedad^>(dato->DataBase[0])->Humedad;
 		humdata->Add(hum);
 	}
@@ -284,7 +289,7 @@ List<int>^ Controller::Controller::GetHumfromAmbiente(List<Ambiente^>^ sensordat
 
 List<int>^ Controller::Controller::GetCOfromAmbiente(List<Ambiente^>^ sensordata) {
 	List<int>^ COdata = gcnew List<int>();
-	for each (Ambiente^ dato in sensordata) {
+	for each (Ambiente ^ dato in sensordata) {
 		int CO = dynamic_cast<SensorCO^>(dato->DataBase[1])->NivelCO;
 		COdata->Add(CO);
 	}
@@ -293,7 +298,7 @@ List<int>^ Controller::Controller::GetCOfromAmbiente(List<Ambiente^>^ sensordata
 
 List<int>^ Controller::Controller::GetAirQfromAmbiente(List<Ambiente^>^ sensordata) {
 	List<int>^ airqdata = gcnew List<int>();
-	for each (Ambiente^ dato in sensordata) {
+	for each (Ambiente ^ dato in sensordata) {
 		int airq = dynamic_cast<SensorCalidadAire^>(dato->DataBase[2])->CalidadAire;
 		airqdata->Add(airq);
 	}
@@ -302,7 +307,7 @@ List<int>^ Controller::Controller::GetAirQfromAmbiente(List<Ambiente^>^ sensorda
 
 List<String^>^ Controller::Controller::GetDateTimefromAmbiente(List<Ambiente^>^ sensordata) {
 	List<String^>^ datetimedata = gcnew List<String^>();
-	for each (Ambiente^ dato in sensordata) {
+	for each (Ambiente ^ dato in sensordata) {
 		String^ date = dato->FechaMedicion;
 		String^ time = dato->TiempoMedicion;
 		DateTime dateDT = DateTime::ParseExact(date, "yyyy-MM-dd", nullptr);
@@ -366,13 +371,10 @@ List<String^>^ Controller::Controller::GetOnlyFecha(List<Ambiente^>^ sensordata)
 
 List<int>^ Controller::Controller::GetIndexfromAmbiente(List<Ambiente^>^ sensordata, String^ UbiGeo) {
 	List<int>^ indexdata = gcnew List<int>();
-	for (int i = 0; i < sensordata->Count; i++){
+	for (int i = 0; i < sensordata->Count; i++) {
 		if (sensordata[i]->UbicacionGeografica == UbiGeo) {
 			indexdata->Add(i);
-		}	
+		}
 	}
 	return indexdata;
 }
-
-
-

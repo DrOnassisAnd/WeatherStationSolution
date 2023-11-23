@@ -173,8 +173,8 @@ namespace WeatherStationView {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
-			this->menuStrip1->Size = System::Drawing::Size(871, 24);
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(1161, 30);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			this->menuStrip1->Visible = false;
@@ -183,7 +183,7 @@ namespace WeatherStationView {
 			// 
 			this->toolStripMenuItem1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->salirToolStripMenuItem });
 			this->toolStripMenuItem1->Name = L"toolStripMenuItem1";
-			this->toolStripMenuItem1->Size = System::Drawing::Size(60, 20);
+			this->toolStripMenuItem1->Size = System::Drawing::Size(73, 26);
 			this->toolStripMenuItem1->Text = L"Archivo";
 			this->toolStripMenuItem1->Visible = false;
 			this->toolStripMenuItem1->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::toolStripMenuItem1_Click);
@@ -191,7 +191,7 @@ namespace WeatherStationView {
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(96, 22);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(121, 26);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::salirToolStripMenuItem_Click);
 			// 
@@ -199,14 +199,14 @@ namespace WeatherStationView {
 			// 
 			this->userToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->userToolStripMenuItem1 });
 			this->userToolStripMenuItem->Name = L"userToolStripMenuItem";
-			this->userToolStripMenuItem->Size = System::Drawing::Size(46, 20);
+			this->userToolStripMenuItem->Size = System::Drawing::Size(56, 26);
 			this->userToolStripMenuItem->Text = L"Perfil";
 			this->userToolStripMenuItem->Visible = false;
 			// 
 			// userToolStripMenuItem1
 			// 
 			this->userToolStripMenuItem1->Name = L"userToolStripMenuItem1";
-			this->userToolStripMenuItem1->Size = System::Drawing::Size(97, 22);
+			this->userToolStripMenuItem1->Size = System::Drawing::Size(121, 26);
 			this->userToolStripMenuItem1->Text = L"User";
 			this->userToolStripMenuItem1->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::userToolStripMenuItem1_Click);
 			// 
@@ -214,14 +214,14 @@ namespace WeatherStationView {
 			// 
 			this->ambienteToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->sensorToolStripMenuItem1 });
 			this->ambienteToolStripMenuItem->Name = L"ambienteToolStripMenuItem";
-			this->ambienteToolStripMenuItem->Size = System::Drawing::Size(74, 20);
+			this->ambienteToolStripMenuItem->Size = System::Drawing::Size(92, 26);
 			this->ambienteToolStripMenuItem->Text = L"Ambiente ";
 			this->ambienteToolStripMenuItem->Visible = false;
 			// 
 			// sensorToolStripMenuItem1
 			// 
 			this->sensorToolStripMenuItem1->Name = L"sensorToolStripMenuItem1";
-			this->sensorToolStripMenuItem1->Size = System::Drawing::Size(120, 22);
+			this->sensorToolStripMenuItem1->Size = System::Drawing::Size(150, 26);
 			this->sensorToolStripMenuItem1->Text = L"Sensores";
 			this->sensorToolStripMenuItem1->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::sensorToolStripMenuItem1_Click);
 			// 
@@ -229,14 +229,14 @@ namespace WeatherStationView {
 			// 
 			this->reporteToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->reportesUsuarioToolStripMenuItem });
 			this->reporteToolStripMenuItem->Name = L"reporteToolStripMenuItem";
-			this->reporteToolStripMenuItem->Size = System::Drawing::Size(65, 20);
+			this->reporteToolStripMenuItem->Size = System::Drawing::Size(82, 26);
 			this->reporteToolStripMenuItem->Text = L"Reportes";
 			this->reporteToolStripMenuItem->Visible = false;
 			// 
 			// reportesUsuarioToolStripMenuItem
 			// 
 			this->reportesUsuarioToolStripMenuItem->Name = L"reportesUsuarioToolStripMenuItem";
-			this->reportesUsuarioToolStripMenuItem->Size = System::Drawing::Size(163, 22);
+			this->reportesUsuarioToolStripMenuItem->Size = System::Drawing::Size(205, 26);
 			this->reportesUsuarioToolStripMenuItem->Text = L"Reportes Usuario";
 			this->reportesUsuarioToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::reportesUsuarioToolStripMenuItem_Click);
 			// 
@@ -246,9 +246,10 @@ namespace WeatherStationView {
 			this->btnLogOut->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnLogOut->ForeColor = System::Drawing::Color::White;
-			this->btnLogOut->Location = System::Drawing::Point(759, 331);
+			this->btnLogOut->Location = System::Drawing::Point(1012, 407);
+			this->btnLogOut->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnLogOut->Name = L"btnLogOut";
-			this->btnLogOut->Size = System::Drawing::Size(100, 45);
+			this->btnLogOut->Size = System::Drawing::Size(133, 55);
 			this->btnLogOut->TabIndex = 1;
 			this->btnLogOut->Text = L"Log Out";
 			this->btnLogOut->UseVisualStyleBackColor = false;
@@ -260,9 +261,10 @@ namespace WeatherStationView {
 			this->btnUser->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnUser->ForeColor = System::Drawing::Color::White;
-			this->btnUser->Location = System::Drawing::Point(376, 34);
+			this->btnUser->Location = System::Drawing::Point(501, 42);
+			this->btnUser->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnUser->Name = L"btnUser";
-			this->btnUser->Size = System::Drawing::Size(135, 84);
+			this->btnUser->Size = System::Drawing::Size(180, 103);
 			this->btnUser->TabIndex = 2;
 			this->btnUser->Text = L"Usuario";
 			this->btnUser->UseVisualStyleBackColor = false;
@@ -274,9 +276,10 @@ namespace WeatherStationView {
 			this->btnUserReport->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnUserReport->ForeColor = System::Drawing::Color::White;
-			this->btnUserReport->Location = System::Drawing::Point(376, 167);
+			this->btnUserReport->Location = System::Drawing::Point(501, 206);
+			this->btnUserReport->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnUserReport->Name = L"btnUserReport";
-			this->btnUserReport->Size = System::Drawing::Size(135, 84);
+			this->btnUserReport->Size = System::Drawing::Size(180, 103);
 			this->btnUserReport->TabIndex = 3;
 			this->btnUserReport->Text = L"Reporte Usurario";
 			this->btnUserReport->UseVisualStyleBackColor = false;
@@ -288,9 +291,10 @@ namespace WeatherStationView {
 			this->btnSensors->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnSensors->ForeColor = System::Drawing::Color::White;
-			this->btnSensors->Location = System::Drawing::Point(376, 292);
+			this->btnSensors->Location = System::Drawing::Point(501, 359);
+			this->btnSensors->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnSensors->Name = L"btnSensors";
-			this->btnSensors->Size = System::Drawing::Size(135, 84);
+			this->btnSensors->Size = System::Drawing::Size(180, 103);
 			this->btnSensors->TabIndex = 4;
 			this->btnSensors->Text = L"Sensores";
 			this->btnSensors->UseVisualStyleBackColor = false;
@@ -298,9 +302,10 @@ namespace WeatherStationView {
 			// 
 			// pbImage
 			// 
-			this->pbImage->Location = System::Drawing::Point(29, 155);
+			this->pbImage->Location = System::Drawing::Point(103, 237);
+			this->pbImage->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pbImage->Name = L"pbImage";
-			this->pbImage->Size = System::Drawing::Size(264, 221);
+			this->pbImage->Size = System::Drawing::Size(201, 183);
 			this->pbImage->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pbImage->TabIndex = 5;
 			this->pbImage->TabStop = false;
@@ -308,27 +313,30 @@ namespace WeatherStationView {
 			// 
 			// pbUser
 			// 
-			this->pbUser->Location = System::Drawing::Point(577, 34);
+			this->pbUser->Location = System::Drawing::Point(769, 42);
+			this->pbUser->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pbUser->Name = L"pbUser";
-			this->pbUser->Size = System::Drawing::Size(126, 84);
+			this->pbUser->Size = System::Drawing::Size(109, 103);
 			this->pbUser->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pbUser->TabIndex = 6;
 			this->pbUser->TabStop = false;
 			// 
 			// pbReport
 			// 
-			this->pbReport->Location = System::Drawing::Point(577, 167);
+			this->pbReport->Location = System::Drawing::Point(769, 206);
+			this->pbReport->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pbReport->Name = L"pbReport";
-			this->pbReport->Size = System::Drawing::Size(126, 84);
+			this->pbReport->Size = System::Drawing::Size(109, 103);
 			this->pbReport->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pbReport->TabIndex = 7;
 			this->pbReport->TabStop = false;
 			// 
 			// pbSensors
 			// 
-			this->pbSensors->Location = System::Drawing::Point(577, 292);
+			this->pbSensors->Location = System::Drawing::Point(769, 359);
+			this->pbSensors->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->pbSensors->Name = L"pbSensors";
-			this->pbSensors->Size = System::Drawing::Size(126, 84);
+			this->pbSensors->Size = System::Drawing::Size(109, 91);
 			this->pbSensors->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pbSensors->TabIndex = 8;
 			this->pbSensors->TabStop = false;
@@ -340,9 +348,10 @@ namespace WeatherStationView {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::Black;
-			this->label1->Location = System::Drawing::Point(5, 24);
+			this->label1->Location = System::Drawing::Point(7, 30);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(145, 37);
+			this->label1->Size = System::Drawing::Size(177, 46);
 			this->label1->TabIndex = 9;
 			this->label1->Text = L"Weather";
 			// 
@@ -353,9 +362,10 @@ namespace WeatherStationView {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::Color::Black;
-			this->label2->Location = System::Drawing::Point(85, 61);
+			this->label2->Location = System::Drawing::Point(113, 75);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(124, 37);
+			this->label2->Size = System::Drawing::Size(152, 46);
 			this->label2->TabIndex = 10;
 			this->label2->Text = L"Station";
 			// 
@@ -366,18 +376,19 @@ namespace WeatherStationView {
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::Black;
-			this->label3->Location = System::Drawing::Point(180, 98);
+			this->label3->Location = System::Drawing::Point(240, 121);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(114, 37);
+			this->label3->Size = System::Drawing::Size(138, 46);
 			this->label3->TabIndex = 11;
 			this->label3->Text = L"Admin";
 			// 
 			// WeatherStationFormAdmin
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Info;
-			this->ClientSize = System::Drawing::Size(871, 401);
+			this->ClientSize = System::Drawing::Size(1161, 494);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
@@ -391,6 +402,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->btnLogOut);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"WeatherStationFormAdmin";
 			this->Text = L"WeatherStationFormAdmin";
 			this->Load += gcnew System::EventHandler(this, &WeatherStationFormAdmin::WeatherStationFormAdmin_Load);
