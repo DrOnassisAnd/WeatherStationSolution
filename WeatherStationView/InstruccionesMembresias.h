@@ -77,6 +77,8 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Button^ CerrarBtn;
 
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
 
@@ -107,60 +109,67 @@ namespace WeatherStationView {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->CerrarBtn = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label3
 			// 
-			this->label3->AutoSize = true;
-			this->label3->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
-			this->label3->Location = System::Drawing::Point(14, 48);
-			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			resources->ApplyResources(this->label3, L"label3");
+			this->label3->BackColor = System::Drawing::SystemColors::Control;
+			this->label3->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(373, 39);
-			this->label3->TabIndex = 3;
-			this->label3->Text = resources->GetString(L"label3.Text");
-			this->label3->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			this->label3->Click += gcnew System::EventHandler(this, &InstruccionesMembresias::label3_Click);
 			// 
 			// CerrarBtn
 			// 
 			this->CerrarBtn->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->CerrarBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->CerrarBtn, L"CerrarBtn");
 			this->CerrarBtn->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->CerrarBtn->Location = System::Drawing::Point(276, 99);
-			this->CerrarBtn->Margin = System::Windows::Forms::Padding(2);
 			this->CerrarBtn->Name = L"CerrarBtn";
-			this->CerrarBtn->Size = System::Drawing::Size(111, 41);
-			this->CerrarBtn->TabIndex = 50;
-			this->CerrarBtn->Text = L"Salir";
 			this->CerrarBtn->UseVisualStyleBackColor = false;
 			this->CerrarBtn->Click += gcnew System::EventHandler(this, &InstruccionesMembresias::CerrarBtn_Click);
 			// 
 			// label1
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(40, 32);
+			resources->ApplyResources(this->label1, L"label1");
+			this->label1->BackColor = System::Drawing::SystemColors::Control;
+			this->label1->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(123, 13);
-			this->label1->TabIndex = 52;
-			this->label1->Text = L"¿Qué son los EcoCoins\?";
+			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::SystemColors::Control;
+			this->panel1->Controls->Add(this->pictureBox1);
+			this->panel1->Controls->Add(this->label1);
+			this->panel1->Controls->Add(this->CerrarBtn);
+			this->panel1->Controls->Add(this->label3);
+			resources->ApplyResources(this->panel1, L"panel1");
+			this->panel1->ForeColor = System::Drawing::SystemColors::Control;
+			this->panel1->Name = L"panel1";
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackColor = System::Drawing::SystemColors::Control;
+			resources->ApplyResources(this->pictureBox1, L"pictureBox1");
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->TabStop = false;
 			// 
 			// InstruccionesMembresias
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			resources->ApplyResources(this, L"$this");
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Window;
-			this->ClientSize = System::Drawing::Size(395, 147);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->CerrarBtn);
-			this->Controls->Add(this->label3);
-			this->Margin = System::Windows::Forms::Padding(2);
+			this->Controls->Add(this->panel1);
+			this->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->Name = L"InstruccionesMembresias";
-			this->Text = L"InstruccionesMembresias";
 			this->Load += gcnew System::EventHandler(this, &InstruccionesMembresias::InstruccionesMembresias_Load);
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion

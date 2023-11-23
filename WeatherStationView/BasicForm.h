@@ -228,6 +228,7 @@ private: System::Windows::Forms::Label^ ptslabel;
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(BasicForm::typeid));
 			this->linkLabel2 = (gcnew System::Windows::Forms::LinkLabel());
 			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
@@ -276,27 +277,22 @@ private: System::Windows::Forms::Label^ ptslabel;
 			// 
 			// linkLabel2
 			// 
-			this->linkLabel2->AutoSize = true;
-			this->linkLabel2->Location = System::Drawing::Point(13, 101);
+			this->linkLabel2->ActiveLinkColor = System::Drawing::SystemColors::ActiveCaption;
+			resources->ApplyResources(this->linkLabel2, L"linkLabel2");
+			this->linkLabel2->BackColor = System::Drawing::SystemColors::Control;
+			this->linkLabel2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->linkLabel2->DisabledLinkColor = System::Drawing::Color::White;
+			this->linkLabel2->ForeColor = System::Drawing::Color::White;
 			this->linkLabel2->Name = L"linkLabel2";
-			this->linkLabel2->Size = System::Drawing::Size(183, 20);
-			this->linkLabel2->TabIndex = 36;
 			this->linkLabel2->TabStop = true;
-			this->linkLabel2->Text = L"¿Qué son los EcoCoins\?";
 			this->linkLabel2->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &BasicForm::linkLabel2_LinkClicked);
 			// 
 			// button7
 			// 
 			this->button7->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->button7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->button7, L"button7");
 			this->button7->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button7->Location = System::Drawing::Point(1066, 498);
-			this->button7->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(165, 55);
-			this->button7->TabIndex = 35;
-			this->button7->Text = L"Compra Puntos";
 			this->button7->UseVisualStyleBackColor = false;
 			this->button7->Click += gcnew System::EventHandler(this, &BasicForm::button7_Click);
 			// 
@@ -312,404 +308,245 @@ private: System::Windows::Forms::Label^ ptslabel;
 			// 
 			// label4
 			// 
-			this->label4->AutoSize = true;
-			this->label4->BackColor = System::Drawing::Color::PowderBlue;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->label4, L"label4");
+			this->label4->BackColor = System::Drawing::SystemColors::Control;
 			this->label4->ForeColor = System::Drawing::Color::Black;
-			this->label4->Location = System::Drawing::Point(558, 436);
-			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(119, 20);
-			this->label4->TabIndex = 3;
-			this->label4->Text = L"Calidad del Aire";
 			// 
 			// label1
 			// 
-			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::PowderBlue;
+			resources->ApplyResources(this->label1, L"label1");
+			this->label1->BackColor = System::Drawing::SystemColors::Control;
 			this->label1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::Black;
-			this->label1->Location = System::Drawing::Point(31, 135);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(67, 26);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"Lugar";
 			this->label1->Click += gcnew System::EventHandler(this, &BasicForm::label1_Click);
 			// 
 			// label3
 			// 
-			this->label3->AutoSize = true;
-			this->label3->BackColor = System::Drawing::Color::PowderBlue;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->label3, L"label3");
+			this->label3->BackColor = System::Drawing::SystemColors::Control;
 			this->label3->ForeColor = System::Drawing::Color::Black;
-			this->label3->Location = System::Drawing::Point(558, 361);
-			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(79, 20);
-			this->label3->TabIndex = 2;
-			this->label3->Text = L"Humedad";
 			this->label3->Click += gcnew System::EventHandler(this, &BasicForm::label3_Click);
 			// 
 			// label2
 			// 
-			this->label2->AutoSize = true;
-			this->label2->BackColor = System::Drawing::Color::PowderBlue;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->label2, L"label2");
+			this->label2->BackColor = System::Drawing::SystemColors::Control;
 			this->label2->ForeColor = System::Drawing::Color::Black;
-			this->label2->Location = System::Drawing::Point(558, 285);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(100, 20);
-			this->label2->TabIndex = 1;
-			this->label2->Text = L"Temperatura";
 			// 
 			// comboBox1
 			// 
 			this->comboBox1->BackColor = System::Drawing::SystemColors::InactiveBorder;
-			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->comboBox1, L"comboBox1");
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"CIA", L"FACI", L"BIBLIOTECA CENTRAL", L"TINKUY" });
-			this->comboBox1->Location = System::Drawing::Point(177, 135);
-			this->comboBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
+				resources->GetString(L"comboBox1.Items"), resources->GetString(L"comboBox1.Items1"),
+					resources->GetString(L"comboBox1.Items2"), resources->GetString(L"comboBox1.Items3")
+			});
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(180, 30);
-			this->comboBox1->TabIndex = 0;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &BasicForm::comboBox1_SelectedIndexChanged);
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(13, 187);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			resources->ApplyResources(this->pictureBox1, L"pictureBox1");
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(516, 361);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox1->TabIndex = 1;
 			this->pictureBox1->TabStop = false;
 			// 
 			// button3
 			// 
-			this->button3->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button3->ForeColor = System::Drawing::Color::DarkBlue;
-			this->button3->Location = System::Drawing::Point(1098, 89);
-			this->button3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->button3->BackColor = System::Drawing::SystemColors::MenuText;
+			resources->ApplyResources(this->button3, L"button3");
+			this->button3->ForeColor = System::Drawing::SystemColors::Control;
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(144, 56);
-			this->button3->TabIndex = 6;
-			this->button3->Text = L"Membresía";
 			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &BasicForm::button3_Click);
 			// 
 			// dtpWeatherStationBasic
 			// 
-			this->dtpWeatherStationBasic->CalendarFont = (gcnew System::Drawing::Font(L"Palatino Linotype", 10.2F, System::Drawing::FontStyle::Regular,
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->dtpWeatherStationBasic, L"dtpWeatherStationBasic");
 			this->dtpWeatherStationBasic->CalendarMonthBackground = System::Drawing::SystemColors::Info;
-			this->dtpWeatherStationBasic->Enabled = false;
-			this->dtpWeatherStationBasic->Location = System::Drawing::Point(666, 158);
-			this->dtpWeatherStationBasic->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->dtpWeatherStationBasic->Name = L"dtpWeatherStationBasic";
-			this->dtpWeatherStationBasic->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->dtpWeatherStationBasic->Size = System::Drawing::Size(349, 26);
-			this->dtpWeatherStationBasic->TabIndex = 4;
 			// 
 			// label5
 			// 
-			this->label5->AutoSize = true;
-			this->label5->BackColor = System::Drawing::Color::PowderBlue;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->label5, L"label5");
+			this->label5->BackColor = System::Drawing::SystemColors::Control;
 			this->label5->ForeColor = System::Drawing::Color::Black;
-			this->label5->Location = System::Drawing::Point(558, 158);
-			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(54, 20);
-			this->label5->TabIndex = 7;
-			this->label5->Text = L"Fecha";
 			// 
 			// button4
 			// 
-			this->button4->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button4->ForeColor = System::Drawing::Color::DarkBlue;
-			this->button4->Location = System::Drawing::Point(1011, 329);
-			this->button4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->button4->BackColor = System::Drawing::SystemColors::MenuText;
+			resources->ApplyResources(this->button4, L"button4");
+			this->button4->ForeColor = System::Drawing::SystemColors::Control;
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(163, 57);
-			this->button4->TabIndex = 7;
-			this->button4->Text = L"Estadística";
 			this->button4->UseVisualStyleBackColor = false;
 			this->button4->Click += gcnew System::EventHandler(this, &BasicForm::button4_Click);
 			// 
 			// label6
 			// 
-			this->label6->AutoSize = true;
-			this->label6->BackColor = System::Drawing::Color::PowderBlue;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label6->ForeColor = System::Drawing::Color::DarkBlue;
-			this->label6->Location = System::Drawing::Point(9, 4);
-			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			resources->ApplyResources(this->label6, L"label6");
+			this->label6->BackColor = System::Drawing::SystemColors::Control;
+			this->label6->ForeColor = System::Drawing::Color::Black;
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(365, 64);
-			this->label6->TabIndex = 8;
-			this->label6->Text = L"Weather Station";
 			// 
 			// label7
 			// 
-			this->label7->AutoSize = true;
-			this->label7->BackColor = System::Drawing::Color::PowderBlue;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->label7, L"label7");
+			this->label7->BackColor = System::Drawing::SystemColors::Control;
 			this->label7->ForeColor = System::Drawing::Color::Black;
-			this->label7->Location = System::Drawing::Point(558, 211);
-			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(44, 20);
-			this->label7->TabIndex = 9;
-			this->label7->Text = L"Hora";
 			// 
 			// textBox1
 			// 
 			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox1->Location = System::Drawing::Point(737, 211);
-			this->textBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			resources->ApplyResources(this->textBox1, L"textBox1");
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(110, 26);
-			this->textBox1->TabIndex = 10;
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::SystemColors::ControlLight;
+			this->button1->BackColor = System::Drawing::SystemColors::MenuText;
 			this->button1->FlatAppearance->BorderColor = System::Drawing::Color::Navy;
 			this->button1->FlatAppearance->BorderSize = 3;
 			this->button1->FlatAppearance->MouseDownBackColor = System::Drawing::Color::Navy;
 			this->button1->FlatAppearance->MouseOverBackColor = System::Drawing::Color::Navy;
-			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button1->ForeColor = System::Drawing::Color::DarkBlue;
-			this->button1->Location = System::Drawing::Point(1098, 19);
-			this->button1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			resources->ApplyResources(this->button1, L"button1");
+			this->button1->ForeColor = System::Drawing::SystemColors::Control;
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(144, 47);
-			this->button1->TabIndex = 4;
-			this->button1->Text = L"Ajustes";
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &BasicForm::button1_Click);
 			// 
 			// button2
 			// 
-			this->button2->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button2->ForeColor = System::Drawing::Color::DarkBlue;
-			this->button2->Location = System::Drawing::Point(1068, 621);
-			this->button2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->button2->BackColor = System::Drawing::SystemColors::MenuText;
+			resources->ApplyResources(this->button2, L"button2");
+			this->button2->ForeColor = System::Drawing::SystemColors::Control;
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(174, 52);
-			this->button2->TabIndex = 5;
-			this->button2->Text = L"Log Out";
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &BasicForm::button2_Click);
 			// 
 			// textBox2
 			// 
 			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox2->Location = System::Drawing::Point(737, 282);
+			resources->ApplyResources(this->textBox2, L"textBox2");
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(43, 26);
-			this->textBox2->TabIndex = 12;
 			// 
 			// textBox3
 			// 
 			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox3->Location = System::Drawing::Point(737, 361);
+			resources->ApplyResources(this->textBox3, L"textBox3");
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(43, 26);
-			this->textBox3->TabIndex = 13;
 			// 
 			// textBox4
 			// 
 			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox4->Location = System::Drawing::Point(737, 436);
+			resources->ApplyResources(this->textBox4, L"textBox4");
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(43, 26);
-			this->textBox4->TabIndex = 14;
 			// 
 			// label12
 			// 
-			this->label12->AutoSize = true;
-			this->label12->BackColor = System::Drawing::Color::PowderBlue;
-			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->label12, L"label12");
+			this->label12->BackColor = System::Drawing::SystemColors::Control;
 			this->label12->ForeColor = System::Drawing::Color::Black;
-			this->label12->Location = System::Drawing::Point(558, 511);
-			this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(139, 20);
-			this->label12->TabIndex = 21;
-			this->label12->Text = L"Concentracion CO";
 			// 
 			// textBox5
 			// 
 			this->textBox5->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox5->Location = System::Drawing::Point(737, 512);
+			resources->ApplyResources(this->textBox5, L"textBox5");
 			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(43, 26);
-			this->textBox5->TabIndex = 22;
 			// 
 			// label10
 			// 
-			this->label10->AutoSize = true;
-			this->label10->BackColor = System::Drawing::Color::PowderBlue;
-			this->label10->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label10->ForeColor = System::Drawing::Color::DarkBlue;
-			this->label10->Location = System::Drawing::Point(383, 4);
+			resources->ApplyResources(this->label10, L"label10");
+			this->label10->BackColor = System::Drawing::SystemColors::Control;
+			this->label10->ForeColor = System::Drawing::Color::Black;
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(177, 64);
-			this->label10->TabIndex = 23;
-			this->label10->Text = L"label10";
 			// 
 			// UnidadTemplbl
 			// 
-			this->UnidadTemplbl->AutoSize = true;
-			this->UnidadTemplbl->BackColor = System::Drawing::Color::PowderBlue;
-			this->UnidadTemplbl->ForeColor = System::Drawing::Color::Black;
-			this->UnidadTemplbl->Location = System::Drawing::Point(786, 285);
+			resources->ApplyResources(this->UnidadTemplbl, L"UnidadTemplbl");
+			this->UnidadTemplbl->BackColor = System::Drawing::SystemColors::HighlightText;
+			this->UnidadTemplbl->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->UnidadTemplbl->Name = L"UnidadTemplbl";
-			this->UnidadTemplbl->Size = System::Drawing::Size(60, 20);
-			this->UnidadTemplbl->TabIndex = 24;
-			this->UnidadTemplbl->Text = L"label11";
 			// 
 			// button5
 			// 
-			this->button5->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button5->ForeColor = System::Drawing::Color::DarkBlue;
-			this->button5->Location = System::Drawing::Point(1011, 423);
-			this->button5->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->button5->BackColor = System::Drawing::SystemColors::MenuText;
+			resources->ApplyResources(this->button5, L"button5");
+			this->button5->ForeColor = System::Drawing::SystemColors::Control;
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(165, 55);
-			this->button5->TabIndex = 25;
-			this->button5->Text = L"Más Graficos";
 			this->button5->UseVisualStyleBackColor = false;
 			this->button5->Click += gcnew System::EventHandler(this, &BasicForm::button5_Click);
 			// 
 			// TriviaBtn
 			// 
-			this->TriviaBtn->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->TriviaBtn->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->TriviaBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->TriviaBtn->ForeColor = System::Drawing::Color::DarkBlue;
-			this->TriviaBtn->Location = System::Drawing::Point(521, 616);
-			this->TriviaBtn->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->TriviaBtn->BackColor = System::Drawing::SystemColors::MenuText;
+			resources->ApplyResources(this->TriviaBtn, L"TriviaBtn");
+			this->TriviaBtn->ForeColor = System::Drawing::SystemColors::Control;
 			this->TriviaBtn->Name = L"TriviaBtn";
-			this->TriviaBtn->Size = System::Drawing::Size(212, 62);
-			this->TriviaBtn->TabIndex = 26;
-			this->TriviaBtn->Text = L"Trivia";
 			this->TriviaBtn->UseVisualStyleBackColor = false;
 			this->TriviaBtn->Click += gcnew System::EventHandler(this, &BasicForm::TriviaBtn_Click);
 			// 
 			// button6
 			// 
-			this->button6->BackColor = System::Drawing::SystemColors::ControlLight;
-			this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->button6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button6->ForeColor = System::Drawing::Color::DarkBlue;
-			this->button6->Location = System::Drawing::Point(855, 616);
-			this->button6->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->button6->BackColor = System::Drawing::SystemColors::MenuText;
+			resources->ApplyResources(this->button6, L"button6");
+			this->button6->ForeColor = System::Drawing::SystemColors::Control;
 			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(184, 62);
-			this->button6->TabIndex = 33;
-			this->button6->Text = L"Ranking";
 			this->button6->UseVisualStyleBackColor = false;
 			this->button6->Click += gcnew System::EventHandler(this, &BasicForm::button6_Click);
 			// 
 			// checkBox1
 			// 
-			this->checkBox1->AutoSize = true;
-			this->checkBox1->ForeColor = System::Drawing::SystemColors::InfoText;
-			this->checkBox1->Location = System::Drawing::Point(410, 101);
+			resources->ApplyResources(this->checkBox1, L"checkBox1");
+			this->checkBox1->BackColor = System::Drawing::SystemColors::Control;
+			this->checkBox1->ForeColor = System::Drawing::Color::Black;
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(123, 24);
-			this->checkBox1->TabIndex = 34;
-			this->checkBox1->Text = L"Modo Oscuro";
-			this->checkBox1->UseVisualStyleBackColor = true;
+			this->checkBox1->UseVisualStyleBackColor = false;
 			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &BasicForm::checkBox1_CheckedChanged);
 			// 
 			// label14
 			// 
-			this->label14->AutoSize = true;
+			resources->ApplyResources(this->label14, L"label14");
+			this->label14->BackColor = System::Drawing::SystemColors::Control;
 			this->label14->ForeColor = System::Drawing::Color::Black;
-			this->label14->Location = System::Drawing::Point(424, 576);
 			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(285, 20);
-			this->label14->TabIndex = 35;
-			this->label14->Text = L"Juega en la Trivia Diaria y Gana Puntos";
 			// 
 			// label15
 			// 
-			this->label15->AutoSize = true;
+			resources->ApplyResources(this->label15, L"label15");
+			this->label15->BackColor = System::Drawing::SystemColors::Control;
 			this->label15->ForeColor = System::Drawing::Color::Black;
-			this->label15->Location = System::Drawing::Point(857, 576);
 			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(148, 20);
-			this->label15->TabIndex = 36;
-			this->label15->Text = L"Ranking de Puntos:";
 			// 
 			// label16
 			// 
-			this->label16->AutoSize = true;
+			resources->ApplyResources(this->label16, L"label16");
+			this->label16->BackColor = System::Drawing::SystemColors::Control;
 			this->label16->ForeColor = System::Drawing::Color::Black;
-			this->label16->Location = System::Drawing::Point(949, 245);
 			this->label16->Name = L"label16";
-			this->label16->Size = System::Drawing::Size(218, 40);
-			this->label16->TabIndex = 37;
-			this->label16->Text = L"Visualiza Gráficas del clima \r\nde los ambientes de la PUCP:";
 			// 
 			// PuntosDiariosLabel
 			// 
-			this->PuntosDiariosLabel->AutoSize = true;
-			this->PuntosDiariosLabel->BackColor = System::Drawing::Color::LightCyan;
-			this->PuntosDiariosLabel->ForeColor = System::Drawing::Color::DarkBlue;
-			this->PuntosDiariosLabel->Location = System::Drawing::Point(184, 73);
+			resources->ApplyResources(this->PuntosDiariosLabel, L"PuntosDiariosLabel");
+			this->PuntosDiariosLabel->BackColor = System::Drawing::SystemColors::Control;
+			this->PuntosDiariosLabel->ForeColor = System::Drawing::Color::Black;
 			this->PuntosDiariosLabel->Name = L"PuntosDiariosLabel";
-			this->PuntosDiariosLabel->Size = System::Drawing::Size(67, 20);
-			this->PuntosDiariosLabel->TabIndex = 32;
-			this->PuntosDiariosLabel->Text = L"PdLabel";
 			// 
 			// label13
 			// 
-			this->label13->AutoSize = true;
-			this->label13->BackColor = System::Drawing::Color::LightCyan;
-			this->label13->ForeColor = System::Drawing::Color::DarkBlue;
-			this->label13->Location = System::Drawing::Point(8, 73);
+			resources->ApplyResources(this->label13, L"label13");
+			this->label13->BackColor = System::Drawing::SystemColors::Control;
+			this->label13->ForeColor = System::Drawing::Color::Black;
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(134, 20);
-			this->label13->TabIndex = 31;
-			this->label13->Text = L"EcoCoins Diarios:";
 			// 
 			// panel1
 			// 
-			this->panel1->BackColor = System::Drawing::Color::PowderBlue;
+			this->panel1->BackColor = System::Drawing::SystemColors::Control;
 			this->panel1->Controls->Add(this->panel2);
 			this->panel1->Controls->Add(this->label16);
 			this->panel1->Controls->Add(this->label15);
@@ -740,20 +577,14 @@ private: System::Windows::Forms::Label^ ptslabel;
 			this->panel1->Controls->Add(this->label3);
 			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->label4);
-			this->panel1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->panel1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->panel1->ForeColor = System::Drawing::Color::White;
-			this->panel1->Location = System::Drawing::Point(0, 0);
-			this->panel1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			resources->ApplyResources(this->panel1, L"panel1");
+			this->panel1->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(1255, 687);
-			this->panel1->TabIndex = 8;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BasicForm::panel1_Paint);
 			// 
 			// panel2
 			// 
-			this->panel2->BackColor = System::Drawing::Color::LightCyan;
+			this->panel2->BackColor = System::Drawing::SystemColors::ControlLightLight;
 			this->panel2->Controls->Add(this->label8);
 			this->panel2->Controls->Add(this->label9);
 			this->panel2->Controls->Add(this->label11);
@@ -761,67 +592,45 @@ private: System::Windows::Forms::Label^ ptslabel;
 			this->panel2->Controls->Add(this->label13);
 			this->panel2->Controls->Add(this->PuntosDiariosLabel);
 			this->panel2->Controls->Add(this->linkLabel2);
-			this->panel2->Location = System::Drawing::Point(632, 12);
+			this->panel2->ForeColor = System::Drawing::Color::Black;
+			resources->ApplyResources(this->panel2, L"panel2");
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(440, 131);
-			this->panel2->TabIndex = 38;
 			// 
 			// label8
 			// 
-			this->label8->AutoSize = true;
-			this->label8->BackColor = System::Drawing::Color::LightCyan;
-			this->label8->ForeColor = System::Drawing::Color::DarkBlue;
-			this->label8->Location = System::Drawing::Point(8, 11);
+			resources->ApplyResources(this->label8, L"label8");
+			this->label8->BackColor = System::Drawing::SystemColors::Control;
+			this->label8->ForeColor = System::Drawing::Color::Black;
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(51, 20);
-			this->label8->TabIndex = 16;
-			this->label8->Text = L"label8";
 			// 
 			// label9
 			// 
-			this->label9->AutoSize = true;
-			this->label9->BackColor = System::Drawing::Color::LightCyan;
-			this->label9->ForeColor = System::Drawing::Color::DarkBlue;
-			this->label9->Location = System::Drawing::Point(184, 11);
+			resources->ApplyResources(this->label9, L"label9");
+			this->label9->BackColor = System::Drawing::SystemColors::Control;
+			this->label9->ForeColor = System::Drawing::Color::Black;
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(51, 20);
-			this->label9->TabIndex = 17;
-			this->label9->Text = L"label9";
 			// 
 			// label11
 			// 
-			this->label11->AutoSize = true;
-			this->label11->BackColor = System::Drawing::Color::LightCyan;
-			this->label11->ForeColor = System::Drawing::Color::DarkBlue;
-			this->label11->Location = System::Drawing::Point(8, 38);
+			resources->ApplyResources(this->label11, L"label11");
+			this->label11->BackColor = System::Drawing::SystemColors::Control;
+			this->label11->ForeColor = System::Drawing::Color::Black;
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(133, 20);
-			this->label11->TabIndex = 30;
-			this->label11->Text = L"EcoCoins Totales";
 			// 
 			// ptslabel
 			// 
-			this->ptslabel->AutoSize = true;
-			this->ptslabel->BackColor = System::Drawing::Color::LightCyan;
-			this->ptslabel->ForeColor = System::Drawing::Color::DarkBlue;
-			this->ptslabel->Location = System::Drawing::Point(184, 38);
+			resources->ApplyResources(this->ptslabel, L"ptslabel");
+			this->ptslabel->BackColor = System::Drawing::SystemColors::Control;
+			this->ptslabel->ForeColor = System::Drawing::Color::Black;
 			this->ptslabel->Name = L"ptslabel";
-			this->ptslabel->Size = System::Drawing::Size(60, 20);
-			this->ptslabel->TabIndex = 29;
-			this->ptslabel->Text = L"label14";
 			// 
 			// BasicForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
+			resources->ApplyResources(this, L"$this");
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1255, 687);
 			this->ControlBox = false;
 			this->Controls->Add(this->panel1);
-			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"BasicForm";
-			this->Text = L"BasicForm";
 			this->Load += gcnew System::EventHandler(this, &BasicForm::BasicForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->panel1->ResumeLayout(false);
@@ -1373,31 +1182,31 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 
 	if (checkBox1->Checked == true) {
 
-		this->panel1->BackColor = System::Drawing::Color::SlateGray;
+		this->panel1->BackColor = System::Drawing::Color::Black;
 
-		this->PuntosDiariosLabel->ForeColor = System::Drawing::Color::White;
+		this->PuntosDiariosLabel->ForeColor = System::Drawing::Color::Black;
 
-		this->button1->ForeColor = System::Drawing::SystemColors::Desktop;
-		this->button1->BackColor = System::Drawing::SystemColors::ActiveCaption;
+		this->button1->ForeColor = System::Drawing::Color::Black;
+		this->button1->BackColor = System::Drawing::Color::White;
 
 
-		this->button2->ForeColor = System::Drawing::SystemColors::Desktop;
-		this->button2->BackColor = System::Drawing::SystemColors::ActiveCaption;
+		this->button2->ForeColor = System::Drawing::Color::Black;
+		this->button2->BackColor = System::Drawing::Color::White;
 
-		this->button3->ForeColor = System::Drawing::SystemColors::Desktop;
-		this->button3->BackColor = System::Drawing::SystemColors::ActiveCaption;
+		this->button3->ForeColor = System::Drawing::Color::Black;
+		this->button3->BackColor = System::Drawing::Color::White;
 
-		this->button4->ForeColor = System::Drawing::SystemColors::Desktop;
-		this->button4->BackColor = System::Drawing::SystemColors::ActiveCaption;
+		this->button4->ForeColor = System::Drawing::Color::Black;
+		this->button4->BackColor = System::Drawing::Color::White;
 
-		this->button5->ForeColor = System::Drawing::SystemColors::Desktop;
-		this->button5->BackColor = System::Drawing::SystemColors::ActiveCaption;
+		this->button5->ForeColor = System::Drawing::Color::Black;
+		this->button5->BackColor = System::Drawing::Color::White;
 
-		this->button6->ForeColor = System::Drawing::SystemColors::Desktop;
-		this->button6->BackColor = System::Drawing::SystemColors::ActiveCaption;
+		this->button6->ForeColor = System::Drawing::Color::Black;
+		this->button6->BackColor = System::Drawing::Color::White;
 
-		this->TriviaBtn->ForeColor = System::Drawing::SystemColors::Desktop;
-		this->TriviaBtn->BackColor = System::Drawing::SystemColors::ActiveCaption;
+		this->TriviaBtn->ForeColor = System::Drawing::Color::Black;
+		this->TriviaBtn->BackColor = System::Drawing::Color::White;
 
 
 		//labels
@@ -1457,98 +1266,94 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 		this->label16->ForeColor = System::Drawing::Color::White;
 
 
+
+
 	}
 	//Oscuro
 	else {
 	
+		this->panel1->BackColor = System::Drawing::SystemColors::Control;
 
-		this->panel1->BackColor = System::Drawing::Color::PowderBlue;
+		this->PuntosDiariosLabel->ForeColor = System::Drawing::Color::Black;
 
+		this->button1->ForeColor = System::Drawing::SystemColors::Control;
+		this->button1->BackColor = System::Drawing::SystemColors::MenuText;;
 
-		this->PuntosDiariosLabel->ForeColor = System::Drawing::Color::DarkBlue;
+		this->button2->ForeColor = System::Drawing::SystemColors::Control;
+		this->button2->BackColor = System::Drawing::SystemColors::MenuText;
 
-		//buttons
-		
-		this->button1->ForeColor = System::Drawing::SystemColors::Desktop;
-		this->button1->BackColor = System::Drawing::SystemColors::ControlLight;
+		this->button3->ForeColor = System::Drawing::SystemColors::Control;
+		this->button3->BackColor = System::Drawing::SystemColors::MenuText;
 
-		this->button2->ForeColor = System::Drawing::SystemColors::Desktop;
-		this->button2->BackColor = System::Drawing::SystemColors::ControlLight;
+		this->button4->ForeColor = System::Drawing::SystemColors::Control;
+		this->button4->BackColor = System::Drawing::SystemColors::MenuText;
 
-		this->button3->ForeColor = System::Drawing::SystemColors::Desktop;
-		this->button3->BackColor = System::Drawing::SystemColors::ControlLight;
+		this->button5->ForeColor = System::Drawing::SystemColors::Control;
+		this->button5->BackColor = System::Drawing::SystemColors::MenuText;
 
-		this->button4->ForeColor = System::Drawing::SystemColors::Desktop;
-		this->button4->BackColor = System::Drawing::SystemColors::ControlLight;
+		this->button6->ForeColor = System::Drawing::SystemColors::Control;
+		this->button6->BackColor = System::Drawing::SystemColors::MenuText;
 
-		this->button5->ForeColor = System::Drawing::SystemColors::Desktop;
-		this->button5->BackColor = System::Drawing::SystemColors::ControlLight;
-
-		this->button6->ForeColor = System::Drawing::SystemColors::Desktop;
-		this->button6->BackColor = System::Drawing::SystemColors::ControlLight;
-
-		this->TriviaBtn->ForeColor = System::Drawing::SystemColors::Desktop;
-		this->TriviaBtn->BackColor = System::Drawing::SystemColors::ControlLight;
+		this->TriviaBtn->ForeColor = System::Drawing::SystemColors::Control;
+		this->TriviaBtn->BackColor = System::Drawing::SystemColors::MenuText;
 
 		//labels
 
 				//labels
 
-		this->label1->BackColor = System::Drawing::Color::PowderBlue;
-		this->label1->ForeColor = System::Drawing::Color::DarkBlue;
+		this->label1->BackColor = System::Drawing::SystemColors::Control;
+		this->label1->ForeColor = System::Drawing::Color::Black;
 
-		this->label2->BackColor = System::Drawing::Color::PowderBlue;
-		this->label2->ForeColor = System::Drawing::Color::DarkBlue;
+		this->label2->BackColor = System::Drawing::SystemColors::Control;
+		this->label2->ForeColor = System::Drawing::Color::Black;
 
-		this->label3->BackColor = System::Drawing::Color::PowderBlue;
-		this->label3->ForeColor = System::Drawing::Color::DarkBlue;
+		this->label3->BackColor = System::Drawing::SystemColors::Control;
+		this->label3->ForeColor = System::Drawing::Color::Black;
 
-		this->label4->BackColor = System::Drawing::Color::PowderBlue;
-		this->label4->ForeColor = System::Drawing::Color::DarkBlue;
-
-
-		this->label5->BackColor = System::Drawing::Color::PowderBlue;
-		this->label5->ForeColor = System::Drawing::Color::DarkBlue;
-
-		this->label6->BackColor = System::Drawing::Color::PowderBlue;
-		this->label6->ForeColor = System::Drawing::Color::DarkBlue;
-
-		this->label7->BackColor = System::Drawing::Color::PowderBlue;
-		this->label7->ForeColor = System::Drawing::Color::DarkBlue;
-
-		this->label8->BackColor = System::Drawing::Color::PowderBlue;
-		this->label8->ForeColor = System::Drawing::Color::DarkBlue;
-
-		this->label9->BackColor = System::Drawing::Color::PowderBlue;
-		this->label9->ForeColor = System::Drawing::Color::DarkBlue;
+		this->label4->BackColor = System::Drawing::SystemColors::Control;
+		this->label4->ForeColor = System::Drawing::Color::Black;
 
 
-		this->label10->BackColor = System::Drawing::Color::PowderBlue;
-		this->label10->ForeColor = System::Drawing::Color::DarkBlue;
+		this->label5->BackColor = System::Drawing::SystemColors::Control;
+		this->label5->ForeColor = System::Drawing::Color::Black;
+
+		this->label6->BackColor = System::Drawing::SystemColors::Control;
+		this->label6->ForeColor = System::Drawing::Color::Black;
+
+		this->label7->BackColor = System::Drawing::SystemColors::Control;
+		this->label7->ForeColor = System::Drawing::Color::Black;
+
+		this->label8->BackColor = System::Drawing::SystemColors::Control;
+		this->label8->ForeColor = System::Drawing::Color::Black;
+
+		this->label9->BackColor = System::Drawing::SystemColors::Control;
+		this->label9->ForeColor = System::Drawing::Color::Black;
 
 
-		this->label11->BackColor = System::Drawing::Color::PowderBlue;
-		this->label11->ForeColor = System::Drawing::Color::DarkBlue;
+		this->label10->BackColor = System::Drawing::SystemColors::Control;
+		this->label10->ForeColor = System::Drawing::Color::Black;
 
 
-		this->label12->BackColor = System::Drawing::Color::PowderBlue;
-		this->label12->ForeColor = System::Drawing::Color::DarkBlue;
+		this->label11->BackColor = System::Drawing::SystemColors::Control;
+		this->label11->ForeColor = System::Drawing::Color::Black;
 
 
-		this->label13->BackColor = System::Drawing::Color::PowderBlue;
-		this->label13->ForeColor = System::Drawing::Color::DarkBlue;
+		this->label12->BackColor = System::Drawing::SystemColors::Control;
+		this->label12->ForeColor = System::Drawing::Color::Black;
 
 
-		this->label14->BackColor = System::Drawing::Color::PowderBlue;
-		this->label14->ForeColor = System::Drawing::Color::DarkBlue;
-
-		this->label15->BackColor = System::Drawing::Color::PowderBlue;
-		this->label15->ForeColor = System::Drawing::Color::DarkBlue;
-
-		this->label16->BackColor = System::Drawing::Color::PowderBlue;
-		this->label16->ForeColor = System::Drawing::Color::DarkBlue;
+		this->label13->BackColor = System::Drawing::SystemColors::Control;
+		this->label13->ForeColor = System::Drawing::Color::Black;
 
 
+		this->label14->BackColor = System::Drawing::SystemColors::Control;
+		this->label14->ForeColor = System::Drawing::Color::Black;
+
+		this->label15->BackColor = System::Drawing::SystemColors::Control;
+		this->label15->ForeColor = System::Drawing::Color::Black;
+
+		this->label16->BackColor = System::Drawing::SystemColors::Control;
+		this->label16->ForeColor = System::Drawing::Color::Black;
 	
 		//// Labels del 2 al 15
 		//for (int i = 1; i <= 16; ++i) {

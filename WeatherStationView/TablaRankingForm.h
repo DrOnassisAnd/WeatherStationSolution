@@ -53,6 +53,8 @@ namespace WeatherStationView {
 	private: Color sombreadoUser1 = BlanquearColores(sombreado1);
 	private: Color sombreadoUser2 = BlanquearColores(sombreado2);
 	private: Color sombreadoUser3 = BlanquearColores(sombreado3);
+	private: System::Windows::Forms::Panel^ panel1;
+
 	protected:
 
 	private:
@@ -73,15 +75,20 @@ namespace WeatherStationView {
 			this->Posición = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Usuario = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->PuntosConseguidos = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(96, 39);
+			this->label1->ForeColor = System::Drawing::SystemColors::Control;
+			this->label1->Location = System::Drawing::Point(160, 69);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(293, 46);
 			this->label1->TabIndex = 0;
@@ -89,16 +96,19 @@ namespace WeatherStationView {
 			// 
 			// dataGridView1
 			// 
+			this->dataGridView1->BackgroundColor = System::Drawing::SystemColors::ButtonFace;
+			this->dataGridView1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
 				this->Posición,
 					this->Usuario, this->PuntosConseguidos
 			});
-			this->dataGridView1->Location = System::Drawing::Point(12, 118);
+			this->dataGridView1->Location = System::Drawing::Point(63, 182);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(719, 347);
+			this->dataGridView1->Size = System::Drawing::Size(582, 521);
 			this->dataGridView1->TabIndex = 1;
 			// 
 			// Posición
@@ -122,19 +132,32 @@ namespace WeatherStationView {
 			this->PuntosConseguidos->Name = L"PuntosConseguidos";
 			this->PuntosConseguidos->Width = 125;
 			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::SystemColors::Control;
+			this->panel1->Controls->Add(this->dataGridView1);
+			this->panel1->Controls->Add(this->label1);
+			this->panel1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->panel1->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->panel1->Location = System::Drawing::Point(0, 0);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(921, 725);
+			this->panel1->TabIndex = 2;
+			// 
 			// TablaRankingForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(785, 513);
-			this->Controls->Add(this->dataGridView1);
-			this->Controls->Add(this->label1);
+			this->ClientSize = System::Drawing::Size(921, 725);
+			this->Controls->Add(this->panel1);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"TablaRankingForm";
 			this->Text = L"TablaRankingForm";
 			this->Load += gcnew System::EventHandler(this, &TablaRankingForm::TablaRankingForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion

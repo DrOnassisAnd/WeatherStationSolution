@@ -141,6 +141,7 @@ namespace WeatherStationView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(WeatherStationFormAdmin::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->toolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -179,276 +180,174 @@ namespace WeatherStationView {
 				this->toolStripMenuItem1,
 					this->userToolStripMenuItem, this->ambienteToolStripMenuItem, this->reporteToolStripMenuItem
 			});
-			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			resources->ApplyResources(this->menuStrip1, L"menuStrip1");
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
-			this->menuStrip1->Size = System::Drawing::Size(1161, 30);
-			this->menuStrip1->TabIndex = 0;
-			this->menuStrip1->Text = L"menuStrip1";
-			this->menuStrip1->Visible = false;
 			// 
 			// toolStripMenuItem1
 			// 
 			this->toolStripMenuItem1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->salirToolStripMenuItem });
 			this->toolStripMenuItem1->Name = L"toolStripMenuItem1";
-			this->toolStripMenuItem1->Size = System::Drawing::Size(73, 26);
-			this->toolStripMenuItem1->Text = L"Archivo";
-			this->toolStripMenuItem1->Visible = false;
+			resources->ApplyResources(this->toolStripMenuItem1, L"toolStripMenuItem1");
 			this->toolStripMenuItem1->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::toolStripMenuItem1_Click);
 			// 
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(121, 26);
-			this->salirToolStripMenuItem->Text = L"Salir";
+			resources->ApplyResources(this->salirToolStripMenuItem, L"salirToolStripMenuItem");
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::salirToolStripMenuItem_Click);
 			// 
 			// userToolStripMenuItem
 			// 
 			this->userToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->userToolStripMenuItem1 });
 			this->userToolStripMenuItem->Name = L"userToolStripMenuItem";
-			this->userToolStripMenuItem->Size = System::Drawing::Size(56, 26);
-			this->userToolStripMenuItem->Text = L"Perfil";
-			this->userToolStripMenuItem->Visible = false;
+			resources->ApplyResources(this->userToolStripMenuItem, L"userToolStripMenuItem");
 			// 
 			// userToolStripMenuItem1
 			// 
 			this->userToolStripMenuItem1->Name = L"userToolStripMenuItem1";
-			this->userToolStripMenuItem1->Size = System::Drawing::Size(121, 26);
-			this->userToolStripMenuItem1->Text = L"User";
+			resources->ApplyResources(this->userToolStripMenuItem1, L"userToolStripMenuItem1");
 			this->userToolStripMenuItem1->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::userToolStripMenuItem1_Click);
 			// 
 			// ambienteToolStripMenuItem
 			// 
 			this->ambienteToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->sensorToolStripMenuItem1 });
 			this->ambienteToolStripMenuItem->Name = L"ambienteToolStripMenuItem";
-			this->ambienteToolStripMenuItem->Size = System::Drawing::Size(92, 26);
-			this->ambienteToolStripMenuItem->Text = L"Ambiente ";
-			this->ambienteToolStripMenuItem->Visible = false;
+			resources->ApplyResources(this->ambienteToolStripMenuItem, L"ambienteToolStripMenuItem");
 			// 
 			// sensorToolStripMenuItem1
 			// 
 			this->sensorToolStripMenuItem1->Name = L"sensorToolStripMenuItem1";
-			this->sensorToolStripMenuItem1->Size = System::Drawing::Size(150, 26);
-			this->sensorToolStripMenuItem1->Text = L"Sensores";
+			resources->ApplyResources(this->sensorToolStripMenuItem1, L"sensorToolStripMenuItem1");
 			this->sensorToolStripMenuItem1->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::sensorToolStripMenuItem1_Click);
 			// 
 			// reporteToolStripMenuItem
 			// 
 			this->reporteToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->reportesUsuarioToolStripMenuItem });
 			this->reporteToolStripMenuItem->Name = L"reporteToolStripMenuItem";
-			this->reporteToolStripMenuItem->Size = System::Drawing::Size(82, 26);
-			this->reporteToolStripMenuItem->Text = L"Reportes";
-			this->reporteToolStripMenuItem->Visible = false;
+			resources->ApplyResources(this->reporteToolStripMenuItem, L"reporteToolStripMenuItem");
 			// 
 			// reportesUsuarioToolStripMenuItem
 			// 
 			this->reportesUsuarioToolStripMenuItem->Name = L"reportesUsuarioToolStripMenuItem";
-			this->reportesUsuarioToolStripMenuItem->Size = System::Drawing::Size(205, 26);
-			this->reportesUsuarioToolStripMenuItem->Text = L"Reportes Usuario";
+			resources->ApplyResources(this->reportesUsuarioToolStripMenuItem, L"reportesUsuarioToolStripMenuItem");
 			this->reportesUsuarioToolStripMenuItem->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::reportesUsuarioToolStripMenuItem_Click);
 			// 
 			// btnLogOut
 			// 
 			this->btnLogOut->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->btnLogOut->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btnLogOut->ForeColor = System::Drawing::Color::Aqua;
-			this->btnLogOut->Location = System::Drawing::Point(1015, 610);
-			this->btnLogOut->Margin = System::Windows::Forms::Padding(4);
+			resources->ApplyResources(this->btnLogOut, L"btnLogOut");
+			this->btnLogOut->ForeColor = System::Drawing::SystemColors::Control;
 			this->btnLogOut->Name = L"btnLogOut";
-			this->btnLogOut->Size = System::Drawing::Size(133, 55);
-			this->btnLogOut->TabIndex = 1;
-			this->btnLogOut->Text = L"Log Out";
 			this->btnLogOut->UseVisualStyleBackColor = false;
 			this->btnLogOut->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::btnLogOut_Click);
 			// 
 			// btnUser
 			// 
 			this->btnUser->BackColor = System::Drawing::Color::Black;
-			this->btnUser->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->btnUser, L"btnUser");
 			this->btnUser->ForeColor = System::Drawing::Color::White;
-			this->btnUser->Location = System::Drawing::Point(441, 115);
-			this->btnUser->Margin = System::Windows::Forms::Padding(4);
 			this->btnUser->Name = L"btnUser";
-			this->btnUser->Size = System::Drawing::Size(148, 52);
-			this->btnUser->TabIndex = 2;
-			this->btnUser->Text = L"Usuario";
 			this->btnUser->UseVisualStyleBackColor = false;
 			this->btnUser->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::btnUser_Click);
 			// 
 			// btnUserReport
 			// 
 			this->btnUserReport->BackColor = System::Drawing::Color::Black;
-			this->btnUserReport->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->btnUserReport, L"btnUserReport");
 			this->btnUserReport->ForeColor = System::Drawing::Color::White;
-			this->btnUserReport->Location = System::Drawing::Point(441, 237);
-			this->btnUserReport->Margin = System::Windows::Forms::Padding(4);
 			this->btnUserReport->Name = L"btnUserReport";
-			this->btnUserReport->Size = System::Drawing::Size(180, 48);
-			this->btnUserReport->TabIndex = 3;
-			this->btnUserReport->Text = L"Reporte Usuario";
 			this->btnUserReport->UseVisualStyleBackColor = false;
 			this->btnUserReport->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::btnUserReport_Click);
 			// 
 			// btnSensors
 			// 
 			this->btnSensors->BackColor = System::Drawing::Color::Black;
-			this->btnSensors->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			resources->ApplyResources(this->btnSensors, L"btnSensors");
 			this->btnSensors->ForeColor = System::Drawing::Color::White;
-			this->btnSensors->Location = System::Drawing::Point(441, 395);
-			this->btnSensors->Margin = System::Windows::Forms::Padding(4);
 			this->btnSensors->Name = L"btnSensors";
-			this->btnSensors->Size = System::Drawing::Size(167, 55);
-			this->btnSensors->TabIndex = 4;
-			this->btnSensors->Text = L"Sensores";
 			this->btnSensors->UseVisualStyleBackColor = false;
 			this->btnSensors->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::btnSensors_Click);
 			// 
 			// pbImage
 			// 
-			this->pbImage->Location = System::Drawing::Point(103, 237);
-			this->pbImage->Margin = System::Windows::Forms::Padding(4);
+			resources->ApplyResources(this->pbImage, L"pbImage");
 			this->pbImage->Name = L"pbImage";
-			this->pbImage->Size = System::Drawing::Size(201, 183);
-			this->pbImage->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pbImage->TabIndex = 5;
 			this->pbImage->TabStop = false;
 			this->pbImage->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::pbImage_Click);
 			// 
 			// pbUser
 			// 
-			this->pbUser->Location = System::Drawing::Point(908, 75);
-			this->pbUser->Margin = System::Windows::Forms::Padding(4);
+			resources->ApplyResources(this->pbUser, L"pbUser");
 			this->pbUser->Name = L"pbUser";
-			this->pbUser->Size = System::Drawing::Size(109, 103);
-			this->pbUser->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pbUser->TabIndex = 6;
 			this->pbUser->TabStop = false;
 			// 
 			// pbReport
 			// 
-			this->pbReport->Location = System::Drawing::Point(908, 211);
-			this->pbReport->Margin = System::Windows::Forms::Padding(4);
+			resources->ApplyResources(this->pbReport, L"pbReport");
 			this->pbReport->Name = L"pbReport";
-			this->pbReport->Size = System::Drawing::Size(109, 103);
-			this->pbReport->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pbReport->TabIndex = 7;
 			this->pbReport->TabStop = false;
+			this->pbReport->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::pbReport_Click);
 			// 
 			// pbSensors
 			// 
-			this->pbSensors->Location = System::Drawing::Point(908, 359);
-			this->pbSensors->Margin = System::Windows::Forms::Padding(4);
+			resources->ApplyResources(this->pbSensors, L"pbSensors");
 			this->pbSensors->Name = L"pbSensors";
-			this->pbSensors->Size = System::Drawing::Size(109, 91);
-			this->pbSensors->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pbSensors->TabIndex = 8;
 			this->pbSensors->TabStop = false;
 			// 
 			// label1
 			// 
-			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::SystemColors::WindowText;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->label1->Location = System::Drawing::Point(7, 30);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			resources->ApplyResources(this->label1, L"label1");
+			this->label1->BackColor = System::Drawing::SystemColors::Control;
+			this->label1->ForeColor = System::Drawing::Color::Black;
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(177, 46);
-			this->label1->TabIndex = 9;
-			this->label1->Text = L"Weather";
 			// 
 			// label2
 			// 
-			this->label2->AutoSize = true;
-			this->label2->BackColor = System::Drawing::SystemColors::WindowText;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->label2->Location = System::Drawing::Point(113, 75);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			resources->ApplyResources(this->label2, L"label2");
+			this->label2->BackColor = System::Drawing::SystemColors::Control;
+			this->label2->ForeColor = System::Drawing::Color::Black;
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(152, 46);
-			this->label2->TabIndex = 10;
-			this->label2->Text = L"Station";
 			// 
 			// label3
 			// 
-			this->label3->AutoSize = true;
-			this->label3->BackColor = System::Drawing::SystemColors::WindowText;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label3->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->label3->Location = System::Drawing::Point(240, 121);
-			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			resources->ApplyResources(this->label3, L"label3");
+			this->label3->BackColor = System::Drawing::SystemColors::Control;
+			this->label3->ForeColor = System::Drawing::Color::Black;
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(138, 46);
-			this->label3->TabIndex = 11;
-			this->label3->Text = L"Admin";
 			// 
 			// label4
 			// 
-			this->label4->AutoSize = true;
-			this->label4->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label4->ForeColor = System::Drawing::Color::Aqua;
-			this->label4->Location = System::Drawing::Point(379, 9);
+			resources->ApplyResources(this->label4, L"label4");
+			this->label4->BackColor = System::Drawing::SystemColors::Control;
+			this->label4->ForeColor = System::Drawing::Color::Black;
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(304, 22);
-			this->label4->TabIndex = 12;
-			this->label4->Text = L"Realice el Mantenimiento que desee:";
 			// 
 			// label5
 			// 
-			this->label5->AutoSize = true;
-			this->label5->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label5->ForeColor = System::Drawing::Color::Aqua;
-			this->label5->Location = System::Drawing::Point(390, 75);
+			resources->ApplyResources(this->label5, L"label5");
+			this->label5->BackColor = System::Drawing::SystemColors::Control;
+			this->label5->ForeColor = System::Drawing::Color::Black;
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(448, 22);
-			this->label5->TabIndex = 13;
-			this->label5->Text = L"Accede a la base de Datos de los usuario Registrados:";
 			// 
 			// label6
 			// 
-			this->label6->AutoSize = true;
-			this->label6->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label6->ForeColor = System::Drawing::Color::Aqua;
-			this->label6->Location = System::Drawing::Point(398, 211);
+			resources->ApplyResources(this->label6, L"label6");
+			this->label6->BackColor = System::Drawing::SystemColors::Control;
+			this->label6->ForeColor = System::Drawing::Color::Black;
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(343, 22);
-			this->label6->TabIndex = 14;
-			this->label6->Text = L"Filtre los Usuario de acuerdo a su criterio:";
 			// 
 			// label7
 			// 
-			this->label7->AutoSize = true;
-			this->label7->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label7->ForeColor = System::Drawing::Color::Aqua;
-			this->label7->Location = System::Drawing::Point(398, 359);
+			resources->ApplyResources(this->label7, L"label7");
+			this->label7->BackColor = System::Drawing::SystemColors::Control;
+			this->label7->ForeColor = System::Drawing::Color::Black;
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(432, 22);
-			this->label7->TabIndex = 15;
-			this->label7->Text = L"Accede a una Base de Datos de los datos sensados:";
 			// 
 			// WeatherStationFormAdmin
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			resources->ApplyResources(this, L"$this");
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::Cyan;
-			this->ClientSize = System::Drawing::Size(1161, 667);
+			this->BackColor = System::Drawing::SystemColors::Control;
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
@@ -466,10 +365,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->btnLogOut);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"WeatherStationFormAdmin";
-			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"WeatherStationFormAdmin";
 			this->Load += gcnew System::EventHandler(this, &WeatherStationFormAdmin::WeatherStationFormAdmin_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
@@ -583,6 +479,8 @@ private: System::Void btnUserReport_Click(System::Object^ sender, System::EventA
 	obj->ShowDialog();
 }
 private: System::Void pbImage_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void pbReport_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
