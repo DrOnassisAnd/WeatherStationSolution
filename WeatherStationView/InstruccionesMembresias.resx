@@ -129,25 +129,25 @@
     <value>TopCenter</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 443</value>
+    <value>107, 425</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>684, 75</value>
+    <value>809, 60</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>Avanza a través de niveles para mejorar tu impacto ambiental.
- Gana ecocoins respondiendo la trivia o adquiérelos para avanzar más rápido.
- ¡20 ecocoins equivalen a 1 dólar! Tu contribución cuenta. ¡Comencemos!</value>
+    <value>Puedes utilizar EcoCoins para adquirir membresías. Avanza a través de niveles para mejorar tu impacto ambiental.
+ Gana EcoCoins respondiendo la trivia o adquiérelos para avanzar más rápido.
+ ¡20 EcCcoins equivalen a 4 soles! Tu contribución cuenta. ¡Comencemos!</value>
   </data>
   <data name="label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
+    <value>MiddleCenter</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -201,7 +201,7 @@
     <value>183, 26</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>501, 52</value>
+    <value>397, 39</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>52</value>

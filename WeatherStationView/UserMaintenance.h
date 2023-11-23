@@ -183,7 +183,7 @@ namespace WeatherStationView {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(675, 335);
+			this->button4->Location = System::Drawing::Point(649, 146);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(75, 23);
 			this->button4->TabIndex = 58;
@@ -199,10 +199,10 @@ namespace WeatherStationView {
 					this->Column4, this->Column2, this->Column3, this->Column5, this->Column6, this->FechaFindgv, this->PuntosTotales, this->PuntosDiarios,
 					this->FechaActualizacion, this->NumeroCuenta, this->CCV
 			});
-			this->dataGridView1->Location = System::Drawing::Point(12, 143);
+			this->dataGridView1->Location = System::Drawing::Point(22, 184);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->Size = System::Drawing::Size(1163, 177);
+			this->dataGridView1->Size = System::Drawing::Size(699, 201);
 			this->dataGridView1->TabIndex = 57;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &UserMaintenance::Table_CellClick);
 			// 
@@ -292,7 +292,7 @@ namespace WeatherStationView {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(1071, 106);
+			this->button3->Location = System::Drawing::Point(649, 101);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(75, 23);
 			this->button3->TabIndex = 56;
@@ -302,7 +302,7 @@ namespace WeatherStationView {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(1071, 61);
+			this->button2->Location = System::Drawing::Point(649, 56);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 23);
 			this->button2->TabIndex = 55;
@@ -312,7 +312,7 @@ namespace WeatherStationView {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(1071, 14);
+			this->button1->Location = System::Drawing::Point(649, 9);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 54;
@@ -339,7 +339,7 @@ namespace WeatherStationView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(328, 12);
+			this->label1->Location = System::Drawing::Point(297, 23);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(58, 13);
 			this->label1->TabIndex = 63;
@@ -349,14 +349,14 @@ namespace WeatherStationView {
 			// 
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Basic", L"Estandar", L"Premium" });
-			this->comboBox1->Location = System::Drawing::Point(445, 11);
+			this->comboBox1->Location = System::Drawing::Point(414, 21);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(100, 21);
 			this->comboBox1->TabIndex = 64;
 			// 
 			// dateTimePicker1
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(445, 102);
+			this->dateTimePicker1->Location = System::Drawing::Point(414, 55);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(200, 20);
 			this->dateTimePicker1->TabIndex = 65;
@@ -364,7 +364,7 @@ namespace WeatherStationView {
 			// FechaFin
 			// 
 			this->FechaFin->AutoSize = true;
-			this->FechaFin->Location = System::Drawing::Point(328, 106);
+			this->FechaFin->Location = System::Drawing::Point(297, 57);
 			this->FechaFin->Name = L"FechaFin";
 			this->FechaFin->Size = System::Drawing::Size(92, 13);
 			this->FechaFin->TabIndex = 66;
@@ -373,7 +373,7 @@ namespace WeatherStationView {
 			// PuntosTotalesLabel
 			// 
 			this->PuntosTotalesLabel->AutoSize = true;
-			this->PuntosTotalesLabel->Location = System::Drawing::Point(328, 42);
+			this->PuntosTotalesLabel->Location = System::Drawing::Point(14, 102);
 			this->PuntosTotalesLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->PuntosTotalesLabel->Name = L"PuntosTotalesLabel";
 			this->PuntosTotalesLabel->Size = System::Drawing::Size(75, 13);
@@ -382,16 +382,16 @@ namespace WeatherStationView {
 			// 
 			// NumeroCuentaText
 			// 
-			this->NumeroCuentaText->Location = System::Drawing::Point(787, 24);
-			this->NumeroCuentaText->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->NumeroCuentaText->Location = System::Drawing::Point(414, 86);
+			this->NumeroCuentaText->Margin = System::Windows::Forms::Padding(2);
 			this->NumeroCuentaText->Name = L"NumeroCuentaText";
-			this->NumeroCuentaText->Size = System::Drawing::Size(106, 20);
+			this->NumeroCuentaText->Size = System::Drawing::Size(100, 20);
 			this->NumeroCuentaText->TabIndex = 68;
 			// 
 			// PuntosDiariosLabel
 			// 
 			this->PuntosDiariosLabel->AutoSize = true;
-			this->PuntosDiariosLabel->Location = System::Drawing::Point(328, 76);
+			this->PuntosDiariosLabel->Location = System::Drawing::Point(14, 136);
 			this->PuntosDiariosLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->PuntosDiariosLabel->Name = L"PuntosDiariosLabel";
 			this->PuntosDiariosLabel->Size = System::Drawing::Size(75, 13);
@@ -401,7 +401,7 @@ namespace WeatherStationView {
 			// NumerodeCuentaLabel
 			// 
 			this->NumerodeCuentaLabel->AutoSize = true;
-			this->NumerodeCuentaLabel->Location = System::Drawing::Point(698, 24);
+			this->NumerodeCuentaLabel->Location = System::Drawing::Point(297, 91);
 			this->NumerodeCuentaLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->NumerodeCuentaLabel->Name = L"NumerodeCuentaLabel";
 			this->NumerodeCuentaLabel->Size = System::Drawing::Size(90, 13);
@@ -411,7 +411,7 @@ namespace WeatherStationView {
 			// CCVLabel
 			// 
 			this->CCVLabel->AutoSize = true;
-			this->CCVLabel->Location = System::Drawing::Point(698, 61);
+			this->CCVLabel->Location = System::Drawing::Point(297, 124);
 			this->CCVLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->CCVLabel->Name = L"CCVLabel";
 			this->CCVLabel->Size = System::Drawing::Size(28, 13);
@@ -420,33 +420,33 @@ namespace WeatherStationView {
 			// 
 			// PuntosDiarioText
 			// 
-			this->PuntosDiarioText->Location = System::Drawing::Point(445, 72);
-			this->PuntosDiarioText->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->PuntosDiarioText->Location = System::Drawing::Point(131, 132);
+			this->PuntosDiarioText->Margin = System::Windows::Forms::Padding(2);
 			this->PuntosDiarioText->Name = L"PuntosDiarioText";
-			this->PuntosDiarioText->Size = System::Drawing::Size(106, 20);
+			this->PuntosDiarioText->Size = System::Drawing::Size(100, 20);
 			this->PuntosDiarioText->TabIndex = 72;
 			// 
 			// PuntoTotalesText
 			// 
-			this->PuntoTotalesText->Location = System::Drawing::Point(445, 42);
-			this->PuntoTotalesText->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->PuntoTotalesText->Location = System::Drawing::Point(131, 102);
+			this->PuntoTotalesText->Margin = System::Windows::Forms::Padding(2);
 			this->PuntoTotalesText->Name = L"PuntoTotalesText";
-			this->PuntoTotalesText->Size = System::Drawing::Size(116, 20);
+			this->PuntoTotalesText->Size = System::Drawing::Size(100, 20);
 			this->PuntoTotalesText->TabIndex = 73;
 			// 
 			// CCVText
 			// 
-			this->CCVText->Location = System::Drawing::Point(787, 61);
-			this->CCVText->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->CCVText->Location = System::Drawing::Point(414, 119);
+			this->CCVText->Margin = System::Windows::Forms::Padding(2);
 			this->CCVText->Name = L"CCVText";
-			this->CCVText->Size = System::Drawing::Size(116, 20);
+			this->CCVText->Size = System::Drawing::Size(100, 20);
 			this->CCVText->TabIndex = 74;
 			// 
 			// UserMaintenance
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1028, 370);
+			this->ClientSize = System::Drawing::Size(733, 397);
 			this->Controls->Add(this->CCVText);
 			this->Controls->Add(this->PuntoTotalesText);
 			this->Controls->Add(this->PuntosDiarioText);
@@ -481,68 +481,86 @@ namespace WeatherStationView {
 		}
 #pragma endregion
 
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { //aceptar
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { //aceptar
 	String^ Name = textBox2->Text;
 	String^ Password = textBox3->Text;
 	String^ Email = textBox4->Text;
-	int PuntoTotales = Convert::ToInt32(PuntoTotalesText->Text->ToString());
-	int PuntoDiarios= Convert::ToInt32(PuntosDiarioText->Text->ToString());
-	
-	int NumeroDeCuentaUser = Convert::ToInt32(NumeroCuentaText->Text->ToString());
-	int CCVUSER = Convert::ToInt32(CCVText->Text->ToString());
+	String^ PTString = PuntoTotalesText->Text;
+	String^ PDString = PuntosDiarioText->Text;
+	String^ NCString = NumeroCuentaText->Text;
+	String^ CCVString = CCVText->Text;
 
-	if (Name != "" && Password != "" && Email != "") {
-		if (dateTimePicker1->Value > DateTime::Today) {
-			String^ TipoMembresia = comboBox1->SelectedItem->ToString();
-			String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
+	if (Name != "" && Password != "" && Email != "" && PTString != "" && PDString != "" && NCString != "" && CCVString != "") {
+		int PuntoTotales;
+		int PuntoDiarios;
+		int NumeroDeCuentaUser;
+		int CCVUSER;
 
-			//String^ FechaFinalizacionActualizacion = dateTimePicker2->Value.ToString("yyyy-MM-dd");
+		bool PTbool = Int32::TryParse(PTString, PuntoTotales);
+		bool PDbool = Int32::TryParse(PDString, PuntoDiarios);
+		bool NCbool = Int32::TryParse(NCString, NumeroDeCuentaUser);
+		bool CCVbool = Int32::TryParse(CCVString, CCVUSER);
+		if (PTbool && PDbool && NCbool && CCVbool) {
+			if (PuntoTotales >= 0 && PuntoDiarios >= 0 && NumeroDeCuentaUser > 0 && CCVUSER > 0) {
+				if (dateTimePicker1->Value > DateTime::Today) {
+					String^ TipoMembresia = comboBox1->SelectedItem->ToString();
+					String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
 
-			//String^ FechaFinalizacionActualizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
+					//String^ FechaFinalizacionActualizacion = dateTimePicker2->Value.ToString("yyyy-MM-dd");
 
-			List<User^>^ users = Controller::Controller::QueryAllUser();
-			int lastIdIndex = users->Count;
-			User^ user = gcnew User();
+					//String^ FechaFinalizacionActualizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
 
-			if (lastIdIndex == 0) {
-				user->Id = 1;
+					List<User^>^ users = Controller::Controller::QueryAllUser();
+					int lastIdIndex = users->Count;
+					User^ user = gcnew User();
+
+					if (lastIdIndex == 0) {
+						user->Id = 1;
+					}
+					else {
+						User^ userLastId = users[lastIdIndex - 1];
+						user->Id = (userLastId->Id) + 1;
+					}
+
+					Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
+					Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
+
+					user->Name = Name;
+					user->Password = Password;
+					user->Email = Email;
+					user->membresia = membresia;
+					user->ajustes = ajustes;
+
+					user->PuntosTotales = PuntoTotales;
+					user->PuntosDiarios = PuntoDiarios;
+					user->fechaUltimaActualizacion = DateTime::Today.ToString("yyyy-MM-dd");
+					user->NumeroDeCuentaUser = NumeroDeCuentaUser;
+					user->CCVUSER = CCVUSER;
+
+					Controller::Controller::AddUser(user);
+					ShowUserData();
+
+					textBox2->Text = "";
+					textBox3->Text = "";
+					textBox4->Text = "";
+					PuntosDiarioText->Text = "";
+					PuntoTotalesText->Text = "";
+					NumeroCuentaText->Text = "";
+					CCVText->Text = "";
+					comboBox1->SelectedIndex = 0;
+					dateTimePicker1->Value = DateTime::Today;
+					Id = 0;
+				}
+				else {
+					MessageBox::Show("La fecha de finalización debe ser mayor que la fecha de inicio.");
+				}
 			}
 			else {
-				User^ userLastId = users[lastIdIndex - 1];
-				user->Id = (userLastId->Id) + 1;
+				MessageBox::Show("Los datos ingresados deben ser números positivos");
 			}
-
-			Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
-			Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
-
-			user->Name = Name;
-			user->Password = Password;
-			user->Email = Email;
-			user->membresia = membresia;
-			user->ajustes = ajustes;
-
-			user->PuntosTotales= PuntoTotales;
-			user->PuntosDiarios = PuntoDiarios;
-			user->fechaUltimaActualizacion = DateTime::Today.ToString("yyyy-MM-dd");
-			user->NumeroDeCuentaUser = NumeroDeCuentaUser;
-			user->CCVUSER = CCVUSER;
-
-
-
-
-
-			Controller::Controller::AddUser(user);
-			ShowUserData();
-
-			textBox2->Text = "";
-			textBox3->Text = "";
-			textBox4->Text = "";
-			comboBox1->SelectedIndex = 0;
-			dateTimePicker1->Value = DateTime::Today;
-			Id = 0;
 		}
 		else {
-			MessageBox::Show("La fecha de finalización debe ser mayor que la fecha de inicio.");
+			MessageBox::Show("Los valores ingresados deben ser números.");
 		}
 	}
 	else {
@@ -587,6 +605,10 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		textBox2->Text = "";
 		textBox3->Text = "";
 		textBox4->Text = "";
+		PuntosDiarioText->Text = "";
+		PuntoTotalesText->Text = "";
+		NumeroCuentaText->Text = "";
+		CCVText->Text = "";
 		comboBox1->SelectedIndex = 0;
 		dateTimePicker1->Value = DateTime::Today;
 		Id = 0;
@@ -640,66 +662,83 @@ private: System::Void Table_CellClick(System::Object^ sender, System::Windows::F
 
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //update
 
-	String^ name = textBox2->Text;
-	String^ password = textBox3->Text;
-	String^ email = textBox4->Text;
+	String^ Name = textBox2->Text;
+	String^ Password = textBox3->Text;
+	String^ Email = textBox4->Text;
+	String^ PTString = PuntoTotalesText->Text;
+	String^ PDString = PuntosDiarioText->Text;
+	String^ NCString = NumeroCuentaText->Text;
+	String^ CCVString = CCVText->Text;
 
-	int PuntoTotales = Convert::ToInt32(PuntoTotalesText->Text->ToString());
-	int PuntoDiarios = Convert::ToInt32(PuntosDiarioText->Text->ToString());
+	if (Name != "" && Password != "" && Email != "" && PTString != "" && PDString != "" && NCString != "" && CCVString != "") {
+		int PuntoTotales;
+		int PuntoDiarios;
+		int NumeroDeCuentaUser;
+		int CCVUSER;
 
-	int NumeroDeCuentaUser = Convert::ToInt32(NumeroCuentaText->Text->ToString());
-	int CCVUSER = Convert::ToInt32(CCVText->Text->ToString());
+		bool PTbool = Int32::TryParse(PTString, PuntoTotales);
+		bool PDbool = Int32::TryParse(PDString, PuntoDiarios);
+		bool NCbool = Int32::TryParse(NCString, NumeroDeCuentaUser);
+		bool CCVbool = Int32::TryParse(CCVString, CCVUSER);
+		if (PTbool && PDbool && NCbool && CCVbool) {
+			if (PuntoTotales>=0 && PuntoDiarios >=0 && NumeroDeCuentaUser>0 && CCVUSER > 0) {
+				if (dateTimePicker1->Value > DateTime::Today) {
+					String^ TipoMembresia = comboBox1->SelectedItem->ToString();
+					String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
 
-	if (name != "" && password != "" && email != "") {
-		if (dateTimePicker1->Value > DateTime::Today) {
-			String^ TipoMembresia = comboBox1->SelectedItem->ToString();
-			String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
-
-			User^ user = gcnew User();
-			user->Id = Id;
-			user->Name = name;
-			user->Password = password;
-			user->Email = email;
-
-
-			Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
-			Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
-
-			user->membresia = membresia;
-			user->ajustes = ajustes;
-
-			
-
-			user->PuntosTotales = PuntoTotales;
-			user->PuntosDiarios = PuntoDiarios;
-			user->fechaUltimaActualizacion = DateTime::Today.ToString("yyyy-MM-dd");
-			user->NumeroDeCuentaUser = NumeroDeCuentaUser;
-			user->CCVUSER = CCVUSER;
+					User^ user = gcnew User();
+					user->Id = Id;
+					user->Name = Name;
+					user->Password = Password;
+					user->Email = Email;
 
 
+					Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
+					Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
+
+					user->membresia = membresia;
+					user->ajustes = ajustes;
 
 
 
-			Controller::Controller::UpdateUser(user);
-
-			textBox2->Text = "";
-			textBox3->Text = "";
-			textBox4->Text = "";
-
-			PuntoTotalesText->Text = "";
-			PuntosDiarioText->Text = "";
-			NumeroCuentaText->Text = "";
-			CCVText->Text = "";
+					user->PuntosTotales = PuntoTotales;
+					user->PuntosDiarios = PuntoDiarios;
+					user->fechaUltimaActualizacion = DateTime::Today.ToString("yyyy-MM-dd");
+					user->NumeroDeCuentaUser = NumeroDeCuentaUser;
+					user->CCVUSER = CCVUSER;
 
 
-			comboBox1->SelectedIndex = 0;
-			dateTimePicker1->Value = DateTime::Today;
-			Id = 0;
 
-			ShowUserData();
+
+
+					Controller::Controller::UpdateUser(user);
+
+					textBox2->Text = "";
+					textBox3->Text = "";
+					textBox4->Text = "";
+
+					PuntoTotalesText->Text = "";
+					PuntosDiarioText->Text = "";
+					NumeroCuentaText->Text = "";
+					CCVText->Text = "";
+
+
+					comboBox1->SelectedIndex = 0;
+					dateTimePicker1->Value = DateTime::Today;
+					Id = 0;
+
+					ShowUserData();
+				}
+				else {
+					MessageBox::Show("La fecha de finalización debe ser mayor que la fecha de inicio.");
+				}
+			}
+			else {
+				MessageBox::Show("Los datos ingresados deben ser números positivos");
+			}
 		}
 		else {
-			MessageBox::Show("La fecha de finalización debe ser mayor que la fecha de inicio.");
+			MessageBox::Show("Los datos ingresados deben ser números");
 		}
 	}
 	else {

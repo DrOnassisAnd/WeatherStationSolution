@@ -569,8 +569,10 @@ private: System::Windows::Forms::Label^ ptslabel;
 			this->panel1->Controls->Add(this->label6);
 			this->panel1->Controls->Add(this->button4);
 			this->panel1->Controls->Add(this->label5);
+
 			this->panel1->Controls->Add(this->dtpWeatherStationBasic);
 			this->panel1->Controls->Add(this->button3);
+			this->panel1->Controls->Add(this->button7);
 			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Controls->Add(this->comboBox1);
 			this->panel1->Controls->Add(this->label2);
@@ -1112,7 +1114,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 				Controller::Controller::UpdateUser(user);
 				ptslabel->Text = (user->PuntosTotales).ToString();
-				counter == 0;
+				counter = 0;
 			}
 
 		}
