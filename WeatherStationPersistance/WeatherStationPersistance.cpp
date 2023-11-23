@@ -34,7 +34,7 @@ void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, O
 		Ajustes^ ajustes = (Ajustes^)persistObject;
 		writer->WriteLine(ajustes->UnidadTemp + "," + ajustes->FormatoHoras + "," + ajustes->FormatoFecha);
 	}
-	
+
 	else if (persistObject->GetType() == List<SensorTemperaturaHumedad^>::typeid) { //TempHum
 		List<SensorTemperaturaHumedad^>^ tempHum = (List<SensorTemperaturaHumedad^>^)persistObject;
 		for (int i = 0; i < tempHum->Count; i++) {
@@ -60,13 +60,13 @@ void WeatherStationPersistance::Persistance::PersistTextFile(String^ fileName, O
 
 	else if (persistObject->GetType() == List<AlertaMeteorologica^>::typeid) {
 		List<AlertaMeteorologica^>^ alertaMeteorologica = (List<AlertaMeteorologica^>^)persistObject;
-		for(int i=0;i<alertaMeteorologica->Count;i++){
+		for (int i = 0; i < alertaMeteorologica->Count; i++) {
 			AlertaMeteorologica^ r = alertaMeteorologica[i];
-			writer->WriteLine(r->IdAlerta + ", "+ r->IdSensor + ", "+r->ValorRef +", " + r->FechaHora);
-	    }
-    }
+			writer->WriteLine(r->IdAlerta + ", " + r->IdSensor + ", " + r->ValorRef + ", " + r->FechaHora);
+		}
+	}
 
-	else if (persistObject->GetType()==List<AlertaError^>::typeid) {
+	else if (persistObject->GetType() == List<AlertaError^>::typeid) {
 		List<AlertaError^>^ alertaError = (List<AlertaError^>^)persistObject;
 		for (int i = 0; i < alertaError->Count; i++) {
 			AlertaError^ r = alertaError[i];
@@ -191,7 +191,7 @@ Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
 				catch (System::FormatException^ ex) {
 					// Manejo de la excepción en caso de formato incorrecto
 					// Puedes registrar el error o asignar un valor predeterminado a FechaHora
-					membresia->fechaInicio = DateTime::Today; // Valor predeterminado			
+					membresia->fechaInicio = DateTime::Today; // Valor predeterminado
 				}
 
 				((List<Membresia^>^)result)->Add(membresia);
@@ -251,7 +251,7 @@ Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
 				alertaMeteorologica->IdAlerta = record[0];
 				alertaMeteorologica->IdSensor = Int32::Parse(record[1]);
 				alertaMeteorologica->ValorRef = Convert::ToDouble(record[2]);
-				
+
 				try {
 					String^ StringRecord = record[3]->Trim();
 					alertaMeteorologica->FechaHora = DateTime::ParseExact(StringRecord, formatoFecha, CultureInfo::InvariantCulture, DateTimeStyles::None);
@@ -261,7 +261,7 @@ Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
 					// Puedes registrar el error o asignar un valor predeterminado a FechaHora
 					alertaMeteorologica->FechaHora = DateTime::Today; // Valor predeterminado			
 				}
-				
+
 				((List<AlertaMeteorologica^>^)result)->Add(alertaMeteorologica);
 			}
 		}
@@ -278,14 +278,14 @@ Object^ WeatherStationPersistance::Persistance::LoadTextFile(String^ fileName) {
 				alertaError->IdError = record[0];
 				alertaError->IdSensor = Int32::Parse(record[1]);
 				alertaError->limitValue = Double::Parse(record[2]);
-				try{
-					String ^ StringRecord = record[3]->Trim();
+				try {
+					String^ StringRecord = record[3]->Trim();
 					alertaError->ErrorDate = DateTime::ParseExact(StringRecord, formatoFecha, CultureInfo::InvariantCulture, DateTimeStyles::None);
 				}
-					catch (System::FormatException^ ex) {
+				catch (System::FormatException^ ex) {
 					alertaError->ErrorDate = DateTime::Today; // Valor predeterminado			
 				}
-					((List<AlertaError^>^)result)->Add(alertaError);
+				((List<AlertaError^>^)result)->Add(alertaError);
 
 			}
 		}
@@ -319,7 +319,7 @@ Object^ WeatherStationPersistance::Persistance::LoadXMLFile(String^ fileName) {
 			else if (fileName->Equals(ERROR_WARNING_XML)) {
 				xmlSerializer = gcnew XmlSerializer(List<AlertaError^>::typeid);
 				result = (List<AlertaError^>^)xmlSerializer->Deserialize(reader);
-    	} 
+			}
 
 			else if (fileName->Equals(CALIDAD_AIRE_XML)) {
 				xmlSerializer = gcnew XmlSerializer(List<SensorCalidadAire^>::typeid);
@@ -396,7 +396,7 @@ Object^ WeatherStationPersistance::Persistance::LoadBinaryFile(String^ fileName)
 }
 
 
-void WeatherStationPersistance::Persistance::AddUser(User^user) {
+void WeatherStationPersistance::Persistance::AddUser(User^ user) {
 	//UserList->Add(user);
 	//PersistTextFile(WEATHER_STATION, UserList);
 	//PersistXMLFile(USERS_XML, UserList);
@@ -530,10 +530,10 @@ void WeatherStationPersistance::Persistance::UpdateUser(User^ user) {
 		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
 		cmd->CommandType = System::Data::CommandType::StoredProcedure;
 		cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
-		cmd->Parameters->Add("@NOMBRE", System::Data::SqlDbType::VarChar,200);
-		cmd->Parameters->Add("@CONTRASENA", System::Data::SqlDbType::VarChar,200);
-		cmd->Parameters->Add("@EMAIL", System::Data::SqlDbType::VarChar,200);
-		cmd->Parameters->Add("@TIPOMEMBRESIA", System::Data::SqlDbType::VarChar,200);
+		cmd->Parameters->Add("@NOMBRE", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@CONTRASENA", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@EMAIL", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@TIPOMEMBRESIA", System::Data::SqlDbType::VarChar, 200);
 		cmd->Parameters->Add("@FECHAINICIO", System::Data::SqlDbType::VarChar, 200);
 		cmd->Parameters->Add("@FECHAFINALIZACION", System::Data::SqlDbType::VarChar, 200);
 		cmd->Parameters->Add("@UNIDADTEMP", System::Data::SqlDbType::VarChar, 200);
@@ -771,8 +771,8 @@ void WeatherStationPersistance::Persistance::UpdateWeatherWarning(AlertaMeteorol
 	}
 	//PersistTextFile(WEATHER_WARNING_FILE, WeatherWarningList);
 	PersistXMLFile(WEATHER_WARNING_XML, WeatherWarningList);
-  }
-  
+}
+
 
 //calidad aire
 
@@ -934,16 +934,16 @@ List<Ambiente^>^ WeatherStationPersistance::Persistance::LoadAmbientes() {
 		//Paso 3: Se ejecuta la sentencia
 		reader = cmd->ExecuteReader();
 		//Paso 4: Se procesa los resultados
-		while (reader->Read()) {	
+		while (reader->Read()) {
 			Ambiente^ ambiente = gcnew Ambiente();
-			
+
 			ambiente->IdMedicion = Convert::ToInt32(reader["ID"]->ToString());
 
 			ambiente->UbicacionGeografica = reader["UBIGEO"]->ToString();
 			String^ UbiGeo;
 			int idSensor{};
 
-			UbiGeo=(ambiente->UbicacionGeografica);
+			UbiGeo = (ambiente->UbicacionGeografica);
 
 			if (UbiGeo == "FACI") {
 				idSensor = 1;
@@ -1096,7 +1096,7 @@ List<User^>^ WeatherStationPersistance::Persistance::LoadUser() {
 			//
 			user->PuntosTotales = Convert::ToInt32(reader["PUNTOSTOTALES"]->ToString());
 			user->PuntosDiarios = Convert::ToInt32(reader["PUNTOSDIARIOS"]->ToString());
-			
+
 			user->fechaUltimaActualizacion = reader["FECHAACTUALIZACION"]->ToString();
 
 			user->NumeroDeCuentaUser = Convert::ToInt32(reader["NUMERODECUENTA"]->ToString());
@@ -1119,8 +1119,8 @@ List<User^>^ WeatherStationPersistance::Persistance::LoadUser() {
 
 
 void WeatherStationPersistance::Persistance::AddAmbienteData(Ambiente^ sensordata) {
-		//sAmbienteDB->Add(sensordata);
-	// PersistBinaryFile(SENSORDATA_BIN, sAmbienteDB);
+	//sAmbienteDB->Add(sensordata);
+// PersistBinaryFile(SENSORDATA_BIN, sAmbienteDB);
 
 	SqlConnection^ conn;
 	try {
@@ -1203,7 +1203,7 @@ Ambiente^ WeatherStationPersistance::Persistance::QueryAmbienteDatabyId(int IdMe
 
 	return nullptr;
 
-	}
+}
 
 void WeatherStationPersistance::Persistance::UpdateAmbienteData(Ambiente^ sensorData) {
 	//sAmbienteDB = LoadAmbientes();
@@ -1303,7 +1303,5 @@ void WeatherStationPersistance::Persistance::DeleteAmbienteData(int IdMedicion) 
 		if (conn != nullptr) conn->Close();
 	}
 
-	
+
 }
-
-

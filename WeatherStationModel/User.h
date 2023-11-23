@@ -32,6 +32,10 @@ namespace Model {
         property int NumeroDeCuentaUser;
         property int CCVUSER;
 
+        static int CompareByPuntosTotales(User^ u1, User^ u2)
+        {
+            return u2->PuntosTotales.CompareTo(u1->PuntosTotales);
+        }
 
         User(){}
         User(String^ Name, String^ Password, String^ Email, int Id, Membresia^ membresia, Ajustes^ ajustes);

@@ -9,6 +9,8 @@
 
 #include "TriviaForm.h"
 
+#include "TablaRankingForm.h"
+
 
 
 namespace WeatherStationView {
@@ -36,7 +38,7 @@ namespace WeatherStationView {
 			this->StringDateTime;
 			this->selectedDateTime;
 			this->basicForm;
-			this->IdSensor="1";
+			this->IdSensor = "1";
 			//
 		}
 
@@ -76,7 +78,7 @@ namespace WeatherStationView {
 	private: int hum_faci = 70;
 	private: int co_faci = 125;
 	private: int aq_faci = 120;
-		   
+
 	private: int temp_bc = 20;
 	private: int hum_bc = 75;
 	private: int co_bc = 125;
@@ -139,6 +141,10 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Button^ TriviaBtn;
 
 	private: System::Windows::Forms::Label^ ptslabel;
+private: System::Windows::Forms::Label^ label11;
+private: System::Windows::Forms::Label^ PuntosDiariosLabel;
+private: System::Windows::Forms::Label^ label13;
+private: System::Windows::Forms::Button^ button6;
 
 
 
@@ -170,6 +176,9 @@ namespace WeatherStationView {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->PuntosDiariosLabel = (gcnew System::Windows::Forms::Label());
+			this->label13 = (gcnew System::Windows::Forms::Label());
+			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->ptslabel = (gcnew System::Windows::Forms::Label());
 			this->TriviaBtn = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
@@ -191,6 +200,7 @@ namespace WeatherStationView {
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->timer2 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -201,10 +211,10 @@ namespace WeatherStationView {
 			this->label1->BackColor = System::Drawing::SystemColors::Info;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(31, 127);
+			this->label1->Location = System::Drawing::Point(31, 135);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(50, 20);
+			this->label1->Size = System::Drawing::Size(62, 25);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Lugar";
 			this->label1->Click += gcnew System::EventHandler(this, &BasicForm::label1_Click);
@@ -218,7 +228,7 @@ namespace WeatherStationView {
 			this->label2->Location = System::Drawing::Point(602, 285);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(100, 20);
+			this->label2->Size = System::Drawing::Size(124, 25);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Temperatura";
 			// 
@@ -231,7 +241,7 @@ namespace WeatherStationView {
 			this->label3->Location = System::Drawing::Point(602, 361);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(79, 20);
+			this->label3->Size = System::Drawing::Size(97, 25);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Humedad";
 			this->label3->Click += gcnew System::EventHandler(this, &BasicForm::label3_Click);
@@ -245,7 +255,7 @@ namespace WeatherStationView {
 			this->label4->Location = System::Drawing::Point(602, 436);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(119, 20);
+			this->label4->Size = System::Drawing::Size(150, 25);
 			this->label4->TabIndex = 3;
 			this->label4->Text = L"Calidad del Aire";
 			// 
@@ -312,6 +322,10 @@ namespace WeatherStationView {
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::SystemColors::Info;
+			this->panel1->Controls->Add(this->button6);
+			this->panel1->Controls->Add(this->PuntosDiariosLabel);
+			this->panel1->Controls->Add(this->label13);
+			this->panel1->Controls->Add(this->label11);
 			this->panel1->Controls->Add(this->ptslabel);
 			this->panel1->Controls->Add(this->TriviaBtn);
 			this->panel1->Controls->Add(this->button5);
@@ -347,13 +361,41 @@ namespace WeatherStationView {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(1240, 570);
 			this->panel1->TabIndex = 8;
+			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BasicForm::panel1_Paint);
+			// 
+			// PuntosDiariosLabel
+			// 
+			this->PuntosDiariosLabel->AutoSize = true;
+			this->PuntosDiariosLabel->Location = System::Drawing::Point(180, 102);
+			this->PuntosDiariosLabel->Name = L"PuntosDiariosLabel";
+			this->PuntosDiariosLabel->Size = System::Drawing::Size(84, 25);
+			this->PuntosDiariosLabel->TabIndex = 32;
+			this->PuntosDiariosLabel->Text = L"PdLabel";
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Location = System::Drawing::Point(31, 102);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(138, 25);
+			this->label13->TabIndex = 31;
+			this->label13->Text = L"Puntos Diarios";
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(31, 62);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(143, 25);
+			this->label11->TabIndex = 30;
+			this->label11->Text = L"Puntos Totales";
 			// 
 			// ptslabel
 			// 
 			this->ptslabel->AutoSize = true;
-			this->ptslabel->Location = System::Drawing::Point(116, 62);
+			this->ptslabel->Location = System::Drawing::Point(180, 62);
 			this->ptslabel->Name = L"ptslabel";
-			this->ptslabel->Size = System::Drawing::Size(60, 20);
+			this->ptslabel->Size = System::Drawing::Size(75, 25);
 			this->ptslabel->TabIndex = 29;
 			this->ptslabel->Text = L"label14";
 			// 
@@ -392,7 +434,7 @@ namespace WeatherStationView {
 			this->UnidadTemplbl->AutoSize = true;
 			this->UnidadTemplbl->Location = System::Drawing::Point(830, 285);
 			this->UnidadTemplbl->Name = L"UnidadTemplbl";
-			this->UnidadTemplbl->Size = System::Drawing::Size(60, 20);
+			this->UnidadTemplbl->Size = System::Drawing::Size(75, 25);
 			this->UnidadTemplbl->TabIndex = 24;
 			this->UnidadTemplbl->Text = L"label11";
 			// 
@@ -403,7 +445,7 @@ namespace WeatherStationView {
 				static_cast<System::Byte>(0)));
 			this->label10->Location = System::Drawing::Point(668, 24);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(177, 64);
+			this->label10->Size = System::Drawing::Size(220, 80);
 			this->label10->TabIndex = 23;
 			this->label10->Text = L"label10";
 			// 
@@ -411,7 +453,7 @@ namespace WeatherStationView {
 			// 
 			this->textBox5->Location = System::Drawing::Point(781, 512);
 			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(43, 26);
+			this->textBox5->Size = System::Drawing::Size(43, 30);
 			this->textBox5->TabIndex = 22;
 			// 
 			// label12
@@ -423,7 +465,7 @@ namespace WeatherStationView {
 			this->label12->Location = System::Drawing::Point(602, 511);
 			this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(139, 20);
+			this->label12->Size = System::Drawing::Size(175, 25);
 			this->label12->TabIndex = 21;
 			this->label12->Text = L"Concentracion CO";
 			// 
@@ -432,7 +474,7 @@ namespace WeatherStationView {
 			this->label9->AutoSize = true;
 			this->label9->Location = System::Drawing::Point(106, 20);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(51, 20);
+			this->label9->Size = System::Drawing::Size(64, 25);
 			this->label9->TabIndex = 17;
 			this->label9->Text = L"label9";
 			// 
@@ -441,7 +483,7 @@ namespace WeatherStationView {
 			this->label8->AutoSize = true;
 			this->label8->Location = System::Drawing::Point(46, 20);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(51, 20);
+			this->label8->Size = System::Drawing::Size(64, 25);
 			this->label8->TabIndex = 16;
 			this->label8->Text = L"label8";
 			// 
@@ -449,21 +491,21 @@ namespace WeatherStationView {
 			// 
 			this->textBox4->Location = System::Drawing::Point(781, 436);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(43, 26);
+			this->textBox4->Size = System::Drawing::Size(43, 30);
 			this->textBox4->TabIndex = 14;
 			// 
 			// textBox3
 			// 
 			this->textBox3->Location = System::Drawing::Point(781, 361);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(43, 26);
+			this->textBox3->Size = System::Drawing::Size(43, 30);
 			this->textBox3->TabIndex = 13;
 			// 
 			// textBox2
 			// 
 			this->textBox2->Location = System::Drawing::Point(781, 282);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(43, 26);
+			this->textBox2->Size = System::Drawing::Size(43, 30);
 			this->textBox2->TabIndex = 12;
 			// 
 			// textBox1
@@ -471,7 +513,7 @@ namespace WeatherStationView {
 			this->textBox1->Location = System::Drawing::Point(781, 211);
 			this->textBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(110, 26);
+			this->textBox1->Size = System::Drawing::Size(110, 30);
 			this->textBox1->TabIndex = 10;
 			// 
 			// label7
@@ -482,7 +524,7 @@ namespace WeatherStationView {
 			this->label7->Location = System::Drawing::Point(602, 211);
 			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(44, 20);
+			this->label7->Size = System::Drawing::Size(54, 25);
 			this->label7->TabIndex = 9;
 			this->label7->Text = L"Hora";
 			// 
@@ -494,7 +536,7 @@ namespace WeatherStationView {
 			this->label6->Location = System::Drawing::Point(313, 19);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(365, 64);
+			this->label6->Size = System::Drawing::Size(458, 80);
 			this->label6->TabIndex = 8;
 			this->label6->Text = L"Weather Station";
 			// 
@@ -506,7 +548,7 @@ namespace WeatherStationView {
 			this->label5->Location = System::Drawing::Point(434, 122);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(54, 20);
+			this->label5->Size = System::Drawing::Size(67, 25);
 			this->label5->TabIndex = 7;
 			this->label5->Text = L"Fecha";
 			// 
@@ -519,7 +561,7 @@ namespace WeatherStationView {
 			this->dtpWeatherStationBasic->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->dtpWeatherStationBasic->Name = L"dtpWeatherStationBasic";
 			this->dtpWeatherStationBasic->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->dtpWeatherStationBasic->Size = System::Drawing::Size(349, 26);
+			this->dtpWeatherStationBasic->Size = System::Drawing::Size(349, 30);
 			this->dtpWeatherStationBasic->TabIndex = 4;
 			// 
 			// pictureBox1
@@ -538,10 +580,10 @@ namespace WeatherStationView {
 				static_cast<System::Byte>(0)));
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"CIA", L"FACI", L"BIBLIOTECA CENTRAL", L"TINKUY" });
-			this->comboBox1->Location = System::Drawing::Point(177, 127);
+			this->comboBox1->Location = System::Drawing::Point(177, 135);
 			this->comboBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(180, 30);
+			this->comboBox1->Size = System::Drawing::Size(180, 35);
 			this->comboBox1->TabIndex = 0;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &BasicForm::comboBox1_SelectedIndexChanged);
 			// 
@@ -555,9 +597,24 @@ namespace WeatherStationView {
 			this->timer2->Interval = 1000;
 			this->timer2->Tick += gcnew System::EventHandler(this, &BasicForm::Timer2_Tick);
 			// 
+			// button6
+			// 
+			this->button6->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->button6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button6->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->button6->Location = System::Drawing::Point(854, 418);
+			this->button6->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(129, 43);
+			this->button6->TabIndex = 33;
+			this->button6->Text = L"Ranking";
+			this->button6->UseVisualStyleBackColor = false;
+			this->button6->Click += gcnew System::EventHandler(this, &BasicForm::button6_Click);
+			// 
 			// BasicForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
+			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1240, 570);
 			this->ControlBox = false;
@@ -566,7 +623,6 @@ namespace WeatherStationView {
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"BasicForm";
-			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"BasicForm";
 			this->Load += gcnew System::EventHandler(this, &BasicForm::BasicForm_Load);
 			this->panel1->ResumeLayout(false);
@@ -578,7 +634,7 @@ namespace WeatherStationView {
 #pragma endregion
 	private: System::Void BasicForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		//INICIO 
-		IdSensor == "1";	
+		IdSensor == "1";
 
 		
 		//se abre el formulario de registro
@@ -590,18 +646,39 @@ namespace WeatherStationView {
 		user = wcform->GetUser();
 		config = user->ajustes;
 
-		
-		
+
+
 		//Bienvenida al usuario
 		this->label8->Text = "Usuario";
 		this->label9->Text = user->Name;
 		this->label10->Text = user->membresia->TipoMembresia;
+
+		this->ptslabel->Text = user->PuntosTotales.ToString();
+		this->PuntosDiariosLabel->Text = user->PuntosDiarios.ToString();
 
 		membresiaGlobal = user->membresia;
 
 		this->comboBox1->SelectedIndex = 0; //CIA
 
 		
+
+		DateTime fechaUltimaAct1 = DateTime::ParseExact(user->fechaUltimaActualizacion, "yyyy-MM-dd", nullptr);
+
+		DateTime fechaRef = DateTime::Today;
+
+		//fechaRef = fechaRef.Date.AddHours(0).AddMinutes(0).AddSeconds(40);
+
+
+		if (fechaUltimaAct1 < fechaRef) {
+			
+				user->PuntosDiarios = 0;
+
+
+
+				
+			}
+
+
 		if (user->ajustes->FormatoHoras == "Formato de 12 horas") {
 			textBox1->Text = DateTime::Now.ToString("hh:mm:ss tt");
 		}
@@ -612,11 +689,14 @@ namespace WeatherStationView {
 			MessageBox::Show("ARREGLEN LA BASE DE DATOS");
 			Application::Exit();
 		}
- 
+
 		//timer
 		timer1->Start();
 		timer2->Start();
-		
+		TransmisionDataArduino();
+		Controller::Controller::UpdateUser(user);
+		PuntosDiariosLabel->Text = (user->PuntosDiarios).ToString();
+
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -632,456 +712,471 @@ namespace WeatherStationView {
 			membresiaGlobal = membform->GetMembresia();
 			RefreshMembresia();
 		}
-		else{
+		else {
 			SensorsReport^ obj = gcnew SensorsReport(user);
 			obj->ControlBox = false;
 			obj->ShowDialog();
 		}
 	}
-private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	MembresiaForm^ membform = gcnew MembresiaForm(membresiaGlobal, user);
-	membform->ControlBox = false;
-	membform->ShowDialog();
+		MembresiaForm^ membform = gcnew MembresiaForm(membresiaGlobal, user);
+		membform->ControlBox = false;
+		membform->ShowDialog();
 
-	membresiaGlobal = membform->GetMembresia();
+		membresiaGlobal = membform->GetMembresia();
 
-	RefreshMembresia();
+		RefreshMembresia();
 
-}
+	}
 
-	   void RefreshMembresia() {
-		   user->membresia = membresiaGlobal;
-		   this->label10->Text = user->membresia->TipoMembresia;
-		   Controller::Controller::UpdateUser(user);
+		   void RefreshMembresia() {
+			   user->membresia = membresiaGlobal;
+			   this->label10->Text = user->membresia->TipoMembresia;
+			   Controller::Controller::UpdateUser(user);
+		   }
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //log out
+		timer1->Stop();
+		timer2->Stop();
+		this->Hide();
+
+		basicForm = gcnew BasicForm();
+		basicForm->Show();
+
+	}
+
+	private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		if ((comboBox1->Text == "CIA")) {
+			pictureBox1->Image = Image::FromFile("CIA.jpeg");
+			IdSensor = "1";
+			Ambiente^ CIA = Controller::Controller::QueryLastUbiGeoData("CIA");
+			textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(CIA->DataBase[0])->Temperatura).ToString();
+			textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(CIA->DataBase[0])->Humedad).ToString();
+			textBox4->Text = (dynamic_cast<SensorCO^>(CIA->DataBase[1])->NivelCO).ToString();
+			textBox5->Text = (dynamic_cast<SensorCalidadAire^>(CIA->DataBase[2])->CalidadAire).ToString();
 		}
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //log out
-	timer1->Stop();
-	timer2->Stop();
-	this->Hide();
-	
-	basicForm = gcnew BasicForm();
-	basicForm->Show();
-	
-}
+		else if ((comboBox1->Text == "FACI")) {
 
-private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	if ((comboBox1->Text == "CIA")) {
-		pictureBox1->Image = Image::FromFile("CIA.jpeg");
-		IdSensor = "1";
-		Ambiente^ CIA = Controller::Controller::QueryLastUbiGeoData("CIA");
-		textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(CIA->DataBase[0])->Temperatura).ToString();
-		textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(CIA->DataBase[0])->Humedad).ToString();
-		textBox4->Text = (dynamic_cast<SensorCO^>(CIA->DataBase[1])->NivelCO).ToString();
-		textBox5->Text = (dynamic_cast<SensorCalidadAire^>(CIA->DataBase[2])->CalidadAire).ToString();
+			pictureBox1->Image = Image::FromFile("FACI.jpg");
+			IdSensor = "2";
+			Ambiente^ FACI = Controller::Controller::QueryLastUbiGeoData("FACI");
+			textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(FACI->DataBase[0])->Temperatura).ToString();
+			textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(FACI->DataBase[0])->Humedad).ToString();
+			textBox4->Text = (dynamic_cast<SensorCO^>(FACI->DataBase[1])->NivelCO).ToString();
+			textBox5->Text = (dynamic_cast<SensorCalidadAire^>(FACI->DataBase[2])->CalidadAire).ToString();
+		}
+		else if ((comboBox1->Text == "TINKUY")) {
+
+			pictureBox1->Image = Image::FromFile("TINKUY.jpg");
+			IdSensor = "3";
+			Ambiente^ TINKUY = Controller::Controller::QueryLastUbiGeoData("TINKUY");
+			textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(TINKUY->DataBase[0])->Temperatura).ToString();
+			textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(TINKUY->DataBase[0])->Humedad).ToString();
+			textBox4->Text = (dynamic_cast<SensorCO^>(TINKUY->DataBase[1])->NivelCO).ToString();
+			textBox5->Text = (dynamic_cast<SensorCalidadAire^>(TINKUY->DataBase[2])->CalidadAire).ToString();
+		}
+		else if ((comboBox1->Text == "BIBLIOTECA CENTRAL")) {
+
+			pictureBox1->Image = Image::FromFile("BIBLIOTECA CENTRAL.jpg");
+			IdSensor = "4";
+			Ambiente^ BIBLIO = Controller::Controller::QueryLastUbiGeoData("BIBLIOTECA CENTRAL");
+			textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(BIBLIO->DataBase[0])->Temperatura).ToString();
+			textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(BIBLIO->DataBase[0])->Humedad).ToString();
+			textBox4->Text = (dynamic_cast<SensorCO^>(BIBLIO->DataBase[1])->NivelCO).ToString();
+			textBox5->Text = (dynamic_cast<SensorCalidadAire^>(BIBLIO->DataBase[2])->CalidadAire).ToString();
+		}
+		else if ((comboBox1->Text == "")) {
+			pictureBox1->Image = Image::FromFile("LogoPrueba.jpg");
+		}
+
+
 	}
-	else if ((comboBox1->Text == "FACI")) {
 
-		pictureBox1->Image = Image::FromFile("FACI.jpg");
-		IdSensor = "2";
-		Ambiente^ FACI = Controller::Controller::QueryLastUbiGeoData("FACI");
-		textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(FACI->DataBase[0])->Temperatura).ToString();
-		textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(FACI->DataBase[0])->Humedad).ToString();
-		textBox4->Text = (dynamic_cast<SensorCO^>(FACI->DataBase[1])->NivelCO).ToString();
-		textBox5->Text = (dynamic_cast<SensorCalidadAire^>(FACI->DataBase[2])->CalidadAire).ToString();
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { //Ajustes
+
+		Config^ confform = gcnew Config(config);
+		confform->ControlBox = false;
+		confform->ShowDialog();
+
+		config = confform->GetConfig();
+
+		ReloadConfig();
 	}
-	else if ((comboBox1->Text == "TINKUY")) {
+		   void ReloadConfig() {
+			   user->ajustes = config;
+			   Controller::Controller::UpdateUser(user);
 
-		pictureBox1->Image = Image::FromFile("TINKUY.jpg");
-		IdSensor = "3";
-		Ambiente^ TINKUY = Controller::Controller::QueryLastUbiGeoData("TINKUY");
-		textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(TINKUY->DataBase[0])->Temperatura).ToString();
-		textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(TINKUY->DataBase[0])->Humedad).ToString();
-		textBox4->Text = (dynamic_cast<SensorCO^>(TINKUY->DataBase[1])->NivelCO).ToString();
-		textBox5->Text = (dynamic_cast<SensorCalidadAire^>(TINKUY->DataBase[2])->CalidadAire).ToString();
-	}
-	else if ((comboBox1->Text == "BIBLIOTECA CENTRAL")) {
+			   TransmisionDataArduino();
 
-		pictureBox1->Image = Image::FromFile("BIBLIOTECA CENTRAL.jpg");
-		IdSensor = "4";
-		Ambiente^ BIBLIO = Controller::Controller::QueryLastUbiGeoData("BIBLIOTECA CENTRAL");
-		textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(BIBLIO->DataBase[0])->Temperatura).ToString();
-		textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(BIBLIO->DataBase[0])->Humedad).ToString();
-		textBox4->Text = (dynamic_cast<SensorCO^>(BIBLIO->DataBase[1])->NivelCO).ToString();
-		textBox5->Text = (dynamic_cast<SensorCalidadAire^>(BIBLIO->DataBase[2])->CalidadAire).ToString();
-	}
-	else if ((comboBox1->Text == "")) {
-		pictureBox1->Image = Image::FromFile("LogoPrueba.jpg");
-	}
-	
-
-}
-
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { //Ajustes
-	
-	Config^ confform = gcnew Config(config);
-	confform->ControlBox = false;
-	confform->ShowDialog();
-
-	config = confform->GetConfig();
-
-	ReloadConfig();
-}
-	   void ReloadConfig() {
-		   user->ajustes = config;
-		   Controller::Controller::UpdateUser(user);
-
-		   TransmisionDataArduino();
-		   
-		   //String^ c = (textBox2->Text);
-		   //int f = Int32::Parse(textBox2->Text) * 1.8 + 32;
-		   //textBox2->Text = user->ajustes->UnidadTemp == "°C" ? c : f.ToString();
-		   //UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
-	   }
-
-	   void TransmisionDataArduino(){
-
-		   /* 
-		   8-11 23:44 intentando explicar posible implementacion a datos simultaneos para cuatro ubi geos
-		   */
-
-		   //Recopilacion de datos de ARDUINO 1 ("CIA")
-
-		   //Recopilando informacion de Sensado del  ARDUINO 1 CIA
-		   Controller::Controller::SendFlag();
-		   String^ data = Controller::Controller::SendSensorsData();
-		   /////Asignacion de Valores de los sensados DESERIALIZACION
-		   IdSensor = data->Substring(0, 1);
-
-		   String^ temperatura_cia = data->Substring(2, 2);
-		   int temperatura_cia_int = Int32::Parse(temperatura_cia);
-
-		   String^ humedad_cia = data->Substring(4, 3);
-		   int humedad_cia_int = Int32::Parse(humedad_cia);
-
-		   String^ co_cia = data->Substring(7, 3);
-		   int co_cia_int = Int32::Parse(co_cia);
-
-		   String^ calidadAire_cia = data->Substring(10, 3);
-		   int calidadAire_cia_int = Int32::Parse(calidadAire_cia);
-
-		   Ambiente^ ambiente = gcnew Ambiente();
-		   SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(1, temperatura_cia_int, Convert::ToChar(176) + "C", humedad_cia_int);
-		   SensorCO^ CO = gcnew SensorCO(1, co_cia_int);
-		   SensorCalidadAire^ airq = gcnew SensorCalidadAire(1, calidadAire_cia_int);
-
-		   List<Sensor^>^ sensorList = gcnew List<Sensor^>();
-		   sensorList->Add(TH);
-		   sensorList->Add(CO);
-		   sensorList->Add(airq);
-
-		   ambiente->DataBase = sensorList;
-
-		   // CAMBIO DE UBICACION GEOGRAFICA
-
-		   if ((IdSensor == "1")) {
-			   ambiente->UbicacionGeografica = "CIA";
+			   //String^ c = (textBox2->Text);
+			   //int f = Int32::Parse(textBox2->Text) * 1.8 + 32;
+			   //textBox2->Text = user->ajustes->UnidadTemp == "°C" ? c : f.ToString();
+			   //UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
 		   }
-		   else if (((IdSensor == "2"))) {
+
+		   void TransmisionDataArduino() {
+
+			   /*
+			   8-11 23:44 intentando explicar posible implementacion a datos simultaneos para cuatro ubi geos
+			   */
+
+			   //Recopilacion de datos de ARDUINO 1 ("CIA")
+
+			   //Recopilando informacion de Sensado del  ARDUINO 1 CIA
+			   Controller::Controller::SendFlag();
+			   String^ data = Controller::Controller::SendSensorsData();
+			   /////Asignacion de Valores de los sensados DESERIALIZACION
+			   IdSensor = data->Substring(0, 1);
+
+			   String^ temperatura_cia = data->Substring(2, 2);
+			   int temperatura_cia_int = Int32::Parse(temperatura_cia);
+
+			   String^ humedad_cia = data->Substring(4, 3);
+			   int humedad_cia_int = Int32::Parse(humedad_cia);
+
+			   String^ co_cia = data->Substring(7, 3);
+			   int co_cia_int = Int32::Parse(co_cia);
+
+			   String^ calidadAire_cia = data->Substring(10, 3);
+			   int calidadAire_cia_int = Int32::Parse(calidadAire_cia);
+
+			   Ambiente^ ambiente = gcnew Ambiente();
+			   SensorTemperaturaHumedad^ TH = gcnew SensorTemperaturaHumedad(1, temperatura_cia_int, Convert::ToChar(176) + "C", humedad_cia_int);
+			   SensorCO^ CO = gcnew SensorCO(1, co_cia_int);
+			   SensorCalidadAire^ airq = gcnew SensorCalidadAire(1, calidadAire_cia_int);
+
+			   List<Sensor^>^ sensorList = gcnew List<Sensor^>();
+			   sensorList->Add(TH);
+			   sensorList->Add(CO);
+			   sensorList->Add(airq);
+
+			   ambiente->DataBase = sensorList;
+
+			   // CAMBIO DE UBICACION GEOGRAFICA
+
+			   if ((IdSensor == "1")) {
+				   ambiente->UbicacionGeografica = "CIA";
+			   }
+			   else if (((IdSensor == "2"))) {
+				   ambiente->UbicacionGeografica = "FACI";
+			   }
+			   else if (((IdSensor == "3"))) {
+				   ambiente->UbicacionGeografica = "TINKUY";
+			   }
+			   else if (((IdSensor == "4"))) {
+				   ambiente->UbicacionGeografica = "BIBLIOTECA CENTRAL";
+			   }
+
+
+			   ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
+			   ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
+			   List<Ambiente^>^ sensorData = Controller::Controller::QueryAmbienteData();
+			   int lastIdIndex = sensorData->Count;
+
+			   if (lastIdIndex == 0) {
+				   ambiente->IdMedicion = 1;
+			   }
+			   else {
+				   Ambiente^ ambientelastId = sensorData[lastIdIndex - 1];
+				   ambiente->IdMedicion = (ambientelastId->IdMedicion) + 1;
+			   }
+
+			   Controller::Controller::AddAmbienteData(ambiente);
+
+			   //Luego seguiría la recopilacion de datos del sensor 2, 3 y 4 (claro está, esos valores deben
+			   //ser generados (random))
+
+			   //Sensor 2 (FACI)
+
+			   delta = (rand->Next(deltaTemp * 2 + 1) - deltaTemp);
+			   temp_faci = temp_faci + delta;
+			   if ((temp_faci < minTemp) || (temp_faci > maxTemp)) {
+				   temp_faci = 20;
+			   }
+
+			   delta = (rand->Next(deltaHum * 2 + 1) - deltaHum);
+			   hum_faci += delta;
+			   if ((hum_faci < minHum) || (hum_faci > maxHum)) {
+				   hum_faci = 70;
+			   }
+
+			   delta = (rand->Next(deltaCO * 2 + 1) - deltaCO);
+			   co_faci += delta;
+			   if ((co_faci < minCO) || (co_faci > maxCO)) {
+				   co_faci = 125;
+			   }
+
+			   delta = (rand->Next(deltaAirQ * 2 + 1) - deltaAirQ);
+			   aq_faci += delta;
+			   if ((aq_faci < minAQ) || (aq_faci > maxAQ)) {
+				   aq_faci = 120;
+			   }
+
+			   ambiente = gcnew Ambiente();
+			   TH = gcnew SensorTemperaturaHumedad(2, temp_faci, Convert::ToChar(176) + "C", hum_faci);
+			   CO = gcnew SensorCO(2, co_faci);
+			   airq = gcnew SensorCalidadAire(2, aq_faci);
+
+			   sensorList = gcnew List<Sensor^>();
+			   sensorList->Add(TH);
+			   sensorList->Add(CO);
+			   sensorList->Add(airq);
+
+			   ambiente->DataBase = sensorList;
+			   ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
+			   ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
 			   ambiente->UbicacionGeografica = "FACI";
-		   }
-		   else if (((IdSensor == "3"))) {
-			   ambiente->UbicacionGeografica = "TINKUY";
-		   }
-		   else if (((IdSensor == "4"))) {
+
+			   sensorData = Controller::Controller::QueryAmbienteData();
+			   lastIdIndex = sensorData->Count;
+
+			   if (lastIdIndex == 0) {
+				   ambiente->IdMedicion = 1;
+			   }
+			   else {
+				   Ambiente^ ambientelastId = sensorData[lastIdIndex - 1];
+				   ambiente->IdMedicion = (ambientelastId->IdMedicion) + 1;
+			   }
+
+			   Controller::Controller::AddAmbienteData(ambiente);
+
+			   //Sensor 3 (BIBLIOTECA CENTRAL)
+
+			   delta = (rand->Next(deltaTemp * 2 + 1) - deltaTemp);
+			   temp_bc = temp_faci + delta;
+			   if ((temp_bc < minTemp) || (temp_bc > maxTemp)) {
+				   temp_bc = 20;
+			   }
+
+			   delta = (rand->Next(deltaHum * 2 + 1) - deltaHum);
+			   hum_bc += delta;
+			   if ((hum_bc < minHum) || (hum_bc > maxHum)) {
+				   hum_bc = 70;
+			   }
+
+			   delta = (rand->Next(deltaCO * 2 + 1) - deltaCO);
+			   co_bc += delta;
+			   if ((co_bc < minCO) || (co_bc > maxCO)) {
+				   co_bc = 125;
+			   }
+
+			   delta = (rand->Next(deltaAirQ * 2 + 1) - deltaAirQ);
+			   aq_bc += delta;
+			   if ((aq_bc < minAQ) || (aq_bc > maxAQ)) {
+				   aq_bc = 120;
+			   }
+
+			   ambiente = gcnew Ambiente();
+			   TH = gcnew SensorTemperaturaHumedad(3, temp_bc, Convert::ToChar(176) + "C", hum_bc);
+			   CO = gcnew SensorCO(3, co_bc);
+			   airq = gcnew SensorCalidadAire(3, aq_bc);
+
+			   sensorList = gcnew List<Sensor^>();
+			   sensorList->Add(TH);
+			   sensorList->Add(CO);
+			   sensorList->Add(airq);
+
+			   ambiente->DataBase = sensorList;
+			   ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
+			   ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
 			   ambiente->UbicacionGeografica = "BIBLIOTECA CENTRAL";
+
+			   sensorData = Controller::Controller::QueryAmbienteData();
+			   lastIdIndex = sensorData->Count;
+
+			   if (lastIdIndex == 0) {
+				   ambiente->IdMedicion = 1;
+			   }
+			   else {
+				   Ambiente^ ambientelastId = sensorData[lastIdIndex - 1];
+				   ambiente->IdMedicion = (ambientelastId->IdMedicion) + 1;
+			   }
+
+			   Controller::Controller::AddAmbienteData(ambiente);
+
+			   //Sensor 4 (TINKUY)
+
+			   delta = (rand->Next(deltaTemp * 2 + 1) - deltaTemp);
+			   temp_tinkuy = temp_faci + delta;
+			   if ((temp_tinkuy < minTemp) || (temp_tinkuy > maxTemp)) {
+				   temp_tinkuy = 20;
+			   }
+
+			   delta = (rand->Next(deltaHum * 2 + 1) - deltaHum);
+			   hum_tinkuy += delta;
+			   if ((hum_tinkuy < minHum) || (hum_tinkuy > maxHum)) {
+				   hum_tinkuy = 70;
+			   }
+
+			   delta = (rand->Next(deltaCO * 2 + 1) - deltaCO);
+			   co_tinkuy += delta;
+			   if ((co_tinkuy < minCO) || (co_tinkuy > maxCO)) {
+				   co_tinkuy = 125;
+			   }
+
+			   delta = (rand->Next(deltaAirQ * 2 + 1) - deltaAirQ);
+			   aq_tinkuy += delta;
+			   if ((aq_tinkuy < minAQ) || (aq_tinkuy > maxAQ)) {
+				   aq_tinkuy = 120;
+			   }
+
+			   ambiente = gcnew Ambiente();
+			   TH = gcnew SensorTemperaturaHumedad(4, temp_tinkuy, Convert::ToChar(176) + "C", hum_bc);
+			   CO = gcnew SensorCO(4, co_tinkuy);
+			   airq = gcnew SensorCalidadAire(4, aq_tinkuy);
+
+			   sensorList = gcnew List<Sensor^>();
+			   sensorList->Add(TH);
+			   sensorList->Add(CO);
+			   sensorList->Add(airq);
+
+			   ambiente->DataBase = sensorList;
+			   ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
+			   ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
+			   ambiente->UbicacionGeografica = "TINKUY";
+
+			   sensorData = Controller::Controller::QueryAmbienteData();
+			   lastIdIndex = sensorData->Count;
+
+			   if (lastIdIndex == 0) {
+				   ambiente->IdMedicion = 1;
+			   }
+			   else {
+				   Ambiente^ ambientelastId = sensorData[lastIdIndex - 1];
+				   ambiente->IdMedicion = (ambientelastId->IdMedicion) + 1;
+			   }
+
+			   Controller::Controller::AddAmbienteData(ambiente);
+
+			   //por lo tanto, Ambiente ha recibido cuatro listas y las ha enviado a la database
+
+			   //sin embargo, solo se puede mostrar una de las 4 datos Ambiente^. La elección dependerá del
+			   // valor del comboBox
+
+			   if ((comboBox1->SelectedItem->ToString()) == "CIA") {
+				   textBox3->Text = humedad_cia_int.ToString();
+				   int temperatura_cia_f = temperatura_cia_int * 1.8 + 32;
+				   textBox2->Text = user->ajustes->UnidadTemp == "°C" ? (temperatura_cia_int).ToString() : temperatura_cia_f.ToString();
+				   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
+				   textBox4->Text = calidadAire_cia_int.ToString();
+				   textBox5->Text = co_cia_int.ToString();
+			   }
+			   else if ((comboBox1->SelectedItem->ToString()) == "FACI") {
+				   textBox3->Text = hum_faci.ToString();
+				   int temp_faci_f = temp_faci * 1.8 + 32;
+				   textBox2->Text = user->ajustes->UnidadTemp == "°C" ? (temp_faci).ToString() : temp_faci_f.ToString();
+				   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
+				   textBox4->Text = aq_faci.ToString();
+				   textBox5->Text = co_faci.ToString();
+			   }
+			   else if ((comboBox1->SelectedItem->ToString()) == "BIBLIOTECA CENTRAL") {
+				   textBox3->Text = hum_bc.ToString();
+				   int temp_bc_f = temp_bc * 1.8 + 32;
+				   textBox2->Text = user->ajustes->UnidadTemp == "°C" ? (temp_bc).ToString() : temp_bc_f.ToString();
+				   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
+				   textBox4->Text = aq_bc.ToString();
+				   textBox5->Text = co_bc.ToString();
+			   }
+			   else if ((comboBox1->SelectedItem->ToString()) == "TINKUY") {
+				   textBox3->Text = hum_tinkuy.ToString();
+				   int temp_tinkuy_f = temp_tinkuy * 1.8 + 32;
+				   textBox2->Text = user->ajustes->UnidadTemp == "°C" ? (temp_tinkuy).ToString() : temp_tinkuy_f.ToString();
+				   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
+				   textBox4->Text = aq_tinkuy.ToString();
+				   textBox5->Text = co_tinkuy.ToString();
+			   }
+
+
+
+			   
+
 		   }
+	private: System::Void timer_tick(System::Object^ sender, System::EventArgs^ e) { //cada minuto
 
+		TransmisionDataArduino();
+		counter++;
+		if (counter == 5) {
+			if ((user->PuntosDiarios) < maxpoints) {
+				user->PuntosTotales += 2;
+				user->PuntosDiarios += 2;
 
-		   ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
-		   ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
-		   List<Ambiente^>^ sensorData = Controller::Controller::QueryAmbienteData();
-		   int lastIdIndex = sensorData->Count;
+				if (user->PuntosDiarios >= maxpoints) {
+					user->PuntosDiarios = maxpoints;
+				}
 
-		   if (lastIdIndex == 0) {
-			   ambiente->IdMedicion = 1;
-		   }
-		   else {
-			   Ambiente^ ambientelastId = sensorData[lastIdIndex - 1];
-			   ambiente->IdMedicion = (ambientelastId->IdMedicion) + 1;
-		   }
-
-		   Controller::Controller::AddAmbienteData(ambiente);
-
-		   //Luego seguiría la recopilacion de datos del sensor 2, 3 y 4 (claro está, esos valores deben
-		   //ser generados (random))
-
-		   //Sensor 2 (FACI)
-
-		   delta = (rand->Next(deltaTemp * 2 + 1) - deltaTemp);
-		   temp_faci = temp_faci + delta;
-		   if ((temp_faci < minTemp) || (temp_faci > maxTemp)) {
-			   temp_faci = 20;
-		   }
-
-		   delta = (rand->Next(deltaHum * 2 + 1) - deltaHum);
-		   hum_faci += delta;
-		   if ((hum_faci < minHum) || (hum_faci > maxHum)) {
-			   hum_faci = 70;
-		   }
-
-		   delta = (rand->Next(deltaCO * 2 + 1) - deltaCO);
-		   co_faci += delta;
-		   if ((co_faci < minCO) || (co_faci > maxCO)) {
-			   co_faci = 125;
-		   }
-
-		   delta = (rand->Next(deltaAirQ * 2 + 1) - deltaAirQ);
-		   aq_faci += delta;
-		   if ((aq_faci < minAQ) || (aq_faci > maxAQ)) {
-			   aq_faci = 120;
-		   }
-
-		   ambiente = gcnew Ambiente();
-		   TH = gcnew SensorTemperaturaHumedad(2, temp_faci, Convert::ToChar(176) + "C", hum_faci);
-		   CO = gcnew SensorCO(2, co_faci);
-		   airq = gcnew SensorCalidadAire(2, aq_faci);
-
-		   sensorList = gcnew List<Sensor^>();
-		   sensorList->Add(TH);
-		   sensorList->Add(CO);
-		   sensorList->Add(airq);
-
-		   ambiente->DataBase = sensorList;
-		   ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
-		   ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
-		   ambiente->UbicacionGeografica = "FACI";
-
-		   sensorData = Controller::Controller::QueryAmbienteData();
-		   lastIdIndex = sensorData->Count;
-
-		   if (lastIdIndex == 0) {
-			   ambiente->IdMedicion = 1;
-		   }
-		   else {
-			   Ambiente^ ambientelastId = sensorData[lastIdIndex - 1];
-			   ambiente->IdMedicion = (ambientelastId->IdMedicion) + 1;
-		   }
-
-		   Controller::Controller::AddAmbienteData(ambiente);
-
-		   //Sensor 3 (BIBLIOTECA CENTRAL)
-
-		   delta = (rand->Next(deltaTemp * 2 + 1) - deltaTemp);
-		   temp_bc = temp_faci + delta;
-		   if ((temp_bc < minTemp) || (temp_bc > maxTemp)) {
-			   temp_bc = 20;
-		   }
-
-		   delta = (rand->Next(deltaHum * 2 + 1) - deltaHum);
-		   hum_bc += delta;
-		   if ((hum_bc < minHum) || (hum_bc > maxHum)) {
-			   hum_bc = 70;
-		   }
-
-		   delta = (rand->Next(deltaCO * 2 + 1) - deltaCO);
-		   co_bc += delta;
-		   if ((co_bc < minCO) || (co_bc > maxCO)) {
-			   co_bc = 125;
-		   }
-
-		   delta = (rand->Next(deltaAirQ * 2 + 1) - deltaAirQ);
-		   aq_bc += delta;
-		   if ((aq_bc < minAQ) || (aq_bc > maxAQ)) {
-			   aq_bc = 120;
-		   }
-
-		   ambiente = gcnew Ambiente();
-		   TH = gcnew SensorTemperaturaHumedad(3, temp_bc, Convert::ToChar(176) + "C", hum_bc);
-		   CO = gcnew SensorCO(3, co_bc);
-		   airq = gcnew SensorCalidadAire(3, aq_bc);
-
-		   sensorList = gcnew List<Sensor^>();
-		   sensorList->Add(TH);
-		   sensorList->Add(CO);
-		   sensorList->Add(airq);
-
-		   ambiente->DataBase = sensorList;
-		   ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
-		   ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
-		   ambiente->UbicacionGeografica = "BIBLIOTECA CENTRAL";
-
-		   sensorData = Controller::Controller::QueryAmbienteData();
-		   lastIdIndex = sensorData->Count;
-
-		   if (lastIdIndex == 0) {
-			   ambiente->IdMedicion = 1;
-		   }
-		   else {
-			   Ambiente^ ambientelastId = sensorData[lastIdIndex - 1];
-			   ambiente->IdMedicion = (ambientelastId->IdMedicion) + 1;
-		   }
-
-		   Controller::Controller::AddAmbienteData(ambiente);
-
-		   //Sensor 4 (TINKUY)
-
-		   delta = (rand->Next(deltaTemp * 2 + 1) - deltaTemp);
-		   temp_tinkuy = temp_faci + delta;
-		   if ((temp_tinkuy < minTemp) || (temp_tinkuy > maxTemp)) {
-			   temp_tinkuy = 20;
-		   }
-
-		   delta = (rand->Next(deltaHum * 2 + 1) - deltaHum);
-		   hum_tinkuy += delta;
-		   if ((hum_tinkuy < minHum) || (hum_tinkuy > maxHum)) {
-			   hum_tinkuy = 70;
-		   }
-
-		   delta = (rand->Next(deltaCO * 2 + 1) - deltaCO);
-		   co_tinkuy += delta;
-		   if ((co_tinkuy < minCO) || (co_tinkuy > maxCO)) {
-			   co_tinkuy = 125;
-		   }
-
-		   delta = (rand->Next(deltaAirQ * 2 + 1) - deltaAirQ);
-		   aq_tinkuy += delta;
-		   if ((aq_tinkuy < minAQ) || (aq_tinkuy > maxAQ)) {
-			   aq_tinkuy = 120;
-		   }
-
-		   ambiente = gcnew Ambiente();
-		   TH = gcnew SensorTemperaturaHumedad(4, temp_tinkuy, Convert::ToChar(176) + "C", hum_bc);
-		   CO = gcnew SensorCO(4, co_tinkuy);
-		   airq = gcnew SensorCalidadAire(4, aq_tinkuy);
-
-		   sensorList = gcnew List<Sensor^>();
-		   sensorList->Add(TH);
-		   sensorList->Add(CO);
-		   sensorList->Add(airq);
-
-		   ambiente->DataBase = sensorList;
-		   ambiente->TiempoMedicion = DateTime::Now.ToString("HH:mm:ss");
-		   ambiente->FechaMedicion = DateTime::Now.ToString("yyyy-MM-dd");
-		   ambiente->UbicacionGeografica = "TINKUY";
-
-		   sensorData = Controller::Controller::QueryAmbienteData();
-		   lastIdIndex = sensorData->Count;
-
-		   if (lastIdIndex == 0) {
-			   ambiente->IdMedicion = 1;
-		   }
-		   else {
-			   Ambiente^ ambientelastId = sensorData[lastIdIndex - 1];
-			   ambiente->IdMedicion = (ambientelastId->IdMedicion) + 1;
-		   }
-
-		   Controller::Controller::AddAmbienteData(ambiente);
-	   
-		   //por lo tanto, Ambiente ha recibido cuatro listas y las ha enviado a la database
-
-		   //sin embargo, solo se puede mostrar una de las 4 datos Ambiente^. La elección dependerá del
-		   // valor del comboBox
-		   
-		   if ((comboBox1->SelectedItem->ToString()) == "CIA") {
-			   textBox3->Text = humedad_cia_int.ToString();
-			   int temperatura_cia_f = temperatura_cia_int * 1.8 + 32;
-			   textBox2->Text = user->ajustes->UnidadTemp == "°C" ? (temperatura_cia_int).ToString() : temperatura_cia_f.ToString();
-			   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
-			   textBox4->Text = calidadAire_cia_int.ToString();
-			   textBox5->Text = co_cia_int.ToString();
-		   }
-		   else if ((comboBox1->SelectedItem->ToString()) == "FACI") {
-			   textBox3->Text = hum_faci.ToString();
-			   int temp_faci_f = temp_faci * 1.8 + 32;
-			   textBox2->Text = user->ajustes->UnidadTemp == "°C" ? (temp_faci).ToString() : temp_faci_f.ToString();
-			   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
-			   textBox4->Text = aq_faci.ToString();
-			   textBox5->Text = co_faci.ToString();
-		   }
-		   else if ((comboBox1->SelectedItem->ToString()) == "BIBLIOTECA CENTRAL") {
-			   textBox3->Text = hum_bc.ToString();
-			   int temp_bc_f = temp_bc * 1.8 + 32;
-			   textBox2->Text = user->ajustes->UnidadTemp == "°C" ? (temp_bc).ToString() : temp_bc_f.ToString();
-			   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
-			   textBox4->Text = aq_bc.ToString();
-			   textBox5->Text = co_bc.ToString();
-		   }
-		   else if ((comboBox1->SelectedItem->ToString()) == "TINKUY") {
-			   textBox3->Text = hum_tinkuy.ToString();
-			   int temp_tinkuy_f = temp_tinkuy * 1.8 + 32;
-			   textBox2->Text = user->ajustes->UnidadTemp == "°C" ? (temp_tinkuy).ToString() : temp_tinkuy_f.ToString();
-			   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
-			   textBox4->Text = aq_tinkuy.ToString();
-			   textBox5->Text = co_tinkuy.ToString();
-		   }
-			
-		   
-		   
-	   
-	   
-	   }
-private: System::Void timer_tick(System::Object^ sender, System::EventArgs^ e) { //cada minuto
-	
-	TransmisionDataArduino();
-	counter++;
-	if (counter == 5) {
-		if (pointsperDay < maxpoints) {
-			TotalPoints += 2;
-			pointsperDay += 2;
-			if (pointsperDay >= maxpoints) {
-				pointsperDay = maxpoints;
+				Controller::Controller::UpdateUser(user);
+				ptslabel->Text = (user->PuntosTotales).ToString();
+				counter == 0;
 			}
+
+		}
+
+
+	}
+
+	private: System::Void Timer2_Tick(System::Object^ sender, System::EventArgs^ e) { //cada segundo
+		if (user->ajustes->FormatoHoras == "Formato de 12 horas") {
+			textBox1->Text = DateTime::Now.ToString("hh:mm:ss tt");
+		}
+		else if (user->ajustes->FormatoHoras == "Formato de 24 horas") {
+			textBox1->Text = DateTime::Now.ToString("HH:mm:ss");
+		}
+		else {
+			MessageBox::Show("NO TOQUEN LA BASE DE DATOS. BUCLE INFINITO AHHHHHHHHHHHHHHHHHH");
+			Application::Exit();
+		}
+	}
+		   double RandomGaussian(Random^ rand) {
+			   // Genera dos números aleatorios uniformes en el intervalo (0, 1]
+			   double u1 = 1.0 - rand->NextDouble();
+			   double u2 = 1.0 - rand->NextDouble();
+
+			   // Aplica la transformación de Box-Muller
+			   double z = sqrt(-2.0 * log(u1)) * cos(2.0 * Math::PI * u2);
+
+			   return z;
+		   }
+		   double MapToRange(double value, double fromLow, double fromHigh, double toLow, double toHigh) {
+			   return toLow + (toHigh - toLow) * (value - fromLow) / (fromHigh - fromLow);
+		   }
+	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		if (user->membresia->TipoMembresia == "Basic") {
+			MessageBox::Show("Suscribete a una Membresia para poder usar esta opción");
+			MembresiaForm^ membform = gcnew MembresiaForm(membresiaGlobal, user);
+			membform->ControlBox = false;
+			membform->ShowDialog();
+			membresiaGlobal = membform->GetMembresia();
+			RefreshMembresia();
+		}
+		else {
+			NewPie^ pieform = gcnew NewPie();
+			pieform->ShowDialog();
+		}
+
+	}
+	private: System::Void TriviaBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		if (user->PuntosDiarios < maxpoints) {
+			//Paso de Parametros
+			TriviaForm^ triviaForm = gcnew TriviaForm(user);
+			triviaForm->ShowDialog();
+			user = triviaForm->GetUser();
+			Controller::Controller::UpdateUser(user);
+			ptslabel->Text = (user->PuntosTotales).ToString();
+			PuntosDiariosLabel->Text = user->PuntosDiarios.ToString();
+
 		}
 		else {
 			MessageBox::Show("Has alcanzado el máximos de puntos por hoy. Vuelve mañana para obtener más puntos.");
 		}
 	}
-
-
-}
-
-private: System::Void Timer2_Tick(System::Object^ sender, System::EventArgs^ e) { //cada segundo
-	if (user->ajustes->FormatoHoras == "Formato de 12 horas") {
-		textBox1->Text = DateTime::Now.ToString("hh:mm:ss tt");
+	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
-	else if (user->ajustes->FormatoHoras == "Formato de 24 horas") {
-		textBox1->Text = DateTime::Now.ToString("HH:mm:ss");
-	}
-	else {
-		MessageBox::Show("NO TOQUEN LA BASE DE DATOS. BUCLE INFINITO AHHHHHHHHHHHHHHHHHH");
-		Application::Exit();
-	}
-}
-	   double RandomGaussian(Random^ rand) {
-		   // Genera dos números aleatorios uniformes en el intervalo (0, 1]
-		   double u1 = 1.0 - rand->NextDouble();
-		   double u2 = 1.0 - rand->NextDouble();
+private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+	TablaRankingForm^ tabraform = gcnew TablaRankingForm();
+	tabraform->ShowDialog();
 
-		   // Aplica la transformación de Box-Muller
-		   double z = sqrt(-2.0 * log(u1)) * cos(2.0 * Math::PI * u2);
-
-		   return z;
-	   }
-	   double MapToRange(double value, double fromLow, double fromHigh, double toLow, double toHigh) {
-		   return toLow + (toHigh - toLow) * (value - fromLow) / (fromHigh - fromLow);
-	   }
-private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	if (user->membresia->TipoMembresia == "Basic") {
-		MessageBox::Show("Suscribete a una Membresia para poder usar esta opción");
-		MembresiaForm^ membform = gcnew MembresiaForm(membresiaGlobal, user);
-		membform->ControlBox = false;
-		membform->ShowDialog();
-		membresiaGlobal = membform->GetMembresia();
-		RefreshMembresia();
-	}
-	else {
-		NewPie^ pieform = gcnew NewPie();
-		pieform->ShowDialog();
-	}
-
-}
-private: System::Void TriviaBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	timer2->Stop(); //test
-	if (pointsperDay < maxpoints) {
-		TriviaForm^ triviaForm = gcnew TriviaForm(pointsperDay);
-		triviaForm->ShowDialog();
-		pointsperDay = triviaForm->GetPoints();
-	}
-	else {
-		MessageBox::Show("Has alcanzado el máximos de puntos por hoy. Vuelve mañana para obtener más puntos.");
-	}
 }
 };
 }

@@ -25,7 +25,7 @@ namespace WeatherStationPersistance {
 		static List<AlertaMeteorologica^>^ WeatherWarningList = gcnew List<AlertaMeteorologica^>();
 		static List<AlertaError^>^ ErrorWarningList = gcnew List<AlertaError^>();
 
-	public:	
+	public:
 
 		//FilesConstants
 		//Users
@@ -52,8 +52,8 @@ namespace WeatherStationPersistance {
 		static String^ CALIDAD_AIRE_XML = "calidad_aire_dataa.xml";
 		static String^ CALIDAD_AIRE_BIN = "calidad_aire_dataa.bin";
 
-		
-    
+
+
 		//WeatherWarning
 		static String^ WEATHER_WARNING_FILE = "weather_warning_data.txt";
 		static String^ WEATHER_WARNING_XML = "weather_warning_data.xml";
@@ -72,7 +72,7 @@ namespace WeatherStationPersistance {
 		static void PersistBinaryFile(String^ fileName, Object^ persistObject);
 		static Object^ LoadBinaryFile(String^ fileName);
 
-		
+
 		//User Methods
 		static void AddUser(User^ User);
 		static List<User^>^ QueryAllUser();
@@ -96,17 +96,17 @@ namespace WeatherStationPersistance {
 		static Membresia^ QueryMembresiabyId(int id);
 		static void UpdateMembresia(Membresia^ membresia);
 		static void DeleteMembresia(int membresiaId);*/
-		
+
 		static Ajustes^ QueryPrevAjustes();
 
 
 		//TempHum Methods
 		static void AddTempHumData(SensorTemperaturaHumedad^ sTempHum);
 		static List<SensorTemperaturaHumedad^>^ QueryTempHumData();
-		static SensorTemperaturaHumedad^ QueryTHbyIds (int IdMedicion, String^ IdSensor);
+		static SensorTemperaturaHumedad^ QueryTHbyIds(int IdMedicion, String^ IdSensor);
 		static void UpdateTHData(SensorTemperaturaHumedad^ sTempHum);
 		static void DeleteTHData(int IdMedicion, String^ IdSensor);
-		
+
 		//CO Methods
 		static void AddCOData(SensorCO^ sConcentracionCO);
 		static List<SensorCO^>^ QueryCOData();
@@ -115,7 +115,7 @@ namespace WeatherStationPersistance {
 		static void DeleteCOData(int IdMedicion, String^ IdSensor);
 
 
-		
+
 
 		//CalidadAire Methods
 		static void AddCalidadAireData(SensorCalidadAire^ sCalidadAire);
@@ -123,7 +123,7 @@ namespace WeatherStationPersistance {
 		static SensorCalidadAire^ QueryCalidadAirebyIds(int IdMedicion, String^ IdSensor);
 		static void UpdateCalidadAireData(SensorCalidadAire^ sCalidadAire);
 		static void DeleteCalidadAireData(int IdMedicion, String^ IdSensor);
-//WeatherWarning Methods
+		//WeatherWarning Methods
 		static void AddWeatherWarning(AlertaMeteorologica^ alertaMeteorologica);
 		static List<AlertaMeteorologica^>^ QueryWeatherWarning();
 		static AlertaMeteorologica^ QueryWeatherWarningbyId(String^ selectedWeatherWarningId);
@@ -154,6 +154,6 @@ namespace WeatherStationPersistance {
 		static Ambiente^ QueryLastUbiGeoData(String^ ubigeo);
 
 
-	
+
 	};
 }
