@@ -69,18 +69,19 @@ namespace WeatherStationView {
 
 	private: System::Windows::Forms::CheckBox^ checkBox1;
 
-	private: System::Windows::Forms::BindingNavigator^ bindingNavigator1;
-	private: System::Windows::Forms::ToolStripButton^ bindingNavigatorAddNewItem;
-	private: System::Windows::Forms::ToolStripLabel^ bindingNavigatorCountItem;
-	private: System::Windows::Forms::ToolStripButton^ bindingNavigatorDeleteItem;
-	private: System::Windows::Forms::ToolStripButton^ bindingNavigatorMoveFirstItem;
-	private: System::Windows::Forms::ToolStripButton^ bindingNavigatorMovePreviousItem;
-	private: System::Windows::Forms::ToolStripSeparator^ bindingNavigatorSeparator;
-	private: System::Windows::Forms::ToolStripTextBox^ bindingNavigatorPositionItem;
-	private: System::Windows::Forms::ToolStripSeparator^ bindingNavigatorSeparator1;
-	private: System::Windows::Forms::ToolStripButton^ bindingNavigatorMoveNextItem;
-	private: System::Windows::Forms::ToolStripButton^ bindingNavigatorMoveLastItem;
-	private: System::Windows::Forms::ToolStripSeparator^ bindingNavigatorSeparator2;
+
+
+
+
+
+
+
+
+
+
+
+
+
 	private: System::ComponentModel::IContainer^ components;
 
 
@@ -100,7 +101,6 @@ namespace WeatherStationView {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(RegisterForm::typeid));
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
@@ -112,18 +112,6 @@ namespace WeatherStationView {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->bindingNavigator1 = (gcnew System::Windows::Forms::BindingNavigator(this->components));
-			this->bindingNavigatorAddNewItem = (gcnew System::Windows::Forms::ToolStripButton());
-			this->bindingNavigatorCountItem = (gcnew System::Windows::Forms::ToolStripLabel());
-			this->bindingNavigatorDeleteItem = (gcnew System::Windows::Forms::ToolStripButton());
-			this->bindingNavigatorMoveFirstItem = (gcnew System::Windows::Forms::ToolStripButton());
-			this->bindingNavigatorMovePreviousItem = (gcnew System::Windows::Forms::ToolStripButton());
-			this->bindingNavigatorSeparator = (gcnew System::Windows::Forms::ToolStripSeparator());
-			this->bindingNavigatorPositionItem = (gcnew System::Windows::Forms::ToolStripTextBox());
-			this->bindingNavigatorSeparator1 = (gcnew System::Windows::Forms::ToolStripSeparator());
-			this->bindingNavigatorMoveNextItem = (gcnew System::Windows::Forms::ToolStripButton());
-			this->bindingNavigatorMoveLastItem = (gcnew System::Windows::Forms::ToolStripButton());
-			this->bindingNavigatorSeparator2 = (gcnew System::Windows::Forms::ToolStripSeparator());
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -132,118 +120,82 @@ namespace WeatherStationView {
 			this->panel3->SuspendLayout();
 			this->panel1->SuspendLayout();
 			this->panel2->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->bindingNavigator1))->BeginInit();
-			this->bindingNavigator1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// button2
 			// 
 			this->button2->BackColor = System::Drawing::Color::Black;
 			this->button2->FlatAppearance->BorderSize = 0;
-			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button2->Location = System::Drawing::Point(92, 450);
-			this->button2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			resources->ApplyResources(this->button2, L"button2");
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(388, 47);
-			this->button2->TabIndex = 7;
-			this->button2->Text = L"Crear Cuenta";
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &RegisterForm::button2_Click);
 			// 
 			// panel4
 			// 
-			this->panel4->BackColor = System::Drawing::Color::Linen;
+			this->panel4->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->panel4->Controls->Add(this->txtName);
-			this->panel4->Location = System::Drawing::Point(93, 257);
-			this->panel4->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			resources->ApplyResources(this->panel4, L"panel4");
 			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(387, 47);
-			this->panel4->TabIndex = 11;
 			// 
 			// txtName
 			// 
-			this->txtName->Location = System::Drawing::Point(21, 14);
-			this->txtName->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtName->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			resources->ApplyResources(this->txtName, L"txtName");
 			this->txtName->Name = L"txtName";
-			this->txtName->Size = System::Drawing::Size(343, 22);
-			this->txtName->TabIndex = 1;
 			this->txtName->TextChanged += gcnew System::EventHandler(this, &RegisterForm::textBox2_TextChanged);
 			this->txtName->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &RegisterForm::txtName_KeyDown);
 			// 
 			// panel3
 			// 
-			this->panel3->BackColor = System::Drawing::Color::Linen;
+			this->panel3->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->panel3->Controls->Add(this->txtEmail);
-			this->panel3->Location = System::Drawing::Point(93, 160);
-			this->panel3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			resources->ApplyResources(this->panel3, L"panel3");
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(387, 47);
-			this->panel3->TabIndex = 10;
 			// 
 			// txtEmail
 			// 
-			this->txtEmail->Location = System::Drawing::Point(20, 11);
-			this->txtEmail->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtEmail->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			resources->ApplyResources(this->txtEmail, L"txtEmail");
 			this->txtEmail->Name = L"txtEmail";
-			this->txtEmail->Size = System::Drawing::Size(343, 22);
-			this->txtEmail->TabIndex = 0;
 			this->txtEmail->TextChanged += gcnew System::EventHandler(this, &RegisterForm::textBox1_TextChanged);
 			this->txtEmail->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &RegisterForm::txtEmail_KeyDown);
 			// 
 			// label4
 			// 
-			this->label4->AutoSize = true;
-			this->label4->BackColor = System::Drawing::Color::Transparent;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label4->ForeColor = System::Drawing::Color::Black;
-			this->label4->Location = System::Drawing::Point(199, 36);
+			resources->ApplyResources(this->label4, L"label4");
+			this->label4->BackColor = System::Drawing::Color::Snow;
+			this->label4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->label4->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(211, 46);
-			this->label4->TabIndex = 9;
-			this->label4->Text = L"Regístrate";
 			this->label4->Click += gcnew System::EventHandler(this, &RegisterForm::label4_Click);
 			// 
 			// label5
 			// 
-			this->label5->BackColor = System::Drawing::Color::Transparent;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label5->ForeColor = System::Drawing::Color::Black;
-			this->label5->Location = System::Drawing::Point(89, 87);
+			this->label5->BackColor = System::Drawing::Color::Snow;
+			resources->ApplyResources(this->label5, L"label5");
+			this->label5->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(409, 50);
-			this->label5->TabIndex = 8;
-			this->label5->Text = L"Registra tu información para crear tu cuenta y tener acceso a increible informaci"
-				L"ón meteorológica";
 			// 
 			// panel1
 			// 
-			this->panel1->BackColor = System::Drawing::Color::Linen;
+			this->panel1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->panel1->Controls->Add(this->txtPassword);
-			this->panel1->Location = System::Drawing::Point(93, 362);
-			this->panel1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			resources->ApplyResources(this->panel1, L"panel1");
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(387, 47);
-			this->panel1->TabIndex = 12;
 			// 
 			// txtPassword
 			// 
-			this->txtPassword->Location = System::Drawing::Point(21, 14);
-			this->txtPassword->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->txtPassword->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			resources->ApplyResources(this->txtPassword, L"txtPassword");
 			this->txtPassword->Name = L"txtPassword";
-			this->txtPassword->Size = System::Drawing::Size(343, 22);
-			this->txtPassword->TabIndex = 1;
 			this->txtPassword->UseSystemPasswordChar = true;
 			this->txtPassword->TextChanged += gcnew System::EventHandler(this, &RegisterForm::textBox3_TextChanged);
 			this->txtPassword->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &RegisterForm::txtPassword_KeyDown);
 			// 
 			// panel2
 			// 
-			this->panel2->BackColor = System::Drawing::SystemColors::Info;
-			this->panel2->Controls->Add(this->bindingNavigator1);
+			this->panel2->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->panel2->Controls->Add(this->checkBox1);
 			this->panel2->Controls->Add(this->label3);
 			this->panel2->Controls->Add(this->label2);
@@ -254,182 +206,46 @@ namespace WeatherStationView {
 			this->panel2->Controls->Add(this->panel3);
 			this->panel2->Controls->Add(this->label5);
 			this->panel2->Controls->Add(this->label4);
+			resources->ApplyResources(this->panel2, L"panel2");
 			this->panel2->ForeColor = System::Drawing::SystemColors::Control;
-			this->panel2->Location = System::Drawing::Point(1, -27);
-			this->panel2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(635, 555);
-			this->panel2->TabIndex = 13;
-			// 
-			// bindingNavigator1
-			// 
-			this->bindingNavigator1->AddNewItem = this->bindingNavigatorAddNewItem;
-			this->bindingNavigator1->CountItem = this->bindingNavigatorCountItem;
-			this->bindingNavigator1->DeleteItem = this->bindingNavigatorDeleteItem;
-			this->bindingNavigator1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->bindingNavigator1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(11) {
-				this->bindingNavigatorMoveFirstItem,
-					this->bindingNavigatorMovePreviousItem, this->bindingNavigatorSeparator, this->bindingNavigatorPositionItem, this->bindingNavigatorCountItem,
-					this->bindingNavigatorSeparator1, this->bindingNavigatorMoveNextItem, this->bindingNavigatorMoveLastItem, this->bindingNavigatorSeparator2,
-					this->bindingNavigatorAddNewItem, this->bindingNavigatorDeleteItem
-			});
-			this->bindingNavigator1->Location = System::Drawing::Point(0, 0);
-			this->bindingNavigator1->MoveFirstItem = this->bindingNavigatorMoveFirstItem;
-			this->bindingNavigator1->MoveLastItem = this->bindingNavigatorMoveLastItem;
-			this->bindingNavigator1->MoveNextItem = this->bindingNavigatorMoveNextItem;
-			this->bindingNavigator1->MovePreviousItem = this->bindingNavigatorMovePreviousItem;
-			this->bindingNavigator1->Name = L"bindingNavigator1";
-			this->bindingNavigator1->Padding = System::Windows::Forms::Padding(0, 0, 3, 0);
-			this->bindingNavigator1->PositionItem = this->bindingNavigatorPositionItem;
-			this->bindingNavigator1->Size = System::Drawing::Size(635, 31);
-			this->bindingNavigator1->TabIndex = 17;
-			this->bindingNavigator1->Text = L"bindingNavigator1";
-			// 
-			// bindingNavigatorAddNewItem
-			// 
-			this->bindingNavigatorAddNewItem->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
-			this->bindingNavigatorAddNewItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"bindingNavigatorAddNewItem.Image")));
-			this->bindingNavigatorAddNewItem->Name = L"bindingNavigatorAddNewItem";
-			this->bindingNavigatorAddNewItem->RightToLeftAutoMirrorImage = true;
-			this->bindingNavigatorAddNewItem->Size = System::Drawing::Size(29, 28);
-			this->bindingNavigatorAddNewItem->Text = L"Agregar nuevo";
-			// 
-			// bindingNavigatorCountItem
-			// 
-			this->bindingNavigatorCountItem->Name = L"bindingNavigatorCountItem";
-			this->bindingNavigatorCountItem->Size = System::Drawing::Size(48, 28);
-			this->bindingNavigatorCountItem->Text = L"de {0}";
-			this->bindingNavigatorCountItem->ToolTipText = L"Número total de elementos";
-			// 
-			// bindingNavigatorDeleteItem
-			// 
-			this->bindingNavigatorDeleteItem->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
-			this->bindingNavigatorDeleteItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"bindingNavigatorDeleteItem.Image")));
-			this->bindingNavigatorDeleteItem->Name = L"bindingNavigatorDeleteItem";
-			this->bindingNavigatorDeleteItem->RightToLeftAutoMirrorImage = true;
-			this->bindingNavigatorDeleteItem->Size = System::Drawing::Size(29, 28);
-			this->bindingNavigatorDeleteItem->Text = L"Eliminar";
-			// 
-			// bindingNavigatorMoveFirstItem
-			// 
-			this->bindingNavigatorMoveFirstItem->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
-			this->bindingNavigatorMoveFirstItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"bindingNavigatorMoveFirstItem.Image")));
-			this->bindingNavigatorMoveFirstItem->Name = L"bindingNavigatorMoveFirstItem";
-			this->bindingNavigatorMoveFirstItem->RightToLeftAutoMirrorImage = true;
-			this->bindingNavigatorMoveFirstItem->Size = System::Drawing::Size(29, 28);
-			this->bindingNavigatorMoveFirstItem->Text = L"Mover primero";
-			// 
-			// bindingNavigatorMovePreviousItem
-			// 
-			this->bindingNavigatorMovePreviousItem->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
-			this->bindingNavigatorMovePreviousItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"bindingNavigatorMovePreviousItem.Image")));
-			this->bindingNavigatorMovePreviousItem->Name = L"bindingNavigatorMovePreviousItem";
-			this->bindingNavigatorMovePreviousItem->RightToLeftAutoMirrorImage = true;
-			this->bindingNavigatorMovePreviousItem->Size = System::Drawing::Size(29, 28);
-			this->bindingNavigatorMovePreviousItem->Text = L"Mover anterior";
-			// 
-			// bindingNavigatorSeparator
-			// 
-			this->bindingNavigatorSeparator->Name = L"bindingNavigatorSeparator";
-			this->bindingNavigatorSeparator->Size = System::Drawing::Size(6, 31);
-			// 
-			// bindingNavigatorPositionItem
-			// 
-			this->bindingNavigatorPositionItem->AccessibleName = L"Posición";
-			this->bindingNavigatorPositionItem->AutoSize = false;
-			this->bindingNavigatorPositionItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9));
-			this->bindingNavigatorPositionItem->Name = L"bindingNavigatorPositionItem";
-			this->bindingNavigatorPositionItem->Size = System::Drawing::Size(49, 27);
-			this->bindingNavigatorPositionItem->Text = L"0";
-			this->bindingNavigatorPositionItem->ToolTipText = L"Posición actual";
-			// 
-			// bindingNavigatorSeparator1
-			// 
-			this->bindingNavigatorSeparator1->Name = L"bindingNavigatorSeparator1";
-			this->bindingNavigatorSeparator1->Size = System::Drawing::Size(6, 31);
-			// 
-			// bindingNavigatorMoveNextItem
-			// 
-			this->bindingNavigatorMoveNextItem->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
-			this->bindingNavigatorMoveNextItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"bindingNavigatorMoveNextItem.Image")));
-			this->bindingNavigatorMoveNextItem->Name = L"bindingNavigatorMoveNextItem";
-			this->bindingNavigatorMoveNextItem->RightToLeftAutoMirrorImage = true;
-			this->bindingNavigatorMoveNextItem->Size = System::Drawing::Size(29, 28);
-			this->bindingNavigatorMoveNextItem->Text = L"Mover siguiente";
-			// 
-			// bindingNavigatorMoveLastItem
-			// 
-			this->bindingNavigatorMoveLastItem->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
-			this->bindingNavigatorMoveLastItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"bindingNavigatorMoveLastItem.Image")));
-			this->bindingNavigatorMoveLastItem->Name = L"bindingNavigatorMoveLastItem";
-			this->bindingNavigatorMoveLastItem->RightToLeftAutoMirrorImage = true;
-			this->bindingNavigatorMoveLastItem->Size = System::Drawing::Size(29, 28);
-			this->bindingNavigatorMoveLastItem->Text = L"Mover último";
-			// 
-			// bindingNavigatorSeparator2
-			// 
-			this->bindingNavigatorSeparator2->Name = L"bindingNavigatorSeparator2";
-			this->bindingNavigatorSeparator2->Size = System::Drawing::Size(6, 31);
 			// 
 			// checkBox1
 			// 
-			this->checkBox1->AutoSize = true;
+			resources->ApplyResources(this->checkBox1, L"checkBox1");
 			this->checkBox1->ForeColor = System::Drawing::Color::Black;
-			this->checkBox1->Location = System::Drawing::Point(100, 426);
-			this->checkBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(241, 20);
-			this->checkBox1->TabIndex = 16;
-			this->checkBox1->Text = L"Acepto los Términos y Condiciones";
 			this->checkBox1->UseVisualStyleBackColor = true;
 			this->checkBox1->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &RegisterForm::checkBox1_KeyDown);
 			// 
 			// label3
 			// 
-			this->label3->BackColor = System::Drawing::Color::Transparent;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label3->ForeColor = System::Drawing::Color::Black;
-			this->label3->Location = System::Drawing::Point(96, 130);
+			this->label3->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			resources->ApplyResources(this->label3, L"label3");
+			this->label3->ForeColor = System::Drawing::SystemColors::MenuText;
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(263, 28);
-			this->label3->TabIndex = 15;
-			this->label3->Text = L"Ingresa tu Email:";
 			// 
 			// label2
 			// 
-			this->label2->BackColor = System::Drawing::Color::Transparent;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::Black;
-			this->label2->Location = System::Drawing::Point(91, 332);
+			this->label2->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			resources->ApplyResources(this->label2, L"label2");
+			this->label2->ForeColor = System::Drawing::SystemColors::MenuText;
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(263, 28);
-			this->label2->TabIndex = 14;
-			this->label2->Text = L"Crea tu Contraseña";
 			// 
 			// label1
 			// 
-			this->label1->BackColor = System::Drawing::Color::Transparent;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::Color::Black;
-			this->label1->Location = System::Drawing::Point(89, 226);
+			this->label1->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			resources->ApplyResources(this->label1, L"label1");
+			this->label1->ForeColor = System::Drawing::SystemColors::MenuText;
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(263, 28);
-			this->label1->TabIndex = 13;
-			this->label1->Text = L"Crea tu Usuario";
 			// 
 			// RegisterForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			resources->ApplyResources(this, L"$this");
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(627, 523);
+			this->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->Controls->Add(this->panel2);
-			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"RegisterForm";
-			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"RegisterForm";
 			this->Load += gcnew System::EventHandler(this, &RegisterForm::RegisterForm_Load);
 			this->panel4->ResumeLayout(false);
 			this->panel4->PerformLayout();
@@ -439,9 +255,6 @@ namespace WeatherStationView {
 			this->panel1->PerformLayout();
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->bindingNavigator1))->EndInit();
-			this->bindingNavigator1->ResumeLayout(false);
-			this->bindingNavigator1->PerformLayout();
 			this->ResumeLayout(false);
 
 		}

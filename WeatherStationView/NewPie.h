@@ -170,6 +170,7 @@ private: System::Windows::Forms::Button^ CerrarBtn;
 		{
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(NewPie::typeid));
 			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
@@ -212,62 +213,40 @@ private: System::Windows::Forms::Button^ CerrarBtn;
 			this->chTemp->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->chTemp->Legends->Add(legend1);
-			this->chTemp->Location = System::Drawing::Point(29, 34);
+			resources->ApplyResources(this->chTemp, L"chTemp");
 			this->chTemp->Name = L"chTemp";
 			series1->ChartArea = L"ChartArea1";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
 			series1->Legend = L"Legend1";
 			series1->Name = L"Temp";
 			this->chTemp->Series->Add(series1);
-			this->chTemp->Size = System::Drawing::Size(221, 206);
-			this->chTemp->TabIndex = 0;
-			this->chTemp->Text = L"chart1";
 			// 
 			// label1
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(29, 15);
+			resources->ApplyResources(this->label1, L"label1");
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(87, 13);
-			this->label1->TabIndex = 4;
-			this->label1->Text = L"Temperatura (°C)";
 			// 
 			// label2
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(354, 15);
+			resources->ApplyResources(this->label2, L"label2");
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(70, 13);
-			this->label2->TabIndex = 5;
-			this->label2->Text = L"Humedad (%)";
 			// 
 			// label3
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(29, 266);
+			resources->ApplyResources(this->label3, L"label3");
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(75, 13);
-			this->label3->TabIndex = 6;
-			this->label3->Text = L"NivelCO (ppm)";
 			// 
 			// label4
 			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(354, 266);
+			resources->ApplyResources(this->label4, L"label4");
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(89, 13);
-			this->label4->TabIndex = 7;
-			this->label4->Text = L"CalidadAire (ppm)";
 			// 
 			// btnMean
 			// 
 			this->btnMean->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->btnMean->ForeColor = System::Drawing::SystemColors::Control;
-			this->btnMean->Location = System::Drawing::Point(647, 34);
+			resources->ApplyResources(this->btnMean, L"btnMean");
 			this->btnMean->Name = L"btnMean";
-			this->btnMean->Size = System::Drawing::Size(135, 66);
-			this->btnMean->TabIndex = 8;
-			this->btnMean->Text = L"Valores Promedio";
 			this->btnMean->UseVisualStyleBackColor = false;
 			this->btnMean->Click += gcnew System::EventHandler(this, &NewPie::btnMean_Click);
 			// 
@@ -277,16 +256,13 @@ private: System::Windows::Forms::Button^ CerrarBtn;
 			this->chHum->ChartAreas->Add(chartArea2);
 			legend2->Name = L"Legend1";
 			this->chHum->Legends->Add(legend2);
-			this->chHum->Location = System::Drawing::Point(346, 34);
+			resources->ApplyResources(this->chHum, L"chHum");
 			this->chHum->Name = L"chHum";
 			series2->ChartArea = L"ChartArea1";
 			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
 			series2->Legend = L"Legend1";
 			series2->Name = L"Hum";
 			this->chHum->Series->Add(series2);
-			this->chHum->Size = System::Drawing::Size(221, 206);
-			this->chHum->TabIndex = 9;
-			this->chHum->Text = L"chart1";
 			// 
 			// chCO
 			// 
@@ -294,16 +270,13 @@ private: System::Windows::Forms::Button^ CerrarBtn;
 			this->chCO->ChartAreas->Add(chartArea3);
 			legend3->Name = L"Legend1";
 			this->chCO->Legends->Add(legend3);
-			this->chCO->Location = System::Drawing::Point(29, 315);
+			resources->ApplyResources(this->chCO, L"chCO");
 			this->chCO->Name = L"chCO";
 			series3->ChartArea = L"ChartArea1";
 			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
 			series3->Legend = L"Legend1";
 			series3->Name = L"CO";
 			this->chCO->Series->Add(series3);
-			this->chCO->Size = System::Drawing::Size(221, 206);
-			this->chCO->TabIndex = 10;
-			this->chCO->Text = L"chart1";
 			// 
 			// chAir
 			// 
@@ -311,26 +284,20 @@ private: System::Windows::Forms::Button^ CerrarBtn;
 			this->chAir->ChartAreas->Add(chartArea4);
 			legend4->Name = L"Legend1";
 			this->chAir->Legends->Add(legend4);
-			this->chAir->Location = System::Drawing::Point(346, 315);
+			resources->ApplyResources(this->chAir, L"chAir");
 			this->chAir->Name = L"chAir";
 			series4->ChartArea = L"ChartArea1";
 			series4->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
 			series4->Legend = L"Legend1";
 			series4->Name = L"Airq";
 			this->chAir->Series->Add(series4);
-			this->chAir->Size = System::Drawing::Size(221, 206);
-			this->chAir->TabIndex = 11;
-			this->chAir->Text = L"chart1";
 			// 
 			// btnMin
 			// 
 			this->btnMin->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->btnMin->ForeColor = System::Drawing::SystemColors::Control;
-			this->btnMin->Location = System::Drawing::Point(647, 160);
+			resources->ApplyResources(this->btnMin, L"btnMin");
 			this->btnMin->Name = L"btnMin";
-			this->btnMin->Size = System::Drawing::Size(135, 66);
-			this->btnMin->TabIndex = 12;
-			this->btnMin->Text = L"Valores Mínimos";
 			this->btnMin->UseVisualStyleBackColor = false;
 			this->btnMin->Click += gcnew System::EventHandler(this, &NewPie::btnMin_Click);
 			// 
@@ -338,68 +305,49 @@ private: System::Windows::Forms::Button^ CerrarBtn;
 			// 
 			this->btnMax->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->btnMax->ForeColor = System::Drawing::SystemColors::Control;
-			this->btnMax->Location = System::Drawing::Point(647, 289);
+			resources->ApplyResources(this->btnMax, L"btnMax");
 			this->btnMax->Name = L"btnMax";
-			this->btnMax->Size = System::Drawing::Size(135, 63);
-			this->btnMax->TabIndex = 13;
-			this->btnMax->Text = L"Valores Máximo";
 			this->btnMax->UseVisualStyleBackColor = false;
 			this->btnMax->Click += gcnew System::EventHandler(this, &NewPie::btnMax_Click);
 			// 
 			// pbTemperature
 			// 
-			this->pbTemperature->Location = System::Drawing::Point(54, 54);
+			resources->ApplyResources(this->pbTemperature, L"pbTemperature");
 			this->pbTemperature->Name = L"pbTemperature";
-			this->pbTemperature->Size = System::Drawing::Size(171, 165);
-			this->pbTemperature->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pbTemperature->TabIndex = 14;
 			this->pbTemperature->TabStop = false;
 			// 
 			// pbHumidity
 			// 
-			this->pbHumidity->Location = System::Drawing::Point(370, 54);
+			resources->ApplyResources(this->pbHumidity, L"pbHumidity");
 			this->pbHumidity->Name = L"pbHumidity";
-			this->pbHumidity->Size = System::Drawing::Size(171, 165);
-			this->pbHumidity->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pbHumidity->TabIndex = 15;
 			this->pbHumidity->TabStop = false;
 			// 
 			// pbCO
 			// 
-			this->pbCO->Location = System::Drawing::Point(54, 336);
+			resources->ApplyResources(this->pbCO, L"pbCO");
 			this->pbCO->Name = L"pbCO";
-			this->pbCO->Size = System::Drawing::Size(171, 165);
-			this->pbCO->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pbCO->TabIndex = 16;
 			this->pbCO->TabStop = false;
 			// 
 			// pbAirq
 			// 
-			this->pbAirq->Location = System::Drawing::Point(370, 336);
+			resources->ApplyResources(this->pbAirq, L"pbAirq");
 			this->pbAirq->Name = L"pbAirq";
-			this->pbAirq->Size = System::Drawing::Size(171, 165);
-			this->pbAirq->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pbAirq->TabIndex = 17;
 			this->pbAirq->TabStop = false;
 			// 
 			// CerrarBtn
 			// 
 			this->CerrarBtn->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->CerrarBtn->ForeColor = System::Drawing::SystemColors::Control;
-			this->CerrarBtn->Location = System::Drawing::Point(636, 481);
+			resources->ApplyResources(this->CerrarBtn, L"CerrarBtn");
 			this->CerrarBtn->Name = L"CerrarBtn";
-			this->CerrarBtn->Size = System::Drawing::Size(99, 40);
-			this->CerrarBtn->TabIndex = 18;
-			this->CerrarBtn->Text = L"Salir";
 			this->CerrarBtn->UseVisualStyleBackColor = false;
 			this->CerrarBtn->Click += gcnew System::EventHandler(this, &NewPie::CerrarBtn_Click);
 			// 
 			// NewPie
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			resources->ApplyResources(this, L"$this");
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::WhiteSmoke;
-			this->ClientSize = System::Drawing::Size(820, 544);
 			this->Controls->Add(this->CerrarBtn);
 			this->Controls->Add(this->pbAirq);
 			this->Controls->Add(this->pbCO);
@@ -417,8 +365,6 @@ private: System::Windows::Forms::Button^ CerrarBtn;
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->chTemp);
 			this->Name = L"NewPie";
-			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"NewPie";
 			this->Load += gcnew System::EventHandler(this, &NewPie::NewPie_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chTemp))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chHum))->EndInit();

@@ -569,7 +569,6 @@ private: System::Windows::Forms::Label^ ptslabel;
 			this->panel1->Controls->Add(this->label6);
 			this->panel1->Controls->Add(this->button4);
 			this->panel1->Controls->Add(this->label5);
-
 			this->panel1->Controls->Add(this->dtpWeatherStationBasic);
 			this->panel1->Controls->Add(this->button3);
 			this->panel1->Controls->Add(this->button7);
@@ -705,7 +704,7 @@ private: System::Windows::Forms::Label^ ptslabel;
 		//timer
 		timer1->Start();
 		timer2->Start();
-		//TransmisionDataArduino();
+		TransmisionDataArduino();
 		
 
 	}

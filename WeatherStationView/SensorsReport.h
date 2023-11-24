@@ -162,6 +162,7 @@ private: System::Windows::Forms::Button^ CSVBtn;
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(SensorsReport::typeid));
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
@@ -241,256 +242,176 @@ private: System::Windows::Forms::Button^ CSVBtn;
 				this->Column6,
 					this->Column1, this->UnidadTempdgv, this->Column2, this->Column3, this->Column4, this->Column5, this->Fecha, this->dgvHora
 			});
-			this->dataGridView1->Location = System::Drawing::Point(15, 143);
+			resources->ApplyResources(this->dataGridView1, L"dataGridView1");
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->Size = System::Drawing::Size(413, 302);
-			this->dataGridView1->TabIndex = 14;
 			// 
 			// Column6
 			// 
-			this->Column6->HeaderText = L"IdMedicion";
-			this->Column6->MinimumWidth = 6;
+			resources->ApplyResources(this->Column6, L"Column6");
 			this->Column6->Name = L"Column6";
-			this->Column6->Width = 125;
 			// 
 			// Column1
 			// 
-			this->Column1->HeaderText = L"Temperatura";
-			this->Column1->MinimumWidth = 6;
+			resources->ApplyResources(this->Column1, L"Column1");
 			this->Column1->Name = L"Column1";
-			this->Column1->Width = 125;
 			// 
 			// UnidadTempdgv
 			// 
-			this->UnidadTempdgv->HeaderText = L"Unidad Temperatura";
-			this->UnidadTempdgv->MinimumWidth = 6;
+			resources->ApplyResources(this->UnidadTempdgv, L"UnidadTempdgv");
 			this->UnidadTempdgv->Name = L"UnidadTempdgv";
-			this->UnidadTempdgv->Width = 125;
 			// 
 			// Column2
 			// 
-			this->Column2->HeaderText = L"Humedad";
-			this->Column2->MinimumWidth = 6;
+			resources->ApplyResources(this->Column2, L"Column2");
 			this->Column2->Name = L"Column2";
-			this->Column2->Width = 125;
 			// 
 			// Column3
 			// 
-			this->Column3->HeaderText = L"Concentracion CO";
-			this->Column3->MinimumWidth = 6;
+			resources->ApplyResources(this->Column3, L"Column3");
 			this->Column3->Name = L"Column3";
-			this->Column3->Width = 125;
 			// 
 			// Column4
 			// 
-			this->Column4->HeaderText = L"Calidad Aire";
-			this->Column4->MinimumWidth = 6;
+			resources->ApplyResources(this->Column4, L"Column4");
 			this->Column4->Name = L"Column4";
-			this->Column4->Width = 125;
 			// 
 			// Column5
 			// 
-			this->Column5->HeaderText = L"Ubicacion Geografica";
-			this->Column5->MinimumWidth = 6;
+			resources->ApplyResources(this->Column5, L"Column5");
 			this->Column5->Name = L"Column5";
-			this->Column5->Width = 125;
 			// 
 			// Fecha
 			// 
-			this->Fecha->HeaderText = L"Fecha";
-			this->Fecha->MinimumWidth = 6;
+			resources->ApplyResources(this->Fecha, L"Fecha");
 			this->Fecha->Name = L"Fecha";
-			this->Fecha->Width = 125;
 			// 
 			// dgvHora
 			// 
-			this->dgvHora->HeaderText = L"Hora";
-			this->dgvHora->MinimumWidth = 6;
+			resources->ApplyResources(this->dgvHora, L"dgvHora");
 			this->dgvHora->Name = L"dgvHora";
-			this->dgvHora->Width = 125;
 			// 
 			// CerrarBtn
 			// 
-			this->CerrarBtn->Location = System::Drawing::Point(782, 44);
+			resources->ApplyResources(this->CerrarBtn, L"CerrarBtn");
 			this->CerrarBtn->Name = L"CerrarBtn";
-			this->CerrarBtn->Size = System::Drawing::Size(75, 23);
-			this->CerrarBtn->TabIndex = 16;
-			this->CerrarBtn->Text = L"Cerrar";
 			this->CerrarBtn->UseVisualStyleBackColor = true;
 			this->CerrarBtn->Click += gcnew System::EventHandler(this, &SensorsReport::CerrarBtn_Click);
 			// 
 			// BuscarBtn
 			// 
-			this->BuscarBtn->Location = System::Drawing::Point(333, 44);
+			resources->ApplyResources(this->BuscarBtn, L"BuscarBtn");
 			this->BuscarBtn->Name = L"BuscarBtn";
-			this->BuscarBtn->Size = System::Drawing::Size(75, 23);
-			this->BuscarBtn->TabIndex = 15;
-			this->BuscarBtn->Text = L"Buscar";
 			this->BuscarBtn->UseVisualStyleBackColor = true;
 			this->BuscarBtn->Click += gcnew System::EventHandler(this, &SensorsReport::Buscar_Click);
 			// 
 			// MinBox
 			// 
-			this->MinBox->Location = System::Drawing::Point(21, 87);
+			resources->ApplyResources(this->MinBox, L"MinBox");
 			this->MinBox->Name = L"MinBox";
-			this->MinBox->Size = System::Drawing::Size(112, 20);
-			this->MinBox->TabIndex = 17;
 			// 
 			// CriterioBox
 			// 
 			this->CriterioBox->FormattingEnabled = true;
 			this->CriterioBox->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
-				L"Temperatura", L"Humedad", L"Concentracion CO",
-					L"Calidad Aire", L"Fecha-Hora"
+				resources->GetString(L"CriterioBox.Items"), resources->GetString(L"CriterioBox.Items1"),
+					resources->GetString(L"CriterioBox.Items2"), resources->GetString(L"CriterioBox.Items3"), resources->GetString(L"CriterioBox.Items4")
 			});
-			this->CriterioBox->Location = System::Drawing::Point(21, 38);
+			resources->ApplyResources(this->CriterioBox, L"CriterioBox");
 			this->CriterioBox->Name = L"CriterioBox";
-			this->CriterioBox->Size = System::Drawing::Size(121, 21);
-			this->CriterioBox->TabIndex = 18;
 			this->CriterioBox->SelectedIndexChanged += gcnew System::EventHandler(this, &SensorsReport::EleccionCriterio);
 			// 
 			// label1
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(19, 20);
+			resources->ApplyResources(this->label1, L"label1");
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(105, 13);
-			this->label1->TabIndex = 19;
-			this->label1->Text = L"Criterio de Búsqueda";
 			// 
 			// MaxBox
 			// 
-			this->MaxBox->Location = System::Drawing::Point(215, 87);
+			resources->ApplyResources(this->MaxBox, L"MaxBox");
 			this->MaxBox->Name = L"MaxBox";
-			this->MaxBox->Size = System::Drawing::Size(109, 20);
-			this->MaxBox->TabIndex = 20;
 			// 
 			// MinLabel
 			// 
-			this->MinLabel->AutoSize = true;
-			this->MinLabel->Location = System::Drawing::Point(12, 68);
+			resources->ApplyResources(this->MinLabel, L"MinLabel");
 			this->MinLabel->Name = L"MinLabel";
-			this->MinLabel->Size = System::Drawing::Size(35, 13);
-			this->MinLabel->TabIndex = 21;
-			this->MinLabel->Text = L"label2";
 			// 
 			// MaxLabel
 			// 
-			this->MaxLabel->AutoSize = true;
-			this->MaxLabel->Location = System::Drawing::Point(213, 68);
+			resources->ApplyResources(this->MaxLabel, L"MaxLabel");
 			this->MaxLabel->Name = L"MaxLabel";
-			this->MaxLabel->Size = System::Drawing::Size(35, 13);
-			this->MaxLabel->TabIndex = 22;
-			this->MaxLabel->Text = L"label3";
 			// 
 			// RestablecerBtn
 			// 
-			this->RestablecerBtn->Location = System::Drawing::Point(333, 15);
+			resources->ApplyResources(this->RestablecerBtn, L"RestablecerBtn");
 			this->RestablecerBtn->Name = L"RestablecerBtn";
-			this->RestablecerBtn->Size = System::Drawing::Size(75, 23);
-			this->RestablecerBtn->TabIndex = 23;
-			this->RestablecerBtn->Text = L"Restablecer";
 			this->RestablecerBtn->UseVisualStyleBackColor = true;
 			this->RestablecerBtn->Click += gcnew System::EventHandler(this, &SensorsReport::Restablecer_Click);
 			// 
 			// HoraInicial
 			// 
-			this->HoraInicial->Location = System::Drawing::Point(12, 114);
+			resources->ApplyResources(this->HoraInicial, L"HoraInicial");
 			this->HoraInicial->Name = L"HoraInicial";
-			this->HoraInicial->Size = System::Drawing::Size(28, 20);
-			this->HoraInicial->TabIndex = 24;
 			// 
 			// MinutoInicial
 			// 
-			this->MinutoInicial->Location = System::Drawing::Point(55, 114);
+			resources->ApplyResources(this->MinutoInicial, L"MinutoInicial");
 			this->MinutoInicial->Name = L"MinutoInicial";
-			this->MinutoInicial->Size = System::Drawing::Size(28, 20);
-			this->MinutoInicial->TabIndex = 25;
 			// 
 			// MinutoFinal
 			// 
-			this->MinutoFinal->Location = System::Drawing::Point(257, 114);
+			resources->ApplyResources(this->MinutoFinal, L"MinutoFinal");
 			this->MinutoFinal->Name = L"MinutoFinal";
-			this->MinutoFinal->Size = System::Drawing::Size(28, 20);
-			this->MinutoFinal->TabIndex = 30;
 			// 
 			// HoraFinal
 			// 
-			this->HoraFinal->Location = System::Drawing::Point(215, 114);
+			resources->ApplyResources(this->HoraFinal, L"HoraFinal");
 			this->HoraFinal->Name = L"HoraFinal";
-			this->HoraFinal->Size = System::Drawing::Size(28, 20);
-			this->HoraFinal->TabIndex = 29;
 			// 
 			// AMPM1
 			// 
 			this->AMPM1->FormattingEnabled = true;
-			this->AMPM1->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"a.m.", L"p.m." });
-			this->AMPM1->Location = System::Drawing::Point(93, 114);
+			this->AMPM1->Items->AddRange(gcnew cli::array< System::Object^  >(2) { resources->GetString(L"AMPM1.Items"), resources->GetString(L"AMPM1.Items1") });
+			resources->ApplyResources(this->AMPM1, L"AMPM1");
 			this->AMPM1->Name = L"AMPM1";
-			this->AMPM1->Size = System::Drawing::Size(43, 21);
-			this->AMPM1->TabIndex = 31;
 			// 
 			// AMPM2
 			// 
 			this->AMPM2->FormattingEnabled = true;
-			this->AMPM2->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"a.m.", L"p.m." });
-			this->AMPM2->Location = System::Drawing::Point(293, 113);
+			this->AMPM2->Items->AddRange(gcnew cli::array< System::Object^  >(2) { resources->GetString(L"AMPM2.Items"), resources->GetString(L"AMPM2.Items1") });
+			resources->ApplyResources(this->AMPM2, L"AMPM2");
 			this->AMPM2->Name = L"AMPM2";
-			this->AMPM2->Size = System::Drawing::Size(43, 21);
-			this->AMPM2->TabIndex = 32;
 			// 
 			// dosPuntos1
 			// 
-			this->dosPuntos1->AutoSize = true;
-			this->dosPuntos1->Location = System::Drawing::Point(43, 117);
+			resources->ApplyResources(this->dosPuntos1, L"dosPuntos1");
 			this->dosPuntos1->Name = L"dosPuntos1";
-			this->dosPuntos1->Size = System::Drawing::Size(10, 13);
-			this->dosPuntos1->TabIndex = 33;
-			this->dosPuntos1->Text = L":";
 			// 
 			// dosPuntos2
 			// 
-			this->dosPuntos2->AutoSize = true;
-			this->dosPuntos2->Location = System::Drawing::Point(245, 117);
+			resources->ApplyResources(this->dosPuntos2, L"dosPuntos2");
 			this->dosPuntos2->Name = L"dosPuntos2";
-			this->dosPuntos2->Size = System::Drawing::Size(10, 13);
-			this->dosPuntos2->TabIndex = 34;
-			this->dosPuntos2->Text = L":";
 			// 
 			// dtp1
 			// 
-			this->dtp1->Location = System::Drawing::Point(18, 87);
+			resources->ApplyResources(this->dtp1, L"dtp1");
 			this->dtp1->Name = L"dtp1";
-			this->dtp1->Size = System::Drawing::Size(193, 20);
-			this->dtp1->TabIndex = 35;
 			// 
 			// dtp2
 			// 
-			this->dtp2->Location = System::Drawing::Point(215, 87);
+			resources->ApplyResources(this->dtp2, L"dtp2");
 			this->dtp2->Name = L"dtp2";
-			this->dtp2->Size = System::Drawing::Size(193, 20);
-			this->dtp2->TabIndex = 36;
 			// 
 			// checkBox1
 			// 
-			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(215, 39);
+			resources->ApplyResources(this->checkBox1, L"checkBox1");
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(85, 17);
-			this->checkBox1->TabIndex = 37;
-			this->checkBox1->Text = L"Solo Fechas";
 			this->checkBox1->UseVisualStyleBackColor = true;
 			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &SensorsReport::SoloFechas);
 			// 
 			// checkBox2
 			// 
-			this->checkBox2->AutoSize = true;
-			this->checkBox2->Location = System::Drawing::Point(215, 17);
+			resources->ApplyResources(this->checkBox2, L"checkBox2");
 			this->checkBox2->Name = L"checkBox2";
-			this->checkBox2->Size = System::Drawing::Size(81, 17);
-			this->checkBox2->TabIndex = 38;
-			this->checkBox2->Text = L"Solo un día";
 			this->checkBox2->UseVisualStyleBackColor = true;
 			this->checkBox2->CheckedChanged += gcnew System::EventHandler(this, &SensorsReport::SoloUnDia);
 			// 
@@ -500,8 +421,7 @@ private: System::Windows::Forms::Button^ CSVBtn;
 			this->chart4->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->chart4->Legends->Add(legend1);
-			this->chart4->Location = System::Drawing::Point(451, 138);
-			this->chart4->Margin = System::Windows::Forms::Padding(2, 1, 2, 1);
+			resources->ApplyResources(this->chart4, L"chart4");
 			this->chart4->Name = L"chart4";
 			series1->ChartArea = L"ChartArea1";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
@@ -524,9 +444,6 @@ private: System::Windows::Forms::Button^ CSVBtn;
 			this->chart4->Series->Add(series2);
 			this->chart4->Series->Add(series3);
 			this->chart4->Series->Add(series4);
-			this->chart4->Size = System::Drawing::Size(458, 302);
-			this->chart4->TabIndex = 46;
-			this->chart4->Text = L"chart4";
 			// 
 			// chart3
 			// 
@@ -534,8 +451,7 @@ private: System::Windows::Forms::Button^ CSVBtn;
 			this->chart3->ChartAreas->Add(chartArea2);
 			legend2->Name = L"Legend1";
 			this->chart3->Legends->Add(legend2);
-			this->chart3->Location = System::Drawing::Point(451, 138);
-			this->chart3->Margin = System::Windows::Forms::Padding(2, 1, 2, 1);
+			resources->ApplyResources(this->chart3, L"chart3");
 			this->chart3->Name = L"chart3";
 			series5->ChartArea = L"ChartArea1";
 			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
@@ -557,9 +473,6 @@ private: System::Windows::Forms::Button^ CSVBtn;
 			this->chart3->Series->Add(series6);
 			this->chart3->Series->Add(series7);
 			this->chart3->Series->Add(series8);
-			this->chart3->Size = System::Drawing::Size(458, 302);
-			this->chart3->TabIndex = 45;
-			this->chart3->Text = L"chart3";
 			// 
 			// chart2
 			// 
@@ -567,8 +480,7 @@ private: System::Windows::Forms::Button^ CSVBtn;
 			this->chart2->ChartAreas->Add(chartArea3);
 			legend3->Name = L"Legend1";
 			this->chart2->Legends->Add(legend3);
-			this->chart2->Location = System::Drawing::Point(451, 138);
-			this->chart2->Margin = System::Windows::Forms::Padding(2, 1, 2, 1);
+			resources->ApplyResources(this->chart2, L"chart2");
 			this->chart2->Name = L"chart2";
 			series9->ChartArea = L"ChartArea1";
 			series9->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
@@ -590,9 +502,6 @@ private: System::Windows::Forms::Button^ CSVBtn;
 			this->chart2->Series->Add(series10);
 			this->chart2->Series->Add(series11);
 			this->chart2->Series->Add(series12);
-			this->chart2->Size = System::Drawing::Size(458, 307);
-			this->chart2->TabIndex = 44;
-			this->chart2->Text = L"chart2";
 			// 
 			// chart1
 			// 
@@ -600,8 +509,7 @@ private: System::Windows::Forms::Button^ CSVBtn;
 			this->chart1->ChartAreas->Add(chartArea4);
 			legend4->Name = L"Legend1";
 			this->chart1->Legends->Add(legend4);
-			this->chart1->Location = System::Drawing::Point(451, 138);
-			this->chart1->Margin = System::Windows::Forms::Padding(2, 1, 2, 1);
+			resources->ApplyResources(this->chart1, L"chart1");
 			this->chart1->Name = L"chart1";
 			series13->ChartArea = L"ChartArea1";
 			series13->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::FastPoint;
@@ -623,88 +531,61 @@ private: System::Windows::Forms::Button^ CSVBtn;
 			this->chart1->Series->Add(series14);
 			this->chart1->Series->Add(series15);
 			this->chart1->Series->Add(series16);
-			this->chart1->Size = System::Drawing::Size(458, 307);
-			this->chart1->TabIndex = 40;
-			this->chart1->Text = L"chart1";
 			// 
 			// FACIChk
 			// 
-			this->FACIChk->AutoSize = true;
+			resources->ApplyResources(this->FACIChk, L"FACIChk");
 			this->FACIChk->Checked = true;
 			this->FACIChk->CheckState = System::Windows::Forms::CheckState::Checked;
-			this->FACIChk->Location = System::Drawing::Point(555, 93);
 			this->FACIChk->Name = L"FACIChk";
-			this->FACIChk->Size = System::Drawing::Size(49, 17);
-			this->FACIChk->TabIndex = 47;
-			this->FACIChk->Text = L"FACI";
 			this->FACIChk->UseVisualStyleBackColor = true;
 			this->FACIChk->CheckedChanged += gcnew System::EventHandler(this, &SensorsReport::FACI_Check);
 			// 
 			// TinkuyChk
 			// 
-			this->TinkuyChk->AutoSize = true;
+			resources->ApplyResources(this->TinkuyChk, L"TinkuyChk");
 			this->TinkuyChk->Checked = true;
 			this->TinkuyChk->CheckState = System::Windows::Forms::CheckState::Checked;
-			this->TinkuyChk->Location = System::Drawing::Point(782, 92);
 			this->TinkuyChk->Name = L"TinkuyChk";
-			this->TinkuyChk->Size = System::Drawing::Size(66, 17);
-			this->TinkuyChk->TabIndex = 48;
-			this->TinkuyChk->Text = L"TINKUY";
 			this->TinkuyChk->UseVisualStyleBackColor = true;
 			this->TinkuyChk->CheckedChanged += gcnew System::EventHandler(this, &SensorsReport::TINKUY_Check);
 			// 
 			// BiblioChk
 			// 
-			this->BiblioChk->AutoSize = true;
+			resources->ApplyResources(this->BiblioChk, L"BiblioChk");
 			this->BiblioChk->Checked = true;
 			this->BiblioChk->CheckState = System::Windows::Forms::CheckState::Checked;
-			this->BiblioChk->Location = System::Drawing::Point(625, 93);
 			this->BiblioChk->Name = L"BiblioChk";
-			this->BiblioChk->Size = System::Drawing::Size(141, 17);
-			this->BiblioChk->TabIndex = 49;
-			this->BiblioChk->Text = L"BIBLIOTECA CENTRAL";
 			this->BiblioChk->UseVisualStyleBackColor = true;
 			this->BiblioChk->CheckedChanged += gcnew System::EventHandler(this, &SensorsReport::BIBLIO_Check);
 			// 
 			// CIAChk
 			// 
-			this->CIAChk->AutoSize = true;
+			resources->ApplyResources(this->CIAChk, L"CIAChk");
 			this->CIAChk->Checked = true;
 			this->CIAChk->CheckState = System::Windows::Forms::CheckState::Checked;
-			this->CIAChk->Location = System::Drawing::Point(493, 93);
 			this->CIAChk->Name = L"CIAChk";
-			this->CIAChk->Size = System::Drawing::Size(43, 17);
-			this->CIAChk->TabIndex = 50;
-			this->CIAChk->Text = L"CIA";
 			this->CIAChk->UseVisualStyleBackColor = true;
 			this->CIAChk->CheckedChanged += gcnew System::EventHandler(this, &SensorsReport::CIA_Check);
 			// 
 			// isFahrenheit
 			// 
-			this->isFahrenheit->AutoSize = true;
-			this->isFahrenheit->Location = System::Drawing::Point(215, 38);
+			resources->ApplyResources(this->isFahrenheit, L"isFahrenheit");
 			this->isFahrenheit->Name = L"isFahrenheit";
-			this->isFahrenheit->Size = System::Drawing::Size(113, 17);
-			this->isFahrenheit->TabIndex = 51;
-			this->isFahrenheit->Text = L"Grados Fahrenheit";
 			this->isFahrenheit->UseVisualStyleBackColor = true;
 			this->isFahrenheit->CheckedChanged += gcnew System::EventHandler(this, &SensorsReport::isFahrenheit_CheckedChanged);
 			// 
 			// CSVBtn
 			// 
-			this->CSVBtn->Location = System::Drawing::Point(798, 445);
+			resources->ApplyResources(this->CSVBtn, L"CSVBtn");
 			this->CSVBtn->Name = L"CSVBtn";
-			this->CSVBtn->Size = System::Drawing::Size(75, 23);
-			this->CSVBtn->TabIndex = 52;
-			this->CSVBtn->Text = L"Export to CSV";
 			this->CSVBtn->UseVisualStyleBackColor = true;
 			this->CSVBtn->Click += gcnew System::EventHandler(this, &SensorsReport::CSVBtn_Click);
 			// 
 			// SensorsReport
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			resources->ApplyResources(this, L"$this");
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(929, 481);
 			this->Controls->Add(this->CSVBtn);
 			this->Controls->Add(this->isFahrenheit);
 			this->Controls->Add(this->CIAChk);
@@ -738,8 +619,6 @@ private: System::Windows::Forms::Button^ CSVBtn;
 			this->Controls->Add(this->BuscarBtn);
 			this->Controls->Add(this->dataGridView1);
 			this->Name = L"SensorsReport";
-			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"SensorsReport";
 			this->Load += gcnew System::EventHandler(this, &SensorsReport::SensorsReportLoad);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart4))->EndInit();

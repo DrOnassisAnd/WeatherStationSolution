@@ -83,14 +83,14 @@ namespace WeatherStationView {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label1->BackColor = System::Drawing::SystemColors::Control;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::SystemColors::Control;
-			this->label1->Location = System::Drawing::Point(160, 69);
+			this->label1->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label1->Location = System::Drawing::Point(127, 9);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(293, 46);
+			this->label1->Size = System::Drawing::Size(236, 37);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Ranking Global";
 			// 
@@ -103,12 +103,12 @@ namespace WeatherStationView {
 				this->Posición,
 					this->Usuario, this->PuntosConseguidos
 			});
-			this->dataGridView1->Location = System::Drawing::Point(63, 182);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->dataGridView1->Location = System::Drawing::Point(33, 66);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(2);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(582, 521);
+			this->dataGridView1->Size = System::Drawing::Size(431, 212);
 			this->dataGridView1->TabIndex = 1;
 			// 
 			// Posición
@@ -141,16 +141,16 @@ namespace WeatherStationView {
 			this->panel1->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(921, 725);
+			this->panel1->Size = System::Drawing::Size(493, 302);
 			this->panel1->TabIndex = 2;
 			// 
 			// TablaRankingForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(921, 725);
+			this->ClientSize = System::Drawing::Size(493, 302);
 			this->Controls->Add(this->panel1);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"TablaRankingForm";
 			this->Text = L"TablaRankingForm";
 			this->Load += gcnew System::EventHandler(this, &TablaRankingForm::TablaRankingForm_Load);

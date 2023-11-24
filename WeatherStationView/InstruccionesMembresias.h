@@ -41,7 +41,7 @@ namespace WeatherStationView {
 
 
 
-	private: System::Windows::Forms::Label^ label3;
+
 	private: int isRegisterDone;
 	private: int pointsperDay = 0;
 
@@ -79,6 +79,7 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Label^ label3;
 
 
 
@@ -106,22 +107,14 @@ namespace WeatherStationView {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(InstruccionesMembresias::typeid));
-			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->CerrarBtn = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
-			// 
-			// label3
-			// 
-			resources->ApplyResources(this->label3, L"label3");
-			this->label3->BackColor = System::Drawing::SystemColors::Control;
-			this->label3->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->label3->Name = L"label3";
-			this->label3->Click += gcnew System::EventHandler(this, &InstruccionesMembresias::label3_Click);
 			// 
 			// CerrarBtn
 			// 
@@ -156,6 +149,14 @@ namespace WeatherStationView {
 			resources->ApplyResources(this->pictureBox1, L"pictureBox1");
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->TabStop = false;
+			// 
+			// label3
+			// 
+			resources->ApplyResources(this->label3, L"label3");
+			this->label3->BackColor = System::Drawing::SystemColors::Control;
+			this->label3->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label3->Name = L"label3";
+			this->label3->Click += gcnew System::EventHandler(this, &InstruccionesMembresias::label3_Click);
 			// 
 			// InstruccionesMembresias
 			// 
