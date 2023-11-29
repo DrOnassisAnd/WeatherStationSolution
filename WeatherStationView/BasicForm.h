@@ -784,9 +784,9 @@ private: System::Windows::Forms::PictureBox^ pictureBox5;
 		}
 
 		//timer
-		timer1->Start();
+	/*	timer1->Start();
 		timer2->Start();
-		TransmisionDataArduino();
+		TransmisionDataArduino();*/
 		
 
 	}
@@ -827,6 +827,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	membresiaGlobal = membform->GetMembresia();
 
 	RefreshMembresia();
+	ptslabel->Text = (user->PuntosTotales).ToString();
 }
 		   void RefreshMembresia() {
 			   user->membresia = membresiaGlobal;
@@ -1453,9 +1454,10 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 
 }
 private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
-	TiendaPuntos^ tpuntos = gcnew TiendaPuntos();
+	TiendaPuntos^ tpuntos = gcnew TiendaPuntos(user);
 	tpuntos->ControlBox = false;
 	tpuntos->ShowDialog();
+	ptslabel->Text = (user->PuntosTotales).ToString();
 }
 private: System::Void linkLabel2_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 	InstruccionesMembresias^ imform = gcnew InstruccionesMembresias();
