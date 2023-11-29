@@ -381,10 +381,14 @@
     <Image Include="LogoPrueba.jpg" />
     <Image Include="LogoPrueba2.jpg" />
     <Image Include="LogoReporte.png" />
+    <Image Include="pregunta check.jpg" />
+    <Image Include="pregunta mal.jpg" />
     <Image Include="Report.png" />
     <Image Include="Sensors.png" />
     <Image Include="Temperature.png" />
+    <Image Include="tiempoTrivia.jpg" />
     <Image Include="TINKUY.jpg" />
+    <Image Include="TriviaForm.jpg" />
     <Image Include="User.png" />
     <Image Include="_dce79eb2-a9b7-465b-91c7-76f2bc2627d0.jpg" />
   </ItemGroup>

@@ -84,6 +84,8 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Panel^ panel3;
 	private: System::Windows::Forms::Panel^ panel2;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	protected:
 
 	private:System::ComponentModel::IContainer^ components;
@@ -115,11 +117,15 @@ namespace WeatherStationView {
 			this->TusPuntoslbl = (gcnew System::Windows::Forms::Label());
 			this->pointslbl = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel1->SuspendLayout();
-			this->panel2->SuspendLayout();
 			this->panel3->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->panel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -225,7 +231,7 @@ namespace WeatherStationView {
 			this->timeoutlbl->AutoSize = true;
 			this->timeoutlbl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->timeoutlbl->Location = System::Drawing::Point(148, 62);
+			this->timeoutlbl->Location = System::Drawing::Point(48, 60);
 			this->timeoutlbl->Name = L"timeoutlbl";
 			this->timeoutlbl->Size = System::Drawing::Size(66, 20);
 			this->timeoutlbl->TabIndex = 9;
@@ -248,7 +254,7 @@ namespace WeatherStationView {
 			this->Respuestalbl->AutoSize = true;
 			this->Respuestalbl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Respuestalbl->Location = System::Drawing::Point(20, 178);
+			this->Respuestalbl->Location = System::Drawing::Point(20, 124);
 			this->Respuestalbl->Name = L"Respuestalbl";
 			this->Respuestalbl->Size = System::Drawing::Size(171, 24);
 			this->Respuestalbl->TabIndex = 11;
@@ -259,7 +265,7 @@ namespace WeatherStationView {
 			this->TiempoRestantelbl->AutoSize = true;
 			this->TiempoRestantelbl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->TiempoRestantelbl->Location = System::Drawing::Point(120, 16);
+			this->TiempoRestantelbl->Location = System::Drawing::Point(20, 14);
 			this->TiempoRestantelbl->Name = L"TiempoRestantelbl";
 			this->TiempoRestantelbl->Size = System::Drawing::Size(135, 20);
 			this->TiempoRestantelbl->TabIndex = 12;
@@ -270,7 +276,7 @@ namespace WeatherStationView {
 			this->TusPuntoslbl->AutoSize = true;
 			this->TusPuntoslbl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->TusPuntoslbl->Location = System::Drawing::Point(94, 280);
+			this->TusPuntoslbl->Location = System::Drawing::Point(35, 309);
 			this->TusPuntoslbl->Name = L"TusPuntoslbl";
 			this->TusPuntoslbl->Size = System::Drawing::Size(97, 20);
 			this->TusPuntoslbl->TabIndex = 13;
@@ -281,7 +287,7 @@ namespace WeatherStationView {
 			this->pointslbl->AutoSize = true;
 			this->pointslbl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->pointslbl->Location = System::Drawing::Point(197, 280);
+			this->pointslbl->Location = System::Drawing::Point(138, 309);
 			this->pointslbl->Name = L"pointslbl";
 			this->pointslbl->Size = System::Drawing::Size(58, 20);
 			this->pointslbl->TabIndex = 14;
@@ -302,6 +308,41 @@ namespace WeatherStationView {
 			this->panel1->Size = System::Drawing::Size(1423, 500);
 			this->panel1->TabIndex = 15;
 			// 
+			// panel3
+			// 
+			this->panel3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panel3->Controls->Add(this->pictureBox2);
+			this->panel3->Controls->Add(this->pictureBox1);
+			this->panel3->Controls->Add(this->Respuestalbl);
+			this->panel3->Controls->Add(this->TiempoRestantelbl);
+			this->panel3->Controls->Add(this->CerrarBtn);
+			this->panel3->Controls->Add(this->pointslbl);
+			this->panel3->Controls->Add(this->timeoutlbl);
+			this->panel3->Controls->Add(this->TusPuntoslbl);
+			this->panel3->Dock = System::Windows::Forms::DockStyle::Right;
+			this->panel3->Location = System::Drawing::Point(1087, 133);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(336, 367);
+			this->panel3->TabIndex = 16;
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->Location = System::Drawing::Point(77, 160);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(193, 127);
+			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox2->TabIndex = 16;
+			this->pictureBox2->TabStop = false;
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Location = System::Drawing::Point(203, 14);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(100, 86);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 15;
+			this->pictureBox1->TabStop = false;
+			// 
 			// panel2
 			// 
 			this->panel2->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
@@ -312,21 +353,6 @@ namespace WeatherStationView {
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(1423, 133);
 			this->panel2->TabIndex = 15;
-			// 
-			// panel3
-			// 
-			this->panel3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel3->Controls->Add(this->Respuestalbl);
-			this->panel3->Controls->Add(this->TiempoRestantelbl);
-			this->panel3->Controls->Add(this->CerrarBtn);
-			this->panel3->Controls->Add(this->pointslbl);
-			this->panel3->Controls->Add(this->timeoutlbl);
-			this->panel3->Controls->Add(this->TusPuntoslbl);
-			this->panel3->Dock = System::Windows::Forms::DockStyle::Right;
-			this->panel3->Location = System::Drawing::Point(1097, 133);
-			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(326, 367);
-			this->panel3->TabIndex = 16;
 			// 
 			// TriviaForm
 			// 
@@ -341,15 +367,20 @@ namespace WeatherStationView {
 			this->Load += gcnew System::EventHandler(this, &TriviaForm::TriviaForm_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
-			this->panel2->ResumeLayout(false);
-			this->panel2->PerformLayout();
 			this->panel3->ResumeLayout(false);
 			this->panel3->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->panel2->ResumeLayout(false);
+			this->panel2->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void TriviaForm_Load(System::Object^ sender, System::EventArgs^ e) {
+
+		pictureBox1->Image = Image::FromFile("tiempoTrivia.jpg");
+
 		UpdateTimeout();
 		timerTimeout->Start();
 		PreguntasList = gcnew List<Pregunta^>();
@@ -360,7 +391,7 @@ namespace WeatherStationView {
 		Sgtepregunta->Enabled = false;
 		numeropregunta = rand->Next(PreguntasList->Count);
 		LoadPreguntas();
-		
+		pictureBox2->Image = Image::FromFile("TriviaForm.jpg");
 	}
 
 	private: System::Void timer_tick(System::Object^ sender, System::EventArgs^ e) { //cada 1s
@@ -390,6 +421,9 @@ private: System::Void respuestaBtn_Click(System::Object^ sender, System::EventAr
 
 				Respuestalbl->Visible = true;
 				Respuestalbl->Text = "Respuesta correcta: !Muy bien!";
+
+				pictureBox2->Image = Image::FromFile("pregunta check.jpg");
+
 				if (user->PuntosDiarios >= maxpoints) {
 					user->PuntosDiarios = maxpoints;
 					pointslbl->Text = (user->PuntosDiarios).ToString();
@@ -401,6 +435,7 @@ private: System::Void respuestaBtn_Click(System::Object^ sender, System::EventAr
 			else {
 				Respuestalbl->Visible = true;
 				Respuestalbl->Text = "Respuesta incorrecta";
+				pictureBox2->Image = Image::FromFile("pregunta mal.jpg");
 			}
 			pressedBtn = true;
 			pointslbl->Text = (user->PuntosDiarios).ToString();
@@ -424,6 +459,7 @@ private: System::Void respuestaBtn_Click(System::Object^ sender, System::EventAr
 		   this->RespuestaB->Text = pregunta->Respuesta2;
 		   this->RespuestaC->Text = pregunta->Respuesta3;
 		   numeropregunta = rand->Next(PreguntasList->Count);
+		   pictureBox2->Image = Image::FromFile("TriviaForm.jpg");
 
 	   }
 

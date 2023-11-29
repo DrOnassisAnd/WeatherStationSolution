@@ -22,12 +22,16 @@
 #define IDB_PNG10                       118
 #define IDR_JPG2                        119
 #define IDR_IMAGENES6                   120
+#define IDR_JPG3                        122
+#define IDR_JPG4                        123
+#define IDR_JPG5                        124
+#define IDR_JPG6                        125
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        122
+#define _APS_NEXT_RESOURCE_VALUE        126
 #define _APS_NEXT_COMMAND_VALUE         40001
 #define _APS_NEXT_CONTROL_VALUE         1001
 #define _APS_NEXT_SYMED_VALUE           101
