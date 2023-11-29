@@ -17,12 +17,13 @@ namespace WeatherStationView {
 	public ref class TiendaPuntos : public System::Windows::Forms::Form
 	{
 	public:
-		TiendaPuntos(void)
+		TiendaPuntos(User^ User)
 		{
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			this->user = User;
 		}
 
 	protected:
@@ -44,6 +45,7 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Label^ label16;
 	private: System::Windows::Forms::Label^ label15;
 	private: System::Windows::Forms::Button^ button3;
+	private: User^ user;
 
 	private: int ecocoins;
 	private: double soles;
@@ -292,6 +294,8 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 				this->Show();
 			}
 			else {
+				
+				user->PuntosTotales += Int32::Parse(ECtextBox->Text);
 				this->Close();
 			}
 		}
@@ -309,6 +313,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 			this->Show();
 		}
 		else {
+			user->PuntosTotales += 60;
 			this->Close();
 		}
 	}
@@ -322,6 +327,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 			this->Show();
 		}
 		else {
+			user->PuntosTotales += 100;
 			this->Close();
 		}
 	}
@@ -335,6 +341,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 			this->Show();
 		}
 		else {
+			user->PuntosTotales += 300;
 			this->Close();
 		}
 	}

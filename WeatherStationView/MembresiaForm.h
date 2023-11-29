@@ -44,7 +44,7 @@ namespace WeatherStationView {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^ button1;
+
 	protected:
 	private: Membresia^ membresia;
 	private: User^ user;
@@ -77,6 +77,8 @@ namespace WeatherStationView {
 
 	private: System::Windows::Forms::Label^ label15;
 	private: System::Windows::Forms::Label^ label14;
+	private: System::Windows::Forms::Panel^ panel2;
+	private: System::Windows::Forms::Button^ button1;
 
 
 
@@ -110,7 +112,6 @@ namespace WeatherStationView {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MembresiaForm::typeid));
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -121,6 +122,7 @@ namespace WeatherStationView {
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->label13 = (gcnew System::Windows::Forms::Label());
@@ -133,26 +135,19 @@ namespace WeatherStationView {
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			this->panel1->SuspendLayout();
+			this->panel2->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// button1
-			// 
-			this->button1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->button1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			resources->ApplyResources(this->button1, L"button1");
-			this->button1->Name = L"button1";
-			this->button1->UseVisualStyleBackColor = false;
-			this->button1->Click += gcnew System::EventHandler(this, &MembresiaForm::button1_Click);
 			// 
 			// button2
 			// 
 			this->button2->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->button2->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			resources->ApplyResources(this->button2, L"button2");
+			this->button2->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->button2->Name = L"button2";
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &MembresiaForm::button2_Click);
@@ -169,29 +164,29 @@ namespace WeatherStationView {
 			// label1
 			// 
 			resources->ApplyResources(this->label1, L"label1");
-			this->label1->BackColor = System::Drawing::Color::FloralWhite;
-			this->label1->ForeColor = System::Drawing::Color::Black;
+			this->label1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label1->ForeColor = System::Drawing::Color::White;
 			this->label1->Name = L"label1";
 			this->label1->Click += gcnew System::EventHandler(this, &MembresiaForm::label1_Click);
 			// 
 			// label2
 			// 
 			resources->ApplyResources(this->label2, L"label2");
-			this->label2->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->label2->BackColor = System::Drawing::SystemColors::Window;
 			this->label2->Name = L"label2";
 			this->label2->Click += gcnew System::EventHandler(this, &MembresiaForm::label2_Click);
 			// 
 			// label3
 			// 
 			resources->ApplyResources(this->label3, L"label3");
-			this->label3->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->label3->BackColor = System::Drawing::SystemColors::Window;
 			this->label3->Name = L"label3";
 			this->label3->Click += gcnew System::EventHandler(this, &MembresiaForm::label3_Click);
 			// 
 			// label4
 			// 
 			resources->ApplyResources(this->label4, L"label4");
-			this->label4->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->label4->BackColor = System::Drawing::SystemColors::Window;
 			this->label4->Name = L"label4";
 			this->label4->Click += gcnew System::EventHandler(this, &MembresiaForm::label4_Click);
 			// 
@@ -218,7 +213,8 @@ namespace WeatherStationView {
 			// 
 			// panel1
 			// 
-			this->panel1->BackColor = System::Drawing::Color::FloralWhite;
+			this->panel1->BackColor = System::Drawing::SystemColors::Control;
+			this->panel1->Controls->Add(this->panel2);
 			this->panel1->Controls->Add(this->label15);
 			this->panel1->Controls->Add(this->label14);
 			this->panel1->Controls->Add(this->label13);
@@ -233,7 +229,6 @@ namespace WeatherStationView {
 			this->panel1->Controls->Add(this->label5);
 			this->panel1->Controls->Add(this->label3);
 			this->panel1->Controls->Add(this->label4);
-			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->label2);
 			this->panel1->Controls->Add(this->button3);
 			this->panel1->Controls->Add(this->pictureBox3);
@@ -244,6 +239,13 @@ namespace WeatherStationView {
 			resources->ApplyResources(this->panel1, L"panel1");
 			this->panel1->Name = L"panel1";
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MembresiaForm::panel1_Paint);
+			// 
+			// panel2
+			// 
+			this->panel2->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->panel2->Controls->Add(this->label1);
+			resources->ApplyResources(this->panel2, L"panel2");
+			this->panel2->Name = L"panel2";
 			// 
 			// label15
 			// 
@@ -273,44 +275,61 @@ namespace WeatherStationView {
 			// label12
 			// 
 			resources->ApplyResources(this->label12, L"label12");
+			this->label12->BackColor = System::Drawing::SystemColors::Window;
 			this->label12->Name = L"label12";
 			// 
 			// label11
 			// 
 			resources->ApplyResources(this->label11, L"label11");
+			this->label11->BackColor = System::Drawing::SystemColors::Window;
 			this->label11->Name = L"label11";
 			// 
 			// label10
 			// 
 			resources->ApplyResources(this->label10, L"label10");
+			this->label10->BackColor = System::Drawing::SystemColors::Window;
 			this->label10->Name = L"label10";
 			// 
 			// label9
 			// 
 			resources->ApplyResources(this->label9, L"label9");
+			this->label9->BackColor = System::Drawing::SystemColors::Window;
 			this->label9->Name = L"label9";
 			// 
 			// label8
 			// 
 			resources->ApplyResources(this->label8, L"label8");
+			this->label8->BackColor = System::Drawing::SystemColors::Window;
 			this->label8->Name = L"label8";
 			// 
 			// label7
 			// 
 			resources->ApplyResources(this->label7, L"label7");
+			this->label7->BackColor = System::Drawing::SystemColors::Window;
 			this->label7->Name = L"label7";
 			this->label7->Click += gcnew System::EventHandler(this, &MembresiaForm::label7_Click);
 			// 
 			// label6
 			// 
 			resources->ApplyResources(this->label6, L"label6");
+			this->label6->BackColor = System::Drawing::SystemColors::Window;
 			this->label6->Name = L"label6";
 			// 
 			// label5
 			// 
 			resources->ApplyResources(this->label5, L"label5");
+			this->label5->BackColor = System::Drawing::SystemColors::Window;
 			this->label5->Name = L"label5";
 			this->label5->Click += gcnew System::EventHandler(this, &MembresiaForm::label5_Click);
+			// 
+			// button1
+			// 
+			this->button1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->button1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			resources->ApplyResources(this->button1, L"button1");
+			this->button1->Name = L"button1";
+			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &MembresiaForm::button1_Click);
 			// 
 			// MembresiaForm
 			// 
@@ -324,12 +343,31 @@ namespace WeatherStationView {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			this->panel2->ResumeLayout(false);
+			this->panel2->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void MembresiaForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		//pictureBox->Image = Image::FromFile("ECOCOIN.png");
+		if (user->membresia->TipoMembresia == "Basic") {
+			
+			label15->Text = "Membresia Actual";
+			label13->Text = "100 Ecocoins";
+			label14->Text = "300 Ecocoins";
+
+		}
+		else if (user->membresia->TipoMembresia == "Estandar") {
+
+			label13->Text = "Membresia Actual";
+			label14->Text = "200 Ecocoins";
+		}
+		else if (user->membresia->TipoMembresia == "Premium") {
+
+			label14->Text = "Membresia Actual";
+
+		}
 
 
 	}
@@ -365,40 +403,59 @@ namespace WeatherStationView {
 
 		if (user->membresia->TipoMembresia == "Estandar") {
 			MessageBox::Show("Ya eres un usuario " + user->membresia->TipoMembresia);
+
 		}
 		else {
 			if (user->membresia->TipoMembresia == "Premium") {
 				System::Windows::Forms::DialogResult result = MessageBox::Show("¿Estás seguro que deseas continuar?", "Confirmación", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
 				if (result == System::Windows::Forms::DialogResult::Yes) {
 					membresia = gcnew Membresia("Estandar", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));
-					PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone, 1);
-					payform->ControlBox = true;
-					payform->ShowDialog();
-					isRegisterDone = payform->GetBool();
+					//PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone, 1);
+					//payform->ControlBox = true;
+					//payform->ShowDialog();
+					//isRegisterDone = payform->GetBool();
 					if (!isRegisterDone) {
 						this->Show();
 					}
 					else {
 						membresia = gcnew Membresia("Estandar", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));//Parametros de prueba
 						MessageBox::Show("Ahora eres un usuario Estandar");
+
 						this->Close();
 					}
 				}
 			}
 			else {
-				membresia = gcnew Membresia("Estandar", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));
-				PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone, 1);
-				payform->ControlBox = true;
-				payform->ShowDialog();
-				isRegisterDone = payform->GetBool();
-				if (!isRegisterDone) {
-					this->Show();
+				//membresia = gcnew Membresia("Estandar", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));
+				//PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone, 1);
+				//payform->ControlBox = true;
+				//payform->ShowDialog();
+				//isRegisterDone = payform->GetBool();
+				
+
+				if (user->PuntosTotales < 100) {
+					MessageBox::Show("No tienes los Ecocoins Necesarios");
+					isRegisterDone = 0;
 				}
 				else {
-					membresia = gcnew Membresia("Estandar", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));//Parametros de prueba
-					MessageBox::Show("Ahora eres un usuario Estandar");
-					this->Close();
+					isRegisterDone = 1;
+					System::Windows::Forms::DialogResult result = MessageBox::Show("¿Estás seguro que deseas continuar?", "Confirmación", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
+					if (!isRegisterDone) {
+						this->Show();
+					}
+					else {
+
+						membresia = gcnew Membresia("Estandar", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));//Parametros de prueba
+
+						user->PuntosTotales = user->PuntosTotales - 100;
+						MessageBox::Show("Ahora eres un usuario Estandar");
+						this->Close();
+					}
+
+
+
 				}
+
 			}
 		}
 
@@ -412,21 +469,41 @@ namespace WeatherStationView {
 			MessageBox::Show("Ya eres un usuario " + user->membresia->TipoMembresia);
 		}
 		else {
-			PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone, 1);
-			payform->ControlBox = true;
-			payform->ShowDialog();
+			//PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone, 1);
+			//payform->ControlBox = true;
+			//payform->ShowDialog();
 
-			isRegisterDone = payform->GetBool();
 
-			//isRegisterDone: si el registro no fue exitoso (p.e. se salió de la ventana, vuelve a popear WeatherStationForm
-			//caso contrario, ya abre el BasicForm
-			if (!isRegisterDone) {
-				this->Show();
+			if (user->PuntosTotales < 300) {
+				MessageBox::Show("No tienes los Ecocoins Necesarios");
+				isRegisterDone = 0;
 			}
 			else {
-				membresia = gcnew Membresia("Premium", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));//Parametros de prueba
-				MessageBox::Show("Ahora eres un usuario Premium");
-				this->Close();
+				isRegisterDone = 1;
+				System::Windows::Forms::DialogResult result = MessageBox::Show("¿Estás seguro que deseas continuar?", "Confirmación", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
+				if (!isRegisterDone) {
+					this->Show();
+				}
+				else {
+
+					membresia = gcnew Membresia("Premium", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));//Parametros de prueba
+
+					if (user->membresia->TipoMembresia == "Estandar") {
+					
+						user->PuntosTotales = user->PuntosTotales - 200;
+					
+					}
+					else {
+					
+						user->PuntosTotales = user->PuntosTotales - 300;
+					}
+					
+					MessageBox::Show("Ahora eres un usuario Premium");
+					this->Close();
+				}
+
+
+
 			}
 
 
