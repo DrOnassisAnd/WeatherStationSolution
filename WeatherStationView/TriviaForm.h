@@ -81,6 +81,9 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Label^ TiempoRestantelbl;
 	private: System::Windows::Forms::Label^ TusPuntoslbl;
 	private: System::Windows::Forms::Label^ pointslbl;
+	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::Panel^ panel3;
+	private: System::Windows::Forms::Panel^ panel2;
 	protected:
 
 	private:System::ComponentModel::IContainer^ components;
@@ -111,6 +114,12 @@ namespace WeatherStationView {
 			this->TiempoRestantelbl = (gcnew System::Windows::Forms::Label());
 			this->TusPuntoslbl = (gcnew System::Windows::Forms::Label());
 			this->pointslbl = (gcnew System::Windows::Forms::Label());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->panel3 = (gcnew System::Windows::Forms::Panel());
+			this->panel1->SuspendLayout();
+			this->panel2->SuspendLayout();
+			this->panel3->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -118,20 +127,21 @@ namespace WeatherStationView {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(9, 7);
+			this->label1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->label1->Location = System::Drawing::Point(11, 9);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(64, 26);
+			this->label1->Size = System::Drawing::Size(106, 26);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Trivia";
+			this->label1->Text = L"Pregunta:";
 			// 
 			// RespuestaA
 			// 
 			this->RespuestaA->AutoSize = true;
 			this->RespuestaA->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->RespuestaA->Location = System::Drawing::Point(14, 208);
-			this->RespuestaA->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->RespuestaA->Location = System::Drawing::Point(16, 172);
+			this->RespuestaA->Margin = System::Windows::Forms::Padding(2);
 			this->RespuestaA->Name = L"RespuestaA";
 			this->RespuestaA->Size = System::Drawing::Size(227, 33);
 			this->RespuestaA->TabIndex = 1;
@@ -144,8 +154,8 @@ namespace WeatherStationView {
 			this->RespuestaB->AutoSize = true;
 			this->RespuestaB->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->RespuestaB->Location = System::Drawing::Point(17, 269);
-			this->RespuestaB->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->RespuestaB->Location = System::Drawing::Point(19, 233);
+			this->RespuestaB->Margin = System::Windows::Forms::Padding(2);
 			this->RespuestaB->Name = L"RespuestaB";
 			this->RespuestaB->Size = System::Drawing::Size(189, 33);
 			this->RespuestaB->TabIndex = 2;
@@ -158,8 +168,8 @@ namespace WeatherStationView {
 			this->RespuestaC->AutoSize = true;
 			this->RespuestaC->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->RespuestaC->Location = System::Drawing::Point(17, 330);
-			this->RespuestaC->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->RespuestaC->Location = System::Drawing::Point(19, 294);
+			this->RespuestaC->Margin = System::Windows::Forms::Padding(2);
 			this->RespuestaC->Name = L"RespuestaC";
 			this->RespuestaC->Size = System::Drawing::Size(227, 33);
 			this->RespuestaC->TabIndex = 3;
@@ -176,10 +186,10 @@ namespace WeatherStationView {
 			// 
 			this->respuestaBtn->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->respuestaBtn->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->respuestaBtn->Location = System::Drawing::Point(180, 376);
-			this->respuestaBtn->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->respuestaBtn->Location = System::Drawing::Point(214, 444);
+			this->respuestaBtn->Margin = System::Windows::Forms::Padding(2);
 			this->respuestaBtn->Name = L"respuestaBtn";
-			this->respuestaBtn->Size = System::Drawing::Size(84, 32);
+			this->respuestaBtn->Size = System::Drawing::Size(126, 45);
 			this->respuestaBtn->TabIndex = 6;
 			this->respuestaBtn->Text = L"Respuesta";
 			this->respuestaBtn->UseVisualStyleBackColor = false;
@@ -189,8 +199,8 @@ namespace WeatherStationView {
 			// 
 			this->CerrarBtn->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->CerrarBtn->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->CerrarBtn->Location = System::Drawing::Point(726, 9);
-			this->CerrarBtn->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->CerrarBtn->Location = System::Drawing::Point(224, 324);
+			this->CerrarBtn->Margin = System::Windows::Forms::Padding(2);
 			this->CerrarBtn->Name = L"CerrarBtn";
 			this->CerrarBtn->Size = System::Drawing::Size(79, 37);
 			this->CerrarBtn->TabIndex = 7;
@@ -202,11 +212,11 @@ namespace WeatherStationView {
 			// 
 			this->EnunciadoBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->EnunciadoBox1->Location = System::Drawing::Point(117, 43);
-			this->EnunciadoBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->EnunciadoBox1->Location = System::Drawing::Point(138, 11);
+			this->EnunciadoBox1->Margin = System::Windows::Forms::Padding(2);
 			this->EnunciadoBox1->Name = L"EnunciadoBox1";
 			this->EnunciadoBox1->ReadOnly = true;
-			this->EnunciadoBox1->Size = System::Drawing::Size(587, 138);
+			this->EnunciadoBox1->Size = System::Drawing::Size(1197, 94);
 			this->EnunciadoBox1->TabIndex = 8;
 			this->EnunciadoBox1->Text = L"";
 			// 
@@ -215,7 +225,7 @@ namespace WeatherStationView {
 			this->timeoutlbl->AutoSize = true;
 			this->timeoutlbl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->timeoutlbl->Location = System::Drawing::Point(625, 12);
+			this->timeoutlbl->Location = System::Drawing::Point(148, 62);
 			this->timeoutlbl->Name = L"timeoutlbl";
 			this->timeoutlbl->Size = System::Drawing::Size(66, 20);
 			this->timeoutlbl->TabIndex = 9;
@@ -225,9 +235,9 @@ namespace WeatherStationView {
 			// 
 			this->Sgtepregunta->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->Sgtepregunta->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->Sgtepregunta->Location = System::Drawing::Point(298, 376);
+			this->Sgtepregunta->Location = System::Drawing::Point(491, 443);
 			this->Sgtepregunta->Name = L"Sgtepregunta";
-			this->Sgtepregunta->Size = System::Drawing::Size(78, 32);
+			this->Sgtepregunta->Size = System::Drawing::Size(120, 45);
 			this->Sgtepregunta->TabIndex = 10;
 			this->Sgtepregunta->Text = L"Siguiente";
 			this->Sgtepregunta->UseVisualStyleBackColor = false;
@@ -238,7 +248,7 @@ namespace WeatherStationView {
 			this->Respuestalbl->AutoSize = true;
 			this->Respuestalbl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Respuestalbl->Location = System::Drawing::Point(205, 9);
+			this->Respuestalbl->Location = System::Drawing::Point(20, 178);
 			this->Respuestalbl->Name = L"Respuestalbl";
 			this->Respuestalbl->Size = System::Drawing::Size(171, 24);
 			this->Respuestalbl->TabIndex = 11;
@@ -249,7 +259,7 @@ namespace WeatherStationView {
 			this->TiempoRestantelbl->AutoSize = true;
 			this->TiempoRestantelbl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->TiempoRestantelbl->Location = System::Drawing::Point(480, 12);
+			this->TiempoRestantelbl->Location = System::Drawing::Point(120, 16);
 			this->TiempoRestantelbl->Name = L"TiempoRestantelbl";
 			this->TiempoRestantelbl->Size = System::Drawing::Size(135, 20);
 			this->TiempoRestantelbl->TabIndex = 12;
@@ -260,7 +270,7 @@ namespace WeatherStationView {
 			this->TusPuntoslbl->AutoSize = true;
 			this->TusPuntoslbl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->TusPuntoslbl->Location = System::Drawing::Point(480, 381);
+			this->TusPuntoslbl->Location = System::Drawing::Point(94, 280);
 			this->TusPuntoslbl->Name = L"TusPuntoslbl";
 			this->TusPuntoslbl->Size = System::Drawing::Size(97, 20);
 			this->TusPuntoslbl->TabIndex = 13;
@@ -271,37 +281,71 @@ namespace WeatherStationView {
 			this->pointslbl->AutoSize = true;
 			this->pointslbl->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->pointslbl->Location = System::Drawing::Point(583, 381);
+			this->pointslbl->Location = System::Drawing::Point(197, 280);
 			this->pointslbl->Name = L"pointslbl";
 			this->pointslbl->Size = System::Drawing::Size(58, 20);
 			this->pointslbl->TabIndex = 14;
 			this->pointslbl->Text = L"puntos";
 			// 
+			// panel1
+			// 
+			this->panel1->Controls->Add(this->panel3);
+			this->panel1->Controls->Add(this->panel2);
+			this->panel1->Controls->Add(this->RespuestaA);
+			this->panel1->Controls->Add(this->RespuestaB);
+			this->panel1->Controls->Add(this->RespuestaC);
+			this->panel1->Controls->Add(this->respuestaBtn);
+			this->panel1->Controls->Add(this->Sgtepregunta);
+			this->panel1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->panel1->Location = System::Drawing::Point(0, 0);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(1423, 500);
+			this->panel1->TabIndex = 15;
+			// 
+			// panel2
+			// 
+			this->panel2->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->panel2->Controls->Add(this->label1);
+			this->panel2->Controls->Add(this->EnunciadoBox1);
+			this->panel2->Dock = System::Windows::Forms::DockStyle::Top;
+			this->panel2->Location = System::Drawing::Point(0, 0);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(1423, 133);
+			this->panel2->TabIndex = 15;
+			// 
+			// panel3
+			// 
+			this->panel3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panel3->Controls->Add(this->Respuestalbl);
+			this->panel3->Controls->Add(this->TiempoRestantelbl);
+			this->panel3->Controls->Add(this->CerrarBtn);
+			this->panel3->Controls->Add(this->pointslbl);
+			this->panel3->Controls->Add(this->timeoutlbl);
+			this->panel3->Controls->Add(this->TusPuntoslbl);
+			this->panel3->Dock = System::Windows::Forms::DockStyle::Right;
+			this->panel3->Location = System::Drawing::Point(1097, 133);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(326, 367);
+			this->panel3->TabIndex = 16;
+			// 
 			// TriviaForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(830, 416);
-			this->Controls->Add(this->pointslbl);
-			this->Controls->Add(this->TusPuntoslbl);
-			this->Controls->Add(this->TiempoRestantelbl);
-			this->Controls->Add(this->Respuestalbl);
-			this->Controls->Add(this->Sgtepregunta);
-			this->Controls->Add(this->timeoutlbl);
-			this->Controls->Add(this->EnunciadoBox1);
-			this->Controls->Add(this->CerrarBtn);
-			this->Controls->Add(this->respuestaBtn);
-			this->Controls->Add(this->RespuestaC);
-			this->Controls->Add(this->RespuestaB);
-			this->Controls->Add(this->RespuestaA);
-			this->Controls->Add(this->label1);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->ClientSize = System::Drawing::Size(1423, 500);
+			this->Controls->Add(this->panel1);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"TriviaForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"TriviaForm";
 			this->Load += gcnew System::EventHandler(this, &TriviaForm::TriviaForm_Load);
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
+			this->panel2->ResumeLayout(false);
+			this->panel2->PerformLayout();
+			this->panel3->ResumeLayout(false);
+			this->panel3->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion

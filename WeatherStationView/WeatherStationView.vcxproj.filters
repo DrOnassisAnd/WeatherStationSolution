@@ -92,8 +92,11 @@
     <Image Include="Humidity.png" />
     <Image Include="Temperature.png" />
     <Image Include="_dce79eb2-a9b7-465b-91c7-76f2bc2627d0.jpg" />
+    <Image Include="logoadminzz.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="jpg1.bin" />
+    <None Include="jpg2.bin" />
+    <None Include="imagenes.bin" />
   </ItemGroup>
 </Project>

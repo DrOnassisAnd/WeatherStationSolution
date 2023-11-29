@@ -376,6 +376,7 @@
     <Image Include="FACI.jpg" />
     <Image Include="Humidity.png" />
     <Image Include="LogoAdmin.png" />
+    <Image Include="logoadminzz.png" />
     <Image Include="LogoPrincipal.jpg" />
     <Image Include="LogoPrueba.jpg" />
     <Image Include="LogoPrueba2.jpg" />
@@ -399,7 +400,9 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="imagenes.bin" />
     <None Include="jpg1.bin" />
+    <None Include="jpg2.bin" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

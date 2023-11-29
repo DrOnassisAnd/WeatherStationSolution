@@ -198,6 +198,15 @@ private: System::Windows::Forms::Label^ label9;
 private: System::Windows::Forms::Label^ label11;
 private: System::Windows::Forms::Label^ ptslabel;
 
+private: System::Windows::Forms::Panel^ panel4;
+private: System::Windows::Forms::Panel^ panel6;
+private: System::Windows::Forms::Panel^ panel5;
+private: System::Windows::Forms::PictureBox^ pictureBox3;
+private: System::Windows::Forms::PictureBox^ pictureBox2;
+private: System::Windows::Forms::PictureBox^ pictureBox4;
+private: System::Windows::Forms::PictureBox^ pictureBox5;
+
+
 
 
 
@@ -270,9 +279,23 @@ private: System::Windows::Forms::Label^ ptslabel;
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->ptslabel = (gcnew System::Windows::Forms::Label());
+			this->panel4 = (gcnew System::Windows::Forms::Panel());
+			this->panel5 = (gcnew System::Windows::Forms::Panel());
+			this->panel6 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel1->SuspendLayout();
 			this->panel2->SuspendLayout();
+			this->panel4->SuspendLayout();
+			this->panel5->SuspendLayout();
+			this->panel6->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// linkLabel2
@@ -389,8 +412,8 @@ private: System::Windows::Forms::Label^ ptslabel;
 			// label6
 			// 
 			resources->ApplyResources(this->label6, L"label6");
-			this->label6->BackColor = System::Drawing::SystemColors::Control;
-			this->label6->ForeColor = System::Drawing::Color::Black;
+			this->label6->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label6->ForeColor = System::Drawing::Color::White;
 			this->label6->Name = L"label6";
 			// 
 			// label7
@@ -421,7 +444,8 @@ private: System::Windows::Forms::Label^ ptslabel;
 			// 
 			// button2
 			// 
-			this->button2->BackColor = System::Drawing::SystemColors::MenuText;
+			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			resources->ApplyResources(this->button2, L"button2");
 			this->button2->ForeColor = System::Drawing::SystemColors::Control;
 			this->button2->Name = L"button2";
@@ -462,8 +486,8 @@ private: System::Windows::Forms::Label^ ptslabel;
 			// label10
 			// 
 			resources->ApplyResources(this->label10, L"label10");
-			this->label10->BackColor = System::Drawing::SystemColors::Control;
-			this->label10->ForeColor = System::Drawing::Color::Black;
+			this->label10->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label10->ForeColor = System::Drawing::Color::White;
 			this->label10->Name = L"label10";
 			// 
 			// UnidadTemplbl
@@ -503,8 +527,8 @@ private: System::Windows::Forms::Label^ ptslabel;
 			// checkBox1
 			// 
 			resources->ApplyResources(this->checkBox1, L"checkBox1");
-			this->checkBox1->BackColor = System::Drawing::SystemColors::Control;
-			this->checkBox1->ForeColor = System::Drawing::Color::Black;
+			this->checkBox1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->checkBox1->ForeColor = System::Drawing::Color::White;
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->UseVisualStyleBackColor = false;
 			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &BasicForm::checkBox1_CheckedChanged);
@@ -547,36 +571,21 @@ private: System::Windows::Forms::Label^ ptslabel;
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::SystemColors::Control;
-			this->panel1->Controls->Add(this->panel2);
-			this->panel1->Controls->Add(this->label16);
-			this->panel1->Controls->Add(this->label15);
-			this->panel1->Controls->Add(this->label14);
-			this->panel1->Controls->Add(this->checkBox1);
-			this->panel1->Controls->Add(this->button6);
-			this->panel1->Controls->Add(this->TriviaBtn);
-			this->panel1->Controls->Add(this->button5);
+			this->panel1->Controls->Add(this->panel6);
+			this->panel1->Controls->Add(this->panel5);
 			this->panel1->Controls->Add(this->UnidadTemplbl);
-			this->panel1->Controls->Add(this->label10);
 			this->panel1->Controls->Add(this->textBox5);
 			this->panel1->Controls->Add(this->label12);
 			this->panel1->Controls->Add(this->textBox4);
 			this->panel1->Controls->Add(this->textBox3);
 			this->panel1->Controls->Add(this->textBox2);
-			this->panel1->Controls->Add(this->button2);
 			this->panel1->Controls->Add(this->button1);
 			this->panel1->Controls->Add(this->textBox1);
 			this->panel1->Controls->Add(this->label7);
-			this->panel1->Controls->Add(this->label6);
-			this->panel1->Controls->Add(this->button4);
 			this->panel1->Controls->Add(this->label5);
 			this->panel1->Controls->Add(this->dtpWeatherStationBasic);
-			this->panel1->Controls->Add(this->button3);
-			this->panel1->Controls->Add(this->button7);
-			this->panel1->Controls->Add(this->pictureBox1);
-			this->panel1->Controls->Add(this->comboBox1);
 			this->panel1->Controls->Add(this->label2);
 			this->panel1->Controls->Add(this->label3);
-			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->label4);
 			resources->ApplyResources(this->panel1, L"panel1");
 			this->panel1->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
@@ -585,11 +594,13 @@ private: System::Windows::Forms::Label^ ptslabel;
 			// 
 			// panel2
 			// 
-			this->panel2->BackColor = System::Drawing::SystemColors::ControlLightLight;
+			this->panel2->BackColor = System::Drawing::SystemColors::Control;
 			this->panel2->Controls->Add(this->label8);
 			this->panel2->Controls->Add(this->label9);
 			this->panel2->Controls->Add(this->label11);
 			this->panel2->Controls->Add(this->ptslabel);
+			this->panel2->Controls->Add(this->button3);
+			this->panel2->Controls->Add(this->button7);
 			this->panel2->Controls->Add(this->label13);
 			this->panel2->Controls->Add(this->PuntosDiariosLabel);
 			this->panel2->Controls->Add(this->linkLabel2);
@@ -625,11 +636,72 @@ private: System::Windows::Forms::Label^ ptslabel;
 			this->ptslabel->ForeColor = System::Drawing::Color::Black;
 			this->ptslabel->Name = L"ptslabel";
 			// 
+			// panel4
+			// 
+			this->panel4->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->panel4->Controls->Add(this->label6);
+			this->panel4->Controls->Add(this->label10);
+			this->panel4->Controls->Add(this->checkBox1);
+			this->panel4->Controls->Add(this->panel2);
+			resources->ApplyResources(this->panel4, L"panel4");
+			this->panel4->Name = L"panel4";
+			// 
+			// panel5
+			// 
+			this->panel5->Controls->Add(this->label1);
+			this->panel5->Controls->Add(this->pictureBox1);
+			this->panel5->Controls->Add(this->comboBox1);
+			resources->ApplyResources(this->panel5, L"panel5");
+			this->panel5->Name = L"panel5";
+			// 
+			// panel6
+			// 
+			this->panel6->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panel6->Controls->Add(this->pictureBox4);
+			this->panel6->Controls->Add(this->pictureBox5);
+			this->panel6->Controls->Add(this->button5);
+			this->panel6->Controls->Add(this->button2);
+			this->panel6->Controls->Add(this->pictureBox3);
+			this->panel6->Controls->Add(this->pictureBox2);
+			this->panel6->Controls->Add(this->button4);
+			this->panel6->Controls->Add(this->label16);
+			this->panel6->Controls->Add(this->label15);
+			this->panel6->Controls->Add(this->label14);
+			this->panel6->Controls->Add(this->TriviaBtn);
+			this->panel6->Controls->Add(this->button6);
+			resources->ApplyResources(this->panel6, L"panel6");
+			this->panel6->Name = L"panel6";
+			// 
+			// pictureBox3
+			// 
+			resources->ApplyResources(this->pictureBox3, L"pictureBox3");
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->TabStop = false;
+			// 
+			// pictureBox2
+			// 
+			resources->ApplyResources(this->pictureBox2, L"pictureBox2");
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->TabStop = false;
+			// 
+			// pictureBox4
+			// 
+			resources->ApplyResources(this->pictureBox4, L"pictureBox4");
+			this->pictureBox4->Name = L"pictureBox4";
+			this->pictureBox4->TabStop = false;
+			// 
+			// pictureBox5
+			// 
+			resources->ApplyResources(this->pictureBox5, L"pictureBox5");
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->TabStop = false;
+			// 
 			// BasicForm
 			// 
 			resources->ApplyResources(this, L"$this");
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ControlBox = false;
+			this->Controls->Add(this->panel4);
 			this->Controls->Add(this->panel1);
 			this->Name = L"BasicForm";
 			this->Load += gcnew System::EventHandler(this, &BasicForm::BasicForm_Load);
@@ -638,6 +710,16 @@ private: System::Windows::Forms::Label^ ptslabel;
 			this->panel1->PerformLayout();
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
+			this->panel4->ResumeLayout(false);
+			this->panel4->PerformLayout();
+			this->panel5->ResumeLayout(false);
+			this->panel5->PerformLayout();
+			this->panel6->ResumeLayout(false);
+			this->panel6->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			this->ResumeLayout(false);
 
 		}

@@ -107,7 +107,7 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Button^ btnUser;
 	private: System::Windows::Forms::Button^ btnUserReport;
 	private: System::Windows::Forms::Button^ btnSensors;
-	private: System::Windows::Forms::PictureBox^ pbImage;
+
 	private: System::Windows::Forms::PictureBox^ pbUser;
 	private: System::Windows::Forms::PictureBox^ pbReport;
 	private: System::Windows::Forms::PictureBox^ pbSensors;
@@ -118,6 +118,14 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::Panel^ panel2;
+	private: System::Windows::Forms::PictureBox^ pbImage;
+
+
+
+
+
 
 
 
@@ -155,7 +163,6 @@ namespace WeatherStationView {
 			this->btnUser = (gcnew System::Windows::Forms::Button());
 			this->btnUserReport = (gcnew System::Windows::Forms::Button());
 			this->btnSensors = (gcnew System::Windows::Forms::Button());
-			this->pbImage = (gcnew System::Windows::Forms::PictureBox());
 			this->pbUser = (gcnew System::Windows::Forms::PictureBox());
 			this->pbReport = (gcnew System::Windows::Forms::PictureBox());
 			this->pbSensors = (gcnew System::Windows::Forms::PictureBox());
@@ -166,11 +173,16 @@ namespace WeatherStationView {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->pbImage = (gcnew System::Windows::Forms::PictureBox());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->menuStrip1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbImage))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbUser))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbReport))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbSensors))->BeginInit();
+			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbImage))->BeginInit();
+			this->panel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
@@ -268,18 +280,12 @@ namespace WeatherStationView {
 			this->btnSensors->UseVisualStyleBackColor = false;
 			this->btnSensors->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::btnSensors_Click);
 			// 
-			// pbImage
-			// 
-			resources->ApplyResources(this->pbImage, L"pbImage");
-			this->pbImage->Name = L"pbImage";
-			this->pbImage->TabStop = false;
-			this->pbImage->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::pbImage_Click);
-			// 
 			// pbUser
 			// 
 			resources->ApplyResources(this->pbUser, L"pbUser");
 			this->pbUser->Name = L"pbUser";
 			this->pbUser->TabStop = false;
+			this->pbUser->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::pbUser_Click);
 			// 
 			// pbReport
 			// 
@@ -297,22 +303,22 @@ namespace WeatherStationView {
 			// label1
 			// 
 			resources->ApplyResources(this->label1, L"label1");
-			this->label1->BackColor = System::Drawing::SystemColors::Control;
-			this->label1->ForeColor = System::Drawing::Color::Black;
+			this->label1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label1->ForeColor = System::Drawing::Color::White;
 			this->label1->Name = L"label1";
 			// 
 			// label2
 			// 
 			resources->ApplyResources(this->label2, L"label2");
-			this->label2->BackColor = System::Drawing::SystemColors::Control;
-			this->label2->ForeColor = System::Drawing::Color::Black;
+			this->label2->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label2->ForeColor = System::Drawing::Color::White;
 			this->label2->Name = L"label2";
 			// 
 			// label3
 			// 
 			resources->ApplyResources(this->label3, L"label3");
-			this->label3->BackColor = System::Drawing::SystemColors::Control;
-			this->label3->ForeColor = System::Drawing::Color::Black;
+			this->label3->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->label3->ForeColor = System::Drawing::Color::White;
 			this->label3->Name = L"label3";
 			// 
 			// label4
@@ -343,36 +349,61 @@ namespace WeatherStationView {
 			this->label7->ForeColor = System::Drawing::Color::Black;
 			this->label7->Name = L"label7";
 			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->panel1->Controls->Add(this->label1);
+			this->panel1->Controls->Add(this->label3);
+			this->panel1->Controls->Add(this->pbImage);
+			this->panel1->Controls->Add(this->label2);
+			resources->ApplyResources(this->panel1, L"panel1");
+			this->panel1->Name = L"panel1";
+			// 
+			// pbImage
+			// 
+			resources->ApplyResources(this->pbImage, L"pbImage");
+			this->pbImage->Name = L"pbImage";
+			this->pbImage->TabStop = false;
+			this->pbImage->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::pbImage_Click);
+			// 
+			// panel2
+			// 
+			this->panel2->BackColor = System::Drawing::SystemColors::Control;
+			this->panel2->Controls->Add(this->label4);
+			this->panel2->Controls->Add(this->pbSensors);
+			this->panel2->Controls->Add(this->label7);
+			this->panel2->Controls->Add(this->pbReport);
+			this->panel2->Controls->Add(this->btnLogOut);
+			this->panel2->Controls->Add(this->pbUser);
+			this->panel2->Controls->Add(this->label6);
+			this->panel2->Controls->Add(this->btnSensors);
+			this->panel2->Controls->Add(this->btnUser);
+			this->panel2->Controls->Add(this->btnUserReport);
+			this->panel2->Controls->Add(this->label5);
+			resources->ApplyResources(this->panel2, L"panel2");
+			this->panel2->Name = L"panel2";
+			// 
 			// WeatherStationFormAdmin
 			// 
 			resources->ApplyResources(this, L"$this");
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Control;
-			this->Controls->Add(this->label7);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->pbSensors);
-			this->Controls->Add(this->pbReport);
-			this->Controls->Add(this->pbUser);
-			this->Controls->Add(this->pbImage);
-			this->Controls->Add(this->btnSensors);
-			this->Controls->Add(this->btnUserReport);
-			this->Controls->Add(this->btnUser);
-			this->Controls->Add(this->btnLogOut);
+			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->menuStrip1);
+			this->Controls->Add(this->panel1);
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"WeatherStationFormAdmin";
 			this->Load += gcnew System::EventHandler(this, &WeatherStationFormAdmin::WeatherStationFormAdmin_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbImage))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbUser))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbReport))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbSensors))->EndInit();
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbImage))->EndInit();
+			this->panel2->ResumeLayout(false);
+			this->panel2->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -381,10 +412,11 @@ namespace WeatherStationView {
 	private: System::Void WeatherStationFormAdmin_Load(System::Object^ sender, System::EventArgs^ e) {
 
 
-		pbImage->Image = Image::FromFile("LogoReporte.png");
+		pbImage->Image = Image::FromFile("logoadminzz.png");
 		pbUser->Image = Image::FromFile("User.png");
 		pbReport->Image = Image::FromFile("Report.png");
 		pbSensors->Image = Image::FromFile("Sensors.png");
+		
 	}
 	private: System::Void toolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -481,6 +513,8 @@ private: System::Void btnUserReport_Click(System::Object^ sender, System::EventA
 private: System::Void pbImage_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void pbReport_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void pbUser_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
