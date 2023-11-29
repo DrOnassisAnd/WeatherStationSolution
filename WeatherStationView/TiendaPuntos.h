@@ -286,7 +286,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	if (radioButton1->Checked == true) {
 		if (ValidateECTextBox()) {
 			double soles = Double::Parse(DollarsTextBox->Text);
-			PaymentMethodForm^ pymform = gcnew PaymentMethodForm(isRegisterDone, soles); //isRegisterDone
+			PaymentMethodForm^ pymform = gcnew PaymentMethodForm(isRegisterDone, soles,user); //isRegisterDone
 			pymform->ControlBox = false;
 			pymform->ShowDialog();
 			isRegisterDone = pymform->GetBool();
@@ -305,7 +305,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	}
 	else if (radioButton2->Checked) {
 		soles = 11;
-		PaymentMethodForm^ pymform = gcnew PaymentMethodForm(isRegisterDone, soles); //isRegisterDone
+		PaymentMethodForm^ pymform = gcnew PaymentMethodForm(isRegisterDone, soles, user); //isRegisterDone
 		pymform->ControlBox = false;
 		pymform->ShowDialog();
 		isRegisterDone = pymform->GetBool();
@@ -319,7 +319,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	}
 	else if (radioButton3->Checked){
 		soles = 18;
-		PaymentMethodForm^ pymform = gcnew PaymentMethodForm(isRegisterDone, soles); //isRegisterDone
+		PaymentMethodForm^ pymform = gcnew PaymentMethodForm(isRegisterDone, soles, user); //isRegisterDone
 		pymform->ControlBox = false;
 		pymform->ShowDialog();
 		isRegisterDone = pymform->GetBool();
@@ -333,7 +333,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	}
 	else if (radioButton4->Checked) {
 		soles = 54;
-		PaymentMethodForm^ pymform = gcnew PaymentMethodForm(isRegisterDone, soles); //isRegisterDone
+		PaymentMethodForm^ pymform = gcnew PaymentMethodForm(isRegisterDone, soles, user); //isRegisterDone
 		pymform->ControlBox = false;
 		pymform->ShowDialog();
 		isRegisterDone = pymform->GetBool();

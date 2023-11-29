@@ -21,11 +21,12 @@ namespace WeatherStationView {
 	{
 	public:
 
-		PaymentMethodForm(int isRegisterDone, double D)
+		PaymentMethodForm(int isRegisterDone, double D, User^ user)
 		{
 			InitializeComponent();
 			this->isRegisterDone = isRegisterDone;
 			this->dollars = D;
+			this->user = user;
 		}
 		PaymentMethodForm::Membresia^ GetMembresia() {
 			return membresia;
@@ -216,19 +217,23 @@ namespace WeatherStationView {
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		//logica de login
-		if ((textBox1->Text == "1234") && (textBox2->Text == "1234")) {
+
+		if (!String::IsNullOrEmpty(textBox1->Text) && !String::IsNullOrEmpty(textBox2->Text)) {
+			// Ambos campos contienen texto válido
+
+			// Asignar los valores de los campos a las propiedades de usuario si es necesario
+			user->NumeroDeCuentaUser = Int32::Parse(textBox1->Text);
+
+			user->CCVUSER = Int32::Parse(textBox2->Text);
 
 			isRegisterDone = 1;
-			this->Close();			
-
+			Controller::Controller::UpdateUser(user);
+			this->Close();
 		}
-
 		else {
-			MessageBox::Show("DATOS incorrectos. Ingrese los datos de nuevo.");
-			this->textBox1->Text = "Numero";
-			this->textBox2->Text = "CCV";
-
+			MessageBox::Show("Por favor, ingrese datos válidos en ambos campos.");
 		}
+
 
 
 		/*
