@@ -46,13 +46,13 @@ namespace WeatherStationView {
 
 
 
-	private: System::Windows::Forms::Label^ label6;
+
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
 
 
 
-	private: System::Windows::Forms::ComboBox^ comboBox5;
+
 	private: System::Windows::Forms::ComboBox^ comboBox6;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
@@ -76,10 +76,8 @@ namespace WeatherStationView {
 		{
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->comboBox5 = (gcnew System::Windows::Forms::ComboBox());
 			this->comboBox6 = (gcnew System::Windows::Forms::ComboBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -104,15 +102,6 @@ namespace WeatherStationView {
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Unidad de Temperatura";
 			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(35, 131);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(90, 13);
-			this->label6->TabIndex = 5;
-			this->label6->Text = L"Formato de fecha";
-			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
@@ -130,16 +119,6 @@ namespace WeatherStationView {
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(121, 21);
 			this->comboBox1->TabIndex = 7;
-			// 
-			// comboBox5
-			// 
-			this->comboBox5->FormattingEnabled = true;
-			this->comboBox5->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"dd/mm/yyyy", L"mm/dd/yyyy", L"yyyy/mm/dd" });
-			this->comboBox5->Location = System::Drawing::Point(192, 131);
-			this->comboBox5->Name = L"comboBox5";
-			this->comboBox5->Size = System::Drawing::Size(121, 21);
-			this->comboBox5->TabIndex = 12;
-			this->comboBox5->SelectedIndexChanged += gcnew System::EventHandler(this, &Config::comboBox5_SelectedIndexChanged);
 			// 
 			// comboBox6
 			// 
@@ -173,7 +152,7 @@ namespace WeatherStationView {
 			// linkLabel1
 			// 
 			this->linkLabel1->AutoSize = true;
-			this->linkLabel1->Location = System::Drawing::Point(36, 171);
+			this->linkLabel1->Location = System::Drawing::Point(36, 133);
 			this->linkLabel1->Name = L"linkLabel1";
 			this->linkLabel1->Size = System::Drawing::Size(182, 13);
 			this->linkLabel1->TabIndex = 15;
@@ -185,15 +164,13 @@ namespace WeatherStationView {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(452, 208);
+			this->ClientSize = System::Drawing::Size(452, 164);
 			this->Controls->Add(this->linkLabel1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
-			this->Controls->Add(this->comboBox5);
 			this->Controls->Add(this->comboBox6);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->label7);
-			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Name = L"Config";
@@ -216,7 +193,7 @@ namespace WeatherStationView {
 		config->FormatoHoras = FormatoHoras;
 		config->FormatoFecha = FormatoFecha;
 
-		Controller::Controller::AddAjustes(config);
+		//Controller::Controller::AddAjustes(config);
 		MessageBox::Show("Cambios Aplicados");
 		this->Hide();
 

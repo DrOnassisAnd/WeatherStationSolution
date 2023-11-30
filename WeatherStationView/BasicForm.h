@@ -738,13 +738,10 @@ private: System::Windows::Forms::PictureBox^ pictureBox5;
 		user = wcform->GetUser();
 		config = user->ajustes;
 
-
-
 		//Bienvenida al usuario
 		this->label8->Text = "Usuario";
 		this->label9->Text = user->Name;
 		this->label10->Text = user->membresia->TipoMembresia;
-
 		this->ptslabel->Text = user->PuntosTotales.ToString();
 		this->PuntosDiariosLabel->Text = user->PuntosDiarios.ToString();
 
@@ -784,9 +781,9 @@ private: System::Windows::Forms::PictureBox^ pictureBox5;
 		}
 
 		//timer
-	/*	timer1->Start();
-		timer2->Start();
-		TransmisionDataArduino();*/
+		//timer1->Start();
+		//timer2->Start();
+		//TransmisionDataArduino();
 		
 
 	}
@@ -845,51 +842,84 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	}
 
 	private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-		if ((comboBox1->Text == "CIA")) {
-			pictureBox1->Image = Image::FromFile("CIA.jpeg");
-			IdSensor = "1";
-			Ambiente^ CIA = Controller::Controller::QueryLastUbiGeoData("CIA");
-			textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(CIA->DataBase[0])->Temperatura).ToString();
-			textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(CIA->DataBase[0])->Humedad).ToString();
-			textBox4->Text = (dynamic_cast<SensorCO^>(CIA->DataBase[1])->NivelCO).ToString();
-			textBox5->Text = (dynamic_cast<SensorCalidadAire^>(CIA->DataBase[2])->CalidadAire).ToString();
-		}
-		else if ((comboBox1->Text == "FACI")) {
-
-			pictureBox1->Image = Image::FromFile("FACI.jpg");
-			IdSensor = "2";
-			Ambiente^ FACI = Controller::Controller::QueryLastUbiGeoData("FACI");
-			textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(FACI->DataBase[0])->Temperatura).ToString();
-			textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(FACI->DataBase[0])->Humedad).ToString();
-			textBox4->Text = (dynamic_cast<SensorCO^>(FACI->DataBase[1])->NivelCO).ToString();
-			textBox5->Text = (dynamic_cast<SensorCalidadAire^>(FACI->DataBase[2])->CalidadAire).ToString();
-		}
-		else if ((comboBox1->Text == "TINKUY")) {
-
-			pictureBox1->Image = Image::FromFile("TINKUY.jpg");
-			IdSensor = "3";
-			Ambiente^ TINKUY = Controller::Controller::QueryLastUbiGeoData("TINKUY");
-			textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(TINKUY->DataBase[0])->Temperatura).ToString();
-			textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(TINKUY->DataBase[0])->Humedad).ToString();
-			textBox4->Text = (dynamic_cast<SensorCO^>(TINKUY->DataBase[1])->NivelCO).ToString();
-			textBox5->Text = (dynamic_cast<SensorCalidadAire^>(TINKUY->DataBase[2])->CalidadAire).ToString();
-		}
-		else if ((comboBox1->Text == "BIBLIOTECA CENTRAL")) {
-
-			pictureBox1->Image = Image::FromFile("BIBLIOTECA CENTRAL.jpg");
-			IdSensor = "4";
-			Ambiente^ BIBLIO = Controller::Controller::QueryLastUbiGeoData("BIBLIOTECA CENTRAL");
-			textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(BIBLIO->DataBase[0])->Temperatura).ToString();
-			textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(BIBLIO->DataBase[0])->Humedad).ToString();
-			textBox4->Text = (dynamic_cast<SensorCO^>(BIBLIO->DataBase[1])->NivelCO).ToString();
-			textBox5->Text = (dynamic_cast<SensorCalidadAire^>(BIBLIO->DataBase[2])->CalidadAire).ToString();
-		}
-		else if ((comboBox1->Text == "")) {
-			pictureBox1->Image = Image::FromFile("LogoPrueba.jpg");
-		}
-
-
+		SelectedIndexChanged();
 	}
+		   void SelectedIndexChanged() {
+			   if ((comboBox1->Text == "CIA")) {
+				   pictureBox1->Image = Image::FromFile("CIA.jpeg");
+				   IdSensor = "1";
+				   Ambiente^ CIA = Controller::Controller::QueryLastUbiGeoData("CIA");
+				   if (user->ajustes->UnidadTemp == Convert::ToChar(176) + "C") {
+					   textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(CIA->DataBase[0])->Temperatura).ToString();
+				   }
+				   else if (user->ajustes->UnidadTemp == Convert::ToChar(176) + "F") {
+					   int temp_c = (dynamic_cast<SensorTemperaturaHumedad^>(CIA->DataBase[0])->Temperatura);
+					   int temp_f = temp_c * 1.8 + 32;
+					   textBox2->Text = temp_f.ToString();
+				   }
+				   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
+				   textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(CIA->DataBase[0])->Humedad).ToString();
+				   textBox4->Text = (dynamic_cast<SensorCO^>(CIA->DataBase[1])->NivelCO).ToString();
+				   textBox5->Text = (dynamic_cast<SensorCalidadAire^>(CIA->DataBase[2])->CalidadAire).ToString();
+			   }
+			   else if ((comboBox1->Text == "FACI")) {
+
+				   pictureBox1->Image = Image::FromFile("FACI.jpg");
+				   IdSensor = "2";
+				   Ambiente^ FACI = Controller::Controller::QueryLastUbiGeoData("FACI");
+				   if (user->ajustes->UnidadTemp == Convert::ToChar(176) + "C") {
+					   textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(FACI->DataBase[0])->Temperatura).ToString();
+				   }
+				   else if (user->ajustes->UnidadTemp == Convert::ToChar(176) + "F") {
+					   int temp_c = (dynamic_cast<SensorTemperaturaHumedad^>(FACI->DataBase[0])->Temperatura);
+					   int temp_f = temp_c * 1.8 + 32;
+					   textBox2->Text = temp_f.ToString();
+				   }
+				   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
+				   textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(FACI->DataBase[0])->Humedad).ToString();
+				   textBox4->Text = (dynamic_cast<SensorCO^>(FACI->DataBase[1])->NivelCO).ToString();
+				   textBox5->Text = (dynamic_cast<SensorCalidadAire^>(FACI->DataBase[2])->CalidadAire).ToString();
+			   }
+			   else if ((comboBox1->Text == "TINKUY")) {
+
+				   pictureBox1->Image = Image::FromFile("TINKUY.jpg");
+				   IdSensor = "3";
+				   Ambiente^ TINKUY = Controller::Controller::QueryLastUbiGeoData("TINKUY");
+				   if (user->ajustes->UnidadTemp == Convert::ToChar(176) + "C") {
+					   textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(TINKUY->DataBase[0])->Temperatura).ToString();
+				   }
+				   else if (user->ajustes->UnidadTemp == Convert::ToChar(176) + "F") {
+					   int temp_c = (dynamic_cast<SensorTemperaturaHumedad^>(TINKUY->DataBase[0])->Temperatura);
+					   int temp_f = temp_c * 1.8 + 32;
+					   textBox2->Text = temp_f.ToString();
+				   }
+				   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
+				   textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(TINKUY->DataBase[0])->Humedad).ToString();
+				   textBox4->Text = (dynamic_cast<SensorCO^>(TINKUY->DataBase[1])->NivelCO).ToString();
+				   textBox5->Text = (dynamic_cast<SensorCalidadAire^>(TINKUY->DataBase[2])->CalidadAire).ToString();
+			   }
+			   else if ((comboBox1->Text == "BIBLIOTECA CENTRAL")) {
+
+				   pictureBox1->Image = Image::FromFile("BIBLIOTECA CENTRAL.jpg");
+				   IdSensor = "4";
+				   Ambiente^ BIBLIO = Controller::Controller::QueryLastUbiGeoData("BIBLIOTECA CENTRAL");
+				   if (user->ajustes->UnidadTemp == Convert::ToChar(176) + "C") {
+					   textBox2->Text = (dynamic_cast<SensorTemperaturaHumedad^>(BIBLIO->DataBase[0])->Temperatura).ToString();
+				   }
+				   else if (user->ajustes->UnidadTemp == Convert::ToChar(176) + "F") {
+					   int temp_c = (dynamic_cast<SensorTemperaturaHumedad^>(BIBLIO->DataBase[0])->Temperatura);
+					   int temp_f = temp_c * 1.8 + 32;
+					   textBox2->Text = temp_f.ToString();
+				   }				   
+				   UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
+				   textBox3->Text = (dynamic_cast<SensorTemperaturaHumedad^>(BIBLIO->DataBase[0])->Humedad).ToString();
+				   textBox4->Text = (dynamic_cast<SensorCO^>(BIBLIO->DataBase[1])->NivelCO).ToString();
+				   textBox5->Text = (dynamic_cast<SensorCalidadAire^>(BIBLIO->DataBase[2])->CalidadAire).ToString();
+			   }
+			   else if ((comboBox1->Text == "")) {
+				   pictureBox1->Image = Image::FromFile("LogoPrueba.jpg");
+			   }
+		   }
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { //Ajustes
 
@@ -905,12 +935,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 			   user->ajustes = config;
 			   Controller::Controller::UpdateUser(user);
 
-			   TransmisionDataArduino();
-
-			   //String^ c = (textBox2->Text);
-			   //int f = Int32::Parse(textBox2->Text) * 1.8 + 32;
-			   //textBox2->Text = user->ajustes->UnidadTemp == "°C" ? c : f.ToString();
-			   //UnidadTemplbl->Text = user->ajustes->UnidadTemp == Convert::ToChar(176) + "C" ? Convert::ToChar(176) + "C" : Convert::ToChar(176) + "F";
+			   SelectedIndexChanged();
 		   }
 
 		   void TransmisionDataArduino() {
