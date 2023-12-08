@@ -186,12 +186,10 @@ namespace WeatherStationView {
 	private: System::Void Aceptar_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ UnidadTemp = comboBox1->Text;
 		String^ FormatoHoras = comboBox6->Text;
-		String^ FormatoFecha = comboBox5->Text;
 		
 		//user->Id = Id;
 		config->UnidadTemp = UnidadTemp;
 		config->FormatoHoras = FormatoHoras;
-		config->FormatoFecha = FormatoFecha;
 
 		//Controller::Controller::AddAjustes(config);
 		MessageBox::Show("Cambios Aplicados");
@@ -203,7 +201,6 @@ namespace WeatherStationView {
 	}
 	private: System::Void linkLabel1_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 		this->comboBox1->SelectedIndex = 0;
-		this->comboBox5->SelectedIndex = 0;
 		this->comboBox6->SelectedIndex = 0;
 	}
 	private: System::Void Config_Load(System::Object^ sender, System::EventArgs^ e) {
@@ -214,10 +211,6 @@ namespace WeatherStationView {
 
 		if ((config->FormatoHoras) == "Formato de 24 horas") { this->comboBox6->SelectedIndex = 1; }
 		else { this->comboBox6->SelectedIndex = 0; }
-
-		if ((config->FormatoFecha) == "mm/dd/yyyy") { this->comboBox5->SelectedIndex = 1; }
-		else if ((config->FormatoFecha) == "yyyy/mm/dd") { this->comboBox5->SelectedIndex = 2; }
-		else { this->comboBox5->SelectedIndex = 0; }
 		
 	}
 	private: System::Void comboBox5_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {

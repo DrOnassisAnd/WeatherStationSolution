@@ -35,38 +35,18 @@ List<Pregunta^>^ Controller::Controller::QueryAllPregunta() {
 	return WeatherStationPersistance::Persistance::QueryAllPregunta();
 }
 
+List<Tarjetas^>^ Controller::Controller::QueryTarjetasData() {
+	return WeatherStationPersistance::Persistance::QueryTarjetasData();
+}
+
+
+
 
 //
 void Controller::Controller::AddAjustes(Ajustes^ ajustes) {
 	//Se puede programar más cosas.
 	WeatherStationPersistance::Persistance::AddAjustes(ajustes);
 }
-
-//void Controller::Controller::AddMembresia(Membresia^ membresias) {
-//	//Se puede programar más cosas.
-//
-//	WeatherStationPersistance::Persistance::AddMembresia(membresias);
-//}
-//
-//
-//List<Membresia^>^ Controller::Controller::QueryMembresia() {
-//	//Se puede programar m�s cosas
-//	return WeatherStationPersistance::Persistance::QueryMembresia();
-//}
-//
-//Membresia^ Controller::Controller::QueryMembresiabyId(int Id) {
-//	return WeatherStationPersistance::Persistance::QueryMembresiabyId(Id);
-//}
-//
-//void Controller::Controller::UpdateMembresia(Membresia^ user) {
-//	WeatherStationPersistance::Persistance::UpdateMembresia(user);
-//}
-//
-//void Controller::Controller::DeleteMembresia(int userId) {
-//	WeatherStationPersistance::Persistance::DeleteMembresia(userId);
-//}
-
-
 
 
 void Controller::Controller::AddWeatherWarning(AlertaMeteorologica^ alertaMeteorologica) {
@@ -240,6 +220,23 @@ void Controller::Controller::SendFlag()
 	}
 }
 
+//PreguntasporDia
+List<List<int>^>^ Controller::Controller::QueryPreguntasporDia() {
+	return WeatherStationPersistance::Persistance::QueryPreguntasporDia();
+}
+
+void Controller::Controller::AddPreguntasporDia(List<int>^ pregunta) {
+	WeatherStationPersistance::Persistance::AddPreguntasporDia(pregunta);
+}
+
+List<int>^ Controller::Controller::QueryPreguntasporDiabyId(int idusuario) {
+	return WeatherStationPersistance::Persistance::QueryPreguntasporDiabyId(idusuario);
+}
+
+void Controller::Controller::UpdatePreguntasporDia(List<int>^ pregunta) {
+	WeatherStationPersistance::Persistance::UpdatePreguntasporDia(pregunta);
+}
+
 //Ambiente
 
 void Controller::Controller::AddAmbienteData(Ambiente^ sensorData) {
@@ -361,14 +358,6 @@ List<String^>^ Controller::Controller::GetOnlyFecha(List<Ambiente^>^ sensordata)
 
 }
 
-
-
-
-
-
-
-
-
 List<int>^ Controller::Controller::GetIndexfromAmbiente(List<Ambiente^>^ sensordata, String^ UbiGeo) {
 	List<int>^ indexdata = gcnew List<int>();
 	for (int i = 0; i < sensordata->Count; i++) {
@@ -377,4 +366,91 @@ List<int>^ Controller::Controller::GetIndexfromAmbiente(List<Ambiente^>^ sensord
 		}
 	}
 	return indexdata;
+}
+
+//More PreguntasporDia Methods
+
+List<int>^ Controller::Controller::Convertir6a5(List<int>^ preguntas) {
+	List<int>^ nuevaLista = gcnew List<int>();
+
+	for (int i = 1; i < preguntas->Count; i++) {
+		nuevaLista->Add(preguntas[i]);
+	}
+
+	return nuevaLista;
+}
+
+void Controller::Controller::AgregarValor(List<int>^ pregunta, int valor) {
+	List<int>^ preguntas = gcnew List<int>();
+	if (pregunta->Count == 6) {
+		preguntas = Convertir6a5(pregunta);
+	}
+	else {
+		preguntas = pregunta;
+	}
+	for (int i = 0; i < preguntas->Count; i++) {
+		if (preguntas[i] != 0) {
+			preguntas[i] = valor;
+			break;
+		}
+	}
+}
+
+int Controller::Controller::ListaLlena(List<int>^ pregunta) {
+	List<int>^ preguntas = gcnew List<int>();
+	if (pregunta->Count == 6) {
+		preguntas = Convertir6a5(pregunta);
+	}
+	else {
+		preguntas = pregunta;
+	}
+	for (int i = 0; i < preguntas->Count; i++) {
+		if (preguntas[i] == 0) {
+			return 0;
+		}
+	}
+	return 1;
+}
+
+int Controller::Controller::NumeroPreguntas(List<int>^ pregunta) {
+	List<int>^ preguntas = gcnew List<int>();
+	if (pregunta->Count == 6) {
+		preguntas = Convertir6a5(pregunta);
+	}
+	else {
+		preguntas = pregunta;
+	}
+	int counter = 0;
+	for (int i = 0; i < preguntas->Count; i++) {
+		if (preguntas[i] != 0) {
+			counter++;
+		}
+		else {
+			break;
+		}
+	}
+	return counter;
+}
+
+int Controller::Controller::NumeroAleatorioRestante(int Maxcap, List<int>^ preguntas) {
+	Random^ rand = gcnew Random();
+	int numeropregunta;
+	while (1) {
+		numeropregunta = rand->Next(Maxcap);
+		if (PerteneceaLista(preguntas, numeropregunta + 1)) {
+			return;
+		}
+		else {
+			break;
+		}
+	}
+}
+
+int Controller::Controller::PerteneceaLista(List<int>^ preguntas, int num) {
+	for (int i = 0; i < preguntas->Count; i++) {
+		if (preguntas[i] == num) {
+			return 1;
+		}
+	}
+	return 0;
 }

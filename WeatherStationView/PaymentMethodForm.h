@@ -222,9 +222,9 @@ namespace WeatherStationView {
 			// Ambos campos contienen texto válido
 
 			// Asignar los valores de los campos a las propiedades de usuario si es necesario
-			user->NumeroDeCuentaUser = Int32::Parse(textBox1->Text);
+			//user->NumeroDeCuentaUser = Int32::Parse(textBox1->Text);
 
-			user->CCVUSER = Int32::Parse(textBox2->Text);
+			//user->CCVUSER = Int32::Parse(textBox2->Text);
 
 			isRegisterDone = 1;
 			Controller::Controller::UpdateUser(user);

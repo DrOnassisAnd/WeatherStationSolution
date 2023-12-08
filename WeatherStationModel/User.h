@@ -3,10 +3,12 @@
  */
 #include "Membresia.h"
 #include "Ajustes.h"
-#include "PreguntasDia.h"
+//#include "PreguntasDia.h"
 
 
 using namespace System;
+using namespace System::Collections::Generic;
+
 
 namespace Model {
     [Serializable]
@@ -25,12 +27,10 @@ namespace Model {
         property String^ fechaUltimaActualizacion;
 
         //PreguntasConstestadas por dia
-       //property PreguntasDia^ ajustes;
-        
+        property List<int>^ PreguntasporDia;
 
         //Numero de Cuenta
-        property int NumeroDeCuentaUser;
-        property int CCVUSER;
+        property int IdTarjeta;
 
         static int CompareByPuntosTotales(User^ u1, User^ u2)
         {

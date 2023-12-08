@@ -19,6 +19,8 @@ namespace WeatherStationPersistance {
 		static List<Ambiente^>^ sAmbienteDB = gcnew List<Ambiente^>();
 		static List<SensorCalidadAire^>^ sCalidadAireList = gcnew List<SensorCalidadAire^>();
 		static List<Pregunta^>^ PreguntasList = gcnew List<Pregunta^>();
+		static List<Tarjetas^>^ TarjetasList = gcnew List<Tarjetas^>();
+		static List<List<int>^>^ PreguntasporDiaList = gcnew List<List<int>^>();
 
 	public:
 
@@ -80,6 +82,7 @@ namespace WeatherStationPersistance {
 		static User^ QueryUserbyId(int id);
 		static void UpdateUser(User^ user);
 		static void DeleteUser(int userId);
+		
 
 		static void AddAjustes(Ajustes^ ajustes);
 
@@ -140,8 +143,10 @@ namespace WeatherStationPersistance {
 		// ConexionSql
 		static SqlConnection^ GetConnection();
 		static List<Ambiente^>^ LoadAmbientes();
+		static List<Tarjetas^>^ LoadTarjetas();
 		static List<Pregunta^>^ LoadPreguntas();
 		static List<User^>^ LoadUser();
+		static List<List<int>^>^ LoadPreguntasporDia();
 
 		//Ambiente Methods
 		static void AddAmbienteData(Ambiente^ sensordata);
@@ -153,7 +158,18 @@ namespace WeatherStationPersistance {
 		//More Ambiente Methods
 		static Ambiente^ QueryLastUbiGeoData(String^ ubigeo);
 
+		//Tarjetas Methods
+		//static void AddTarjetasData(Tarjetas^ tarjetasData);
+		static List<Tarjetas^>^ QueryTarjetasData();
+		//static Tarjetas^ QueryTarjetasDatabyId(int IdTarjetas);
+		//static void DeleteTarjetasData(int IdTarjetas);
+		//static void UpdateTarjetasData(Tarjetas^ tarjetasData);
 
+		//PreguntasporDia
+		static List<List<int>^>^ QueryPreguntasporDia();
+		static List<int>^ QueryPreguntasporDiabyId(int idusuario);
+		static void AddPreguntasporDia(List<int>^ data);
+		static void UpdatePreguntasporDia(List<int>^ data);
 
 	};
 }

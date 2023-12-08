@@ -304,8 +304,17 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 					usuario->PuntosTotales = 0;
 					usuario->PuntosDiarios = 0;
 					usuario->fechaUltimaActualizacion = DateTime::Today.ToString("yyyy-MM-dd");
-					usuario->NumeroDeCuentaUser = 11111;
-					usuario->CCVUSER = 11111;
+					usuario->IdTarjeta = -1; //aun sin tarjeta
+
+					List<int>^ preguntas = gcnew List<int>();
+					preguntas->Add(0);
+					preguntas->Add(0);
+					preguntas->Add(0);
+					preguntas->Add(0);
+					preguntas->Add(0); //añade las 5 preguntas
+					usuario->PreguntasporDia = preguntas;
+					//usuario->NumeroDeCuentaUser = 11111;
+					//usuario->CCVUSER = 11111;
 
 					Membresia^ membresia = gcnew Membresia("Basic", DateTime::Today.ToString("yyyy-MM-dd"), "2099-12-12");
 					Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
@@ -325,6 +334,10 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 					usuario->ajustes = ajustes;
 
 					Controller::Controller::AddUser(usuario);
+					List<int>^ preguntaspordia = gcnew List<int>();
+					preguntaspordia->Add(usuario->Id);
+					preguntaspordia->AddRange(preguntas);
+					Controller::Controller::AddPreguntasporDia(preguntaspordia);
 					user = usuario;
 
 					MessageBox::Show("Credenciales registradas. Bienvenido, " + user->Name);

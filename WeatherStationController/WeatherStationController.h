@@ -27,6 +27,24 @@ namespace Controller {
 		//Trivia
 		static List<Pregunta^>^ QueryAllPregunta();
 
+		//Tarjetas
+		static List<Tarjetas^>^ QueryTarjetasData();
+
+		//PreguntasporDIa
+		static List<List<int>^>^ QueryPreguntasporDia();
+		static List<int>^ QueryPreguntasporDiabyId(int idusuario);
+		static void AddPreguntasporDia(List<int>^ pregunta);
+		static void UpdatePreguntasporDia(List<int>^ pregunta);
+		
+		//More PreguntasporDia Methods
+		//metodo para asignar un valor
+		//
+		static List<int>^ Convertir6a5(List<int>^ preguntas);
+		static void AgregarValor(List<int>^ preguntas, int valor);
+		static int ListaLlena(List<int>^ preguntas);
+		static int NumeroPreguntas(List<int>^ preguntas);
+		static int NumeroAleatorioRestante(int Maxcap, List<int>^ preguntas);
+		static int PerteneceaLista(List<int>^ preguntas, int num);
 
 		//Ajustes
 		static void AddAjustes(Ajustes^);

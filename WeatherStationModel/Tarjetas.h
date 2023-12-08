@@ -1,9 +1,4 @@
 #pragma once
-ref class Tarjetas
-{
-};
-
-
 using namespace System;
 
 namespace Model {
@@ -12,9 +7,10 @@ namespace Model {
         public:
 
             property int id;
-
             property int NumeroDeCuentaTarjeta;
             property int CCVTarjeta;
+            property int Saldo;
+            property int Disponible;
     };
 
 }

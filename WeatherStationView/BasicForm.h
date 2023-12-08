@@ -1260,21 +1260,31 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 
 	}
 	private: System::Void TriviaBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		List<int>^ preguntas = gcnew List<int>();
+		//if (preguntas por dia lleno)
+		if (Controller::Controller::ListaLlena(user->PreguntasporDia)) {
+			if (user->PuntosDiarios < maxpoints) {
+				//Paso de Parametros
+				TriviaForm^ triviaForm = gcnew TriviaForm(user);
+				triviaForm->ControlBox = false;
+				triviaForm->ShowDialog();
+				user = triviaForm->GetUser();
+				preguntas->Add(user->Id);
+				preguntas->AddRange(user->PreguntasporDia);
+				Controller::Controller::UpdateUser(user);
+				Controller::Controller::UpdatePreguntasporDia(preguntas);
+				ptslabel->Text = (user->PuntosTotales).ToString();
+				PuntosDiariosLabel->Text = user->PuntosDiarios.ToString();
 
-		if (user->PuntosDiarios < maxpoints) {
-			//Paso de Parametros
-			TriviaForm^ triviaForm = gcnew TriviaForm(user);
-			triviaForm->ControlBox = false;
-			triviaForm->ShowDialog();
-			user = triviaForm->GetUser();
-			Controller::Controller::UpdateUser(user);
-			ptslabel->Text = (user->PuntosTotales).ToString();
-			PuntosDiariosLabel->Text = user->PuntosDiarios.ToString();
-
+			}
+			else {
+				MessageBox::Show("Has alcanzado el máximos de puntos por hoy. Vuelve mañana para obtener más puntos.");
+			}
 		}
 		else {
-			MessageBox::Show("Has alcanzado el máximos de puntos por hoy. Vuelve mañana para obtener más puntos.");
+			MessageBox::Show("Has contestado todas las preguntas por hoy. Vuelve mañana para contestar más preguntas");
 		}
+		
 	}
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}

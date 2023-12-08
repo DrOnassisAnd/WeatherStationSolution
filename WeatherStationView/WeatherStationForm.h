@@ -350,6 +350,7 @@ private: System::Void registerbtn(System::Object^ sender, System::EventArgs^ e) 
 
 }
 private: System::Void WeatherStationForm_Load(System::Object^ sender, System::EventArgs^ e) {
+
 }
 
 private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {

@@ -431,8 +431,7 @@ void WeatherStationPersistance::Persistance::AddUser(User^ user) {
 		cmd->Parameters->Add("@PUNTOSTOTALES", System::Data::SqlDbType::Int);
 		cmd->Parameters->Add("@PUNTOSDIARIOS", System::Data::SqlDbType::Int);
 		cmd->Parameters->Add("@FECHAACTUALIZACION", System::Data::SqlDbType::VarChar, 200);
-		cmd->Parameters->Add("@NUMERODECUENTA", System::Data::SqlDbType::Int);
-		cmd->Parameters->Add("@CCV", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@IDTARJETA", System::Data::SqlDbType::Int);
 		//cmd->Parameters->Add("@PREGUNTASCONTESTADAS", System::Data::SqlDbType::VarChar, -1); // VARCHAR(MAX) 
 
 		SqlParameter^ outputIdParam = gcnew SqlParameter("@ID", System::Data::SqlDbType::Int);
@@ -452,20 +451,8 @@ void WeatherStationPersistance::Persistance::AddUser(User^ user) {
 		cmd->Parameters["@PUNTOSTOTALES"]->Value = user->PuntosTotales;
 		cmd->Parameters["@PUNTOSDIARIOS"]->Value = user->PuntosDiarios;
 		cmd->Parameters["@FECHAACTUALIZACION"]->Value = user->fechaUltimaActualizacion;
-		cmd->Parameters["@NUMERODECUENTA"]->Value = user->NumeroDeCuentaUser;
-		cmd->Parameters["@CCV"]->Value = user->CCVUSER;
-		//cmd->Parameters["@PREGUNTASCONTESTADAS"]->Value = user->PreguntasContestadas;
+		cmd->Parameters["@IDTARJETA"]->Value = user->IdTarjeta;
 
-		/*
-		cmd->Parameters["@UNIDADTEMP"]->Value = dynamic_cast<SensorTemperaturaHumedad^>(sensordata->DataBase[0])->UnidadTemp;
-		cmd->Parameters["@HUM"]->Value = dynamic_cast<SensorTemperaturaHumedad^>(sensordata->DataBase[0])->Humedad;
-		cmd->Parameters["@CONCCO"]->Value = dynamic_cast<SensorCO^>(sensordata->DataBase[1])->NivelCO;
-		cmd->Parameters["@CALAIRE"]->Value = dynamic_cast<SensorCalidadAire^>(sensordata->DataBase[2])->CalidadAire;
-		cmd->Parameters["@UBIGEO"]->Value = sensordata->UbicacionGeografica;
-		cmd->Parameters["@TMED"]->Value = sensordata->TiempoMedicion;
-		cmd->Parameters["@FEMED"]->Value = sensordata->FechaMedicion;
-		*/
-		/* Paso 3: Se ejecuta la sentencia SQL */
 		cmd->ExecuteNonQuery();
 	}
 	catch (Exception^ ex) {
@@ -478,9 +465,6 @@ void WeatherStationPersistance::Persistance::AddUser(User^ user) {
 }
 
 List<User^>^ WeatherStationPersistance::Persistance::QueryAllUser() {
-	//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
-	//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
-	//UserList = (List<User^>^)LoadBinaryFile(USERS_BIN);
 	UserList = LoadUser();
 	return UserList;
 }
@@ -543,12 +527,7 @@ void WeatherStationPersistance::Persistance::UpdateUser(User^ user) {
 		cmd->Parameters->Add("@PUNTOSTOTALES", System::Data::SqlDbType::Int);
 		cmd->Parameters->Add("@PUNTOSDIARIOS", System::Data::SqlDbType::Int);
 		cmd->Parameters->Add("@FECHAACTUALIZACION", System::Data::SqlDbType::VarChar, 200);
-		cmd->Parameters->Add("@NUMERODECUENTA", System::Data::SqlDbType::Int);
-		cmd->Parameters->Add("@CCV", System::Data::SqlDbType::Int);
-
-
-
-
+		cmd->Parameters->Add("@IDTARJETA", System::Data::SqlDbType::Int);
 
 		cmd->Prepare();
 		cmd->Parameters["@ID"]->Value = user->Id;
@@ -566,8 +545,7 @@ void WeatherStationPersistance::Persistance::UpdateUser(User^ user) {
 		cmd->Parameters["@PUNTOSTOTALES"]->Value = user->PuntosTotales;
 		cmd->Parameters["@PUNTOSDIARIOS"]->Value = user->PuntosDiarios;
 		cmd->Parameters["@FECHAACTUALIZACION"]->Value = user->fechaUltimaActualizacion;
-		cmd->Parameters["@NUMERODECUENTA"]->Value = user->NumeroDeCuentaUser;
-		cmd->Parameters["@CCV"]->Value = user->CCVUSER;
+		cmd->Parameters["@IDTARJETA"]->Value = user->IdTarjeta;
 
 		/* Paso 3: Se ejecuta la sentencia SQL */
 		cmd->ExecuteNonQuery();
@@ -1045,6 +1023,55 @@ List<Pregunta^>^ WeatherStationPersistance::Persistance::LoadPreguntas() {
 	return preguntalist;
 }
 
+List<List<int>^>^ WeatherStationPersistance::Persistance::LoadPreguntasporDia() {
+	List<List<int>^>^ preguntalist = gcnew List<List<int>^>();
+	SqlConnection^ conn;
+	SqlDataReader^ reader;
+	try {
+		//Paso 1: Se obtiene la conexión
+		conn = GetConnection();
+		//Paso 2: Se prepara la sentencia SQL
+		/*
+		SqlCommand^ cmd = gcnew SqlCommand("SELECT * FROM ROBOT_WAITER", conn);
+		*/
+		/*
+		String^ sqlStr = "dbo.usp_QueryAmbienteData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		*/
+		String^ sqlStr = "dbo.usp_QueryPreguntasporDia";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		cmd->Prepare();
+
+		/*
+		*/
+		//Paso 3: Se ejecuta la sentencia
+		reader = cmd->ExecuteReader();
+		//Paso 4: Se procesa los resultados
+		while (reader->Read()) {
+			List<int>^ pregunta = gcnew List<int>();
+
+			pregunta->Add(Convert::ToInt32(reader["IDUSUARIO"]->ToString()));
+
+
+			pregunta->Add(Convert::ToInt32(reader["P1"]->ToString()));
+			pregunta->Add(Convert::ToInt32(reader["P2"]->ToString()));
+			pregunta->Add(Convert::ToInt32(reader["P3"]->ToString()));
+			pregunta->Add(Convert::ToInt32(reader["P4"]->ToString()));
+			pregunta->Add(Convert::ToInt32(reader["P5"]->ToString()));
+
+			preguntalist->Add(pregunta);
+		}
+	}
+	catch (Exception^ ex) {
+	}
+	finally {
+		//Paso 5: Se cierran los objetos de conexión
+		if (reader != nullptr) reader->Close();
+		if (conn != nullptr) conn->Close();
+	}
+	return preguntalist;
+}
 
 List<User^>^ WeatherStationPersistance::Persistance::LoadUser() {
 
@@ -1099,8 +1126,7 @@ List<User^>^ WeatherStationPersistance::Persistance::LoadUser() {
 
 			user->fechaUltimaActualizacion = reader["FECHAACTUALIZACION"]->ToString();
 
-			user->NumeroDeCuentaUser = Convert::ToInt32(reader["NUMERODECUENTA"]->ToString());
-			user->CCVUSER = Convert::ToInt32(reader["CCV"]->ToString());
+			user->IdTarjeta = Convert::ToInt32(reader["IDTARJETA"]->ToString());
 
 			userlist->Add(user);
 		}
@@ -1112,6 +1138,16 @@ List<User^>^ WeatherStationPersistance::Persistance::LoadUser() {
 		if (reader != nullptr) reader->Close();
 		if (conn != nullptr) conn->Close();
 	}
+
+	//se asignan los valores de la tarjeta
+	List<int>^ data = gcnew List<int>();
+	List<int>^ preguntas = gcnew List<int>();
+	for (int i = 0; i<userlist->Count; i++) {
+		data = QueryPreguntasporDiabyId(userlist[i]->Id);
+		preguntas = data->GetRange(1, data->Count - 1);
+		userlist[i]->PreguntasporDia = preguntas;
+	}
+
 	return userlist;
 }
 
@@ -1305,3 +1341,167 @@ void WeatherStationPersistance::Persistance::DeleteAmbienteData(int IdMedicion) 
 
 
 }
+
+List<Tarjetas^>^ WeatherStationPersistance::Persistance::LoadTarjetas() {
+	List<Tarjetas^>^ tarjetasList = gcnew List<Tarjetas^>();
+	SqlConnection^ conn;
+	SqlDataReader^ reader;
+	try {
+		//Paso 1: Se obtiene la conexión
+		conn = GetConnection();
+		//Paso 2: Se prepara la sentencia SQL
+		/*
+		SqlCommand^ cmd = gcnew SqlCommand("SELECT * FROM ROBOT_WAITER", conn);
+		*/
+		/*
+		String^ sqlStr = "dbo.usp_QueryAmbienteData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		*/
+		String^ sqlStr = "dbo.usp_QueryTarjetasData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		cmd->Prepare();
+
+		//Paso 3: Se ejecuta la sentencia
+		reader = cmd->ExecuteReader();
+		//Paso 4: Se procesa los resultados
+		while (reader->Read()) {
+			Tarjetas^ tarjeta = gcnew Tarjetas();
+
+			tarjeta->id = Convert::ToInt32(reader["ID"]->ToString());
+			tarjeta->NumeroDeCuentaTarjeta = Convert::ToInt32(reader["NUMEROTARJETA"]->ToString());
+			tarjeta->CCVTarjeta = Convert::ToInt32(reader["CCV"]->ToString());
+			tarjeta->Saldo = Convert::ToInt32(reader["SALDO"]->ToString());
+			tarjeta->Disponible = Convert::ToInt32(reader["DISPONIBLE"]->ToString());
+
+			tarjetasList->Add(tarjeta);
+		}
+	}
+	catch (Exception^ ex) {
+	}
+	finally {
+		//Paso 5: Se cierran los objetos de conexión
+		if (reader != nullptr) reader->Close();
+		if (conn != nullptr) conn->Close();
+	}
+	return tarjetasList;
+}
+
+List<Tarjetas^>^ WeatherStationPersistance::Persistance::QueryTarjetasData()
+{
+	TarjetasList = LoadTarjetas();
+	return TarjetasList;
+}
+
+List<List<int>^>^ WeatherStationPersistance::Persistance::QueryPreguntasporDia()
+{
+	PreguntasporDiaList = LoadPreguntasporDia();
+	return PreguntasporDiaList;
+}
+
+List<int>^ WeatherStationPersistance::Persistance::QueryPreguntasporDiabyId(int idUsuario) {
+	PreguntasporDiaList = LoadPreguntasporDia();
+	List<int>^ pregunta;
+	for (int i = 0; i < PreguntasporDiaList->Count; i++) {
+		pregunta = PreguntasporDiaList[i];
+		if (pregunta[0] == idUsuario)
+			return pregunta;
+	}
+
+	return nullptr;
+
+}
+
+void WeatherStationPersistance::Persistance::AddPreguntasporDia(List<int>^ data) {
+	SqlConnection^ conn;
+	try {
+		/* Paso 1: Se obtiene la conexión a la BD */
+		conn = GetConnection();
+
+
+		String^ sqlStr = "dbo.usp_AddPreguntasporDia";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		/**/
+		cmd->Parameters->Add("@IDUSUARIO", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@P1", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@P2", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@P3", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@P4", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@P5", System::Data::SqlDbType::Int);
+
+
+
+		cmd->Prepare();
+		cmd->Parameters["@IDUSUARIO"]->Value = data[0];
+		cmd->Parameters["@P1"]->Value = data[1];
+		cmd->Parameters["@P2"]->Value = data[2];
+		cmd->Parameters["@P3"]->Value = data[3];
+		cmd->Parameters["@P4"]->Value = data[4];
+		cmd->Parameters["@P5"]->Value = data[5];
+
+
+		cmd->ExecuteNonQuery();
+	}
+	catch (Exception^ ex) {
+		//Guardar en el log o mandar un correo electrónico al Administrador
+	}
+	finally {
+		/* Paso 4: Se cierran los objetos de conexión */
+		if (conn != nullptr) conn->Close();
+	}
+}
+
+
+
+void WeatherStationPersistance::Persistance::UpdatePreguntasporDia(List<int>^ data) {
+	List<int>^ pregunta;
+	for (int i = 0; i < PreguntasporDiaList->Count; i++) {
+		pregunta = PreguntasporDiaList[i];
+		if (pregunta[0] == data[0])
+			pregunta = data;
+	}
+	SqlConnection^ conn;
+	try {
+		/* Paso 1: Se obtiene la oconexión a la BD */
+		conn = GetConnection();
+
+		/* Paso 2: Se prepara la sentencia SQL */
+		/*
+		String^ sqlStr = "UPDATE Robot_Waiter " +
+			"SET BRAND='" + robot->Brand + "', " +
+			" SPEED=" + robot->Speed + ", " +
+			" BATTERY_LEVEL=" + robot->BatteryLevel +
+			" WHERE id=" + robot->Id;
+		*/
+		String^ sqlStr = "dbo.usp_UpdateUserData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+
+		cmd->Parameters->Add("@IDUSUARIO", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@P1", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@P2", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@P3", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@P4", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@P5", System::Data::SqlDbType::Int);
+
+		cmd->Prepare();
+		cmd->Parameters["@IDUSUARIO"]->Value = data[0];
+		cmd->Parameters["@P1"]->Value = data[1];
+		cmd->Parameters["@P2"]->Value = data[2];
+		cmd->Parameters["@P3"]->Value = data[3];
+		cmd->Parameters["@P4"]->Value = data[4];
+		cmd->Parameters["@P5"]->Value = data[5];
+
+		/* Paso 3: Se ejecuta la sentencia SQL */
+		cmd->ExecuteNonQuery();
+	}
+	catch (Exception^ ex) {
+	}
+	finally {
+		/* Paso 4: Se cierra la conexión */
+		if (conn != nullptr) conn->Close();
+	}
+
+}
+
