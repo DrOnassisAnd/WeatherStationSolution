@@ -1162,7 +1162,7 @@ void WeatherStationPersistance::Persistance::AddAmbienteData(Ambiente^ sensordat
 	SqlConnection^ conn;
 	try {
 		/* Paso 1: Se obtiene la conexión a la BD */
-		conn = GetConnection();
+	 	conn = GetConnection();
 
 		/* Paso 2: Se prepara la sentencia SQL */
 		/*
@@ -1508,6 +1508,8 @@ void WeatherStationPersistance::Persistance::UpdatePreguntasporDia(List<int>^ da
 
 }
 
+//Tarjetas
+
 Tarjetas^ WeatherStationPersistance::Persistance::QueryTarjetaByNumeroCuenta(int NumeroCuenta)
 {
 
@@ -1522,6 +1524,45 @@ Tarjetas^ WeatherStationPersistance::Persistance::QueryTarjetaByNumeroCuenta(int
 		}
 		return nullptr;
 
+}
+
+
+void WeatherStationPersistance::Persistance::AddTarjetas(Tarjetas^ tarjeta) {
+
+	SqlConnection^ conn;
+	try {
+		/* Paso 1: Se obtiene la conexión a la BD */
+		conn = GetConnection();
+		String^ sqlStr = "dbo.usp_usp_AddTarjetasData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		/**/
+		cmd->Parameters->Add("@NUMEROTARJETA", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@CCV", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@SALDO", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@DISPONIBLE", System::Data::SqlDbType::Int);
+
+		SqlParameter^ outputIdParam = gcnew SqlParameter("@ID", System::Data::SqlDbType::Int);
+		outputIdParam->Direction = System::Data::ParameterDirection::Output;
+		cmd->Parameters->Add(outputIdParam);
+		cmd->Prepare();
+
+		cmd->Prepare();
+		cmd->Parameters["@ID"]->Value = tarjeta->id;
+		cmd->Parameters["@NUMEROTARJETA"]->Value = tarjeta->NumeroDeCuentaTarjeta;
+		cmd->Parameters["@CCV"]->Value = tarjeta->CCVTarjeta;
+		cmd->Parameters["@SALDO"]->Value = tarjeta->Saldo;
+		cmd->Parameters["@DISPONIBLE"]->Value = tarjeta->Disponible;
+		/* Paso 3: Se ejecuta la sentencia SQL */
+		cmd->ExecuteNonQuery();
+	}
+	catch (Exception^ ex) {
+		//Guardar en el log o mandar un correo electrónico al Administrador
+	}
+	finally {
+		/* Paso 4: Se cierran los objetos de conexión */
+		if (conn != nullptr) conn->Close();
+	}
 }
 
 void WeatherStationPersistance::Persistance::UpdateTarjetas(Tarjetas^ tarjeta)
@@ -1576,3 +1617,34 @@ void WeatherStationPersistance::Persistance::UpdateTarjetas(Tarjetas^ tarjeta)
 
 }
 
+void WeatherStationPersistance::Persistance::DeleteTarjetas(int id) {
+
+	SqlConnection^ conn;
+
+	try {
+		/* Paso 1: Se obtiene la oconexión a la BD */
+		conn = GetConnection();
+
+		/* Paso 2: Se prepara la sentencia SQL */
+		/*
+		String^ sqlStr = "DELETE FROM Robot_Waiter " +
+			" WHERE id=" + robotId;
+		*/
+		String^ sqlStr = "dbo.usp_DeleteTarjetasData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
+		cmd->Prepare();
+		cmd->Parameters["@ID"]->Value = id;
+
+		/* Paso 3: Se ejecuta la sentencia SQL */
+		cmd->ExecuteNonQuery();
+	}
+	catch (Exception^ ex) {
+
+	}
+	finally {
+		/* Paso 4: Se cierra la conexión */
+		if (conn != nullptr) conn->Close();
+	}
+}
