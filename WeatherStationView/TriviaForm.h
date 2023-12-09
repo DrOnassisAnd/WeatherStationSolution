@@ -64,12 +64,13 @@ namespace WeatherStationView {
 
 	//private: int points = 0;
 	private: int numeropregunta=0;
-	private: Random^ rand = gcnew Random();
 	private: List<Pregunta^>^ PreguntasList;
 	private: int timeout = 30;
 	private: Pregunta^ pregunta;
 	private: bool pressedBtn = false; 
 	private: int maxpoints = 30;
+	private: int cantidadPreguntas;
+	private: List<int>^ preguntas;
 
 	private: User^ user;
 
@@ -380,16 +381,18 @@ namespace WeatherStationView {
 	private: System::Void TriviaForm_Load(System::Object^ sender, System::EventArgs^ e) {
 
 		pictureBox1->Image = Image::FromFile("tiempoTrivia.jpg");
-
+		
 		UpdateTimeout();
 		timerTimeout->Start();
 		PreguntasList = gcnew List<Pregunta^>();
 		PreguntasList = Controller::Controller::QueryAllPregunta();
+		cantidadPreguntas = PreguntasList->Count;
 		pressedBtn = false;
 		pointslbl->Text = (user->PuntosDiarios).ToString();
 		Respuestalbl->Visible = false;
 		Sgtepregunta->Enabled = false;
-		numeropregunta = rand->Next(PreguntasList->Count);
+		//numeropregunta = Controller::Controller::NumeroAleatorioRestante(cantidadPreguntas, user->PreguntasporDia);
+		preguntas = user->PreguntasporDia;
 		LoadPreguntas();
 		pictureBox2->Image = Image::FromFile("TriviaForm.jpg");
 	}
@@ -414,6 +417,8 @@ private: System::Void respuestaBtn_Click(System::Object^ sender, System::EventAr
 				numPregunta = 3;
 			}
 
+
+
 			if (numPregunta == Int32::Parse(pregunta->RPTACORRECT)) {
 				user->PuntosDiarios += 5;
 				user->PuntosTotales += 5;
@@ -437,6 +442,9 @@ private: System::Void respuestaBtn_Click(System::Object^ sender, System::EventAr
 				Respuestalbl->Text = "Respuesta incorrecta";
 				pictureBox2->Image = Image::FromFile("pregunta mal.jpg");
 			}
+
+			Controller::Controller::AgregarValor(preguntas, numeropregunta);
+
 			pressedBtn = true;
 			pointslbl->Text = (user->PuntosDiarios).ToString();
 			respuestaBtn->Enabled = false;
@@ -452,13 +460,13 @@ private: System::Void respuestaBtn_Click(System::Object^ sender, System::EventAr
 	
 }
 	   void LoadPreguntas() {
+		   numeropregunta = Controller::Controller::NumeroAleatorioRestante(cantidadPreguntas, user->PreguntasporDia);
 		   pregunta = PreguntasList[numeropregunta];
 
 		   this->EnunciadoBox1->Text = pregunta->Enunciado;
 		   this->RespuestaA->Text = pregunta->Respuesta1;
 		   this->RespuestaB->Text = pregunta->Respuesta2;
 		   this->RespuestaC->Text = pregunta->Respuesta3;
-		   numeropregunta = rand->Next(PreguntasList->Count);
 		   pictureBox2->Image = Image::FromFile("TriviaForm.jpg");
 
 	   }
@@ -474,6 +482,7 @@ private: System::Void respuestaBtn_Click(System::Object^ sender, System::EventAr
 				   RespuestaA->Enabled = false;
 				   RespuestaB->Enabled = false;
 				   RespuestaC->Enabled = false;
+				   Controller::Controller::AgregarValor(preguntas, numeropregunta);
 			   }
 		   }
 		   else {
@@ -494,6 +503,12 @@ private: System::Void Sgtepregunta_Click(System::Object^ sender, System::EventAr
 	LoadPreguntas();
 }
 private: System::Void CerrarBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+	user->PreguntasporDia = preguntas;
+	List<int>^ preguntaspordia = gcnew List<int>();
+	preguntaspordia->Add(user->Id);
+	preguntaspordia->AddRange(preguntas);
+	Controller::Controller::UpdatePreguntasporDia(preguntaspordia);
+	
 	timerTimeout->Stop();
 	this->Close();
 }

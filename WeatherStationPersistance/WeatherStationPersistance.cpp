@@ -1474,7 +1474,7 @@ void WeatherStationPersistance::Persistance::UpdatePreguntasporDia(List<int>^ da
 			" BATTERY_LEVEL=" + robot->BatteryLevel +
 			" WHERE id=" + robot->Id;
 		*/
-		String^ sqlStr = "dbo.usp_UpdateUserData";
+		String^ sqlStr = "dbo.usp_UpdatePreguntasporDia";
 		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
 		cmd->CommandType = System::Data::CommandType::StoredProcedure;
 

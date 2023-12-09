@@ -389,7 +389,7 @@ void Controller::Controller::AgregarValor(List<int>^ pregunta, int valor) {
 		preguntas = pregunta;
 	}
 	for (int i = 0; i < preguntas->Count; i++) {
-		if (preguntas[i] != 0) {
+		if (preguntas[i] == 0) {
 			preguntas[i] = valor;
 			break;
 		}
@@ -432,16 +432,20 @@ int Controller::Controller::NumeroPreguntas(List<int>^ pregunta) {
 	return counter;
 }
 
-int Controller::Controller::NumeroAleatorioRestante(int Maxcap, List<int>^ preguntas) {
+int Controller::Controller::NumeroAleatorioRestante(int Maxcap, List<int>^ pregunta) {
+	List<int>^ preguntas = gcnew List<int>();
+	if (pregunta->Count == 6) {
+		preguntas = Convertir6a5(pregunta);
+	}
+	else {
+		preguntas = pregunta;
+	}
 	Random^ rand = gcnew Random();
 	int numeropregunta;
 	while (1) {
 		numeropregunta = rand->Next(Maxcap);
-		if (PerteneceaLista(preguntas, numeropregunta + 1)) {
-			return;
-		}
-		else {
-			break;
+		if (!PerteneceaLista(preguntas, numeropregunta + 1)) {
+			return numeropregunta;
 		}
 	}
 }

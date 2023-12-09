@@ -1262,7 +1262,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 	private: System::Void TriviaBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		List<int>^ preguntas = gcnew List<int>();
 		//if (preguntas por dia lleno)
-		if (Controller::Controller::ListaLlena(user->PreguntasporDia)) {
+		if (!Controller::Controller::ListaLlena(user->PreguntasporDia)) {
 			if (user->PuntosDiarios < maxpoints) {
 				//Paso de Parametros
 				TriviaForm^ triviaForm = gcnew TriviaForm(user);
