@@ -171,5 +171,11 @@ namespace WeatherStationPersistance {
 		static void AddPreguntasporDia(List<int>^ data);
 		static void UpdatePreguntasporDia(List<int>^ data);
 
+		//TARJETAS
+		static Tarjetas^ QueryTarjetaByNumeroCuenta(int NumeroCuenta);
+		static void UpdateTarjetas(Tarjetas^ tarjeta);
+
+
+
 	};
 }

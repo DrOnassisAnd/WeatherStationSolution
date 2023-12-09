@@ -492,6 +492,7 @@ User^ WeatherStationPersistance::Persistance::QueryUserbyId(int Id) {
 }
 
 void WeatherStationPersistance::Persistance::UpdateUser(User^ user) {
+	//Actualiza Datos localmente
 	for (int i = 0; i < UserList->Count; i++) {
 		if (UserList[i]->Id == user->Id)
 			UserList[i] = user;
@@ -1373,7 +1374,7 @@ List<Tarjetas^>^ WeatherStationPersistance::Persistance::LoadTarjetas() {
 			tarjeta->CCVTarjeta = Convert::ToInt32(reader["CCV"]->ToString());
 			tarjeta->Saldo = Convert::ToInt32(reader["SALDO"]->ToString());
 			tarjeta->Disponible = Convert::ToInt32(reader["DISPONIBLE"]->ToString());
-
+			
 			tarjetasList->Add(tarjeta);
 		}
 	}
@@ -1392,6 +1393,8 @@ List<Tarjetas^>^ WeatherStationPersistance::Persistance::QueryTarjetasData()
 	TarjetasList = LoadTarjetas();
 	return TarjetasList;
 }
+
+
 
 List<List<int>^>^ WeatherStationPersistance::Persistance::QueryPreguntasporDia()
 {
@@ -1502,6 +1505,74 @@ void WeatherStationPersistance::Persistance::UpdatePreguntasporDia(List<int>^ da
 		/* Paso 4: Se cierra la conexión */
 		if (conn != nullptr) conn->Close();
 	}
+
+}
+
+Tarjetas^ WeatherStationPersistance::Persistance::QueryTarjetaByNumeroCuenta(int NumeroCuenta)
+{
+
+		//UserList = (List<User^>^)LoadTextFile(WEATHER_STATION);
+		//UserList = (List<User^>^)LoadXMLFile(USERS_XML);
+		
+		TarjetasList = (List<Tarjetas^>^)LoadTarjetas();
+		for (int i = 0; i < TarjetasList->Count; i++) {
+
+			if (TarjetasList[i]->NumeroDeCuentaTarjeta == NumeroCuenta)
+				return TarjetasList[i];
+		}
+		return nullptr;
+
+}
+
+void WeatherStationPersistance::Persistance::UpdateTarjetas(Tarjetas^ tarjeta)
+{
+	//Actualiza Datos localmente
+	for (int i = 0; i < TarjetasList->Count; i++) {
+		if (TarjetasList[i]->id == tarjeta->id)
+			TarjetasList[i] = tarjeta;
+	}
+
+	SqlConnection^ conn;
+	try {
+		/* Paso 1: Se obtiene la oconexión a la BD */
+		conn = GetConnection();
+
+		/* Paso 2: Se prepara la sentencia SQL */
+		/*
+		String^ sqlStr = "UPDATE Robot_Waiter " +
+			"SET BRAND='" + robot->Brand + "', " +
+			" SPEED=" + robot->Speed + ", " +
+			" BATTERY_LEVEL=" + robot->BatteryLevel +
+			" WHERE id=" + robot->Id;
+		*/
+
+		String^ sqlStr = "dbo.usp_UpdateTarjetasData";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@NUMEROTARJETA", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@CCV", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@SALDO", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@DISPONIBLE", System::Data::SqlDbType::Int);
+
+
+		cmd->Prepare();
+		cmd->Parameters["@ID"]->Value = tarjeta->id;
+		cmd->Parameters["@NUMEROTARJETA"]->Value = tarjeta->NumeroDeCuentaTarjeta;
+		cmd->Parameters["@CCV"]->Value = tarjeta->CCVTarjeta;
+		cmd->Parameters["@SALDO"]->Value = tarjeta->Saldo;
+		cmd->Parameters["@DISPONIBLE"]->Value = tarjeta->Disponible;
+
+		/* Paso 3: Se ejecuta la sentencia SQL */
+		cmd->ExecuteNonQuery();
+	}
+	catch (Exception^ ex) {
+	}
+	finally {
+		/* Paso 4: Se cierra la conexión */
+		if (conn != nullptr) conn->Close();
+	}
+
 
 }
 

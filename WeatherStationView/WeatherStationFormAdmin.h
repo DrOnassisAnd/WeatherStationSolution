@@ -136,6 +136,7 @@ namespace WeatherStationView {
 
 
 
+
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -174,15 +175,15 @@ namespace WeatherStationView {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->pbImage = (gcnew System::Windows::Forms::PictureBox());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->pbImage = (gcnew System::Windows::Forms::PictureBox());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbUser))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbReport))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbSensors))->BeginInit();
 			this->panel1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbImage))->BeginInit();
 			this->panel2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbImage))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
@@ -359,13 +360,6 @@ namespace WeatherStationView {
 			resources->ApplyResources(this->panel1, L"panel1");
 			this->panel1->Name = L"panel1";
 			// 
-			// pbImage
-			// 
-			resources->ApplyResources(this->pbImage, L"pbImage");
-			this->pbImage->Name = L"pbImage";
-			this->pbImage->TabStop = false;
-			this->pbImage->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::pbImage_Click);
-			// 
 			// panel2
 			// 
 			this->panel2->BackColor = System::Drawing::SystemColors::Control;
@@ -382,6 +376,13 @@ namespace WeatherStationView {
 			this->panel2->Controls->Add(this->label5);
 			resources->ApplyResources(this->panel2, L"panel2");
 			this->panel2->Name = L"panel2";
+			// 
+			// pbImage
+			// 
+			resources->ApplyResources(this->pbImage, L"pbImage");
+			this->pbImage->Name = L"pbImage";
+			this->pbImage->TabStop = false;
+			this->pbImage->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::pbImage_Click);
 			// 
 			// WeatherStationFormAdmin
 			// 
@@ -401,9 +402,9 @@ namespace WeatherStationView {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbSensors))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbImage))->EndInit();
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbImage))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

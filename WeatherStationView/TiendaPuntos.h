@@ -296,6 +296,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 			else {
 				
 				user->PuntosTotales += Int32::Parse(ECtextBox->Text);
+				Controller::Controller::UpdateUser(user);
 				this->Close();
 			}
 		}
@@ -314,6 +315,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		}
 		else {
 			user->PuntosTotales += 60;
+			Controller::Controller::UpdateUser(user);
 			this->Close();
 		}
 	}
@@ -328,6 +330,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		}
 		else {
 			user->PuntosTotales += 100;
+			Controller::Controller::UpdateUser(user);
 			this->Close();
 		}
 	}
@@ -342,6 +345,7 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 		}
 		else {
 			user->PuntosTotales += 300;
+			Controller::Controller::UpdateUser(user);
 			this->Close();
 		}
 	}

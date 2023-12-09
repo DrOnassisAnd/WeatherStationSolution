@@ -29,6 +29,9 @@ namespace Controller {
 
 		//Tarjetas
 		static List<Tarjetas^>^ QueryTarjetasData();
+		
+		static Tarjetas^ QueryTarjetaByNumeroCuenta(int NumeroCuenta);
+		static void UpdateTarjetas(Tarjetas^);
 
 		//PreguntasporDIa
 		static List<List<int>^>^ QueryPreguntasporDia();

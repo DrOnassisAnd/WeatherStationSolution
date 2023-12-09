@@ -39,6 +39,16 @@ List<Tarjetas^>^ Controller::Controller::QueryTarjetasData() {
 	return WeatherStationPersistance::Persistance::QueryTarjetasData();
 }
 
+Tarjetas^ Controller::Controller::QueryTarjetaByNumeroCuenta(int NumeroCuenta)
+{
+	return WeatherStationPersistance::Persistance::QueryTarjetaByNumeroCuenta(NumeroCuenta);
+}
+
+void Controller::Controller::UpdateTarjetas(Tarjetas^ tarjetas)
+{
+	WeatherStationPersistance::Persistance::UpdateTarjetas(tarjetas);
+}
+
 
 
 
