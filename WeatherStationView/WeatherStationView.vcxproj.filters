@@ -34,6 +34,7 @@
     <ClCompile Include="TablaRankingForm.cpp" />
     <ClCompile Include="InstruccionesMembresias.cpp" />
     <ClCompile Include="TiendaPuntos.cpp" />
+    <ClCompile Include="PreguntasMaintenanceForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MembresiaForm.h" />
@@ -70,6 +71,7 @@
     <ClInclude Include="TablaRankingForm.h" />
     <ClInclude Include="InstruccionesMembresias.h" />
     <ClInclude Include="TiendaPuntos.h" />
+    <ClInclude Include="PreguntasMaintenanceForm.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WeatherStationView.rc" />

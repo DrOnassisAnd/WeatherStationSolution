@@ -39,8 +39,13 @@ namespace Controller {
 		static List<List<int>^>^ QueryPreguntasporDia();
 		static List<int>^ QueryPreguntasporDiabyId(int idusuario);
 		static void AddPreguntasporDia(List<int>^ pregunta);
+		static void AddPregunta(Pregunta^);
+		static Pregunta^ QueryPreguntabyId(int Id);
+		static void DeletePregunta(int preguntaId);
+		static void UpdatePregunta(Pregunta^);
 		static void UpdatePreguntasporDia(List<int>^ pregunta);
 		
+		//static Pregunta^ QueryPreguntabyId(int Id);
 		//More PreguntasporDia Methods
 		//metodo para asignar un valor
 		//

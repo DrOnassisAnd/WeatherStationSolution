@@ -15,7 +15,7 @@ namespace Model {
         property String^ Respuesta1;
         property String^ Respuesta2;
         property String^ Respuesta3;
-        property String^ RPTACORRECT;
+        property int RPTACORRECT;
 
     };
 }

@@ -612,10 +612,153 @@ void WeatherStationPersistance::Persistance::AddAjustes(Ajustes^ ajustes) {
 	PersistTextFile(AJUSTES_FILE, AjustesList);
 }
 
-void WeatherStationPersistance::Persistance::AddPregunta(Pregunta^ Pregunta)
+void WeatherStationPersistance::Persistance::AddPregunta(Pregunta^ pregunta)
 {
-	throw gcnew System::NotImplementedException();
+	SqlConnection^ conn;
+	try {
+		/* Paso 1: Se obtiene la conexión a la BD */
+		conn = GetConnection();
+
+		/* Paso 2: Se prepara la sentencia SQL */
+		/*
+		* 		String^ sqlStr = "dbo.usp_AddAmbienteData";
+		String^ sqlStr = "INSERT INTO Robot_Waiter(BRAND, SPEED, BATTERY_LEVEL) " +
+			"VALUES('" + robot->Brand + "'," + robot->Speed + ", " + robot->BatteryLevel + ")";
+		*/
+		String^ sqlStr = "dbo.usp_AddPreguntas";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		/**/
+		cmd->Parameters->Add("@ENUNCIADO", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@RESPUESTA1", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@RESPUESTA2", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@RESPUESTA3", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@RPTACORRECT", System::Data::SqlDbType::Int);
+		 
+
+		SqlParameter^ outputIdParam = gcnew SqlParameter("@ID", System::Data::SqlDbType::Int);
+		outputIdParam->Direction = System::Data::ParameterDirection::Output;
+		cmd->Parameters->Add(outputIdParam);
+		cmd->Prepare();
+
+		cmd->Parameters["@ENUNCIADO"]->Value = pregunta->Enunciado;
+		cmd->Parameters["@RESPUESTA1"]->Value = pregunta->Respuesta1;
+		cmd->Parameters["@RESPUESTA2"]->Value = pregunta->Respuesta2;
+		cmd->Parameters["@RESPUESTA3"]->Value = pregunta->Respuesta3;
+		cmd->Parameters["@RPTACORRECT"]->Value = pregunta->RPTACORRECT;
+		
+
+		cmd->ExecuteNonQuery();
+	}
+	catch (Exception^ ex) {
+		//Guardar en el log o mandar un correo electrónico al Administrador
+	}
+	finally {
+		/* Paso 4: Se cierran los objetos de conexión */
+		if (conn != nullptr) conn->Close();
+	}
 }
+
+
+void WeatherStationPersistance::Persistance::DeletePregunta(int preguntaId) {
+	/*for (int i = 0; i < UserList->Count; i++) {
+		if (UserList[i]->Id == userId)
+			UserList->RemoveAt(i);
+	}*/
+	//PersistTextFile(WEATHER_STATION, UserList);
+	//PersistXMLFile(USERS_XML, UserList);
+	//PersistBinaryFile(USERS_BIN, UserList);
+	SqlConnection^ conn;
+
+	try {
+		/* Paso 1: Se obtiene la oconexión a la BD */
+		conn = GetConnection();
+
+		/* Paso 2: Se prepara la sentencia SQL */
+		/*
+		String^ sqlStr = "DELETE FROM Robot_Waiter " +
+			" WHERE id=" + robotId;
+		*/
+		String^ sqlStr = "dbo.usp_DeletePreguntas";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
+		cmd->Prepare();
+		cmd->Parameters["@ID"]->Value = preguntaId;
+
+		/* Paso 3: Se ejecuta la sentencia SQL */
+		cmd->ExecuteNonQuery();
+	}
+	catch (Exception^ ex) {
+
+	}
+	finally {
+		/* Paso 4: Se cierra la conexión */
+		if (conn != nullptr) conn->Close();
+	}
+
+
+
+
+
+
+}
+void WeatherStationPersistance::Persistance::UpdatePregunta(Pregunta^ pregunta) {
+	//Actualiza Datos localmente
+	for (int i = 0; i < PreguntasList->Count; i++) {
+		if (PreguntasList[i]->id == pregunta->id)
+			PreguntasList[i] = pregunta;
+	}
+
+	SqlConnection^ conn;
+	try {
+		/* Paso 1: Se obtiene la oconexión a la BD */
+		conn = GetConnection();
+
+		/* Paso 2: Se prepara la sentencia SQL */
+		/*
+		String^ sqlStr = "UPDATE Robot_Waiter " +
+			"SET BRAND='" + robot->Brand + "', " +
+			" SPEED=" + robot->Speed + ", " +
+			" BATTERY_LEVEL=" + robot->BatteryLevel +
+			" WHERE id=" + robot->Id;
+		*/
+		String^ sqlStr = "dbo.usp_UpdatePreguntas";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+		cmd->CommandType = System::Data::CommandType::StoredProcedure;
+		cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
+		cmd->Parameters->Add("@ENUNCIADO", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@RESPUESTA1", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@RESPUESTA2", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@RESPUESTA3", System::Data::SqlDbType::VarChar, 200);
+		cmd->Parameters->Add("@RPTACORRECT", System::Data::SqlDbType::Int);
+		
+		cmd->Prepare();
+		cmd->Parameters["@ID"]->Value = pregunta->id;
+		cmd->Parameters["@ENUNCIADO"]->Value = pregunta->Enunciado;
+		cmd->Parameters["@RESPUESTA1"]->Value = pregunta-> Respuesta1;
+		cmd->Parameters["@RESPUESTA2"]->Value = pregunta->Respuesta2;
+		cmd->Parameters["@RESPUESTA3"]->Value = pregunta->Respuesta3;
+		cmd->Parameters["@RPTACORRECT"]->Value = pregunta->RPTACORRECT;
+	
+
+		/* Paso 3: Se ejecuta la sentencia SQL */
+		cmd->ExecuteNonQuery();
+	}
+	catch (Exception^ ex) {
+	}
+	finally {
+		/* Paso 4: Se cierra la conexión */
+		if (conn != nullptr) conn->Close();
+	}
+
+	//PersistTextFile(WEATHER_STATION, UserList);
+	//PersistXMLFile(USERS_XML, UserList);
+	//PersistBinaryFile(USERS_BIN, UserList);
+}
+
+
+
 
 List<Pregunta^>^ WeatherStationPersistance::Persistance::QueryAllPregunta()
 {
@@ -1009,7 +1152,7 @@ List<Pregunta^>^ WeatherStationPersistance::Persistance::LoadPreguntas() {
 			pregunta->Respuesta1 = reader["RESPUESTA1"]->ToString();
 			pregunta->Respuesta2 = reader["RESPUESTA2"]->ToString();
 			pregunta->Respuesta3 = reader["RESPUESTA3"]->ToString();
-			pregunta->RPTACORRECT = reader["RPTACORRECT"]->ToString();
+			pregunta->RPTACORRECT = Convert::ToInt32((reader["RPTACORRECT"])->ToString());
 
 			preguntalist->Add(pregunta);
 		}
@@ -1400,6 +1543,17 @@ List<List<int>^>^ WeatherStationPersistance::Persistance::QueryPreguntasporDia()
 {
 	PreguntasporDiaList = LoadPreguntasporDia();
 	return PreguntasporDiaList;
+}
+
+Pregunta^ WeatherStationPersistance::Persistance::QueryPreguntabyId(int id)
+{
+	PreguntasList = (List<Pregunta^>^)LoadPreguntas();
+	for (int i = 0; i < PreguntasList->Count; i++) {
+		if (PreguntasList[i]->id == id)
+			return PreguntasList[i];
+	}
+	return nullptr;
+
 }
 
 List<int>^ WeatherStationPersistance::Persistance::QueryPreguntasporDiabyId(int idUsuario) {

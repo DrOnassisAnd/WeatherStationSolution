@@ -419,7 +419,7 @@ private: System::Void respuestaBtn_Click(System::Object^ sender, System::EventAr
 
 
 
-			if (numPregunta == Int32::Parse(pregunta->RPTACORRECT)) {
+			if (numPregunta == pregunta->RPTACORRECT) {
 				user->PuntosDiarios += 5;
 				user->PuntosTotales += 5;
 				user->fechaUltimaActualizacion= DateTime::Today.ToString("yyyy-MM-dd");
