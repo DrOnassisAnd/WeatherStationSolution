@@ -20,6 +20,7 @@ namespace WeatherStationPersistance {
 		static List<SensorCalidadAire^>^ sCalidadAireList = gcnew List<SensorCalidadAire^>();
 		static List<Pregunta^>^ PreguntasList = gcnew List<Pregunta^>();
 		static List<Tarjetas^>^ TarjetasList = gcnew List<Tarjetas^>();
+		
 		static List<List<int>^>^ PreguntasporDiaList = gcnew List<List<int>^>();
 
 	public:
@@ -87,8 +88,12 @@ namespace WeatherStationPersistance {
 		static void AddAjustes(Ajustes^ ajustes);
 
 		//Preguntas Methods
-		static void AddPregunta(Pregunta^ Pregunta);
+		static void AddPregunta(Pregunta^ pregunta);
+		static void UpdatePregunta(Pregunta^ pregunta);
+		static void DeletePregunta(int preguntaId);
 		static List<Pregunta^>^ QueryAllPregunta();
+		static Pregunta^ QueryPreguntabyId(int id);
+		
 		//static Pregunta^ QueryPreguntabyId(int id);
 		//static void UpdatePregunta(Pregunta^ Pregunta);
 		//static void DeletePregunta(int PreguntaId);

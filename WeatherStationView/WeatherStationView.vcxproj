@@ -138,6 +138,7 @@
     <ClCompile Include="MembershipMaintenanceForm.cpp" />
     <ClCompile Include="MembresiaForm.cpp" />
     <ClCompile Include="NewPie.cpp" />
+    <ClCompile Include="PreguntasMaintenanceForm.cpp" />
     <ClCompile Include="SensorsReport.cpp" />
     <ClCompile Include="StatisticsForm.cpp" />
     <ClCompile Include="TablaRankingForm.cpp" />
@@ -197,6 +198,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="NewPie.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="PreguntasMaintenanceForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="SensorsReport.h">
@@ -303,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewPie.resx">
       <DependentUpon>NewPie.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreguntasMaintenanceForm.resx">
+      <DependentUpon>PreguntasMaintenanceForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SensorsReport.resx">
       <DependentUpon>SensorsReport.h</DependentUpon>

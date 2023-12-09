@@ -34,6 +34,16 @@ List<Pregunta^>^ Controller::Controller::QueryAllPregunta() {
 	//Se puede programar más cosas
 	return WeatherStationPersistance::Persistance::QueryAllPregunta();
 }
+void Controller::Controller::DeletePregunta(int preguntaId) {
+	WeatherStationPersistance::Persistance::DeletePregunta(preguntaId);
+}
+void Controller::Controller::UpdatePregunta(Pregunta^ pregunta) {
+	WeatherStationPersistance::Persistance::UpdatePregunta(pregunta);
+}
+Pregunta^ Controller::Controller::QueryPreguntabyId(int id) {
+	return WeatherStationPersistance::Persistance::QueryPreguntabyId(id);
+}
+
 
 List<Tarjetas^>^ Controller::Controller::QueryTarjetasData() {
 	return WeatherStationPersistance::Persistance::QueryTarjetasData();
@@ -237,6 +247,10 @@ List<List<int>^>^ Controller::Controller::QueryPreguntasporDia() {
 
 void Controller::Controller::AddPreguntasporDia(List<int>^ pregunta) {
 	WeatherStationPersistance::Persistance::AddPreguntasporDia(pregunta);
+}
+
+void Controller::Controller::AddPregunta(Pregunta^pregunta) {
+	WeatherStationPersistance::Persistance::AddPregunta(pregunta);
 }
 
 List<int>^ Controller::Controller::QueryPreguntasporDiabyId(int idusuario) {
