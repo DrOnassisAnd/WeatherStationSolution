@@ -238,7 +238,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;btnLogOut.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="btnUser.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -265,7 +265,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;btnUser.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="btnUserReport.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -292,7 +292,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;btnUserReport.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="btnSensors.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -319,7 +319,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;btnSensors.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="pbUser.Location" type="System.Drawing.Point, System.Drawing">
     <value>455, 86</value>
@@ -343,7 +343,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;pbUser.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="pbReport.Location" type="System.Drawing.Point, System.Drawing">
     <value>455, 209</value>
@@ -367,7 +367,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;pbReport.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="pbSensors.Location" type="System.Drawing.Point, System.Drawing">
     <value>455, 341</value>
@@ -391,7 +391,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;pbSensors.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -514,7 +514,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -547,7 +547,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -580,7 +580,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -613,7 +613,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="pbImage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3247,6 +3247,60 @@
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="btnCard.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="btnCard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>69, 474</value>
+  </data>
+  <data name="btnCard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 45</value>
+  </data>
+  <data name="btnCard.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="btnCard.Text" xml:space="preserve">
+    <value>Tarjetas</value>
+  </data>
+  <data name="&gt;&gt;btnCard.Name" xml:space="preserve">
+    <value>btnCard</value>
+  </data>
+  <data name="&gt;&gt;btnCard.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCard.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btnCard.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblCards.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblCards.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 440</value>
+  </data>
+  <data name="lblCards.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 13</value>
+  </data>
+  <data name="lblCards.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="lblCards.Text" xml:space="preserve">
+    <value>Accede a una Base de Datos de las tarjetas:</value>
+  </data>
+  <data name="&gt;&gt;lblCards.Name" xml:space="preserve">
+    <value>lblCards</value>
+  </data>
+  <data name="&gt;&gt;lblCards.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblCards.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;lblCards.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
