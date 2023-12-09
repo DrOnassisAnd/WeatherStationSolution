@@ -72,6 +72,7 @@ namespace WeatherStationView {
 	private: int id;
 	private: int available;
 	private: int selectedCard;
+	private: System::Windows::Forms::Button^ button1;
 
 	private:
 		/// <summary>
@@ -105,6 +106,7 @@ namespace WeatherStationView {
 			this->TempLabel = (gcnew System::Windows::Forms::Label());
 			this->YesRbtn = (gcnew System::Windows::Forms::RadioButton());
 			this->NoRbtn = (gcnew System::Windows::Forms::RadioButton());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCard))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -119,7 +121,7 @@ namespace WeatherStationView {
 			// AvailableLabel
 			// 
 			this->AvailableLabel->AutoSize = true;
-			this->AvailableLabel->Location = System::Drawing::Point(322, 75);
+			this->AvailableLabel->Location = System::Drawing::Point(46, 130);
 			this->AvailableLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->AvailableLabel->Name = L"AvailableLabel";
 			this->AvailableLabel->Size = System::Drawing::Size(72, 13);
@@ -177,7 +179,7 @@ namespace WeatherStationView {
 			// 
 			// DeleteBtn
 			// 
-			this->DeleteBtn->Location = System::Drawing::Point(541, 184);
+			this->DeleteBtn->Location = System::Drawing::Point(351, 184);
 			this->DeleteBtn->Name = L"DeleteBtn";
 			this->DeleteBtn->Size = System::Drawing::Size(75, 23);
 			this->DeleteBtn->TabIndex = 64;
@@ -187,7 +189,7 @@ namespace WeatherStationView {
 			// 
 			// ModifyBtn
 			// 
-			this->ModifyBtn->Location = System::Drawing::Point(306, 184);
+			this->ModifyBtn->Location = System::Drawing::Point(193, 184);
 			this->ModifyBtn->Name = L"ModifyBtn";
 			this->ModifyBtn->Size = System::Drawing::Size(75, 23);
 			this->ModifyBtn->TabIndex = 63;
@@ -207,21 +209,21 @@ namespace WeatherStationView {
 			// 
 			// Balancetxtbox
 			// 
-			this->Balancetxtbox->Location = System::Drawing::Point(168, 125);
+			this->Balancetxtbox->Location = System::Drawing::Point(168, 101);
 			this->Balancetxtbox->Name = L"Balancetxtbox";
 			this->Balancetxtbox->Size = System::Drawing::Size(100, 20);
 			this->Balancetxtbox->TabIndex = 59;
 			// 
 			// CCVtxtbox
 			// 
-			this->CCVtxtbox->Location = System::Drawing::Point(168, 99);
+			this->CCVtxtbox->Location = System::Drawing::Point(168, 75);
 			this->CCVtxtbox->Name = L"CCVtxtbox";
 			this->CCVtxtbox->Size = System::Drawing::Size(100, 20);
 			this->CCVtxtbox->TabIndex = 58;
 			// 
 			// Cardtxtbox
 			// 
-			this->Cardtxtbox->Location = System::Drawing::Point(168, 72);
+			this->Cardtxtbox->Location = System::Drawing::Point(168, 48);
 			this->Cardtxtbox->Name = L"Cardtxtbox";
 			this->Cardtxtbox->Size = System::Drawing::Size(100, 20);
 			this->Cardtxtbox->TabIndex = 57;
@@ -229,7 +231,7 @@ namespace WeatherStationView {
 			// BALANCELabel
 			// 
 			this->BALANCELabel->AutoSize = true;
-			this->BALANCELabel->Location = System::Drawing::Point(46, 125);
+			this->BALANCELabel->Location = System::Drawing::Point(46, 101);
 			this->BALANCELabel->Name = L"BALANCELabel";
 			this->BALANCELabel->Size = System::Drawing::Size(34, 13);
 			this->BALANCELabel->TabIndex = 56;
@@ -238,7 +240,7 @@ namespace WeatherStationView {
 			// CCVLabel
 			// 
 			this->CCVLabel->AutoSize = true;
-			this->CCVLabel->Location = System::Drawing::Point(46, 99);
+			this->CCVLabel->Location = System::Drawing::Point(46, 75);
 			this->CCVLabel->Name = L"CCVLabel";
 			this->CCVLabel->Size = System::Drawing::Size(28, 13);
 			this->CCVLabel->TabIndex = 55;
@@ -247,7 +249,7 @@ namespace WeatherStationView {
 			// TempLabel
 			// 
 			this->TempLabel->AutoSize = true;
-			this->TempLabel->Location = System::Drawing::Point(46, 75);
+			this->TempLabel->Location = System::Drawing::Point(46, 51);
 			this->TempLabel->Name = L"TempLabel";
 			this->TempLabel->Size = System::Drawing::Size(95, 13);
 			this->TempLabel->TabIndex = 54;
@@ -256,7 +258,7 @@ namespace WeatherStationView {
 			// YesRbtn
 			// 
 			this->YesRbtn->AutoSize = true;
-			this->YesRbtn->Location = System::Drawing::Point(447, 74);
+			this->YesRbtn->Location = System::Drawing::Point(162, 130);
 			this->YesRbtn->Name = L"YesRbtn";
 			this->YesRbtn->Size = System::Drawing::Size(34, 17);
 			this->YesRbtn->TabIndex = 72;
@@ -268,7 +270,7 @@ namespace WeatherStationView {
 			// NoRbtn
 			// 
 			this->NoRbtn->AutoSize = true;
-			this->NoRbtn->Location = System::Drawing::Point(525, 75);
+			this->NoRbtn->Location = System::Drawing::Point(210, 130);
 			this->NoRbtn->Name = L"NoRbtn";
 			this->NoRbtn->Size = System::Drawing::Size(39, 17);
 			this->NoRbtn->TabIndex = 73;
@@ -277,11 +279,22 @@ namespace WeatherStationView {
 			this->NoRbtn->UseVisualStyleBackColor = true;
 			this->NoRbtn->CheckedChanged += gcnew System::EventHandler(this, &CardMaintenanceForm::NoRbtn_CheckedChanged);
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(630, 12);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 74;
+			this->button1->Text = L"Cerrar";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &CardMaintenanceForm::button1_Click);
+			// 
 			// CardMaintenanceForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(791, 478);
+			this->ClientSize = System::Drawing::Size(750, 427);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->NoRbtn);
 			this->Controls->Add(this->YesRbtn);
 			this->Controls->Add(this->UnidadTlbl);
@@ -297,6 +310,7 @@ namespace WeatherStationView {
 			this->Controls->Add(this->CCVLabel);
 			this->Controls->Add(this->TempLabel);
 			this->Name = L"CardMaintenanceForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"CardMaintenanceForm";
 			this->Load += gcnew System::EventHandler(this, &CardMaintenanceForm::CardMaintenanceForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCard))->EndInit();
@@ -465,6 +479,10 @@ private: System::Void NoRbtn_CheckedChanged(System::Object^ sender, System::Even
 }
 private: System::Void CardMaintenanceForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	ShowTarjetasData();
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	this->Close();
 }
 };
 }

@@ -121,77 +121,17 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="salirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 34</value>
-  </data>
-  <data name="salirToolStripMenuItem.Text" xml:space="preserve">
-    <value>Salir</value>
-  </data>
-  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 31</value>
-  </data>
-  <data name="toolStripMenuItem1.Text" xml:space="preserve">
-    <value>Archivo</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="toolStripMenuItem1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="userToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 34</value>
-  </data>
-  <data name="userToolStripMenuItem1.Text" xml:space="preserve">
-    <value>User</value>
-  </data>
-  <data name="userToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 31</value>
-  </data>
-  <data name="userToolStripMenuItem.Text" xml:space="preserve">
-    <value>Perfil</value>
-  </data>
-  <data name="userToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="sensorToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 34</value>
-  </data>
-  <data name="sensorToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Sensores</value>
-  </data>
-  <data name="ambienteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 31</value>
-  </data>
-  <data name="ambienteToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ambiente </value>
-  </data>
-  <data name="ambienteToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="reportesUsuarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>249, 34</value>
-  </data>
-  <data name="reportesUsuarioToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reportes Usuario</value>
-  </data>
-  <data name="reporteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 31</value>
-  </data>
-  <data name="reporteToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reportes</value>
-  </data>
-  <data name="reporteToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 3, 0, 3</value>
+    <value>4, 2, 0, 2</value>
   </data>
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1306, 37</value>
+    <value>871, 24</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -213,17 +153,74 @@
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
+  </data>
+  <data name="toolStripMenuItem1.Text" xml:space="preserve">
+    <value>Archivo</value>
+  </data>
+  <data name="toolStripMenuItem1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="salirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 22</value>
+  </data>
+  <data name="salirToolStripMenuItem.Text" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="userToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 20</value>
+  </data>
+  <data name="userToolStripMenuItem.Text" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+  <data name="userToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="userToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 22</value>
+  </data>
+  <data name="userToolStripMenuItem1.Text" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="ambienteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 20</value>
+  </data>
+  <data name="ambienteToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ambiente </value>
+  </data>
+  <data name="ambienteToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="sensorToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 22</value>
+  </data>
+  <data name="sensorToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Sensores</value>
+  </data>
+  <data name="reporteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 20</value>
+  </data>
+  <data name="reporteToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reportes</value>
+  </data>
+  <data name="reporteToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="reportesUsuarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 22</value>
+  </data>
+  <data name="reportesUsuarioToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reportes Usuario</value>
+  </data>
   <data name="btnLogOut.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="btnLogOut.Location" type="System.Drawing.Point, System.Drawing">
-    <value>700, 728</value>
-  </data>
-  <data name="btnLogOut.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>495, 473</value>
   </data>
   <data name="btnLogOut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 69</value>
+    <value>100, 45</value>
   </data>
   <data name="btnLogOut.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -241,20 +238,16 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;btnLogOut.ZOrder" xml:space="preserve">
-
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="btnUser.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="btnUser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 132</value>
-  </data>
-  <data name="btnUser.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>69, 86</value>
   </data>
   <data name="btnUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 51</value>
+    <value>111, 33</value>
   </data>
   <data name="btnUser.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -272,19 +265,16 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;btnUser.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="btnUserReport.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="btnUserReport.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 280</value>
-  </data>
-  <data name="btnUserReport.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>69, 182</value>
   </data>
   <data name="btnUserReport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 49</value>
+    <value>120, 32</value>
   </data>
   <data name="btnUserReport.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -302,19 +292,16 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;btnUserReport.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="btnSensors.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="btnSensors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 429</value>
-  </data>
-  <data name="btnSensors.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>69, 269</value>
   </data>
   <data name="btnSensors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 69</value>
+    <value>111, 45</value>
   </data>
   <data name="btnSensors.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -332,16 +319,13 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;btnSensors.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="pbUser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>682, 54</value>
-  </data>
-  <data name="pbUser.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>455, 35</value>
   </data>
   <data name="pbUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 129</value>
+    <value>82, 84</value>
   </data>
   <data name="pbUser.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -359,16 +343,13 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;pbUser.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="pbReport.Location" type="System.Drawing.Point, System.Drawing">
-    <value>682, 214</value>
-  </data>
-  <data name="pbReport.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>455, 139</value>
   </data>
   <data name="pbReport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 129</value>
+    <value>82, 84</value>
   </data>
   <data name="pbReport.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -386,16 +367,13 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;pbReport.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="pbSensors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>682, 372</value>
-  </data>
-  <data name="pbSensors.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>455, 242</value>
   </data>
   <data name="pbSensors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 114</value>
+    <value>82, 74</value>
   </data>
   <data name="pbSensors.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -413,7 +391,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;pbSensors.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -422,13 +400,10 @@
     <value>Microsoft Sans Serif, 24pt, style=Bold</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 109</value>
-  </data>
-  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>12, 71</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 55</value>
+    <value>145, 37</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -455,13 +430,10 @@
     <value>Microsoft Sans Serif, 24pt, style=Bold</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>244, 109</value>
-  </data>
-  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>163, 71</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 55</value>
+    <value>124, 37</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -488,13 +460,10 @@
     <value>Microsoft Sans Serif, 24pt, style=Bold</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>130, 186</value>
-  </data>
-  <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>87, 121</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 55</value>
+    <value>114, 37</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -521,10 +490,13 @@
     <value>Microsoft Sans Serif, 10.8pt</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>54, 22</value>
+    <value>36, 14</value>
+  </data>
+  <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>370, 26</value>
+    <value>249, 18</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -542,7 +514,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -551,10 +523,13 @@
     <value>Microsoft Sans Serif, 10.8pt</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>54, 76</value>
+    <value>36, 49</value>
+  </data>
+  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>541, 26</value>
+    <value>369, 18</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -572,7 +547,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -581,10 +556,13 @@
     <value>Microsoft Sans Serif, 10.8pt</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>54, 214</value>
+    <value>36, 139</value>
+  </data>
+  <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>413, 26</value>
+    <value>283, 18</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -602,7 +580,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -611,10 +589,13 @@
     <value>Microsoft Sans Serif, 10.8pt</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>54, 372</value>
+    <value>36, 232</value>
+  </data>
+  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>522, 26</value>
+    <value>357, 18</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -632,7 +613,43 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;pbImage.Name" xml:space="preserve">
+    <value>pbImage</value>
+  </data>
+  <data name="&gt;&gt;pbImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbImage.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;pbImage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>941, 548</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="pbImage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3220,13 +3237,10 @@
     <value>NoControl</value>
   </data>
   <data name="pbImage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 295</value>
-  </data>
-  <data name="pbImage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>33, 192</value>
   </data>
   <data name="pbImage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>364, 362</value>
+    <value>243, 235</value>
   </data>
   <data name="pbImage.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -3246,44 +3260,14 @@
   <data name="&gt;&gt;pbImage.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1412, 843</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>682, 531</value>
-  </data>
-  <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>455, 345</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 114</value>
+    <value>82, 74</value>
   </data>
   <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -3310,13 +3294,10 @@
     <value>NoControl</value>
   </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>439, 476</value>
-  </data>
-  <data name="button1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>69, 347</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 69</value>
+    <value>111, 45</value>
   </data>
   <data name="button1.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -3346,10 +3327,13 @@
     <value>NoControl</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>317, 416</value>
+    <value>36, 317</value>
+  </data>
+  <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>358, 26</value>
+    <value>242, 18</value>
   </data>
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -3368,14 +3352,18 @@
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
   <data name="btnCard.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="btnCard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>69, 474</value>
+    <value>69, 429</value>
+  </data>
+  <data name="btnCard.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="btnCard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 45</value>
+    <value>111, 49</value>
   </data>
   <data name="btnCard.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -3393,13 +3381,16 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;btnCard.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <data name="lblCards.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lblCards.Location" type="System.Drawing.Point, System.Drawing">
-    <value>39, 440</value>
+    <value>36, 404</value>
+  </data>
+  <data name="lblCards.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="lblCards.Size" type="System.Drawing.Size, System.Drawing">
     <value>218, 13</value>
@@ -3420,19 +3411,16 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;lblCards.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>460, 0</value>
-  </data>
-  <data name="panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>306, 0</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>952, 843</value>
+    <value>635, 548</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -3456,13 +3444,10 @@
     <value>25</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>9, 20</value>
+    <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1412, 843</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>941, 548</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

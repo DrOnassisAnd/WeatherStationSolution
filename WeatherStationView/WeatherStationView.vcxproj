@@ -370,6 +370,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WeatherStationFormAdmin.resx">
       <DependentUpon>WeatherStationFormAdmin.h</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
