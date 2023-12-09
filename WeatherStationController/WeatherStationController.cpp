@@ -59,8 +59,15 @@ void Controller::Controller::UpdateTarjetas(Tarjetas^ tarjetas)
 	WeatherStationPersistance::Persistance::UpdateTarjetas(tarjetas);
 }
 
+void Controller::Controller::AddTarjetas(Tarjetas^ tarjeta)
+{
+	WeatherStationPersistance::Persistance::AddTarjetas(tarjeta);
+}
 
-
+void Controller::Controller::DeleteTarjetas(int id)
+{
+	WeatherStationPersistance::Persistance::DeleteTarjetas(id);
+}
 
 //
 void Controller::Controller::AddAjustes(Ajustes^ ajustes) {

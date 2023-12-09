@@ -112,7 +112,7 @@ namespace WeatherStationView {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -432,250 +432,250 @@ namespace WeatherStationView {
 #pragma endregion
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) { //aceptar
-	String^ Name = textBox2->Text;
-	String^ Password = textBox3->Text;
-	String^ Email = textBox4->Text;
-	String^ PTString = PuntoTotalesText->Text;
-	String^ PDString = PuntosDiarioText->Text;
+		String^ Name = textBox2->Text;
+		String^ Password = textBox3->Text;
+		String^ Email = textBox4->Text;
+		String^ PTString = PuntoTotalesText->Text;
+		String^ PDString = PuntosDiarioText->Text;
 
 
-	if (Name != "" && Password != "" && Email != "" && PTString != "" && PDString != "") {
-		int PuntoTotales;
-		int PuntoDiarios;
+		if (Name != "" && Password != "" && Email != "" && PTString != "" && PDString != "") {
+			int PuntoTotales;
+			int PuntoDiarios;
 
 
-		bool PTbool = Int32::TryParse(PTString, PuntoTotales);
-		bool PDbool = Int32::TryParse(PDString, PuntoDiarios);
-		if (PTbool && PDbool) {
-			if (PuntoTotales >= 0 && PuntoDiarios >= 0) {
-				if (dateTimePicker1->Value > DateTime::Today) {
-					String^ TipoMembresia = comboBox1->SelectedItem->ToString();
-					String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
+			bool PTbool = Int32::TryParse(PTString, PuntoTotales);
+			bool PDbool = Int32::TryParse(PDString, PuntoDiarios);
+			if (PTbool && PDbool) {
+				if (PuntoTotales >= 0 && PuntoDiarios >= 0) {
+					if (dateTimePicker1->Value > DateTime::Today) {
+						String^ TipoMembresia = comboBox1->SelectedItem->ToString();
+						String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
 
-					//String^ FechaFinalizacionActualizacion = dateTimePicker2->Value.ToString("yyyy-MM-dd");
+						//String^ FechaFinalizacionActualizacion = dateTimePicker2->Value.ToString("yyyy-MM-dd");
 
-					//String^ FechaFinalizacionActualizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
+						//String^ FechaFinalizacionActualizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
 
-					List<User^>^ users = Controller::Controller::QueryAllUser();
-					int lastIdIndex = users->Count;
-					User^ user = gcnew User();
+						List<User^>^ users = Controller::Controller::QueryAllUser();
+						int lastIdIndex = users->Count;
+						User^ user = gcnew User();
 
-					if (lastIdIndex == 0) {
-						user->Id = 1;
+						if (lastIdIndex == 0) {
+							user->Id = 1;
+						}
+						else {
+							User^ userLastId = users[lastIdIndex - 1];
+							user->Id = (userLastId->Id) + 1;
+						}
+
+						Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
+						Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
+
+						user->Name = Name;
+						user->Password = Password;
+						user->Email = Email;
+						user->membresia = membresia;
+						user->ajustes = ajustes;
+
+						user->PuntosTotales = PuntoTotales;
+						user->PuntosDiarios = PuntoDiarios;
+						user->fechaUltimaActualizacion = DateTime::Today.ToString("yyyy-MM-dd");
+
+
+						Controller::Controller::AddUser(user);
+						ShowUserData();
+
+						textBox2->Text = "";
+						textBox3->Text = "";
+						textBox4->Text = "";
+						PuntosDiarioText->Text = "";
+						PuntoTotalesText->Text = "";
+
+						comboBox1->SelectedIndex = 0;
+						dateTimePicker1->Value = DateTime::Today;
+						Id = 0;
 					}
 					else {
-						User^ userLastId = users[lastIdIndex - 1];
-						user->Id = (userLastId->Id) + 1;
+						MessageBox::Show("La fecha de finalización debe ser mayor que la fecha de inicio.");
 					}
-
-					Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
-					Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
-
-					user->Name = Name;
-					user->Password = Password;
-					user->Email = Email;
-					user->membresia = membresia;
-					user->ajustes = ajustes;
-
-					user->PuntosTotales = PuntoTotales;
-					user->PuntosDiarios = PuntoDiarios;
-					user->fechaUltimaActualizacion = DateTime::Today.ToString("yyyy-MM-dd");
-
-
-					Controller::Controller::AddUser(user);
-					ShowUserData();
-
-					textBox2->Text = "";
-					textBox3->Text = "";
-					textBox4->Text = "";
-					PuntosDiarioText->Text = "";
-					PuntoTotalesText->Text = "";
-
-					comboBox1->SelectedIndex = 0;
-					dateTimePicker1->Value = DateTime::Today;
-					Id = 0;
 				}
 				else {
-					MessageBox::Show("La fecha de finalización debe ser mayor que la fecha de inicio.");
+					MessageBox::Show("Los datos ingresados deben ser números positivos");
 				}
 			}
 			else {
-				MessageBox::Show("Los datos ingresados deben ser números positivos");
+				MessageBox::Show("Los valores ingresados deben ser números.");
 			}
 		}
 		else {
-			MessageBox::Show("Los valores ingresados deben ser números.");
+			MessageBox::Show("Por favor complete los espacios antes de añadir un dato.");
 		}
 	}
-	else {
-		MessageBox::Show("Por favor complete los espacios antes de añadir un dato.");
-	}
-}
-	   void ShowUserData() {
-		   List<User^>^ users = Controller::Controller::QueryAllUser();
-		   dataGridView1->Rows->Clear();
-		   for (int i = 0; i < users->Count; i++) {
-			   User^ user = users[i];
-			   dataGridView1->Rows->Add(gcnew array<String^> {
-				   "" + user->Id,
-					   user->Name,
-					   user->Password,
-					   user->Email,
-					   user->membresia->TipoMembresia,
-					   user->membresia->fechaInicio,
-					   user->membresia->fechaFinalizacion,
+		   void ShowUserData() {
+			   List<User^>^ users = Controller::Controller::QueryAllUser();
+			   dataGridView1->Rows->Clear();
+			   for (int i = 0; i < users->Count; i++) {
+				   User^ user = users[i];
+				   dataGridView1->Rows->Add(gcnew array<String^> {
+					   "" + user->Id,
+						   user->Name,
+						   user->Password,
+						   user->Email,
+						   user->membresia->TipoMembresia,
+						   user->membresia->fechaInicio,
+						   user->membresia->fechaFinalizacion,
 
-					   "" + user->PuntosTotales,           // Agregado
-					   "" + user->PuntosDiarios,           // Agregado
-					   user->fechaUltimaActualizacion,     // Agregado
-					   // user->preguntasDia->AlgoAquí,    // Agregado si tienes esta propiedad
-			   });
+						   "" + user->PuntosTotales,           // Agregado
+						   "" + user->PuntosDiarios,           // Agregado
+						   user->fechaUltimaActualizacion,     // Agregado
+						   // user->preguntasDia->AlgoAquí,    // Agregado si tienes esta propiedad
+				   });
+			   }
 		   }
-	   }
 
-private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) { //cerrar
-	this->Close();
-}
-	   private: System::Void User_Load(System::Object^ sender, System::EventArgs^ e) {
-		   ShowUserData();
-		   comboBox1->SelectedIndex = 0;
-	   }
-private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) { //eliminar
-	if (Controller::Controller::QueryUserbyId(Id) != nullptr) {
-		Controller::Controller::DeleteUser(Id);
-
-		textBox2->Text = "";
-		textBox3->Text = "";
-		textBox4->Text = "";
-		PuntosDiarioText->Text = "";
-		PuntoTotalesText->Text = "";
-		comboBox1->SelectedIndex = 0;
-		dateTimePicker1->Value = DateTime::Today;
-		Id = 0;
-
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) { //cerrar
+		this->Close();
+	}
+	private: System::Void User_Load(System::Object^ sender, System::EventArgs^ e) {
 		ShowUserData();
+		comboBox1->SelectedIndex = 0;
 	}
-	else {
-		MessageBox::Show("Por favor seleccione un dato antes de eliminar.");
-	}
-}
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) { //eliminar
+		if (Controller::Controller::QueryUserbyId(Id) != nullptr) {
+			Controller::Controller::DeleteUser(Id);
 
-private: System::Void Table_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	if (dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]->Cells[0]->Value != nullptr) {
-		Id = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
-			->Cells[0]->Value->ToString());
-		User^ user = Controller::Controller::QueryUserbyId(Id);
-		if (user != nullptr) {
-			textBox2->Text = user->Name;
-			textBox3->Text = user->Password;
-			textBox4->Text = user->Email;
-			comboBox1->SelectedItem = user->membresia->TipoMembresia;
+			textBox2->Text = "";
+			textBox3->Text = "";
+			textBox4->Text = "";
+			PuntosDiarioText->Text = "";
+			PuntoTotalesText->Text = "";
+			comboBox1->SelectedIndex = 0;
+			dateTimePicker1->Value = DateTime::Today;
+			Id = 0;
 
-			PuntoTotalesText->Text = user->PuntosTotales.ToString();
-			PuntosDiarioText->Text = user->PuntosDiarios.ToString();
-			
-
-
-
-			dateTimePicker1->Value = DateTime::Parse(user->membresia->fechaFinalizacion);
+			ShowUserData();
+		}
+		else {
+			MessageBox::Show("Por favor seleccione un dato antes de eliminar.");
 		}
 	}
-	else {
-		textBox2->Text = "";
-		textBox3->Text = "";
-		textBox4->Text = "";
-		
-		PuntoTotalesText->Text = "";
-		PuntosDiarioText->Text = "";
 
+	private: System::Void Table_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		if (dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]->Cells[0]->Value != nullptr) {
+			Id = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]
+				->Cells[0]->Value->ToString());
+			User^ user = Controller::Controller::QueryUserbyId(Id);
+			if (user != nullptr) {
+				textBox2->Text = user->Name;
+				textBox3->Text = user->Password;
+				textBox4->Text = user->Email;
+				comboBox1->SelectedItem = user->membresia->TipoMembresia;
 
-
-		comboBox1->SelectedIndex = 0;
-		dateTimePicker1->Value = DateTime::Today;
-		Id = 0;
-	}
-	
-}
-
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //update
-
-	String^ Name = textBox2->Text;
-	String^ Password = textBox3->Text;
-	String^ Email = textBox4->Text;
-	String^ PTString = PuntoTotalesText->Text;
-	String^ PDString = PuntosDiarioText->Text;
-
-
-	if (Name != "" && Password != "" && Email != "" && PTString != "" && PDString != "") {
-		int PuntoTotales;
-		int PuntoDiarios;
-
-		bool PTbool = Int32::TryParse(PTString, PuntoTotales);
-		bool PDbool = Int32::TryParse(PDString, PuntoDiarios);
-
-		if (PTbool && PDbool) {
-			if (PuntoTotales>=0 && PuntoDiarios >=0) {
-				if (dateTimePicker1->Value > DateTime::Today) {
-					String^ TipoMembresia = comboBox1->SelectedItem->ToString();
-					String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
-
-					User^ user = gcnew User();
-					user->Id = Id;
-					user->Name = Name;
-					user->Password = Password;
-					user->Email = Email;
-
-
-					Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
-					Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
-
-					user->membresia = membresia;
-					user->ajustes = ajustes;
-
-
-
-					user->PuntosTotales = PuntoTotales;
-					user->PuntosDiarios = PuntoDiarios;
-					user->fechaUltimaActualizacion = DateTime::Today.ToString("yyyy-MM-dd");
+				PuntoTotalesText->Text = user->PuntosTotales.ToString();
+				PuntosDiarioText->Text = user->PuntosDiarios.ToString();
 
 
 
 
-
-
-					Controller::Controller::UpdateUser(user);
-
-					textBox2->Text = "";
-					textBox3->Text = "";
-					textBox4->Text = "";
-
-					PuntoTotalesText->Text = "";
-					PuntosDiarioText->Text = "";
-
-
-
-					comboBox1->SelectedIndex = 0;
-					dateTimePicker1->Value = DateTime::Today;
-					Id = 0;
-
-					ShowUserData();
-				}
-				else {
-					MessageBox::Show("La fecha de finalización debe ser mayor que la fecha de inicio.");
-				}
-			}
-			else {
-				MessageBox::Show("Los datos ingresados deben ser números positivos");
+				dateTimePicker1->Value = DateTime::Parse(user->membresia->fechaFinalizacion);
 			}
 		}
 		else {
-			MessageBox::Show("Los datos ingresados deben ser números");
+			textBox2->Text = "";
+			textBox3->Text = "";
+			textBox4->Text = "";
+
+			PuntoTotalesText->Text = "";
+			PuntosDiarioText->Text = "";
+
+
+
+			comboBox1->SelectedIndex = 0;
+			dateTimePicker1->Value = DateTime::Today;
+			Id = 0;
+		}
+
+	}
+
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) { //update
+
+		String^ Name = textBox2->Text;
+		String^ Password = textBox3->Text;
+		String^ Email = textBox4->Text;
+		String^ PTString = PuntoTotalesText->Text;
+		String^ PDString = PuntosDiarioText->Text;
+
+
+		if (Name != "" && Password != "" && Email != "" && PTString != "" && PDString != "") {
+			int PuntoTotales;
+			int PuntoDiarios;
+
+			bool PTbool = Int32::TryParse(PTString, PuntoTotales);
+			bool PDbool = Int32::TryParse(PDString, PuntoDiarios);
+
+			if (PTbool && PDbool) {
+				if (PuntoTotales >= 0 && PuntoDiarios >= 0) {
+					if (dateTimePicker1->Value > DateTime::Today) {
+						String^ TipoMembresia = comboBox1->SelectedItem->ToString();
+						String^ FechaFinalizacion = dateTimePicker1->Value.ToString("yyyy-MM-dd");
+
+						User^ user = gcnew User();
+						user->Id = Id;
+						user->Name = Name;
+						user->Password = Password;
+						user->Email = Email;
+
+
+						Membresia^ membresia = gcnew Membresia(TipoMembresia, DateTime::Today.ToString("yyyy-MM-dd"), FechaFinalizacion);
+						Ajustes^ ajustes = gcnew Ajustes("°C", "Formato de 12 horas", "dd/mm/yyyy");
+
+						user->membresia = membresia;
+						user->ajustes = ajustes;
+
+
+
+						user->PuntosTotales = PuntoTotales;
+						user->PuntosDiarios = PuntoDiarios;
+						user->fechaUltimaActualizacion = DateTime::Today.ToString("yyyy-MM-dd");
+
+
+
+
+
+
+						Controller::Controller::UpdateUser(user);
+
+						textBox2->Text = "";
+						textBox3->Text = "";
+						textBox4->Text = "";
+
+						PuntoTotalesText->Text = "";
+						PuntosDiarioText->Text = "";
+
+
+
+						comboBox1->SelectedIndex = 0;
+						dateTimePicker1->Value = DateTime::Today;
+						Id = 0;
+
+						ShowUserData();
+					}
+					else {
+						MessageBox::Show("La fecha de finalización debe ser mayor que la fecha de inicio.");
+					}
+				}
+				else {
+					MessageBox::Show("Los datos ingresados deben ser números positivos");
+				}
+			}
+			else {
+				MessageBox::Show("Los datos ingresados deben ser números");
+			}
+		}
+		else {
+			MessageBox::Show("Por favor complete los datos antes de modificar.");
 		}
 	}
-	else {
-		MessageBox::Show("Por favor complete los datos antes de modificar.");
-	}
-}
 
-};
+	};
 }

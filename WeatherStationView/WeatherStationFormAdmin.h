@@ -9,7 +9,7 @@
 #include "WeatherWarningMaintenance.h"
 #include "ErrorWarning.h"
 #include "SensorMaintenanceForm.h"
-
+#include "CardMaintenanceForm.h"
 //Reporte
 #include "TemperaturaReportForm.h"
 #include "HumedadReporteForm.h"
@@ -43,14 +43,14 @@ namespace WeatherStationView {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar cÃ³digo de constructor aquÃ­
 			//
 			this->ControlBox = false;
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estÃ©n usando.
 		/// </summary>
 		~WeatherStationFormAdmin()
 		{
@@ -128,6 +128,10 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Label^ label8;
 
+	private: System::Windows::Forms::Button^ btnCard;
+	private: System::Windows::Forms::Label^ lblCards;
+
+
 
 
 
@@ -145,14 +149,14 @@ namespace WeatherStationView {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseÃ±ador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// MÃ©todo necesario para admitir el DiseÃ±ador. No se puede modificar
+		/// el contenido de este mÃ©todo con el editor de cÃ³digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -183,9 +187,14 @@ namespace WeatherStationView {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->pbImage = (gcnew System::Windows::Forms::PictureBox());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label8 = (gcnew System::Windows::Forms::Label());
+
+			this->lblCards = (gcnew System::Windows::Forms::Label());
+			this->btnCard = (gcnew System::Windows::Forms::Button());
+
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbUser))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbReport))->BeginInit();
@@ -384,6 +393,9 @@ namespace WeatherStationView {
 			this->panel2->Controls->Add(this->pictureBox1);
 			this->panel2->Controls->Add(this->button1);
 			this->panel2->Controls->Add(this->label8);
+
+			this->panel2->Controls->Add(this->btnCard);
+			this->panel2->Controls->Add(this->lblCards);
 			this->panel2->Controls->Add(this->label4);
 			this->panel2->Controls->Add(this->pbSensors);
 			this->panel2->Controls->Add(this->label7);
@@ -398,6 +410,7 @@ namespace WeatherStationView {
 			resources->ApplyResources(this->panel2, L"panel2");
 			this->panel2->Name = L"panel2";
 			// 
+
 			// pictureBox1
 			// 
 			resources->ApplyResources(this->pictureBox1, L"pictureBox1");
@@ -419,6 +432,21 @@ namespace WeatherStationView {
 			this->label8->BackColor = System::Drawing::SystemColors::Control;
 			this->label8->ForeColor = System::Drawing::Color::Black;
 			this->label8->Name = L"label8";
+
+			// lblCards
+			// 
+			resources->ApplyResources(this->lblCards, L"lblCards");
+			this->lblCards->Name = L"lblCards";
+			// 
+			// btnCard
+			// 
+			this->btnCard->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			resources->ApplyResources(this->btnCard, L"btnCard");
+			this->btnCard->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->btnCard->Name = L"btnCard";
+			this->btnCard->UseVisualStyleBackColor = false;
+			this->btnCard->Click += gcnew System::EventHandler(this, &WeatherStationFormAdmin::btnCard_Click);
+
 			// 
 			// WeatherStationFormAdmin
 			// 
@@ -441,7 +469,10 @@ namespace WeatherStationView {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbImage))->EndInit();
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
+
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+
+
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -454,7 +485,7 @@ namespace WeatherStationView {
 		pbUser->Image = Image::FromFile("User.png");
 		pbReport->Image = Image::FromFile("Report.png");
 		pbSensors->Image = Image::FromFile("Sensors.png");
-		
+
 	}
 	private: System::Void toolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -462,6 +493,7 @@ namespace WeatherStationView {
 	private: System::Void userToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	}
+
 private: System::Void idToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 
@@ -561,5 +593,104 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 
 
 }
+
+	private: System::Void idToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+
+	private: System::Void temporizadorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	}
+	private: System::Void estaditicaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void membresiaToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+		MembershipMaintenanceForm obj;
+		obj.ShowDialog();
+	}
+
+	private: System::Void calidadAireToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		AirQMaintenanceForm obj;
+		obj.ShowDialog();
+		//AirQMaintenanceForm^ airq = gcnew AirQMaintenanceForm();
+		//airq->Show();
+	}
+	private: System::Void concentracionCOToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		COMaintenanceForm obj;
+		obj.ShowDialog();
+	}
+	private: System::Void temperaturaYHumedadToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		TempHumMaintenanceForm obj;
+		obj.ShowDialog();
+	}
+
+	private: System::Void alertaMeteorologicaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		WeatherWarningMaintenance obj;
+		obj.ShowDialog();
+	}
+	private: System::Void alertaErrorToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+		ErrorWarning obj;
+		obj.ShowDialog();
+	}
+	private: System::Void sensorToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	}
+	private: System::Void graficosTempToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		TemperaturaReportForm^ obj = gcnew TemperaturaReportForm();
+		obj->ShowDialog();
+	}
+	private: System::Void graficosHumToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		HumedadReporteForm^ obj = gcnew HumedadReporteForm();
+		obj->ShowDialog();
+	}
+	private: System::Void graficosNivelCOToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		COReportForm^ obj = gcnew COReportForm();
+		obj->ShowDialog();
+	}
+	private: System::Void graficoCalidadAireToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		CalidadAireForm^ obj = gcnew CalidadAireForm();
+		obj->ShowDialog();
+	}
+	private: System::Void reportesSensoresToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		//SensorsReport^ obj = gcnew SensorsReport();
+		//obj->ShowDialog();
+	}
+	private: System::Void pieToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		StatisticsForm^ obj = gcnew StatisticsForm();
+		obj->ShowDialog();
+	}
+	private: System::Void reportesUsuarioToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	}
+	private: System::Void btnLogOut_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+	}
+	private: System::Void btnUser_Click(System::Object^ sender, System::EventArgs^ e) {
+		UserMaintenance^ obj = gcnew UserMaintenance();
+		obj->ControlBox = false;
+		obj->ShowDialog();
+
+	}
+	private: System::Void btnSensors_Click(System::Object^ sender, System::EventArgs^ e) {
+		SensorMaintenanceForm^ obj = gcnew SensorMaintenanceForm();
+		obj->ShowDialog();
+	}
+	private: System::Void btnUserReport_Click(System::Object^ sender, System::EventArgs^ e) {
+		UserReport^ obj = gcnew UserReport();
+		obj->ShowDialog();
+	}
+	private: System::Void pbImage_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pbReport_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void pbUser_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void btnCard_Click(System::Object^ sender, System::EventArgs^ e) {
+		CardMaintenanceForm^ obj = gcnew CardMaintenanceForm();
+		obj->ShowDialog();
+
+	}
+
 };
 }

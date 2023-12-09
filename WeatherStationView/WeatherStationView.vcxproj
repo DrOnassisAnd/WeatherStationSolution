@@ -137,6 +137,7 @@
     <ClCompile Include="InstruccionesMembresias.cpp" />
     <ClCompile Include="MembershipMaintenanceForm.cpp" />
     <ClCompile Include="MembresiaForm.cpp" />
+    <ClCompile Include="CardMaintenanceForm.cpp" />
     <ClCompile Include="NewPie.cpp" />
     <ClCompile Include="PreguntasMaintenanceForm.cpp" />
     <ClCompile Include="SensorsReport.cpp" />
@@ -195,6 +196,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MembresiaForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CardMaintenanceForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="NewPie.h">
@@ -273,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CalidadAireForm.resx">
       <DependentUpon>CalidadAireForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CardMaintenanceForm.resx">
+      <DependentUpon>CardMaintenanceForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="COMaintenanceForm.resx">
       <DependentUpon>COMaintenanceForm.h</DependentUpon>
