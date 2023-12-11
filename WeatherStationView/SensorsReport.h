@@ -1812,16 +1812,22 @@ private: System::Windows::Forms::Button^ CSVBtn;
 		   }
 
 private: System::Void CSVBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	SaveFileDialog^ saveFileDialog1 = gcnew SaveFileDialog();
-	saveFileDialog1->Filter = "Excel files (*.xls)|*.xls|All files (*.*)|*.*";
-	saveFileDialog1->Title = "Guardar como archivo XLS";
-	saveFileDialog1->RestoreDirectory = true;
+	if (user->membresia->TipoMembresia == "Premium") {
+		SaveFileDialog^ saveFileDialog1 = gcnew SaveFileDialog();
+		saveFileDialog1->Filter = "Excel files (*.xls)|*.xls|All files (*.*)|*.*";
+		saveFileDialog1->Title = "Guardar como archivo XLS";
+		saveFileDialog1->RestoreDirectory = true;
 
-	if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
-	{
-		String^ filePath = saveFileDialog1->FileName;
-		ExportarDataGridViewAXML(dataGridView1, filePath);
+		if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		{
+			String^ filePath = saveFileDialog1->FileName;
+			ExportarDataGridViewAXML(dataGridView1, filePath);
+		}
 	}
+	else {
+		MessageBox::Show("Debes ser un usuario Premium para utilizar esta opción.");
+	}
+	
 }
 
 	void ExportarDataGridViewAXML(DataGridView^ dataGridView, String^ filePath) {

@@ -407,13 +407,11 @@ namespace WeatherStationView {
 		}
 		else {
 			if (user->membresia->TipoMembresia == "Premium") {
+				isRegisterDone = 1;
 				System::Windows::Forms::DialogResult result = MessageBox::Show("¿Estás seguro que deseas continuar?", "Confirmación", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
 				if (result == System::Windows::Forms::DialogResult::Yes) {
 					membresia = gcnew Membresia("Estandar", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));
-					//PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone, 1);
-					//payform->ControlBox = true;
-					//payform->ShowDialog();
-					//isRegisterDone = payform->GetBool();
+					
 					if (!isRegisterDone) {
 						this->Show();
 					}
@@ -425,13 +423,7 @@ namespace WeatherStationView {
 					}
 				}
 			}
-			else {
-				//membresia = gcnew Membresia("Estandar", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));
-				//PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone, 1);
-				//payform->ControlBox = true;
-				//payform->ShowDialog();
-				//isRegisterDone = payform->GetBool();
-				
+			else {			
 
 				if (user->PuntosTotales < 100) {
 					MessageBox::Show("No tienes los Ecocoins Necesarios");
@@ -440,16 +432,18 @@ namespace WeatherStationView {
 				else {
 					isRegisterDone = 1;
 					System::Windows::Forms::DialogResult result = MessageBox::Show("¿Estás seguro que deseas continuar?", "Confirmación", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
-					if (!isRegisterDone) {
-						this->Show();
-					}
-					else {
+					if (result == System::Windows::Forms::DialogResult::Yes) {
+						if (!isRegisterDone) {
+							this->Show();
+						}
+						else {
 
-						membresia = gcnew Membresia("Estandar", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));//Parametros de prueba
+							membresia = gcnew Membresia("Estandar", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));//Parametros de prueba
 
-						user->PuntosTotales = user->PuntosTotales - 100;
-						MessageBox::Show("Ahora eres un usuario Estandar");
-						this->Close();
+							user->PuntosTotales = user->PuntosTotales - 100;
+							MessageBox::Show("Ahora eres un usuario Estandar");
+							this->Close();
+						}
 					}
 
 
@@ -469,37 +463,35 @@ namespace WeatherStationView {
 			MessageBox::Show("Ya eres un usuario " + user->membresia->TipoMembresia);
 		}
 		else {
-			//PaymentMethodForm^ payform = gcnew PaymentMethodForm(isRegisterDone, 1);
-			//payform->ControlBox = true;
-			//payform->ShowDialog();
 
-
-			if (user->PuntosTotales < 300) {
+			if ((user->PuntosTotales < 300 && user->membresia->TipoMembresia == "Basic") || (user->PuntosTotales <200 && user->membresia->TipoMembresia == "Estandar")) {
 				MessageBox::Show("No tienes los Ecocoins Necesarios");
 				isRegisterDone = 0;
 			}
 			else {
 				isRegisterDone = 1;
 				System::Windows::Forms::DialogResult result = MessageBox::Show("¿Estás seguro que deseas continuar?", "Confirmación", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
-				if (!isRegisterDone) {
-					this->Show();
-				}
-				else {
-
-					membresia = gcnew Membresia("Premium", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));//Parametros de prueba
-
-					if (user->membresia->TipoMembresia == "Estandar") {
-					
-						user->PuntosTotales = user->PuntosTotales - 200;
-					
+				if (result == System::Windows::Forms::DialogResult::Yes) {
+					if (!isRegisterDone) {
+						this->Show();
 					}
 					else {
-					
-						user->PuntosTotales = user->PuntosTotales - 300;
+
+						membresia = gcnew Membresia("Premium", DateTime::Today.ToString("yyyy-MM-dd"), DateTime::Today.AddYears(1).ToString("yyyy-MM-dd"));//Parametros de prueba
+
+						if (user->membresia->TipoMembresia == "Estandar") {
+
+							user->PuntosTotales = user->PuntosTotales - 200;
+
+						}
+						else {
+
+							user->PuntosTotales = user->PuntosTotales - 300;
+						}
+
+						MessageBox::Show("Ahora eres un usuario Premium");
+						this->Close();
 					}
-					
-					MessageBox::Show("Ahora eres un usuario Premium");
-					this->Close();
 				}
 
 
