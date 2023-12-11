@@ -178,6 +178,7 @@ namespace WeatherStationPersistance {
 
 		//TARJETAS
 		static Tarjetas^ QueryTarjetaByNumeroCuenta(int NumeroCuenta);
+		static Tarjetas^ QueryTarjetaById(int idTarjeta);
 		static void UpdateTarjetas(Tarjetas^ tarjeta);
 		static void AddTarjetas(Tarjetas^ tarjeta);
 		static void DeleteTarjetas(int id);

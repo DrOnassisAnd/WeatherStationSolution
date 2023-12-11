@@ -60,6 +60,7 @@ namespace WeatherStationView {
 
 
 	private: int Id;
+	private: int lastIdT;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
 
@@ -528,33 +529,54 @@ namespace WeatherStationView {
 
 						user->IdTarjeta = IdTarjeta; //aun sin tarjeta
 
-						List<int>^ preguntas = gcnew List<int>();
-						preguntas->Add(0);
-						preguntas->Add(0);
-						preguntas->Add(0);
-						preguntas->Add(0);
-						preguntas->Add(0); //añade las 5 preguntas
-						user->PreguntasporDia = preguntas;
+						Tarjetas^ tarjeta = gcnew Tarjetas();
+						tarjeta = (Controller::Controller::QueryTarjetaById(IdTarjeta));
 
-						Controller::Controller::AddUser(user);
+						if ((tarjeta != nullptr && tarjeta->Disponible) || (IdTarjeta == -1)) {
+							
+							List<int>^ preguntas = gcnew List<int>();
+							preguntas->Add(0);
+							preguntas->Add(0);
+							preguntas->Add(0);
+							preguntas->Add(0);
+							preguntas->Add(0); //añade las 5 preguntas
+							user->PreguntasporDia = preguntas;
+							
+							Controller::Controller::AddUser(user);
 
-						List<int>^ preguntaspordia = gcnew List<int>();
-						preguntaspordia->Add(user->Id);
-						preguntaspordia->AddRange(preguntas);
-						Controller::Controller::AddPreguntasporDia(preguntaspordia);
+							if (IdTarjeta != -1) {
+								tarjeta->Disponible = 0;
+								Controller::Controller::UpdateTarjetas(tarjeta);
+							}						
 
-						textBox2->Text = "";
-						textBox3->Text = "";
-						textBox4->Text = "";
-						PuntosDiarioText->Text = "";
-						PuntoTotalesText->Text = "";
-						IdTarjetaTBox->Text = "";
+							List<int>^ preguntaspordia = gcnew List<int>();
+							preguntaspordia->Add(user->Id);
+							preguntaspordia->AddRange(preguntas);
+							if (Controller::Controller::QueryPreguntasporDiabyId(user->Id) == nullptr) {
+								Controller::Controller::AddPreguntasporDia(preguntaspordia);
+							}
+							else {
+								Controller::Controller::UpdatePreguntasporDia(preguntaspordia);
+							}
 
-						comboBox1->SelectedIndex = 0;
-						dateTimePicker1->Value = DateTime::Today;
-						Id = 0;
+							textBox2->Text = "";
+							textBox3->Text = "";
+							textBox4->Text = "";
+							PuntosDiarioText->Text = "";
+							PuntoTotalesText->Text = "";
+							IdTarjetaTBox->Text = "";
 
-						ShowUserData();
+							comboBox1->SelectedIndex = 0;
+							dateTimePicker1->Value = DateTime::Today;
+							Id = 0;
+
+							ShowUserData();
+						}
+						else {
+							MessageBox::Show("La Id de la tarjeta no se encuentra registrada o no se encuentra disponible.");
+							//No guarda nada
+						}
+						
 					}
 					else {
 						MessageBox::Show("La fecha de finalización debe ser mayor que la fecha de inicio.");
@@ -603,7 +625,13 @@ namespace WeatherStationView {
 		comboBox1->SelectedIndex = 0;
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) { //eliminar
-		if (Controller::Controller::QueryUserbyId(Id) != nullptr) {
+		User^ deleteduser = gcnew User();
+		deleteduser = Controller::Controller::QueryUserbyId(Id);
+		if (deleteduser != nullptr) {
+			Tarjetas^ tarjetadeleted = gcnew Tarjetas();
+			tarjetadeleted = Controller::Controller::QueryTarjetaById(deleteduser->IdTarjeta);
+			tarjetadeleted->Disponible = 1;
+			Controller::Controller::UpdateTarjetas(tarjetadeleted);
 			Controller::Controller::DeleteUser(Id);
 
 			textBox2->Text = "";
@@ -638,6 +666,7 @@ namespace WeatherStationView {
 				PuntosDiarioText->Text = user->PuntosDiarios.ToString();
 
 				IdTarjetaTBox->Text = (user->IdTarjeta).ToString();
+				lastIdT = user->IdTarjeta;
 
 
 				dateTimePicker1->Value = DateTime::Parse(user->membresia->fechaFinalizacion);
@@ -699,33 +728,52 @@ namespace WeatherStationView {
 						user->membresia = membresia;
 						user->ajustes = ajustes;
 
-
-
 						user->PuntosTotales = PuntoTotales;
 						user->PuntosDiarios = PuntoDiarios;
 						user->fechaUltimaActualizacion = DateTime::Today.ToString("yyyy-MM-dd");
 
-
 						user->IdTarjeta = IdTarjeta;
+						
+						Tarjetas^ tarjeta = gcnew Tarjetas();
+						tarjeta = (Controller::Controller::QueryTarjetaById(IdTarjeta));
+
+						if((tarjeta != nullptr && tarjeta->Disponible) || (IdTarjeta == -1)){
+
+							Controller::Controller::UpdateUser(user);
+
+							if (IdTarjeta != -1) {
+								tarjeta->Disponible = 0;
+								Controller::Controller::UpdateTarjetas(tarjeta);
+							}	
+
+							Tarjetas^ lasttarjeta = gcnew Tarjetas();
+							lasttarjeta = Controller::Controller::QueryTarjetaById(lastIdT);
+							if (lastIdT != IdTarjeta) {
+								lasttarjeta->Disponible = 1;
+								Controller::Controller::UpdateTarjetas(lasttarjeta);
+							}
+							
+
+							textBox2->Text = "";
+							textBox3->Text = "";
+							textBox4->Text = "";
+
+							PuntoTotalesText->Text = "";
+							PuntosDiarioText->Text = "";
 
 
 
-						Controller::Controller::UpdateUser(user);
+							comboBox1->SelectedIndex = 0;
+							dateTimePicker1->Value = DateTime::Today;
+							Id = 0;
 
-						textBox2->Text = "";
-						textBox3->Text = "";
-						textBox4->Text = "";
-
-						PuntoTotalesText->Text = "";
-						PuntosDiarioText->Text = "";
-
-
-
-						comboBox1->SelectedIndex = 0;
-						dateTimePicker1->Value = DateTime::Today;
-						Id = 0;
-
-						ShowUserData();
+							ShowUserData();
+						}
+						else{
+							MessageBox::Show("La Id de la tarjeta no se encuentra registrada");
+							//No guarda nada
+						}
+						
 					}
 					else {
 						MessageBox::Show("La fecha de finalización debe ser mayor que la fecha de inicio.");

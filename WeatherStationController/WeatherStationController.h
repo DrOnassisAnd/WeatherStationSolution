@@ -31,6 +31,7 @@ namespace Controller {
 		static List<Tarjetas^>^ QueryTarjetasData();
 		
 		static Tarjetas^ QueryTarjetaByNumeroCuenta(int NumeroCuenta);
+		static Tarjetas^ QueryTarjetaById(int idTarjeta);
 		static void AddTarjetas(Tarjetas^ tarjeta);
 		static void UpdateTarjetas(Tarjetas^ tarjeta);
 		static void DeleteTarjetas(int id);
@@ -47,8 +48,6 @@ namespace Controller {
 		
 		//static Pregunta^ QueryPreguntabyId(int Id);
 		//More PreguntasporDia Methods
-		//metodo para asignar un valor
-		//
 		static List<int>^ Convertir6a5(List<int>^ preguntas);
 		static void AgregarValor(List<int>^ preguntas, int valor);
 		static int ListaLlena(List<int>^ preguntas);

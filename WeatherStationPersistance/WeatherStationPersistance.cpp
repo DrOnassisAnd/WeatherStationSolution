@@ -418,6 +418,7 @@ void WeatherStationPersistance::Persistance::AddUser(User^ user) {
 		SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
 		cmd->CommandType = System::Data::CommandType::StoredProcedure;
 		/**/
+		cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
 		cmd->Parameters->Add("@NOMBRE", System::Data::SqlDbType::VarChar, 200);
 		cmd->Parameters->Add("@CONTRASENA", System::Data::SqlDbType::VarChar, 200);
 		cmd->Parameters->Add("@EMAIL", System::Data::SqlDbType::VarChar, 200);
@@ -434,10 +435,11 @@ void WeatherStationPersistance::Persistance::AddUser(User^ user) {
 		cmd->Parameters->Add("@IDTARJETA", System::Data::SqlDbType::Int);
 		//cmd->Parameters->Add("@PREGUNTASCONTESTADAS", System::Data::SqlDbType::VarChar, -1); // VARCHAR(MAX) 
 
-		SqlParameter^ outputIdParam = gcnew SqlParameter("@ID", System::Data::SqlDbType::Int);
+		/*SqlParameter^ outputIdParam = gcnew SqlParameter("@ID", System::Data::SqlDbType::Int);
 		outputIdParam->Direction = System::Data::ParameterDirection::Output;
-		cmd->Parameters->Add(outputIdParam);
+		cmd->Parameters->Add(outputIdParam);*/
 		cmd->Prepare();
+		cmd->Parameters["@ID"]->Value = user->Id;
 		cmd->Parameters["@NOMBRE"]->Value = user->Name;
 		cmd->Parameters["@CONTRASENA"]->Value = user->Password;
 		cmd->Parameters["@EMAIL"]->Value = user->Email;
@@ -454,6 +456,8 @@ void WeatherStationPersistance::Persistance::AddUser(User^ user) {
 		cmd->Parameters["@IDTARJETA"]->Value = user->IdTarjeta;
 
 		cmd->ExecuteNonQuery();
+
+
 	}
 	catch (Exception^ ex) {
 		//Guardar en el log o mandar un correo electrónico al Administrador
@@ -1677,6 +1681,19 @@ Tarjetas^ WeatherStationPersistance::Persistance::QueryTarjetaByNumeroCuenta(int
 				return TarjetasList[i];
 		}
 		return nullptr;
+
+}
+
+Tarjetas^ WeatherStationPersistance::Persistance::QueryTarjetaById(int idTarjeta)
+{
+
+	TarjetasList = (List<Tarjetas^>^)LoadTarjetas();
+	for (int i = 0; i < TarjetasList->Count; i++) {
+
+		if (TarjetasList[i]->id == idTarjeta)
+			return TarjetasList[i];
+	}
+	return nullptr;
 
 }
 
