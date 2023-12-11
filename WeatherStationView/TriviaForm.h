@@ -417,8 +417,6 @@ private: System::Void respuestaBtn_Click(System::Object^ sender, System::EventAr
 				numPregunta = 3;
 			}
 
-
-
 			if (numPregunta == pregunta->RPTACORRECT) {
 				user->PuntosDiarios += 5;
 				user->PuntosTotales += 5;
@@ -444,6 +442,10 @@ private: System::Void respuestaBtn_Click(System::Object^ sender, System::EventAr
 			}
 
 			Controller::Controller::AgregarValor(preguntas, numeropregunta);
+
+			if (Controller::Controller::ListaLlena(preguntas)) {
+				Terminar();
+			}
 
 			pressedBtn = true;
 			pointslbl->Text = (user->PuntosDiarios).ToString();
@@ -483,6 +485,10 @@ private: System::Void respuestaBtn_Click(System::Object^ sender, System::EventAr
 				   RespuestaB->Enabled = false;
 				   RespuestaC->Enabled = false;
 				   Controller::Controller::AgregarValor(preguntas, numeropregunta);
+
+				   if (Controller::Controller::ListaLlena(preguntas)) {
+					   Terminar();
+				   }
 			   }
 		   }
 		   else {
@@ -503,14 +509,19 @@ private: System::Void Sgtepregunta_Click(System::Object^ sender, System::EventAr
 	LoadPreguntas();
 }
 private: System::Void CerrarBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	user->PreguntasporDia = preguntas;
-	List<int>^ preguntaspordia = gcnew List<int>();
-	preguntaspordia->Add(user->Id);
-	preguntaspordia->AddRange(preguntas);
-	Controller::Controller::UpdatePreguntasporDia(preguntaspordia);
-	
-	timerTimeout->Stop();
-	this->Close();
+	Terminar();
 }
+	   void Terminar() {
+		   user->PreguntasporDia = preguntas;
+		   List<int>^ preguntaspordia = gcnew List<int>();
+		   preguntaspordia->Add(user->Id);
+		   preguntaspordia->AddRange(preguntas);
+		   Controller::Controller::UpdatePreguntasporDia(preguntaspordia);
+
+		   MessageBox::Show("Has alcanzado el límite de preguntas contestadas por día. Intente de nuevo mañana.");
+
+		   timerTimeout->Stop();
+		   this->Close();
+	   }
 };
 }

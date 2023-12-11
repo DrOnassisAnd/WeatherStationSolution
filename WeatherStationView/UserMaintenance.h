@@ -481,9 +481,22 @@ namespace WeatherStationView {
 						user->PuntosDiarios = PuntoDiarios;
 						user->fechaUltimaActualizacion = DateTime::Today.ToString("yyyy-MM-dd");
 
+						user->IdTarjeta = -1; //aun sin tarjeta
+
+						List<int>^ preguntas = gcnew List<int>();
+						preguntas->Add(0);
+						preguntas->Add(0);
+						preguntas->Add(0);
+						preguntas->Add(0);
+						preguntas->Add(0); //añade las 5 preguntas
+						user->PreguntasporDia = preguntas;
 
 						Controller::Controller::AddUser(user);
-						ShowUserData();
+
+						List<int>^ preguntaspordia = gcnew List<int>();
+						preguntaspordia->Add(user->Id);
+						preguntaspordia->AddRange(preguntas);
+						Controller::Controller::AddPreguntasporDia(preguntaspordia);
 
 						textBox2->Text = "";
 						textBox3->Text = "";
@@ -494,6 +507,8 @@ namespace WeatherStationView {
 						comboBox1->SelectedIndex = 0;
 						dateTimePicker1->Value = DateTime::Today;
 						Id = 0;
+
+						ShowUserData();
 					}
 					else {
 						MessageBox::Show("La fecha de finalización debe ser mayor que la fecha de inicio.");
