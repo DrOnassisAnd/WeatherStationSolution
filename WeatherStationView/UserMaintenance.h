@@ -103,6 +103,21 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ PuntosTotales;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ PuntosDiarios;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ FechaActualizacion;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column7;
+	private: System::Windows::Forms::Label^ IdTarjetaLbl;
+	private: System::Windows::Forms::TextBox^ IdTarjetaTBox;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -127,6 +142,17 @@ namespace WeatherStationView {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->FechaFindgv = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->PuntosTotales = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->PuntosDiarios = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->FechaActualizacion = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -140,16 +166,8 @@ namespace WeatherStationView {
 			this->PuntosDiariosLabel = (gcnew System::Windows::Forms::Label());
 			this->PuntosDiarioText = (gcnew System::Windows::Forms::TextBox());
 			this->PuntoTotalesText = (gcnew System::Windows::Forms::TextBox());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->FechaFindgv = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->PuntosTotales = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->PuntosDiarios = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->FechaActualizacion = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->IdTarjetaLbl = (gcnew System::Windows::Forms::Label());
+			this->IdTarjetaTBox = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -198,10 +216,10 @@ namespace WeatherStationView {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(10) {
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(11) {
 				this->Column1,
 					this->Column4, this->Column2, this->Column3, this->Column5, this->Column6, this->FechaFindgv, this->PuntosTotales, this->PuntosDiarios,
-					this->FechaActualizacion
+					this->FechaActualizacion, this->Column7
 			});
 			this->dataGridView1->Location = System::Drawing::Point(22, 184);
 			this->dataGridView1->Name = L"dataGridView1";
@@ -209,6 +227,81 @@ namespace WeatherStationView {
 			this->dataGridView1->Size = System::Drawing::Size(699, 201);
 			this->dataGridView1->TabIndex = 57;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &UserMaintenance::Table_CellClick);
+			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"Id";
+			this->Column1->MinimumWidth = 6;
+			this->Column1->Name = L"Column1";
+			this->Column1->Width = 125;
+			// 
+			// Column4
+			// 
+			this->Column4->HeaderText = L"Name";
+			this->Column4->MinimumWidth = 6;
+			this->Column4->Name = L"Column4";
+			this->Column4->Width = 125;
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Password";
+			this->Column2->MinimumWidth = 6;
+			this->Column2->Name = L"Column2";
+			this->Column2->Width = 125;
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"Email";
+			this->Column3->MinimumWidth = 6;
+			this->Column3->Name = L"Column3";
+			this->Column3->Width = 125;
+			// 
+			// Column5
+			// 
+			this->Column5->HeaderText = L"Membresia";
+			this->Column5->MinimumWidth = 6;
+			this->Column5->Name = L"Column5";
+			this->Column5->Width = 125;
+			// 
+			// Column6
+			// 
+			this->Column6->HeaderText = L"FechaInicio";
+			this->Column6->MinimumWidth = 6;
+			this->Column6->Name = L"Column6";
+			this->Column6->Width = 125;
+			// 
+			// FechaFindgv
+			// 
+			this->FechaFindgv->HeaderText = L"FechaFin";
+			this->FechaFindgv->MinimumWidth = 6;
+			this->FechaFindgv->Name = L"FechaFindgv";
+			this->FechaFindgv->Width = 125;
+			// 
+			// PuntosTotales
+			// 
+			this->PuntosTotales->HeaderText = L"PuntosTotales";
+			this->PuntosTotales->MinimumWidth = 6;
+			this->PuntosTotales->Name = L"PuntosTotales";
+			this->PuntosTotales->Width = 125;
+			// 
+			// PuntosDiarios
+			// 
+			this->PuntosDiarios->HeaderText = L"PuntosDiarios";
+			this->PuntosDiarios->MinimumWidth = 6;
+			this->PuntosDiarios->Name = L"PuntosDiarios";
+			this->PuntosDiarios->Width = 125;
+			// 
+			// FechaActualizacion
+			// 
+			this->FechaActualizacion->HeaderText = L"FechaActualizacion";
+			this->FechaActualizacion->MinimumWidth = 6;
+			this->FechaActualizacion->Name = L"FechaActualizacion";
+			this->FechaActualizacion->Width = 125;
+			// 
+			// Column7
+			// 
+			this->Column7->HeaderText = L"IdTarjeta";
+			this->Column7->Name = L"Column7";
 			// 
 			// button3
 			// 
@@ -326,81 +419,30 @@ namespace WeatherStationView {
 			this->PuntoTotalesText->Size = System::Drawing::Size(100, 20);
 			this->PuntoTotalesText->TabIndex = 73;
 			// 
-			// Column1
+			// IdTarjetaLbl
 			// 
-			this->Column1->HeaderText = L"Id";
-			this->Column1->MinimumWidth = 6;
-			this->Column1->Name = L"Column1";
-			this->Column1->Width = 125;
+			this->IdTarjetaLbl->AutoSize = true;
+			this->IdTarjetaLbl->Location = System::Drawing::Point(297, 91);
+			this->IdTarjetaLbl->Name = L"IdTarjetaLbl";
+			this->IdTarjetaLbl->Size = System::Drawing::Size(52, 13);
+			this->IdTarjetaLbl->TabIndex = 74;
+			this->IdTarjetaLbl->Text = L"Id Tarjeta";
 			// 
-			// Column4
+			// IdTarjetaTBox
 			// 
-			this->Column4->HeaderText = L"Name";
-			this->Column4->MinimumWidth = 6;
-			this->Column4->Name = L"Column4";
-			this->Column4->Width = 125;
-			// 
-			// Column2
-			// 
-			this->Column2->HeaderText = L"Password";
-			this->Column2->MinimumWidth = 6;
-			this->Column2->Name = L"Column2";
-			this->Column2->Width = 125;
-			// 
-			// Column3
-			// 
-			this->Column3->HeaderText = L"Email";
-			this->Column3->MinimumWidth = 6;
-			this->Column3->Name = L"Column3";
-			this->Column3->Width = 125;
-			// 
-			// Column5
-			// 
-			this->Column5->HeaderText = L"Membresia";
-			this->Column5->MinimumWidth = 6;
-			this->Column5->Name = L"Column5";
-			this->Column5->Width = 125;
-			// 
-			// Column6
-			// 
-			this->Column6->HeaderText = L"FechaInicio";
-			this->Column6->MinimumWidth = 6;
-			this->Column6->Name = L"Column6";
-			this->Column6->Width = 125;
-			// 
-			// FechaFindgv
-			// 
-			this->FechaFindgv->HeaderText = L"FechaFin";
-			this->FechaFindgv->MinimumWidth = 6;
-			this->FechaFindgv->Name = L"FechaFindgv";
-			this->FechaFindgv->Width = 125;
-			// 
-			// PuntosTotales
-			// 
-			this->PuntosTotales->HeaderText = L"PuntosTotales";
-			this->PuntosTotales->MinimumWidth = 6;
-			this->PuntosTotales->Name = L"PuntosTotales";
-			this->PuntosTotales->Width = 125;
-			// 
-			// PuntosDiarios
-			// 
-			this->PuntosDiarios->HeaderText = L"PuntosDiarios";
-			this->PuntosDiarios->MinimumWidth = 6;
-			this->PuntosDiarios->Name = L"PuntosDiarios";
-			this->PuntosDiarios->Width = 125;
-			// 
-			// FechaActualizacion
-			// 
-			this->FechaActualizacion->HeaderText = L"FechaActualizacion";
-			this->FechaActualizacion->MinimumWidth = 6;
-			this->FechaActualizacion->Name = L"FechaActualizacion";
-			this->FechaActualizacion->Width = 125;
+			this->IdTarjetaTBox->Location = System::Drawing::Point(414, 88);
+			this->IdTarjetaTBox->Margin = System::Windows::Forms::Padding(2);
+			this->IdTarjetaTBox->Name = L"IdTarjetaTBox";
+			this->IdTarjetaTBox->Size = System::Drawing::Size(51, 20);
+			this->IdTarjetaTBox->TabIndex = 75;
 			// 
 			// UserMaintenance
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(733, 397);
+			this->Controls->Add(this->IdTarjetaTBox);
+			this->Controls->Add(this->IdTarjetaLbl);
 			this->Controls->Add(this->PuntoTotalesText);
 			this->Controls->Add(this->PuntosDiarioText);
 			this->Controls->Add(this->PuntosDiariosLabel);
@@ -437,16 +479,19 @@ namespace WeatherStationView {
 		String^ Email = textBox4->Text;
 		String^ PTString = PuntoTotalesText->Text;
 		String^ PDString = PuntosDiarioText->Text;
+		String^ ITString = IdTarjetaTBox->Text;
 
 
 		if (Name != "" && Password != "" && Email != "" && PTString != "" && PDString != "") {
 			int PuntoTotales;
 			int PuntoDiarios;
-
+			int IdTarjeta;
 
 			bool PTbool = Int32::TryParse(PTString, PuntoTotales);
 			bool PDbool = Int32::TryParse(PDString, PuntoDiarios);
-			if (PTbool && PDbool) {
+			bool ITbool = Int32::TryParse(ITString, IdTarjeta);
+
+			if (PTbool && PDbool && ITbool) {
 				if (PuntoTotales >= 0 && PuntoDiarios >= 0) {
 					if (dateTimePicker1->Value > DateTime::Today) {
 						String^ TipoMembresia = comboBox1->SelectedItem->ToString();
@@ -481,7 +526,7 @@ namespace WeatherStationView {
 						user->PuntosDiarios = PuntoDiarios;
 						user->fechaUltimaActualizacion = DateTime::Today.ToString("yyyy-MM-dd");
 
-						user->IdTarjeta = -1; //aun sin tarjeta
+						user->IdTarjeta = IdTarjeta; //aun sin tarjeta
 
 						List<int>^ preguntas = gcnew List<int>();
 						preguntas->Add(0);
@@ -503,6 +548,7 @@ namespace WeatherStationView {
 						textBox4->Text = "";
 						PuntosDiarioText->Text = "";
 						PuntoTotalesText->Text = "";
+						IdTarjetaTBox->Text = "";
 
 						comboBox1->SelectedIndex = 0;
 						dateTimePicker1->Value = DateTime::Today;
@@ -543,6 +589,7 @@ namespace WeatherStationView {
 						   "" + user->PuntosTotales,           // Agregado
 						   "" + user->PuntosDiarios,           // Agregado
 						   user->fechaUltimaActualizacion,     // Agregado
+						   "" + user->IdTarjeta
 						   // user->preguntasDia->AlgoAquí,    // Agregado si tienes esta propiedad
 				   });
 			   }
@@ -564,6 +611,7 @@ namespace WeatherStationView {
 			textBox4->Text = "";
 			PuntosDiarioText->Text = "";
 			PuntoTotalesText->Text = "";
+			IdTarjetaTBox->Text = "";
 			comboBox1->SelectedIndex = 0;
 			dateTimePicker1->Value = DateTime::Today;
 			Id = 0;
@@ -589,7 +637,7 @@ namespace WeatherStationView {
 				PuntoTotalesText->Text = user->PuntosTotales.ToString();
 				PuntosDiarioText->Text = user->PuntosDiarios.ToString();
 
-
+				IdTarjetaTBox->Text = (user->IdTarjeta).ToString();
 
 
 				dateTimePicker1->Value = DateTime::Parse(user->membresia->fechaFinalizacion);
@@ -602,6 +650,7 @@ namespace WeatherStationView {
 
 			PuntoTotalesText->Text = "";
 			PuntosDiarioText->Text = "";
+			IdTarjetaTBox->Text = "";
 
 
 
@@ -619,16 +668,19 @@ namespace WeatherStationView {
 		String^ Email = textBox4->Text;
 		String^ PTString = PuntoTotalesText->Text;
 		String^ PDString = PuntosDiarioText->Text;
+		String^ ITString = IdTarjetaTBox->Text;
 
 
 		if (Name != "" && Password != "" && Email != "" && PTString != "" && PDString != "") {
 			int PuntoTotales;
 			int PuntoDiarios;
+			int IdTarjeta;
 
 			bool PTbool = Int32::TryParse(PTString, PuntoTotales);
 			bool PDbool = Int32::TryParse(PDString, PuntoDiarios);
+			bool ITbool = Int32::TryParse(ITString, IdTarjeta);
 
-			if (PTbool && PDbool) {
+			if (PTbool && PDbool && ITbool) {
 				if (PuntoTotales >= 0 && PuntoDiarios >= 0) {
 					if (dateTimePicker1->Value > DateTime::Today) {
 						String^ TipoMembresia = comboBox1->SelectedItem->ToString();
@@ -654,7 +706,7 @@ namespace WeatherStationView {
 						user->fechaUltimaActualizacion = DateTime::Today.ToString("yyyy-MM-dd");
 
 
-
+						user->IdTarjeta = IdTarjeta;
 
 
 

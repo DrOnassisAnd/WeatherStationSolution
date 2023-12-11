@@ -232,21 +232,23 @@ namespace WeatherStationView {
 				Tarjetas^ TarjetasCheck = Controller::Controller::QueryTarjetaByNumeroCuenta(numerodecuenta);
 
 				if (CCVtext->Text == (TarjetasCheck->CCVTarjeta).ToString()) {
-					if (TarjetasCheck->Disponible == 1) {
-						
+					if (user->IdTarjeta == -1) {
+						if (TarjetasCheck->Disponible == 1) {
 
-						if((TarjetasCheck->Saldo - soles)>0){
 
-							user->IdTarjeta = TarjetasCheck->id;
-							TarjetasCheck->Saldo -= soles;
-							TarjetasCheck->Disponible = 0;
-							isRegisterDone = 1;
+							if ((TarjetasCheck->Saldo - soles) > 0) {
+
+								user->IdTarjeta = TarjetasCheck->id;
+								TarjetasCheck->Saldo -= soles;
+								TarjetasCheck->Disponible = 0;
+								isRegisterDone = 1;
+							}
+							else {
+								MessageBox::Show("Saldo Insuficiente");
+							}
+
 						}
-						else {
-							MessageBox::Show("Saldo Insuficiente");
-						}
-
-					}
+					}				
 					else if (TarjetasCheck->id == user->IdTarjeta) {
 
 						if ((TarjetasCheck->Saldo - soles) > 0) {

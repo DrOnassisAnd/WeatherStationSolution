@@ -435,10 +435,17 @@ private: System::Void dgvCard_CellClick(System::Object^ sender, System::Windows:
 			->Cells[0]->Value->ToString());
 		Tarjetas^ tarjeta = Controller::Controller::QueryTarjetaByNumeroCuenta(selectedCard);
 		if (tarjeta != nullptr) {
-			Cardtxtbox->Text = "";
-			Balancetxtbox->Text = "";
-			CCVtxtbox->Text = "";
-
+			Cardtxtbox->Text = (tarjeta->NumeroDeCuentaTarjeta).ToString();
+			Balancetxtbox->Text = (tarjeta->Saldo).ToString();
+			CCVtxtbox->Text = (tarjeta->CCVTarjeta).ToString();
+			if (tarjeta->Disponible) {
+				YesRbtn->Checked = true;
+				NoRbtn->Checked = false;
+			}
+			else {
+				NoRbtn->Checked = true;
+				YesRbtn->Checked = false;
+			}
 		}
 	}
 	else {
