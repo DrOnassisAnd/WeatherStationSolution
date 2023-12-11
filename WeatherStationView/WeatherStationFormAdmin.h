@@ -124,12 +124,14 @@ namespace WeatherStationView {
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::PictureBox^ pbImage;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Label^ label8;
 
 	private: System::Windows::Forms::Button^ btnCard;
 	private: System::Windows::Forms::Label^ lblCards;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
 
@@ -187,6 +189,7 @@ namespace WeatherStationView {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->pbImage = (gcnew System::Windows::Forms::PictureBox());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label8 = (gcnew System::Windows::Forms::Label());
@@ -199,6 +202,7 @@ namespace WeatherStationView {
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbImage))->BeginInit();
 			this->panel2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -386,6 +390,7 @@ namespace WeatherStationView {
 			// panel2
 			// 
 			this->panel2->BackColor = System::Drawing::SystemColors::Control;
+			this->panel2->Controls->Add(this->pictureBox2);
 			this->panel2->Controls->Add(this->pictureBox1);
 			this->panel2->Controls->Add(this->button1);
 			this->panel2->Controls->Add(this->label8);
@@ -404,6 +409,12 @@ namespace WeatherStationView {
 			this->panel2->Controls->Add(this->label5);
 			resources->ApplyResources(this->panel2, L"panel2");
 			this->panel2->Name = L"panel2";
+			// 
+			// pictureBox2
+			// 
+			resources->ApplyResources(this->pictureBox2, L"pictureBox2");
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->TabStop = false;
 			// 
 			// pictureBox1
 			// 
@@ -462,6 +473,7 @@ namespace WeatherStationView {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbImage))->EndInit();
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -476,6 +488,10 @@ namespace WeatherStationView {
 		pbReport->Image = Image::FromFile("Report.png");
 		pbSensors->Image = Image::FromFile("Sensors.png");
 
+
+		pictureBox1->Image = Image::FromFile("Preguntas.png");
+		pictureBox2->Image = Image::FromFile("tarjetas.jpeg");
+		pbImage->Image = Image::FromFile("logoadmin.jpg");
 	}
 	private: System::Void toolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}

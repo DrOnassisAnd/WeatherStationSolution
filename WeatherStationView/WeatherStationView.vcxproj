@@ -391,6 +391,7 @@
     <Image Include="CO.png" />
     <Image Include="FACI.jpg" />
     <Image Include="Humidity.png" />
+    <Image Include="logoadmin.jpg" />
     <Image Include="LogoAdmin.png" />
     <Image Include="logoadminzz.png" />
     <Image Include="LogoPrincipal.jpg" />
@@ -399,8 +400,12 @@
     <Image Include="LogoReporte.png" />
     <Image Include="pregunta check.jpg" />
     <Image Include="pregunta mal.jpg" />
+    <Image Include="Preguntas.jpeg" />
+    <Image Include="Preguntas.png" />
     <Image Include="Report.png" />
     <Image Include="Sensors.png" />
+    <Image Include="tarjetas.jpeg" />
+    <Image Include="tarjetas.png" />
     <Image Include="Temperature.png" />
     <Image Include="tiempoTrivia.jpg" />
     <Image Include="TINKUY.jpg" />

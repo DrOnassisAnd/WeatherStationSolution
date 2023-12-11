@@ -527,8 +527,8 @@ private: System::Windows::Forms::PictureBox^ pictureBox5;
 			// checkBox1
 			// 
 			resources->ApplyResources(this->checkBox1, L"checkBox1");
-			this->checkBox1->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->checkBox1->ForeColor = System::Drawing::Color::White;
+			this->checkBox1->BackColor = System::Drawing::SystemColors::Control;
+			this->checkBox1->ForeColor = System::Drawing::Color::Black;
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->UseVisualStyleBackColor = false;
 			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &BasicForm::checkBox1_CheckedChanged);
@@ -1328,6 +1328,10 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 		this->button6->ForeColor = System::Drawing::Color::Black;
 		this->button6->BackColor = System::Drawing::Color::White;
 
+
+		this->button7->ForeColor = System::Drawing::Color::Black;
+		this->button7->BackColor = System::Drawing::Color::White;
+
 		this->TriviaBtn->ForeColor = System::Drawing::Color::Black;
 		this->TriviaBtn->BackColor = System::Drawing::Color::White;
 
@@ -1397,6 +1401,8 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 		this->PuntosDiariosLabel->ForeColor = System::Drawing::Color::White;
 
 
+		this->checkBox1->BackColor = System::Drawing::Color::Black;
+		this->checkBox1->ForeColor = System::Drawing::Color::White;
 	}
 	//Oscuro
 	else {
@@ -1425,6 +1431,10 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 
 		this->button6->ForeColor = System::Drawing::SystemColors::Control;
 		this->button6->BackColor = System::Drawing::SystemColors::MenuText;
+
+		this->button7->ForeColor = System::Drawing::SystemColors::Control;
+		this->button7->BackColor = System::Drawing::SystemColors::MenuText;
+
 
 		this->TriviaBtn->ForeColor = System::Drawing::SystemColors::Control;
 		this->TriviaBtn->BackColor = System::Drawing::SystemColors::MenuText;
@@ -1492,6 +1502,9 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 		this->ptslabel->ForeColor = System::Drawing::Color::Black;
 		
 
+		this->checkBox1->BackColor = System::Drawing::SystemColors::Control;
+		this->checkBox1->ForeColor = System::Drawing::Color::Black;
+		
 		this->PuntosDiariosLabel->BackColor = System::Drawing::SystemColors::Control;
 		this->PuntosDiariosLabel->ForeColor = System::Drawing::Color::Black;
 		//// Labels del 2 al 15
