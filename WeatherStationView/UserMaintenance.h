@@ -630,8 +630,11 @@ namespace WeatherStationView {
 		if (deleteduser != nullptr) {
 			Tarjetas^ tarjetadeleted = gcnew Tarjetas();
 			tarjetadeleted = Controller::Controller::QueryTarjetaById(deleteduser->IdTarjeta);
-			tarjetadeleted->Disponible = 1;
-			Controller::Controller::UpdateTarjetas(tarjetadeleted);
+			if (tarjetadeleted != nullptr) {
+				tarjetadeleted->Disponible = 1;
+				Controller::Controller::UpdateTarjetas(tarjetadeleted);
+			}
+				
 			Controller::Controller::DeleteUser(Id);
 
 			textBox2->Text = "";

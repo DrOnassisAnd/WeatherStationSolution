@@ -444,6 +444,7 @@ private: System::Void respuestaBtn_Click(System::Object^ sender, System::EventAr
 			Controller::Controller::AgregarValor(preguntas, numeropregunta);
 
 			if (Controller::Controller::ListaLlena(preguntas)) {
+				MessageBox::Show("Has alcanzado el límite de preguntas contestadas por día. Intente de nuevo mañana.");
 				Terminar();
 			}
 
@@ -487,6 +488,7 @@ private: System::Void respuestaBtn_Click(System::Object^ sender, System::EventAr
 				   Controller::Controller::AgregarValor(preguntas, numeropregunta);
 
 				   if (Controller::Controller::ListaLlena(preguntas)) {
+					   MessageBox::Show("Has alcanzado el límite de preguntas contestadas por día. Intente de nuevo mañana.");
 					   Terminar();
 				   }
 			   }
@@ -517,8 +519,6 @@ private: System::Void CerrarBtn_Click(System::Object^ sender, System::EventArgs^
 		   preguntaspordia->Add(user->Id);
 		   preguntaspordia->AddRange(preguntas);
 		   Controller::Controller::UpdatePreguntasporDia(preguntaspordia);
-
-		   MessageBox::Show("Has alcanzado el límite de preguntas contestadas por día. Intente de nuevo mañana.");
 
 		   timerTimeout->Stop();
 		   this->Close();
