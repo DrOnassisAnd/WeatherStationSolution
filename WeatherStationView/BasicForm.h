@@ -274,28 +274,28 @@ private: System::Windows::Forms::PictureBox^ pictureBox5;
 			this->PuntosDiariosLabel = (gcnew System::Windows::Forms::Label());
 			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->panel6 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->panel5 = (gcnew System::Windows::Forms::Panel());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->ptslabel = (gcnew System::Windows::Forms::Label());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
-			this->panel5 = (gcnew System::Windows::Forms::Panel());
-			this->panel6 = (gcnew System::Windows::Forms::Panel());
-			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel1->SuspendLayout();
-			this->panel2->SuspendLayout();
-			this->panel4->SuspendLayout();
-			this->panel5->SuspendLayout();
 			this->panel6->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			this->panel5->SuspendLayout();
+			this->panel2->SuspendLayout();
+			this->panel4->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// linkLabel2
@@ -412,8 +412,8 @@ private: System::Windows::Forms::PictureBox^ pictureBox5;
 			// label6
 			// 
 			resources->ApplyResources(this->label6, L"label6");
-			this->label6->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->label6->ForeColor = System::Drawing::Color::White;
+			this->label6->BackColor = System::Drawing::SystemColors::Control;
+			this->label6->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->label6->Name = L"label6";
 			// 
 			// label7
@@ -486,8 +486,8 @@ private: System::Windows::Forms::PictureBox^ pictureBox5;
 			// label10
 			// 
 			resources->ApplyResources(this->label10, L"label10");
-			this->label10->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->label10->ForeColor = System::Drawing::Color::White;
+			this->label10->BackColor = System::Drawing::SystemColors::Control;
+			this->label10->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->label10->Name = L"label10";
 			// 
 			// UnidadTemplbl
@@ -592,6 +592,56 @@ private: System::Windows::Forms::PictureBox^ pictureBox5;
 			this->panel1->Name = L"panel1";
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &BasicForm::panel1_Paint);
 			// 
+			// panel6
+			// 
+			this->panel6->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panel6->Controls->Add(this->pictureBox4);
+			this->panel6->Controls->Add(this->pictureBox5);
+			this->panel6->Controls->Add(this->button5);
+			this->panel6->Controls->Add(this->button2);
+			this->panel6->Controls->Add(this->pictureBox3);
+			this->panel6->Controls->Add(this->pictureBox2);
+			this->panel6->Controls->Add(this->button4);
+			this->panel6->Controls->Add(this->label16);
+			this->panel6->Controls->Add(this->label15);
+			this->panel6->Controls->Add(this->label14);
+			this->panel6->Controls->Add(this->TriviaBtn);
+			this->panel6->Controls->Add(this->button6);
+			resources->ApplyResources(this->panel6, L"panel6");
+			this->panel6->Name = L"panel6";
+			// 
+			// pictureBox4
+			// 
+			resources->ApplyResources(this->pictureBox4, L"pictureBox4");
+			this->pictureBox4->Name = L"pictureBox4";
+			this->pictureBox4->TabStop = false;
+			// 
+			// pictureBox5
+			// 
+			resources->ApplyResources(this->pictureBox5, L"pictureBox5");
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->TabStop = false;
+			// 
+			// pictureBox3
+			// 
+			resources->ApplyResources(this->pictureBox3, L"pictureBox3");
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->TabStop = false;
+			// 
+			// pictureBox2
+			// 
+			resources->ApplyResources(this->pictureBox2, L"pictureBox2");
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->TabStop = false;
+			// 
+			// panel5
+			// 
+			this->panel5->Controls->Add(this->label1);
+			this->panel5->Controls->Add(this->pictureBox1);
+			this->panel5->Controls->Add(this->comboBox1);
+			resources->ApplyResources(this->panel5, L"panel5");
+			this->panel5->Name = L"panel5";
+			// 
 			// panel2
 			// 
 			this->panel2->BackColor = System::Drawing::SystemColors::Control;
@@ -638,63 +688,14 @@ private: System::Windows::Forms::PictureBox^ pictureBox5;
 			// 
 			// panel4
 			// 
-			this->panel4->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->panel4->BackColor = System::Drawing::SystemColors::Control;
 			this->panel4->Controls->Add(this->label6);
 			this->panel4->Controls->Add(this->label10);
 			this->panel4->Controls->Add(this->checkBox1);
 			this->panel4->Controls->Add(this->panel2);
 			resources->ApplyResources(this->panel4, L"panel4");
+			this->panel4->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->panel4->Name = L"panel4";
-			// 
-			// panel5
-			// 
-			this->panel5->Controls->Add(this->label1);
-			this->panel5->Controls->Add(this->pictureBox1);
-			this->panel5->Controls->Add(this->comboBox1);
-			resources->ApplyResources(this->panel5, L"panel5");
-			this->panel5->Name = L"panel5";
-			// 
-			// panel6
-			// 
-			this->panel6->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel6->Controls->Add(this->pictureBox4);
-			this->panel6->Controls->Add(this->pictureBox5);
-			this->panel6->Controls->Add(this->button5);
-			this->panel6->Controls->Add(this->button2);
-			this->panel6->Controls->Add(this->pictureBox3);
-			this->panel6->Controls->Add(this->pictureBox2);
-			this->panel6->Controls->Add(this->button4);
-			this->panel6->Controls->Add(this->label16);
-			this->panel6->Controls->Add(this->label15);
-			this->panel6->Controls->Add(this->label14);
-			this->panel6->Controls->Add(this->TriviaBtn);
-			this->panel6->Controls->Add(this->button6);
-			resources->ApplyResources(this->panel6, L"panel6");
-			this->panel6->Name = L"panel6";
-			// 
-			// pictureBox3
-			// 
-			resources->ApplyResources(this->pictureBox3, L"pictureBox3");
-			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->TabStop = false;
-			// 
-			// pictureBox2
-			// 
-			resources->ApplyResources(this->pictureBox2, L"pictureBox2");
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->TabStop = false;
-			// 
-			// pictureBox4
-			// 
-			resources->ApplyResources(this->pictureBox4, L"pictureBox4");
-			this->pictureBox4->Name = L"pictureBox4";
-			this->pictureBox4->TabStop = false;
-			// 
-			// pictureBox5
-			// 
-			resources->ApplyResources(this->pictureBox5, L"pictureBox5");
-			this->pictureBox5->Name = L"pictureBox5";
-			this->pictureBox5->TabStop = false;
 			// 
 			// BasicForm
 			// 
@@ -708,18 +709,18 @@ private: System::Windows::Forms::PictureBox^ pictureBox5;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			this->panel6->ResumeLayout(false);
+			this->panel6->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			this->panel5->ResumeLayout(false);
+			this->panel5->PerformLayout();
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
 			this->panel4->ResumeLayout(false);
 			this->panel4->PerformLayout();
-			this->panel5->ResumeLayout(false);
-			this->panel5->PerformLayout();
-			this->panel6->ResumeLayout(false);
-			this->panel6->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -1302,6 +1303,9 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 	if (checkBox1->Checked == true) {
 
 		this->panel1->BackColor = System::Drawing::Color::Black;
+		this->panel4->BackColor = System::Drawing::Color::Black;
+
+		this->panel2->BackColor = System::Drawing::Color::Black;
 
 		this->PuntosDiariosLabel->ForeColor = System::Drawing::Color::Black;
 
@@ -1385,6 +1389,12 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 		this->label16->ForeColor = System::Drawing::Color::White;
 
 
+		this->ptslabel->BackColor = System::Drawing::Color::Black;
+		this->ptslabel->ForeColor = System::Drawing::Color::White;
+
+
+		this->PuntosDiariosLabel->BackColor = System::Drawing::Color::Black;
+		this->PuntosDiariosLabel->ForeColor = System::Drawing::Color::White;
 
 
 	}
@@ -1392,6 +1402,9 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 	else {
 	
 		this->panel1->BackColor = System::Drawing::SystemColors::Control;
+		this->panel4->BackColor = System::Drawing::SystemColors::Control;
+
+		this->panel2->BackColor = System::Drawing::SystemColors::Control;
 
 		this->PuntosDiariosLabel->ForeColor = System::Drawing::Color::Black;
 
@@ -1473,7 +1486,14 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 
 		this->label16->BackColor = System::Drawing::SystemColors::Control;
 		this->label16->ForeColor = System::Drawing::Color::Black;
-	
+
+
+		this->ptslabel->BackColor = System::Drawing::SystemColors::Control;
+		this->ptslabel->ForeColor = System::Drawing::Color::Black;
+		
+
+		this->PuntosDiariosLabel->BackColor = System::Drawing::SystemColors::Control;
+		this->PuntosDiariosLabel->ForeColor = System::Drawing::Color::Black;
 		//// Labels del 2 al 15
 		//for (int i = 1; i <= 16; ++i) {
 		//	Label^ label = dynamic_cast<Label^>(this->Controls["label" + i]);
